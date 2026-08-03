@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Topbar } from '@/components/Topbar';
 import { Sidebar } from '@/components/Sidebar';
 import { OutlinePanel } from '@/components/OutlinePanel';
@@ -379,6 +379,18 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<PageId>('ch0');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme(t => t === 'dark' ? 'light' : 'dark');
+  }, []);
 
   const navigate = useCallback((id: PageId) => {
     setCurrentPage(id);
@@ -393,6 +405,8 @@ export default function App() {
         onToggleSidebar={() => setSidebarOpen(o => !o)}
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       <Sidebar
