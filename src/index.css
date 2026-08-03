@@ -91,7 +91,7 @@
   z-index: 50;
   height: 56px;
   background: var(--ink-deep);
-  border-bottom: 1px solid var(--border-subtle);
+  /* No border — the topbar dissolves into the same canvas */
   display: flex;
   align-items: center;
   padding: 0 1.5rem;
@@ -189,18 +189,19 @@
   left: 0;
   width: 280px;
   bottom: 0;
-  background: var(--sidebar-bg);
-  border-right: 1px solid var(--border-subtle);
+  /* Same canvas as the page — no panel, no card */
+  background: var(--ink-deep);
+  border-right: none;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 40;
   transition: transform 0.25s ease;
   scrollbar-width: thin;
-  scrollbar-color: var(--border-subtle) transparent;
+  scrollbar-color: rgba(255,255,255,0.06) transparent;
 }
 
 .sidebar::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
 }
 
 .sidebar::-webkit-scrollbar-track {
@@ -208,7 +209,7 @@
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background: var(--border-subtle);
+  background: rgba(255,255,255,0.07);
   border-radius: 2px;
 }
 
@@ -217,56 +218,66 @@
 }
 
 .sidebar-section {
-  padding: 1.25rem 0 0.5rem;
+  padding: 1.75rem 0 0.5rem;
 }
 
 .sidebar-section-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 0 1.25rem;
-  margin-bottom: 0.5rem;
+  /* Very quiet — structural signal only */
+  color: rgba(122, 138, 160, 0.5);
+  padding: 0 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .chapter-group {
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
 }
 
 .chapter-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.45rem 1.25rem;
+  padding: 0.4rem 1.5rem;
   cursor: pointer;
-  color: var(--text-primary);
+  /* Resting state: muted, not invisible */
+  color: var(--text-muted);
   font-family: 'Inter', sans-serif;
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  transition: all 0.15s;
-  border-left: 2px solid transparent;
+  transition: color 0.15s;
+  border-left: 1.5px solid transparent;
+  background: transparent;
   user-select: none;
 }
 
 .chapter-header:hover {
-  background: var(--surface);
-  color: var(--text-primary);
+  /* Color shift only — no background fill */
+  color: var(--text-body);
+  background: transparent;
 }
 
 .chapter-header.active {
-  color: var(--accent-cerulean);
+  color: var(--text-primary);
+  font-weight: 600;
   border-left-color: var(--accent-cerulean);
-  background: rgba(79, 142, 247, 0.08);
+  background: transparent;
 }
 
 .chapter-number {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   color: var(--accent-gold);
+  opacity: 0.7;
   font-weight: 500;
   min-width: 1.5rem;
+}
+
+.chapter-header.active .chapter-number {
+  opacity: 1;
 }
 
 .chapter-sections {
@@ -277,24 +288,27 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.35rem 1.25rem 0.35rem 2.75rem;
-  font-size: 0.8125rem;
-  color: var(--text-muted);
+  padding: 0.3rem 1.5rem 0.3rem 2.875rem;
+  font-size: 0.775rem;
+  /* Resting: very quiet */
+  color: rgba(122, 138, 160, 0.65);
   cursor: pointer;
-  transition: all 0.15s;
-  border-left: 2px solid transparent;
+  transition: color 0.15s;
+  border-left: 1.5px solid transparent;
+  background: transparent;
   text-decoration: none;
 }
 
 .section-link:hover {
-  color: var(--text-body);
-  background: rgba(255,255,255,0.03);
+  /* Step up in visibility — still no background */
+  color: var(--text-muted);
+  background: transparent;
 }
 
 .section-link.active {
   color: var(--accent-cerulean);
   border-left-color: var(--accent-cerulean);
-  background: rgba(79, 142, 247, 0.06);
+  background: transparent;
 }
 
 /* ==================== MAIN CONTENT ==================== */
@@ -667,48 +681,66 @@
   position: fixed;
   top: 56px;
   right: 0;
-  width: 256px;
+  width: 240px;
   bottom: 0;
-  padding: 2rem 1.25rem;
+  padding: 2.5rem 1.25rem 2rem;
   overflow-y: auto;
-  border-left: 1px solid var(--border-subtle);
-  background: var(--sidebar-bg);
-  scrollbar-width: thin;
-  scrollbar-color: var(--border-subtle) transparent;
+  /* Same canvas — no panel background, no border */
+  background: var(--ink-deep);
+  border-left: none;
+  scrollbar-width: none; /* fully invisible scrollbar */
+}
+
+.outline-panel::-webkit-scrollbar {
+  display: none;
 }
 
 .outline-panel-label {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 1rem;
+  /* Barely visible — a whisper of structure */
+  color: rgba(122, 138, 160, 0.45);
+  margin-bottom: 1.25rem;
 }
 
 .outline-item {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  padding: 0.3rem 0.5rem;
-  border-left: 2px solid transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.775rem;
+  /* Resting: ghost text */
+  color: rgba(122, 138, 160, 0.55);
+  padding: 0.25rem 0 0.25rem 0.625rem;
+  border-left: 1.5px solid transparent;
   cursor: pointer;
-  transition: all 0.15s;
-  line-height: 1.4;
-  margin-bottom: 0.15rem;
+  transition: color 0.18s, border-left-color 0.18s;
+  line-height: 1.45;
+  margin-bottom: 0.1rem;
+  background: transparent;
 }
 
 .outline-item:hover {
-  color: var(--text-body);
+  /* Step up — still no fill */
+  color: var(--text-muted);
 }
 
 .outline-item.active {
-  color: var(--accent-cerulean);
+  color: var(--text-body);
   border-left-color: var(--accent-cerulean);
 }
 
 .outline-item.level-2 {
-  padding-left: 1rem;
-  font-size: 0.75rem;
+  padding-left: 1.125rem;
+  font-size: 0.725rem;
+  color: rgba(122, 138, 160, 0.4);
+}
+
+.outline-item.level-2:hover {
+  color: rgba(122, 138, 160, 0.75);
+}
+
+.outline-item.level-2.active {
+  color: var(--text-muted);
 }
 
 /* ==================== NAVIGATION ==================== */
