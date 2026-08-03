@@ -20,12 +20,27 @@ export function OutlinePanel({ pageId }: OutlinePanelProps) {
       const contentArea = document.querySelector('.content-page');
       if (!contentArea) return;
 
-      const els = contentArea.querySelectorAll('h2[id], h3[id]');
-      const items: HeadingItem[] = Array.from(els).map(el => ({
-        id: el.id,
-        text: el.textContent || '',
-        level: el.tagName === 'H2' ? 1 : 2,
-      }));
+      const els = contentArea.querySelectorAll('h2, h3');
+      const items: HeadingItem[] = [];
+      
+      els.forEach((el, index) => {
+        // Automatically assign an id if missing
+        if (!el.id) {
+          const text = el.textContent || `heading-${index}`;
+          // Create a simple slug from text
+          const slug = text.toLowerCase()
+            .replace(/[^a-z0-9A-Z]+/g, '-')
+            .replace(/(^-|-$)+/g, '');
+          el.id = slug || `heading-${index}`;
+        }
+        
+        items.push({
+          id: el.id,
+          text: el.textContent || '',
+          level: el.tagName === 'H2' ? 1 : 2,
+        });
+      });
+      
       setHeadings(items);
     }, 100);
 
@@ -44,7 +59,7 @@ export function OutlinePanel({ pageId }: OutlinePanelProps) {
       { rootMargin: '-20% 0px -75% 0px' }
     );
 
-    const els = document.querySelectorAll('h2[id], h3[id]');
+    const els = document.querySelectorAll('h2, h3');
     els.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();

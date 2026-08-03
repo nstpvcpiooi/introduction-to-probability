@@ -552,10 +552,41 @@
 }
 
 .math-box-content {
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;
   font-size: 1em;
   line-height: 1.8;
   color: var(--text-body);
+}
+
+.math-box-content p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+.math-box-content p:last-child {
+  margin-bottom: 0;
+}
+
+.math-box-content ul {
+  list-style-type: disc;
+  margin: 0 0 1.25rem 0;
+  padding-left: 1.5rem;
+}
+
+.math-box-content ol {
+  list-style-type: decimal;
+  margin: 0 0 1.25rem 0;
+  padding-left: 1.5rem;
+}
+
+.math-box-content li {
+  margin-bottom: 0.4rem;
+  color: var(--text-body);
+}
+
+.math-box-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 /* Theorem */
@@ -607,16 +638,17 @@
 
 /* ==================== MATH FORMULA DISPLAY ==================== */
 
-.prose-text .katex-display {
-  margin: 1.75rem 0;
-  padding: 1.25rem 1.5rem;
-  background: var(--surface);
+.prose-text .katex-display,
+.math-box-content .katex-display {
+  margin: 1.5rem 0;
+  padding: 1.1rem 1.5rem;
+  background: var(--surface-raised);
   border-radius: 6px;
   border: 1px solid var(--border-subtle);
   overflow-x: auto;
   overflow-y: hidden;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .prose-text .katex-display > .katex {

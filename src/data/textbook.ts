@@ -36,7 +36,9 @@ export const chapters: Chapter[] = [
     id: "ch0",
     number: "0",
     title: "Mở đầu",
-    sections: [],
+    sections: [
+      { id: "ch0-s1", number: "0.1", title: "Văn bản mẫu giao diện (Showcase)" }
+    ],
   },
   {
     id: "ch1",

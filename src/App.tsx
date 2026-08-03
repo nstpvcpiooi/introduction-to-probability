@@ -14,6 +14,7 @@ import {
 } from '@/pages/content';
 import { MarkdownPage } from '@/components/MarkdownPage';
 import introRaw from '@/content/intro.md?raw';
+import ch0s1Raw from '@/content/ch0/s1.md?raw';
 import ch1OverviewRaw from '@/content/ch1/overview.md?raw';
 import ch1s1Raw from '@/content/ch1/s1.md?raw';
 import ch1s2Raw from '@/content/ch1/s2.md?raw';
@@ -136,7 +137,7 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
         <MarkdownPage content={ch1OverviewRaw} />
       </PageChapterOverview>
     );
-    case 'ch0-s1': return <PageSets />;
+    case 'ch0-s1': return <SectionPage pageId={pageId} content={ch0s1Raw} />;
     case 'ch0-s2': return <PageRealNumbers />;
 
     case 'ch1-s1': return <SectionPage pageId={pageId} content={ch1s1Raw} />;
