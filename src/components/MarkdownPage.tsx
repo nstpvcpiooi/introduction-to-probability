@@ -18,10 +18,6 @@ export function MarkdownPage({ content }: MarkdownPageProps) {
         remarkPlugins={[remarkMath, remarkGfm]}
         rehypePlugins={[rehypeRaw, rehypeKatex]}
         components={{
-          // We can map custom components here if needed
-          h1: ({ node, ...props }) => <h1 className="page-title" {...props} />,
-          h2: ({ node, ...props }) => <h2 className="section-title" {...props} />,
-          h3: ({ node, ...props }) => <h3 className="subsection-title" {...props} />,
           // For math boxes, we'll recommend users to use HTML divs in markdown, which rehype-raw handles,
           // or we can allow a custom element like <math-box type="definition" title="...">
         }}

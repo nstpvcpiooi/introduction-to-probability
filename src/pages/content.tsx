@@ -511,9 +511,11 @@ export function PageChapterOverview({ chapterId, children }: { chapterId: string
 
       {children}
 
-      <p className="prose-text">
-        Chương này bao gồm các nội dung sau:
-      </p>
+      <div className="prose-text">
+        <p>
+          Chương này bao gồm các nội dung sau:
+        </p>
+      </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
         {chapter.sections.map((sec: { id: string; number: string; title: string }, idx: number) => (

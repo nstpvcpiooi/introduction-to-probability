@@ -122,7 +122,15 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function PageRenderer({ pageId }: { pageId: PageId }) {
   switch (pageId) {
-    case 'ch0': return <MarkdownPage content={introRaw} />;
+    case 'ch0': return (
+      <>
+        <div className="page-header">
+          <div className="page-eyebrow">Chương 0</div>
+          <h1 className="page-title">Mở đầu</h1>
+        </div>
+        <MarkdownPage content={introRaw} />
+      </>
+    );
     case 'ch1': return (
       <PageChapterOverview chapterId={pageId}>
         <MarkdownPage content={ch1OverviewRaw} />
@@ -131,109 +139,212 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
     case 'ch0-s1': return <PageSets />;
     case 'ch0-s2': return <PageRealNumbers />;
 
-    case 'ch1-s1': return <MarkdownPage content={ch1s1Raw} />;
-    case 'ch1-s2': return <MarkdownPage content={ch1s2Raw} />;
-    case 'ch1-s3': return <MarkdownPage content={ch1s3Raw} />;
-    case 'ch1-s4': return <MarkdownPage content={ch1s4Raw} />;
-    case 'ch1-s5': return <MarkdownPage content={ch1s5Raw} />;
-    case 'ch1-s6': return <MarkdownPage content={ch1s6Raw} />;
-    case 'ch1-s7': return <MarkdownPage content={ch1s7Raw} />;
-    case 'ch1-s9': return <MarkdownPage content={ch1s9Raw} />;
-    case 'ch2-s1': return <MarkdownPage content={ch2s1Raw} />;
-    case 'ch2-s2': return <MarkdownPage content={ch2s2Raw} />;
-    case 'ch2-s3': return <MarkdownPage content={ch2s3Raw} />;
-    case 'ch2-s5': return <MarkdownPage content={ch2s5Raw} />;
-    case 'ch2-s7': return <MarkdownPage content={ch2s7Raw} />;
-    case 'ch2-s8': return <MarkdownPage content={ch2s8Raw} />;
-    case 'ch2-s9': return <MarkdownPage content={ch2s9Raw} />;
-    case 'ch2-s10': return <MarkdownPage content={ch2s10Raw} />;
-    case 'ch2-s11': return <MarkdownPage content={ch2s11Raw} />;
-    case 'ch3-s1': return <MarkdownPage content={ch3s1Raw} />;
-    case 'ch3-s2': return <MarkdownPage content={ch3s2Raw} />;
-    case 'ch3-s4': return <MarkdownPage content={ch3s4Raw} />;
-    case 'ch3-s5': return <MarkdownPage content={ch3s5Raw} />;
-    case 'ch3-s6': return <MarkdownPage content={ch3s6Raw} />;
-    case 'ch3-s7': return <MarkdownPage content={ch3s7Raw} />;
-    case 'ch3-s9': return <MarkdownPage content={ch3s9Raw} />;
-    case 'ch3-s10': return <MarkdownPage content={ch3s10Raw} />;
-    case 'ch3-s11': return <MarkdownPage content={ch3s11Raw} />;
-    case 'ch3-s12': return <MarkdownPage content={ch3s12Raw} />;
-    case 'ch4-s1': return <MarkdownPage content={ch4s1Raw} />;
-    case 'ch4-s2': return <MarkdownPage content={ch4s2Raw} />;
-    case 'ch4-s3': return <MarkdownPage content={ch4s3Raw} />;
-    case 'ch4-s5': return <MarkdownPage content={ch4s5Raw} />;
-    case 'ch4-s6': return <MarkdownPage content={ch4s6Raw} />;
-    case 'ch4-s7': return <MarkdownPage content={ch4s7Raw} />;
-    case 'ch4-s8': return <MarkdownPage content={ch4s8Raw} />;
-    case 'ch4-s9': return <MarkdownPage content={ch4s9Raw} />;
-    case 'ch4-s10': return <MarkdownPage content={ch4s10Raw} />;
-    case 'ch4-s11': return <MarkdownPage content={ch4s11Raw} />;
-    case 'ch4-s12': return <MarkdownPage content={ch4s12Raw} />;
-    case 'ch5-s1': return <MarkdownPage content={ch5s1Raw} />;
-    case 'ch5-s2': return <MarkdownPage content={ch5s2Raw} />;
-    case 'ch5-s3': return <MarkdownPage content={ch5s3Raw} />;
-    case 'ch5-s4': return <MarkdownPage content={ch5s4Raw} />;
-    case 'ch5-s5': return <MarkdownPage content={ch5s5Raw} />;
-    case 'ch5-s6': return <MarkdownPage content={ch5s6Raw} />;
-    case 'ch5-s8': return <MarkdownPage content={ch5s8Raw} />;
-    case 'ch5-s10': return <MarkdownPage content={ch5s10Raw} />;
-    case 'ch6-s1': return <MarkdownPage content={ch6s1Raw} />;
-    case 'ch6-s2': return <MarkdownPage content={ch6s2Raw} />;
-    case 'ch6-s3': return <MarkdownPage content={ch6s3Raw} />;
-    case 'ch6-s4': return <MarkdownPage content={ch6s4Raw} />;
-    case 'ch6-s5': return <MarkdownPage content={ch6s5Raw} />;
-    case 'ch6-s7': return <MarkdownPage content={ch6s7Raw} />;
-    case 'ch6-s8': return <MarkdownPage content={ch6s8Raw} />;
-    case 'ch6-s9': return <MarkdownPage content={ch6s9Raw} />;
-    case 'ch6-s10': return <MarkdownPage content={ch6s10Raw} />;
-    case 'ch7-s1': return <MarkdownPage content={ch7s1Raw} />;
-    case 'ch7-s2': return <MarkdownPage content={ch7s2Raw} />;
-    case 'ch7-s3': return <MarkdownPage content={ch7s3Raw} />;
-    case 'ch7-s4': return <MarkdownPage content={ch7s4Raw} />;
-    case 'ch7-s5': return <MarkdownPage content={ch7s5Raw} />;
-    case 'ch7-s6': return <MarkdownPage content={ch7s6Raw} />;
-    case 'ch7-s7': return <MarkdownPage content={ch7s7Raw} />;
-    case 'ch7-s8': return <MarkdownPage content={ch7s8Raw} />;
-    case 'ch8-s1': return <MarkdownPage content={ch8s1Raw} />;
-    case 'ch8-s2': return <MarkdownPage content={ch8s2Raw} />;
-    case 'ch8-s3': return <MarkdownPage content={ch8s3Raw} />;
-    case 'ch8-s4': return <MarkdownPage content={ch8s4Raw} />;
-    case 'ch8-s5': return <MarkdownPage content={ch8s5Raw} />;
-    case 'ch8-s6': return <MarkdownPage content={ch8s6Raw} />;
-    case 'ch8-s7': return <MarkdownPage content={ch8s7Raw} />;
-    case 'ch8-s8': return <MarkdownPage content={ch8s8Raw} />;
-    case 'ch8-s9': return <MarkdownPage content={ch8s9Raw} />;
-    case 'ch9-s1': return <MarkdownPage content={ch9s1Raw} />;
-    case 'ch9-s3': return <MarkdownPage content={ch9s3Raw} />;
-    case 'ch9-s4': return <MarkdownPage content={ch9s4Raw} />;
-    case 'ch9-s5': return <MarkdownPage content={ch9s5Raw} />;
-    case 'ch9-s7': return <MarkdownPage content={ch9s7Raw} />;
-    case 'ch9-s8': return <MarkdownPage content={ch9s8Raw} />;
-    case 'ch9-s9': return <MarkdownPage content={ch9s9Raw} />;
-    case 'ch10-s1': return <MarkdownPage content={ch10s1Raw} />;
-    case 'ch10-s2': return <MarkdownPage content={ch10s2Raw} />;
-    case 'ch10-s3': return <MarkdownPage content={ch10s3Raw} />;
-    case 'ch10-s5': return <MarkdownPage content={ch10s5Raw} />;
-    case 'ch10-s6': return <MarkdownPage content={ch10s6Raw} />;
-    case 'ch10-s7': return <MarkdownPage content={ch10s7Raw} />;
-    case 'ch11-s1': return <MarkdownPage content={ch11s1Raw} />;
-    case 'ch11-s2': return <MarkdownPage content={ch11s2Raw} />;
-    case 'ch11-s3': return <MarkdownPage content={ch11s3Raw} />;
-    case 'ch11-s4': return <MarkdownPage content={ch11s4Raw} />;
-    case 'ch11-s5': return <MarkdownPage content={ch11s5Raw} />;
-    case 'ch11-s6': return <MarkdownPage content={ch11s6Raw} />;
-    case 'ch11-s7': return <MarkdownPage content={ch11s7Raw} />;
-    case 'ch12-s1': return <MarkdownPage content={ch12s1Raw} />;
-    case 'ch12-s2': return <MarkdownPage content={ch12s2Raw} />;
-    case 'ch12-s3': return <MarkdownPage content={ch12s3Raw} />;
-    case 'ch12-s4': return <MarkdownPage content={ch12s4Raw} />;
-    case 'ch12-s5': return <MarkdownPage content={ch12s5Raw} />;
-    case 'ch13-s1': return <MarkdownPage content={ch13s1Raw} />;
-    case 'ch13-s2': return <MarkdownPage content={ch13s2Raw} />;
-    case 'ch13-s3': return <MarkdownPage content={ch13s3Raw} />;
-    case 'ch13-s4': return <MarkdownPage content={ch13s4Raw} />;
-    case 'ch13-s5': return <MarkdownPage content={ch13s5Raw} />;
-    case 'ch13-s6': return <MarkdownPage content={ch13s6Raw} />;
+    case 'ch1-s1': return <SectionPage pageId={pageId} content={ch1s1Raw} />;
+
+    case 'ch1-s2': return <SectionPage pageId={pageId} content={ch1s2Raw} />;
+
+    case 'ch1-s3': return <SectionPage pageId={pageId} content={ch1s3Raw} />;
+
+    case 'ch1-s4': return <SectionPage pageId={pageId} content={ch1s4Raw} />;
+
+    case 'ch1-s5': return <SectionPage pageId={pageId} content={ch1s5Raw} />;
+
+    case 'ch1-s6': return <SectionPage pageId={pageId} content={ch1s6Raw} />;
+
+    case 'ch1-s7': return <SectionPage pageId={pageId} content={ch1s7Raw} />;
+
+    case 'ch1-s9': return <SectionPage pageId={pageId} content={ch1s9Raw} />;
+
+    case 'ch2-s1': return <SectionPage pageId={pageId} content={ch2s1Raw} />;
+
+    case 'ch2-s2': return <SectionPage pageId={pageId} content={ch2s2Raw} />;
+
+    case 'ch2-s3': return <SectionPage pageId={pageId} content={ch2s3Raw} />;
+
+    case 'ch2-s5': return <SectionPage pageId={pageId} content={ch2s5Raw} />;
+
+    case 'ch2-s7': return <SectionPage pageId={pageId} content={ch2s7Raw} />;
+
+    case 'ch2-s8': return <SectionPage pageId={pageId} content={ch2s8Raw} />;
+
+    case 'ch2-s9': return <SectionPage pageId={pageId} content={ch2s9Raw} />;
+
+    case 'ch2-s10': return <SectionPage pageId={pageId} content={ch2s10Raw} />;
+
+    case 'ch2-s11': return <SectionPage pageId={pageId} content={ch2s11Raw} />;
+
+    case 'ch3-s1': return <SectionPage pageId={pageId} content={ch3s1Raw} />;
+
+    case 'ch3-s2': return <SectionPage pageId={pageId} content={ch3s2Raw} />;
+
+    case 'ch3-s4': return <SectionPage pageId={pageId} content={ch3s4Raw} />;
+
+    case 'ch3-s5': return <SectionPage pageId={pageId} content={ch3s5Raw} />;
+
+    case 'ch3-s6': return <SectionPage pageId={pageId} content={ch3s6Raw} />;
+
+    case 'ch3-s7': return <SectionPage pageId={pageId} content={ch3s7Raw} />;
+
+    case 'ch3-s9': return <SectionPage pageId={pageId} content={ch3s9Raw} />;
+
+    case 'ch3-s10': return <SectionPage pageId={pageId} content={ch3s10Raw} />;
+
+    case 'ch3-s11': return <SectionPage pageId={pageId} content={ch3s11Raw} />;
+
+    case 'ch3-s12': return <SectionPage pageId={pageId} content={ch3s12Raw} />;
+
+    case 'ch4-s1': return <SectionPage pageId={pageId} content={ch4s1Raw} />;
+
+    case 'ch4-s2': return <SectionPage pageId={pageId} content={ch4s2Raw} />;
+
+    case 'ch4-s3': return <SectionPage pageId={pageId} content={ch4s3Raw} />;
+
+    case 'ch4-s5': return <SectionPage pageId={pageId} content={ch4s5Raw} />;
+
+    case 'ch4-s6': return <SectionPage pageId={pageId} content={ch4s6Raw} />;
+
+    case 'ch4-s7': return <SectionPage pageId={pageId} content={ch4s7Raw} />;
+
+    case 'ch4-s8': return <SectionPage pageId={pageId} content={ch4s8Raw} />;
+
+    case 'ch4-s9': return <SectionPage pageId={pageId} content={ch4s9Raw} />;
+
+    case 'ch4-s10': return <SectionPage pageId={pageId} content={ch4s10Raw} />;
+
+    case 'ch4-s11': return <SectionPage pageId={pageId} content={ch4s11Raw} />;
+
+    case 'ch4-s12': return <SectionPage pageId={pageId} content={ch4s12Raw} />;
+
+    case 'ch5-s1': return <SectionPage pageId={pageId} content={ch5s1Raw} />;
+
+    case 'ch5-s2': return <SectionPage pageId={pageId} content={ch5s2Raw} />;
+
+    case 'ch5-s3': return <SectionPage pageId={pageId} content={ch5s3Raw} />;
+
+    case 'ch5-s4': return <SectionPage pageId={pageId} content={ch5s4Raw} />;
+
+    case 'ch5-s5': return <SectionPage pageId={pageId} content={ch5s5Raw} />;
+
+    case 'ch5-s6': return <SectionPage pageId={pageId} content={ch5s6Raw} />;
+
+    case 'ch5-s8': return <SectionPage pageId={pageId} content={ch5s8Raw} />;
+
+    case 'ch5-s10': return <SectionPage pageId={pageId} content={ch5s10Raw} />;
+
+    case 'ch6-s1': return <SectionPage pageId={pageId} content={ch6s1Raw} />;
+
+    case 'ch6-s2': return <SectionPage pageId={pageId} content={ch6s2Raw} />;
+
+    case 'ch6-s3': return <SectionPage pageId={pageId} content={ch6s3Raw} />;
+
+    case 'ch6-s4': return <SectionPage pageId={pageId} content={ch6s4Raw} />;
+
+    case 'ch6-s5': return <SectionPage pageId={pageId} content={ch6s5Raw} />;
+
+    case 'ch6-s7': return <SectionPage pageId={pageId} content={ch6s7Raw} />;
+
+    case 'ch6-s8': return <SectionPage pageId={pageId} content={ch6s8Raw} />;
+
+    case 'ch6-s9': return <SectionPage pageId={pageId} content={ch6s9Raw} />;
+
+    case 'ch6-s10': return <SectionPage pageId={pageId} content={ch6s10Raw} />;
+
+    case 'ch7-s1': return <SectionPage pageId={pageId} content={ch7s1Raw} />;
+
+    case 'ch7-s2': return <SectionPage pageId={pageId} content={ch7s2Raw} />;
+
+    case 'ch7-s3': return <SectionPage pageId={pageId} content={ch7s3Raw} />;
+
+    case 'ch7-s4': return <SectionPage pageId={pageId} content={ch7s4Raw} />;
+
+    case 'ch7-s5': return <SectionPage pageId={pageId} content={ch7s5Raw} />;
+
+    case 'ch7-s6': return <SectionPage pageId={pageId} content={ch7s6Raw} />;
+
+    case 'ch7-s7': return <SectionPage pageId={pageId} content={ch7s7Raw} />;
+
+    case 'ch7-s8': return <SectionPage pageId={pageId} content={ch7s8Raw} />;
+
+    case 'ch8-s1': return <SectionPage pageId={pageId} content={ch8s1Raw} />;
+
+    case 'ch8-s2': return <SectionPage pageId={pageId} content={ch8s2Raw} />;
+
+    case 'ch8-s3': return <SectionPage pageId={pageId} content={ch8s3Raw} />;
+
+    case 'ch8-s4': return <SectionPage pageId={pageId} content={ch8s4Raw} />;
+
+    case 'ch8-s5': return <SectionPage pageId={pageId} content={ch8s5Raw} />;
+
+    case 'ch8-s6': return <SectionPage pageId={pageId} content={ch8s6Raw} />;
+
+    case 'ch8-s7': return <SectionPage pageId={pageId} content={ch8s7Raw} />;
+
+    case 'ch8-s8': return <SectionPage pageId={pageId} content={ch8s8Raw} />;
+
+    case 'ch8-s9': return <SectionPage pageId={pageId} content={ch8s9Raw} />;
+
+    case 'ch9-s1': return <SectionPage pageId={pageId} content={ch9s1Raw} />;
+
+    case 'ch9-s3': return <SectionPage pageId={pageId} content={ch9s3Raw} />;
+
+    case 'ch9-s4': return <SectionPage pageId={pageId} content={ch9s4Raw} />;
+
+    case 'ch9-s5': return <SectionPage pageId={pageId} content={ch9s5Raw} />;
+
+    case 'ch9-s7': return <SectionPage pageId={pageId} content={ch9s7Raw} />;
+
+    case 'ch9-s8': return <SectionPage pageId={pageId} content={ch9s8Raw} />;
+
+    case 'ch9-s9': return <SectionPage pageId={pageId} content={ch9s9Raw} />;
+
+    case 'ch10-s1': return <SectionPage pageId={pageId} content={ch10s1Raw} />;
+
+    case 'ch10-s2': return <SectionPage pageId={pageId} content={ch10s2Raw} />;
+
+    case 'ch10-s3': return <SectionPage pageId={pageId} content={ch10s3Raw} />;
+
+    case 'ch10-s5': return <SectionPage pageId={pageId} content={ch10s5Raw} />;
+
+    case 'ch10-s6': return <SectionPage pageId={pageId} content={ch10s6Raw} />;
+
+    case 'ch10-s7': return <SectionPage pageId={pageId} content={ch10s7Raw} />;
+
+    case 'ch11-s1': return <SectionPage pageId={pageId} content={ch11s1Raw} />;
+
+    case 'ch11-s2': return <SectionPage pageId={pageId} content={ch11s2Raw} />;
+
+    case 'ch11-s3': return <SectionPage pageId={pageId} content={ch11s3Raw} />;
+
+    case 'ch11-s4': return <SectionPage pageId={pageId} content={ch11s4Raw} />;
+
+    case 'ch11-s5': return <SectionPage pageId={pageId} content={ch11s5Raw} />;
+
+    case 'ch11-s6': return <SectionPage pageId={pageId} content={ch11s6Raw} />;
+
+    case 'ch11-s7': return <SectionPage pageId={pageId} content={ch11s7Raw} />;
+
+    case 'ch12-s1': return <SectionPage pageId={pageId} content={ch12s1Raw} />;
+
+    case 'ch12-s2': return <SectionPage pageId={pageId} content={ch12s2Raw} />;
+
+    case 'ch12-s3': return <SectionPage pageId={pageId} content={ch12s3Raw} />;
+
+    case 'ch12-s4': return <SectionPage pageId={pageId} content={ch12s4Raw} />;
+
+    case 'ch12-s5': return <SectionPage pageId={pageId} content={ch12s5Raw} />;
+
+    case 'ch13-s1': return <SectionPage pageId={pageId} content={ch13s1Raw} />;
+
+    case 'ch13-s2': return <SectionPage pageId={pageId} content={ch13s2Raw} />;
+
+    case 'ch13-s3': return <SectionPage pageId={pageId} content={ch13s3Raw} />;
+
+    case 'ch13-s4': return <SectionPage pageId={pageId} content={ch13s4Raw} />;
+
+    case 'ch13-s5': return <SectionPage pageId={pageId} content={ch13s5Raw} />;
+
+    case 'ch13-s6': return <SectionPage pageId={pageId} content={ch13s6Raw} />;
+
 
     case 'ch5-s4': return <PageTaylor />;
     default: {
@@ -243,6 +354,24 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
       return <PagePlaceholder pageId={pageId} />;
     }
   }
+}
+
+
+function SectionPage({ pageId, content }: { pageId: string; content: string }) {
+  const chapter = chapters.find(c => c.sections.some(s => s.id === pageId));
+  const section = chapter?.sections.find(s => s.id === pageId);
+
+  return (
+    <>
+      {section && (
+        <div className="page-header">
+          <div className="page-eyebrow">Mục {section.number}</div>
+          <h1 className="page-title">{section.title}</h1>
+        </div>
+      )}
+      <MarkdownPage content={content} />
+    </>
+  );
 }
 
 export default function App() {
