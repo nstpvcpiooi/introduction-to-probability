@@ -8,13 +8,14 @@ import {
   PageIntro,
   PageSets,
   PageRealNumbers,
-  PageLimits,
-  PageDerivative,
-  PageIntegral,
   PageTaylor,
   PageChapterOverview,
   PagePlaceholder,
 } from '@/pages/content';
+import { MarkdownPage } from '@/components/MarkdownPage';
+import ch1s1Raw from '@/content/ch1/s1.md?raw';
+import ch2s1Raw from '@/content/ch2/s1.md?raw';
+import ch4s2Raw from '@/content/ch4/s2.md?raw';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function PageRenderer({ pageId }: { pageId: PageId }) {
@@ -22,9 +23,9 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
     case 'ch0': return <PageIntro />;
     case 'ch0-s1': return <PageSets />;
     case 'ch0-s2': return <PageRealNumbers />;
-    case 'ch1-s1': return <PageLimits />;
-    case 'ch2-s1': return <PageDerivative />;
-    case 'ch4-s2': return <PageIntegral />;
+    case 'ch1-s1': return <MarkdownPage content={ch1s1Raw} />;
+    case 'ch2-s1': return <MarkdownPage content={ch2s1Raw} />;
+    case 'ch4-s2': return <MarkdownPage content={ch4s2Raw} />;
     case 'ch5-s4': return <PageTaylor />;
     default: {
       // Check if it's a chapter overview
