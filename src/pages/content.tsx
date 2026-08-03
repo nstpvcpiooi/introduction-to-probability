@@ -496,7 +496,7 @@ export function PageTaylor() {
 }
 
 // Generic chapter overview page
-export function PageChapterOverview({ chapterId }: { chapterId: string }) {
+export function PageChapterOverview({ chapterId, children }: { chapterId: string, children?: React.ReactNode }) {
   const chapter = chapters.find((c) => c.id === chapterId);
 
   if (!chapter) return null;
@@ -508,6 +508,8 @@ export function PageChapterOverview({ chapterId }: { chapterId: string }) {
         <h1 className="page-title">{chapter.title}</h1>
         {chapter.subtitle && <p className="page-subtitle">{chapter.subtitle}</p>}
       </div>
+
+      {children}
 
       <p className="prose-text">
         Chương này bao gồm các nội dung sau:
@@ -536,7 +538,7 @@ export function PageChapterOverview({ chapterId }: { chapterId: string }) {
               {sec.number}
             </span>
             <span style={{
-              fontFamily: 'Libre Baskerville, serif',
+              fontFamily: 'Inter, sans-serif',
               fontSize: '0.9375rem',
               color: 'var(--text-primary)',
             }}>
