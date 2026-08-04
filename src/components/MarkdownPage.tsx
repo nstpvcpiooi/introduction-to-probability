@@ -20,8 +20,8 @@ export function MarkdownPage({ content }: MarkdownPageProps) {
         components={{
           pre: ({ children, ...props }) => {
             let language = '';
-            if (React.isValidElement(children) && children.props.className) {
-              const match = /language-(\w+)/.exec(children.props.className || '');
+            if (React.isValidElement(children) && (children.props as any).className) {
+              const match = /language-(\w+)/.exec((children.props as any).className || '');
               if (match) {
                 language = match[1];
               }
