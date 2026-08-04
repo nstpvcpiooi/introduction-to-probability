@@ -23,6 +23,7 @@ import ch1s4Raw from '@/content/ch1/s4.md?raw';
 import ch1s5Raw from '@/content/ch1/s5.md?raw';
 import ch1s6Raw from '@/content/ch1/s6.md?raw';
 import ch1s7Raw from '@/content/ch1/s7.md?raw';
+import ch1s8Raw from '@/content/ch1/s8.md?raw';
 import ch1s9Raw from '@/content/ch1/s9.md?raw';
 import ch2s1Raw from '@/content/ch2/s1.md?raw';
 import ch2s2Raw from '@/content/ch2/s2.md?raw';
@@ -153,6 +154,8 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
     case 'ch1-s6': return <SectionPage pageId={pageId} content={ch1s6Raw} />;
 
     case 'ch1-s7': return <SectionPage pageId={pageId} content={ch1s7Raw} />;
+
+    case 'ch1-s8': return <SectionPage pageId={pageId} content={ch1s8Raw} />;
 
     case 'ch1-s9': return <SectionPage pageId={pageId} content={ch1s9Raw} />;
 
