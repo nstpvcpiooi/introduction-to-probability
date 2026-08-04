@@ -376,7 +376,10 @@ function SectionPage({ pageId, content }: { pageId: string; content: string }) {
 }
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageId>('ch0');
+  const [currentPage, setCurrentPage] = useState<PageId>(() => {
+    const hash = window.location.hash.slice(1);
+    return (hash as PageId) || 'ch0';
+  });
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
@@ -387,6 +390,25 @@ export default function App() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  // Sync state to URL hash
+  useEffect(() => {
+    if (currentPage) {
+      window.location.hash = currentPage;
+    }
+  }, [currentPage]);
+
+  // Handle browser back/forward buttons
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        setCurrentPage(hash as PageId);
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
 
   const toggleTheme = useCallback(() => {
     setTheme(t => t === 'dark' ? 'light' : 'dark');
