@@ -123,13 +123,6 @@ import ch13s6Raw from '@/content/ch13/s6.md?raw';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 function PageRenderer({ pageId }: { pageId: PageId }) {
-  const chapterMatch = pageId.match(/^ch(\d+)/);
-  if (chapterMatch && parseInt(chapterMatch[1], 10) >= 2) {
-    if (!pageId.includes('-')) {
-      return <PageChapterOverview chapterId={pageId} />;
-    }
-    return <SectionPage pageId={pageId} content="*Nội dung trống*" />;
-  }
 
   switch (pageId) {
     case 'ch0': return (
