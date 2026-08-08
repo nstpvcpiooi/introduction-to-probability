@@ -81,6 +81,7 @@ export const chapters: Chapter[] = [
       { id: "ch3-s5", number: "3.5", title: "Phân phối đều và rời rạc" },
       { id: "ch3-s6", number: "3.6", title: "Hàm phân phối tích lũy" },
       { id: "ch3-s7", number: "3.7", title: "Hàm của biến ngẫu nhiên" },
+      { id: "ch3-s8", number: "3.8", title: "Tính độc lập của các biến ngẫu nhiên" },
       { id: "ch3-s9", number: "3.9", title: "Liên hệ giữa Binomial và Hypergeometric" },
       { id: "ch3-s10", number: "3.10", title: "Tóm tắt" },
       { id: "ch3-s11", number: "3.11", title: "R" },
@@ -94,11 +95,12 @@ export const chapters: Chapter[] = [
       { id: "ch4-s1", number: "4.1", title: "Định nghĩa kỳ vọng" },
       { id: "ch4-s2", number: "4.2", title: "Tính tuyến tính của kỳ vọng" },
       { id: "ch4-s3", number: "4.3", title: "Phân phối hình học và phân phối nhị thức âm" },
+      { id: "ch4-s4", number: "4.4", title: "Biến ngẫu nhiên chỉ báo và cây cầu cơ bản" },
       { id: "ch4-s5", number: "4.5", title: "Định lý LOTUS (Law of the unconscious statistician)" },
       { id: "ch4-s6", number: "4.6", title: "Phương sai" },
       { id: "ch4-s7", number: "4.7", title: "Phân phối Poisson" },
       { id: "ch4-s8", number: "4.8", title: "Mối liên hệ giữa Poisson và Binomial" },
-      { id: "ch4-s9", number: "4.9", title: "*Sử dụng xác suất và kỳ vọng để chứng minh sự tồn tại" },
+      { id: "ch4-s9", number: "4.9", title: "Sử dụng xác suất và kỳ vọng để chứng minh sự tồn tại" },
       { id: "ch4-s10", number: "4.10", title: "Tóm tắt" },
       { id: "ch4-s11", number: "4.11", title: "R" },
       { id: "ch4-s12", number: "4.12", title: "Bài tập" },
@@ -114,6 +116,7 @@ export const chapters: Chapter[] = [
       { id: "ch5-s4", number: "5.4", title: "Phân phối chuẩn" },
       { id: "ch5-s5", number: "5.5", title: "Phân phối mũ" },
       { id: "ch5-s6", number: "5.6", title: "Quá trình Poisson" },
+      { id: "ch5-s7", number: "5.7", title: "Tính đối xứng của các biến ngẫu nhiên liên tục" },
       { id: "ch5-s8", number: "5.8", title: "Tóm tắt" },
       { id: "ch5-s10", number: "5.10", title: "Bài tập" },
     ],
@@ -229,7 +232,7 @@ export type PageId = string;
 
 // Map pageId -> content rendered by component
 export const pageOrder: PageId[] = [
-  "ch0", "ch1", "ch1-s1", "ch1-s2", "ch1-s3", "ch1-s4", "ch1-s5", "ch1-s6", "ch1-s7", "ch1-s8", "ch1-s9", "ch2", "ch2-s1", "ch2-s2", "ch2-s3", "ch2-s5", "ch2-s6", "ch2-s7", "ch2-s8", "ch2-s9", "ch2-s10", "ch2-s11", "ch3", "ch3-s1", "ch3-s2", "ch3-s4", "ch3-s5", "ch3-s6", "ch3-s7", "ch3-s9", "ch3-s10", "ch3-s11", "ch3-s12", "ch4", "ch4-s1", "ch4-s2", "ch4-s3", "ch4-s5", "ch4-s6", "ch4-s7", "ch4-s8", "ch4-s9", "ch4-s10", "ch4-s11", "ch4-s12", "ch5", "ch5-s1", "ch5-s2", "ch5-s3", "ch5-s4", "ch5-s5", "ch5-s6", "ch5-s8", "ch5-s10", "ch6", "ch6-s1", "ch6-s2", "ch6-s3", "ch6-s4", "ch6-s5", "ch6-s7", "ch6-s8", "ch6-s9", "ch6-s10", "ch7", "ch7-s1", "ch7-s2", "ch7-s3", "ch7-s4", "ch7-s5", "ch7-s6", "ch7-s7", "ch7-s8", "ch8", "ch8-s1", "ch8-s2", "ch8-s3", "ch8-s4", "ch8-s5", "ch8-s6", "ch8-s7", "ch8-s8", "ch8-s9", "ch9", "ch9-s1", "ch9-s3", "ch9-s4", "ch9-s5", "ch9-s7", "ch9-s8", "ch9-s9", "ch10", "ch10-s1", "ch10-s2", "ch10-s3", "ch10-s5", "ch10-s6", "ch10-s7", "ch11", "ch11-s1", "ch11-s2", "ch11-s3", "ch11-s4", "ch11-s5", "ch11-s6", "ch11-s7", "ch12", "ch12-s1", "ch12-s2", "ch12-s3", "ch12-s4", "ch12-s5", "ch13", "ch13-s1", "ch13-s2", "ch13-s3", "ch13-s4", "ch13-s5", "ch13-s6"
+  "ch0", "ch1", "ch1-s1", "ch1-s2", "ch1-s3", "ch1-s4", "ch1-s5", "ch1-s6", "ch1-s7", "ch1-s8", "ch1-s9", "ch2", "ch2-s1", "ch2-s2", "ch2-s3", "ch2-s5", "ch2-s6", "ch2-s7", "ch2-s8", "ch2-s9", "ch2-s10", "ch2-s11", "ch3", "ch3-s1", "ch3-s2", "ch3-s4", "ch3-s5", "ch3-s6", "ch3-s7", "ch3-s8", "ch3-s9", "ch3-s10", "ch3-s11", "ch3-s12", "ch4", "ch4-s1", "ch4-s2", "ch4-s3", "ch4-s4", "ch4-s5", "ch4-s6", "ch4-s7", "ch4-s8", "ch4-s9", "ch4-s10", "ch4-s11", "ch4-s12", "ch5", "ch5-s1", "ch5-s2", "ch5-s3", "ch5-s4", "ch5-s5", "ch5-s6", "ch5-s7", "ch5-s8", "ch5-s10", "ch6", "ch6-s1", "ch6-s2", "ch6-s3", "ch6-s4", "ch6-s5", "ch6-s7", "ch6-s8", "ch6-s9", "ch6-s10", "ch7", "ch7-s1", "ch7-s2", "ch7-s3", "ch7-s4", "ch7-s5", "ch7-s6", "ch7-s7", "ch7-s8", "ch8", "ch8-s1", "ch8-s2", "ch8-s3", "ch8-s4", "ch8-s5", "ch8-s6", "ch8-s7", "ch8-s8", "ch8-s9", "ch9", "ch9-s1", "ch9-s3", "ch9-s4", "ch9-s5", "ch9-s7", "ch9-s8", "ch9-s9", "ch10", "ch10-s1", "ch10-s2", "ch10-s3", "ch10-s5", "ch10-s6", "ch10-s7", "ch11", "ch11-s1", "ch11-s2", "ch11-s3", "ch11-s4", "ch11-s5", "ch11-s6", "ch11-s7", "ch12", "ch12-s1", "ch12-s2", "ch12-s3", "ch12-s4", "ch12-s5", "ch13", "ch13-s1", "ch13-s2", "ch13-s3", "ch13-s4", "ch13-s5", "ch13-s6"
 ];
 
 export function getPageTitle(id: PageId): string {

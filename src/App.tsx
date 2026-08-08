@@ -41,6 +41,7 @@ import ch3s4Raw from '@/content/ch3/s4.md?raw';
 import ch3s5Raw from '@/content/ch3/s5.md?raw';
 import ch3s6Raw from '@/content/ch3/s6.md?raw';
 import ch3s7Raw from '@/content/ch3/s7.md?raw';
+import ch3s8Raw from '@/content/ch3/s8.md?raw';
 import ch3s9Raw from '@/content/ch3/s9.md?raw';
 import ch3s10Raw from '@/content/ch3/s10.md?raw';
 import ch3s11Raw from '@/content/ch3/s11.md?raw';
@@ -48,6 +49,7 @@ import ch3s12Raw from '@/content/ch3/s12.md?raw';
 import ch4s1Raw from '@/content/ch4/s1.md?raw';
 import ch4s2Raw from '@/content/ch4/s2.md?raw';
 import ch4s3Raw from '@/content/ch4/s3.md?raw';
+import ch4s4Raw from '@/content/ch4/s4.md?raw';
 import ch4s5Raw from '@/content/ch4/s5.md?raw';
 import ch4s6Raw from '@/content/ch4/s6.md?raw';
 import ch4s7Raw from '@/content/ch4/s7.md?raw';
@@ -62,6 +64,7 @@ import ch5s3Raw from '@/content/ch5/s3.md?raw';
 import ch5s4Raw from '@/content/ch5/s4.md?raw';
 import ch5s5Raw from '@/content/ch5/s5.md?raw';
 import ch5s6Raw from '@/content/ch5/s6.md?raw';
+import ch5s7Raw from '@/content/ch5/s7.md?raw';
 import ch5s8Raw from '@/content/ch5/s8.md?raw';
 import ch5s10Raw from '@/content/ch5/s10.md?raw';
 import ch6s1Raw from '@/content/ch6/s1.md?raw';
@@ -192,7 +195,7 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
     case 'ch3-s6': return <SectionPage pageId={pageId} content={ch3s6Raw} />;
 
     case 'ch3-s7': return <SectionPage pageId={pageId} content={ch3s7Raw} />;
-
+    case 'ch3-s8': return <SectionPage pageId={pageId} content={ch3s8Raw} />;
     case 'ch3-s9': return <SectionPage pageId={pageId} content={ch3s9Raw} />;
 
     case 'ch3-s10': return <SectionPage pageId={pageId} content={ch3s10Raw} />;
@@ -206,6 +209,7 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
     case 'ch4-s2': return <SectionPage pageId={pageId} content={ch4s2Raw} />;
 
     case 'ch4-s3': return <SectionPage pageId={pageId} content={ch4s3Raw} />;
+    case 'ch4-s4': return <SectionPage pageId={pageId} content={ch4s4Raw} />;
 
     case 'ch4-s5': return <SectionPage pageId={pageId} content={ch4s5Raw} />;
 
@@ -234,6 +238,7 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
     case 'ch5-s5': return <SectionPage pageId={pageId} content={ch5s5Raw} />;
 
     case 'ch5-s6': return <SectionPage pageId={pageId} content={ch5s6Raw} />;
+    case 'ch5-s7': return <SectionPage pageId={pageId} content={ch5s7Raw} />;
 
     case 'ch5-s8': return <SectionPage pageId={pageId} content={ch5s8Raw} />;
 
