@@ -827,10 +827,17 @@
 }
 
 [data-theme="light"] {
+  --exercise-border:    #D97706; /* amber-600 */
+  --exercise-badge:     #B45309; /* amber-700 */
   --exercise-bg:        rgba(245, 158, 11, 0.05);
   --exercise-badge-bg:  rgba(245, 158, 11, 0.1);
-  --solution-bg:        rgba(91, 184, 160, 0.05);
-  --solution-badge-bg:  rgba(91, 184, 160, 0.1);
+  
+  --solution-border:    #059669; /* emerald-600 */
+  --solution-badge:     #047857; /* emerald-700 */
+  --solution-bg:        rgba(16, 185, 129, 0.05);
+  --solution-badge-bg:  rgba(16, 185, 129, 0.1);
+  
+  --step-dot:           #4F46E5; /* indigo-600 */
 }
 
 /* Outer wrapper */
