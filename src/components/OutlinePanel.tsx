@@ -20,15 +20,15 @@ export function OutlinePanel({ pageId }: OutlinePanelProps) {
       const contentArea = document.querySelector('.content-page');
       if (!contentArea) return;
 
-      const els = contentArea.querySelectorAll('h2, h3');
+      const els = contentArea.querySelectorAll('h2, h3, [data-toc-title]');
       const items: HeadingItem[] = [];
       
       els.forEach((el, index) => {
         // Automatically assign an id if missing
         if (!el.id) {
-          const text = el.textContent || `heading-${index}`;
+          const titleToSlugify = el.getAttribute('data-toc-title') || el.textContent || `heading-${index}`;
           // Create a simple slug from text
-          const slug = text.toLowerCase()
+          const slug = titleToSlugify.toLowerCase()
             .replace(/[^a-z0-9A-Z]+/g, '-')
             .replace(/(^-|-$)+/g, '');
           el.id = slug || `heading-${index}`;
@@ -36,7 +36,7 @@ export function OutlinePanel({ pageId }: OutlinePanelProps) {
         
         items.push({
           id: el.id,
-          text: el.textContent || '',
+          text: el.getAttribute('data-toc-title') || el.textContent || '',
           level: el.tagName === 'H2' ? 1 : 2,
         });
       });
@@ -59,7 +59,7 @@ export function OutlinePanel({ pageId }: OutlinePanelProps) {
       { rootMargin: '-20% 0px -75% 0px' }
     );
 
-    const els = document.querySelectorAll('h2, h3');
+    const els = document.querySelectorAll('h2, h3, [data-toc-title]');
     els.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();

@@ -811,6 +811,320 @@
 .math-box.remark .math-box-number { background: var(--remark-bg); color: var(--remark-border); }
 .math-box.remark .math-box-title { color: var(--remark-border); }
 
+/* ==================== EXERCISE BLOCK ==================== */
+/* Bài tập mở đầu — amber accent, distinct from all other math-box types */
+
+:root {
+  --exercise-border:    #F59E0B;
+  --exercise-bg:        rgba(245, 158, 11, 0.07);
+  --exercise-badge-bg:  rgba(245, 158, 11, 0.14);
+  --exercise-badge:     #FBBF24;
+  --solution-border:    #5BB8A0;
+  --solution-bg:        rgba(91, 184, 160, 0.07);
+  --solution-badge-bg:  rgba(91, 184, 160, 0.13);
+  --solution-badge:     #6EE7B7;
+  --step-dot:           #818CF8;
+}
+
+[data-theme="light"] {
+  --exercise-bg:        rgba(245, 158, 11, 0.05);
+  --exercise-badge-bg:  rgba(245, 158, 11, 0.1);
+  --solution-bg:        rgba(91, 184, 160, 0.05);
+  --solution-badge-bg:  rgba(91, 184, 160, 0.1);
+}
+
+/* Outer wrapper */
+.exercise-block {
+  position: relative;
+  margin: 2rem 0;
+  border-radius: 0 8px 8px 0;
+  background: var(--exercise-bg);
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  border-left: none;
+  overflow: hidden;
+}
+
+/* Left accent bar */
+.exercise-block::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--exercise-border);
+  border-radius: 3px 0 0 3px;
+}
+
+/* Problem header */
+.exercise-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.1rem 1.5rem 0.75rem 1.75rem;
+}
+
+.exercise-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--exercise-badge);
+  background: var(--exercise-badge-bg);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.exercise-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Problem body */
+.exercise-body {
+  padding: 0 1.5rem 1.25rem 1.75rem;
+  font-size: 1em;
+  line-height: 1.85;
+  color: var(--text-body);
+}
+
+.exercise-body p { margin-top: 0; margin-bottom: 1rem; }
+.exercise-body p:last-child { margin-bottom: 0; }
+
+.exercise-body .katex-display {
+  margin: 1.1rem 0;
+  padding: 0.875rem 1.25rem;
+  background: var(--surface-raised);
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  text-align: center;
+}
+
+/* Sub-problem labels (a), (b), (c) */
+.exercise-body ol {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.exercise-body ol > li {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  margin-bottom: 0;
+  color: var(--text-body);
+}
+
+.exercise-body ol > li > p {
+  margin: 0;
+}
+
+.exercise-body ol > li::before {
+  content: attr(data-label);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--exercise-badge);
+  background: var(--exercise-badge-bg);
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* Divider between problem and solution */
+.exercise-divider {
+  height: 1px;
+  background: rgba(245, 158, 11, 0.15);
+  margin: 0 1.75rem;
+}
+
+/* ---- Solution accordion using <details>/<summary> ---- */
+.exercise-solution {
+  overflow: hidden;
+}
+
+.exercise-solution summary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem 0.875rem 1.75rem;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+.exercise-solution summary::-webkit-details-marker { display: none; }
+.exercise-solution summary::marker { display: none; }
+
+.exercise-solution summary:hover {
+  background: rgba(91, 184, 160, 0.06);
+}
+
+.exercise-solution summary:focus-visible {
+  outline: 2px solid var(--solution-border);
+  outline-offset: -2px;
+}
+
+/* Icon badge next to "Hướng dẫn giải" */
+.solution-label-badge {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--solution-badge-bg);
+  border: 1px solid rgba(91, 184, 160, 0.25);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.solution-label-badge svg {
+  width: 14px;
+  height: 14px;
+  color: var(--solution-border);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.solution-label-text {
+  flex: 1;
+}
+
+.solution-label-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--solution-badge);
+  display: flex;
+  align-items: center;
+}
+
+.solution-label-title {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Chevron arrow — rotates when open */
+.solution-chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.exercise-solution[open] .solution-chevron {
+  transform: rotate(180deg);
+}
+
+/* Solution panel content */
+.exercise-solution .solution-content {
+  border-top: 1px solid rgba(91, 184, 160, 0.12);
+  padding: 1.1rem 1.5rem 1.4rem 1.75rem;
+  animation: solution-reveal 0.3s ease forwards;
+}
+
+@keyframes solution-reveal {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Numbered solution steps */
+.solution-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.solution-step {
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+}
+
+.solution-step-num {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(129, 140, 248, 0.13);
+  border: 1px solid rgba(129, 140, 248, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--step-dot);
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+
+.solution-step-body {
+  flex: 1;
+  font-size: 0.975em;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+
+.solution-step-body p { margin-top: 0; margin-bottom: 0.75rem; }
+.solution-step-body p:last-child { margin-bottom: 0; }
+
+.solution-step-body strong { color: var(--text-primary); font-weight: 600; }
+
+.solution-step-body .katex-display {
+  margin: 0.875rem 0;
+  padding: 0.875rem 1.1rem;
+  background: var(--surface-raised);
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  text-align: center;
+}
+
+/* Note box inside solution */
+.solution-note {
+  margin-top: 1.1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(79, 142, 247, 0.07);
+  border: 1px solid rgba(79, 142, 247, 0.16);
+  border-radius: 6px;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.solution-note strong { color: var(--accent-cerulean); font-weight: 500; }
+
 /* Proof ending QED */
 .qed {
   display: flex;
