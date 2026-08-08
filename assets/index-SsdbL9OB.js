@@ -6,7 +6,7 @@ var e=Object.create,t=Object.defineProperty,n=Object.getOwnPropertyDescriptor,r=
 `+c[r].replace(` at new `,` at `);return e.displayName&&u.includes(`<anonymous>`)&&(u=u.replace(`<anonymous>`,e.displayName)),u}while(1<=r&&0<=i);break}}}finally{Me=!1,Error.prepareStackTrace=n}return(n=e?e.displayName||e.name:``)?je(n):``}function Pe(e,t){switch(e.tag){case 26:case 27:case 5:return je(e.type);case 16:return je(`Lazy`);case 13:return e.child!==t&&t!==null?je(`Suspense Fallback`):je(`Suspense`);case 19:return je(`SuspenseList`);case 0:case 15:return Ne(e.type,!1);case 11:return Ne(e.type.render,!1);case 1:return Ne(e.type,!0);case 31:return je(`Activity`);default:return``}}function Fe(e){try{var t=``,n=null;do t+=Pe(e,n),n=e,e=e.return;while(e);return t}catch(e){return`
 Error generating stack: `+e.message+`
 `+e.stack}}var Ie=Object.prototype.hasOwnProperty,Le=t.unstable_scheduleCallback,Re=t.unstable_cancelCallback,ze=t.unstable_shouldYield,Be=t.unstable_requestPaint,Ve=t.unstable_now,He=t.unstable_getCurrentPriorityLevel,Ue=t.unstable_ImmediatePriority,We=t.unstable_UserBlockingPriority,Ge=t.unstable_NormalPriority,Ke=t.unstable_LowPriority,qe=t.unstable_IdlePriority,Je=t.log,Ye=t.unstable_setDisableYieldValue,Xe=null,Ze=null;function Qe(e){if(typeof Je==`function`&&Ye(e),Ze&&typeof Ze.setStrictMode==`function`)try{Ze.setStrictMode(Xe,e)}catch{}}var $e=Math.clz32?Math.clz32:nt,et=Math.log,tt=Math.LN2;function nt(e){return e>>>=0,e===0?32:31-(et(e)/tt|0)|0}var rt=256,it=262144,at=4194304;function ot(e){var t=e&42;if(t!==0)return t;switch(e&-e){case 1:return 1;case 2:return 2;case 4:return 4;case 8:return 8;case 16:return 16;case 32:return 32;case 64:return 64;case 128:return 128;case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:return e&261888;case 262144:case 524288:case 1048576:case 2097152:return e&3932160;case 4194304:case 8388608:case 16777216:case 33554432:return e&62914560;case 67108864:return 67108864;case 134217728:return 134217728;case 268435456:return 268435456;case 536870912:return 536870912;case 1073741824:return 0;default:return e}}function st(e,t,n){var r=e.pendingLanes;if(r===0)return 0;var i=0,a=e.suspendedLanes,o=e.pingedLanes;e=e.warmLanes;var s=r&134217727;return s===0?(s=r&~a,s===0?o===0?n||(n=r&~e,n!==0&&(i=ot(n))):i=ot(o):i=ot(s)):(r=s&~a,r===0?(o&=s,o===0?n||(n=s&~e,n!==0&&(i=ot(n))):i=ot(o)):i=ot(r)),i===0?0:t!==0&&t!==i&&(t&a)===0&&(a=i&-i,n=t&-t,a>=n||a===32&&n&4194048)?t:i}function ct(e,t){return(e.pendingLanes&~(e.suspendedLanes&~e.pingedLanes)&t)===0}function lt(e,t){switch(e){case 1:case 2:case 4:case 8:case 64:return t+250;case 16:case 32:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return t+5e3;case 4194304:case 8388608:case 16777216:case 33554432:return-1;case 67108864:case 134217728:case 268435456:case 536870912:case 1073741824:return-1;default:return-1}}function ut(){var e=at;return at<<=1,!(at&62914560)&&(at=4194304),e}function dt(e){for(var t=[],n=0;31>n;n++)t.push(e);return t}function ft(e,t){e.pendingLanes|=t,t!==268435456&&(e.suspendedLanes=0,e.pingedLanes=0,e.warmLanes=0)}function pt(e,t,n,r,i,a){var o=e.pendingLanes;e.pendingLanes=n,e.suspendedLanes=0,e.pingedLanes=0,e.warmLanes=0,e.expiredLanes&=n,e.entangledLanes&=n,e.errorRecoveryDisabledLanes&=n,e.shellSuspendCounter=0;var s=e.entanglements,c=e.expirationTimes,l=e.hiddenUpdates;for(n=o&~n;0<n;){var u=31-$e(n),d=1<<u;s[u]=0,c[u]=-1;var f=l[u];if(f!==null)for(l[u]=null,u=0;u<f.length;u++){var p=f[u];p!==null&&(p.lane&=-536870913)}n&=~d}r!==0&&mt(e,r,0),a!==0&&i===0&&e.tag!==0&&(e.suspendedLanes|=a&~(o&~t))}function mt(e,t,n){e.pendingLanes|=t,e.suspendedLanes&=~t;var r=31-$e(t);e.entangledLanes|=t,e.entanglements[r]=e.entanglements[r]|1073741824|n&261930}function ht(e,t){var n=e.entangledLanes|=t;for(e=e.entanglements;n;){var r=31-$e(n),i=1<<r;i&t|e[r]&t&&(e[r]|=t),n&=~i}}function gt(e,t){var n=t&-t;return n=n&42?1:_t(n),(n&(e.suspendedLanes|t))===0?n:0}function _t(e){switch(e){case 2:e=1;break;case 8:e=4;break;case 32:e=16;break;case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:case 4194304:case 8388608:case 16777216:case 33554432:e=128;break;case 268435456:e=134217728;break;default:e=0}return e}function vt(e){return e&=-e,2<e?8<e?e&134217727?32:268435456:8:2}function yt(){var e=ge.p;return e===0?(e=window.event,e===void 0?32:Np(e.type)):e}function bt(e,t){var n=ge.p;try{return ge.p=e,t()}finally{ge.p=n}}var xt=Math.random().toString(36).slice(2),St=`__reactFiber$`+xt,Ct=`__reactProps$`+xt,C=`__reactContainer$`+xt,wt=`__reactEvents$`+xt,Tt=`__reactListeners$`+xt,Et=`__reactHandles$`+xt,Dt=`__reactResources$`+xt,Ot=`__reactMarker$`+xt;function kt(e){delete e[St],delete e[Ct],delete e[wt],delete e[Tt],delete e[Et]}function At(e){var t=e[St];if(t)return t;for(var n=e.parentNode;n;){if(t=n[C]||n[St]){if(n=t.alternate,t.child!==null||n!==null&&n.child!==null)for(e=Af(e);e!==null;){if(n=e[St])return n;e=Af(e)}return t}e=n,n=e.parentNode}return null}function jt(e){if(e=e[St]||e[C]){var t=e.tag;if(t===5||t===6||t===13||t===31||t===26||t===27||t===3)return e}return null}function Mt(e){var t=e.tag;if(t===5||t===26||t===27||t===6)return e.stateNode;throw Error(i(33))}function Nt(e){var t=e[Dt];return t||=e[Dt]={hoistableStyles:new Map,hoistableScripts:new Map},t}function Pt(e){e[Ot]=!0}var Ft=new Set,It={};function Lt(e,t){Rt(e,t),Rt(e+`Capture`,t)}function Rt(e,t){for(It[e]=t,e=0;e<t.length;e++)Ft.add(t[e])}var zt=RegExp(`^[:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD][:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$`),Bt={},Vt={};function Ht(e){return Ie.call(Vt,e)?!0:Ie.call(Bt,e)?!1:zt.test(e)?Vt[e]=!0:(Bt[e]=!0,!1)}function Ut(e,t,n){if(Ht(t))if(n===null)e.removeAttribute(t);else{switch(typeof n){case`undefined`:case`function`:case`symbol`:e.removeAttribute(t);return;case`boolean`:var r=t.toLowerCase().slice(0,5);if(r!==`data-`&&r!==`aria-`){e.removeAttribute(t);return}}e.setAttribute(t,``+n)}}function Wt(e,t,n){if(n===null)e.removeAttribute(t);else{switch(typeof n){case`undefined`:case`function`:case`symbol`:case`boolean`:e.removeAttribute(t);return}e.setAttribute(t,``+n)}}function Gt(e,t,n,r){if(r===null)e.removeAttribute(n);else{switch(typeof r){case`undefined`:case`function`:case`symbol`:case`boolean`:e.removeAttribute(n);return}e.setAttributeNS(t,n,``+r)}}function Kt(e){switch(typeof e){case`bigint`:case`boolean`:case`number`:case`string`:case`undefined`:return e;case`object`:return e;default:return``}}function qt(e){var t=e.type;return(e=e.nodeName)&&e.toLowerCase()===`input`&&(t===`checkbox`||t===`radio`)}function Jt(e,t,n){var r=Object.getOwnPropertyDescriptor(e.constructor.prototype,t);if(!e.hasOwnProperty(t)&&r!==void 0&&typeof r.get==`function`&&typeof r.set==`function`){var i=r.get,a=r.set;return Object.defineProperty(e,t,{configurable:!0,get:function(){return i.call(this)},set:function(e){n=``+e,a.call(this,e)}}),Object.defineProperty(e,t,{enumerable:r.enumerable}),{getValue:function(){return n},setValue:function(e){n=``+e},stopTracking:function(){e._valueTracker=null,delete e[t]}}}}function w(e){if(!e._valueTracker){var t=qt(e)?`checked`:`value`;e._valueTracker=Jt(e,t,``+e[t])}}function T(e){if(!e)return!1;var t=e._valueTracker;if(!t)return!0;var n=t.getValue(),r=``;return e&&(r=qt(e)?e.checked?`true`:`false`:e.value),e=r,e!==n&&(t.setValue(e),!0)}function E(e){if(e||=typeof document<`u`?document:void 0,e===void 0)return null;try{return e.activeElement||e.body}catch{return e.body}}var D=/[\n"\\]/g;function O(e){return e.replace(D,function(e){return`\\`+e.charCodeAt(0).toString(16)+` `})}function Yt(e,t,n,r,i,a,o,s){e.name=``,o!=null&&typeof o!=`function`&&typeof o!=`symbol`&&typeof o!=`boolean`?e.type=o:e.removeAttribute(`type`),t==null?o!==`submit`&&o!==`reset`||e.removeAttribute(`value`):o===`number`?(t===0&&e.value===``||e.value!=t)&&(e.value=``+Kt(t)):e.value!==``+Kt(t)&&(e.value=``+Kt(t)),t==null?n==null?r!=null&&e.removeAttribute(`value`):Zt(e,o,Kt(n)):Zt(e,o,Kt(t)),i==null&&a!=null&&(e.defaultChecked=!!a),i!=null&&(e.checked=i&&typeof i!=`function`&&typeof i!=`symbol`),s!=null&&typeof s!=`function`&&typeof s!=`symbol`&&typeof s!=`boolean`?e.name=``+Kt(s):e.removeAttribute(`name`)}function Xt(e,t,n,r,i,a,o,s){if(a!=null&&typeof a!=`function`&&typeof a!=`symbol`&&typeof a!=`boolean`&&(e.type=a),t!=null||n!=null){if(!(a!==`submit`&&a!==`reset`||t!=null)){w(e);return}n=n==null?``:``+Kt(n),t=t==null?n:``+Kt(t),s||t===e.value||(e.value=t),e.defaultValue=t}r??=i,r=typeof r!=`function`&&typeof r!=`symbol`&&!!r,e.checked=s?e.checked:!!r,e.defaultChecked=!!r,o!=null&&typeof o!=`function`&&typeof o!=`symbol`&&typeof o!=`boolean`&&(e.name=o),w(e)}function Zt(e,t,n){t===`number`&&E(e.ownerDocument)===e||e.defaultValue===``+n||(e.defaultValue=``+n)}function Qt(e,t,n,r){if(e=e.options,t){t={};for(var i=0;i<n.length;i++)t[`$`+n[i]]=!0;for(n=0;n<e.length;n++)i=t.hasOwnProperty(`$`+e[n].value),e[n].selected!==i&&(e[n].selected=i),i&&r&&(e[n].defaultSelected=!0)}else{for(n=``+Kt(n),t=null,i=0;i<e.length;i++){if(e[i].value===n){e[i].selected=!0,r&&(e[i].defaultSelected=!0);return}t!==null||e[i].disabled||(t=e[i])}t!==null&&(t.selected=!0)}}function $t(e,t,n){if(t!=null&&(t=``+Kt(t),t!==e.value&&(e.value=t),n==null)){e.defaultValue!==t&&(e.defaultValue=t);return}e.defaultValue=n==null?``:``+Kt(n)}function en(e,t,n,r){if(t==null){if(r!=null){if(n!=null)throw Error(i(92));if(me(r)){if(1<r.length)throw Error(i(93));r=r[0]}n=r}n??=``,t=n}n=Kt(t),e.defaultValue=n,r=e.textContent,r===n&&r!==``&&r!==null&&(e.value=r),w(e)}function tn(e,t){if(t){var n=e.firstChild;if(n&&n===e.lastChild&&n.nodeType===3){n.nodeValue=t;return}}e.textContent=t}var nn=new Set(`animationIterationCount aspectRatio borderImageOutset borderImageSlice borderImageWidth boxFlex boxFlexGroup boxOrdinalGroup columnCount columns flex flexGrow flexPositive flexShrink flexNegative flexOrder gridArea gridRow gridRowEnd gridRowSpan gridRowStart gridColumn gridColumnEnd gridColumnSpan gridColumnStart fontWeight lineClamp lineHeight opacity order orphans scale tabSize widows zIndex zoom fillOpacity floodOpacity stopOpacity strokeDasharray strokeDashoffset strokeMiterlimit strokeOpacity strokeWidth MozAnimationIterationCount MozBoxFlex MozBoxFlexGroup MozLineClamp msAnimationIterationCount msFlex msZoom msFlexGrow msFlexNegative msFlexOrder msFlexPositive msFlexShrink msGridColumn msGridColumnSpan msGridRow msGridRowSpan WebkitAnimationIterationCount WebkitBoxFlex WebKitBoxFlexGroup WebkitBoxOrdinalGroup WebkitColumnCount WebkitColumns WebkitFlex WebkitFlexGrow WebkitFlexPositive WebkitFlexShrink WebkitLineClamp`.split(` `));function k(e,t,n){var r=t.indexOf(`--`)===0;n==null||typeof n==`boolean`||n===``?r?e.setProperty(t,``):t===`float`?e.cssFloat=``:e[t]=``:r?e.setProperty(t,n):typeof n!=`number`||n===0||nn.has(t)?t===`float`?e.cssFloat=n:e[t]=(``+n).trim():e[t]=n+`px`}function rn(e,t,n){if(t!=null&&typeof t!=`object`)throw Error(i(62));if(e=e.style,n!=null){for(var r in n)!n.hasOwnProperty(r)||t!=null&&t.hasOwnProperty(r)||(r.indexOf(`--`)===0?e.setProperty(r,``):r===`float`?e.cssFloat=``:e[r]=``);for(var a in t)r=t[a],t.hasOwnProperty(a)&&n[a]!==r&&k(e,a,r)}else for(var o in t)t.hasOwnProperty(o)&&k(e,o,t[o])}function A(e){if(e.indexOf(`-`)===-1)return!1;switch(e){case`annotation-xml`:case`color-profile`:case`font-face`:case`font-face-src`:case`font-face-uri`:case`font-face-format`:case`font-face-name`:case`missing-glyph`:return!1;default:return!0}}var an=new Map([[`acceptCharset`,`accept-charset`],[`htmlFor`,`for`],[`httpEquiv`,`http-equiv`],[`crossOrigin`,`crossorigin`],[`accentHeight`,`accent-height`],[`alignmentBaseline`,`alignment-baseline`],[`arabicForm`,`arabic-form`],[`baselineShift`,`baseline-shift`],[`capHeight`,`cap-height`],[`clipPath`,`clip-path`],[`clipRule`,`clip-rule`],[`colorInterpolation`,`color-interpolation`],[`colorInterpolationFilters`,`color-interpolation-filters`],[`colorProfile`,`color-profile`],[`colorRendering`,`color-rendering`],[`dominantBaseline`,`dominant-baseline`],[`enableBackground`,`enable-background`],[`fillOpacity`,`fill-opacity`],[`fillRule`,`fill-rule`],[`floodColor`,`flood-color`],[`floodOpacity`,`flood-opacity`],[`fontFamily`,`font-family`],[`fontSize`,`font-size`],[`fontSizeAdjust`,`font-size-adjust`],[`fontStretch`,`font-stretch`],[`fontStyle`,`font-style`],[`fontVariant`,`font-variant`],[`fontWeight`,`font-weight`],[`glyphName`,`glyph-name`],[`glyphOrientationHorizontal`,`glyph-orientation-horizontal`],[`glyphOrientationVertical`,`glyph-orientation-vertical`],[`horizAdvX`,`horiz-adv-x`],[`horizOriginX`,`horiz-origin-x`],[`imageRendering`,`image-rendering`],[`letterSpacing`,`letter-spacing`],[`lightingColor`,`lighting-color`],[`markerEnd`,`marker-end`],[`markerMid`,`marker-mid`],[`markerStart`,`marker-start`],[`overlinePosition`,`overline-position`],[`overlineThickness`,`overline-thickness`],[`paintOrder`,`paint-order`],[`panose-1`,`panose-1`],[`pointerEvents`,`pointer-events`],[`renderingIntent`,`rendering-intent`],[`shapeRendering`,`shape-rendering`],[`stopColor`,`stop-color`],[`stopOpacity`,`stop-opacity`],[`strikethroughPosition`,`strikethrough-position`],[`strikethroughThickness`,`strikethrough-thickness`],[`strokeDasharray`,`stroke-dasharray`],[`strokeDashoffset`,`stroke-dashoffset`],[`strokeLinecap`,`stroke-linecap`],[`strokeLinejoin`,`stroke-linejoin`],[`strokeMiterlimit`,`stroke-miterlimit`],[`strokeOpacity`,`stroke-opacity`],[`strokeWidth`,`stroke-width`],[`textAnchor`,`text-anchor`],[`textDecoration`,`text-decoration`],[`textRendering`,`text-rendering`],[`transformOrigin`,`transform-origin`],[`underlinePosition`,`underline-position`],[`underlineThickness`,`underline-thickness`],[`unicodeBidi`,`unicode-bidi`],[`unicodeRange`,`unicode-range`],[`unitsPerEm`,`units-per-em`],[`vAlphabetic`,`v-alphabetic`],[`vHanging`,`v-hanging`],[`vIdeographic`,`v-ideographic`],[`vMathematical`,`v-mathematical`],[`vectorEffect`,`vector-effect`],[`vertAdvY`,`vert-adv-y`],[`vertOriginX`,`vert-origin-x`],[`vertOriginY`,`vert-origin-y`],[`wordSpacing`,`word-spacing`],[`writingMode`,`writing-mode`],[`xmlnsXlink`,`xmlns:xlink`],[`xHeight`,`x-height`]]),on=/^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*:/i;function sn(e){return on.test(``+e)?`javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')`:e}function cn(){}var ln=null;function un(e){return e=e.target||e.srcElement||window,e.correspondingUseElement&&(e=e.correspondingUseElement),e.nodeType===3?e.parentNode:e}var dn=null,fn=null;function pn(e){var t=jt(e);if(t&&(e=t.stateNode)){var n=e[Ct]||null;a:switch(e=t.stateNode,t.type){case`input`:if(Yt(e,n.value,n.defaultValue,n.defaultValue,n.checked,n.defaultChecked,n.type,n.name),t=n.name,n.type===`radio`&&t!=null){for(n=e;n.parentNode;)n=n.parentNode;for(n=n.querySelectorAll(`input[name="`+O(``+t)+`"][type="radio"]`),t=0;t<n.length;t++){var r=n[t];if(r!==e&&r.form===e.form){var a=r[Ct]||null;if(!a)throw Error(i(90));Yt(r,a.value,a.defaultValue,a.defaultValue,a.checked,a.defaultChecked,a.type,a.name)}}for(t=0;t<n.length;t++)r=n[t],r.form===e.form&&T(r)}break a;case`textarea`:$t(e,n.value,n.defaultValue);break a;case`select`:t=n.value,t!=null&&Qt(e,!!n.multiple,t,!1)}}}var mn=!1;function hn(e,t,n){if(mn)return e(t,n);mn=!0;try{return e(t)}finally{if(mn=!1,(dn!==null||fn!==null)&&(Iu(),dn&&(t=dn,e=fn,fn=dn=null,pn(t),e)))for(t=0;t<e.length;t++)pn(e[t])}}function gn(e,t){var n=e.stateNode;if(n===null)return null;var r=n[Ct]||null;if(r===null)return null;n=r[t];a:switch(t){case`onClick`:case`onClickCapture`:case`onDoubleClick`:case`onDoubleClickCapture`:case`onMouseDown`:case`onMouseDownCapture`:case`onMouseMove`:case`onMouseMoveCapture`:case`onMouseUp`:case`onMouseUpCapture`:case`onMouseEnter`:(r=!r.disabled)||(e=e.type,r=e!==`button`&&e!==`input`&&e!==`select`&&e!==`textarea`),e=!r;break a;default:e=!1}if(e)return null;if(n&&typeof n!=`function`)throw Error(i(231,t,typeof n));return n}var _n=!(typeof window>`u`||window.document===void 0||window.document.createElement===void 0),vn=!1;if(_n)try{var yn={};Object.defineProperty(yn,"passive",{get:function(){vn=!0}}),window.addEventListener(`test`,yn,yn),window.removeEventListener(`test`,yn,yn)}catch{vn=!1}var bn=null,xn=null,Sn=null;function Cn(){if(Sn)return Sn;var e,t=xn,n=t.length,r,i=`value`in bn?bn.value:bn.textContent,a=i.length;for(e=0;e<n&&t[e]===i[e];e++);var o=n-e;for(r=1;r<=o&&t[n-r]===i[a-r];r++);return Sn=i.slice(e,1<r?1-r:void 0)}function wn(e){var t=e.keyCode;return`charCode`in e?(e=e.charCode,e===0&&t===13&&(e=13)):e=t,e===10&&(e=13),32<=e||e===13?e:0}function Tn(){return!0}function En(){return!1}function Dn(e){function t(t,n,r,i,a){for(var o in this._reactName=t,this._targetInst=r,this.type=n,this.nativeEvent=i,this.target=a,this.currentTarget=null,e)e.hasOwnProperty(o)&&(t=e[o],this[o]=t?t(i):i[o]);return this.isDefaultPrevented=(i.defaultPrevented==null?!1===i.returnValue:i.defaultPrevented)?Tn:En,this.isPropagationStopped=En,this}return m(t.prototype,{preventDefault:function(){this.defaultPrevented=!0;var e=this.nativeEvent;e&&(e.preventDefault?e.preventDefault():typeof e.returnValue!=`unknown`&&(e.returnValue=!1),this.isDefaultPrevented=Tn)},stopPropagation:function(){var e=this.nativeEvent;e&&(e.stopPropagation?e.stopPropagation():typeof e.cancelBubble!=`unknown`&&(e.cancelBubble=!0),this.isPropagationStopped=Tn)},persist:function(){},isPersistent:Tn}),t}var On={eventPhase:0,bubbles:0,cancelable:0,timeStamp:function(e){return e.timeStamp||Date.now()},defaultPrevented:0,isTrusted:0},kn=Dn(On),An=m({},On,{view:0,detail:0}),jn=Dn(An),Mn,Nn,Pn,Fn=m({},An,{screenX:0,screenY:0,clientX:0,clientY:0,pageX:0,pageY:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,getModifierState:j,button:0,buttons:0,relatedTarget:function(e){return e.relatedTarget===void 0?e.fromElement===e.srcElement?e.toElement:e.fromElement:e.relatedTarget},movementX:function(e){return`movementX`in e?e.movementX:(e!==Pn&&(Pn&&e.type===`mousemove`?(Mn=e.screenX-Pn.screenX,Nn=e.screenY-Pn.screenY):Nn=Mn=0,Pn=e),Mn)},movementY:function(e){return`movementY`in e?e.movementY:Nn}}),In=Dn(Fn),Ln=Dn(m({},Fn,{dataTransfer:0})),Rn=Dn(m({},An,{relatedTarget:0})),zn=Dn(m({},On,{animationName:0,elapsedTime:0,pseudoElement:0})),Bn=Dn(m({},On,{clipboardData:function(e){return`clipboardData`in e?e.clipboardData:window.clipboardData}})),Vn=Dn(m({},On,{data:0})),Hn={Esc:`Escape`,Spacebar:` `,Left:`ArrowLeft`,Up:`ArrowUp`,Right:`ArrowRight`,Down:`ArrowDown`,Del:`Delete`,Win:`OS`,Menu:`ContextMenu`,Apps:`ContextMenu`,Scroll:`ScrollLock`,MozPrintableKey:`Unidentified`},Un={8:`Backspace`,9:`Tab`,12:`Clear`,13:`Enter`,16:`Shift`,17:`Control`,18:`Alt`,19:`Pause`,20:`CapsLock`,27:`Escape`,32:` `,33:`PageUp`,34:`PageDown`,35:`End`,36:`Home`,37:`ArrowLeft`,38:`ArrowUp`,39:`ArrowRight`,40:`ArrowDown`,45:`Insert`,46:`Delete`,112:`F1`,113:`F2`,114:`F3`,115:`F4`,116:`F5`,117:`F6`,118:`F7`,119:`F8`,120:`F9`,121:`F10`,122:`F11`,123:`F12`,144:`NumLock`,145:`ScrollLock`,224:`Meta`},Wn={Alt:`altKey`,Control:`ctrlKey`,Meta:`metaKey`,Shift:`shiftKey`};function Gn(e){var t=this.nativeEvent;return t.getModifierState?t.getModifierState(e):(e=Wn[e])?!!t[e]:!1}function j(){return Gn}var Kn=Dn(m({},An,{key:function(e){if(e.key){var t=Hn[e.key]||e.key;if(t!==`Unidentified`)return t}return e.type===`keypress`?(e=wn(e),e===13?`Enter`:String.fromCharCode(e)):e.type===`keydown`||e.type===`keyup`?Un[e.keyCode]||`Unidentified`:``},code:0,location:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,repeat:0,locale:0,getModifierState:j,charCode:function(e){return e.type===`keypress`?wn(e):0},keyCode:function(e){return e.type===`keydown`||e.type===`keyup`?e.keyCode:0},which:function(e){return e.type===`keypress`?wn(e):e.type===`keydown`||e.type===`keyup`?e.keyCode:0}})),qn=Dn(m({},Fn,{pointerId:0,width:0,height:0,pressure:0,tangentialPressure:0,tiltX:0,tiltY:0,twist:0,pointerType:0,isPrimary:0})),Jn=Dn(m({},An,{touches:0,targetTouches:0,changedTouches:0,altKey:0,metaKey:0,ctrlKey:0,shiftKey:0,getModifierState:j})),Yn=Dn(m({},On,{propertyName:0,elapsedTime:0,pseudoElement:0})),Xn=Dn(m({},Fn,{deltaX:function(e){return`deltaX`in e?e.deltaX:`wheelDeltaX`in e?-e.wheelDeltaX:0},deltaY:function(e){return`deltaY`in e?e.deltaY:`wheelDeltaY`in e?-e.wheelDeltaY:`wheelDelta`in e?-e.wheelDelta:0},deltaZ:0,deltaMode:0})),Zn=Dn(m({},On,{newState:0,oldState:0})),Qn=[9,13,27,32],$n=_n&&`CompositionEvent`in window,er=null;_n&&`documentMode`in document&&(er=document.documentMode);var tr=_n&&`TextEvent`in window&&!er,nr=_n&&(!$n||er&&8<er&&11>=er),rr=` `,ir=!1;function ar(e,t){switch(e){case`keyup`:return Qn.indexOf(t.keyCode)!==-1;case`keydown`:return t.keyCode!==229;case`keypress`:case`mousedown`:case`focusout`:return!0;default:return!1}}function or(e){return e=e.detail,typeof e==`object`&&`data`in e?e.data:null}var sr=!1;function cr(e,t){switch(e){case`compositionend`:return or(t);case`keypress`:return t.which===32?(ir=!0,rr):null;case`textInput`:return e=t.data,e===rr&&ir?null:e;default:return null}}function lr(e,t){if(sr)return e===`compositionend`||!$n&&ar(e,t)?(e=Cn(),Sn=xn=bn=null,sr=!1,e):null;switch(e){case`paste`:return null;case`keypress`:if(!(t.ctrlKey||t.altKey||t.metaKey)||t.ctrlKey&&t.altKey){if(t.char&&1<t.char.length)return t.char;if(t.which)return String.fromCharCode(t.which)}return null;case`compositionend`:return nr&&t.locale!==`ko`?null:t.data;default:return null}}var ur={color:!0,date:!0,datetime:!0,"datetime-local":!0,email:!0,month:!0,number:!0,password:!0,range:!0,search:!0,tel:!0,text:!0,time:!0,url:!0,week:!0};function dr(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t===`input`?!!ur[e.type]:t===`textarea`}function fr(e,t,n,r){dn?fn?fn.push(r):fn=[r]:dn=r,t=Wd(t,`onChange`),0<t.length&&(n=new kn(`onChange`,`change`,null,n,r),e.push({event:n,listeners:t}))}var pr=null,mr=null;function hr(e){Id(e,0)}function gr(e){if(T(Mt(e)))return e}function _r(e,t){if(e===`change`)return t}var vr=!1;if(_n){var yr;if(_n){var br=`oninput`in document;if(!br){var xr=document.createElement(`div`);xr.setAttribute(`oninput`,`return;`),br=typeof xr.oninput==`function`}yr=br}else yr=!1;vr=yr&&(!document.documentMode||9<document.documentMode)}function Sr(){pr&&(pr.detachEvent(`onpropertychange`,Cr),mr=pr=null)}function Cr(e){if(e.propertyName===`value`&&gr(mr)){var t=[];fr(t,mr,e,un(e)),hn(hr,t)}}function wr(e,t,n){e===`focusin`?(Sr(),pr=t,mr=n,pr.attachEvent(`onpropertychange`,Cr)):e===`focusout`&&Sr()}function Tr(e){if(e===`selectionchange`||e===`keyup`||e===`keydown`)return gr(mr)}function Er(e,t){if(e===`click`)return gr(t)}function Dr(e,t){if(e===`input`||e===`change`)return gr(t)}function Or(e,t){return e===t&&(e!==0||1/e==1/t)||e!==e&&t!==t}var kr=typeof Object.is==`function`?Object.is:Or;function M(e,t){if(kr(e,t))return!0;if(typeof e!=`object`||!e||typeof t!=`object`||!t)return!1;var n=Object.keys(e),r=Object.keys(t);if(n.length!==r.length)return!1;for(r=0;r<n.length;r++){var i=n[r];if(!Ie.call(t,i)||!kr(e[i],t[i]))return!1}return!0}function Ar(e){for(;e&&e.firstChild;)e=e.firstChild;return e}function jr(e,t){var n=Ar(e);e=0;for(var r;n;){if(n.nodeType===3){if(r=e+n.textContent.length,e<=t&&r>=t)return{node:n,offset:t-e};e=r}a:{for(;n;){if(n.nextSibling){n=n.nextSibling;break a}n=n.parentNode}n=void 0}n=Ar(n)}}function Mr(e,t){return e&&t?e===t?!0:e&&e.nodeType===3?!1:t&&t.nodeType===3?Mr(e,t.parentNode):`contains`in e?e.contains(t):e.compareDocumentPosition?!!(e.compareDocumentPosition(t)&16):!1:!1}function Nr(e){e=e!=null&&e.ownerDocument!=null&&e.ownerDocument.defaultView!=null?e.ownerDocument.defaultView:window;for(var t=E(e.document);t instanceof e.HTMLIFrameElement;){try{var n=typeof t.contentWindow.location.href==`string`}catch{n=!1}if(n)e=t.contentWindow;else break;t=E(e.document)}return t}function Pr(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t&&(t===`input`&&(e.type===`text`||e.type===`search`||e.type===`tel`||e.type===`url`||e.type===`password`)||t===`textarea`||e.contentEditable===`true`)}var Fr=_n&&`documentMode`in document&&11>=document.documentMode,Ir=null,Lr=null,Rr=null,zr=!1;function Br(e,t,n){var r=n.window===n?n.document:n.nodeType===9?n:n.ownerDocument;zr||Ir==null||Ir!==E(r)||(r=Ir,`selectionStart`in r&&Pr(r)?r={start:r.selectionStart,end:r.selectionEnd}:(r=(r.ownerDocument&&r.ownerDocument.defaultView||window).getSelection(),r={anchorNode:r.anchorNode,anchorOffset:r.anchorOffset,focusNode:r.focusNode,focusOffset:r.focusOffset}),Rr&&M(Rr,r)||(Rr=r,r=Wd(Lr,`onSelect`),0<r.length&&(t=new kn(`onSelect`,`select`,null,t,n),e.push({event:t,listeners:r}),t.target=Ir)))}function Vr(e,t){var n={};return n[e.toLowerCase()]=t.toLowerCase(),n[`Webkit`+e]=`webkit`+t,n[`Moz`+e]=`moz`+t,n}var Hr={animationend:Vr(`Animation`,`AnimationEnd`),animationiteration:Vr(`Animation`,`AnimationIteration`),animationstart:Vr(`Animation`,`AnimationStart`),transitionrun:Vr(`Transition`,`TransitionRun`),transitionstart:Vr(`Transition`,`TransitionStart`),transitioncancel:Vr(`Transition`,`TransitionCancel`),transitionend:Vr(`Transition`,`TransitionEnd`)},Ur={},Wr={};_n&&(Wr=document.createElement(`div`).style,`AnimationEvent`in window||(delete Hr.animationend.animation,delete Hr.animationiteration.animation,delete Hr.animationstart.animation),`TransitionEvent`in window||delete Hr.transitionend.transition);function Gr(e){if(Ur[e])return Ur[e];if(!Hr[e])return e;var t=Hr[e],n;for(n in t)if(t.hasOwnProperty(n)&&n in Wr)return Ur[e]=t[n];return e}var Kr=Gr(`animationend`),qr=Gr(`animationiteration`),Jr=Gr(`animationstart`),Yr=Gr(`transitionrun`),Xr=Gr(`transitionstart`),Zr=Gr(`transitioncancel`),Qr=Gr(`transitionend`),$r=new Map,ei=`abort auxClick beforeToggle cancel canPlay canPlayThrough click close contextMenu copy cut drag dragEnd dragEnter dragExit dragLeave dragOver dragStart drop durationChange emptied encrypted ended error gotPointerCapture input invalid keyDown keyPress keyUp load loadedData loadedMetadata loadStart lostPointerCapture mouseDown mouseMove mouseOut mouseOver mouseUp paste pause play playing pointerCancel pointerDown pointerMove pointerOut pointerOver pointerUp progress rateChange reset resize seeked seeking stalled submit suspend timeUpdate touchCancel touchEnd touchStart volumeChange scroll toggle touchMove waiting wheel`.split(` `);ei.push(`scrollEnd`);function ti(e,t){$r.set(e,t),Lt(t,[e])}var ni=typeof reportError==`function`?reportError:function(e){if(typeof window==`object`&&typeof window.ErrorEvent==`function`){var t=new window.ErrorEvent(`error`,{bubbles:!0,cancelable:!0,message:typeof e==`object`&&e&&typeof e.message==`string`?String(e.message):String(e),error:e});if(!window.dispatchEvent(t))return}else if(typeof process==`object`&&typeof process.emit==`function`){process.emit(`uncaughtException`,e);return}console.error(e)},ri=[],ii=0,ai=0;function oi(){for(var e=ii,t=ai=ii=0;t<e;){var n=ri[t];ri[t++]=null;var r=ri[t];ri[t++]=null;var i=ri[t];ri[t++]=null;var a=ri[t];if(ri[t++]=null,r!==null&&i!==null){var o=r.pending;o===null?i.next=i:(i.next=o.next,o.next=i),r.pending=i}a!==0&&ui(n,i,a)}}function si(e,t,n,r){ri[ii++]=e,ri[ii++]=t,ri[ii++]=n,ri[ii++]=r,ai|=r,e.lanes|=r,e=e.alternate,e!==null&&(e.lanes|=r)}function ci(e,t,n,r){return si(e,t,n,r),di(e)}function li(e,t){return si(e,null,null,t),di(e)}function ui(e,t,n){e.lanes|=n;var r=e.alternate;r!==null&&(r.lanes|=n);for(var i=!1,a=e.return;a!==null;)a.childLanes|=n,r=a.alternate,r!==null&&(r.childLanes|=n),a.tag===22&&(e=a.stateNode,e===null||e._visibility&1||(i=!0)),e=a,a=a.return;return e.tag===3?(a=e.stateNode,i&&t!==null&&(i=31-$e(n),e=a.hiddenUpdates,r=e[i],r===null?e[i]=[t]:r.push(t),t.lane=n|536870912),a):null}function di(e){if(50<Du)throw Du=0,Ou=null,Error(i(185));for(var t=e.return;t!==null;)e=t,t=e.return;return e.tag===3?e.stateNode:null}var fi={};function pi(e,t,n,r){this.tag=e,this.key=n,this.sibling=this.child=this.return=this.stateNode=this.type=this.elementType=null,this.index=0,this.refCleanup=this.ref=null,this.pendingProps=t,this.dependencies=this.memoizedState=this.updateQueue=this.memoizedProps=null,this.mode=r,this.subtreeFlags=this.flags=0,this.deletions=null,this.childLanes=this.lanes=0,this.alternate=null}function mi(e,t,n,r){return new pi(e,t,n,r)}function hi(e){return e=e.prototype,!(!e||!e.isReactComponent)}function gi(e,t){var n=e.alternate;return n===null?(n=mi(e.tag,t,e.key,e.mode),n.elementType=e.elementType,n.type=e.type,n.stateNode=e.stateNode,n.alternate=e,e.alternate=n):(n.pendingProps=t,n.type=e.type,n.flags=0,n.subtreeFlags=0,n.deletions=null),n.flags=e.flags&65011712,n.childLanes=e.childLanes,n.lanes=e.lanes,n.child=e.child,n.memoizedProps=e.memoizedProps,n.memoizedState=e.memoizedState,n.updateQueue=e.updateQueue,t=e.dependencies,n.dependencies=t===null?null:{lanes:t.lanes,firstContext:t.firstContext},n.sibling=e.sibling,n.index=e.index,n.ref=e.ref,n.refCleanup=e.refCleanup,n}function _i(e,t){e.flags&=65011714;var n=e.alternate;return n===null?(e.childLanes=0,e.lanes=t,e.child=null,e.subtreeFlags=0,e.memoizedProps=null,e.memoizedState=null,e.updateQueue=null,e.dependencies=null,e.stateNode=null):(e.childLanes=n.childLanes,e.lanes=n.lanes,e.child=n.child,e.subtreeFlags=0,e.deletions=null,e.memoizedProps=n.memoizedProps,e.memoizedState=n.memoizedState,e.updateQueue=n.updateQueue,e.type=n.type,t=n.dependencies,e.dependencies=t===null?null:{lanes:t.lanes,firstContext:t.firstContext}),e}function vi(e,t,n,r,a,o){var s=0;if(r=e,typeof e==`function`)hi(e)&&(s=1);else if(typeof e==`string`)s=cp(e,n,Se.current)?26:e===`html`||e===`head`||e===`body`?27:5;else a:switch(e){case ce:return e=mi(31,n,t,a),e.elementType=ce,e.lanes=o,e;case y:return yi(n.children,a,o,t);case b:s=8,a|=24;break;case ee:return e=mi(12,n,t,a|2),e.elementType=ee,e.lanes=o,e;case ie:return e=mi(13,n,t,a),e.elementType=ie,e.lanes=o,e;case ae:return e=mi(19,n,t,a),e.elementType=ae,e.lanes=o,e;default:if(typeof e==`object`&&e)switch(e.$$typeof){case ne:s=10;break a;case te:s=9;break a;case re:s=11;break a;case oe:s=14;break a;case se:s=16,r=null;break a}s=29,n=Error(i(130,e===null?`null`:typeof e,``)),r=null}return t=mi(s,n,t,a),t.elementType=e,t.type=r,t.lanes=o,t}function yi(e,t,n,r){return e=mi(7,e,r,t),e.lanes=n,e}function bi(e,t,n){return e=mi(6,e,null,t),e.lanes=n,e}function xi(e){var t=mi(18,null,null,0);return t.stateNode=e,t}function Si(e,t,n){return t=mi(4,e.children===null?[]:e.children,e.key,t),t.lanes=n,t.stateNode={containerInfo:e.containerInfo,pendingChildren:null,implementation:e.implementation},t}var Ci=new WeakMap;function wi(e,t){if(typeof e==`object`&&e){var n=Ci.get(e);return n===void 0?(t={value:e,source:t,stack:Fe(t)},Ci.set(e,t),t):n}return{value:e,source:t,stack:Fe(t)}}var Ti=[],Ei=0,Di=null,Oi=0,ki=[],Ai=0,ji=null,Mi=1,Ni=``;function Pi(e,t){Ti[Ei++]=Oi,Ti[Ei++]=Di,Di=e,Oi=t}function Fi(e,t,n){ki[Ai++]=Mi,ki[Ai++]=Ni,ki[Ai++]=ji,ji=e;var r=Mi;e=Ni;var i=32-$e(r)-1;r&=~(1<<i),n+=1;var a=32-$e(t)+i;if(30<a){var o=i-i%5;a=(r&(1<<o)-1).toString(32),r>>=o,i-=o,Mi=1<<32-$e(t)+i|n<<i|r,Ni=a+e}else Mi=1<<a|n<<i|r,Ni=e}function Ii(e){e.return!==null&&(Pi(e,1),Fi(e,1,0))}function Li(e){for(;e===Di;)Di=Ti[--Ei],Ti[Ei]=null,Oi=Ti[--Ei],Ti[Ei]=null;for(;e===ji;)ji=ki[--Ai],ki[Ai]=null,Ni=ki[--Ai],ki[Ai]=null,Mi=ki[--Ai],ki[Ai]=null}function Ri(e,t){ki[Ai++]=Mi,ki[Ai++]=Ni,ki[Ai++]=ji,Mi=t.id,Ni=t.overflow,ji=e}var zi=null,Bi=null,Vi=!1,Hi=null,Ui=!1,Wi=Error(i(519));function Gi(e){throw Zi(wi(Error(i(418,1<arguments.length&&arguments[1]!==void 0&&arguments[1]?`text`:`HTML`,``)),e)),Wi}function Ki(e){var t=e.stateNode,n=e.type,r=e.memoizedProps;switch(t[St]=e,t[Ct]=r,n){case`dialog`:Ld(`cancel`,t),Ld(`close`,t);break;case`iframe`:case`object`:case`embed`:Ld(`load`,t);break;case`video`:case`audio`:for(n=0;n<Pd.length;n++)Ld(Pd[n],t);break;case`source`:Ld(`error`,t);break;case`img`:case`image`:case`link`:Ld(`error`,t),Ld(`load`,t);break;case`details`:Ld(`toggle`,t);break;case`input`:Ld(`invalid`,t),Xt(t,r.value,r.defaultValue,r.checked,r.defaultChecked,r.type,r.name,!0);break;case`select`:Ld(`invalid`,t);break;case`textarea`:Ld(`invalid`,t),en(t,r.value,r.defaultValue,r.children)}n=r.children,typeof n!=`string`&&typeof n!=`number`&&typeof n!=`bigint`||t.textContent===``+n||!0===r.suppressHydrationWarning||Xd(t.textContent,n)?(r.popover!=null&&(Ld(`beforetoggle`,t),Ld(`toggle`,t)),r.onScroll!=null&&Ld(`scroll`,t),r.onScrollEnd!=null&&Ld(`scrollend`,t),r.onClick!=null&&(t.onclick=cn),t=!0):t=!1,t||Gi(e,!0)}function qi(e){for(zi=e.return;zi;)switch(zi.tag){case 5:case 31:case 13:Ui=!1;return;case 27:case 3:Ui=!0;return;default:zi=zi.return}}function Ji(e){if(e!==zi)return!1;if(!Vi)return qi(e),Vi=!0,!1;var t=e.tag,n;if((n=t!==3&&t!==27)&&((n=t===5)&&(n=e.type,n=n===`form`||n===`button`||lf(e.type,e.memoizedProps)),n=!n),n&&Bi&&Gi(e),qi(e),t===13){if(e=e.memoizedState,e=e===null?null:e.dehydrated,!e)throw Error(i(317));Bi=kf(e)}else if(t===31){if(e=e.memoizedState,e=e===null?null:e.dehydrated,!e)throw Error(i(317));Bi=kf(e)}else t===27?(t=Bi,_f(e.type)?(e=Of,Of=null,Bi=e):Bi=t):Bi=zi?Df(e.stateNode.nextSibling):null;return!0}function Yi(){Bi=zi=null,Vi=!1}function Xi(){var e=Hi;return e!==null&&(pu===null?pu=e:pu.push.apply(pu,e),Hi=null),e}function Zi(e){Hi===null?Hi=[e]:Hi.push(e)}var Qi=be(null),$i=null,ea=null;function ta(e,t,n){xe(Qi,t._currentValue),t._currentValue=n}function na(e){e._currentValue=Qi.current,x(Qi)}function ra(e,t,n){for(;e!==null;){var r=e.alternate;if((e.childLanes&t)===t?r!==null&&(r.childLanes&t)!==t&&(r.childLanes|=t):(e.childLanes|=t,r!==null&&(r.childLanes|=t)),e===n)break;e=e.return}}function ia(e,t,n,r){var a=e.child;for(a!==null&&(a.return=e);a!==null;){var o=a.dependencies;if(o!==null){var s=a.child;o=o.firstContext;a:for(;o!==null;){var c=o;o=a;for(var l=0;l<t.length;l++)if(c.context===t[l]){o.lanes|=n,c=o.alternate,c!==null&&(c.lanes|=n),ra(o.return,n,e),r||(s=null);break a}o=c.next}}else if(a.tag===18){if(s=a.return,s===null)throw Error(i(341));s.lanes|=n,o=s.alternate,o!==null&&(o.lanes|=n),ra(s,n,e),s=null}else s=a.child;if(s!==null)s.return=a;else for(s=a;s!==null;){if(s===e){s=null;break}if(a=s.sibling,a!==null){a.return=s.return,s=a;break}s=s.return}a=s}}function aa(e,t,n,r){e=null;for(var a=t,o=!1;a!==null;){if(!o){if(a.flags&524288)o=!0;else if(a.flags&262144)break}if(a.tag===10){var s=a.alternate;if(s===null)throw Error(i(387));if(s=s.memoizedProps,s!==null){var c=a.type;kr(a.pendingProps.value,s.value)||(e===null?e=[c]:e.push(c))}}else if(a===we.current){if(s=a.alternate,s===null)throw Error(i(387));s.memoizedState.memoizedState!==a.memoizedState.memoizedState&&(e===null?e=[_p]:e.push(_p))}a=a.return}e!==null&&ia(t,e,n,r),t.flags|=262144}function oa(e){for(e=e.firstContext;e!==null;){if(!kr(e.context._currentValue,e.memoizedValue))return!0;e=e.next}return!1}function sa(e){$i=e,ea=null,e=e.dependencies,e!==null&&(e.firstContext=null)}function ca(e){return ua($i,e)}function la(e,t){return $i===null&&sa(e),ua(e,t)}function ua(e,t){var n=t._currentValue;if(t={context:t,memoizedValue:n,next:null},ea===null){if(e===null)throw Error(i(308));ea=t,e.dependencies={lanes:0,firstContext:t},e.flags|=524288}else ea=ea.next=t;return n}var da=typeof AbortController<`u`?AbortController:function(){var e=[],t=this.signal={aborted:!1,addEventListener:function(t,n){e.push(n)}};this.abort=function(){t.aborted=!0,e.forEach(function(e){return e()})}},N=t.unstable_scheduleCallback,fa=t.unstable_NormalPriority,pa={$$typeof:ne,Consumer:null,Provider:null,_currentValue:null,_currentValue2:null,_threadCount:0};function ma(){return{controller:new da,data:new Map,refCount:0}}function ha(e){e.refCount--,e.refCount===0&&N(fa,function(){e.controller.abort()})}var ga=null,_a=0,va=0,ya=null;function ba(e,t){if(ga===null){var n=ga=[];_a=0,va=Od(),ya={status:`pending`,value:void 0,then:function(e){n.push(e)}}}return _a++,t.then(xa,xa),t}function xa(){if(--_a===0&&ga!==null){ya!==null&&(ya.status=`fulfilled`);var e=ga;ga=null,va=0,ya=null;for(var t=0;t<e.length;t++)(0,e[t])()}}function Sa(e,t){var n=[],r={status:`pending`,value:null,reason:null,then:function(e){n.push(e)}};return e.then(function(){r.status=`fulfilled`,r.value=t;for(var e=0;e<n.length;e++)(0,n[e])(t)},function(e){for(r.status=`rejected`,r.reason=e,e=0;e<n.length;e++)(0,n[e])(void 0)}),r}var Ca=he.S;he.S=function(e,t){gu=Ve(),typeof t==`object`&&t&&typeof t.then==`function`&&ba(e,t),Ca!==null&&Ca(e,t)};var wa=be(null);function Ta(){var e=wa.current;return e===null?Zl.pooledCache:e}function Ea(e,t){t===null?xe(wa,wa.current):xe(wa,t.pool)}function Da(){var e=Ta();return e===null?null:{parent:pa._currentValue,pool:e}}var Oa=Error(i(460)),ka=Error(i(474)),Aa=Error(i(542)),ja={then:function(){}};function Ma(e){return e=e.status,e===`fulfilled`||e===`rejected`}function Na(e,t,n){switch(n=e[n],n===void 0?e.push(t):n!==t&&(t.then(cn,cn),t=n),t.status){case`fulfilled`:return t.value;case`rejected`:throw e=t.reason,La(e),e;default:if(typeof t.status==`string`)t.then(cn,cn);else{if(e=Zl,e!==null&&100<e.shellSuspendCounter)throw Error(i(482));e=t,e.status=`pending`,e.then(function(e){if(t.status===`pending`){var n=t;n.status=`fulfilled`,n.value=e}},function(e){if(t.status===`pending`){var n=t;n.status=`rejected`,n.reason=e}})}switch(t.status){case`fulfilled`:return t.value;case`rejected`:throw e=t.reason,La(e),e}throw Fa=t,Oa}}function Pa(e){try{var t=e._init;return t(e._payload)}catch(e){throw typeof e==`object`&&e&&typeof e.then==`function`?(Fa=e,Oa):e}}var Fa=null;function Ia(){if(Fa===null)throw Error(i(459));var e=Fa;return Fa=null,e}function La(e){if(e===Oa||e===Aa)throw Error(i(483))}var Ra=null,za=0;function Ba(e){var t=za;return za+=1,Ra===null&&(Ra=[]),Na(Ra,e,t)}function Va(e,t){t=t.props.ref,e.ref=t===void 0?null:t}function Ha(e,t){throw t.$$typeof===g?Error(i(525)):(e=Object.prototype.toString.call(t),Error(i(31,e===`[object Object]`?`object with keys {`+Object.keys(t).join(`, `)+`}`:e)))}function Ua(e){function t(t,n){if(e){var r=t.deletions;r===null?(t.deletions=[n],t.flags|=16):r.push(n)}}function n(n,r){if(!e)return null;for(;r!==null;)t(n,r),r=r.sibling;return null}function r(e){for(var t=new Map;e!==null;)e.key===null?t.set(e.index,e):t.set(e.key,e),e=e.sibling;return t}function a(e,t){return e=gi(e,t),e.index=0,e.sibling=null,e}function o(t,n,r){return t.index=r,e?(r=t.alternate,r===null?(t.flags|=67108866,n):(r=r.index,r<n?(t.flags|=67108866,n):r)):(t.flags|=1048576,n)}function s(t){return e&&t.alternate===null&&(t.flags|=67108866),t}function c(e,t,n,r){return t===null||t.tag!==6?(t=bi(n,e.mode,r),t.return=e,t):(t=a(t,n),t.return=e,t)}function l(e,t,n,r){var i=n.type;return i===y?d(e,t,n.props.children,r,n.key):t!==null&&(t.elementType===i||typeof i==`object`&&i&&i.$$typeof===se&&Pa(i)===t.type)?(t=a(t,n.props),Va(t,n),t.return=e,t):(t=vi(n.type,n.key,n.props,null,e.mode,r),Va(t,n),t.return=e,t)}function u(e,t,n,r){return t===null||t.tag!==4||t.stateNode.containerInfo!==n.containerInfo||t.stateNode.implementation!==n.implementation?(t=Si(n,e.mode,r),t.return=e,t):(t=a(t,n.children||[]),t.return=e,t)}function d(e,t,n,r,i){return t===null||t.tag!==7?(t=yi(n,e.mode,r,i),t.return=e,t):(t=a(t,n),t.return=e,t)}function f(e,t,n){if(typeof t==`string`&&t!==``||typeof t==`number`||typeof t==`bigint`)return t=bi(``+t,e.mode,n),t.return=e,t;if(typeof t==`object`&&t){switch(t.$$typeof){case _:return n=vi(t.type,t.key,t.props,null,e.mode,n),Va(n,t),n.return=e,n;case v:return t=Si(t,e.mode,n),t.return=e,t;case se:return t=Pa(t),f(e,t,n)}if(me(t)||de(t))return t=yi(t,e.mode,n,null),t.return=e,t;if(typeof t.then==`function`)return f(e,Ba(t),n);if(t.$$typeof===ne)return f(e,la(e,t),n);Ha(e,t)}return null}function p(e,t,n,r){var i=t===null?null:t.key;if(typeof n==`string`&&n!==``||typeof n==`number`||typeof n==`bigint`)return i===null?c(e,t,``+n,r):null;if(typeof n==`object`&&n){switch(n.$$typeof){case _:return n.key===i?l(e,t,n,r):null;case v:return n.key===i?u(e,t,n,r):null;case se:return n=Pa(n),p(e,t,n,r)}if(me(n)||de(n))return i===null?d(e,t,n,r,null):null;if(typeof n.then==`function`)return p(e,t,Ba(n),r);if(n.$$typeof===ne)return p(e,t,la(e,n),r);Ha(e,n)}return null}function m(e,t,n,r,i){if(typeof r==`string`&&r!==``||typeof r==`number`||typeof r==`bigint`)return e=e.get(n)||null,c(t,e,``+r,i);if(typeof r==`object`&&r){switch(r.$$typeof){case _:return e=e.get(r.key===null?n:r.key)||null,l(t,e,r,i);case v:return e=e.get(r.key===null?n:r.key)||null,u(t,e,r,i);case se:return r=Pa(r),m(e,t,n,r,i)}if(me(r)||de(r))return e=e.get(n)||null,d(t,e,r,i,null);if(typeof r.then==`function`)return m(e,t,n,Ba(r),i);if(r.$$typeof===ne)return m(e,t,n,la(t,r),i);Ha(t,r)}return null}function h(i,a,s,c){for(var l=null,u=null,d=a,h=a=0,g=null;d!==null&&h<s.length;h++){d.index>h?(g=d,d=null):g=d.sibling;var _=p(i,d,s[h],c);if(_===null){d===null&&(d=g);break}e&&d&&_.alternate===null&&t(i,d),a=o(_,a,h),u===null?l=_:u.sibling=_,u=_,d=g}if(h===s.length)return n(i,d),Vi&&Pi(i,h),l;if(d===null){for(;h<s.length;h++)d=f(i,s[h],c),d!==null&&(a=o(d,a,h),u===null?l=d:u.sibling=d,u=d);return Vi&&Pi(i,h),l}for(d=r(d);h<s.length;h++)g=m(d,i,h,s[h],c),g!==null&&(e&&g.alternate!==null&&d.delete(g.key===null?h:g.key),a=o(g,a,h),u===null?l=g:u.sibling=g,u=g);return e&&d.forEach(function(e){return t(i,e)}),Vi&&Pi(i,h),l}function g(a,s,c,l){if(c==null)throw Error(i(151));for(var u=null,d=null,h=s,g=s=0,_=null,v=c.next();h!==null&&!v.done;g++,v=c.next()){h.index>g?(_=h,h=null):_=h.sibling;var y=p(a,h,v.value,l);if(y===null){h===null&&(h=_);break}e&&h&&y.alternate===null&&t(a,h),s=o(y,s,g),d===null?u=y:d.sibling=y,d=y,h=_}if(v.done)return n(a,h),Vi&&Pi(a,g),u;if(h===null){for(;!v.done;g++,v=c.next())v=f(a,v.value,l),v!==null&&(s=o(v,s,g),d===null?u=v:d.sibling=v,d=v);return Vi&&Pi(a,g),u}for(h=r(h);!v.done;g++,v=c.next())v=m(h,a,g,v.value,l),v!==null&&(e&&v.alternate!==null&&h.delete(v.key===null?g:v.key),s=o(v,s,g),d===null?u=v:d.sibling=v,d=v);return e&&h.forEach(function(e){return t(a,e)}),Vi&&Pi(a,g),u}function b(e,r,o,c){if(typeof o==`object`&&o&&o.type===y&&o.key===null&&(o=o.props.children),typeof o==`object`&&o){switch(o.$$typeof){case _:a:{for(var l=o.key;r!==null;){if(r.key===l){if(l=o.type,l===y){if(r.tag===7){n(e,r.sibling),c=a(r,o.props.children),c.return=e,e=c;break a}}else if(r.elementType===l||typeof l==`object`&&l&&l.$$typeof===se&&Pa(l)===r.type){n(e,r.sibling),c=a(r,o.props),Va(c,o),c.return=e,e=c;break a}n(e,r);break}t(e,r),r=r.sibling}o.type===y?(c=yi(o.props.children,e.mode,c,o.key),c.return=e,e=c):(c=vi(o.type,o.key,o.props,null,e.mode,c),Va(c,o),c.return=e,e=c)}return s(e);case v:a:{for(l=o.key;r!==null;){if(r.key===l)if(r.tag===4&&r.stateNode.containerInfo===o.containerInfo&&r.stateNode.implementation===o.implementation){n(e,r.sibling),c=a(r,o.children||[]),c.return=e,e=c;break a}else{n(e,r);break}t(e,r),r=r.sibling}c=Si(o,e.mode,c),c.return=e,e=c}return s(e);case se:return o=Pa(o),b(e,r,o,c)}if(me(o))return h(e,r,o,c);if(de(o)){if(l=de(o),typeof l!=`function`)throw Error(i(150));return o=l.call(o),g(e,r,o,c)}if(typeof o.then==`function`)return b(e,r,Ba(o),c);if(o.$$typeof===ne)return b(e,r,la(e,o),c);Ha(e,o)}return typeof o==`string`&&o!==``||typeof o==`number`||typeof o==`bigint`?(o=``+o,r!==null&&r.tag===6?(n(e,r.sibling),c=a(r,o),c.return=e,e=c):(n(e,r),c=bi(o,e.mode,c),c.return=e,e=c),s(e)):n(e,r)}return function(e,t,n,r){try{za=0;var i=b(e,t,n,r);return Ra=null,i}catch(t){if(t===Oa||t===Aa)throw t;var a=mi(29,t,null,e.mode);return a.lanes=r,a.return=e,a}}}var Wa=Ua(!0),Ga=Ua(!1),Ka=!1;function qa(e){e.updateQueue={baseState:e.memoizedState,firstBaseUpdate:null,lastBaseUpdate:null,shared:{pending:null,lanes:0,hiddenCallbacks:null},callbacks:null}}function Ja(e,t){e=e.updateQueue,t.updateQueue===e&&(t.updateQueue={baseState:e.baseState,firstBaseUpdate:e.firstBaseUpdate,lastBaseUpdate:e.lastBaseUpdate,shared:e.shared,callbacks:null})}function Ya(e){return{lane:e,tag:0,payload:null,callback:null,next:null}}function Xa(e,t,n){var r=e.updateQueue;if(r===null)return null;if(r=r.shared,Xl&2){var i=r.pending;return i===null?t.next=t:(t.next=i.next,i.next=t),r.pending=t,t=di(e),ui(e,null,n),t}return si(e,r,t,n),di(e)}function Za(e,t,n){if(t=t.updateQueue,t!==null&&(t=t.shared,n&4194048)){var r=t.lanes;r&=e.pendingLanes,n|=r,t.lanes=n,ht(e,n)}}function Qa(e,t){var n=e.updateQueue,r=e.alternate;if(r!==null&&(r=r.updateQueue,n===r)){var i=null,a=null;if(n=n.firstBaseUpdate,n!==null){do{var o={lane:n.lane,tag:n.tag,payload:n.payload,callback:null,next:null};a===null?i=a=o:a=a.next=o,n=n.next}while(n!==null);a===null?i=a=t:a=a.next=t}else i=a=t;n={baseState:r.baseState,firstBaseUpdate:i,lastBaseUpdate:a,shared:r.shared,callbacks:r.callbacks},e.updateQueue=n;return}e=n.lastBaseUpdate,e===null?n.firstBaseUpdate=t:e.next=t,n.lastBaseUpdate=t}var $a=!1;function eo(){if($a){var e=ya;if(e!==null)throw e}}function to(e,t,n,r){$a=!1;var i=e.updateQueue;Ka=!1;var a=i.firstBaseUpdate,o=i.lastBaseUpdate,s=i.shared.pending;if(s!==null){i.shared.pending=null;var c=s,l=c.next;c.next=null,o===null?a=l:o.next=l,o=c;var u=e.alternate;u!==null&&(u=u.updateQueue,s=u.lastBaseUpdate,s!==o&&(s===null?u.firstBaseUpdate=l:s.next=l,u.lastBaseUpdate=c))}if(a!==null){var d=i.baseState;o=0,u=l=c=null,s=a;do{var f=s.lane&-536870913,p=f!==s.lane;if(p?($l&f)===f:(r&f)===f){f!==0&&f===va&&($a=!0),u!==null&&(u=u.next={lane:0,tag:s.tag,payload:s.payload,callback:null,next:null});a:{var h=e,g=s;f=t;var _=n;switch(g.tag){case 1:if(h=g.payload,typeof h==`function`){d=h.call(_,d,f);break a}d=h;break a;case 3:h.flags=h.flags&-65537|128;case 0:if(h=g.payload,f=typeof h==`function`?h.call(_,d,f):h,f==null)break a;d=m({},d,f);break a;case 2:Ka=!0}}f=s.callback,f!==null&&(e.flags|=64,p&&(e.flags|=8192),p=i.callbacks,p===null?i.callbacks=[f]:p.push(f))}else p={lane:f,tag:s.tag,payload:s.payload,callback:s.callback,next:null},u===null?(l=u=p,c=d):u=u.next=p,o|=f;if(s=s.next,s===null){if(s=i.shared.pending,s===null)break;p=s,s=p.next,p.next=null,i.lastBaseUpdate=p,i.shared.pending=null}}while(1);u===null&&(c=d),i.baseState=c,i.firstBaseUpdate=l,i.lastBaseUpdate=u,a===null&&(i.shared.lanes=0),su|=o,e.lanes=o,e.memoizedState=d}}function no(e,t){if(typeof e!=`function`)throw Error(i(191,e));e.call(t)}function ro(e,t){var n=e.callbacks;if(n!==null)for(e.callbacks=null,e=0;e<n.length;e++)no(n[e],t)}var io=be(null),ao=be(0);function oo(e,t){e=au,xe(ao,e),xe(io,t),au=e|t.baseLanes}function so(){xe(ao,au),xe(io,io.current)}function co(){au=ao.current,x(io),x(ao)}var lo=be(null),uo=null;function fo(e){var t=e.alternate;xe(_o,_o.current&1),xe(lo,e),uo===null&&(t===null||io.current!==null||t.memoizedState!==null)&&(uo=e)}function po(e){xe(_o,_o.current),xe(lo,e),uo===null&&(uo=e)}function mo(e){e.tag===22?(xe(_o,_o.current),xe(lo,e),uo===null&&(uo=e)):ho(e)}function ho(){xe(_o,_o.current),xe(lo,lo.current)}function go(e){x(lo),uo===e&&(uo=null),x(_o)}var _o=be(0);function vo(e){for(var t=e;t!==null;){if(t.tag===13){var n=t.memoizedState;if(n!==null&&(n=n.dehydrated,n===null||wf(n)||Tf(n)))return t}else if(t.tag===19&&(t.memoizedProps.revealOrder===`forwards`||t.memoizedProps.revealOrder===`backwards`||t.memoizedProps.revealOrder===`unstable_legacy-backwards`||t.memoizedProps.revealOrder===`together`)){if(t.flags&128)return t}else if(t.child!==null){t.child.return=t,t=t.child;continue}if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return null;t=t.return}t.sibling.return=t.return,t=t.sibling}return null}var yo=0,bo=null,xo=null,So=null,Co=!1,wo=!1,To=!1,Eo=0,Do=0,Oo=null,ko=0;function Ao(){throw Error(i(321))}function jo(e,t){if(t===null)return!1;for(var n=0;n<t.length&&n<e.length;n++)if(!kr(e[n],t[n]))return!1;return!0}function Mo(e,t,n,r,i,a){return yo=a,bo=t,t.memoizedState=null,t.updateQueue=null,t.lanes=0,he.H=e===null||e.memoizedState===null?Js:Ys,To=!1,a=n(r,i),To=!1,wo&&(a=Po(t,n,r,i)),No(e),a}function No(e){he.H=qs;var t=xo!==null&&xo.next!==null;if(yo=0,So=xo=bo=null,Co=!1,Do=0,Oo=null,t)throw Error(i(300));e===null||fc||(e=e.dependencies,e!==null&&oa(e)&&(fc=!0))}function Po(e,t,n,r){bo=e;var a=0;do{if(wo&&(Oo=null),Do=0,wo=!1,25<=a)throw Error(i(301));if(a+=1,So=xo=null,e.updateQueue!=null){var o=e.updateQueue;o.lastEffect=null,o.events=null,o.stores=null,o.memoCache!=null&&(o.memoCache.index=0)}he.H=Xs,o=t(n,r)}while(wo);return o}function Fo(){var e=he.H,t=e.useState()[0];return t=typeof t.then==`function`?Ho(t):t,e=e.useState()[0],(xo===null?null:xo.memoizedState)!==e&&(bo.flags|=1024),t}function Io(){var e=Eo!==0;return Eo=0,e}function Lo(e,t,n){t.updateQueue=e.updateQueue,t.flags&=-2053,e.lanes&=~n}function Ro(e){if(Co){for(e=e.memoizedState;e!==null;){var t=e.queue;t!==null&&(t.pending=null),e=e.next}Co=!1}yo=0,So=xo=bo=null,wo=!1,Do=Eo=0,Oo=null}function zo(){var e={memoizedState:null,baseState:null,baseQueue:null,queue:null,next:null};return So===null?bo.memoizedState=So=e:So=So.next=e,So}function Bo(){if(xo===null){var e=bo.alternate;e=e===null?null:e.memoizedState}else e=xo.next;var t=So===null?bo.memoizedState:So.next;if(t!==null)So=t,xo=e;else{if(e===null)throw bo.alternate===null?Error(i(467)):Error(i(310));xo=e,e={memoizedState:xo.memoizedState,baseState:xo.baseState,baseQueue:xo.baseQueue,queue:xo.queue,next:null},So===null?bo.memoizedState=So=e:So=So.next=e}return So}function Vo(){return{lastEffect:null,events:null,stores:null,memoCache:null}}function Ho(e){var t=Do;return Do+=1,Oo===null&&(Oo=[]),e=Na(Oo,e,t),t=bo,(So===null?t.memoizedState:So.next)===null&&(t=t.alternate,he.H=t===null||t.memoizedState===null?Js:Ys),e}function Uo(e){if(typeof e==`object`&&e){if(typeof e.then==`function`)return Ho(e);if(e.$$typeof===ne)return ca(e)}throw Error(i(438,String(e)))}function Wo(e){var t=null,n=bo.updateQueue;if(n!==null&&(t=n.memoCache),t==null){var r=bo.alternate;r!==null&&(r=r.updateQueue,r!==null&&(r=r.memoCache,r!=null&&(t={data:r.data.map(function(e){return e.slice()}),index:0})))}if(t??={data:[],index:0},n===null&&(n=Vo(),bo.updateQueue=n),n.memoCache=t,n=t.data[t.index],n===void 0)for(n=t.data[t.index]=Array(e),r=0;r<e;r++)n[r]=le;return t.index++,n}function Go(e,t){return typeof t==`function`?t(e):t}function Ko(e){return qo(Bo(),xo,e)}function qo(e,t,n){var r=e.queue;if(r===null)throw Error(i(311));r.lastRenderedReducer=n;var a=e.baseQueue,o=r.pending;if(o!==null){if(a!==null){var s=a.next;a.next=o.next,o.next=s}t.baseQueue=a=o,r.pending=null}if(o=e.baseState,a===null)e.memoizedState=o;else{t=a.next;var c=s=null,l=null,u=t,d=!1;do{var f=u.lane&-536870913;if(f===u.lane?(yo&f)===f:($l&f)===f){var p=u.revertLane;if(p===0)l!==null&&(l=l.next={lane:0,revertLane:0,gesture:null,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null}),f===va&&(d=!0);else if((yo&p)===p){u=u.next,p===va&&(d=!0);continue}else f={lane:0,revertLane:u.revertLane,gesture:null,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null},l===null?(c=l=f,s=o):l=l.next=f,bo.lanes|=p,su|=p;f=u.action,To&&n(o,f),o=u.hasEagerState?u.eagerState:n(o,f)}else p={lane:f,revertLane:u.revertLane,gesture:u.gesture,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null},l===null?(c=l=p,s=o):l=l.next=p,bo.lanes|=f,su|=f;u=u.next}while(u!==null&&u!==t);if(l===null?s=o:l.next=c,!kr(o,e.memoizedState)&&(fc=!0,d&&(n=ya,n!==null)))throw n;e.memoizedState=o,e.baseState=s,e.baseQueue=l,r.lastRenderedState=o}return a===null&&(r.lanes=0),[e.memoizedState,r.dispatch]}function Jo(e){var t=Bo(),n=t.queue;if(n===null)throw Error(i(311));n.lastRenderedReducer=e;var r=n.dispatch,a=n.pending,o=t.memoizedState;if(a!==null){n.pending=null;var s=a=a.next;do o=e(o,s.action),s=s.next;while(s!==a);kr(o,t.memoizedState)||(fc=!0),t.memoizedState=o,t.baseQueue===null&&(t.baseState=o),n.lastRenderedState=o}return[o,r]}function Yo(e,t,n){var r=bo,a=Bo(),o=Vi;if(o){if(n===void 0)throw Error(i(407));n=n()}else n=t();var s=!kr((xo||a).memoizedState,n);if(s&&(a.memoizedState=n,fc=!0),a=a.queue,ys(Qo.bind(null,r,a,e),[e]),a.getSnapshot!==t||s||So!==null&&So.memoizedState.tag&1){if(r.flags|=2048,ms(9,{destroy:void 0},Zo.bind(null,r,a,n,t),null),Zl===null)throw Error(i(349));o||yo&127||Xo(r,t,n)}return n}function Xo(e,t,n){e.flags|=16384,e={getSnapshot:t,value:n},t=bo.updateQueue,t===null?(t=Vo(),bo.updateQueue=t,t.stores=[e]):(n=t.stores,n===null?t.stores=[e]:n.push(e))}function Zo(e,t,n,r){t.value=n,t.getSnapshot=r,$o(t)&&es(e)}function Qo(e,t,n){return n(function(){$o(t)&&es(e)})}function $o(e){var t=e.getSnapshot;e=e.value;try{var n=t();return!kr(e,n)}catch{return!0}}function es(e){var t=li(e,2);t!==null&&ju(t,e,2)}function ts(e){var t=zo();if(typeof e==`function`){var n=e;if(e=n(),To){Qe(!0);try{n()}finally{Qe(!1)}}}return t.memoizedState=t.baseState=e,t.queue={pending:null,lanes:0,dispatch:null,lastRenderedReducer:Go,lastRenderedState:e},t}function ns(e,t,n,r){return e.baseState=n,qo(e,xo,typeof r==`function`?r:Go)}function rs(e,t,n,r,a){if(Ws(e))throw Error(i(485));if(e=t.action,e!==null){var o={payload:a,action:e,next:null,isTransition:!0,status:`pending`,value:null,reason:null,listeners:[],then:function(e){o.listeners.push(e)}};he.T===null?o.isTransition=!1:n(!0),r(o),n=t.pending,n===null?(o.next=t.pending=o,is(t,o)):(o.next=n.next,t.pending=n.next=o)}}function is(e,t){var n=t.action,r=t.payload,i=e.state;if(t.isTransition){var a=he.T,o={};he.T=o;try{var s=n(i,r),c=he.S;c!==null&&c(o,s),as(e,t,s)}catch(n){ss(e,t,n)}finally{a!==null&&o.types!==null&&(a.types=o.types),he.T=a}}else try{a=n(i,r),as(e,t,a)}catch(n){ss(e,t,n)}}function as(e,t,n){typeof n==`object`&&n&&typeof n.then==`function`?n.then(function(n){os(e,t,n)},function(n){return ss(e,t,n)}):os(e,t,n)}function os(e,t,n){t.status=`fulfilled`,t.value=n,cs(t),e.state=n,t=e.pending,t!==null&&(n=t.next,n===t?e.pending=null:(n=n.next,t.next=n,is(e,n)))}function ss(e,t,n){var r=e.pending;if(e.pending=null,r!==null){r=r.next;do t.status=`rejected`,t.reason=n,cs(t),t=t.next;while(t!==r)}e.action=null}function cs(e){e=e.listeners;for(var t=0;t<e.length;t++)(0,e[t])()}function ls(e,t){return t}function us(e,t){if(Vi){var n=Zl.formState;if(n!==null){a:{var r=bo;if(Vi){if(Bi){b:{for(var i=Bi,a=Ui;i.nodeType!==8;){if(!a){i=null;break b}if(i=Df(i.nextSibling),i===null){i=null;break b}}a=i.data,i=a===`F!`||a===`F`?i:null}if(i){Bi=Df(i.nextSibling),r=i.data===`F!`;break a}}Gi(r)}r=!1}r&&(t=n[0])}}return n=zo(),n.memoizedState=n.baseState=t,r={pending:null,lanes:0,dispatch:null,lastRenderedReducer:ls,lastRenderedState:t},n.queue=r,n=Vs.bind(null,bo,r),r.dispatch=n,r=ts(!1),a=Us.bind(null,bo,!1,r.queue),r=zo(),i={state:t,dispatch:null,action:e,pending:null},r.queue=i,n=rs.bind(null,bo,i,a,n),i.dispatch=n,r.memoizedState=e,[t,n,!1]}function P(e){return ds(Bo(),xo,e)}function ds(e,t,n){if(t=qo(e,t,ls)[0],e=Ko(Go)[0],typeof t==`object`&&t&&typeof t.then==`function`)try{var r=Ho(t)}catch(e){throw e===Oa?Aa:e}else r=t;t=Bo();var i=t.queue,a=i.dispatch;return n!==t.memoizedState&&(bo.flags|=2048,ms(9,{destroy:void 0},fs.bind(null,i,n),null)),[r,a,e]}function fs(e,t){e.action=t}function ps(e){var t=Bo(),n=xo;if(n!==null)return ds(t,n,e);Bo(),t=t.memoizedState,n=Bo();var r=n.queue.dispatch;return n.memoizedState=e,[t,r,!1]}function ms(e,t,n,r){return e={tag:e,create:n,deps:r,inst:t,next:null},t=bo.updateQueue,t===null&&(t=Vo(),bo.updateQueue=t),n=t.lastEffect,n===null?t.lastEffect=e.next=e:(r=n.next,n.next=e,e.next=r,t.lastEffect=e),e}function hs(){return Bo().memoizedState}function gs(e,t,n,r){var i=zo();bo.flags|=e,i.memoizedState=ms(1|t,{destroy:void 0},n,r===void 0?null:r)}function _s(e,t,n,r){var i=Bo();r=r===void 0?null:r;var a=i.memoizedState.inst;xo!==null&&r!==null&&jo(r,xo.memoizedState.deps)?i.memoizedState=ms(t,a,n,r):(bo.flags|=e,i.memoizedState=ms(1|t,a,n,r))}function vs(e,t){gs(8390656,8,e,t)}function ys(e,t){_s(2048,8,e,t)}function bs(e){bo.flags|=4;var t=bo.updateQueue;if(t===null)t=Vo(),bo.updateQueue=t,t.events=[e];else{var n=t.events;n===null?t.events=[e]:n.push(e)}}function xs(e){var t=Bo().memoizedState;return bs({ref:t,nextImpl:e}),function(){if(Xl&2)throw Error(i(440));return t.impl.apply(void 0,arguments)}}function Ss(e,t){return _s(4,2,e,t)}function Cs(e,t){return _s(4,4,e,t)}function ws(e,t){if(typeof t==`function`){e=e();var n=t(e);return function(){typeof n==`function`?n():t(null)}}if(t!=null)return e=e(),t.current=e,function(){t.current=null}}function Ts(e,t,n){n=n==null?null:n.concat([e]),_s(4,4,ws.bind(null,t,e),n)}function Es(){}function Ds(e,t){var n=Bo();t=t===void 0?null:t;var r=n.memoizedState;return t!==null&&jo(t,r[1])?r[0]:(n.memoizedState=[e,t],e)}function Os(e,t){var n=Bo();t=t===void 0?null:t;var r=n.memoizedState;if(t!==null&&jo(t,r[1]))return r[0];if(r=e(),To){Qe(!0);try{e()}finally{Qe(!1)}}return n.memoizedState=[r,t],r}function ks(e,t,n){return n===void 0||yo&1073741824&&!($l&261930)?e.memoizedState=t:(e.memoizedState=n,e=Au(),bo.lanes|=e,su|=e,n)}function As(e,t,n,r){return kr(n,t)?n:io.current===null?!(yo&42)||yo&1073741824&&!($l&261930)?(fc=!0,e.memoizedState=n):(e=Au(),bo.lanes|=e,su|=e,t):(e=ks(e,n,r),kr(e,t)||(fc=!0),e)}function js(e,t,n,r,i){var a=ge.p;ge.p=a!==0&&8>a?a:8;var o=he.T,s={};he.T=s,Us(e,!1,t,n);try{var c=i(),l=he.S;l!==null&&l(s,c),typeof c==`object`&&c&&typeof c.then==`function`?Hs(e,t,Sa(c,r),ku(e)):Hs(e,t,r,ku(e))}catch(n){Hs(e,t,{then:function(){},status:`rejected`,reason:n},ku())}finally{ge.p=a,o!==null&&s.types!==null&&(o.types=s.types),he.T=o}}function Ms(){}function Ns(e,t,n,r){if(e.tag!==5)throw Error(i(476));var a=Ps(e).queue;js(e,a,t,_e,n===null?Ms:function(){return Fs(e),n(r)})}function Ps(e){var t=e.memoizedState;if(t!==null)return t;t={memoizedState:_e,baseState:_e,baseQueue:null,queue:{pending:null,lanes:0,dispatch:null,lastRenderedReducer:Go,lastRenderedState:_e},next:null};var n={};return t.next={memoizedState:n,baseState:n,baseQueue:null,queue:{pending:null,lanes:0,dispatch:null,lastRenderedReducer:Go,lastRenderedState:n},next:null},e.memoizedState=t,e=e.alternate,e!==null&&(e.memoizedState=t),t}function Fs(e){var t=Ps(e);t.next===null&&(t=e.alternate.memoizedState),Hs(e,t.next.queue,{},ku())}function Is(){return ca(_p)}function Ls(){return Bo().memoizedState}function Rs(){return Bo().memoizedState}function zs(e){for(var t=e.return;t!==null;){switch(t.tag){case 24:case 3:var n=ku();e=Ya(n);var r=Xa(t,e,n);r!==null&&(ju(r,t,n),Za(r,t,n)),t={cache:ma()},e.payload=t;return}t=t.return}}function Bs(e,t,n){var r=ku();n={lane:r,revertLane:0,gesture:null,action:n,hasEagerState:!1,eagerState:null,next:null},Ws(e)?Gs(t,n):(n=ci(e,t,n,r),n!==null&&(ju(n,e,r),Ks(n,t,r)))}function Vs(e,t,n){Hs(e,t,n,ku())}function Hs(e,t,n,r){var i={lane:r,revertLane:0,gesture:null,action:n,hasEagerState:!1,eagerState:null,next:null};if(Ws(e))Gs(t,i);else{var a=e.alternate;if(e.lanes===0&&(a===null||a.lanes===0)&&(a=t.lastRenderedReducer,a!==null))try{var o=t.lastRenderedState,s=a(o,n);if(i.hasEagerState=!0,i.eagerState=s,kr(s,o))return si(e,t,i,0),Zl===null&&oi(),!1}catch{}if(n=ci(e,t,i,r),n!==null)return ju(n,e,r),Ks(n,t,r),!0}return!1}function Us(e,t,n,r){if(r={lane:2,revertLane:Od(),gesture:null,action:r,hasEagerState:!1,eagerState:null,next:null},Ws(e)){if(t)throw Error(i(479))}else t=ci(e,n,r,2),t!==null&&ju(t,e,2)}function Ws(e){var t=e.alternate;return e===bo||t!==null&&t===bo}function Gs(e,t){wo=Co=!0;var n=e.pending;n===null?t.next=t:(t.next=n.next,n.next=t),e.pending=t}function Ks(e,t,n){if(n&4194048){var r=t.lanes;r&=e.pendingLanes,n|=r,t.lanes=n,ht(e,n)}}var qs={readContext:ca,use:Uo,useCallback:Ao,useContext:Ao,useEffect:Ao,useImperativeHandle:Ao,useLayoutEffect:Ao,useInsertionEffect:Ao,useMemo:Ao,useReducer:Ao,useRef:Ao,useState:Ao,useDebugValue:Ao,useDeferredValue:Ao,useTransition:Ao,useSyncExternalStore:Ao,useId:Ao,useHostTransitionStatus:Ao,useFormState:Ao,useActionState:Ao,useOptimistic:Ao,useMemoCache:Ao,useCacheRefresh:Ao};qs.useEffectEvent=Ao;var Js={readContext:ca,use:Uo,useCallback:function(e,t){return zo().memoizedState=[e,t===void 0?null:t],e},useContext:ca,useEffect:vs,useImperativeHandle:function(e,t,n){n=n==null?null:n.concat([e]),gs(4194308,4,ws.bind(null,t,e),n)},useLayoutEffect:function(e,t){return gs(4194308,4,e,t)},useInsertionEffect:function(e,t){gs(4,2,e,t)},useMemo:function(e,t){var n=zo();t=t===void 0?null:t;var r=e();if(To){Qe(!0);try{e()}finally{Qe(!1)}}return n.memoizedState=[r,t],r},useReducer:function(e,t,n){var r=zo();if(n!==void 0){var i=n(t);if(To){Qe(!0);try{n(t)}finally{Qe(!1)}}}else i=t;return r.memoizedState=r.baseState=i,e={pending:null,lanes:0,dispatch:null,lastRenderedReducer:e,lastRenderedState:i},r.queue=e,e=e.dispatch=Bs.bind(null,bo,e),[r.memoizedState,e]},useRef:function(e){var t=zo();return e={current:e},t.memoizedState=e},useState:function(e){e=ts(e);var t=e.queue,n=Vs.bind(null,bo,t);return t.dispatch=n,[e.memoizedState,n]},useDebugValue:Es,useDeferredValue:function(e,t){return ks(zo(),e,t)},useTransition:function(){var e=ts(!1);return e=js.bind(null,bo,e.queue,!0,!1),zo().memoizedState=e,[!1,e]},useSyncExternalStore:function(e,t,n){var r=bo,a=zo();if(Vi){if(n===void 0)throw Error(i(407));n=n()}else{if(n=t(),Zl===null)throw Error(i(349));$l&127||Xo(r,t,n)}a.memoizedState=n;var o={value:n,getSnapshot:t};return a.queue=o,vs(Qo.bind(null,r,o,e),[e]),r.flags|=2048,ms(9,{destroy:void 0},Zo.bind(null,r,o,n,t),null),n},useId:function(){var e=zo(),t=Zl.identifierPrefix;if(Vi){var n=Ni,r=Mi;n=(r&~(1<<32-$e(r)-1)).toString(32)+n,t=`_`+t+`R_`+n,n=Eo++,0<n&&(t+=`H`+n.toString(32)),t+=`_`}else n=ko++,t=`_`+t+`r_`+n.toString(32)+`_`;return e.memoizedState=t},useHostTransitionStatus:Is,useFormState:us,useActionState:us,useOptimistic:function(e){var t=zo();t.memoizedState=t.baseState=e;var n={pending:null,lanes:0,dispatch:null,lastRenderedReducer:null,lastRenderedState:null};return t.queue=n,t=Us.bind(null,bo,!0,n),n.dispatch=t,[e,t]},useMemoCache:Wo,useCacheRefresh:function(){return zo().memoizedState=zs.bind(null,bo)},useEffectEvent:function(e){var t=zo(),n={impl:e};return t.memoizedState=n,function(){if(Xl&2)throw Error(i(440));return n.impl.apply(void 0,arguments)}}},Ys={readContext:ca,use:Uo,useCallback:Ds,useContext:ca,useEffect:ys,useImperativeHandle:Ts,useInsertionEffect:Ss,useLayoutEffect:Cs,useMemo:Os,useReducer:Ko,useRef:hs,useState:function(){return Ko(Go)},useDebugValue:Es,useDeferredValue:function(e,t){return As(Bo(),xo.memoizedState,e,t)},useTransition:function(){var e=Ko(Go)[0],t=Bo().memoizedState;return[typeof e==`boolean`?e:Ho(e),t]},useSyncExternalStore:Yo,useId:Ls,useHostTransitionStatus:Is,useFormState:P,useActionState:P,useOptimistic:function(e,t){return ns(Bo(),xo,e,t)},useMemoCache:Wo,useCacheRefresh:Rs};Ys.useEffectEvent=xs;var Xs={readContext:ca,use:Uo,useCallback:Ds,useContext:ca,useEffect:ys,useImperativeHandle:Ts,useInsertionEffect:Ss,useLayoutEffect:Cs,useMemo:Os,useReducer:Jo,useRef:hs,useState:function(){return Jo(Go)},useDebugValue:Es,useDeferredValue:function(e,t){var n=Bo();return xo===null?ks(n,e,t):As(n,xo.memoizedState,e,t)},useTransition:function(){var e=Jo(Go)[0],t=Bo().memoizedState;return[typeof e==`boolean`?e:Ho(e),t]},useSyncExternalStore:Yo,useId:Ls,useHostTransitionStatus:Is,useFormState:ps,useActionState:ps,useOptimistic:function(e,t){var n=Bo();return xo===null?(n.baseState=e,[e,n.queue.dispatch]):ns(n,xo,e,t)},useMemoCache:Wo,useCacheRefresh:Rs};Xs.useEffectEvent=xs;function Zs(e,t,n,r){t=e.memoizedState,n=n(r,t),n=n==null?t:m({},t,n),e.memoizedState=n,e.lanes===0&&(e.updateQueue.baseState=n)}var Qs={enqueueSetState:function(e,t,n){e=e._reactInternals;var r=ku(),i=Ya(r);i.payload=t,n!=null&&(i.callback=n),t=Xa(e,i,r),t!==null&&(ju(t,e,r),Za(t,e,r))},enqueueReplaceState:function(e,t,n){e=e._reactInternals;var r=ku(),i=Ya(r);i.tag=1,i.payload=t,n!=null&&(i.callback=n),t=Xa(e,i,r),t!==null&&(ju(t,e,r),Za(t,e,r))},enqueueForceUpdate:function(e,t){e=e._reactInternals;var n=ku(),r=Ya(n);r.tag=2,t!=null&&(r.callback=t),t=Xa(e,r,n),t!==null&&(ju(t,e,n),Za(t,e,n))}};function $s(e,t,n,r,i,a,o){return e=e.stateNode,typeof e.shouldComponentUpdate==`function`?e.shouldComponentUpdate(r,a,o):t.prototype&&t.prototype.isPureReactComponent?!M(n,r)||!M(i,a):!0}function ec(e,t,n,r){e=t.state,typeof t.componentWillReceiveProps==`function`&&t.componentWillReceiveProps(n,r),typeof t.UNSAFE_componentWillReceiveProps==`function`&&t.UNSAFE_componentWillReceiveProps(n,r),t.state!==e&&Qs.enqueueReplaceState(t,t.state,null)}function tc(e,t){var n=t;if(`ref`in t)for(var r in n={},t)r!==`ref`&&(n[r]=t[r]);if(e=e.defaultProps)for(var i in n===t&&(n=m({},n)),e)n[i]===void 0&&(n[i]=e[i]);return n}function nc(e){ni(e)}function rc(e){console.error(e)}function ic(e){ni(e)}function ac(e,t){try{var n=e.onUncaughtError;n(t.value,{componentStack:t.stack})}catch(e){setTimeout(function(){throw e})}}function oc(e,t,n){try{var r=e.onCaughtError;r(n.value,{componentStack:n.stack,errorBoundary:t.tag===1?t.stateNode:null})}catch(e){setTimeout(function(){throw e})}}function sc(e,t,n){return n=Ya(n),n.tag=3,n.payload={element:null},n.callback=function(){ac(e,t)},n}function cc(e){return e=Ya(e),e.tag=3,e}function lc(e,t,n,r){var i=n.type.getDerivedStateFromError;if(typeof i==`function`){var a=r.value;e.payload=function(){return i(a)},e.callback=function(){oc(t,n,r)}}var o=n.stateNode;o!==null&&typeof o.componentDidCatch==`function`&&(e.callback=function(){oc(t,n,r),typeof i!=`function`&&(yu===null?yu=new Set([this]):yu.add(this));var e=r.stack;this.componentDidCatch(r.value,{componentStack:e===null?``:e})})}function uc(e,t,n,r,a){if(n.flags|=32768,typeof r==`object`&&r&&typeof r.then==`function`){if(t=n.alternate,t!==null&&aa(t,n,a,!0),n=lo.current,n!==null){switch(n.tag){case 31:case 13:return uo===null?Uu():n.alternate===null&&ou===0&&(ou=3),n.flags&=-257,n.flags|=65536,n.lanes=a,r===ja?n.flags|=16384:(t=n.updateQueue,t===null?n.updateQueue=new Set([r]):t.add(r),cd(e,r,a)),!1;case 22:return n.flags|=65536,r===ja?n.flags|=16384:(t=n.updateQueue,t===null?(t={transitions:null,markerInstances:null,retryQueue:new Set([r])},n.updateQueue=t):(n=t.retryQueue,n===null?t.retryQueue=new Set([r]):n.add(r)),cd(e,r,a)),!1}throw Error(i(435,n.tag))}return cd(e,r,a),Uu(),!1}if(Vi)return t=lo.current,t===null?(r!==Wi&&(t=Error(i(423),{cause:r}),Zi(wi(t,n))),e=e.current.alternate,e.flags|=65536,a&=-a,e.lanes|=a,r=wi(r,n),a=sc(e.stateNode,r,a),Qa(e,a),ou!==4&&(ou=2)):(!(t.flags&65536)&&(t.flags|=256),t.flags|=65536,t.lanes=a,r!==Wi&&(e=Error(i(422),{cause:r}),Zi(wi(e,n)))),!1;var o=Error(i(520),{cause:r});if(o=wi(o,n),fu===null?fu=[o]:fu.push(o),ou!==4&&(ou=2),t===null)return!0;r=wi(r,n),n=t;do{switch(n.tag){case 3:return n.flags|=65536,e=a&-a,n.lanes|=e,e=sc(n.stateNode,r,e),Qa(n,e),!1;case 1:if(t=n.type,o=n.stateNode,!(n.flags&128)&&(typeof t.getDerivedStateFromError==`function`||o!==null&&typeof o.componentDidCatch==`function`&&(yu===null||!yu.has(o))))return n.flags|=65536,a&=-a,n.lanes|=a,a=cc(a),lc(a,e,n,r),Qa(n,a),!1}n=n.return}while(n!==null);return!1}var dc=Error(i(461)),fc=!1;function pc(e,t,n,r){t.child=e===null?Ga(t,null,n,r):Wa(t,e.child,n,r)}function mc(e,t,n,r,i){n=n.render;var a=t.ref;if(`ref`in r){var o={};for(var s in r)s!==`ref`&&(o[s]=r[s])}else o=r;return sa(t),r=Mo(e,t,n,o,a,i),s=Io(),e!==null&&!fc?(Lo(e,t,i),Rc(e,t,i)):(Vi&&s&&Ii(t),t.flags|=1,pc(e,t,r,i),t.child)}function hc(e,t,n,r,i){if(e===null){var a=n.type;return typeof a==`function`&&!hi(a)&&a.defaultProps===void 0&&n.compare===null?(t.tag=15,t.type=a,gc(e,t,a,r,i)):(e=vi(n.type,null,r,t,t.mode,i),e.ref=t.ref,e.return=t,t.child=e)}if(a=e.child,!zc(e,i)){var o=a.memoizedProps;if(n=n.compare,n=n===null?M:n,n(o,r)&&e.ref===t.ref)return Rc(e,t,i)}return t.flags|=1,e=gi(a,r),e.ref=t.ref,e.return=t,t.child=e}function gc(e,t,n,r,i){if(e!==null){var a=e.memoizedProps;if(M(a,r)&&e.ref===t.ref)if(fc=!1,t.pendingProps=r=a,zc(e,i))e.flags&131072&&(fc=!0);else return t.lanes=e.lanes,Rc(e,t,i)}return wc(e,t,n,r,i)}function _c(e,t,n,r){var i=r.children,a=e===null?null:e.memoizedState;if(e===null&&t.stateNode===null&&(t.stateNode={_visibility:1,_pendingMarkers:null,_retryCache:null,_transitions:null}),r.mode===`hidden`){if(t.flags&128){if(a=a===null?n:a.baseLanes|n,e!==null){for(r=t.child=e.child,i=0;r!==null;)i=i|r.lanes|r.childLanes,r=r.sibling;r=i&~a}else r=0,t.child=null;return yc(e,t,a,n,r)}if(n&536870912)t.memoizedState={baseLanes:0,cachePool:null},e!==null&&Ea(t,a===null?null:a.cachePool),a===null?so():oo(t,a),mo(t);else return r=t.lanes=536870912,yc(e,t,a===null?n:a.baseLanes|n,n,r)}else a===null?(e!==null&&Ea(t,null),so(),ho(t)):(Ea(t,a.cachePool),oo(t,a),ho(t),t.memoizedState=null);return pc(e,t,i,n),t.child}function vc(e,t){return e!==null&&e.tag===22||t.stateNode!==null||(t.stateNode={_visibility:1,_pendingMarkers:null,_retryCache:null,_transitions:null}),t.sibling}function yc(e,t,n,r,i){var a=Ta();return a=a===null?null:{parent:pa._currentValue,pool:a},t.memoizedState={baseLanes:n,cachePool:a},e!==null&&Ea(t,null),so(),mo(t),e!==null&&aa(e,t,r,!0),t.childLanes=i,null}function bc(e,t){return t=Nc({mode:t.mode,children:t.children},e.mode),t.ref=e.ref,e.child=t,t.return=e,t}function xc(e,t,n){return Wa(t,e.child,null,n),e=bc(t,t.pendingProps),e.flags|=2,go(t),t.memoizedState=null,e}function Sc(e,t,n){var r=t.pendingProps,a=!!(t.flags&128);if(t.flags&=-129,e===null){if(Vi){if(r.mode===`hidden`)return e=bc(t,r),t.lanes=536870912,vc(null,e);if(po(t),(e=Bi)?(e=Cf(e,Ui),e=e!==null&&e.data===`&`?e:null,e!==null&&(t.memoizedState={dehydrated:e,treeContext:ji===null?null:{id:Mi,overflow:Ni},retryLane:536870912,hydrationErrors:null},n=xi(e),n.return=t,t.child=n,zi=t,Bi=null)):e=null,e===null)throw Gi(t);return t.lanes=536870912,null}return bc(t,r)}var o=e.memoizedState;if(o!==null){var s=o.dehydrated;if(po(t),a)if(t.flags&256)t.flags&=-257,t=xc(e,t,n);else if(t.memoizedState!==null)t.child=e.child,t.flags|=128,t=null;else throw Error(i(558));else if(fc||aa(e,t,n,!1),a=(n&e.childLanes)!==0,fc||a){if(r=Zl,r!==null&&(s=gt(r,n),s!==0&&s!==o.retryLane))throw o.retryLane=s,li(e,s),ju(r,e,s),dc;Uu(),t=xc(e,t,n)}else e=o.treeContext,Bi=Df(s.nextSibling),zi=t,Vi=!0,Hi=null,Ui=!1,e!==null&&Ri(t,e),t=bc(t,r),t.flags|=4096;return t}return e=gi(e.child,{mode:r.mode,children:r.children}),e.ref=t.ref,t.child=e,e.return=t,e}function Cc(e,t){var n=t.ref;if(n===null)e!==null&&e.ref!==null&&(t.flags|=4194816);else{if(typeof n!=`function`&&typeof n!=`object`)throw Error(i(284));(e===null||e.ref!==n)&&(t.flags|=4194816)}}function wc(e,t,n,r,i){return sa(t),n=Mo(e,t,n,r,void 0,i),r=Io(),e!==null&&!fc?(Lo(e,t,i),Rc(e,t,i)):(Vi&&r&&Ii(t),t.flags|=1,pc(e,t,n,i),t.child)}function Tc(e,t,n,r,i,a){return sa(t),t.updateQueue=null,n=Po(t,r,n,i),No(e),r=Io(),e!==null&&!fc?(Lo(e,t,a),Rc(e,t,a)):(Vi&&r&&Ii(t),t.flags|=1,pc(e,t,n,a),t.child)}function Ec(e,t,n,r,i){if(sa(t),t.stateNode===null){var a=fi,o=n.contextType;typeof o==`object`&&o&&(a=ca(o)),a=new n(r,a),t.memoizedState=a.state!==null&&a.state!==void 0?a.state:null,a.updater=Qs,t.stateNode=a,a._reactInternals=t,a=t.stateNode,a.props=r,a.state=t.memoizedState,a.refs={},qa(t),o=n.contextType,a.context=typeof o==`object`&&o?ca(o):fi,a.state=t.memoizedState,o=n.getDerivedStateFromProps,typeof o==`function`&&(Zs(t,n,o,r),a.state=t.memoizedState),typeof n.getDerivedStateFromProps==`function`||typeof a.getSnapshotBeforeUpdate==`function`||typeof a.UNSAFE_componentWillMount!=`function`&&typeof a.componentWillMount!=`function`||(o=a.state,typeof a.componentWillMount==`function`&&a.componentWillMount(),typeof a.UNSAFE_componentWillMount==`function`&&a.UNSAFE_componentWillMount(),o!==a.state&&Qs.enqueueReplaceState(a,a.state,null),to(t,r,a,i),eo(),a.state=t.memoizedState),typeof a.componentDidMount==`function`&&(t.flags|=4194308),r=!0}else if(e===null){a=t.stateNode;var s=t.memoizedProps,c=tc(n,s);a.props=c;var l=a.context,u=n.contextType;o=fi,typeof u==`object`&&u&&(o=ca(u));var d=n.getDerivedStateFromProps;u=typeof d==`function`||typeof a.getSnapshotBeforeUpdate==`function`,s=t.pendingProps!==s,u||typeof a.UNSAFE_componentWillReceiveProps!=`function`&&typeof a.componentWillReceiveProps!=`function`||(s||l!==o)&&ec(t,a,r,o),Ka=!1;var f=t.memoizedState;a.state=f,to(t,r,a,i),eo(),l=t.memoizedState,s||f!==l||Ka?(typeof d==`function`&&(Zs(t,n,d,r),l=t.memoizedState),(c=Ka||$s(t,n,c,r,f,l,o))?(u||typeof a.UNSAFE_componentWillMount!=`function`&&typeof a.componentWillMount!=`function`||(typeof a.componentWillMount==`function`&&a.componentWillMount(),typeof a.UNSAFE_componentWillMount==`function`&&a.UNSAFE_componentWillMount()),typeof a.componentDidMount==`function`&&(t.flags|=4194308)):(typeof a.componentDidMount==`function`&&(t.flags|=4194308),t.memoizedProps=r,t.memoizedState=l),a.props=r,a.state=l,a.context=o,r=c):(typeof a.componentDidMount==`function`&&(t.flags|=4194308),r=!1)}else{a=t.stateNode,Ja(e,t),o=t.memoizedProps,u=tc(n,o),a.props=u,d=t.pendingProps,f=a.context,l=n.contextType,c=fi,typeof l==`object`&&l&&(c=ca(l)),s=n.getDerivedStateFromProps,(l=typeof s==`function`||typeof a.getSnapshotBeforeUpdate==`function`)||typeof a.UNSAFE_componentWillReceiveProps!=`function`&&typeof a.componentWillReceiveProps!=`function`||(o!==d||f!==c)&&ec(t,a,r,c),Ka=!1,f=t.memoizedState,a.state=f,to(t,r,a,i),eo();var p=t.memoizedState;o!==d||f!==p||Ka||e!==null&&e.dependencies!==null&&oa(e.dependencies)?(typeof s==`function`&&(Zs(t,n,s,r),p=t.memoizedState),(u=Ka||$s(t,n,u,r,f,p,c)||e!==null&&e.dependencies!==null&&oa(e.dependencies))?(l||typeof a.UNSAFE_componentWillUpdate!=`function`&&typeof a.componentWillUpdate!=`function`||(typeof a.componentWillUpdate==`function`&&a.componentWillUpdate(r,p,c),typeof a.UNSAFE_componentWillUpdate==`function`&&a.UNSAFE_componentWillUpdate(r,p,c)),typeof a.componentDidUpdate==`function`&&(t.flags|=4),typeof a.getSnapshotBeforeUpdate==`function`&&(t.flags|=1024)):(typeof a.componentDidUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=4),typeof a.getSnapshotBeforeUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=1024),t.memoizedProps=r,t.memoizedState=p),a.props=r,a.state=p,a.context=c,r=u):(typeof a.componentDidUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=4),typeof a.getSnapshotBeforeUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=1024),r=!1)}return a=r,Cc(e,t),r=!!(t.flags&128),a||r?(a=t.stateNode,n=r&&typeof n.getDerivedStateFromError!=`function`?null:a.render(),t.flags|=1,e!==null&&r?(t.child=Wa(t,e.child,null,i),t.child=Wa(t,null,n,i)):pc(e,t,n,i),t.memoizedState=a.state,e=t.child):e=Rc(e,t,i),e}function Dc(e,t,n,r){return Yi(),t.flags|=256,pc(e,t,n,r),t.child}var Oc={dehydrated:null,treeContext:null,retryLane:0,hydrationErrors:null};function kc(e){return{baseLanes:e,cachePool:Da()}}function Ac(e,t,n){return e=e===null?0:e.childLanes&~n,t&&(e|=uu),e}function jc(e,t,n){var r=t.pendingProps,a=!1,o=!!(t.flags&128),s;if((s=o)||(s=e!==null&&e.memoizedState===null?!1:!!(_o.current&2)),s&&(a=!0,t.flags&=-129),s=!!(t.flags&32),t.flags&=-33,e===null){if(Vi){if(a?fo(t):ho(t),(e=Bi)?(e=Cf(e,Ui),e=e!==null&&e.data!==`&`?e:null,e!==null&&(t.memoizedState={dehydrated:e,treeContext:ji===null?null:{id:Mi,overflow:Ni},retryLane:536870912,hydrationErrors:null},n=xi(e),n.return=t,t.child=n,zi=t,Bi=null)):e=null,e===null)throw Gi(t);return Tf(e)?t.lanes=32:t.lanes=536870912,null}var c=r.children;return r=r.fallback,a?(ho(t),a=t.mode,c=Nc({mode:`hidden`,children:c},a),r=yi(r,a,n,null),c.return=t,r.return=t,c.sibling=r,t.child=c,r=t.child,r.memoizedState=kc(n),r.childLanes=Ac(e,s,n),t.memoizedState=Oc,vc(null,r)):(fo(t),Mc(t,c))}var l=e.memoizedState;if(l!==null&&(c=l.dehydrated,c!==null)){if(o)t.flags&256?(fo(t),t.flags&=-257,t=Pc(e,t,n)):t.memoizedState===null?(ho(t),c=r.fallback,a=t.mode,r=Nc({mode:`visible`,children:r.children},a),c=yi(c,a,n,null),c.flags|=2,r.return=t,c.return=t,r.sibling=c,t.child=r,Wa(t,e.child,null,n),r=t.child,r.memoizedState=kc(n),r.childLanes=Ac(e,s,n),t.memoizedState=Oc,t=vc(null,r)):(ho(t),t.child=e.child,t.flags|=128,t=null);else if(fo(t),Tf(c)){if(s=c.nextSibling&&c.nextSibling.dataset,s)var u=s.dgst;s=u,r=Error(i(419)),r.stack=``,r.digest=s,Zi({value:r,source:null,stack:null}),t=Pc(e,t,n)}else if(fc||aa(e,t,n,!1),s=(n&e.childLanes)!==0,fc||s){if(s=Zl,s!==null&&(r=gt(s,n),r!==0&&r!==l.retryLane))throw l.retryLane=r,li(e,r),ju(s,e,r),dc;wf(c)||Uu(),t=Pc(e,t,n)}else wf(c)?(t.flags|=192,t.child=e.child,t=null):(e=l.treeContext,Bi=Df(c.nextSibling),zi=t,Vi=!0,Hi=null,Ui=!1,e!==null&&Ri(t,e),t=Mc(t,r.children),t.flags|=4096);return t}return a?(ho(t),c=r.fallback,a=t.mode,l=e.child,u=l.sibling,r=gi(l,{mode:`hidden`,children:r.children}),r.subtreeFlags=l.subtreeFlags&65011712,u===null?(c=yi(c,a,n,null),c.flags|=2):c=gi(u,c),c.return=t,r.return=t,r.sibling=c,t.child=r,vc(null,r),r=t.child,c=e.child.memoizedState,c===null?c=kc(n):(a=c.cachePool,a===null?a=Da():(l=pa._currentValue,a=a.parent===l?a:{parent:l,pool:l}),c={baseLanes:c.baseLanes|n,cachePool:a}),r.memoizedState=c,r.childLanes=Ac(e,s,n),t.memoizedState=Oc,vc(e.child,r)):(fo(t),n=e.child,e=n.sibling,n=gi(n,{mode:`visible`,children:r.children}),n.return=t,n.sibling=null,e!==null&&(s=t.deletions,s===null?(t.deletions=[e],t.flags|=16):s.push(e)),t.child=n,t.memoizedState=null,n)}function Mc(e,t){return t=Nc({mode:`visible`,children:t},e.mode),t.return=e,e.child=t}function Nc(e,t){return e=mi(22,e,null,t),e.lanes=0,e}function Pc(e,t,n){return Wa(t,e.child,null,n),e=Mc(t,t.pendingProps.children),e.flags|=2,t.memoizedState=null,e}function Fc(e,t,n){e.lanes|=t;var r=e.alternate;r!==null&&(r.lanes|=t),ra(e.return,t,n)}function Ic(e,t,n,r,i,a){var o=e.memoizedState;o===null?e.memoizedState={isBackwards:t,rendering:null,renderingStartTime:0,last:r,tail:n,tailMode:i,treeForkCount:a}:(o.isBackwards=t,o.rendering=null,o.renderingStartTime=0,o.last=r,o.tail=n,o.tailMode=i,o.treeForkCount=a)}function Lc(e,t,n){var r=t.pendingProps,i=r.revealOrder,a=r.tail;r=r.children;var o=_o.current,s=!!(o&2);if(s?(o=o&1|2,t.flags|=128):o&=1,xe(_o,o),pc(e,t,r,n),r=Vi?Oi:0,!s&&e!==null&&e.flags&128)a:for(e=t.child;e!==null;){if(e.tag===13)e.memoizedState!==null&&Fc(e,n,t);else if(e.tag===19)Fc(e,n,t);else if(e.child!==null){e.child.return=e,e=e.child;continue}if(e===t)break a;for(;e.sibling===null;){if(e.return===null||e.return===t)break a;e=e.return}e.sibling.return=e.return,e=e.sibling}switch(i){case`forwards`:for(n=t.child,i=null;n!==null;)e=n.alternate,e!==null&&vo(e)===null&&(i=n),n=n.sibling;n=i,n===null?(i=t.child,t.child=null):(i=n.sibling,n.sibling=null),Ic(t,!1,i,n,a,r);break;case`backwards`:case`unstable_legacy-backwards`:for(n=null,i=t.child,t.child=null;i!==null;){if(e=i.alternate,e!==null&&vo(e)===null){t.child=i;break}e=i.sibling,i.sibling=n,n=i,i=e}Ic(t,!0,n,null,a,r);break;case`together`:Ic(t,!1,null,null,void 0,r);break;default:t.memoizedState=null}return t.child}function Rc(e,t,n){if(e!==null&&(t.dependencies=e.dependencies),su|=t.lanes,(n&t.childLanes)===0)if(e!==null){if(aa(e,t,n,!1),(n&t.childLanes)===0)return null}else return null;if(e!==null&&t.child!==e.child)throw Error(i(153));if(t.child!==null){for(e=t.child,n=gi(e,e.pendingProps),t.child=n,n.return=t;e.sibling!==null;)e=e.sibling,n=n.sibling=gi(e,e.pendingProps),n.return=t;n.sibling=null}return t.child}function zc(e,t){return(e.lanes&t)!==0||(e=e.dependencies,!!(e!==null&&oa(e)))}function Bc(e,t,n){switch(t.tag){case 3:Te(t,t.stateNode.containerInfo),ta(t,pa,e.memoizedState.cache),Yi();break;case 27:case 5:De(t);break;case 4:Te(t,t.stateNode.containerInfo);break;case 10:ta(t,t.type,t.memoizedProps.value);break;case 31:if(t.memoizedState!==null)return t.flags|=128,po(t),null;break;case 13:var r=t.memoizedState;if(r!==null)return r.dehydrated===null?(n&t.child.childLanes)===0?(fo(t),e=Rc(e,t,n),e===null?null:e.sibling):jc(e,t,n):(fo(t),t.flags|=128,null);fo(t);break;case 19:var i=!!(e.flags&128);if(r=(n&t.childLanes)!==0,r||=(aa(e,t,n,!1),(n&t.childLanes)!==0),i){if(r)return Lc(e,t,n);t.flags|=128}if(i=t.memoizedState,i!==null&&(i.rendering=null,i.tail=null,i.lastEffect=null),xe(_o,_o.current),r)break;return null;case 22:return t.lanes=0,_c(e,t,n,t.pendingProps);case 24:ta(t,pa,e.memoizedState.cache)}return Rc(e,t,n)}function Vc(e,t,n){if(e!==null)if(e.memoizedProps!==t.pendingProps)fc=!0;else{if(!zc(e,n)&&!(t.flags&128))return fc=!1,Bc(e,t,n);fc=!!(e.flags&131072)}else fc=!1,Vi&&t.flags&1048576&&Fi(t,Oi,t.index);switch(t.lanes=0,t.tag){case 16:a:{var r=t.pendingProps;if(e=Pa(t.elementType),t.type=e,typeof e==`function`)hi(e)?(r=tc(e,r),t.tag=1,t=Ec(null,t,e,r,n)):(t.tag=0,t=wc(null,t,e,r,n));else{if(e!=null){var a=e.$$typeof;if(a===re){t.tag=11,t=mc(null,t,e,r,n);break a}if(a===oe){t.tag=14,t=hc(null,t,e,r,n);break a}}throw t=pe(e)||e,Error(i(306,t,``))}}return t;case 0:return wc(e,t,t.type,t.pendingProps,n);case 1:return r=t.type,a=tc(r,t.pendingProps),Ec(e,t,r,a,n);case 3:a:{if(Te(t,t.stateNode.containerInfo),e===null)throw Error(i(387));r=t.pendingProps;var o=t.memoizedState;a=o.element,Ja(e,t),to(t,r,null,n);var s=t.memoizedState;if(r=s.cache,ta(t,pa,r),r!==o.cache&&ia(t,[pa],n,!0),eo(),r=s.element,o.isDehydrated)if(o={element:r,isDehydrated:!1,cache:s.cache},t.updateQueue.baseState=o,t.memoizedState=o,t.flags&256){t=Dc(e,t,r,n);break a}else if(r!==a){a=wi(Error(i(424)),t),Zi(a),t=Dc(e,t,r,n);break a}else{switch(e=t.stateNode.containerInfo,e.nodeType){case 9:e=e.body;break;default:e=e.nodeName===`HTML`?e.ownerDocument.body:e}for(Bi=Df(e.firstChild),zi=t,Vi=!0,Hi=null,Ui=!0,n=Ga(t,null,r,n),t.child=n;n;)n.flags=n.flags&-3|4096,n=n.sibling}else{if(Yi(),r===a){t=Rc(e,t,n);break a}pc(e,t,r,n)}t=t.child}return t;case 26:return Cc(e,t),e===null?(n=Jf(t.type,null,t.pendingProps,null))?t.memoizedState=n:Vi||(n=t.type,e=t.pendingProps,r=of(S.current).createElement(n),r[St]=t,r[Ct]=e,$d(r,n,e),Pt(r),t.stateNode=r):t.memoizedState=Jf(t.type,e.memoizedProps,t.pendingProps,e.memoizedState),null;case 27:return De(t),e===null&&Vi&&(r=t.stateNode=jf(t.type,t.pendingProps,S.current),zi=t,Ui=!0,a=Bi,_f(t.type)?(Of=a,Bi=Df(r.firstChild)):Bi=a),pc(e,t,t.pendingProps.children,n),Cc(e,t),e===null&&(t.flags|=4194304),t.child;case 5:return e===null&&Vi&&((a=r=Bi)&&(r=xf(r,t.type,t.pendingProps,Ui),r===null?a=!1:(t.stateNode=r,zi=t,Bi=Df(r.firstChild),Ui=!1,a=!0)),a||Gi(t)),De(t),a=t.type,o=t.pendingProps,s=e===null?null:e.memoizedProps,r=o.children,lf(a,o)?r=null:s!==null&&lf(a,s)&&(t.flags|=32),t.memoizedState!==null&&(a=Mo(e,t,Fo,null,null,n),_p._currentValue=a),Cc(e,t),pc(e,t,r,n),t.child;case 6:return e===null&&Vi&&((e=n=Bi)&&(n=Sf(n,t.pendingProps,Ui),n===null?e=!1:(t.stateNode=n,zi=t,Bi=null,e=!0)),e||Gi(t)),null;case 13:return jc(e,t,n);case 4:return Te(t,t.stateNode.containerInfo),r=t.pendingProps,e===null?t.child=Wa(t,null,r,n):pc(e,t,r,n),t.child;case 11:return mc(e,t,t.type,t.pendingProps,n);case 7:return pc(e,t,t.pendingProps,n),t.child;case 8:return pc(e,t,t.pendingProps.children,n),t.child;case 12:return pc(e,t,t.pendingProps.children,n),t.child;case 10:return r=t.pendingProps,ta(t,t.type,r.value),pc(e,t,r.children,n),t.child;case 9:return a=t.type._context,r=t.pendingProps.children,sa(t),a=ca(a),r=r(a),t.flags|=1,pc(e,t,r,n),t.child;case 14:return hc(e,t,t.type,t.pendingProps,n);case 15:return gc(e,t,t.type,t.pendingProps,n);case 19:return Lc(e,t,n);case 31:return Sc(e,t,n);case 22:return _c(e,t,n,t.pendingProps);case 24:return sa(t),r=ca(pa),e===null?(a=Ta(),a===null&&(a=Zl,o=ma(),a.pooledCache=o,o.refCount++,o!==null&&(a.pooledCacheLanes|=n),a=o),t.memoizedState={parent:r,cache:a},qa(t),ta(t,pa,a)):((e.lanes&n)!==0&&(Ja(e,t),to(t,null,null,n),eo()),a=e.memoizedState,o=t.memoizedState,a.parent===r?(r=o.cache,ta(t,pa,r),r!==a.cache&&ia(t,[pa],n,!0)):(a={parent:r,cache:r},t.memoizedState=a,t.lanes===0&&(t.memoizedState=t.updateQueue.baseState=a),ta(t,pa,r))),pc(e,t,t.pendingProps.children,n),t.child;case 29:throw t.pendingProps}throw Error(i(156,t.tag))}function Hc(e){e.flags|=4}function Uc(e,t,n,r,i){if((t=!!(e.mode&32))&&(t=!1),t){if(e.flags|=16777216,(i&335544128)===i)if(e.stateNode.complete)e.flags|=8192;else if(Bu())e.flags|=8192;else throw Fa=ja,ka}else e.flags&=-16777217}function Wc(e,t){if(t.type!==`stylesheet`||t.state.loading&4)e.flags&=-16777217;else if(e.flags|=16777216,!lp(t))if(Bu())e.flags|=8192;else throw Fa=ja,ka}function Gc(e,t){t!==null&&(e.flags|=4),e.flags&16384&&(t=e.tag===22?536870912:ut(),e.lanes|=t,du|=t)}function Kc(e,t){if(!Vi)switch(e.tailMode){case`hidden`:t=e.tail;for(var n=null;t!==null;)t.alternate!==null&&(n=t),t=t.sibling;n===null?e.tail=null:n.sibling=null;break;case`collapsed`:n=e.tail;for(var r=null;n!==null;)n.alternate!==null&&(r=n),n=n.sibling;r===null?t||e.tail===null?e.tail=null:e.tail.sibling=null:r.sibling=null}}function qc(e){var t=e.alternate!==null&&e.alternate.child===e.child,n=0,r=0;if(t)for(var i=e.child;i!==null;)n|=i.lanes|i.childLanes,r|=i.subtreeFlags&65011712,r|=i.flags&65011712,i.return=e,i=i.sibling;else for(i=e.child;i!==null;)n|=i.lanes|i.childLanes,r|=i.subtreeFlags,r|=i.flags,i.return=e,i=i.sibling;return e.subtreeFlags|=r,e.childLanes=n,t}function Jc(e,t,n){var r=t.pendingProps;switch(Li(t),t.tag){case 16:case 15:case 0:case 11:case 7:case 8:case 12:case 9:case 14:return qc(t),null;case 1:return qc(t),null;case 3:return n=t.stateNode,r=null,e!==null&&(r=e.memoizedState.cache),t.memoizedState.cache!==r&&(t.flags|=2048),na(pa),Ee(),n.pendingContext&&(n.context=n.pendingContext,n.pendingContext=null),(e===null||e.child===null)&&(Ji(t)?Hc(t):e===null||e.memoizedState.isDehydrated&&!(t.flags&256)||(t.flags|=1024,Xi())),qc(t),null;case 26:var a=t.type,o=t.memoizedState;return e===null?(Hc(t),o===null?(qc(t),Uc(t,a,null,r,n)):(qc(t),Wc(t,o))):o?o===e.memoizedState?(qc(t),t.flags&=-16777217):(Hc(t),qc(t),Wc(t,o)):(e=e.memoizedProps,e!==r&&Hc(t),qc(t),Uc(t,a,e,r,n)),null;case 27:if(Oe(t),n=S.current,a=t.type,e!==null&&t.stateNode!=null)e.memoizedProps!==r&&Hc(t);else{if(!r){if(t.stateNode===null)throw Error(i(166));return qc(t),null}e=Se.current,Ji(t)?Ki(t,e):(e=jf(a,r,n),t.stateNode=e,Hc(t))}return qc(t),null;case 5:if(Oe(t),a=t.type,e!==null&&t.stateNode!=null)e.memoizedProps!==r&&Hc(t);else{if(!r){if(t.stateNode===null)throw Error(i(166));return qc(t),null}if(o=Se.current,Ji(t))Ki(t,o);else{var s=of(S.current);switch(o){case 1:o=s.createElementNS(`http://www.w3.org/2000/svg`,a);break;case 2:o=s.createElementNS(`http://www.w3.org/1998/Math/MathML`,a);break;default:switch(a){case`svg`:o=s.createElementNS(`http://www.w3.org/2000/svg`,a);break;case`math`:o=s.createElementNS(`http://www.w3.org/1998/Math/MathML`,a);break;case`script`:o=s.createElement(`div`),o.innerHTML=`<script><\/script>`,o=o.removeChild(o.firstChild);break;case`select`:o=typeof r.is==`string`?s.createElement(`select`,{is:r.is}):s.createElement(`select`),r.multiple?o.multiple=!0:r.size&&(o.size=r.size);break;default:o=typeof r.is==`string`?s.createElement(a,{is:r.is}):s.createElement(a)}}o[St]=t,o[Ct]=r;a:for(s=t.child;s!==null;){if(s.tag===5||s.tag===6)o.appendChild(s.stateNode);else if(s.tag!==4&&s.tag!==27&&s.child!==null){s.child.return=s,s=s.child;continue}if(s===t)break a;for(;s.sibling===null;){if(s.return===null||s.return===t)break a;s=s.return}s.sibling.return=s.return,s=s.sibling}t.stateNode=o;a:switch($d(o,a,r),a){case`button`:case`input`:case`select`:case`textarea`:r=!!r.autoFocus;break a;case`img`:r=!0;break a;default:r=!1}r&&Hc(t)}}return qc(t),Uc(t,t.type,e===null?null:e.memoizedProps,t.pendingProps,n),null;case 6:if(e&&t.stateNode!=null)e.memoizedProps!==r&&Hc(t);else{if(typeof r!=`string`&&t.stateNode===null)throw Error(i(166));if(e=S.current,Ji(t)){if(e=t.stateNode,n=t.memoizedProps,r=null,a=zi,a!==null)switch(a.tag){case 27:case 5:r=a.memoizedProps}e[St]=t,e=!!(e.nodeValue===n||r!==null&&!0===r.suppressHydrationWarning||Xd(e.nodeValue,n)),e||Gi(t,!0)}else e=of(e).createTextNode(r),e[St]=t,t.stateNode=e}return qc(t),null;case 31:if(n=t.memoizedState,e===null||e.memoizedState!==null){if(r=Ji(t),n!==null){if(e===null){if(!r)throw Error(i(318));if(e=t.memoizedState,e=e===null?null:e.dehydrated,!e)throw Error(i(557));e[St]=t}else Yi(),!(t.flags&128)&&(t.memoizedState=null),t.flags|=4;qc(t),e=!1}else n=Xi(),e!==null&&e.memoizedState!==null&&(e.memoizedState.hydrationErrors=n),e=!0;if(!e)return t.flags&256?(go(t),t):(go(t),null);if(t.flags&128)throw Error(i(558))}return qc(t),null;case 13:if(r=t.memoizedState,e===null||e.memoizedState!==null&&e.memoizedState.dehydrated!==null){if(a=Ji(t),r!==null&&r.dehydrated!==null){if(e===null){if(!a)throw Error(i(318));if(a=t.memoizedState,a=a===null?null:a.dehydrated,!a)throw Error(i(317));a[St]=t}else Yi(),!(t.flags&128)&&(t.memoizedState=null),t.flags|=4;qc(t),a=!1}else a=Xi(),e!==null&&e.memoizedState!==null&&(e.memoizedState.hydrationErrors=a),a=!0;if(!a)return t.flags&256?(go(t),t):(go(t),null)}return go(t),t.flags&128?(t.lanes=n,t):(n=r!==null,e=e!==null&&e.memoizedState!==null,n&&(r=t.child,a=null,r.alternate!==null&&r.alternate.memoizedState!==null&&r.alternate.memoizedState.cachePool!==null&&(a=r.alternate.memoizedState.cachePool.pool),o=null,r.memoizedState!==null&&r.memoizedState.cachePool!==null&&(o=r.memoizedState.cachePool.pool),o!==a&&(r.flags|=2048)),n!==e&&n&&(t.child.flags|=8192),Gc(t,t.updateQueue),qc(t),null);case 4:return Ee(),e===null&&Bd(t.stateNode.containerInfo),qc(t),null;case 10:return na(t.type),qc(t),null;case 19:if(x(_o),r=t.memoizedState,r===null)return qc(t),null;if(a=!!(t.flags&128),o=r.rendering,o===null)if(a)Kc(r,!1);else{if(ou!==0||e!==null&&e.flags&128)for(e=t.child;e!==null;){if(o=vo(e),o!==null){for(t.flags|=128,Kc(r,!1),e=o.updateQueue,t.updateQueue=e,Gc(t,e),t.subtreeFlags=0,e=n,n=t.child;n!==null;)_i(n,e),n=n.sibling;return xe(_o,_o.current&1|2),Vi&&Pi(t,r.treeForkCount),t.child}e=e.sibling}r.tail!==null&&Ve()>_u&&(t.flags|=128,a=!0,Kc(r,!1),t.lanes=4194304)}else{if(!a)if(e=vo(o),e!==null){if(t.flags|=128,a=!0,e=e.updateQueue,t.updateQueue=e,Gc(t,e),Kc(r,!0),r.tail===null&&r.tailMode===`hidden`&&!o.alternate&&!Vi)return qc(t),null}else 2*Ve()-r.renderingStartTime>_u&&n!==536870912&&(t.flags|=128,a=!0,Kc(r,!1),t.lanes=4194304);r.isBackwards?(o.sibling=t.child,t.child=o):(e=r.last,e===null?t.child=o:e.sibling=o,r.last=o)}return r.tail===null?(qc(t),null):(e=r.tail,r.rendering=e,r.tail=e.sibling,r.renderingStartTime=Ve(),e.sibling=null,n=_o.current,xe(_o,a?n&1|2:n&1),Vi&&Pi(t,r.treeForkCount),e);case 22:case 23:return go(t),co(),r=t.memoizedState!==null,e===null?r&&(t.flags|=8192):e.memoizedState!==null!==r&&(t.flags|=8192),r?n&536870912&&!(t.flags&128)&&(qc(t),t.subtreeFlags&6&&(t.flags|=8192)):qc(t),n=t.updateQueue,n!==null&&Gc(t,n.retryQueue),n=null,e!==null&&e.memoizedState!==null&&e.memoizedState.cachePool!==null&&(n=e.memoizedState.cachePool.pool),r=null,t.memoizedState!==null&&t.memoizedState.cachePool!==null&&(r=t.memoizedState.cachePool.pool),r!==n&&(t.flags|=2048),e!==null&&x(wa),null;case 24:return n=null,e!==null&&(n=e.memoizedState.cache),t.memoizedState.cache!==n&&(t.flags|=2048),na(pa),qc(t),null;case 25:return null;case 30:return null}throw Error(i(156,t.tag))}function Yc(e,t){switch(Li(t),t.tag){case 1:return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 3:return na(pa),Ee(),e=t.flags,e&65536&&!(e&128)?(t.flags=e&-65537|128,t):null;case 26:case 27:case 5:return Oe(t),null;case 31:if(t.memoizedState!==null){if(go(t),t.alternate===null)throw Error(i(340));Yi()}return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 13:if(go(t),e=t.memoizedState,e!==null&&e.dehydrated!==null){if(t.alternate===null)throw Error(i(340));Yi()}return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 19:return x(_o),null;case 4:return Ee(),null;case 10:return na(t.type),null;case 22:case 23:return go(t),co(),e!==null&&x(wa),e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 24:return na(pa),null;case 25:return null;default:return null}}function Xc(e,t){switch(Li(t),t.tag){case 3:na(pa),Ee();break;case 26:case 27:case 5:Oe(t);break;case 4:Ee();break;case 31:t.memoizedState!==null&&go(t);break;case 13:go(t);break;case 19:x(_o);break;case 10:na(t.type);break;case 22:case 23:go(t),co(),e!==null&&x(wa);break;case 24:na(pa)}}function Zc(e,t){try{var n=t.updateQueue,r=n===null?null:n.lastEffect;if(r!==null){var i=r.next;n=i;do{if((n.tag&e)===e){r=void 0;var a=n.create,o=n.inst;r=a(),o.destroy=r}n=n.next}while(n!==i)}}catch(e){sd(t,t.return,e)}}function Qc(e,t,n){try{var r=t.updateQueue,i=r===null?null:r.lastEffect;if(i!==null){var a=i.next;r=a;do{if((r.tag&e)===e){var o=r.inst,s=o.destroy;if(s!==void 0){o.destroy=void 0,i=t;var c=n,l=s;try{l()}catch(e){sd(i,c,e)}}}r=r.next}while(r!==a)}}catch(e){sd(t,t.return,e)}}function $c(e){var t=e.updateQueue;if(t!==null){var n=e.stateNode;try{ro(t,n)}catch(t){sd(e,e.return,t)}}}function el(e,t,n){n.props=tc(e.type,e.memoizedProps),n.state=e.memoizedState;try{n.componentWillUnmount()}catch(n){sd(e,t,n)}}function tl(e,t){try{var n=e.ref;if(n!==null){switch(e.tag){case 26:case 27:case 5:var r=e.stateNode;break;case 30:r=e.stateNode;break;default:r=e.stateNode}typeof n==`function`?e.refCleanup=n(r):n.current=r}}catch(n){sd(e,t,n)}}function nl(e,t){var n=e.ref,r=e.refCleanup;if(n!==null)if(typeof r==`function`)try{r()}catch(n){sd(e,t,n)}finally{e.refCleanup=null,e=e.alternate,e!=null&&(e.refCleanup=null)}else if(typeof n==`function`)try{n(null)}catch(n){sd(e,t,n)}else n.current=null}function rl(e){var t=e.type,n=e.memoizedProps,r=e.stateNode;try{a:switch(t){case`button`:case`input`:case`select`:case`textarea`:n.autoFocus&&r.focus();break a;case`img`:n.src?r.src=n.src:n.srcSet&&(r.srcset=n.srcSet)}}catch(t){sd(e,e.return,t)}}function il(e,t,n){try{var r=e.stateNode;ef(r,e.type,n,t),r[Ct]=t}catch(t){sd(e,e.return,t)}}function al(e){return e.tag===5||e.tag===3||e.tag===26||e.tag===27&&_f(e.type)||e.tag===4}function ol(e){a:for(;;){for(;e.sibling===null;){if(e.return===null||al(e.return))return null;e=e.return}for(e.sibling.return=e.return,e=e.sibling;e.tag!==5&&e.tag!==6&&e.tag!==18;){if(e.tag===27&&_f(e.type)||e.flags&2||e.child===null||e.tag===4)continue a;e.child.return=e,e=e.child}if(!(e.flags&2))return e.stateNode}}function sl(e,t,n){var r=e.tag;if(r===5||r===6)e=e.stateNode,t?(n.nodeType===9?n.body:n.nodeName===`HTML`?n.ownerDocument.body:n).insertBefore(e,t):(t=n.nodeType===9?n.body:n.nodeName===`HTML`?n.ownerDocument.body:n,t.appendChild(e),n=n._reactRootContainer,n!=null||t.onclick!==null||(t.onclick=cn));else if(r!==4&&(r===27&&_f(e.type)&&(n=e.stateNode,t=null),e=e.child,e!==null))for(sl(e,t,n),e=e.sibling;e!==null;)sl(e,t,n),e=e.sibling}function cl(e,t,n){var r=e.tag;if(r===5||r===6)e=e.stateNode,t?n.insertBefore(e,t):n.appendChild(e);else if(r!==4&&(r===27&&_f(e.type)&&(n=e.stateNode),e=e.child,e!==null))for(cl(e,t,n),e=e.sibling;e!==null;)cl(e,t,n),e=e.sibling}function ll(e){var t=e.stateNode,n=e.memoizedProps;try{for(var r=e.type,i=t.attributes;i.length;)t.removeAttributeNode(i[0]);$d(t,r,n),t[St]=e,t[Ct]=n}catch(t){sd(e,e.return,t)}}var ul=!1,dl=!1,fl=!1,pl=typeof WeakSet==`function`?WeakSet:Set,ml=null;function hl(e,t){if(e=e.containerInfo,rf=Ep,e=Nr(e),Pr(e)){if(`selectionStart`in e)var n={start:e.selectionStart,end:e.selectionEnd};else a:{n=(n=e.ownerDocument)&&n.defaultView||window;var r=n.getSelection&&n.getSelection();if(r&&r.rangeCount!==0){n=r.anchorNode;var a=r.anchorOffset,o=r.focusNode;r=r.focusOffset;try{n.nodeType,o.nodeType}catch{n=null;break a}var s=0,c=-1,l=-1,u=0,d=0,f=e,p=null;b:for(;;){for(var m;f!==n||a!==0&&f.nodeType!==3||(c=s+a),f!==o||r!==0&&f.nodeType!==3||(l=s+r),f.nodeType===3&&(s+=f.nodeValue.length),(m=f.firstChild)!==null;)p=f,f=m;for(;;){if(f===e)break b;if(p===n&&++u===a&&(c=s),p===o&&++d===r&&(l=s),(m=f.nextSibling)!==null)break;f=p,p=f.parentNode}f=m}n=c===-1||l===-1?null:{start:c,end:l}}else n=null}n||={start:0,end:0}}else n=null;for(af={focusedElem:e,selectionRange:n},Ep=!1,ml=t;ml!==null;)if(t=ml,e=t.child,t.subtreeFlags&1028&&e!==null)e.return=t,ml=e;else for(;ml!==null;){switch(t=ml,o=t.alternate,e=t.flags,t.tag){case 0:if(e&4&&(e=t.updateQueue,e=e===null?null:e.events,e!==null))for(n=0;n<e.length;n++)a=e[n],a.ref.impl=a.nextImpl;break;case 11:case 15:break;case 1:if(e&1024&&o!==null){e=void 0,n=t,a=o.memoizedProps,o=o.memoizedState,r=n.stateNode;try{var h=tc(n.type,a);e=r.getSnapshotBeforeUpdate(h,o),r.__reactInternalSnapshotBeforeUpdate=e}catch(e){sd(n,n.return,e)}}break;case 3:if(e&1024){if(e=t.stateNode.containerInfo,n=e.nodeType,n===9)bf(e);else if(n===1)switch(e.nodeName){case`HEAD`:case`HTML`:case`BODY`:bf(e);break;default:e.textContent=``}}break;case 5:case 26:case 27:case 6:case 4:case 17:break;default:if(e&1024)throw Error(i(163))}if(e=t.sibling,e!==null){e.return=t.return,ml=e;break}ml=t.return}}function gl(e,t,n){var r=n.flags;switch(n.tag){case 0:case 11:case 15:jl(e,n),r&4&&Zc(5,n);break;case 1:if(jl(e,n),r&4)if(e=n.stateNode,t===null)try{e.componentDidMount()}catch(e){sd(n,n.return,e)}else{var i=tc(n.type,t.memoizedProps);t=t.memoizedState;try{e.componentDidUpdate(i,t,e.__reactInternalSnapshotBeforeUpdate)}catch(e){sd(n,n.return,e)}}r&64&&$c(n),r&512&&tl(n,n.return);break;case 3:if(jl(e,n),r&64&&(e=n.updateQueue,e!==null)){if(t=null,n.child!==null)switch(n.child.tag){case 27:case 5:t=n.child.stateNode;break;case 1:t=n.child.stateNode}try{ro(e,t)}catch(e){sd(n,n.return,e)}}break;case 27:t===null&&r&4&&ll(n);case 26:case 5:jl(e,n),t===null&&r&4&&rl(n),r&512&&tl(n,n.return);break;case 12:jl(e,n);break;case 31:jl(e,n),r&4&&Sl(e,n);break;case 13:jl(e,n),r&4&&Cl(e,n),r&64&&(e=n.memoizedState,e!==null&&(e=e.dehydrated,e!==null&&(n=dd.bind(null,n),Ef(e,n))));break;case 22:if(r=n.memoizedState!==null||ul,!r){t=t!==null&&t.memoizedState!==null||dl,i=ul;var a=dl;ul=r,(dl=t)&&!a?Nl(e,n,!!(n.subtreeFlags&8772)):jl(e,n),ul=i,dl=a}break;case 30:break;default:jl(e,n)}}function _l(e){var t=e.alternate;t!==null&&(e.alternate=null,_l(t)),e.child=null,e.deletions=null,e.sibling=null,e.tag===5&&(t=e.stateNode,t!==null&&kt(t)),e.stateNode=null,e.return=null,e.dependencies=null,e.memoizedProps=null,e.memoizedState=null,e.pendingProps=null,e.stateNode=null,e.updateQueue=null}var vl=null,yl=!1;function bl(e,t,n){for(n=n.child;n!==null;)xl(e,t,n),n=n.sibling}function xl(e,t,n){if(Ze&&typeof Ze.onCommitFiberUnmount==`function`)try{Ze.onCommitFiberUnmount(Xe,n)}catch{}switch(n.tag){case 26:dl||nl(n,t),bl(e,t,n),n.memoizedState?n.memoizedState.count--:n.stateNode&&(n=n.stateNode,n.parentNode.removeChild(n));break;case 27:dl||nl(n,t);var r=vl,i=yl;_f(n.type)&&(vl=n.stateNode,yl=!1),bl(e,t,n),Mf(n.stateNode),vl=r,yl=i;break;case 5:dl||nl(n,t);case 6:if(r=vl,i=yl,vl=null,bl(e,t,n),vl=r,yl=i,vl!==null)if(yl)try{(vl.nodeType===9?vl.body:vl.nodeName===`HTML`?vl.ownerDocument.body:vl).removeChild(n.stateNode)}catch(e){sd(n,t,e)}else try{vl.removeChild(n.stateNode)}catch(e){sd(n,t,e)}break;case 18:vl!==null&&(yl?(e=vl,vf(e.nodeType===9?e.body:e.nodeName===`HTML`?e.ownerDocument.body:e,n.stateNode),Qp(e)):vf(vl,n.stateNode));break;case 4:r=vl,i=yl,vl=n.stateNode.containerInfo,yl=!0,bl(e,t,n),vl=r,yl=i;break;case 0:case 11:case 14:case 15:Qc(2,n,t),dl||Qc(4,n,t),bl(e,t,n);break;case 1:dl||(nl(n,t),r=n.stateNode,typeof r.componentWillUnmount==`function`&&el(n,t,r)),bl(e,t,n);break;case 21:bl(e,t,n);break;case 22:dl=(r=dl)||n.memoizedState!==null,bl(e,t,n),dl=r;break;default:bl(e,t,n)}}function Sl(e,t){if(t.memoizedState===null&&(e=t.alternate,e!==null&&(e=e.memoizedState,e!==null))){e=e.dehydrated;try{Qp(e)}catch(e){sd(t,t.return,e)}}}function Cl(e,t){if(t.memoizedState===null&&(e=t.alternate,e!==null&&(e=e.memoizedState,e!==null&&(e=e.dehydrated,e!==null))))try{Qp(e)}catch(e){sd(t,t.return,e)}}function wl(e){switch(e.tag){case 31:case 13:case 19:var t=e.stateNode;return t===null&&(t=e.stateNode=new pl),t;case 22:return e=e.stateNode,t=e._retryCache,t===null&&(t=e._retryCache=new pl),t;default:throw Error(i(435,e.tag))}}function Tl(e,t){var n=wl(e);t.forEach(function(t){if(!n.has(t)){n.add(t);var r=fd.bind(null,e,t);t.then(r,r)}})}function El(e,t){var n=t.deletions;if(n!==null)for(var r=0;r<n.length;r++){var a=n[r],o=e,s=t,c=s;a:for(;c!==null;){switch(c.tag){case 27:if(_f(c.type)){vl=c.stateNode,yl=!1;break a}break;case 5:vl=c.stateNode,yl=!1;break a;case 3:case 4:vl=c.stateNode.containerInfo,yl=!0;break a}c=c.return}if(vl===null)throw Error(i(160));xl(o,s,a),vl=null,yl=!1,o=a.alternate,o!==null&&(o.return=null),a.return=null}if(t.subtreeFlags&13886)for(t=t.child;t!==null;)Ol(t,e),t=t.sibling}var Dl=null;function Ol(e,t){var n=e.alternate,r=e.flags;switch(e.tag){case 0:case 11:case 14:case 15:El(t,e),kl(e),r&4&&(Qc(3,e,e.return),Zc(3,e),Qc(5,e,e.return));break;case 1:El(t,e),kl(e),r&512&&(dl||n===null||nl(n,n.return)),r&64&&ul&&(e=e.updateQueue,e!==null&&(r=e.callbacks,r!==null&&(n=e.shared.hiddenCallbacks,e.shared.hiddenCallbacks=n===null?r:n.concat(r))));break;case 26:var a=Dl;if(El(t,e),kl(e),r&512&&(dl||n===null||nl(n,n.return)),r&4){var o=n===null?null:n.memoizedState;if(r=e.memoizedState,n===null)if(r===null)if(e.stateNode===null){a:{r=e.type,n=e.memoizedProps,a=a.ownerDocument||a;b:switch(r){case`title`:o=a.getElementsByTagName(`title`)[0],(!o||o[Ot]||o[St]||o.namespaceURI===`http://www.w3.org/2000/svg`||o.hasAttribute(`itemprop`))&&(o=a.createElement(r),a.head.insertBefore(o,a.querySelector(`head > title`))),$d(o,r,n),o[St]=e,Pt(o),r=o;break a;case`link`:var s=op(`link`,`href`,a).get(r+(n.href||``));if(s){for(var c=0;c<s.length;c++)if(o=s[c],o.getAttribute(`href`)===(n.href==null||n.href===``?null:n.href)&&o.getAttribute(`rel`)===(n.rel==null?null:n.rel)&&o.getAttribute(`title`)===(n.title==null?null:n.title)&&o.getAttribute(`crossorigin`)===(n.crossOrigin==null?null:n.crossOrigin)){s.splice(c,1);break b}}o=a.createElement(r),$d(o,r,n),a.head.appendChild(o);break;case`meta`:if(s=op(`meta`,`content`,a).get(r+(n.content||``))){for(c=0;c<s.length;c++)if(o=s[c],o.getAttribute(`content`)===(n.content==null?null:``+n.content)&&o.getAttribute(`name`)===(n.name==null?null:n.name)&&o.getAttribute(`property`)===(n.property==null?null:n.property)&&o.getAttribute(`http-equiv`)===(n.httpEquiv==null?null:n.httpEquiv)&&o.getAttribute(`charset`)===(n.charSet==null?null:n.charSet)){s.splice(c,1);break b}}o=a.createElement(r),$d(o,r,n),a.head.appendChild(o);break;default:throw Error(i(468,r))}o[St]=e,Pt(o),r=o}e.stateNode=r}else sp(a,e.type,e.stateNode);else e.stateNode=tp(a,r,e.memoizedProps);else o===r?r===null&&e.stateNode!==null&&il(e,e.memoizedProps,n.memoizedProps):(o===null?n.stateNode!==null&&(n=n.stateNode,n.parentNode.removeChild(n)):o.count--,r===null?sp(a,e.type,e.stateNode):tp(a,r,e.memoizedProps))}break;case 27:El(t,e),kl(e),r&512&&(dl||n===null||nl(n,n.return)),n!==null&&r&4&&il(e,e.memoizedProps,n.memoizedProps);break;case 5:if(El(t,e),kl(e),r&512&&(dl||n===null||nl(n,n.return)),e.flags&32){a=e.stateNode;try{tn(a,``)}catch(t){sd(e,e.return,t)}}r&4&&e.stateNode!=null&&(a=e.memoizedProps,il(e,a,n===null?a:n.memoizedProps)),r&1024&&(fl=!0);break;case 6:if(El(t,e),kl(e),r&4){if(e.stateNode===null)throw Error(i(162));r=e.memoizedProps,n=e.stateNode;try{n.nodeValue=r}catch(t){sd(e,e.return,t)}}break;case 3:if(ap=null,a=Dl,Dl=Ff(t.containerInfo),El(t,e),Dl=a,kl(e),r&4&&n!==null&&n.memoizedState.isDehydrated)try{Qp(t.containerInfo)}catch(t){sd(e,e.return,t)}fl&&(fl=!1,Al(e));break;case 4:r=Dl,Dl=Ff(e.stateNode.containerInfo),El(t,e),kl(e),Dl=r;break;case 12:El(t,e),kl(e);break;case 31:El(t,e),kl(e),r&4&&(r=e.updateQueue,r!==null&&(e.updateQueue=null,Tl(e,r)));break;case 13:El(t,e),kl(e),e.child.flags&8192&&e.memoizedState!==null!=(n!==null&&n.memoizedState!==null)&&(hu=Ve()),r&4&&(r=e.updateQueue,r!==null&&(e.updateQueue=null,Tl(e,r)));break;case 22:a=e.memoizedState!==null;var l=n!==null&&n.memoizedState!==null,u=ul,d=dl;if(ul=u||a,dl=d||l,El(t,e),dl=d,ul=u,kl(e),r&8192)a:for(t=e.stateNode,t._visibility=a?t._visibility&-2:t._visibility|1,a&&(n===null||l||ul||dl||Ml(e)),n=null,t=e;;){if(t.tag===5||t.tag===26){if(n===null){l=n=t;try{if(o=l.stateNode,a)s=o.style,typeof s.setProperty==`function`?s.setProperty(`display`,`none`,`important`):s.display=`none`;else{c=l.stateNode;var f=l.memoizedProps.style,p=f!=null&&f.hasOwnProperty(`display`)?f.display:null;c.style.display=p==null||typeof p==`boolean`?``:(``+p).trim()}}catch(e){sd(l,l.return,e)}}}else if(t.tag===6){if(n===null){l=t;try{l.stateNode.nodeValue=a?``:l.memoizedProps}catch(e){sd(l,l.return,e)}}}else if(t.tag===18){if(n===null){l=t;try{var m=l.stateNode;a?yf(m,!0):yf(l.stateNode,!1)}catch(e){sd(l,l.return,e)}}}else if((t.tag!==22&&t.tag!==23||t.memoizedState===null||t===e)&&t.child!==null){t.child.return=t,t=t.child;continue}if(t===e)break a;for(;t.sibling===null;){if(t.return===null||t.return===e)break a;n===t&&(n=null),t=t.return}n===t&&(n=null),t.sibling.return=t.return,t=t.sibling}r&4&&(r=e.updateQueue,r!==null&&(n=r.retryQueue,n!==null&&(r.retryQueue=null,Tl(e,n))));break;case 19:El(t,e),kl(e),r&4&&(r=e.updateQueue,r!==null&&(e.updateQueue=null,Tl(e,r)));break;case 30:break;case 21:break;default:El(t,e),kl(e)}}function kl(e){var t=e.flags;if(t&2){try{for(var n,r=e.return;r!==null;){if(al(r)){n=r;break}r=r.return}if(n==null)throw Error(i(160));switch(n.tag){case 27:var a=n.stateNode;cl(e,ol(e),a);break;case 5:var o=n.stateNode;n.flags&32&&(tn(o,``),n.flags&=-33),cl(e,ol(e),o);break;case 3:case 4:var s=n.stateNode.containerInfo;sl(e,ol(e),s);break;default:throw Error(i(161))}}catch(t){sd(e,e.return,t)}e.flags&=-3}t&4096&&(e.flags&=-4097)}function Al(e){if(e.subtreeFlags&1024)for(e=e.child;e!==null;){var t=e;Al(t),t.tag===5&&t.flags&1024&&t.stateNode.reset(),e=e.sibling}}function jl(e,t){if(t.subtreeFlags&8772)for(t=t.child;t!==null;)gl(e,t.alternate,t),t=t.sibling}function Ml(e){for(e=e.child;e!==null;){var t=e;switch(t.tag){case 0:case 11:case 14:case 15:Qc(4,t,t.return),Ml(t);break;case 1:nl(t,t.return);var n=t.stateNode;typeof n.componentWillUnmount==`function`&&el(t,t.return,n),Ml(t);break;case 27:Mf(t.stateNode);case 26:case 5:nl(t,t.return),Ml(t);break;case 22:t.memoizedState===null&&Ml(t);break;case 30:Ml(t);break;default:Ml(t)}e=e.sibling}}function Nl(e,t,n){for(n&&=!!(t.subtreeFlags&8772),t=t.child;t!==null;){var r=t.alternate,i=e,a=t,o=a.flags;switch(a.tag){case 0:case 11:case 15:Nl(i,a,n),Zc(4,a);break;case 1:if(Nl(i,a,n),r=a,i=r.stateNode,typeof i.componentDidMount==`function`)try{i.componentDidMount()}catch(e){sd(r,r.return,e)}if(r=a,i=r.updateQueue,i!==null){var s=r.stateNode;try{var c=i.shared.hiddenCallbacks;if(c!==null)for(i.shared.hiddenCallbacks=null,i=0;i<c.length;i++)no(c[i],s)}catch(e){sd(r,r.return,e)}}n&&o&64&&$c(a),tl(a,a.return);break;case 27:ll(a);case 26:case 5:Nl(i,a,n),n&&r===null&&o&4&&rl(a),tl(a,a.return);break;case 12:Nl(i,a,n);break;case 31:Nl(i,a,n),n&&o&4&&Sl(i,a);break;case 13:Nl(i,a,n),n&&o&4&&Cl(i,a);break;case 22:a.memoizedState===null&&Nl(i,a,n),tl(a,a.return);break;case 30:break;default:Nl(i,a,n)}t=t.sibling}}function Pl(e,t){var n=null;e!==null&&e.memoizedState!==null&&e.memoizedState.cachePool!==null&&(n=e.memoizedState.cachePool.pool),e=null,t.memoizedState!==null&&t.memoizedState.cachePool!==null&&(e=t.memoizedState.cachePool.pool),e!==n&&(e!=null&&e.refCount++,n!=null&&ha(n))}function Fl(e,t){e=null,t.alternate!==null&&(e=t.alternate.memoizedState.cache),t=t.memoizedState.cache,t!==e&&(t.refCount++,e!=null&&ha(e))}function Il(e,t,n,r){if(t.subtreeFlags&10256)for(t=t.child;t!==null;)Ll(e,t,n,r),t=t.sibling}function Ll(e,t,n,r){var i=t.flags;switch(t.tag){case 0:case 11:case 15:Il(e,t,n,r),i&2048&&Zc(9,t);break;case 1:Il(e,t,n,r);break;case 3:Il(e,t,n,r),i&2048&&(e=null,t.alternate!==null&&(e=t.alternate.memoizedState.cache),t=t.memoizedState.cache,t!==e&&(t.refCount++,e!=null&&ha(e)));break;case 12:if(i&2048){Il(e,t,n,r),e=t.stateNode;try{var a=t.memoizedProps,o=a.id,s=a.onPostCommit;typeof s==`function`&&s(o,t.alternate===null?`mount`:`update`,e.passiveEffectDuration,-0)}catch(e){sd(t,t.return,e)}}else Il(e,t,n,r);break;case 31:Il(e,t,n,r);break;case 13:Il(e,t,n,r);break;case 23:break;case 22:a=t.stateNode,o=t.alternate,t.memoizedState===null?a._visibility&2?Il(e,t,n,r):(a._visibility|=2,Rl(e,t,n,r,!!(t.subtreeFlags&10256)||!1)):a._visibility&2?Il(e,t,n,r):zl(e,t),i&2048&&Pl(o,t);break;case 24:Il(e,t,n,r),i&2048&&Fl(t.alternate,t);break;default:Il(e,t,n,r)}}function Rl(e,t,n,r,i){for(i&&=!!(t.subtreeFlags&10256)||!1,t=t.child;t!==null;){var a=e,o=t,s=n,c=r,l=o.flags;switch(o.tag){case 0:case 11:case 15:Rl(a,o,s,c,i),Zc(8,o);break;case 23:break;case 22:var u=o.stateNode;o.memoizedState===null?(u._visibility|=2,Rl(a,o,s,c,i)):u._visibility&2?Rl(a,o,s,c,i):zl(a,o),i&&l&2048&&Pl(o.alternate,o);break;case 24:Rl(a,o,s,c,i),i&&l&2048&&Fl(o.alternate,o);break;default:Rl(a,o,s,c,i)}t=t.sibling}}function zl(e,t){if(t.subtreeFlags&10256)for(t=t.child;t!==null;){var n=e,r=t,i=r.flags;switch(r.tag){case 22:zl(n,r),i&2048&&Pl(r.alternate,r);break;case 24:zl(n,r),i&2048&&Fl(r.alternate,r);break;default:zl(n,r)}t=t.sibling}}var Bl=8192;function Vl(e,t,n){if(e.subtreeFlags&Bl)for(e=e.child;e!==null;)Hl(e,t,n),e=e.sibling}function Hl(e,t,n){switch(e.tag){case 26:Vl(e,t,n),e.flags&Bl&&e.memoizedState!==null&&up(n,Dl,e.memoizedState,e.memoizedProps);break;case 5:Vl(e,t,n);break;case 3:case 4:var r=Dl;Dl=Ff(e.stateNode.containerInfo),Vl(e,t,n),Dl=r;break;case 22:e.memoizedState===null&&(r=e.alternate,r!==null&&r.memoizedState!==null?(r=Bl,Bl=16777216,Vl(e,t,n),Bl=r):Vl(e,t,n));break;default:Vl(e,t,n)}}function Ul(e){var t=e.alternate;if(t!==null&&(e=t.child,e!==null)){t.child=null;do t=e.sibling,e.sibling=null,e=t;while(e!==null)}}function Wl(e){var t=e.deletions;if(e.flags&16){if(t!==null)for(var n=0;n<t.length;n++){var r=t[n];ml=r,ql(r,e)}Ul(e)}if(e.subtreeFlags&10256)for(e=e.child;e!==null;)Gl(e),e=e.sibling}function Gl(e){switch(e.tag){case 0:case 11:case 15:Wl(e),e.flags&2048&&Qc(9,e,e.return);break;case 3:Wl(e);break;case 12:Wl(e);break;case 22:var t=e.stateNode;e.memoizedState!==null&&t._visibility&2&&(e.return===null||e.return.tag!==13)?(t._visibility&=-3,Kl(e)):Wl(e);break;default:Wl(e)}}function Kl(e){var t=e.deletions;if(e.flags&16){if(t!==null)for(var n=0;n<t.length;n++){var r=t[n];ml=r,ql(r,e)}Ul(e)}for(e=e.child;e!==null;){switch(t=e,t.tag){case 0:case 11:case 15:Qc(8,t,t.return),Kl(t);break;case 22:n=t.stateNode,n._visibility&2&&(n._visibility&=-3,Kl(t));break;default:Kl(t)}e=e.sibling}}function ql(e,t){for(;ml!==null;){var n=ml;switch(n.tag){case 0:case 11:case 15:Qc(8,n,t);break;case 23:case 22:if(n.memoizedState!==null&&n.memoizedState.cachePool!==null){var r=n.memoizedState.cachePool.pool;r!=null&&r.refCount++}break;case 24:ha(n.memoizedState.cache)}if(r=n.child,r!==null)r.return=n,ml=r;else a:for(n=e;ml!==null;){r=ml;var i=r.sibling,a=r.return;if(_l(r),r===n){ml=null;break a}if(i!==null){i.return=a,ml=i;break a}ml=a}}}var Jl={getCacheForType:function(e){var t=ca(pa),n=t.data.get(e);return n===void 0&&(n=e(),t.data.set(e,n)),n},cacheSignal:function(){return ca(pa).controller.signal}},Yl=typeof WeakMap==`function`?WeakMap:Map,Xl=0,Zl=null,Ql=null,$l=0,eu=0,tu=null,nu=!1,ru=!1,iu=!1,au=0,ou=0,su=0,cu=0,lu=0,uu=0,du=0,fu=null,pu=null,mu=!1,hu=0,gu=0,_u=1/0,vu=null,yu=null,bu=0,xu=null,Su=null,Cu=0,wu=0,Tu=null,Eu=null,Du=0,Ou=null;function ku(){return Xl&2&&$l!==0?$l&-$l:he.T===null?yt():Od()}function Au(){if(uu===0)if(!($l&536870912)||Vi){var e=it;it<<=1,!(it&3932160)&&(it=262144),uu=e}else uu=536870912;return e=lo.current,e!==null&&(e.flags|=32),uu}function ju(e,t,n){(e===Zl&&(eu===2||eu===9)||e.cancelPendingCommit!==null)&&(Ru(e,0),Fu(e,$l,uu,!1)),ft(e,n),(!(Xl&2)||e!==Zl)&&(e===Zl&&(!(Xl&2)&&(cu|=n),ou===4&&Fu(e,$l,uu,!1)),bd(e))}function Mu(e,t,n){if(Xl&6)throw Error(i(327));var r=!n&&!(t&127)&&(t&e.expiredLanes)===0||ct(e,t),a=r?Ku(e,t):Wu(e,t,!0),o=r;do{if(a===0){ru&&!r&&Fu(e,t,0,!1);break}if(n=e.current.alternate,o&&!Pu(n)){a=Wu(e,t,!1),o=!1;continue}if(a===2){if(o=t,e.errorRecoveryDisabledLanes&o)var s=0;else s=e.pendingLanes&-536870913,s=s===0?s&536870912?536870912:0:s;if(s!==0){t=s;a:{var c=e;a=fu;var l=c.current.memoizedState.isDehydrated;if(l&&(Ru(c,s).flags|=256),s=Wu(c,s,!1),s!==2){if(iu&&!l){c.errorRecoveryDisabledLanes|=o,cu|=o,a=4;break a}o=pu,pu=a,o!==null&&(pu===null?pu=o:pu.push.apply(pu,o))}a=s}if(o=!1,a!==2)continue}}if(a===1){Ru(e,0),Fu(e,t,0,!0);break}a:{switch(r=e,o=a,o){case 0:case 1:throw Error(i(345));case 4:if((t&4194048)!==t)break;case 6:Fu(r,t,uu,!nu);break a;case 2:pu=null;break;case 3:case 5:break;default:throw Error(i(329))}if((t&62914560)===t&&(a=hu+300-Ve(),10<a)){if(Fu(r,t,uu,!nu),st(r,0,!0)!==0)break a;Cu=t,r.timeoutHandle=ff(Nu.bind(null,r,n,pu,vu,mu,t,uu,cu,du,nu,o,`Throttled`,-0,0),a);break a}Nu(r,n,pu,vu,mu,t,uu,cu,du,nu,o,null,-0,0)}break}while(1);bd(e)}function Nu(e,t,n,r,i,a,o,s,c,l,u,d,f,p){if(e.timeoutHandle=-1,d=t.subtreeFlags,d&8192||(d&16785408)==16785408){d={stylesheets:null,count:0,imgCount:0,imgBytes:0,suspenseyImages:[],waitingForImages:!0,waitingForViewTransition:!1,unsuspend:cn},Hl(t,a,d);var m=(a&62914560)===a?hu-Ve():(a&4194048)===a?gu-Ve():0;if(m=fp(d,m),m!==null){Cu=a,e.cancelPendingCommit=m($u.bind(null,e,t,a,n,r,i,o,s,c,u,d,null,f,p)),Fu(e,a,o,!l);return}}$u(e,t,a,n,r,i,o,s,c)}function Pu(e){for(var t=e;;){var n=t.tag;if((n===0||n===11||n===15)&&t.flags&16384&&(n=t.updateQueue,n!==null&&(n=n.stores,n!==null)))for(var r=0;r<n.length;r++){var i=n[r],a=i.getSnapshot;i=i.value;try{if(!kr(a(),i))return!1}catch{return!1}}if(n=t.child,t.subtreeFlags&16384&&n!==null)n.return=t,t=n;else{if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return!0;t=t.return}t.sibling.return=t.return,t=t.sibling}}return!0}function Fu(e,t,n,r){t&=~lu,t&=~cu,e.suspendedLanes|=t,e.pingedLanes&=~t,r&&(e.warmLanes|=t),r=e.expirationTimes;for(var i=t;0<i;){var a=31-$e(i),o=1<<a;r[a]=-1,i&=~o}n!==0&&mt(e,n,t)}function Iu(){return Xl&6?!0:(xd(0,!1),!1)}function Lu(){if(Ql!==null){if(eu===0)var e=Ql.return;else e=Ql,ea=$i=null,Ro(e),Ra=null,za=0,e=Ql;for(;e!==null;)Xc(e.alternate,e),e=e.return;Ql=null}}function Ru(e,t){var n=e.timeoutHandle;n!==-1&&(e.timeoutHandle=-1,pf(n)),n=e.cancelPendingCommit,n!==null&&(e.cancelPendingCommit=null,n()),Cu=0,Lu(),Zl=e,Ql=n=gi(e.current,null),$l=t,eu=0,tu=null,nu=!1,ru=ct(e,t),iu=!1,du=uu=lu=cu=su=ou=0,pu=fu=null,mu=!1,t&8&&(t|=t&32);var r=e.entangledLanes;if(r!==0)for(e=e.entanglements,r&=t;0<r;){var i=31-$e(r),a=1<<i;t|=e[i],r&=~a}return au=t,oi(),n}function zu(e,t){bo=null,he.H=qs,t===Oa||t===Aa?(t=Ia(),eu=3):t===ka?(t=Ia(),eu=4):eu=t===dc?8:typeof t==`object`&&t&&typeof t.then==`function`?6:1,tu=t,Ql===null&&(ou=1,ac(e,wi(t,e.current)))}function Bu(){var e=lo.current;return e===null?!0:($l&4194048)===$l?uo===null:($l&62914560)===$l||$l&536870912?e===uo:!1}function Vu(){var e=he.H;return he.H=qs,e===null?qs:e}function Hu(){var e=he.A;return he.A=Jl,e}function Uu(){ou=4,nu||($l&4194048)!==$l&&lo.current!==null||(ru=!0),!(su&134217727)&&!(cu&134217727)||Zl===null||Fu(Zl,$l,uu,!1)}function Wu(e,t,n){var r=Xl;Xl|=2;var i=Vu(),a=Hu();(Zl!==e||$l!==t)&&(vu=null,Ru(e,t)),t=!1;var o=ou;a:do try{if(eu!==0&&Ql!==null){var s=Ql,c=tu;switch(eu){case 8:Lu(),o=6;break a;case 3:case 2:case 9:case 6:lo.current===null&&(t=!0);var l=eu;if(eu=0,tu=null,Xu(e,s,c,l),n&&ru){o=0;break a}break;default:l=eu,eu=0,tu=null,Xu(e,s,c,l)}}Gu(),o=ou;break}catch(t){zu(e,t)}while(1);return t&&e.shellSuspendCounter++,ea=$i=null,Xl=r,he.H=i,he.A=a,Ql===null&&(Zl=null,$l=0,oi()),o}function Gu(){for(;Ql!==null;)Ju(Ql)}function Ku(e,t){var n=Xl;Xl|=2;var r=Vu(),a=Hu();Zl!==e||$l!==t?(vu=null,_u=Ve()+500,Ru(e,t)):ru=ct(e,t);a:do try{if(eu!==0&&Ql!==null){t=Ql;var o=tu;b:switch(eu){case 1:eu=0,tu=null,Xu(e,t,o,1);break;case 2:case 9:if(Ma(o)){eu=0,tu=null,Yu(t);break}t=function(){eu!==2&&eu!==9||Zl!==e||(eu=7),bd(e)},o.then(t,t);break a;case 3:eu=7;break a;case 4:eu=5;break a;case 7:Ma(o)?(eu=0,tu=null,Yu(t)):(eu=0,tu=null,Xu(e,t,o,7));break;case 5:var s=null;switch(Ql.tag){case 26:s=Ql.memoizedState;case 5:case 27:var c=Ql;if(s?lp(s):c.stateNode.complete){eu=0,tu=null;var l=c.sibling;if(l!==null)Ql=l;else{var u=c.return;u===null?Ql=null:(Ql=u,Zu(u))}break b}}eu=0,tu=null,Xu(e,t,o,5);break;case 6:eu=0,tu=null,Xu(e,t,o,6);break;case 8:Lu(),ou=6;break a;default:throw Error(i(462))}}qu();break}catch(t){zu(e,t)}while(1);return ea=$i=null,he.H=r,he.A=a,Xl=n,Ql===null?(Zl=null,$l=0,oi(),ou):0}function qu(){for(;Ql!==null&&!ze();)Ju(Ql)}function Ju(e){var t=Vc(e.alternate,e,au);e.memoizedProps=e.pendingProps,t===null?Zu(e):Ql=t}function Yu(e){var t=e,n=t.alternate;switch(t.tag){case 15:case 0:t=Tc(n,t,t.pendingProps,t.type,void 0,$l);break;case 11:t=Tc(n,t,t.pendingProps,t.type.render,t.ref,$l);break;case 5:Ro(t);default:Xc(n,t),t=Ql=_i(t,au),t=Vc(n,t,au)}e.memoizedProps=e.pendingProps,t===null?Zu(e):Ql=t}function Xu(e,t,n,r){ea=$i=null,Ro(t),Ra=null,za=0;var i=t.return;try{if(uc(e,i,t,n,$l)){ou=1,ac(e,wi(n,e.current)),Ql=null;return}}catch(t){if(i!==null)throw Ql=i,t;ou=1,ac(e,wi(n,e.current)),Ql=null;return}t.flags&32768?(Vi||r===1?e=!0:ru||$l&536870912?e=!1:(nu=e=!0,(r===2||r===9||r===3||r===6)&&(r=lo.current,r!==null&&r.tag===13&&(r.flags|=16384))),Qu(t,e)):Zu(t)}function Zu(e){var t=e;do{if(t.flags&32768){Qu(t,nu);return}e=t.return;var n=Jc(t.alternate,t,au);if(n!==null){Ql=n;return}if(t=t.sibling,t!==null){Ql=t;return}Ql=t=e}while(t!==null);ou===0&&(ou=5)}function Qu(e,t){do{var n=Yc(e.alternate,e);if(n!==null){n.flags&=32767,Ql=n;return}if(n=e.return,n!==null&&(n.flags|=32768,n.subtreeFlags=0,n.deletions=null),!t&&(e=e.sibling,e!==null)){Ql=e;return}Ql=e=n}while(e!==null);ou=6,Ql=null}function $u(e,t,n,r,a,o,s,c,l){e.cancelPendingCommit=null;do id();while(bu!==0);if(Xl&6)throw Error(i(327));if(t!==null){if(t===e.current)throw Error(i(177));if(o=t.lanes|t.childLanes,o|=ai,pt(e,n,o,s,c,l),e===Zl&&(Ql=Zl=null,$l=0),Su=t,xu=e,Cu=n,wu=o,Tu=a,Eu=r,t.subtreeFlags&10256||t.flags&10256?(e.callbackNode=null,e.callbackPriority=0,pd(Ge,function(){return ad(),null})):(e.callbackNode=null,e.callbackPriority=0),r=!!(t.flags&13878),t.subtreeFlags&13878||r){r=he.T,he.T=null,a=ge.p,ge.p=2,s=Xl,Xl|=4;try{hl(e,t,n)}finally{Xl=s,ge.p=a,he.T=r}}bu=1,ed(),td(),nd()}}function ed(){if(bu===1){bu=0;var e=xu,t=Su,n=!!(t.flags&13878);if(t.subtreeFlags&13878||n){n=he.T,he.T=null;var r=ge.p;ge.p=2;var i=Xl;Xl|=4;try{Ol(t,e);var a=af,o=Nr(e.containerInfo),s=a.focusedElem,c=a.selectionRange;if(o!==s&&s&&s.ownerDocument&&Mr(s.ownerDocument.documentElement,s)){if(c!==null&&Pr(s)){var l=c.start,u=c.end;if(u===void 0&&(u=l),`selectionStart`in s)s.selectionStart=l,s.selectionEnd=Math.min(u,s.value.length);else{var d=s.ownerDocument||document,f=d&&d.defaultView||window;if(f.getSelection){var p=f.getSelection(),m=s.textContent.length,h=Math.min(c.start,m),g=c.end===void 0?h:Math.min(c.end,m);!p.extend&&h>g&&(o=g,g=h,h=o);var _=jr(s,h),v=jr(s,g);if(_&&v&&(p.rangeCount!==1||p.anchorNode!==_.node||p.anchorOffset!==_.offset||p.focusNode!==v.node||p.focusOffset!==v.offset)){var y=d.createRange();y.setStart(_.node,_.offset),p.removeAllRanges(),h>g?(p.addRange(y),p.extend(v.node,v.offset)):(y.setEnd(v.node,v.offset),p.addRange(y))}}}}for(d=[],p=s;p=p.parentNode;)p.nodeType===1&&d.push({element:p,left:p.scrollLeft,top:p.scrollTop});for(typeof s.focus==`function`&&s.focus(),s=0;s<d.length;s++){var b=d[s];b.element.scrollLeft=b.left,b.element.scrollTop=b.top}}Ep=!!rf,af=rf=null}finally{Xl=i,ge.p=r,he.T=n}}e.current=t,bu=2}}function td(){if(bu===2){bu=0;var e=xu,t=Su,n=!!(t.flags&8772);if(t.subtreeFlags&8772||n){n=he.T,he.T=null;var r=ge.p;ge.p=2;var i=Xl;Xl|=4;try{gl(e,t.alternate,t)}finally{Xl=i,ge.p=r,he.T=n}}bu=3}}function nd(){if(bu===4||bu===3){bu=0,Be();var e=xu,t=Su,n=Cu,r=Eu;t.subtreeFlags&10256||t.flags&10256?bu=5:(bu=0,Su=xu=null,rd(e,e.pendingLanes));var i=e.pendingLanes;if(i===0&&(yu=null),vt(n),t=t.stateNode,Ze&&typeof Ze.onCommitFiberRoot==`function`)try{Ze.onCommitFiberRoot(Xe,t,void 0,(t.current.flags&128)==128)}catch{}if(r!==null){t=he.T,i=ge.p,ge.p=2,he.T=null;try{for(var a=e.onRecoverableError,o=0;o<r.length;o++){var s=r[o];a(s.value,{componentStack:s.stack})}}finally{he.T=t,ge.p=i}}Cu&3&&id(),bd(e),i=e.pendingLanes,n&261930&&i&42?e===Ou?Du++:(Du=0,Ou=e):Du=0,xd(0,!1)}}function rd(e,t){(e.pooledCacheLanes&=t)===0&&(t=e.pooledCache,t!=null&&(e.pooledCache=null,ha(t)))}function id(){return ed(),td(),nd(),ad()}function ad(){if(bu!==5)return!1;var e=xu,t=wu;wu=0;var n=vt(Cu),r=he.T,a=ge.p;try{ge.p=32>n?32:n,he.T=null,n=Tu,Tu=null;var o=xu,s=Cu;if(bu=0,Su=xu=null,Cu=0,Xl&6)throw Error(i(331));var c=Xl;if(Xl|=4,Gl(o.current),Ll(o,o.current,s,n),Xl=c,xd(0,!1),Ze&&typeof Ze.onPostCommitFiberRoot==`function`)try{Ze.onPostCommitFiberRoot(Xe,o)}catch{}return!0}finally{ge.p=a,he.T=r,rd(e,t)}}function od(e,t,n){t=wi(n,t),t=sc(e.stateNode,t,2),e=Xa(e,t,2),e!==null&&(ft(e,2),bd(e))}function sd(e,t,n){if(e.tag===3)od(e,e,n);else for(;t!==null;){if(t.tag===3){od(t,e,n);break}if(t.tag===1){var r=t.stateNode;if(typeof t.type.getDerivedStateFromError==`function`||typeof r.componentDidCatch==`function`&&(yu===null||!yu.has(r))){e=wi(n,e),n=cc(2),r=Xa(t,n,2),r!==null&&(lc(n,r,t,e),ft(r,2),bd(r));break}}t=t.return}}function cd(e,t,n){var r=e.pingCache;if(r===null){r=e.pingCache=new Yl;var i=new Set;r.set(t,i)}else i=r.get(t),i===void 0&&(i=new Set,r.set(t,i));i.has(n)||(iu=!0,i.add(n),e=ld.bind(null,e,t,n),t.then(e,e))}function ld(e,t,n){var r=e.pingCache;r!==null&&r.delete(t),e.pingedLanes|=e.suspendedLanes&n,e.warmLanes&=~n,Zl===e&&($l&n)===n&&(ou===4||ou===3&&($l&62914560)===$l&&300>Ve()-hu?!(Xl&2)&&Ru(e,0):lu|=n,du===$l&&(du=0)),bd(e)}function ud(e,t){t===0&&(t=ut()),e=li(e,t),e!==null&&(ft(e,t),bd(e))}function dd(e){var t=e.memoizedState,n=0;t!==null&&(n=t.retryLane),ud(e,n)}function fd(e,t){var n=0;switch(e.tag){case 31:case 13:var r=e.stateNode,a=e.memoizedState;a!==null&&(n=a.retryLane);break;case 19:r=e.stateNode;break;case 22:r=e.stateNode._retryCache;break;default:throw Error(i(314))}r!==null&&r.delete(t),ud(e,n)}function pd(e,t){return Le(e,t)}var md=null,hd=null,gd=!1,_d=!1,vd=!1,yd=0;function bd(e){e!==hd&&e.next===null&&(hd===null?md=hd=e:hd=hd.next=e),_d=!0,gd||(gd=!0,Dd())}function xd(e,t){if(!vd&&_d){vd=!0;do for(var n=!1,r=md;r!==null;){if(!t)if(e!==0){var i=r.pendingLanes;if(i===0)var a=0;else{var o=r.suspendedLanes,s=r.pingedLanes;a=(1<<31-$e(42|e)+1)-1,a&=i&~(o&~s),a=a&201326741?a&201326741|1:a?a|2:0}a!==0&&(n=!0,Ed(r,a))}else a=$l,a=st(r,r===Zl?a:0,r.cancelPendingCommit!==null||r.timeoutHandle!==-1),!(a&3)||ct(r,a)||(n=!0,Ed(r,a));r=r.next}while(n);vd=!1}}function Sd(){Cd()}function Cd(){_d=gd=!1;var e=0;yd!==0&&df()&&(e=yd);for(var t=Ve(),n=null,r=md;r!==null;){var i=r.next,a=wd(r,t);a===0?(r.next=null,n===null?md=i:n.next=i,i===null&&(hd=n)):(n=r,(e!==0||a&3)&&(_d=!0)),r=i}bu!==0&&bu!==5||xd(e,!1),yd!==0&&(yd=0)}function wd(e,t){for(var n=e.suspendedLanes,r=e.pingedLanes,i=e.expirationTimes,a=e.pendingLanes&-62914561;0<a;){var o=31-$e(a),s=1<<o,c=i[o];c===-1?((s&n)===0||(s&r)!==0)&&(i[o]=lt(s,t)):c<=t&&(e.expiredLanes|=s),a&=~s}if(t=Zl,n=$l,n=st(e,e===t?n:0,e.cancelPendingCommit!==null||e.timeoutHandle!==-1),r=e.callbackNode,n===0||e===t&&(eu===2||eu===9)||e.cancelPendingCommit!==null)return r!==null&&r!==null&&Re(r),e.callbackNode=null,e.callbackPriority=0;if(!(n&3)||ct(e,n)){if(t=n&-n,t===e.callbackPriority)return t;switch(r!==null&&Re(r),vt(n)){case 2:case 8:n=We;break;case 32:n=Ge;break;case 268435456:n=qe;break;default:n=Ge}return r=Td.bind(null,e),n=Le(n,r),e.callbackPriority=t,e.callbackNode=n,t}return r!==null&&r!==null&&Re(r),e.callbackPriority=2,e.callbackNode=null,2}function Td(e,t){if(bu!==0&&bu!==5)return e.callbackNode=null,e.callbackPriority=0,null;var n=e.callbackNode;if(id()&&e.callbackNode!==n)return null;var r=$l;return r=st(e,e===Zl?r:0,e.cancelPendingCommit!==null||e.timeoutHandle!==-1),r===0?null:(Mu(e,r,t),wd(e,Ve()),e.callbackNode!=null&&e.callbackNode===n?Td.bind(null,e):null)}function Ed(e,t){if(id())return null;Mu(e,t,!0)}function Dd(){hf(function(){Xl&6?Le(Ue,Sd):Cd()})}function Od(){if(yd===0){var e=va;e===0&&(e=rt,rt<<=1,!(rt&261888)&&(rt=256)),yd=e}return yd}function kd(e){return e==null||typeof e==`symbol`||typeof e==`boolean`?null:typeof e==`function`?e:sn(``+e)}function Ad(e,t){var n=t.ownerDocument.createElement(`input`);return n.name=t.name,n.value=t.value,e.id&&n.setAttribute(`form`,e.id),t.parentNode.insertBefore(n,t),e=new FormData(e),n.parentNode.removeChild(n),e}function jd(e,t,n,r,i){if(t===`submit`&&n&&n.stateNode===i){var a=kd((i[Ct]||null).action),o=r.submitter;o&&(t=(t=o[Ct]||null)?kd(t.formAction):o.getAttribute(`formAction`),t!==null&&(a=t,o=null));var s=new kn(`action`,`action`,null,r,i);e.push({event:s,listeners:[{instance:null,listener:function(){if(r.defaultPrevented){if(yd!==0){var e=o?Ad(i,o):new FormData(i);Ns(n,{pending:!0,data:e,method:i.method,action:a},null,e)}}else typeof a==`function`&&(s.preventDefault(),e=o?Ad(i,o):new FormData(i),Ns(n,{pending:!0,data:e,method:i.method,action:a},a,e))},currentTarget:i}]})}}for(var Md=0;Md<ei.length;Md++){var Nd=ei[Md];ti(Nd.toLowerCase(),`on`+(Nd[0].toUpperCase()+Nd.slice(1)))}ti(Kr,`onAnimationEnd`),ti(qr,`onAnimationIteration`),ti(Jr,`onAnimationStart`),ti(`dblclick`,`onDoubleClick`),ti(`focusin`,`onFocus`),ti(`focusout`,`onBlur`),ti(Yr,`onTransitionRun`),ti(Xr,`onTransitionStart`),ti(Zr,`onTransitionCancel`),ti(Qr,`onTransitionEnd`),Rt(`onMouseEnter`,[`mouseout`,`mouseover`]),Rt(`onMouseLeave`,[`mouseout`,`mouseover`]),Rt(`onPointerEnter`,[`pointerout`,`pointerover`]),Rt(`onPointerLeave`,[`pointerout`,`pointerover`]),Lt(`onChange`,`change click focusin focusout input keydown keyup selectionchange`.split(` `)),Lt(`onSelect`,`focusout contextmenu dragend focusin keydown keyup mousedown mouseup selectionchange`.split(` `)),Lt(`onBeforeInput`,[`compositionend`,`keypress`,`textInput`,`paste`]),Lt(`onCompositionEnd`,`compositionend focusout keydown keypress keyup mousedown`.split(` `)),Lt(`onCompositionStart`,`compositionstart focusout keydown keypress keyup mousedown`.split(` `)),Lt(`onCompositionUpdate`,`compositionupdate focusout keydown keypress keyup mousedown`.split(` `));var Pd=`abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting`.split(` `),Fd=new Set(`beforetoggle cancel close invalid load scroll scrollend toggle`.split(` `).concat(Pd));function Id(e,t){t=!!(t&4);for(var n=0;n<e.length;n++){var r=e[n],i=r.event;r=r.listeners;a:{var a=void 0;if(t)for(var o=r.length-1;0<=o;o--){var s=r[o],c=s.instance,l=s.currentTarget;if(s=s.listener,c!==a&&i.isPropagationStopped())break a;a=s,i.currentTarget=l;try{a(i)}catch(e){ni(e)}i.currentTarget=null,a=c}else for(o=0;o<r.length;o++){if(s=r[o],c=s.instance,l=s.currentTarget,s=s.listener,c!==a&&i.isPropagationStopped())break a;a=s,i.currentTarget=l;try{a(i)}catch(e){ni(e)}i.currentTarget=null,a=c}}}}function Ld(e,t){var n=t[wt];n===void 0&&(n=t[wt]=new Set);var r=e+`__bubble`;n.has(r)||(Vd(t,e,2,!1),n.add(r))}function Rd(e,t,n){var r=0;t&&(r|=4),Vd(n,e,r,t)}var zd=`_reactListening`+Math.random().toString(36).slice(2);function Bd(e){if(!e[zd]){e[zd]=!0,Ft.forEach(function(t){t!==`selectionchange`&&(Fd.has(t)||Rd(t,!1,e),Rd(t,!0,e))});var t=e.nodeType===9?e:e.ownerDocument;t===null||t[zd]||(t[zd]=!0,Rd(`selectionchange`,!1,t))}}function Vd(e,t,n,r){switch(Np(t)){case 2:var i=Dp;break;case 8:i=Op;break;default:i=kp}n=i.bind(null,t,n,e),i=void 0,!vn||t!==`touchstart`&&t!==`touchmove`&&t!==`wheel`||(i=!0),r?i===void 0?e.addEventListener(t,n,!0):e.addEventListener(t,n,{capture:!0,passive:i}):i===void 0?e.addEventListener(t,n,!1):e.addEventListener(t,n,{passive:i})}function Hd(e,t,n,r,i){var a=r;if(!(t&1)&&!(t&2)&&r!==null)a:for(;;){if(r===null)return;var s=r.tag;if(s===3||s===4){var c=r.stateNode.containerInfo;if(c===i)break;if(s===4)for(s=r.return;s!==null;){var l=s.tag;if((l===3||l===4)&&s.stateNode.containerInfo===i)return;s=s.return}for(;c!==null;){if(s=At(c),s===null)return;if(l=s.tag,l===5||l===6||l===26||l===27){r=a=s;continue a}c=c.parentNode}}r=r.return}hn(function(){var r=a,i=un(n),s=[];a:{var c=$r.get(e);if(c!==void 0){var l=kn,u=e;switch(e){case`keypress`:if(wn(n)===0)break a;case`keydown`:case`keyup`:l=Kn;break;case`focusin`:u=`focus`,l=Rn;break;case`focusout`:u=`blur`,l=Rn;break;case`beforeblur`:case`afterblur`:l=Rn;break;case`click`:if(n.button===2)break a;case`auxclick`:case`dblclick`:case`mousedown`:case`mousemove`:case`mouseup`:case`mouseout`:case`mouseover`:case`contextmenu`:l=In;break;case`drag`:case`dragend`:case`dragenter`:case`dragexit`:case`dragleave`:case`dragover`:case`dragstart`:case`drop`:l=Ln;break;case`touchcancel`:case`touchend`:case`touchmove`:case`touchstart`:l=Jn;break;case Kr:case qr:case Jr:l=zn;break;case Qr:l=Yn;break;case`scroll`:case`scrollend`:l=jn;break;case`wheel`:l=Xn;break;case`copy`:case`cut`:case`paste`:l=Bn;break;case`gotpointercapture`:case`lostpointercapture`:case`pointercancel`:case`pointerdown`:case`pointermove`:case`pointerout`:case`pointerover`:case`pointerup`:l=qn;break;case`toggle`:case`beforetoggle`:l=Zn}var d=!!(t&4),f=!d&&(e===`scroll`||e===`scrollend`),p=d?c===null?null:c+`Capture`:c;d=[];for(var m=r,h;m!==null;){var g=m;if(h=g.stateNode,g=g.tag,g!==5&&g!==26&&g!==27||h===null||p===null||(g=gn(m,p),g!=null&&d.push(Ud(m,g,h))),f)break;m=m.return}0<d.length&&(c=new l(c,u,null,n,i),s.push({event:c,listeners:d}))}}if(!(t&7)){a:{if(c=e===`mouseover`||e===`pointerover`,l=e===`mouseout`||e===`pointerout`,c&&n!==ln&&(u=n.relatedTarget||n.fromElement)&&(At(u)||u[C]))break a;if((l||c)&&(c=i.window===i?i:(c=i.ownerDocument)?c.defaultView||c.parentWindow:window,l?(u=n.relatedTarget||n.toElement,l=r,u=u?At(u):null,u!==null&&(f=o(u),d=u.tag,u!==f||d!==5&&d!==27&&d!==6)&&(u=null)):(l=null,u=r),l!==u)){if(d=In,g=`onMouseLeave`,p=`onMouseEnter`,m=`mouse`,(e===`pointerout`||e===`pointerover`)&&(d=qn,g=`onPointerLeave`,p=`onPointerEnter`,m=`pointer`),f=l==null?c:Mt(l),h=u==null?c:Mt(u),c=new d(g,m+`leave`,l,n,i),c.target=f,c.relatedTarget=h,g=null,At(i)===r&&(d=new d(p,m+`enter`,u,n,i),d.target=h,d.relatedTarget=f,g=d),f=g,l&&u)b:{for(d=Gd,p=l,m=u,h=0,g=p;g;g=d(g))h++;g=0;for(var _=m;_;_=d(_))g++;for(;0<h-g;)p=d(p),h--;for(;0<g-h;)m=d(m),g--;for(;h--;){if(p===m||m!==null&&p===m.alternate){d=p;break b}p=d(p),m=d(m)}d=null}else d=null;l!==null&&Kd(s,c,l,d,!1),u!==null&&f!==null&&Kd(s,f,u,d,!0)}}a:{if(c=r?Mt(r):window,l=c.nodeName&&c.nodeName.toLowerCase(),l===`select`||l===`input`&&c.type===`file`)var v=_r;else if(dr(c))if(vr)v=Dr;else{v=Tr;var y=wr}else l=c.nodeName,!l||l.toLowerCase()!==`input`||c.type!==`checkbox`&&c.type!==`radio`?r&&A(r.elementType)&&(v=_r):v=Er;if(v&&=v(e,r)){fr(s,v,n,i);break a}y&&y(e,c,r),e===`focusout`&&r&&c.type===`number`&&r.memoizedProps.value!=null&&Zt(c,`number`,c.value)}switch(y=r?Mt(r):window,e){case`focusin`:(dr(y)||y.contentEditable===`true`)&&(Ir=y,Lr=r,Rr=null);break;case`focusout`:Rr=Lr=Ir=null;break;case`mousedown`:zr=!0;break;case`contextmenu`:case`mouseup`:case`dragend`:zr=!1,Br(s,n,i);break;case`selectionchange`:if(Fr)break;case`keydown`:case`keyup`:Br(s,n,i)}var b;if($n)b:{switch(e){case`compositionstart`:var ee=`onCompositionStart`;break b;case`compositionend`:ee=`onCompositionEnd`;break b;case`compositionupdate`:ee=`onCompositionUpdate`;break b}ee=void 0}else sr?ar(e,n)&&(ee=`onCompositionEnd`):e===`keydown`&&n.keyCode===229&&(ee=`onCompositionStart`);ee&&(nr&&n.locale!==`ko`&&(sr||ee!==`onCompositionStart`?ee===`onCompositionEnd`&&sr&&(b=Cn()):(bn=i,xn=`value`in bn?bn.value:bn.textContent,sr=!0)),y=Wd(r,ee),0<y.length&&(ee=new Vn(ee,e,null,n,i),s.push({event:ee,listeners:y}),b?ee.data=b:(b=or(n),b!==null&&(ee.data=b)))),(b=tr?cr(e,n):lr(e,n))&&(ee=Wd(r,`onBeforeInput`),0<ee.length&&(y=new Vn(`onBeforeInput`,`beforeinput`,null,n,i),s.push({event:y,listeners:ee}),y.data=b)),jd(s,e,r,n,i)}Id(s,t)})}function Ud(e,t,n){return{instance:e,listener:t,currentTarget:n}}function Wd(e,t){for(var n=t+`Capture`,r=[];e!==null;){var i=e,a=i.stateNode;if(i=i.tag,i!==5&&i!==26&&i!==27||a===null||(i=gn(e,n),i!=null&&r.unshift(Ud(e,i,a)),i=gn(e,t),i!=null&&r.push(Ud(e,i,a))),e.tag===3)return r;e=e.return}return[]}function Gd(e){if(e===null)return null;do e=e.return;while(e&&e.tag!==5&&e.tag!==27);return e||null}function Kd(e,t,n,r,i){for(var a=t._reactName,o=[];n!==null&&n!==r;){var s=n,c=s.alternate,l=s.stateNode;if(s=s.tag,c!==null&&c===r)break;s!==5&&s!==26&&s!==27||l===null||(c=l,i?(l=gn(n,a),l!=null&&o.unshift(Ud(n,l,c))):i||(l=gn(n,a),l!=null&&o.push(Ud(n,l,c)))),n=n.return}o.length!==0&&e.push({event:t,listeners:o})}var qd=/\r\n?/g,Jd=/\u0000|\uFFFD/g;function Yd(e){return(typeof e==`string`?e:``+e).replace(qd,`
-`).replace(Jd,``)}function Xd(e,t){return t=Yd(t),Yd(e)===t}function Zd(e,t,n,r,a,o){switch(n){case`children`:typeof r==`string`?t===`body`||t===`textarea`&&r===``||tn(e,r):(typeof r==`number`||typeof r==`bigint`)&&t!==`body`&&tn(e,``+r);break;case`className`:Wt(e,`class`,r);break;case`tabIndex`:Wt(e,`tabindex`,r);break;case`dir`:case`role`:case`viewBox`:case`width`:case`height`:Wt(e,n,r);break;case`style`:rn(e,r,o);break;case`data`:if(t!==`object`){Wt(e,`data`,r);break}case`src`:case`href`:if(r===``&&(t!==`a`||n!==`href`)){e.removeAttribute(n);break}if(r==null||typeof r==`function`||typeof r==`symbol`||typeof r==`boolean`){e.removeAttribute(n);break}r=sn(``+r),e.setAttribute(n,r);break;case`action`:case`formAction`:if(typeof r==`function`){e.setAttribute(n,`javascript:throw new Error('A React form was unexpectedly submitted. If you called form.submit() manually, consider using form.requestSubmit() instead. If you\\'re trying to use event.stopPropagation() in a submit event handler, consider also calling event.preventDefault().')`);break}if(typeof o==`function`&&(n===`formAction`?(t!==`input`&&Zd(e,t,`name`,a.name,a,null),Zd(e,t,`formEncType`,a.formEncType,a,null),Zd(e,t,`formMethod`,a.formMethod,a,null),Zd(e,t,`formTarget`,a.formTarget,a,null)):(Zd(e,t,`encType`,a.encType,a,null),Zd(e,t,`method`,a.method,a,null),Zd(e,t,`target`,a.target,a,null))),r==null||typeof r==`symbol`||typeof r==`boolean`){e.removeAttribute(n);break}r=sn(``+r),e.setAttribute(n,r);break;case`onClick`:r!=null&&(e.onclick=cn);break;case`onScroll`:r!=null&&Ld(`scroll`,e);break;case`onScrollEnd`:r!=null&&Ld(`scrollend`,e);break;case`dangerouslySetInnerHTML`:if(r!=null){if(typeof r!=`object`||!(`__html`in r))throw Error(i(61));if(n=r.__html,n!=null){if(a.children!=null)throw Error(i(60));e.innerHTML=n}}break;case`multiple`:e.multiple=r&&typeof r!=`function`&&typeof r!=`symbol`;break;case`muted`:e.muted=r&&typeof r!=`function`&&typeof r!=`symbol`;break;case`suppressContentEditableWarning`:case`suppressHydrationWarning`:case`defaultValue`:case`defaultChecked`:case`innerHTML`:case`ref`:break;case`autoFocus`:break;case`xlinkHref`:if(r==null||typeof r==`function`||typeof r==`boolean`||typeof r==`symbol`){e.removeAttribute(`xlink:href`);break}n=sn(``+r),e.setAttributeNS(`http://www.w3.org/1999/xlink`,`xlink:href`,n);break;case`contentEditable`:case`spellCheck`:case`draggable`:case`value`:case`autoReverse`:case`externalResourcesRequired`:case`focusable`:case`preserveAlpha`:r!=null&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,``+r):e.removeAttribute(n);break;case`inert`:case`allowFullScreen`:case`async`:case`autoPlay`:case`controls`:case`default`:case`defer`:case`disabled`:case`disablePictureInPicture`:case`disableRemotePlayback`:case`formNoValidate`:case`hidden`:case`loop`:case`noModule`:case`noValidate`:case`open`:case`playsInline`:case`readOnly`:case`required`:case`reversed`:case`scoped`:case`seamless`:case`itemScope`:r&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,``):e.removeAttribute(n);break;case`capture`:case`download`:!0===r?e.setAttribute(n,``):!1!==r&&r!=null&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,r):e.removeAttribute(n);break;case`cols`:case`rows`:case`size`:case`span`:r!=null&&typeof r!=`function`&&typeof r!=`symbol`&&!isNaN(r)&&1<=r?e.setAttribute(n,r):e.removeAttribute(n);break;case`rowSpan`:case`start`:r==null||typeof r==`function`||typeof r==`symbol`||isNaN(r)?e.removeAttribute(n):e.setAttribute(n,r);break;case`popover`:Ld(`beforetoggle`,e),Ld(`toggle`,e),Ut(e,`popover`,r);break;case`xlinkActuate`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:actuate`,r);break;case`xlinkArcrole`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:arcrole`,r);break;case`xlinkRole`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:role`,r);break;case`xlinkShow`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:show`,r);break;case`xlinkTitle`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:title`,r);break;case`xlinkType`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:type`,r);break;case`xmlBase`:Gt(e,`http://www.w3.org/XML/1998/namespace`,`xml:base`,r);break;case`xmlLang`:Gt(e,`http://www.w3.org/XML/1998/namespace`,`xml:lang`,r);break;case`xmlSpace`:Gt(e,`http://www.w3.org/XML/1998/namespace`,`xml:space`,r);break;case`is`:Ut(e,`is`,r);break;case`innerText`:case`textContent`:break;default:(!(2<n.length)||n[0]!==`o`&&n[0]!==`O`||n[1]!==`n`&&n[1]!==`N`)&&(n=an.get(n)||n,Ut(e,n,r))}}function Qd(e,t,n,r,a,o){switch(n){case`style`:rn(e,r,o);break;case`dangerouslySetInnerHTML`:if(r!=null){if(typeof r!=`object`||!(`__html`in r))throw Error(i(61));if(n=r.__html,n!=null){if(a.children!=null)throw Error(i(60));e.innerHTML=n}}break;case`children`:typeof r==`string`?tn(e,r):(typeof r==`number`||typeof r==`bigint`)&&tn(e,``+r);break;case`onScroll`:r!=null&&Ld(`scroll`,e);break;case`onScrollEnd`:r!=null&&Ld(`scrollend`,e);break;case`onClick`:r!=null&&(e.onclick=cn);break;case`suppressContentEditableWarning`:case`suppressHydrationWarning`:case`innerHTML`:case`ref`:break;case`innerText`:case`textContent`:break;default:if(!It.hasOwnProperty(n))a:{if(n[0]===`o`&&n[1]===`n`&&(a=n.endsWith(`Capture`),t=n.slice(2,a?n.length-7:void 0),o=e[Ct]||null,o=o==null?null:o[n],typeof o==`function`&&e.removeEventListener(t,o,a),typeof r==`function`)){typeof o!=`function`&&o!==null&&(n in e?e[n]=null:e.hasAttribute(n)&&e.removeAttribute(n)),e.addEventListener(t,r,a);break a}n in e?e[n]=r:!0===r?e.setAttribute(n,``):Ut(e,n,r)}}}function $d(e,t,n){switch(t){case`div`:case`span`:case`svg`:case`path`:case`a`:case`g`:case`p`:case`li`:break;case`img`:Ld(`error`,e),Ld(`load`,e);var r=!1,a=!1,o;for(o in n)if(n.hasOwnProperty(o)){var s=n[o];if(s!=null)switch(o){case`src`:r=!0;break;case`srcSet`:a=!0;break;case`children`:case`dangerouslySetInnerHTML`:throw Error(i(137,t));default:Zd(e,t,o,s,n,null)}}a&&Zd(e,t,`srcSet`,n.srcSet,n,null),r&&Zd(e,t,`src`,n.src,n,null);return;case`input`:Ld(`invalid`,e);var c=o=s=a=null,l=null,u=null;for(r in n)if(n.hasOwnProperty(r)){var d=n[r];if(d!=null)switch(r){case`name`:a=d;break;case`type`:s=d;break;case`checked`:l=d;break;case`defaultChecked`:u=d;break;case`value`:o=d;break;case`defaultValue`:c=d;break;case`children`:case`dangerouslySetInnerHTML`:if(d!=null)throw Error(i(137,t));break;default:Zd(e,t,r,d,n,null)}}Xt(e,o,c,l,u,s,a,!1);return;case`select`:for(a in Ld(`invalid`,e),r=s=o=null,n)if(n.hasOwnProperty(a)&&(c=n[a],c!=null))switch(a){case`value`:o=c;break;case`defaultValue`:s=c;break;case`multiple`:r=c;default:Zd(e,t,a,c,n,null)}t=o,n=s,e.multiple=!!r,t==null?n!=null&&Qt(e,!!r,n,!0):Qt(e,!!r,t,!1);return;case`textarea`:for(s in Ld(`invalid`,e),o=a=r=null,n)if(n.hasOwnProperty(s)&&(c=n[s],c!=null))switch(s){case`value`:r=c;break;case`defaultValue`:a=c;break;case`children`:o=c;break;case`dangerouslySetInnerHTML`:if(c!=null)throw Error(i(91));break;default:Zd(e,t,s,c,n,null)}en(e,r,a,o);return;case`option`:for(l in n)if(n.hasOwnProperty(l)&&(r=n[l],r!=null))switch(l){case`selected`:e.selected=r&&typeof r!=`function`&&typeof r!=`symbol`;break;default:Zd(e,t,l,r,n,null)}return;case`dialog`:Ld(`beforetoggle`,e),Ld(`toggle`,e),Ld(`cancel`,e),Ld(`close`,e);break;case`iframe`:case`object`:Ld(`load`,e);break;case`video`:case`audio`:for(r=0;r<Pd.length;r++)Ld(Pd[r],e);break;case`image`:Ld(`error`,e),Ld(`load`,e);break;case`details`:Ld(`toggle`,e);break;case`embed`:case`source`:case`link`:Ld(`error`,e),Ld(`load`,e);case`area`:case`base`:case`br`:case`col`:case`hr`:case`keygen`:case`meta`:case`param`:case`track`:case`wbr`:case`menuitem`:for(u in n)if(n.hasOwnProperty(u)&&(r=n[u],r!=null))switch(u){case`children`:case`dangerouslySetInnerHTML`:throw Error(i(137,t));default:Zd(e,t,u,r,n,null)}return;default:if(A(t)){for(d in n)n.hasOwnProperty(d)&&(r=n[d],r!==void 0&&Qd(e,t,d,r,n,void 0));return}}for(c in n)n.hasOwnProperty(c)&&(r=n[c],r!=null&&Zd(e,t,c,r,n,null))}function ef(e,t,n,r){switch(t){case`div`:case`span`:case`svg`:case`path`:case`a`:case`g`:case`p`:case`li`:break;case`input`:var a=null,o=null,s=null,c=null,l=null,u=null,d=null;for(m in n){var f=n[m];if(n.hasOwnProperty(m)&&f!=null)switch(m){case`checked`:break;case`value`:break;case`defaultValue`:l=f;default:r.hasOwnProperty(m)||Zd(e,t,m,null,r,f)}}for(var p in r){var m=r[p];if(f=n[p],r.hasOwnProperty(p)&&(m!=null||f!=null))switch(p){case`type`:o=m;break;case`name`:a=m;break;case`checked`:u=m;break;case`defaultChecked`:d=m;break;case`value`:s=m;break;case`defaultValue`:c=m;break;case`children`:case`dangerouslySetInnerHTML`:if(m!=null)throw Error(i(137,t));break;default:m!==f&&Zd(e,t,p,m,r,f)}}Yt(e,s,c,l,u,d,o,a);return;case`select`:for(o in m=s=c=p=null,n)if(l=n[o],n.hasOwnProperty(o)&&l!=null)switch(o){case`value`:break;case`multiple`:m=l;default:r.hasOwnProperty(o)||Zd(e,t,o,null,r,l)}for(a in r)if(o=r[a],l=n[a],r.hasOwnProperty(a)&&(o!=null||l!=null))switch(a){case`value`:p=o;break;case`defaultValue`:c=o;break;case`multiple`:s=o;default:o!==l&&Zd(e,t,a,o,r,l)}t=c,n=s,r=m,p==null?!!r!=!!n&&(t==null?Qt(e,!!n,n?[]:``,!1):Qt(e,!!n,t,!0)):Qt(e,!!n,p,!1);return;case`textarea`:for(c in m=p=null,n)if(a=n[c],n.hasOwnProperty(c)&&a!=null&&!r.hasOwnProperty(c))switch(c){case`value`:break;case`children`:break;default:Zd(e,t,c,null,r,a)}for(s in r)if(a=r[s],o=n[s],r.hasOwnProperty(s)&&(a!=null||o!=null))switch(s){case`value`:p=a;break;case`defaultValue`:m=a;break;case`children`:break;case`dangerouslySetInnerHTML`:if(a!=null)throw Error(i(91));break;default:a!==o&&Zd(e,t,s,a,r,o)}$t(e,p,m);return;case`option`:for(var h in n)if(p=n[h],n.hasOwnProperty(h)&&p!=null&&!r.hasOwnProperty(h))switch(h){case`selected`:e.selected=!1;break;default:Zd(e,t,h,null,r,p)}for(l in r)if(p=r[l],m=n[l],r.hasOwnProperty(l)&&p!==m&&(p!=null||m!=null))switch(l){case`selected`:e.selected=p&&typeof p!=`function`&&typeof p!=`symbol`;break;default:Zd(e,t,l,p,r,m)}return;case`img`:case`link`:case`area`:case`base`:case`br`:case`col`:case`embed`:case`hr`:case`keygen`:case`meta`:case`param`:case`source`:case`track`:case`wbr`:case`menuitem`:for(var g in n)p=n[g],n.hasOwnProperty(g)&&p!=null&&!r.hasOwnProperty(g)&&Zd(e,t,g,null,r,p);for(u in r)if(p=r[u],m=n[u],r.hasOwnProperty(u)&&p!==m&&(p!=null||m!=null))switch(u){case`children`:case`dangerouslySetInnerHTML`:if(p!=null)throw Error(i(137,t));break;default:Zd(e,t,u,p,r,m)}return;default:if(A(t)){for(var _ in n)p=n[_],n.hasOwnProperty(_)&&p!==void 0&&!r.hasOwnProperty(_)&&Qd(e,t,_,void 0,r,p);for(d in r)p=r[d],m=n[d],!r.hasOwnProperty(d)||p===m||p===void 0&&m===void 0||Qd(e,t,d,p,r,m);return}}for(var v in n)p=n[v],n.hasOwnProperty(v)&&p!=null&&!r.hasOwnProperty(v)&&Zd(e,t,v,null,r,p);for(f in r)p=r[f],m=n[f],!r.hasOwnProperty(f)||p===m||p==null&&m==null||Zd(e,t,f,p,r,m)}function tf(e){switch(e){case`css`:case`script`:case`font`:case`img`:case`image`:case`input`:case`link`:return!0;default:return!1}}function nf(){if(typeof performance.getEntriesByType==`function`){for(var e=0,t=0,n=performance.getEntriesByType(`resource`),r=0;r<n.length;r++){var i=n[r],a=i.transferSize,o=i.initiatorType,s=i.duration;if(a&&s&&tf(o)){for(o=0,s=i.responseEnd,r+=1;r<n.length;r++){var c=n[r],l=c.startTime;if(l>s)break;var u=c.transferSize,d=c.initiatorType;u&&tf(d)&&(c=c.responseEnd,o+=u*(c<s?1:(s-l)/(c-l)))}if(--r,t+=8*(a+o)/(i.duration/1e3),e++,10<e)break}}if(0<e)return t/e/1e6}return navigator.connection&&(e=navigator.connection.downlink,typeof e==`number`)?e:5}var rf=null,af=null;function of(e){return e.nodeType===9?e:e.ownerDocument}function sf(e){switch(e){case`http://www.w3.org/2000/svg`:return 1;case`http://www.w3.org/1998/Math/MathML`:return 2;default:return 0}}function cf(e,t){if(e===0)switch(t){case`svg`:return 1;case`math`:return 2;default:return 0}return e===1&&t===`foreignObject`?0:e}function lf(e,t){return e===`textarea`||e===`noscript`||typeof t.children==`string`||typeof t.children==`number`||typeof t.children==`bigint`||typeof t.dangerouslySetInnerHTML==`object`&&t.dangerouslySetInnerHTML!==null&&t.dangerouslySetInnerHTML.__html!=null}var uf=null;function df(){var e=window.event;return e&&e.type===`popstate`?e!==uf&&(uf=e,!0):(uf=null,!1)}var ff=typeof setTimeout==`function`?setTimeout:void 0,pf=typeof clearTimeout==`function`?clearTimeout:void 0,mf=typeof Promise==`function`?Promise:void 0,hf=typeof queueMicrotask==`function`?queueMicrotask:mf===void 0?ff:function(e){return mf.resolve(null).then(e).catch(gf)};function gf(e){setTimeout(function(){throw e})}function _f(e){return e===`head`}function vf(e,t){var n=t,r=0;do{var i=n.nextSibling;if(e.removeChild(n),i&&i.nodeType===8)if(n=i.data,n===`/$`||n===`/&`){if(r===0){e.removeChild(i),Qp(t);return}r--}else if(n===`$`||n===`$?`||n===`$~`||n===`$!`||n===`&`)r++;else if(n===`html`)Mf(e.ownerDocument.documentElement);else if(n===`head`){n=e.ownerDocument.head,Mf(n);for(var a=n.firstChild;a;){var o=a.nextSibling,s=a.nodeName;a[Ot]||s===`SCRIPT`||s===`STYLE`||s===`LINK`&&a.rel.toLowerCase()===`stylesheet`||n.removeChild(a),a=o}}else n===`body`&&Mf(e.ownerDocument.body);n=i}while(n);Qp(t)}function yf(e,t){var n=e;e=0;do{var r=n.nextSibling;if(n.nodeType===1?t?(n._stashedDisplay=n.style.display,n.style.display=`none`):(n.style.display=n._stashedDisplay||``,n.getAttribute(`style`)===``&&n.removeAttribute(`style`)):n.nodeType===3&&(t?(n._stashedText=n.nodeValue,n.nodeValue=``):n.nodeValue=n._stashedText||``),r&&r.nodeType===8)if(n=r.data,n===`/$`){if(e===0)break;e--}else n!==`$`&&n!==`$?`&&n!==`$~`&&n!==`$!`||e++;n=r}while(n)}function bf(e){var t=e.firstChild;for(t&&t.nodeType===10&&(t=t.nextSibling);t;){var n=t;switch(t=t.nextSibling,n.nodeName){case`HTML`:case`HEAD`:case`BODY`:bf(n),kt(n);continue;case`SCRIPT`:case`STYLE`:continue;case`LINK`:if(n.rel.toLowerCase()===`stylesheet`)continue}e.removeChild(n)}}function xf(e,t,n,r){for(;e.nodeType===1;){var i=n;if(e.nodeName.toLowerCase()!==t.toLowerCase()){if(!r&&(e.nodeName!==`INPUT`||e.type!==`hidden`))break}else if(!r)if(t===`input`&&e.type===`hidden`){var a=i.name==null?null:``+i.name;if(i.type===`hidden`&&e.getAttribute(`name`)===a)return e}else return e;else if(!e[Ot])switch(t){case`meta`:if(!e.hasAttribute(`itemprop`))break;return e;case`link`:if(a=e.getAttribute(`rel`),a===`stylesheet`&&e.hasAttribute(`data-precedence`)||a!==i.rel||e.getAttribute(`href`)!==(i.href==null||i.href===``?null:i.href)||e.getAttribute(`crossorigin`)!==(i.crossOrigin==null?null:i.crossOrigin)||e.getAttribute(`title`)!==(i.title==null?null:i.title))break;return e;case`style`:if(e.hasAttribute(`data-precedence`))break;return e;case`script`:if(a=e.getAttribute(`src`),(a!==(i.src==null?null:i.src)||e.getAttribute(`type`)!==(i.type==null?null:i.type)||e.getAttribute(`crossorigin`)!==(i.crossOrigin==null?null:i.crossOrigin))&&a&&e.hasAttribute(`async`)&&!e.hasAttribute(`itemprop`))break;return e;default:return e}if(e=Df(e.nextSibling),e===null)break}return null}function Sf(e,t,n){if(t===``)return null;for(;e.nodeType!==3;)if((e.nodeType!==1||e.nodeName!==`INPUT`||e.type!==`hidden`)&&!n||(e=Df(e.nextSibling),e===null))return null;return e}function Cf(e,t){for(;e.nodeType!==8;)if((e.nodeType!==1||e.nodeName!==`INPUT`||e.type!==`hidden`)&&!t||(e=Df(e.nextSibling),e===null))return null;return e}function wf(e){return e.data===`$?`||e.data===`$~`}function Tf(e){return e.data===`$!`||e.data===`$?`&&e.ownerDocument.readyState!==`loading`}function Ef(e,t){var n=e.ownerDocument;if(e.data===`$~`)e._reactRetry=t;else if(e.data!==`$?`||n.readyState!==`loading`)t();else{var r=function(){t(),n.removeEventListener(`DOMContentLoaded`,r)};n.addEventListener(`DOMContentLoaded`,r),e._reactRetry=r}}function Df(e){for(;e!=null;e=e.nextSibling){var t=e.nodeType;if(t===1||t===3)break;if(t===8){if(t=e.data,t===`$`||t===`$!`||t===`$?`||t===`$~`||t===`&`||t===`F!`||t===`F`)break;if(t===`/$`||t===`/&`)return null}}return e}var Of=null;function kf(e){e=e.nextSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n===`/$`||n===`/&`){if(t===0)return Df(e.nextSibling);t--}else n!==`$`&&n!==`$!`&&n!==`$?`&&n!==`$~`&&n!==`&`||t++}e=e.nextSibling}return null}function Af(e){e=e.previousSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n===`$`||n===`$!`||n===`$?`||n===`$~`||n===`&`){if(t===0)return e;t--}else n!==`/$`&&n!==`/&`||t++}e=e.previousSibling}return null}function jf(e,t,n){switch(t=of(n),e){case`html`:if(e=t.documentElement,!e)throw Error(i(452));return e;case`head`:if(e=t.head,!e)throw Error(i(453));return e;case`body`:if(e=t.body,!e)throw Error(i(454));return e;default:throw Error(i(451))}}function Mf(e){for(var t=e.attributes;t.length;)e.removeAttributeNode(t[0]);kt(e)}var Nf=new Map,Pf=new Set;function Ff(e){return typeof e.getRootNode==`function`?e.getRootNode():e.nodeType===9?e:e.ownerDocument}var If=ge.d;ge.d={f:Lf,r:Rf,D:Vf,C:Hf,L:Uf,m:Wf,X:Kf,S:Gf,M:qf};function Lf(){var e=If.f(),t=Iu();return e||t}function Rf(e){var t=jt(e);t!==null&&t.tag===5&&t.type===`form`?Fs(t):If.r(e)}var zf=typeof document>`u`?null:document;function Bf(e,t,n){var r=zf;if(r&&typeof t==`string`&&t){var i=O(t);i=`link[rel="`+e+`"][href="`+i+`"]`,typeof n==`string`&&(i+=`[crossorigin="`+n+`"]`),Pf.has(i)||(Pf.add(i),e={rel:e,crossOrigin:n,href:t},r.querySelector(i)===null&&(t=r.createElement(`link`),$d(t,`link`,e),Pt(t),r.head.appendChild(t)))}}function Vf(e){If.D(e),Bf(`dns-prefetch`,e,null)}function Hf(e,t){If.C(e,t),Bf(`preconnect`,e,t)}function Uf(e,t,n){If.L(e,t,n);var r=zf;if(r&&e&&t){var i=`link[rel="preload"][as="`+O(t)+`"]`;t===`image`&&n&&n.imageSrcSet?(i+=`[imagesrcset="`+O(n.imageSrcSet)+`"]`,typeof n.imageSizes==`string`&&(i+=`[imagesizes="`+O(n.imageSizes)+`"]`)):i+=`[href="`+O(e)+`"]`;var a=i;switch(t){case`style`:a=Yf(e);break;case`script`:a=$f(e)}Nf.has(a)||(e=m({rel:`preload`,href:t===`image`&&n&&n.imageSrcSet?void 0:e,as:t},n),Nf.set(a,e),r.querySelector(i)!==null||t===`style`&&r.querySelector(Xf(a))||t===`script`&&r.querySelector(ep(a))||(t=r.createElement(`link`),$d(t,`link`,e),Pt(t),r.head.appendChild(t)))}}function Wf(e,t){If.m(e,t);var n=zf;if(n&&e){var r=t&&typeof t.as==`string`?t.as:`script`,i=`link[rel="modulepreload"][as="`+O(r)+`"][href="`+O(e)+`"]`,a=i;switch(r){case`audioworklet`:case`paintworklet`:case`serviceworker`:case`sharedworker`:case`worker`:case`script`:a=$f(e)}if(!Nf.has(a)&&(e=m({rel:`modulepreload`,href:e},t),Nf.set(a,e),n.querySelector(i)===null)){switch(r){case`audioworklet`:case`paintworklet`:case`serviceworker`:case`sharedworker`:case`worker`:case`script`:if(n.querySelector(ep(a)))return}r=n.createElement(`link`),$d(r,`link`,e),Pt(r),n.head.appendChild(r)}}}function Gf(e,t,n){If.S(e,t,n);var r=zf;if(r&&e){var i=Nt(r).hoistableStyles,a=Yf(e);t||=`default`;var o=i.get(a);if(!o){var s={loading:0,preload:null};if(o=r.querySelector(Xf(a)))s.loading=5;else{e=m({rel:`stylesheet`,href:e,"data-precedence":t},n),(n=Nf.get(a))&&rp(e,n);var c=o=r.createElement(`link`);Pt(c),$d(c,`link`,e),c._p=new Promise(function(e,t){c.onload=e,c.onerror=t}),c.addEventListener(`load`,function(){s.loading|=1}),c.addEventListener(`error`,function(){s.loading|=2}),s.loading|=4,np(o,t,r)}o={type:`stylesheet`,instance:o,count:1,state:s},i.set(a,o)}}}function Kf(e,t){If.X(e,t);var n=zf;if(n&&e){var r=Nt(n).hoistableScripts,i=$f(e),a=r.get(i);a||(a=n.querySelector(ep(i)),a||(e=m({src:e,async:!0},t),(t=Nf.get(i))&&ip(e,t),a=n.createElement(`script`),Pt(a),$d(a,`link`,e),n.head.appendChild(a)),a={type:`script`,instance:a,count:1,state:null},r.set(i,a))}}function qf(e,t){If.M(e,t);var n=zf;if(n&&e){var r=Nt(n).hoistableScripts,i=$f(e),a=r.get(i);a||(a=n.querySelector(ep(i)),a||(e=m({src:e,async:!0,type:`module`},t),(t=Nf.get(i))&&ip(e,t),a=n.createElement(`script`),Pt(a),$d(a,`link`,e),n.head.appendChild(a)),a={type:`script`,instance:a,count:1,state:null},r.set(i,a))}}function Jf(e,t,n,r){var a=(a=S.current)?Ff(a):null;if(!a)throw Error(i(446));switch(e){case`meta`:case`title`:return null;case`style`:return typeof n.precedence==`string`&&typeof n.href==`string`?(t=Yf(n.href),n=Nt(a).hoistableStyles,r=n.get(t),r||(r={type:`style`,instance:null,count:0,state:null},n.set(t,r)),r):{type:`void`,instance:null,count:0,state:null};case`link`:if(n.rel===`stylesheet`&&typeof n.href==`string`&&typeof n.precedence==`string`){e=Yf(n.href);var o=Nt(a).hoistableStyles,s=o.get(e);if(s||(a=a.ownerDocument||a,s={type:`stylesheet`,instance:null,count:0,state:{loading:0,preload:null}},o.set(e,s),(o=a.querySelector(Xf(e)))&&!o._p&&(s.instance=o,s.state.loading=5),Nf.has(e)||(n={rel:`preload`,as:`style`,href:n.href,crossOrigin:n.crossOrigin,integrity:n.integrity,media:n.media,hrefLang:n.hrefLang,referrerPolicy:n.referrerPolicy},Nf.set(e,n),o||Qf(a,e,n,s.state))),t&&r===null)throw Error(i(528,``));return s}if(t&&r!==null)throw Error(i(529,``));return null;case`script`:return t=n.async,n=n.src,typeof n==`string`&&t&&typeof t!=`function`&&typeof t!=`symbol`?(t=$f(n),n=Nt(a).hoistableScripts,r=n.get(t),r||(r={type:`script`,instance:null,count:0,state:null},n.set(t,r)),r):{type:`void`,instance:null,count:0,state:null};default:throw Error(i(444,e))}}function Yf(e){return`href="`+O(e)+`"`}function Xf(e){return`link[rel="stylesheet"][`+e+`]`}function Zf(e){return m({},e,{"data-precedence":e.precedence,precedence:null})}function Qf(e,t,n,r){e.querySelector(`link[rel="preload"][as="style"][`+t+`]`)?r.loading=1:(t=e.createElement(`link`),r.preload=t,t.addEventListener(`load`,function(){return r.loading|=1}),t.addEventListener(`error`,function(){return r.loading|=2}),$d(t,`link`,n),Pt(t),e.head.appendChild(t))}function $f(e){return`[src="`+O(e)+`"]`}function ep(e){return`script[async]`+e}function tp(e,t,n){if(t.count++,t.instance===null)switch(t.type){case`style`:var r=e.querySelector(`style[data-href~="`+O(n.href)+`"]`);if(r)return t.instance=r,Pt(r),r;var a=m({},n,{"data-href":n.href,"data-precedence":n.precedence,href:null,precedence:null});return r=(e.ownerDocument||e).createElement(`style`),Pt(r),$d(r,`style`,a),np(r,n.precedence,e),t.instance=r;case`stylesheet`:a=Yf(n.href);var o=e.querySelector(Xf(a));if(o)return t.state.loading|=4,t.instance=o,Pt(o),o;r=Zf(n),(a=Nf.get(a))&&rp(r,a),o=(e.ownerDocument||e).createElement(`link`),Pt(o);var s=o;return s._p=new Promise(function(e,t){s.onload=e,s.onerror=t}),$d(o,`link`,r),t.state.loading|=4,np(o,n.precedence,e),t.instance=o;case`script`:return o=$f(n.src),(a=e.querySelector(ep(o)))?(t.instance=a,Pt(a),a):(r=n,(a=Nf.get(o))&&(r=m({},n),ip(r,a)),e=e.ownerDocument||e,a=e.createElement(`script`),Pt(a),$d(a,`link`,r),e.head.appendChild(a),t.instance=a);case`void`:return null;default:throw Error(i(443,t.type))}else t.type===`stylesheet`&&!(t.state.loading&4)&&(r=t.instance,t.state.loading|=4,np(r,n.precedence,e));return t.instance}function np(e,t,n){for(var r=n.querySelectorAll(`link[rel="stylesheet"][data-precedence],style[data-precedence]`),i=r.length?r[r.length-1]:null,a=i,o=0;o<r.length;o++){var s=r[o];if(s.dataset.precedence===t)a=s;else if(a!==i)break}a?a.parentNode.insertBefore(e,a.nextSibling):(t=n.nodeType===9?n.head:n,t.insertBefore(e,t.firstChild))}function rp(e,t){e.crossOrigin??=t.crossOrigin,e.referrerPolicy??=t.referrerPolicy,e.title??=t.title}function ip(e,t){e.crossOrigin??=t.crossOrigin,e.referrerPolicy??=t.referrerPolicy,e.integrity??=t.integrity}var ap=null;function op(e,t,n){if(ap===null){var r=new Map,i=ap=new Map;i.set(n,r)}else i=ap,r=i.get(n),r||(r=new Map,i.set(n,r));if(r.has(e))return r;for(r.set(e,null),n=n.getElementsByTagName(e),i=0;i<n.length;i++){var a=n[i];if(!(a[Ot]||a[St]||e===`link`&&a.getAttribute(`rel`)===`stylesheet`)&&a.namespaceURI!==`http://www.w3.org/2000/svg`){var o=a.getAttribute(t)||``;o=e+o;var s=r.get(o);s?s.push(a):r.set(o,[a])}}return r}function sp(e,t,n){e=e.ownerDocument||e,e.head.insertBefore(n,t===`title`?e.querySelector(`head > title`):null)}function cp(e,t,n){if(n===1||t.itemProp!=null)return!1;switch(e){case`meta`:case`title`:return!0;case`style`:if(typeof t.precedence!=`string`||typeof t.href!=`string`||t.href===``)break;return!0;case`link`:if(typeof t.rel!=`string`||typeof t.href!=`string`||t.href===``||t.onLoad||t.onError)break;switch(t.rel){case`stylesheet`:return e=t.disabled,typeof t.precedence==`string`&&e==null;default:return!0}case`script`:if(t.async&&typeof t.async!=`function`&&typeof t.async!=`symbol`&&!t.onLoad&&!t.onError&&t.src&&typeof t.src==`string`)return!0}return!1}function lp(e){return!(e.type===`stylesheet`&&!(e.state.loading&3))}function up(e,t,n,r){if(n.type===`stylesheet`&&(typeof r.media!=`string`||!1!==matchMedia(r.media).matches)&&!(n.state.loading&4)){if(n.instance===null){var i=Yf(r.href),a=t.querySelector(Xf(i));if(a){t=a._p,typeof t==`object`&&t&&typeof t.then==`function`&&(e.count++,e=pp.bind(e),t.then(e,e)),n.state.loading|=4,n.instance=a,Pt(a);return}a=t.ownerDocument||t,r=Zf(r),(i=Nf.get(i))&&rp(r,i),a=a.createElement(`link`),Pt(a);var o=a;o._p=new Promise(function(e,t){o.onload=e,o.onerror=t}),$d(a,`link`,r),n.instance=a}e.stylesheets===null&&(e.stylesheets=new Map),e.stylesheets.set(n,t),(t=n.state.preload)&&!(n.state.loading&3)&&(e.count++,n=pp.bind(e),t.addEventListener(`load`,n),t.addEventListener(`error`,n))}}var dp=0;function fp(e,t){return e.stylesheets&&e.count===0&&hp(e,e.stylesheets),0<e.count||0<e.imgCount?function(n){var r=setTimeout(function(){if(e.stylesheets&&hp(e,e.stylesheets),e.unsuspend){var t=e.unsuspend;e.unsuspend=null,t()}},6e4+t);0<e.imgBytes&&dp===0&&(dp=62500*nf());var i=setTimeout(function(){if(e.waitingForImages=!1,e.count===0&&(e.stylesheets&&hp(e,e.stylesheets),e.unsuspend)){var t=e.unsuspend;e.unsuspend=null,t()}},(e.imgBytes>dp?50:800)+t);return e.unsuspend=n,function(){e.unsuspend=null,clearTimeout(r),clearTimeout(i)}}:null}function pp(){if(this.count--,this.count===0&&(this.imgCount===0||!this.waitingForImages)){if(this.stylesheets)hp(this,this.stylesheets);else if(this.unsuspend){var e=this.unsuspend;this.unsuspend=null,e()}}}var mp=null;function hp(e,t){e.stylesheets=null,e.unsuspend!==null&&(e.count++,mp=new Map,t.forEach(gp,e),mp=null,pp.call(e))}function gp(e,t){if(!(t.state.loading&4)){var n=mp.get(e);if(n)var r=n.get(null);else{n=new Map,mp.set(e,n);for(var i=e.querySelectorAll(`link[data-precedence],style[data-precedence]`),a=0;a<i.length;a++){var o=i[a];(o.nodeName===`LINK`||o.getAttribute(`media`)!==`not all`)&&(n.set(o.dataset.precedence,o),r=o)}r&&n.set(null,r)}i=t.instance,o=i.getAttribute(`data-precedence`),a=n.get(o)||r,a===r&&n.set(null,i),n.set(o,i),this.count++,r=pp.bind(this),i.addEventListener(`load`,r),i.addEventListener(`error`,r),a?a.parentNode.insertBefore(i,a.nextSibling):(e=e.nodeType===9?e.head:e,e.insertBefore(i,e.firstChild)),t.state.loading|=4}}var _p={$$typeof:ne,Provider:null,Consumer:null,_currentValue:_e,_currentValue2:_e,_threadCount:0};function vp(e,t,n,r,i,a,o,s,c){this.tag=1,this.containerInfo=e,this.pingCache=this.current=this.pendingChildren=null,this.timeoutHandle=-1,this.callbackNode=this.next=this.pendingContext=this.context=this.cancelPendingCommit=null,this.callbackPriority=0,this.expirationTimes=dt(-1),this.entangledLanes=this.shellSuspendCounter=this.errorRecoveryDisabledLanes=this.expiredLanes=this.warmLanes=this.pingedLanes=this.suspendedLanes=this.pendingLanes=0,this.entanglements=dt(0),this.hiddenUpdates=dt(null),this.identifierPrefix=r,this.onUncaughtError=i,this.onCaughtError=a,this.onRecoverableError=o,this.pooledCache=null,this.pooledCacheLanes=0,this.formState=c,this.incompleteTransitions=new Map}function yp(e,t,n,r,i,a,o,s,c,l,u,d){return e=new vp(e,t,n,o,c,l,u,d,s),t=1,!0===a&&(t|=24),a=mi(3,null,null,t),e.current=a,a.stateNode=e,t=ma(),t.refCount++,e.pooledCache=t,t.refCount++,a.memoizedState={element:r,isDehydrated:n,cache:t},qa(a),e}function bp(e){return e?(e=fi,e):fi}function xp(e,t,n,r,i,a){i=bp(i),r.context===null?r.context=i:r.pendingContext=i,r=Ya(t),r.payload={element:n},a=a===void 0?null:a,a!==null&&(r.callback=a),n=Xa(e,r,t),n!==null&&(ju(n,e,t),Za(n,e,t))}function Sp(e,t){if(e=e.memoizedState,e!==null&&e.dehydrated!==null){var n=e.retryLane;e.retryLane=n!==0&&n<t?n:t}}function Cp(e,t){Sp(e,t),(e=e.alternate)&&Sp(e,t)}function wp(e){if(e.tag===13||e.tag===31){var t=li(e,67108864);t!==null&&ju(t,e,67108864),Cp(e,67108864)}}function Tp(e){if(e.tag===13||e.tag===31){var t=ku();t=_t(t);var n=li(e,t);n!==null&&ju(n,e,t),Cp(e,t)}}var Ep=!0;function Dp(e,t,n,r){var i=he.T;he.T=null;var a=ge.p;try{ge.p=2,kp(e,t,n,r)}finally{ge.p=a,he.T=i}}function Op(e,t,n,r){var i=he.T;he.T=null;var a=ge.p;try{ge.p=8,kp(e,t,n,r)}finally{ge.p=a,he.T=i}}function kp(e,t,n,r){if(Ep){var i=Ap(r);if(i===null)Hd(e,t,r,jp,n),Hp(e,r);else if(Wp(i,e,t,n,r))r.stopPropagation();else if(Hp(e,r),t&4&&-1<Vp.indexOf(e)){for(;i!==null;){var a=jt(i);if(a!==null)switch(a.tag){case 3:if(a=a.stateNode,a.current.memoizedState.isDehydrated){var o=ot(a.pendingLanes);if(o!==0){var s=a;for(s.pendingLanes|=2,s.entangledLanes|=2;o;){var c=1<<31-$e(o);s.entanglements[1]|=c,o&=~c}bd(a),!(Xl&6)&&(_u=Ve()+500,xd(0,!1))}}break;case 31:case 13:s=li(a,2),s!==null&&ju(s,a,2),Iu(),Cp(a,2)}if(a=Ap(r),a===null&&Hd(e,t,r,jp,n),a===i)break;i=a}i!==null&&r.stopPropagation()}else Hd(e,t,r,null,n)}}function Ap(e){return e=un(e),Mp(e)}var jp=null;function Mp(e){if(jp=null,e=At(e),e!==null){var t=o(e);if(t===null)e=null;else{var n=t.tag;if(n===13){if(e=s(t),e!==null)return e;e=null}else if(n===31){if(e=c(t),e!==null)return e;e=null}else if(n===3){if(t.stateNode.current.memoizedState.isDehydrated)return t.tag===3?t.stateNode.containerInfo:null;e=null}else t!==e&&(e=null)}}return jp=e,null}function Np(e){switch(e){case`beforetoggle`:case`cancel`:case`click`:case`close`:case`contextmenu`:case`copy`:case`cut`:case`auxclick`:case`dblclick`:case`dragend`:case`dragstart`:case`drop`:case`focusin`:case`focusout`:case`input`:case`invalid`:case`keydown`:case`keypress`:case`keyup`:case`mousedown`:case`mouseup`:case`paste`:case`pause`:case`play`:case`pointercancel`:case`pointerdown`:case`pointerup`:case`ratechange`:case`reset`:case`resize`:case`seeked`:case`submit`:case`toggle`:case`touchcancel`:case`touchend`:case`touchstart`:case`volumechange`:case`change`:case`selectionchange`:case`textInput`:case`compositionstart`:case`compositionend`:case`compositionupdate`:case`beforeblur`:case`afterblur`:case`beforeinput`:case`blur`:case`fullscreenchange`:case`focus`:case`hashchange`:case`popstate`:case`select`:case`selectstart`:return 2;case`drag`:case`dragenter`:case`dragexit`:case`dragleave`:case`dragover`:case`mousemove`:case`mouseout`:case`mouseover`:case`pointermove`:case`pointerout`:case`pointerover`:case`scroll`:case`touchmove`:case`wheel`:case`mouseenter`:case`mouseleave`:case`pointerenter`:case`pointerleave`:return 8;case`message`:switch(He()){case Ue:return 2;case We:return 8;case Ge:case Ke:return 32;case qe:return 268435456;default:return 32}default:return 32}}var Pp=!1,Fp=null,Ip=null,Lp=null,Rp=new Map,zp=new Map,Bp=[],Vp=`mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset`.split(` `);function Hp(e,t){switch(e){case`focusin`:case`focusout`:Fp=null;break;case`dragenter`:case`dragleave`:Ip=null;break;case`mouseover`:case`mouseout`:Lp=null;break;case`pointerover`:case`pointerout`:Rp.delete(t.pointerId);break;case`gotpointercapture`:case`lostpointercapture`:zp.delete(t.pointerId)}}function Up(e,t,n,r,i,a){return e===null||e.nativeEvent!==a?(e={blockedOn:t,domEventName:n,eventSystemFlags:r,nativeEvent:a,targetContainers:[i]},t!==null&&(t=jt(t),t!==null&&wp(t)),e):(e.eventSystemFlags|=r,t=e.targetContainers,i!==null&&t.indexOf(i)===-1&&t.push(i),e)}function Wp(e,t,n,r,i){switch(t){case`focusin`:return Fp=Up(Fp,e,t,n,r,i),!0;case`dragenter`:return Ip=Up(Ip,e,t,n,r,i),!0;case`mouseover`:return Lp=Up(Lp,e,t,n,r,i),!0;case`pointerover`:var a=i.pointerId;return Rp.set(a,Up(Rp.get(a)||null,e,t,n,r,i)),!0;case`gotpointercapture`:return a=i.pointerId,zp.set(a,Up(zp.get(a)||null,e,t,n,r,i)),!0}return!1}function Gp(e){var t=At(e.target);if(t!==null){var n=o(t);if(n!==null){if(t=n.tag,t===13){if(t=s(n),t!==null){e.blockedOn=t,bt(e.priority,function(){Tp(n)});return}}else if(t===31){if(t=c(n),t!==null){e.blockedOn=t,bt(e.priority,function(){Tp(n)});return}}else if(t===3&&n.stateNode.current.memoizedState.isDehydrated){e.blockedOn=n.tag===3?n.stateNode.containerInfo:null;return}}}e.blockedOn=null}function Kp(e){if(e.blockedOn!==null)return!1;for(var t=e.targetContainers;0<t.length;){var n=Ap(e.nativeEvent);if(n===null){n=e.nativeEvent;var r=new n.constructor(n.type,n);ln=r,n.target.dispatchEvent(r),ln=null}else return t=jt(n),t!==null&&wp(t),e.blockedOn=n,!1;t.shift()}return!0}function qp(e,t,n){Kp(e)&&n.delete(t)}function Jp(){Pp=!1,Fp!==null&&Kp(Fp)&&(Fp=null),Ip!==null&&Kp(Ip)&&(Ip=null),Lp!==null&&Kp(Lp)&&(Lp=null),Rp.forEach(qp),zp.forEach(qp)}function Yp(e,n){e.blockedOn===n&&(e.blockedOn=null,Pp||(Pp=!0,t.unstable_scheduleCallback(t.unstable_NormalPriority,Jp)))}var Xp=null;function Zp(e){Xp!==e&&(Xp=e,t.unstable_scheduleCallback(t.unstable_NormalPriority,function(){Xp===e&&(Xp=null);for(var t=0;t<e.length;t+=3){var n=e[t],r=e[t+1],i=e[t+2];if(typeof r!=`function`){if(Mp(r||n)===null)continue;break}var a=jt(n);a!==null&&(e.splice(t,3),t-=3,Ns(a,{pending:!0,data:i,method:n.method,action:r},r,i))}}))}function Qp(e){function t(t){return Yp(t,e)}Fp!==null&&Yp(Fp,e),Ip!==null&&Yp(Ip,e),Lp!==null&&Yp(Lp,e),Rp.forEach(t),zp.forEach(t);for(var n=0;n<Bp.length;n++){var r=Bp[n];r.blockedOn===e&&(r.blockedOn=null)}for(;0<Bp.length&&(n=Bp[0],n.blockedOn===null);)Gp(n),n.blockedOn===null&&Bp.shift();if(n=(e.ownerDocument||e).$$reactFormReplay,n!=null)for(r=0;r<n.length;r+=3){var i=n[r],a=n[r+1],o=i[Ct]||null;if(typeof a==`function`)o||Zp(n);else if(o){var s=null;if(a&&a.hasAttribute(`formAction`)){if(i=a,o=a[Ct]||null)s=o.formAction;else if(Mp(i)!==null)continue}else s=o.action;typeof s==`function`?n[r+1]=s:(n.splice(r,3),r-=3),Zp(n)}}}function $p(){function e(e){e.canIntercept&&e.info===`react-transition`&&e.intercept({handler:function(){return new Promise(function(e){return i=e})},focusReset:`manual`,scroll:`manual`})}function t(){i!==null&&(i(),i=null),r||setTimeout(n,20)}function n(){if(!r&&!navigation.transition){var e=navigation.currentEntry;e&&e.url!=null&&navigation.navigate(e.url,{state:e.getState(),info:`react-transition`,history:`replace`})}}if(typeof navigation==`object`){var r=!1,i=null;return navigation.addEventListener(`navigate`,e),navigation.addEventListener(`navigatesuccess`,t),navigation.addEventListener(`navigateerror`,t),setTimeout(n,100),function(){r=!0,navigation.removeEventListener(`navigate`,e),navigation.removeEventListener(`navigatesuccess`,t),navigation.removeEventListener(`navigateerror`,t),i!==null&&(i(),i=null)}}}function em(e){this._internalRoot=e}tm.prototype.render=em.prototype.render=function(e){var t=this._internalRoot;if(t===null)throw Error(i(409));var n=t.current;xp(n,ku(),e,t,null,null)},tm.prototype.unmount=em.prototype.unmount=function(){var e=this._internalRoot;if(e!==null){this._internalRoot=null;var t=e.containerInfo;xp(e.current,2,null,e,null,null),Iu(),t[C]=null}};function tm(e){this._internalRoot=e}tm.prototype.unstable_scheduleHydration=function(e){if(e){var t=yt();e={blockedOn:null,target:e,priority:t};for(var n=0;n<Bp.length&&t!==0&&t<Bp[n].priority;n++);Bp.splice(n,0,e),n===0&&Gp(e)}};var nm=n.version;if(nm!==`19.2.8`)throw Error(i(527,nm,`19.2.8`));ge.findDOMNode=function(e){var t=e._reactInternals;if(t===void 0)throw typeof e.render==`function`?Error(i(188)):(e=Object.keys(e).join(`,`),Error(i(268,e)));return e=u(t),e=e===null?null:f(e),e=e===null?null:e.stateNode,e};var rm={bundleType:0,version:`19.2.8`,rendererPackageName:`react-dom`,currentDispatcherRef:he,reconcilerVersion:`19.2.8`};if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__<`u`){var im=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!im.isDisabled&&im.supportsFiber)try{Xe=im.inject(rm),Ze=im}catch{}}e.createRoot=function(e,t){if(!a(e))throw Error(i(299));var n=!1,r=``,o=nc,s=rc,c=ic;return t!=null&&(!0===t.unstable_strictMode&&(n=!0),t.identifierPrefix!==void 0&&(r=t.identifierPrefix),t.onUncaughtError!==void 0&&(o=t.onUncaughtError),t.onCaughtError!==void 0&&(s=t.onCaughtError),t.onRecoverableError!==void 0&&(c=t.onRecoverableError)),t=yp(e,1,!1,null,null,n,r,null,o,s,c,$p),e[C]=t.current,Bd(e),new em(t)}})),_=o(((e,t)=>{function n(){if(!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__>`u`||typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE!=`function`))try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(n)}catch(e){console.error(e)}}n(),t.exports=g()})),v=l(d(),1),y=_(),b=(...e)=>e.filter((e,t,n)=>!!e&&e.trim()!==``&&n.indexOf(e)===t).join(` `).trim(),ee=e=>e.replace(/([a-z0-9])([A-Z])/g,`$1-$2`).toLowerCase(),te=e=>e.replace(/^([A-Z])|[\s-_]+(\w)/g,(e,t,n)=>n?n.toUpperCase():t.toLowerCase()),ne=e=>{let t=te(e);return t.charAt(0).toUpperCase()+t.slice(1)},re={xmlns:`http://www.w3.org/2000/svg`,width:24,height:24,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:2,strokeLinecap:`round`,strokeLinejoin:`round`},ie=e=>{for(let t in e)if(t.startsWith(`aria-`)||t===`role`||t===`title`)return!0;return!1},ae=(0,v.createContext)({}),oe=()=>(0,v.useContext)(ae),se=(0,v.forwardRef)(({color:e,size:t,strokeWidth:n,absoluteStrokeWidth:r,className:i=``,children:a,iconNode:o,...s},c)=>{let{size:l=24,strokeWidth:u=2,absoluteStrokeWidth:d=!1,color:f=`currentColor`,className:p=``}=oe()??{},m=r??d?Number(n??u)*24/Number(t??l):n??u;return(0,v.createElement)(`svg`,{ref:c,...re,width:t??l??re.width,height:t??l??re.height,stroke:e??f,strokeWidth:m,className:b(`lucide`,p,i),...!a&&!ie(s)&&{"aria-hidden":`true`},...s},[...o.map(([e,t])=>(0,v.createElement)(e,t)),...Array.isArray(a)?a:[a]])}),ce=(e,t)=>{let n=(0,v.forwardRef)(({className:n,...r},i)=>(0,v.createElement)(se,{ref:i,iconNode:t,className:b(`lucide-${ee(ne(e))}`,`lucide-${e}`,n),...r}));return n.displayName=ne(e),n},le=ce(`chevron-down`,[[`path`,{d:`m6 9 6 6 6-6`,key:`qrunsl`}]]),ue=ce(`chevron-left`,[[`path`,{d:`m15 18-6-6 6-6`,key:`1wnfg3`}]]),de=ce(`chevron-right`,[[`path`,{d:`m9 18 6-6-6-6`,key:`mthhwq`}]]),fe=ce(`menu`,[[`path`,{d:`M4 5h16`,key:`1tepv9`}],[`path`,{d:`M4 12h16`,key:`1lakjw`}],[`path`,{d:`M4 19h16`,key:`1djgab`}]]),pe=ce(`moon`,[[`path`,{d:`M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401`,key:`kfwtm`}]]),me=ce(`sun`,[[`circle`,{cx:`12`,cy:`12`,r:`4`,key:`4exip2`}],[`path`,{d:`M12 2v2`,key:`tus03m`}],[`path`,{d:`M12 20v2`,key:`1lh1kg`}],[`path`,{d:`m4.93 4.93 1.41 1.41`,key:`149t6j`}],[`path`,{d:`m17.66 17.66 1.41 1.41`,key:`ptbguv`}],[`path`,{d:`M2 12h2`,key:`1t8f8n`}],[`path`,{d:`M20 12h2`,key:`1q8mjw`}],[`path`,{d:`m6.34 17.66-1.41 1.41`,key:`1m8zz5`}],[`path`,{d:`m19.07 4.93-1.41 1.41`,key:`1shlcs`}]]),he={title:`Introduction to Probability`,subtitle:`Theory and Applications`,author:`GS. TS. Nguyễn Văn Học`,edition:`Fourth Edition, 2024`,subject:`Mathematics — University`},ge=[{id:`ch0`,number:`0`,title:`Mở đầu`,sections:[{id:`ch0-s1`,number:`0.1`,title:`Văn bản mẫu giao diện (Showcase)`}]},{id:`ch1`,number:`1`,title:`Xác suất và đếm`,sections:[{id:`ch1-s1`,number:`1.1`,title:`Tại sao nên học xác suất?`},{id:`ch1-s2`,number:`1.2`,title:`Không gian mẫu và thế giới viên đá`},{id:`ch1-s3`,number:`1.3`,title:`Định nghĩa thô sơ của xác suất`},{id:`ch1-s4`,number:`1.4`,title:`Làm thế nào để đếm`},{id:`ch1-s5`,number:`1.5`,title:`Chứng minh qua câu chuyện`},{id:`ch1-s6`,number:`1.6`,title:`Định nghĩa không thô sơ của xác suất`},{id:`ch1-s7`,number:`1.7`,title:`Tóm tắt`},{id:`ch1-s8`,number:`1.8`,title:`R`},{id:`ch1-s9`,number:`1.9`,title:`Bài tập`}]},{id:`ch2`,number:`2`,title:`Xác suất có điều kiện`,sections:[{id:`ch2-s1`,number:`2.1`,title:`Tầm quan trọng của việc suy nghĩ có điều kiện`},{id:`ch2-s2`,number:`2.2`,title:`Định nghĩa và trực giác`},{id:`ch2-s3`,number:`2.3`,title:`Quy tắc Bayes và định luật xác suất toàn phần`},{id:`ch2-s5`,number:`2.5`,title:`Sự độc lập của các sự kiện`},{id:`ch2-s6`,number:`2.6`,title:`Tính nhất quán của định lý Bayes`},{id:`ch2-s7`,number:`2.7`,title:`Điều kiện hóa như một công cụ giải quyết vấn đề`},{id:`ch2-s8`,number:`2.8`,title:`Những lầm tưởng và nghịch lý`},{id:`ch2-s9`,number:`2.9`,title:`Tóm tắt`},{id:`ch2-s10`,number:`2.10`,title:`R`},{id:`ch2-s11`,number:`2.11`,title:`Bài tập`}]},{id:`ch3`,number:`3`,title:`Biến ngẫu nhiên và phân phối của chúng`,sections:[{id:`ch3-s1`,number:`3.1`,title:`Biến ngẫu nhiên`},{id:`ch3-s2`,number:`3.2`,title:`Phân phối và hàm khối xác suất`},{id:`ch3-s4`,number:`3.4`,title:`Hypergeometric`},{id:`ch3-s5`,number:`3.5`,title:`Phân phối đều và rời rạc`},{id:`ch3-s6`,number:`3.6`,title:`Hàm phân phối tích lũy`},{id:`ch3-s7`,number:`3.7`,title:`Hàm của biến ngẫu nhiên`},{id:`ch3-s9`,number:`3.9`,title:`Liên hệ giữa Binomial và Hypergeometric`},{id:`ch3-s10`,number:`3.10`,title:`Tóm tắt`},{id:`ch3-s11`,number:`3.11`,title:`R`},{id:`ch3-s12`,number:`3.12`,title:`Bài tập`}]},{id:`ch4`,number:`4`,title:`Kỳ vọng`,sections:[{id:`ch4-s1`,number:`4.1`,title:`Định nghĩa kỳ vọng`},{id:`ch4-s2`,number:`4.2`,title:`Tính tuyến tính của kỳ vọng`},{id:`ch4-s3`,number:`4.3`,title:`Phân phối hình học và phân phối nhị thức âm`},{id:`ch4-s5`,number:`4.5`,title:`Định lý LOTUS (Law of the unconscious statistician)`},{id:`ch4-s6`,number:`4.6`,title:`Phương sai`},{id:`ch4-s7`,number:`4.7`,title:`Phân phối Poisson`},{id:`ch4-s8`,number:`4.8`,title:`Mối liên hệ giữa Poisson và Binomial`},{id:`ch4-s9`,number:`4.9`,title:`*Sử dụng xác suất và kỳ vọng để chứng minh sự tồn tại`},{id:`ch4-s10`,number:`4.10`,title:`Tóm tắt`},{id:`ch4-s11`,number:`4.11`,title:`R`},{id:`ch4-s12`,number:`4.12`,title:`Bài tập`}]},{id:`ch5`,number:`5`,title:`Biến ngẫu nhiên liên tục`,sections:[{id:`ch5-s1`,number:`5.1`,title:`Hàm mật độ xác suất`},{id:`ch5-s2`,number:`5.2`,title:`Phân phối đều`},{id:`ch5-s3`,number:`5.3`,title:`Tính phổ biến của phân phối đều`},{id:`ch5-s4`,number:`5.4`,title:`Phân phối chuẩn`},{id:`ch5-s5`,number:`5.5`,title:`Phân phối mũ`},{id:`ch5-s6`,number:`5.6`,title:`Quá trình Poisson`},{id:`ch5-s8`,number:`5.8`,title:`Tóm tắt`},{id:`ch5-s10`,number:`5.10`,title:`Bài tập`}]},{id:`ch6`,number:`6`,title:`Mô-men`,sections:[{id:`ch6-s1`,number:`6.1`,title:`Tóm tắt phân phối`},{id:`ch6-s2`,number:`6.2`,title:`Giải thích mô-men`},{id:`ch6-s3`,number:`6.3`,title:`Mô-men mẫu`},{id:`ch6-s4`,number:`6.4`,title:`Hàm sinh mô-men`},{id:`ch6-s5`,number:`6.5`,title:`Tạo mô-men bằng hàm sinh mô-men`},{id:`ch6-s7`,number:`6.7`,title:`*Hàm sinh xác suất`},{id:`ch6-s8`,number:`6.8`,title:`Tóm tắt`},{id:`ch6-s9`,number:`6.9`,title:`R`},{id:`ch6-s10`,number:`6.10`,title:`Bài tập`}]},{id:`ch7`,number:`7`,title:`Phân phối chung`,sections:[{id:`ch7-s1`,number:`7.1`,title:`Phân phối chung, phân phối biên và phân phối điều kiện`},{id:`ch7-s2`,number:`7.2`,title:`2D LOTUS`},{id:`ch7-s3`,number:`7.3`,title:`Hiệp phương sai và hệ số tương quan`},{id:`ch7-s4`,number:`7.4`,title:`Phân phối đa thức`},{id:`ch7-s5`,number:`7.5`,title:`Phân phối chuẩn đa biến`},{id:`ch7-s6`,number:`7.6`,title:`Tóm tắt`},{id:`ch7-s7`,number:`7.7`,title:`R`},{id:`ch7-s8`,number:`7.8`,title:`Bài tập`}]},{id:`ch8`,number:`8`,title:`Biến đổi`,sections:[{id:`ch8-s1`,number:`8.1`,title:`Thay đổi biến`},{id:`ch8-s2`,number:`8.2`,title:`Tích convolution`},{id:`ch8-s3`,number:`8.3`,title:`Beta`},{id:`ch8-s4`,number:`8.4`,title:`Gamma`},{id:`ch8-s5`,number:`8.5`,title:`Mối liên hệ Beta-Gamma`},{id:`ch8-s6`,number:`8.6`,title:`Thống kê thứ tự`},{id:`ch8-s7`,number:`8.7`,title:`Tóm tắt`},{id:`ch8-s8`,number:`8.8`,title:`R`},{id:`ch8-s9`,number:`8.9`,title:`Bài tập`}]},{id:`ch9`,number:`9`,title:`Kỳ vọng có điều kiện`,sections:[{id:`ch9-s1`,number:`9.1`,title:`Kỳ vọng có điều kiện cho một sự kiện`},{id:`ch9-s3`,number:`9.3`,title:`Tính chất của kỳ vọng có điều kiện`},{id:`ch9-s4`,number:`9.4`,title:`*Giải thích hình học của kỳ vọng có điều kiện`},{id:`ch9-s5`,number:`9.5`,title:`Phương sai có điều kiện`},{id:`ch9-s7`,number:`9.7`,title:`Tóm tắt`},{id:`ch9-s8`,number:`9.8`,title:`R`},{id:`ch9-s9`,number:`9.9`,title:`Bài tập`}]},{id:`ch10`,number:`10`,title:`Các bất đẳng thức và định lý giới hạn`,sections:[{id:`ch10-s1`,number:`10.1`,title:`Bất đẳng thức`},{id:`ch10-s2`,number:`10.2`,title:`Định lý số lớn`},{id:`ch10-s3`,number:`10.3`,title:`Định lý giới hạn trung tâm`},{id:`ch10-s5`,number:`10.5`,title:`Tóm tắt`},{id:`ch10-s6`,number:`10.6`,title:`R`},{id:`ch10-s7`,number:`10.7`,title:`Bài tập`}]},{id:`ch11`,number:`11`,title:`Chuỗi Markov`,sections:[{id:`ch11-s1`,number:`11.1`,title:`Tính chất Markov và ma trận chuyển`},{id:`ch11-s2`,number:`11.2`,title:`Phân loại trạng thái`},{id:`ch11-s3`,number:`11.3`,title:`Phân bố dừng`},{id:`ch11-s4`,number:`11.4`,title:`Tính thuận nghịch`},{id:`ch11-s5`,number:`11.5`,title:`Tóm tắt`},{id:`ch11-s6`,number:`11.6`,title:`R`},{id:`ch11-s7`,number:`11.7`,title:`Bài tập`}]},{id:`ch12`,number:`12`,title:`Chuỗi Markov Monte Carlo`,sections:[{id:`ch12-s1`,number:`12.1`,title:`Metropolis-Hastings`},{id:`ch12-s2`,number:`12.2`,title:`Gibbs sampling`},{id:`ch12-s3`,number:`12.3`,title:`Tóm tắt`},{id:`ch12-s4`,number:`12.4`,title:`R`},{id:`ch12-s5`,number:`12.5`,title:`Bài tập`}]},{id:`ch13`,number:`13`,title:`Quá trình Poisson`,sections:[{id:`ch13-s1`,number:`13.1`,title:`Quá trình Poisson trong một chiều`},{id:`ch13-s2`,number:`13.2`,title:`Điều kiện, tổng hợp và lọc`},{id:`ch13-s3`,number:`13.3`,title:`Quá trình Poisson trong nhiều chiều`},{id:`ch13-s4`,number:`13.4`,title:`Tóm tắt`},{id:`ch13-s5`,number:`13.5`,title:`R`},{id:`ch13-s6`,number:`13.6`,title:`Bài tập`}]}],_e=`ch0.ch1.ch1-s1.ch1-s2.ch1-s3.ch1-s4.ch1-s5.ch1-s6.ch1-s7.ch1-s8.ch1-s9.ch2.ch2-s1.ch2-s2.ch2-s3.ch2-s5.ch2-s6.ch2-s7.ch2-s8.ch2-s9.ch2-s10.ch2-s11.ch3.ch3-s1.ch3-s2.ch3-s4.ch3-s5.ch3-s6.ch3-s7.ch3-s9.ch3-s10.ch3-s11.ch3-s12.ch4.ch4-s1.ch4-s2.ch4-s3.ch4-s5.ch4-s6.ch4-s7.ch4-s8.ch4-s9.ch4-s10.ch4-s11.ch4-s12.ch5.ch5-s1.ch5-s2.ch5-s3.ch5-s4.ch5-s5.ch5-s6.ch5-s8.ch5-s10.ch6.ch6-s1.ch6-s2.ch6-s3.ch6-s4.ch6-s5.ch6-s7.ch6-s8.ch6-s9.ch6-s10.ch7.ch7-s1.ch7-s2.ch7-s3.ch7-s4.ch7-s5.ch7-s6.ch7-s7.ch7-s8.ch8.ch8-s1.ch8-s2.ch8-s3.ch8-s4.ch8-s5.ch8-s6.ch8-s7.ch8-s8.ch8-s9.ch9.ch9-s1.ch9-s3.ch9-s4.ch9-s5.ch9-s7.ch9-s8.ch9-s9.ch10.ch10-s1.ch10-s2.ch10-s3.ch10-s5.ch10-s6.ch10-s7.ch11.ch11-s1.ch11-s2.ch11-s3.ch11-s4.ch11-s5.ch11-s6.ch11-s7.ch12.ch12-s1.ch12-s2.ch12-s3.ch12-s4.ch12-s5.ch13.ch13-s1.ch13-s2.ch13-s3.ch13-s4.ch13-s5.ch13-s6`.split(`.`);function ve(e){if(e===`ch0`)return`Mở đầu`;for(let t of ge){if(t.id===e)return`Chương ${t.number}: ${t.title}`;for(let n of t.sections)if(n.id===e)return`${n.number} ${n.title}`}return e}function ye(e){let t=_e.indexOf(e);return{prev:t>0?_e[t-1]:void 0,next:t<_e.length-1?_e[t+1]:void 0}}var be=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),x=o(((e,t)=>{t.exports=be()}))();function xe({onToggleSidebar:e,searchQuery:t,onSearchChange:n,theme:r,onToggleTheme:i}){return(0,x.jsxs)(`header`,{className:`topbar`,children:[(0,x.jsx)(`button`,{className:`sidebar-toggle`,onClick:e,"aria-label":`Toggle sidebar`,children:(0,x.jsx)(fe,{size:18})}),(0,x.jsx)(`span`,{className:`topbar-brand`,children:he.title}),(0,x.jsx)(`div`,{className:`topbar-search`,children:(0,x.jsxs)(`div`,{className:`topbar-search-wrap`,children:[(0,x.jsxs)(`svg`,{className:`topbar-search-icon`,width:`14`,height:`14`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2`,strokeLinecap:`round`,strokeLinejoin:`round`,children:[(0,x.jsx)(`circle`,{cx:`11`,cy:`11`,r:`8`}),(0,x.jsx)(`path`,{d:`m21 21-4.35-4.35`})]}),(0,x.jsx)(`input`,{type:`search`,placeholder:`Search...`,value:t,onChange:e=>n(e.target.value),"aria-label":`Search`})]})}),(0,x.jsx)(`div`,{className:`topbar-actions`,children:(0,x.jsx)(`button`,{className:`theme-toggle`,onClick:i,"aria-label":r===`dark`?`Switch to light mode`:`Switch to dark mode`,title:r===`dark`?`Light mode`:`Dark mode`,children:r===`dark`?(0,x.jsx)(me,{size:17}):(0,x.jsx)(pe,{size:17})})})]})}function Se({currentPage:e,onNavigate:t,isOpen:n,onClose:r}){let[i,a]=(0,v.useState)(()=>{let t=new Set;for(let n of ge)(n.id===e||n.sections.some(t=>t.id===e))&&t.add(n.id);return t}),o=e=>{a(t=>{let n=new Set(t);return n.has(e)?n.delete(e):n.add(e),n})},s=e=>{t(e);for(let t of ge)t.sections.some(t=>t.id===e)&&a(e=>new Set([...e,t.id]));r()},c=t=>t.id===e||t.sections.some(t=>t.id===e);return(0,x.jsxs)(x.Fragment,{children:[(0,x.jsx)(`div`,{className:`sidebar-overlay ${n?`active`:``}`,onClick:r}),(0,x.jsx)(`nav`,{className:`sidebar ${n?`mobile-open`:``}`,"aria-label":`Mục lục`,children:(0,x.jsxs)(`div`,{className:`sidebar-section`,children:[(0,x.jsx)(`div`,{className:`sidebar-section-label`,children:`Mục lục`}),ge.map(t=>{let n=i.has(t.id),r=c(t);return(0,x.jsxs)(`div`,{className:`chapter-group`,children:[(0,x.jsxs)(`div`,{className:`chapter-header ${r?`active`:``}`,onClick:()=>{o(t.id),s(t.id)},role:`button`,tabIndex:0,onKeyDown:e=>e.key===`Enter`&&s(t.id),children:[(0,x.jsx)(`span`,{className:`chapter-number`,children:t.number}),(0,x.jsx)(`span`,{style:{flex:1,lineHeight:1.3},children:t.title}),n?(0,x.jsx)(le,{size:14,style:{flexShrink:0,color:`var(--text-muted)`}}):(0,x.jsx)(de,{size:14,style:{flexShrink:0,color:`var(--text-muted)`}})]}),n&&(0,x.jsx)(`div`,{className:`chapter-sections`,children:t.sections.map(t=>(0,x.jsxs)(`div`,{className:`section-link ${e===t.id?`active`:``}`,onClick:()=>s(t.id),role:`button`,tabIndex:0,onKeyDown:e=>e.key===`Enter`&&s(t.id),children:[(0,x.jsx)(`span`,{style:{fontFamily:`JetBrains Mono, monospace`,fontSize:`0.65rem`,color:`var(--text-muted)`,minWidth:`2rem`},children:t.number}),(0,x.jsx)(`span`,{children:t.title})]},t.id))})]},t.id)})]})})]})}function Ce({pageId:e}){let[t,n]=(0,v.useState)([]),[r,i]=(0,v.useState)(``);(0,v.useEffect)(()=>{let e=setTimeout(()=>{let e=document.querySelector(`.content-page`);if(!e)return;let t=e.querySelectorAll(`h2, h3`),r=[];t.forEach((e,t)=>{e.id||=(e.textContent||`heading-${t}`).toLowerCase().replace(/[^a-z0-9A-Z]+/g,`-`).replace(/(^-|-$)+/g,``)||`heading-${t}`,r.push({id:e.id,text:e.textContent||``,level:e.tagName===`H2`?1:2})}),n(r)},100);return()=>clearTimeout(e)},[e]),(0,v.useEffect)(()=>{let e=new IntersectionObserver(e=>{for(let t of e)t.isIntersecting&&i(t.target.id)},{rootMargin:`-20% 0px -75% 0px`});return document.querySelectorAll(`h2, h3`).forEach(t=>e.observe(t)),()=>e.disconnect()},[t]);let a=e=>{document.getElementById(e)?.scrollIntoView({behavior:`smooth`,block:`start`})};return t.length===0?null:(0,x.jsxs)(`aside`,{className:`outline-panel`,"aria-label":`Phác thảo trang`,children:[(0,x.jsx)(`div`,{className:`outline-panel-label`,children:`Trong trang này`}),t.map(e=>(0,x.jsx)(`div`,{className:`outline-item ${e.level===2?`level-2`:``} ${r===e.id?`active`:``}`,onClick:()=>a(e.id),role:`button`,tabIndex:0,onKeyDown:t=>t.key===`Enter`&&a(e.id),children:e.text},e.id))]})}var S=class e extends Error{constructor(t,n){var r=`KaTeX parse error: `+t,i,a,o=n&&n.loc;if(o&&o.start<=o.end){var s=o.lexer.input;i=o.start,a=o.end,i===s.length?r+=` at end of input: `:r+=` at position `+(i+1)+`: `;var c=s.slice(i,a).replace(/[^]/g,`$&̲`),l=i>15?`…`+s.slice(i-15,i):s.slice(0,i),u=a+15<s.length?s.slice(a,a+15)+`…`:s.slice(a);r+=l+c+u}super(r),this.name=`ParseError`,this.position=void 0,this.length=void 0,this.rawMessage=void 0,Object.setPrototypeOf(this,e.prototype),this.position=i,i!=null&&a!=null&&(this.length=a-i),this.rawMessage=t}},we=/([A-Z])/g,Te=e=>e.replace(we,`-$1`).toLowerCase(),Ee={"&":`&amp;`,">":`&gt;`,"<":`&lt;`,'"':`&quot;`,"'":`&#x27;`},De=/[&><"']/g,Oe=e=>String(e).replace(De,e=>Ee[e]),ke=e=>e.type===`ordgroup`||e.type===`color`?e.body.length===1?ke(e.body[0]):e:e.type===`font`?ke(e.body):e,Ae=new Set([`mathord`,`textord`,`atom`]),je=e=>Ae.has(ke(e).type),Me=e=>{var t=/^[\x00-\x20]*([^\\/#?]*?)(:|&#0*58|&#x0*3a|&colon)/i.exec(e);return t?t[2]!==`:`||!/^[a-zA-Z][a-zA-Z0-9+\-.]*$/.test(t[1])?null:t[1].toLowerCase():`_relative`},Ne={displayMode:{type:`boolean`,description:`Render math in display mode, which puts the math in display style (so \\int and \\sum are large, for example), and centers the math on the page on its own line.`,cli:`-d, --display-mode`},output:{type:{enum:[`htmlAndMathml`,`html`,`mathml`]},description:`Determines the markup language of the output.`,cli:`-F, --format <type>`},leqno:{type:`boolean`,description:`Render display math in leqno style (left-justified tags).`},fleqn:{type:`boolean`,description:`Render display math flush left.`},throwOnError:{type:`boolean`,default:!0,cli:`-t, --no-throw-on-error`,cliDescription:`Render errors (in the color given by --error-color) instead of throwing a ParseError exception when encountering an error.`},errorColor:{type:`string`,default:`#cc0000`,cli:`-c, --error-color <color>`,cliDescription:`A color string given in the format 'rgb' or 'rrggbb' (no #). This option determines the color of errors rendered by the -t option.`,cliProcessor:e=>`#`+e},macros:{type:`object`,cli:`-m, --macro <def>`,cliDescription:`Define custom macro of the form '\\foo:expansion' (use multiple -m arguments for multiple macros).`,cliDefault:[],cliProcessor:(e,t)=>(t.push(e),t)},minRuleThickness:{type:`number`,description:"Specifies a minimum thickness, in ems, for fraction lines, `\\sqrt` top lines, `{array}` vertical lines, `\\hline`, `\\hdashline`, `\\underline`, `\\overline`, and the borders of `\\fbox`, `\\boxed`, and `\\fcolorbox`.",processor:e=>Math.max(0,e),cli:`--min-rule-thickness <size>`,cliProcessor:parseFloat},colorIsTextColor:{type:`boolean`,description:`Makes \\color behave like LaTeX's 2-argument \\textcolor, instead of LaTeX's one-argument \\color mode change.`,cli:`-b, --color-is-text-color`},strict:{type:[{enum:[`warn`,`ignore`,`error`]},`boolean`,`function`],description:`Turn on strict / LaTeX faithfulness mode, which throws an error if the input uses features that are not supported by LaTeX.`,cli:`-S, --strict`,cliDefault:!1},trust:{type:[`boolean`,`function`],description:`Trust the input, enabling all HTML features such as \\url.`,cli:`-T, --trust`},maxSize:{type:`number`,default:1/0,description:`If non-zero, all user-specified sizes, e.g. in \\rule{500em}{500em}, will be capped to maxSize ems. Otherwise, elements and spaces can be arbitrarily large`,processor:e=>Math.max(0,e),cli:`-s, --max-size <n>`,cliProcessor:parseInt},maxExpand:{type:`number`,default:1e3,description:`Limit the number of macro expansions to the specified number, to prevent e.g. infinite macro loops. If set to Infinity, the macro expander will try to fully expand as in LaTeX.`,processor:e=>Math.max(0,e),cli:`-e, --max-expand <n>`,cliProcessor:e=>e===`Infinity`?1/0:parseInt(e)},globalGroup:{type:`boolean`,cli:!1}};function Pe(e){if(typeof e!=`string`)return e.enum[0];switch(e){case`boolean`:return!1;case`string`:return``;case`number`:return 0;case`object`:return{};default:throw Error(`Unexpected schema type; settings must declare an explicit default.`)}}function Fe(e){return e.default===void 0?Pe(Array.isArray(e.type)?e.type[0]:e.type):e.default}function Ie(e,t,n,r){var i=n[t];e[t]=i===void 0?Fe(r):r.processor?r.processor(i):i}var Le=class{constructor(e){e===void 0&&(e={}),this.displayMode=void 0,this.output=void 0,this.leqno=void 0,this.fleqn=void 0,this.throwOnError=void 0,this.errorColor=void 0,this.macros=void 0,this.minRuleThickness=void 0,this.colorIsTextColor=void 0,this.strict=void 0,this.trust=void 0,this.maxSize=void 0,this.maxExpand=void 0,this.globalGroup=void 0,e||={};for(var t of Object.keys(Ne)){var n=Ne[t];n&&Ie(this,t,e,n)}}reportNonstrict(e,t,n){var r=this.strict;if(typeof r==`function`&&(r=r(e,t,n)),!(!r||r===`ignore`)){if(r===!0||r===`error`)throw new S(`LaTeX-incompatible input and strict mode is set to 'error': `+(t+` [`+e+`]`),n);r===`warn`?typeof console<`u`&&console.warn(`LaTeX-incompatible input and strict mode is set to 'warn': `+(t+` [`+e+`]`)):typeof console<`u`&&console.warn(`LaTeX-incompatible input and strict mode is set to `+(`unrecognized '`+r+`': `+t+` [`+e+`]`))}}useStrictBehavior(e,t,n){var r=this.strict;if(typeof r==`function`)try{r=r(e,t,n)}catch{r=`error`}return!r||r===`ignore`?!1:r===!0||r===`error`?!0:r===`warn`?(typeof console<`u`&&console.warn(`LaTeX-incompatible input and strict mode is set to 'warn': `+(t+` [`+e+`]`)),!1):(typeof console<`u`&&console.warn(`LaTeX-incompatible input and strict mode is set to `+(`unrecognized '`+r+`': `+t+` [`+e+`]`)),!1)}isTrusted(e){if(`url`in e&&e.url&&!e.protocol){var t=Me(e.url);if(t==null)return!1;e.protocol=t}return!!(typeof this.trust==`function`?this.trust(e):this.trust)}},Re=class{constructor(e,t,n){this.id=void 0,this.size=void 0,this.cramped=void 0,this.id=e,this.size=t,this.cramped=n}sup(){return qe[Je[this.id]]}sub(){return qe[Ye[this.id]]}fracNum(){return qe[Xe[this.id]]}fracDen(){return qe[Ze[this.id]]}cramp(){return qe[Qe[this.id]]}text(){return qe[$e[this.id]]}isTight(){return this.size>=2}},ze=0,Be=1,Ve=2,He=3,Ue=4,We=5,Ge=6,Ke=7,qe=[new Re(ze,0,!1),new Re(Be,0,!0),new Re(Ve,1,!1),new Re(He,1,!0),new Re(Ue,2,!1),new Re(We,2,!0),new Re(Ge,3,!1),new Re(Ke,3,!0)],Je=[Ue,We,Ue,We,Ge,Ke,Ge,Ke],Ye=[We,We,We,We,Ke,Ke,Ke,Ke],Xe=[Ve,He,Ue,We,Ge,Ke,Ge,Ke],Ze=[He,He,We,We,Ke,Ke,Ke,Ke],Qe=[Be,Be,He,He,We,We,Ke,Ke],$e=[ze,Be,Ve,He,Ve,He,Ve,He],et={DISPLAY:qe[ze],TEXT:qe[Ve],SCRIPT:qe[Ue],SCRIPTSCRIPT:qe[Ge]},tt=[{name:`latin`,blocks:[[256,591],[768,879]]},{name:`cyrillic`,blocks:[[1024,1279]]},{name:`armenian`,blocks:[[1328,1423]]},{name:`brahmic`,blocks:[[2304,4255]]},{name:`georgian`,blocks:[[4256,4351]]},{name:`cjk`,blocks:[[12288,12543],[19968,40879],[65280,65376]]},{name:`hangul`,blocks:[[44032,55215]]}];function nt(e){for(var t=0;t<tt.length;t++)for(var n=tt[t],r=0;r<n.blocks.length;r++){var i=n.blocks[r];if(e>=i[0]&&e<=i[1])return n.name}return null}var rt=[];tt.forEach(e=>e.blocks.forEach(e=>rt.push(...e)));function it(e){for(var t=0;t<rt.length;t+=2)if(e>=rt[t]&&e<=rt[t+1])return!0;return!1}var at=e=>e+` `+e,ot=80,st=function(e,t){return`M95,`+(622+e+t)+`
+`).replace(Jd,``)}function Xd(e,t){return t=Yd(t),Yd(e)===t}function Zd(e,t,n,r,a,o){switch(n){case`children`:typeof r==`string`?t===`body`||t===`textarea`&&r===``||tn(e,r):(typeof r==`number`||typeof r==`bigint`)&&t!==`body`&&tn(e,``+r);break;case`className`:Wt(e,`class`,r);break;case`tabIndex`:Wt(e,`tabindex`,r);break;case`dir`:case`role`:case`viewBox`:case`width`:case`height`:Wt(e,n,r);break;case`style`:rn(e,r,o);break;case`data`:if(t!==`object`){Wt(e,`data`,r);break}case`src`:case`href`:if(r===``&&(t!==`a`||n!==`href`)){e.removeAttribute(n);break}if(r==null||typeof r==`function`||typeof r==`symbol`||typeof r==`boolean`){e.removeAttribute(n);break}r=sn(``+r),e.setAttribute(n,r);break;case`action`:case`formAction`:if(typeof r==`function`){e.setAttribute(n,`javascript:throw new Error('A React form was unexpectedly submitted. If you called form.submit() manually, consider using form.requestSubmit() instead. If you\\'re trying to use event.stopPropagation() in a submit event handler, consider also calling event.preventDefault().')`);break}if(typeof o==`function`&&(n===`formAction`?(t!==`input`&&Zd(e,t,`name`,a.name,a,null),Zd(e,t,`formEncType`,a.formEncType,a,null),Zd(e,t,`formMethod`,a.formMethod,a,null),Zd(e,t,`formTarget`,a.formTarget,a,null)):(Zd(e,t,`encType`,a.encType,a,null),Zd(e,t,`method`,a.method,a,null),Zd(e,t,`target`,a.target,a,null))),r==null||typeof r==`symbol`||typeof r==`boolean`){e.removeAttribute(n);break}r=sn(``+r),e.setAttribute(n,r);break;case`onClick`:r!=null&&(e.onclick=cn);break;case`onScroll`:r!=null&&Ld(`scroll`,e);break;case`onScrollEnd`:r!=null&&Ld(`scrollend`,e);break;case`dangerouslySetInnerHTML`:if(r!=null){if(typeof r!=`object`||!(`__html`in r))throw Error(i(61));if(n=r.__html,n!=null){if(a.children!=null)throw Error(i(60));e.innerHTML=n}}break;case`multiple`:e.multiple=r&&typeof r!=`function`&&typeof r!=`symbol`;break;case`muted`:e.muted=r&&typeof r!=`function`&&typeof r!=`symbol`;break;case`suppressContentEditableWarning`:case`suppressHydrationWarning`:case`defaultValue`:case`defaultChecked`:case`innerHTML`:case`ref`:break;case`autoFocus`:break;case`xlinkHref`:if(r==null||typeof r==`function`||typeof r==`boolean`||typeof r==`symbol`){e.removeAttribute(`xlink:href`);break}n=sn(``+r),e.setAttributeNS(`http://www.w3.org/1999/xlink`,`xlink:href`,n);break;case`contentEditable`:case`spellCheck`:case`draggable`:case`value`:case`autoReverse`:case`externalResourcesRequired`:case`focusable`:case`preserveAlpha`:r!=null&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,``+r):e.removeAttribute(n);break;case`inert`:case`allowFullScreen`:case`async`:case`autoPlay`:case`controls`:case`default`:case`defer`:case`disabled`:case`disablePictureInPicture`:case`disableRemotePlayback`:case`formNoValidate`:case`hidden`:case`loop`:case`noModule`:case`noValidate`:case`open`:case`playsInline`:case`readOnly`:case`required`:case`reversed`:case`scoped`:case`seamless`:case`itemScope`:r&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,``):e.removeAttribute(n);break;case`capture`:case`download`:!0===r?e.setAttribute(n,``):!1!==r&&r!=null&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,r):e.removeAttribute(n);break;case`cols`:case`rows`:case`size`:case`span`:r!=null&&typeof r!=`function`&&typeof r!=`symbol`&&!isNaN(r)&&1<=r?e.setAttribute(n,r):e.removeAttribute(n);break;case`rowSpan`:case`start`:r==null||typeof r==`function`||typeof r==`symbol`||isNaN(r)?e.removeAttribute(n):e.setAttribute(n,r);break;case`popover`:Ld(`beforetoggle`,e),Ld(`toggle`,e),Ut(e,`popover`,r);break;case`xlinkActuate`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:actuate`,r);break;case`xlinkArcrole`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:arcrole`,r);break;case`xlinkRole`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:role`,r);break;case`xlinkShow`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:show`,r);break;case`xlinkTitle`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:title`,r);break;case`xlinkType`:Gt(e,`http://www.w3.org/1999/xlink`,`xlink:type`,r);break;case`xmlBase`:Gt(e,`http://www.w3.org/XML/1998/namespace`,`xml:base`,r);break;case`xmlLang`:Gt(e,`http://www.w3.org/XML/1998/namespace`,`xml:lang`,r);break;case`xmlSpace`:Gt(e,`http://www.w3.org/XML/1998/namespace`,`xml:space`,r);break;case`is`:Ut(e,`is`,r);break;case`innerText`:case`textContent`:break;default:(!(2<n.length)||n[0]!==`o`&&n[0]!==`O`||n[1]!==`n`&&n[1]!==`N`)&&(n=an.get(n)||n,Ut(e,n,r))}}function Qd(e,t,n,r,a,o){switch(n){case`style`:rn(e,r,o);break;case`dangerouslySetInnerHTML`:if(r!=null){if(typeof r!=`object`||!(`__html`in r))throw Error(i(61));if(n=r.__html,n!=null){if(a.children!=null)throw Error(i(60));e.innerHTML=n}}break;case`children`:typeof r==`string`?tn(e,r):(typeof r==`number`||typeof r==`bigint`)&&tn(e,``+r);break;case`onScroll`:r!=null&&Ld(`scroll`,e);break;case`onScrollEnd`:r!=null&&Ld(`scrollend`,e);break;case`onClick`:r!=null&&(e.onclick=cn);break;case`suppressContentEditableWarning`:case`suppressHydrationWarning`:case`innerHTML`:case`ref`:break;case`innerText`:case`textContent`:break;default:if(!It.hasOwnProperty(n))a:{if(n[0]===`o`&&n[1]===`n`&&(a=n.endsWith(`Capture`),t=n.slice(2,a?n.length-7:void 0),o=e[Ct]||null,o=o==null?null:o[n],typeof o==`function`&&e.removeEventListener(t,o,a),typeof r==`function`)){typeof o!=`function`&&o!==null&&(n in e?e[n]=null:e.hasAttribute(n)&&e.removeAttribute(n)),e.addEventListener(t,r,a);break a}n in e?e[n]=r:!0===r?e.setAttribute(n,``):Ut(e,n,r)}}}function $d(e,t,n){switch(t){case`div`:case`span`:case`svg`:case`path`:case`a`:case`g`:case`p`:case`li`:break;case`img`:Ld(`error`,e),Ld(`load`,e);var r=!1,a=!1,o;for(o in n)if(n.hasOwnProperty(o)){var s=n[o];if(s!=null)switch(o){case`src`:r=!0;break;case`srcSet`:a=!0;break;case`children`:case`dangerouslySetInnerHTML`:throw Error(i(137,t));default:Zd(e,t,o,s,n,null)}}a&&Zd(e,t,`srcSet`,n.srcSet,n,null),r&&Zd(e,t,`src`,n.src,n,null);return;case`input`:Ld(`invalid`,e);var c=o=s=a=null,l=null,u=null;for(r in n)if(n.hasOwnProperty(r)){var d=n[r];if(d!=null)switch(r){case`name`:a=d;break;case`type`:s=d;break;case`checked`:l=d;break;case`defaultChecked`:u=d;break;case`value`:o=d;break;case`defaultValue`:c=d;break;case`children`:case`dangerouslySetInnerHTML`:if(d!=null)throw Error(i(137,t));break;default:Zd(e,t,r,d,n,null)}}Xt(e,o,c,l,u,s,a,!1);return;case`select`:for(a in Ld(`invalid`,e),r=s=o=null,n)if(n.hasOwnProperty(a)&&(c=n[a],c!=null))switch(a){case`value`:o=c;break;case`defaultValue`:s=c;break;case`multiple`:r=c;default:Zd(e,t,a,c,n,null)}t=o,n=s,e.multiple=!!r,t==null?n!=null&&Qt(e,!!r,n,!0):Qt(e,!!r,t,!1);return;case`textarea`:for(s in Ld(`invalid`,e),o=a=r=null,n)if(n.hasOwnProperty(s)&&(c=n[s],c!=null))switch(s){case`value`:r=c;break;case`defaultValue`:a=c;break;case`children`:o=c;break;case`dangerouslySetInnerHTML`:if(c!=null)throw Error(i(91));break;default:Zd(e,t,s,c,n,null)}en(e,r,a,o);return;case`option`:for(l in n)if(n.hasOwnProperty(l)&&(r=n[l],r!=null))switch(l){case`selected`:e.selected=r&&typeof r!=`function`&&typeof r!=`symbol`;break;default:Zd(e,t,l,r,n,null)}return;case`dialog`:Ld(`beforetoggle`,e),Ld(`toggle`,e),Ld(`cancel`,e),Ld(`close`,e);break;case`iframe`:case`object`:Ld(`load`,e);break;case`video`:case`audio`:for(r=0;r<Pd.length;r++)Ld(Pd[r],e);break;case`image`:Ld(`error`,e),Ld(`load`,e);break;case`details`:Ld(`toggle`,e);break;case`embed`:case`source`:case`link`:Ld(`error`,e),Ld(`load`,e);case`area`:case`base`:case`br`:case`col`:case`hr`:case`keygen`:case`meta`:case`param`:case`track`:case`wbr`:case`menuitem`:for(u in n)if(n.hasOwnProperty(u)&&(r=n[u],r!=null))switch(u){case`children`:case`dangerouslySetInnerHTML`:throw Error(i(137,t));default:Zd(e,t,u,r,n,null)}return;default:if(A(t)){for(d in n)n.hasOwnProperty(d)&&(r=n[d],r!==void 0&&Qd(e,t,d,r,n,void 0));return}}for(c in n)n.hasOwnProperty(c)&&(r=n[c],r!=null&&Zd(e,t,c,r,n,null))}function ef(e,t,n,r){switch(t){case`div`:case`span`:case`svg`:case`path`:case`a`:case`g`:case`p`:case`li`:break;case`input`:var a=null,o=null,s=null,c=null,l=null,u=null,d=null;for(m in n){var f=n[m];if(n.hasOwnProperty(m)&&f!=null)switch(m){case`checked`:break;case`value`:break;case`defaultValue`:l=f;default:r.hasOwnProperty(m)||Zd(e,t,m,null,r,f)}}for(var p in r){var m=r[p];if(f=n[p],r.hasOwnProperty(p)&&(m!=null||f!=null))switch(p){case`type`:o=m;break;case`name`:a=m;break;case`checked`:u=m;break;case`defaultChecked`:d=m;break;case`value`:s=m;break;case`defaultValue`:c=m;break;case`children`:case`dangerouslySetInnerHTML`:if(m!=null)throw Error(i(137,t));break;default:m!==f&&Zd(e,t,p,m,r,f)}}Yt(e,s,c,l,u,d,o,a);return;case`select`:for(o in m=s=c=p=null,n)if(l=n[o],n.hasOwnProperty(o)&&l!=null)switch(o){case`value`:break;case`multiple`:m=l;default:r.hasOwnProperty(o)||Zd(e,t,o,null,r,l)}for(a in r)if(o=r[a],l=n[a],r.hasOwnProperty(a)&&(o!=null||l!=null))switch(a){case`value`:p=o;break;case`defaultValue`:c=o;break;case`multiple`:s=o;default:o!==l&&Zd(e,t,a,o,r,l)}t=c,n=s,r=m,p==null?!!r!=!!n&&(t==null?Qt(e,!!n,n?[]:``,!1):Qt(e,!!n,t,!0)):Qt(e,!!n,p,!1);return;case`textarea`:for(c in m=p=null,n)if(a=n[c],n.hasOwnProperty(c)&&a!=null&&!r.hasOwnProperty(c))switch(c){case`value`:break;case`children`:break;default:Zd(e,t,c,null,r,a)}for(s in r)if(a=r[s],o=n[s],r.hasOwnProperty(s)&&(a!=null||o!=null))switch(s){case`value`:p=a;break;case`defaultValue`:m=a;break;case`children`:break;case`dangerouslySetInnerHTML`:if(a!=null)throw Error(i(91));break;default:a!==o&&Zd(e,t,s,a,r,o)}$t(e,p,m);return;case`option`:for(var h in n)if(p=n[h],n.hasOwnProperty(h)&&p!=null&&!r.hasOwnProperty(h))switch(h){case`selected`:e.selected=!1;break;default:Zd(e,t,h,null,r,p)}for(l in r)if(p=r[l],m=n[l],r.hasOwnProperty(l)&&p!==m&&(p!=null||m!=null))switch(l){case`selected`:e.selected=p&&typeof p!=`function`&&typeof p!=`symbol`;break;default:Zd(e,t,l,p,r,m)}return;case`img`:case`link`:case`area`:case`base`:case`br`:case`col`:case`embed`:case`hr`:case`keygen`:case`meta`:case`param`:case`source`:case`track`:case`wbr`:case`menuitem`:for(var g in n)p=n[g],n.hasOwnProperty(g)&&p!=null&&!r.hasOwnProperty(g)&&Zd(e,t,g,null,r,p);for(u in r)if(p=r[u],m=n[u],r.hasOwnProperty(u)&&p!==m&&(p!=null||m!=null))switch(u){case`children`:case`dangerouslySetInnerHTML`:if(p!=null)throw Error(i(137,t));break;default:Zd(e,t,u,p,r,m)}return;default:if(A(t)){for(var _ in n)p=n[_],n.hasOwnProperty(_)&&p!==void 0&&!r.hasOwnProperty(_)&&Qd(e,t,_,void 0,r,p);for(d in r)p=r[d],m=n[d],!r.hasOwnProperty(d)||p===m||p===void 0&&m===void 0||Qd(e,t,d,p,r,m);return}}for(var v in n)p=n[v],n.hasOwnProperty(v)&&p!=null&&!r.hasOwnProperty(v)&&Zd(e,t,v,null,r,p);for(f in r)p=r[f],m=n[f],!r.hasOwnProperty(f)||p===m||p==null&&m==null||Zd(e,t,f,p,r,m)}function tf(e){switch(e){case`css`:case`script`:case`font`:case`img`:case`image`:case`input`:case`link`:return!0;default:return!1}}function nf(){if(typeof performance.getEntriesByType==`function`){for(var e=0,t=0,n=performance.getEntriesByType(`resource`),r=0;r<n.length;r++){var i=n[r],a=i.transferSize,o=i.initiatorType,s=i.duration;if(a&&s&&tf(o)){for(o=0,s=i.responseEnd,r+=1;r<n.length;r++){var c=n[r],l=c.startTime;if(l>s)break;var u=c.transferSize,d=c.initiatorType;u&&tf(d)&&(c=c.responseEnd,o+=u*(c<s?1:(s-l)/(c-l)))}if(--r,t+=8*(a+o)/(i.duration/1e3),e++,10<e)break}}if(0<e)return t/e/1e6}return navigator.connection&&(e=navigator.connection.downlink,typeof e==`number`)?e:5}var rf=null,af=null;function of(e){return e.nodeType===9?e:e.ownerDocument}function sf(e){switch(e){case`http://www.w3.org/2000/svg`:return 1;case`http://www.w3.org/1998/Math/MathML`:return 2;default:return 0}}function cf(e,t){if(e===0)switch(t){case`svg`:return 1;case`math`:return 2;default:return 0}return e===1&&t===`foreignObject`?0:e}function lf(e,t){return e===`textarea`||e===`noscript`||typeof t.children==`string`||typeof t.children==`number`||typeof t.children==`bigint`||typeof t.dangerouslySetInnerHTML==`object`&&t.dangerouslySetInnerHTML!==null&&t.dangerouslySetInnerHTML.__html!=null}var uf=null;function df(){var e=window.event;return e&&e.type===`popstate`?e!==uf&&(uf=e,!0):(uf=null,!1)}var ff=typeof setTimeout==`function`?setTimeout:void 0,pf=typeof clearTimeout==`function`?clearTimeout:void 0,mf=typeof Promise==`function`?Promise:void 0,hf=typeof queueMicrotask==`function`?queueMicrotask:mf===void 0?ff:function(e){return mf.resolve(null).then(e).catch(gf)};function gf(e){setTimeout(function(){throw e})}function _f(e){return e===`head`}function vf(e,t){var n=t,r=0;do{var i=n.nextSibling;if(e.removeChild(n),i&&i.nodeType===8)if(n=i.data,n===`/$`||n===`/&`){if(r===0){e.removeChild(i),Qp(t);return}r--}else if(n===`$`||n===`$?`||n===`$~`||n===`$!`||n===`&`)r++;else if(n===`html`)Mf(e.ownerDocument.documentElement);else if(n===`head`){n=e.ownerDocument.head,Mf(n);for(var a=n.firstChild;a;){var o=a.nextSibling,s=a.nodeName;a[Ot]||s===`SCRIPT`||s===`STYLE`||s===`LINK`&&a.rel.toLowerCase()===`stylesheet`||n.removeChild(a),a=o}}else n===`body`&&Mf(e.ownerDocument.body);n=i}while(n);Qp(t)}function yf(e,t){var n=e;e=0;do{var r=n.nextSibling;if(n.nodeType===1?t?(n._stashedDisplay=n.style.display,n.style.display=`none`):(n.style.display=n._stashedDisplay||``,n.getAttribute(`style`)===``&&n.removeAttribute(`style`)):n.nodeType===3&&(t?(n._stashedText=n.nodeValue,n.nodeValue=``):n.nodeValue=n._stashedText||``),r&&r.nodeType===8)if(n=r.data,n===`/$`){if(e===0)break;e--}else n!==`$`&&n!==`$?`&&n!==`$~`&&n!==`$!`||e++;n=r}while(n)}function bf(e){var t=e.firstChild;for(t&&t.nodeType===10&&(t=t.nextSibling);t;){var n=t;switch(t=t.nextSibling,n.nodeName){case`HTML`:case`HEAD`:case`BODY`:bf(n),kt(n);continue;case`SCRIPT`:case`STYLE`:continue;case`LINK`:if(n.rel.toLowerCase()===`stylesheet`)continue}e.removeChild(n)}}function xf(e,t,n,r){for(;e.nodeType===1;){var i=n;if(e.nodeName.toLowerCase()!==t.toLowerCase()){if(!r&&(e.nodeName!==`INPUT`||e.type!==`hidden`))break}else if(!r)if(t===`input`&&e.type===`hidden`){var a=i.name==null?null:``+i.name;if(i.type===`hidden`&&e.getAttribute(`name`)===a)return e}else return e;else if(!e[Ot])switch(t){case`meta`:if(!e.hasAttribute(`itemprop`))break;return e;case`link`:if(a=e.getAttribute(`rel`),a===`stylesheet`&&e.hasAttribute(`data-precedence`)||a!==i.rel||e.getAttribute(`href`)!==(i.href==null||i.href===``?null:i.href)||e.getAttribute(`crossorigin`)!==(i.crossOrigin==null?null:i.crossOrigin)||e.getAttribute(`title`)!==(i.title==null?null:i.title))break;return e;case`style`:if(e.hasAttribute(`data-precedence`))break;return e;case`script`:if(a=e.getAttribute(`src`),(a!==(i.src==null?null:i.src)||e.getAttribute(`type`)!==(i.type==null?null:i.type)||e.getAttribute(`crossorigin`)!==(i.crossOrigin==null?null:i.crossOrigin))&&a&&e.hasAttribute(`async`)&&!e.hasAttribute(`itemprop`))break;return e;default:return e}if(e=Df(e.nextSibling),e===null)break}return null}function Sf(e,t,n){if(t===``)return null;for(;e.nodeType!==3;)if((e.nodeType!==1||e.nodeName!==`INPUT`||e.type!==`hidden`)&&!n||(e=Df(e.nextSibling),e===null))return null;return e}function Cf(e,t){for(;e.nodeType!==8;)if((e.nodeType!==1||e.nodeName!==`INPUT`||e.type!==`hidden`)&&!t||(e=Df(e.nextSibling),e===null))return null;return e}function wf(e){return e.data===`$?`||e.data===`$~`}function Tf(e){return e.data===`$!`||e.data===`$?`&&e.ownerDocument.readyState!==`loading`}function Ef(e,t){var n=e.ownerDocument;if(e.data===`$~`)e._reactRetry=t;else if(e.data!==`$?`||n.readyState!==`loading`)t();else{var r=function(){t(),n.removeEventListener(`DOMContentLoaded`,r)};n.addEventListener(`DOMContentLoaded`,r),e._reactRetry=r}}function Df(e){for(;e!=null;e=e.nextSibling){var t=e.nodeType;if(t===1||t===3)break;if(t===8){if(t=e.data,t===`$`||t===`$!`||t===`$?`||t===`$~`||t===`&`||t===`F!`||t===`F`)break;if(t===`/$`||t===`/&`)return null}}return e}var Of=null;function kf(e){e=e.nextSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n===`/$`||n===`/&`){if(t===0)return Df(e.nextSibling);t--}else n!==`$`&&n!==`$!`&&n!==`$?`&&n!==`$~`&&n!==`&`||t++}e=e.nextSibling}return null}function Af(e){e=e.previousSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n===`$`||n===`$!`||n===`$?`||n===`$~`||n===`&`){if(t===0)return e;t--}else n!==`/$`&&n!==`/&`||t++}e=e.previousSibling}return null}function jf(e,t,n){switch(t=of(n),e){case`html`:if(e=t.documentElement,!e)throw Error(i(452));return e;case`head`:if(e=t.head,!e)throw Error(i(453));return e;case`body`:if(e=t.body,!e)throw Error(i(454));return e;default:throw Error(i(451))}}function Mf(e){for(var t=e.attributes;t.length;)e.removeAttributeNode(t[0]);kt(e)}var Nf=new Map,Pf=new Set;function Ff(e){return typeof e.getRootNode==`function`?e.getRootNode():e.nodeType===9?e:e.ownerDocument}var If=ge.d;ge.d={f:Lf,r:Rf,D:Vf,C:Hf,L:Uf,m:Wf,X:Kf,S:Gf,M:qf};function Lf(){var e=If.f(),t=Iu();return e||t}function Rf(e){var t=jt(e);t!==null&&t.tag===5&&t.type===`form`?Fs(t):If.r(e)}var zf=typeof document>`u`?null:document;function Bf(e,t,n){var r=zf;if(r&&typeof t==`string`&&t){var i=O(t);i=`link[rel="`+e+`"][href="`+i+`"]`,typeof n==`string`&&(i+=`[crossorigin="`+n+`"]`),Pf.has(i)||(Pf.add(i),e={rel:e,crossOrigin:n,href:t},r.querySelector(i)===null&&(t=r.createElement(`link`),$d(t,`link`,e),Pt(t),r.head.appendChild(t)))}}function Vf(e){If.D(e),Bf(`dns-prefetch`,e,null)}function Hf(e,t){If.C(e,t),Bf(`preconnect`,e,t)}function Uf(e,t,n){If.L(e,t,n);var r=zf;if(r&&e&&t){var i=`link[rel="preload"][as="`+O(t)+`"]`;t===`image`&&n&&n.imageSrcSet?(i+=`[imagesrcset="`+O(n.imageSrcSet)+`"]`,typeof n.imageSizes==`string`&&(i+=`[imagesizes="`+O(n.imageSizes)+`"]`)):i+=`[href="`+O(e)+`"]`;var a=i;switch(t){case`style`:a=Yf(e);break;case`script`:a=$f(e)}Nf.has(a)||(e=m({rel:`preload`,href:t===`image`&&n&&n.imageSrcSet?void 0:e,as:t},n),Nf.set(a,e),r.querySelector(i)!==null||t===`style`&&r.querySelector(Xf(a))||t===`script`&&r.querySelector(ep(a))||(t=r.createElement(`link`),$d(t,`link`,e),Pt(t),r.head.appendChild(t)))}}function Wf(e,t){If.m(e,t);var n=zf;if(n&&e){var r=t&&typeof t.as==`string`?t.as:`script`,i=`link[rel="modulepreload"][as="`+O(r)+`"][href="`+O(e)+`"]`,a=i;switch(r){case`audioworklet`:case`paintworklet`:case`serviceworker`:case`sharedworker`:case`worker`:case`script`:a=$f(e)}if(!Nf.has(a)&&(e=m({rel:`modulepreload`,href:e},t),Nf.set(a,e),n.querySelector(i)===null)){switch(r){case`audioworklet`:case`paintworklet`:case`serviceworker`:case`sharedworker`:case`worker`:case`script`:if(n.querySelector(ep(a)))return}r=n.createElement(`link`),$d(r,`link`,e),Pt(r),n.head.appendChild(r)}}}function Gf(e,t,n){If.S(e,t,n);var r=zf;if(r&&e){var i=Nt(r).hoistableStyles,a=Yf(e);t||=`default`;var o=i.get(a);if(!o){var s={loading:0,preload:null};if(o=r.querySelector(Xf(a)))s.loading=5;else{e=m({rel:`stylesheet`,href:e,"data-precedence":t},n),(n=Nf.get(a))&&rp(e,n);var c=o=r.createElement(`link`);Pt(c),$d(c,`link`,e),c._p=new Promise(function(e,t){c.onload=e,c.onerror=t}),c.addEventListener(`load`,function(){s.loading|=1}),c.addEventListener(`error`,function(){s.loading|=2}),s.loading|=4,np(o,t,r)}o={type:`stylesheet`,instance:o,count:1,state:s},i.set(a,o)}}}function Kf(e,t){If.X(e,t);var n=zf;if(n&&e){var r=Nt(n).hoistableScripts,i=$f(e),a=r.get(i);a||(a=n.querySelector(ep(i)),a||(e=m({src:e,async:!0},t),(t=Nf.get(i))&&ip(e,t),a=n.createElement(`script`),Pt(a),$d(a,`link`,e),n.head.appendChild(a)),a={type:`script`,instance:a,count:1,state:null},r.set(i,a))}}function qf(e,t){If.M(e,t);var n=zf;if(n&&e){var r=Nt(n).hoistableScripts,i=$f(e),a=r.get(i);a||(a=n.querySelector(ep(i)),a||(e=m({src:e,async:!0,type:`module`},t),(t=Nf.get(i))&&ip(e,t),a=n.createElement(`script`),Pt(a),$d(a,`link`,e),n.head.appendChild(a)),a={type:`script`,instance:a,count:1,state:null},r.set(i,a))}}function Jf(e,t,n,r){var a=(a=S.current)?Ff(a):null;if(!a)throw Error(i(446));switch(e){case`meta`:case`title`:return null;case`style`:return typeof n.precedence==`string`&&typeof n.href==`string`?(t=Yf(n.href),n=Nt(a).hoistableStyles,r=n.get(t),r||(r={type:`style`,instance:null,count:0,state:null},n.set(t,r)),r):{type:`void`,instance:null,count:0,state:null};case`link`:if(n.rel===`stylesheet`&&typeof n.href==`string`&&typeof n.precedence==`string`){e=Yf(n.href);var o=Nt(a).hoistableStyles,s=o.get(e);if(s||(a=a.ownerDocument||a,s={type:`stylesheet`,instance:null,count:0,state:{loading:0,preload:null}},o.set(e,s),(o=a.querySelector(Xf(e)))&&!o._p&&(s.instance=o,s.state.loading=5),Nf.has(e)||(n={rel:`preload`,as:`style`,href:n.href,crossOrigin:n.crossOrigin,integrity:n.integrity,media:n.media,hrefLang:n.hrefLang,referrerPolicy:n.referrerPolicy},Nf.set(e,n),o||Qf(a,e,n,s.state))),t&&r===null)throw Error(i(528,``));return s}if(t&&r!==null)throw Error(i(529,``));return null;case`script`:return t=n.async,n=n.src,typeof n==`string`&&t&&typeof t!=`function`&&typeof t!=`symbol`?(t=$f(n),n=Nt(a).hoistableScripts,r=n.get(t),r||(r={type:`script`,instance:null,count:0,state:null},n.set(t,r)),r):{type:`void`,instance:null,count:0,state:null};default:throw Error(i(444,e))}}function Yf(e){return`href="`+O(e)+`"`}function Xf(e){return`link[rel="stylesheet"][`+e+`]`}function Zf(e){return m({},e,{"data-precedence":e.precedence,precedence:null})}function Qf(e,t,n,r){e.querySelector(`link[rel="preload"][as="style"][`+t+`]`)?r.loading=1:(t=e.createElement(`link`),r.preload=t,t.addEventListener(`load`,function(){return r.loading|=1}),t.addEventListener(`error`,function(){return r.loading|=2}),$d(t,`link`,n),Pt(t),e.head.appendChild(t))}function $f(e){return`[src="`+O(e)+`"]`}function ep(e){return`script[async]`+e}function tp(e,t,n){if(t.count++,t.instance===null)switch(t.type){case`style`:var r=e.querySelector(`style[data-href~="`+O(n.href)+`"]`);if(r)return t.instance=r,Pt(r),r;var a=m({},n,{"data-href":n.href,"data-precedence":n.precedence,href:null,precedence:null});return r=(e.ownerDocument||e).createElement(`style`),Pt(r),$d(r,`style`,a),np(r,n.precedence,e),t.instance=r;case`stylesheet`:a=Yf(n.href);var o=e.querySelector(Xf(a));if(o)return t.state.loading|=4,t.instance=o,Pt(o),o;r=Zf(n),(a=Nf.get(a))&&rp(r,a),o=(e.ownerDocument||e).createElement(`link`),Pt(o);var s=o;return s._p=new Promise(function(e,t){s.onload=e,s.onerror=t}),$d(o,`link`,r),t.state.loading|=4,np(o,n.precedence,e),t.instance=o;case`script`:return o=$f(n.src),(a=e.querySelector(ep(o)))?(t.instance=a,Pt(a),a):(r=n,(a=Nf.get(o))&&(r=m({},n),ip(r,a)),e=e.ownerDocument||e,a=e.createElement(`script`),Pt(a),$d(a,`link`,r),e.head.appendChild(a),t.instance=a);case`void`:return null;default:throw Error(i(443,t.type))}else t.type===`stylesheet`&&!(t.state.loading&4)&&(r=t.instance,t.state.loading|=4,np(r,n.precedence,e));return t.instance}function np(e,t,n){for(var r=n.querySelectorAll(`link[rel="stylesheet"][data-precedence],style[data-precedence]`),i=r.length?r[r.length-1]:null,a=i,o=0;o<r.length;o++){var s=r[o];if(s.dataset.precedence===t)a=s;else if(a!==i)break}a?a.parentNode.insertBefore(e,a.nextSibling):(t=n.nodeType===9?n.head:n,t.insertBefore(e,t.firstChild))}function rp(e,t){e.crossOrigin??=t.crossOrigin,e.referrerPolicy??=t.referrerPolicy,e.title??=t.title}function ip(e,t){e.crossOrigin??=t.crossOrigin,e.referrerPolicy??=t.referrerPolicy,e.integrity??=t.integrity}var ap=null;function op(e,t,n){if(ap===null){var r=new Map,i=ap=new Map;i.set(n,r)}else i=ap,r=i.get(n),r||(r=new Map,i.set(n,r));if(r.has(e))return r;for(r.set(e,null),n=n.getElementsByTagName(e),i=0;i<n.length;i++){var a=n[i];if(!(a[Ot]||a[St]||e===`link`&&a.getAttribute(`rel`)===`stylesheet`)&&a.namespaceURI!==`http://www.w3.org/2000/svg`){var o=a.getAttribute(t)||``;o=e+o;var s=r.get(o);s?s.push(a):r.set(o,[a])}}return r}function sp(e,t,n){e=e.ownerDocument||e,e.head.insertBefore(n,t===`title`?e.querySelector(`head > title`):null)}function cp(e,t,n){if(n===1||t.itemProp!=null)return!1;switch(e){case`meta`:case`title`:return!0;case`style`:if(typeof t.precedence!=`string`||typeof t.href!=`string`||t.href===``)break;return!0;case`link`:if(typeof t.rel!=`string`||typeof t.href!=`string`||t.href===``||t.onLoad||t.onError)break;switch(t.rel){case`stylesheet`:return e=t.disabled,typeof t.precedence==`string`&&e==null;default:return!0}case`script`:if(t.async&&typeof t.async!=`function`&&typeof t.async!=`symbol`&&!t.onLoad&&!t.onError&&t.src&&typeof t.src==`string`)return!0}return!1}function lp(e){return!(e.type===`stylesheet`&&!(e.state.loading&3))}function up(e,t,n,r){if(n.type===`stylesheet`&&(typeof r.media!=`string`||!1!==matchMedia(r.media).matches)&&!(n.state.loading&4)){if(n.instance===null){var i=Yf(r.href),a=t.querySelector(Xf(i));if(a){t=a._p,typeof t==`object`&&t&&typeof t.then==`function`&&(e.count++,e=pp.bind(e),t.then(e,e)),n.state.loading|=4,n.instance=a,Pt(a);return}a=t.ownerDocument||t,r=Zf(r),(i=Nf.get(i))&&rp(r,i),a=a.createElement(`link`),Pt(a);var o=a;o._p=new Promise(function(e,t){o.onload=e,o.onerror=t}),$d(a,`link`,r),n.instance=a}e.stylesheets===null&&(e.stylesheets=new Map),e.stylesheets.set(n,t),(t=n.state.preload)&&!(n.state.loading&3)&&(e.count++,n=pp.bind(e),t.addEventListener(`load`,n),t.addEventListener(`error`,n))}}var dp=0;function fp(e,t){return e.stylesheets&&e.count===0&&hp(e,e.stylesheets),0<e.count||0<e.imgCount?function(n){var r=setTimeout(function(){if(e.stylesheets&&hp(e,e.stylesheets),e.unsuspend){var t=e.unsuspend;e.unsuspend=null,t()}},6e4+t);0<e.imgBytes&&dp===0&&(dp=62500*nf());var i=setTimeout(function(){if(e.waitingForImages=!1,e.count===0&&(e.stylesheets&&hp(e,e.stylesheets),e.unsuspend)){var t=e.unsuspend;e.unsuspend=null,t()}},(e.imgBytes>dp?50:800)+t);return e.unsuspend=n,function(){e.unsuspend=null,clearTimeout(r),clearTimeout(i)}}:null}function pp(){if(this.count--,this.count===0&&(this.imgCount===0||!this.waitingForImages)){if(this.stylesheets)hp(this,this.stylesheets);else if(this.unsuspend){var e=this.unsuspend;this.unsuspend=null,e()}}}var mp=null;function hp(e,t){e.stylesheets=null,e.unsuspend!==null&&(e.count++,mp=new Map,t.forEach(gp,e),mp=null,pp.call(e))}function gp(e,t){if(!(t.state.loading&4)){var n=mp.get(e);if(n)var r=n.get(null);else{n=new Map,mp.set(e,n);for(var i=e.querySelectorAll(`link[data-precedence],style[data-precedence]`),a=0;a<i.length;a++){var o=i[a];(o.nodeName===`LINK`||o.getAttribute(`media`)!==`not all`)&&(n.set(o.dataset.precedence,o),r=o)}r&&n.set(null,r)}i=t.instance,o=i.getAttribute(`data-precedence`),a=n.get(o)||r,a===r&&n.set(null,i),n.set(o,i),this.count++,r=pp.bind(this),i.addEventListener(`load`,r),i.addEventListener(`error`,r),a?a.parentNode.insertBefore(i,a.nextSibling):(e=e.nodeType===9?e.head:e,e.insertBefore(i,e.firstChild)),t.state.loading|=4}}var _p={$$typeof:ne,Provider:null,Consumer:null,_currentValue:_e,_currentValue2:_e,_threadCount:0};function vp(e,t,n,r,i,a,o,s,c){this.tag=1,this.containerInfo=e,this.pingCache=this.current=this.pendingChildren=null,this.timeoutHandle=-1,this.callbackNode=this.next=this.pendingContext=this.context=this.cancelPendingCommit=null,this.callbackPriority=0,this.expirationTimes=dt(-1),this.entangledLanes=this.shellSuspendCounter=this.errorRecoveryDisabledLanes=this.expiredLanes=this.warmLanes=this.pingedLanes=this.suspendedLanes=this.pendingLanes=0,this.entanglements=dt(0),this.hiddenUpdates=dt(null),this.identifierPrefix=r,this.onUncaughtError=i,this.onCaughtError=a,this.onRecoverableError=o,this.pooledCache=null,this.pooledCacheLanes=0,this.formState=c,this.incompleteTransitions=new Map}function yp(e,t,n,r,i,a,o,s,c,l,u,d){return e=new vp(e,t,n,o,c,l,u,d,s),t=1,!0===a&&(t|=24),a=mi(3,null,null,t),e.current=a,a.stateNode=e,t=ma(),t.refCount++,e.pooledCache=t,t.refCount++,a.memoizedState={element:r,isDehydrated:n,cache:t},qa(a),e}function bp(e){return e?(e=fi,e):fi}function xp(e,t,n,r,i,a){i=bp(i),r.context===null?r.context=i:r.pendingContext=i,r=Ya(t),r.payload={element:n},a=a===void 0?null:a,a!==null&&(r.callback=a),n=Xa(e,r,t),n!==null&&(ju(n,e,t),Za(n,e,t))}function Sp(e,t){if(e=e.memoizedState,e!==null&&e.dehydrated!==null){var n=e.retryLane;e.retryLane=n!==0&&n<t?n:t}}function Cp(e,t){Sp(e,t),(e=e.alternate)&&Sp(e,t)}function wp(e){if(e.tag===13||e.tag===31){var t=li(e,67108864);t!==null&&ju(t,e,67108864),Cp(e,67108864)}}function Tp(e){if(e.tag===13||e.tag===31){var t=ku();t=_t(t);var n=li(e,t);n!==null&&ju(n,e,t),Cp(e,t)}}var Ep=!0;function Dp(e,t,n,r){var i=he.T;he.T=null;var a=ge.p;try{ge.p=2,kp(e,t,n,r)}finally{ge.p=a,he.T=i}}function Op(e,t,n,r){var i=he.T;he.T=null;var a=ge.p;try{ge.p=8,kp(e,t,n,r)}finally{ge.p=a,he.T=i}}function kp(e,t,n,r){if(Ep){var i=Ap(r);if(i===null)Hd(e,t,r,jp,n),Hp(e,r);else if(Wp(i,e,t,n,r))r.stopPropagation();else if(Hp(e,r),t&4&&-1<Vp.indexOf(e)){for(;i!==null;){var a=jt(i);if(a!==null)switch(a.tag){case 3:if(a=a.stateNode,a.current.memoizedState.isDehydrated){var o=ot(a.pendingLanes);if(o!==0){var s=a;for(s.pendingLanes|=2,s.entangledLanes|=2;o;){var c=1<<31-$e(o);s.entanglements[1]|=c,o&=~c}bd(a),!(Xl&6)&&(_u=Ve()+500,xd(0,!1))}}break;case 31:case 13:s=li(a,2),s!==null&&ju(s,a,2),Iu(),Cp(a,2)}if(a=Ap(r),a===null&&Hd(e,t,r,jp,n),a===i)break;i=a}i!==null&&r.stopPropagation()}else Hd(e,t,r,null,n)}}function Ap(e){return e=un(e),Mp(e)}var jp=null;function Mp(e){if(jp=null,e=At(e),e!==null){var t=o(e);if(t===null)e=null;else{var n=t.tag;if(n===13){if(e=s(t),e!==null)return e;e=null}else if(n===31){if(e=c(t),e!==null)return e;e=null}else if(n===3){if(t.stateNode.current.memoizedState.isDehydrated)return t.tag===3?t.stateNode.containerInfo:null;e=null}else t!==e&&(e=null)}}return jp=e,null}function Np(e){switch(e){case`beforetoggle`:case`cancel`:case`click`:case`close`:case`contextmenu`:case`copy`:case`cut`:case`auxclick`:case`dblclick`:case`dragend`:case`dragstart`:case`drop`:case`focusin`:case`focusout`:case`input`:case`invalid`:case`keydown`:case`keypress`:case`keyup`:case`mousedown`:case`mouseup`:case`paste`:case`pause`:case`play`:case`pointercancel`:case`pointerdown`:case`pointerup`:case`ratechange`:case`reset`:case`resize`:case`seeked`:case`submit`:case`toggle`:case`touchcancel`:case`touchend`:case`touchstart`:case`volumechange`:case`change`:case`selectionchange`:case`textInput`:case`compositionstart`:case`compositionend`:case`compositionupdate`:case`beforeblur`:case`afterblur`:case`beforeinput`:case`blur`:case`fullscreenchange`:case`focus`:case`hashchange`:case`popstate`:case`select`:case`selectstart`:return 2;case`drag`:case`dragenter`:case`dragexit`:case`dragleave`:case`dragover`:case`mousemove`:case`mouseout`:case`mouseover`:case`pointermove`:case`pointerout`:case`pointerover`:case`scroll`:case`touchmove`:case`wheel`:case`mouseenter`:case`mouseleave`:case`pointerenter`:case`pointerleave`:return 8;case`message`:switch(He()){case Ue:return 2;case We:return 8;case Ge:case Ke:return 32;case qe:return 268435456;default:return 32}default:return 32}}var Pp=!1,Fp=null,Ip=null,Lp=null,Rp=new Map,zp=new Map,Bp=[],Vp=`mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset`.split(` `);function Hp(e,t){switch(e){case`focusin`:case`focusout`:Fp=null;break;case`dragenter`:case`dragleave`:Ip=null;break;case`mouseover`:case`mouseout`:Lp=null;break;case`pointerover`:case`pointerout`:Rp.delete(t.pointerId);break;case`gotpointercapture`:case`lostpointercapture`:zp.delete(t.pointerId)}}function Up(e,t,n,r,i,a){return e===null||e.nativeEvent!==a?(e={blockedOn:t,domEventName:n,eventSystemFlags:r,nativeEvent:a,targetContainers:[i]},t!==null&&(t=jt(t),t!==null&&wp(t)),e):(e.eventSystemFlags|=r,t=e.targetContainers,i!==null&&t.indexOf(i)===-1&&t.push(i),e)}function Wp(e,t,n,r,i){switch(t){case`focusin`:return Fp=Up(Fp,e,t,n,r,i),!0;case`dragenter`:return Ip=Up(Ip,e,t,n,r,i),!0;case`mouseover`:return Lp=Up(Lp,e,t,n,r,i),!0;case`pointerover`:var a=i.pointerId;return Rp.set(a,Up(Rp.get(a)||null,e,t,n,r,i)),!0;case`gotpointercapture`:return a=i.pointerId,zp.set(a,Up(zp.get(a)||null,e,t,n,r,i)),!0}return!1}function Gp(e){var t=At(e.target);if(t!==null){var n=o(t);if(n!==null){if(t=n.tag,t===13){if(t=s(n),t!==null){e.blockedOn=t,bt(e.priority,function(){Tp(n)});return}}else if(t===31){if(t=c(n),t!==null){e.blockedOn=t,bt(e.priority,function(){Tp(n)});return}}else if(t===3&&n.stateNode.current.memoizedState.isDehydrated){e.blockedOn=n.tag===3?n.stateNode.containerInfo:null;return}}}e.blockedOn=null}function Kp(e){if(e.blockedOn!==null)return!1;for(var t=e.targetContainers;0<t.length;){var n=Ap(e.nativeEvent);if(n===null){n=e.nativeEvent;var r=new n.constructor(n.type,n);ln=r,n.target.dispatchEvent(r),ln=null}else return t=jt(n),t!==null&&wp(t),e.blockedOn=n,!1;t.shift()}return!0}function qp(e,t,n){Kp(e)&&n.delete(t)}function Jp(){Pp=!1,Fp!==null&&Kp(Fp)&&(Fp=null),Ip!==null&&Kp(Ip)&&(Ip=null),Lp!==null&&Kp(Lp)&&(Lp=null),Rp.forEach(qp),zp.forEach(qp)}function Yp(e,n){e.blockedOn===n&&(e.blockedOn=null,Pp||(Pp=!0,t.unstable_scheduleCallback(t.unstable_NormalPriority,Jp)))}var Xp=null;function Zp(e){Xp!==e&&(Xp=e,t.unstable_scheduleCallback(t.unstable_NormalPriority,function(){Xp===e&&(Xp=null);for(var t=0;t<e.length;t+=3){var n=e[t],r=e[t+1],i=e[t+2];if(typeof r!=`function`){if(Mp(r||n)===null)continue;break}var a=jt(n);a!==null&&(e.splice(t,3),t-=3,Ns(a,{pending:!0,data:i,method:n.method,action:r},r,i))}}))}function Qp(e){function t(t){return Yp(t,e)}Fp!==null&&Yp(Fp,e),Ip!==null&&Yp(Ip,e),Lp!==null&&Yp(Lp,e),Rp.forEach(t),zp.forEach(t);for(var n=0;n<Bp.length;n++){var r=Bp[n];r.blockedOn===e&&(r.blockedOn=null)}for(;0<Bp.length&&(n=Bp[0],n.blockedOn===null);)Gp(n),n.blockedOn===null&&Bp.shift();if(n=(e.ownerDocument||e).$$reactFormReplay,n!=null)for(r=0;r<n.length;r+=3){var i=n[r],a=n[r+1],o=i[Ct]||null;if(typeof a==`function`)o||Zp(n);else if(o){var s=null;if(a&&a.hasAttribute(`formAction`)){if(i=a,o=a[Ct]||null)s=o.formAction;else if(Mp(i)!==null)continue}else s=o.action;typeof s==`function`?n[r+1]=s:(n.splice(r,3),r-=3),Zp(n)}}}function $p(){function e(e){e.canIntercept&&e.info===`react-transition`&&e.intercept({handler:function(){return new Promise(function(e){return i=e})},focusReset:`manual`,scroll:`manual`})}function t(){i!==null&&(i(),i=null),r||setTimeout(n,20)}function n(){if(!r&&!navigation.transition){var e=navigation.currentEntry;e&&e.url!=null&&navigation.navigate(e.url,{state:e.getState(),info:`react-transition`,history:`replace`})}}if(typeof navigation==`object`){var r=!1,i=null;return navigation.addEventListener(`navigate`,e),navigation.addEventListener(`navigatesuccess`,t),navigation.addEventListener(`navigateerror`,t),setTimeout(n,100),function(){r=!0,navigation.removeEventListener(`navigate`,e),navigation.removeEventListener(`navigatesuccess`,t),navigation.removeEventListener(`navigateerror`,t),i!==null&&(i(),i=null)}}}function em(e){this._internalRoot=e}tm.prototype.render=em.prototype.render=function(e){var t=this._internalRoot;if(t===null)throw Error(i(409));var n=t.current;xp(n,ku(),e,t,null,null)},tm.prototype.unmount=em.prototype.unmount=function(){var e=this._internalRoot;if(e!==null){this._internalRoot=null;var t=e.containerInfo;xp(e.current,2,null,e,null,null),Iu(),t[C]=null}};function tm(e){this._internalRoot=e}tm.prototype.unstable_scheduleHydration=function(e){if(e){var t=yt();e={blockedOn:null,target:e,priority:t};for(var n=0;n<Bp.length&&t!==0&&t<Bp[n].priority;n++);Bp.splice(n,0,e),n===0&&Gp(e)}};var nm=n.version;if(nm!==`19.2.8`)throw Error(i(527,nm,`19.2.8`));ge.findDOMNode=function(e){var t=e._reactInternals;if(t===void 0)throw typeof e.render==`function`?Error(i(188)):(e=Object.keys(e).join(`,`),Error(i(268,e)));return e=u(t),e=e===null?null:f(e),e=e===null?null:e.stateNode,e};var rm={bundleType:0,version:`19.2.8`,rendererPackageName:`react-dom`,currentDispatcherRef:he,reconcilerVersion:`19.2.8`};if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__<`u`){var im=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!im.isDisabled&&im.supportsFiber)try{Xe=im.inject(rm),Ze=im}catch{}}e.createRoot=function(e,t){if(!a(e))throw Error(i(299));var n=!1,r=``,o=nc,s=rc,c=ic;return t!=null&&(!0===t.unstable_strictMode&&(n=!0),t.identifierPrefix!==void 0&&(r=t.identifierPrefix),t.onUncaughtError!==void 0&&(o=t.onUncaughtError),t.onCaughtError!==void 0&&(s=t.onCaughtError),t.onRecoverableError!==void 0&&(c=t.onRecoverableError)),t=yp(e,1,!1,null,null,n,r,null,o,s,c,$p),e[C]=t.current,Bd(e),new em(t)}})),_=o(((e,t)=>{function n(){if(!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__>`u`||typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE!=`function`))try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(n)}catch(e){console.error(e)}}n(),t.exports=g()})),v=l(d(),1),y=_(),b=(...e)=>e.filter((e,t,n)=>!!e&&e.trim()!==``&&n.indexOf(e)===t).join(` `).trim(),ee=e=>e.replace(/([a-z0-9])([A-Z])/g,`$1-$2`).toLowerCase(),te=e=>e.replace(/^([A-Z])|[\s-_]+(\w)/g,(e,t,n)=>n?n.toUpperCase():t.toLowerCase()),ne=e=>{let t=te(e);return t.charAt(0).toUpperCase()+t.slice(1)},re={xmlns:`http://www.w3.org/2000/svg`,width:24,height:24,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:2,strokeLinecap:`round`,strokeLinejoin:`round`},ie=e=>{for(let t in e)if(t.startsWith(`aria-`)||t===`role`||t===`title`)return!0;return!1},ae=(0,v.createContext)({}),oe=()=>(0,v.useContext)(ae),se=(0,v.forwardRef)(({color:e,size:t,strokeWidth:n,absoluteStrokeWidth:r,className:i=``,children:a,iconNode:o,...s},c)=>{let{size:l=24,strokeWidth:u=2,absoluteStrokeWidth:d=!1,color:f=`currentColor`,className:p=``}=oe()??{},m=r??d?Number(n??u)*24/Number(t??l):n??u;return(0,v.createElement)(`svg`,{ref:c,...re,width:t??l??re.width,height:t??l??re.height,stroke:e??f,strokeWidth:m,className:b(`lucide`,p,i),...!a&&!ie(s)&&{"aria-hidden":`true`},...s},[...o.map(([e,t])=>(0,v.createElement)(e,t)),...Array.isArray(a)?a:[a]])}),ce=(e,t)=>{let n=(0,v.forwardRef)(({className:n,...r},i)=>(0,v.createElement)(se,{ref:i,iconNode:t,className:b(`lucide-${ee(ne(e))}`,`lucide-${e}`,n),...r}));return n.displayName=ne(e),n},le=ce(`chevron-down`,[[`path`,{d:`m6 9 6 6 6-6`,key:`qrunsl`}]]),ue=ce(`chevron-left`,[[`path`,{d:`m15 18-6-6 6-6`,key:`1wnfg3`}]]),de=ce(`chevron-right`,[[`path`,{d:`m9 18 6-6-6-6`,key:`mthhwq`}]]),fe=ce(`menu`,[[`path`,{d:`M4 5h16`,key:`1tepv9`}],[`path`,{d:`M4 12h16`,key:`1lakjw`}],[`path`,{d:`M4 19h16`,key:`1djgab`}]]),pe=ce(`moon`,[[`path`,{d:`M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401`,key:`kfwtm`}]]),me=ce(`sun`,[[`circle`,{cx:`12`,cy:`12`,r:`4`,key:`4exip2`}],[`path`,{d:`M12 2v2`,key:`tus03m`}],[`path`,{d:`M12 20v2`,key:`1lh1kg`}],[`path`,{d:`m4.93 4.93 1.41 1.41`,key:`149t6j`}],[`path`,{d:`m17.66 17.66 1.41 1.41`,key:`ptbguv`}],[`path`,{d:`M2 12h2`,key:`1t8f8n`}],[`path`,{d:`M20 12h2`,key:`1q8mjw`}],[`path`,{d:`m6.34 17.66-1.41 1.41`,key:`1m8zz5`}],[`path`,{d:`m19.07 4.93-1.41 1.41`,key:`1shlcs`}]]),he={title:`Introduction to Probability`,subtitle:`Theory and Applications`,author:`GS. TS. Nguyễn Văn Học`,edition:`Fourth Edition, 2024`,subject:`Mathematics — University`},ge=[{id:`ch0`,number:`0`,title:`Mở đầu`,sections:[{id:`ch0-s1`,number:`0.1`,title:`Văn bản mẫu giao diện (Showcase)`},{id:`ch0-s2`,number:`0.2`,title:`Bài tập mở đầu (Showcase)`}]},{id:`ch1`,number:`1`,title:`Xác suất và đếm`,sections:[{id:`ch1-s1`,number:`1.1`,title:`Tại sao nên học xác suất?`},{id:`ch1-s2`,number:`1.2`,title:`Không gian mẫu và thế giới viên đá`},{id:`ch1-s3`,number:`1.3`,title:`Định nghĩa thô sơ của xác suất`},{id:`ch1-s4`,number:`1.4`,title:`Làm thế nào để đếm`},{id:`ch1-s5`,number:`1.5`,title:`Chứng minh qua câu chuyện`},{id:`ch1-s6`,number:`1.6`,title:`Định nghĩa không thô sơ của xác suất`},{id:`ch1-s7`,number:`1.7`,title:`Tóm tắt`},{id:`ch1-s8`,number:`1.8`,title:`R`},{id:`ch1-s9`,number:`1.9`,title:`Bài tập`}]},{id:`ch2`,number:`2`,title:`Xác suất có điều kiện`,sections:[{id:`ch2-s1`,number:`2.1`,title:`Tầm quan trọng của việc suy nghĩ có điều kiện`},{id:`ch2-s2`,number:`2.2`,title:`Định nghĩa và trực giác`},{id:`ch2-s3`,number:`2.3`,title:`Quy tắc Bayes và định luật xác suất toàn phần`},{id:`ch2-s5`,number:`2.5`,title:`Sự độc lập của các sự kiện`},{id:`ch2-s6`,number:`2.6`,title:`Tính nhất quán của định lý Bayes`},{id:`ch2-s7`,number:`2.7`,title:`Điều kiện hóa như một công cụ giải quyết vấn đề`},{id:`ch2-s8`,number:`2.8`,title:`Những lầm tưởng và nghịch lý`},{id:`ch2-s9`,number:`2.9`,title:`Tóm tắt`},{id:`ch2-s10`,number:`2.10`,title:`R`},{id:`ch2-s11`,number:`2.11`,title:`Bài tập`}]},{id:`ch3`,number:`3`,title:`Biến ngẫu nhiên và phân phối của chúng`,sections:[{id:`ch3-s1`,number:`3.1`,title:`Biến ngẫu nhiên`},{id:`ch3-s2`,number:`3.2`,title:`Phân phối và hàm khối xác suất`},{id:`ch3-s4`,number:`3.4`,title:`Hypergeometric`},{id:`ch3-s5`,number:`3.5`,title:`Phân phối đều và rời rạc`},{id:`ch3-s6`,number:`3.6`,title:`Hàm phân phối tích lũy`},{id:`ch3-s7`,number:`3.7`,title:`Hàm của biến ngẫu nhiên`},{id:`ch3-s8`,number:`3.8`,title:`Tính độc lập của các biến ngẫu nhiên`},{id:`ch3-s9`,number:`3.9`,title:`Liên hệ giữa Binomial và Hypergeometric`},{id:`ch3-s10`,number:`3.10`,title:`Tóm tắt`},{id:`ch3-s11`,number:`3.11`,title:`R`},{id:`ch3-s12`,number:`3.12`,title:`Bài tập`}]},{id:`ch4`,number:`4`,title:`Kỳ vọng`,sections:[{id:`ch4-s1`,number:`4.1`,title:`Định nghĩa kỳ vọng`},{id:`ch4-s2`,number:`4.2`,title:`Tính tuyến tính của kỳ vọng`},{id:`ch4-s3`,number:`4.3`,title:`Phân phối hình học và phân phối nhị thức âm`},{id:`ch4-s4`,number:`4.4`,title:`Biến ngẫu nhiên chỉ báo và cây cầu cơ bản`},{id:`ch4-s5`,number:`4.5`,title:`Định lý LOTUS (Law of the unconscious statistician)`},{id:`ch4-s6`,number:`4.6`,title:`Phương sai`},{id:`ch4-s7`,number:`4.7`,title:`Phân phối Poisson`},{id:`ch4-s8`,number:`4.8`,title:`Mối liên hệ giữa Poisson và Binomial`},{id:`ch4-s9`,number:`4.9`,title:`Sử dụng xác suất và kỳ vọng để chứng minh sự tồn tại`},{id:`ch4-s10`,number:`4.10`,title:`Tóm tắt`},{id:`ch4-s11`,number:`4.11`,title:`R`},{id:`ch4-s12`,number:`4.12`,title:`Bài tập`}]},{id:`ch5`,number:`5`,title:`Biến ngẫu nhiên liên tục`,sections:[{id:`ch5-s1`,number:`5.1`,title:`Hàm mật độ xác suất`},{id:`ch5-s2`,number:`5.2`,title:`Phân phối đều`},{id:`ch5-s3`,number:`5.3`,title:`Tính phổ biến của phân phối đều`},{id:`ch5-s4`,number:`5.4`,title:`Phân phối chuẩn`},{id:`ch5-s5`,number:`5.5`,title:`Phân phối mũ`},{id:`ch5-s6`,number:`5.6`,title:`Quá trình Poisson`},{id:`ch5-s7`,number:`5.7`,title:`Tính đối xứng của các biến ngẫu nhiên liên tục`},{id:`ch5-s8`,number:`5.8`,title:`Tóm tắt`},{id:`ch5-s9`,number:`5.9`,title:`R`},{id:`ch5-s10`,number:`5.10`,title:`Bài tập`}]},{id:`ch6`,number:`6`,title:`Mô-men`,sections:[{id:`ch6-s1`,number:`6.1`,title:`Tóm tắt phân phối`},{id:`ch6-s2`,number:`6.2`,title:`Giải thích mô-men`},{id:`ch6-s3`,number:`6.3`,title:`Mô-men mẫu`},{id:`ch6-s4`,number:`6.4`,title:`Hàm sinh mô-men`},{id:`ch6-s5`,number:`6.5`,title:`Tạo mô-men bằng hàm sinh mô-men`},{id:`ch6-s6`,number:`6.6`,title:`Tổng của các biến ngẫu nhiên độc lập qua hàm sinh momen`},{id:`ch6-s7`,number:`6.7`,title:`Hàm sinh xác suất`},{id:`ch6-s8`,number:`6.8`,title:`Tóm tắt`},{id:`ch6-s9`,number:`6.9`,title:`R`},{id:`ch6-s10`,number:`6.10`,title:`Bài tập`}]},{id:`ch7`,number:`7`,title:`Phân phối chung`,sections:[{id:`ch7-s1`,number:`7.1`,title:`Phân phối chung, phân phối biên và phân phối điều kiện`},{id:`ch7-s2`,number:`7.2`,title:`2D LOTUS`},{id:`ch7-s3`,number:`7.3`,title:`Hiệp phương sai và hệ số tương quan`},{id:`ch7-s4`,number:`7.4`,title:`Phân phối đa thức`},{id:`ch7-s5`,number:`7.5`,title:`Phân phối chuẩn đa biến`},{id:`ch7-s6`,number:`7.6`,title:`Tóm tắt`},{id:`ch7-s7`,number:`7.7`,title:`R`},{id:`ch7-s8`,number:`7.8`,title:`Bài tập`}]},{id:`ch8`,number:`8`,title:`Biến đổi`,sections:[{id:`ch8-s1`,number:`8.1`,title:`Thay đổi biến`},{id:`ch8-s2`,number:`8.2`,title:`Tích convolution`},{id:`ch8-s3`,number:`8.3`,title:`Beta`},{id:`ch8-s4`,number:`8.4`,title:`Gamma`},{id:`ch8-s5`,number:`8.5`,title:`Mối liên hệ Beta-Gamma`},{id:`ch8-s6`,number:`8.6`,title:`Thống kê thứ tự`},{id:`ch8-s7`,number:`8.7`,title:`Tóm tắt`},{id:`ch8-s8`,number:`8.8`,title:`R`},{id:`ch8-s9`,number:`8.9`,title:`Bài tập`}]},{id:`ch9`,number:`9`,title:`Kỳ vọng có điều kiện`,sections:[{id:`ch9-s1`,number:`9.1`,title:`Kỳ vọng có điều kiện cho một sự kiện`},{id:`ch9-s3`,number:`9.3`,title:`Tính chất của kỳ vọng có điều kiện`},{id:`ch9-s4`,number:`9.4`,title:`*Giải thích hình học của kỳ vọng có điều kiện`},{id:`ch9-s5`,number:`9.5`,title:`Phương sai có điều kiện`},{id:`ch9-s7`,number:`9.7`,title:`Tóm tắt`},{id:`ch9-s8`,number:`9.8`,title:`R`},{id:`ch9-s9`,number:`9.9`,title:`Bài tập`}]},{id:`ch10`,number:`10`,title:`Các bất đẳng thức và định lý giới hạn`,sections:[{id:`ch10-s1`,number:`10.1`,title:`Bất đẳng thức`},{id:`ch10-s2`,number:`10.2`,title:`Định lý số lớn`},{id:`ch10-s3`,number:`10.3`,title:`Định lý giới hạn trung tâm`},{id:`ch10-s5`,number:`10.5`,title:`Tóm tắt`},{id:`ch10-s6`,number:`10.6`,title:`R`},{id:`ch10-s7`,number:`10.7`,title:`Bài tập`}]},{id:`ch11`,number:`11`,title:`Chuỗi Markov`,sections:[{id:`ch11-s1`,number:`11.1`,title:`Tính chất Markov và ma trận chuyển`},{id:`ch11-s2`,number:`11.2`,title:`Phân loại trạng thái`},{id:`ch11-s3`,number:`11.3`,title:`Phân bố dừng`},{id:`ch11-s4`,number:`11.4`,title:`Tính thuận nghịch`},{id:`ch11-s5`,number:`11.5`,title:`Tóm tắt`},{id:`ch11-s6`,number:`11.6`,title:`R`},{id:`ch11-s7`,number:`11.7`,title:`Bài tập`}]},{id:`ch12`,number:`12`,title:`Chuỗi Markov Monte Carlo`,sections:[{id:`ch12-s1`,number:`12.1`,title:`Metropolis-Hastings`},{id:`ch12-s2`,number:`12.2`,title:`Gibbs sampling`},{id:`ch12-s3`,number:`12.3`,title:`Tóm tắt`},{id:`ch12-s4`,number:`12.4`,title:`R`},{id:`ch12-s5`,number:`12.5`,title:`Bài tập`}]},{id:`ch13`,number:`13`,title:`Quá trình Poisson`,sections:[{id:`ch13-s1`,number:`13.1`,title:`Quá trình Poisson trong một chiều`},{id:`ch13-s2`,number:`13.2`,title:`Điều kiện, tổng hợp và lọc`},{id:`ch13-s3`,number:`13.3`,title:`Quá trình Poisson trong nhiều chiều`},{id:`ch13-s4`,number:`13.4`,title:`Tóm tắt`},{id:`ch13-s5`,number:`13.5`,title:`R`},{id:`ch13-s6`,number:`13.6`,title:`Bài tập`}]}],_e=`ch0.ch1.ch1-s1.ch1-s2.ch1-s3.ch1-s4.ch1-s5.ch1-s6.ch1-s7.ch1-s8.ch1-s9.ch2.ch2-s1.ch2-s2.ch2-s3.ch2-s5.ch2-s6.ch2-s7.ch2-s8.ch2-s9.ch2-s10.ch2-s11.ch3.ch3-s1.ch3-s2.ch3-s4.ch3-s5.ch3-s6.ch3-s7.ch3-s8.ch3-s9.ch3-s10.ch3-s11.ch3-s12.ch4.ch4-s1.ch4-s2.ch4-s3.ch4-s4.ch4-s5.ch4-s6.ch4-s7.ch4-s8.ch4-s9.ch4-s10.ch4-s11.ch4-s12.ch5.ch5-s1.ch5-s2.ch5-s3.ch5-s4.ch5-s5.ch5-s6.ch5-s7.ch5-s8.ch5-s9.ch5-s10.ch6.ch6-s1.ch6-s2.ch6-s3.ch6-s4.ch6-s5.ch6-s6.ch6-s7.ch6-s8.ch6-s9.ch6-s10.ch7.ch7-s1.ch7-s2.ch7-s3.ch7-s4.ch7-s5.ch7-s6.ch7-s7.ch7-s8.ch8.ch8-s1.ch8-s2.ch8-s3.ch8-s4.ch8-s5.ch8-s6.ch8-s7.ch8-s8.ch8-s9.ch9.ch9-s1.ch9-s3.ch9-s4.ch9-s5.ch9-s7.ch9-s8.ch9-s9.ch10.ch10-s1.ch10-s2.ch10-s3.ch10-s5.ch10-s6.ch10-s7.ch11.ch11-s1.ch11-s2.ch11-s3.ch11-s4.ch11-s5.ch11-s6.ch11-s7.ch12.ch12-s1.ch12-s2.ch12-s3.ch12-s4.ch12-s5.ch13.ch13-s1.ch13-s2.ch13-s3.ch13-s4.ch13-s5.ch13-s6`.split(`.`);function ve(e){if(e===`ch0`)return`Mở đầu`;for(let t of ge){if(t.id===e)return`Chương ${t.number}: ${t.title}`;for(let n of t.sections)if(n.id===e)return`${n.number} ${n.title}`}return e}function ye(e){let t=_e.indexOf(e);return{prev:t>0?_e[t-1]:void 0,next:t<_e.length-1?_e[t+1]:void 0}}var be=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),x=o(((e,t)=>{t.exports=be()}))();function xe({onToggleSidebar:e,searchQuery:t,onSearchChange:n,theme:r,onToggleTheme:i}){return(0,x.jsxs)(`header`,{className:`topbar`,children:[(0,x.jsx)(`button`,{className:`sidebar-toggle`,onClick:e,"aria-label":`Toggle sidebar`,children:(0,x.jsx)(fe,{size:18})}),(0,x.jsx)(`span`,{className:`topbar-brand`,children:he.title}),(0,x.jsx)(`div`,{className:`topbar-search`,children:(0,x.jsxs)(`div`,{className:`topbar-search-wrap`,children:[(0,x.jsxs)(`svg`,{className:`topbar-search-icon`,width:`14`,height:`14`,viewBox:`0 0 24 24`,fill:`none`,stroke:`currentColor`,strokeWidth:`2`,strokeLinecap:`round`,strokeLinejoin:`round`,children:[(0,x.jsx)(`circle`,{cx:`11`,cy:`11`,r:`8`}),(0,x.jsx)(`path`,{d:`m21 21-4.35-4.35`})]}),(0,x.jsx)(`input`,{type:`search`,placeholder:`Search...`,value:t,onChange:e=>n(e.target.value),"aria-label":`Search`})]})}),(0,x.jsx)(`div`,{className:`topbar-actions`,children:(0,x.jsx)(`button`,{className:`theme-toggle`,onClick:i,"aria-label":r===`dark`?`Switch to light mode`:`Switch to dark mode`,title:r===`dark`?`Light mode`:`Dark mode`,children:r===`dark`?(0,x.jsx)(me,{size:17}):(0,x.jsx)(pe,{size:17})})})]})}function Se({currentPage:e,onNavigate:t,isOpen:n,onClose:r}){let[i,a]=(0,v.useState)(()=>{let t=new Set;for(let n of ge)(n.id===e||n.sections.some(t=>t.id===e))&&t.add(n.id);return t}),o=e=>{a(t=>{let n=new Set(t);return n.has(e)?n.delete(e):n.add(e),n})},s=e=>{t(e);for(let t of ge)t.sections.some(t=>t.id===e)&&a(e=>new Set([...e,t.id]));r()},c=t=>t.id===e||t.sections.some(t=>t.id===e);return(0,x.jsxs)(x.Fragment,{children:[(0,x.jsx)(`div`,{className:`sidebar-overlay ${n?`active`:``}`,onClick:r}),(0,x.jsx)(`nav`,{className:`sidebar ${n?`mobile-open`:``}`,"aria-label":`Mục lục`,children:(0,x.jsxs)(`div`,{className:`sidebar-section`,children:[(0,x.jsx)(`div`,{className:`sidebar-section-label`,children:`Mục lục`}),ge.map(t=>{let n=i.has(t.id),r=c(t);return(0,x.jsxs)(`div`,{className:`chapter-group`,children:[(0,x.jsxs)(`div`,{className:`chapter-header ${r?`active`:``}`,onClick:()=>{o(t.id),s(t.id)},role:`button`,tabIndex:0,onKeyDown:e=>e.key===`Enter`&&s(t.id),children:[(0,x.jsx)(`span`,{className:`chapter-number`,children:t.number}),(0,x.jsx)(`span`,{style:{flex:1,lineHeight:1.3},children:t.title}),n?(0,x.jsx)(le,{size:14,style:{flexShrink:0,color:`var(--text-muted)`}}):(0,x.jsx)(de,{size:14,style:{flexShrink:0,color:`var(--text-muted)`}})]}),n&&(0,x.jsx)(`div`,{className:`chapter-sections`,children:t.sections.map(t=>(0,x.jsxs)(`div`,{className:`section-link ${e===t.id?`active`:``}`,onClick:()=>s(t.id),role:`button`,tabIndex:0,onKeyDown:e=>e.key===`Enter`&&s(t.id),children:[(0,x.jsx)(`span`,{style:{fontFamily:`JetBrains Mono, monospace`,fontSize:`0.65rem`,color:`var(--text-muted)`,minWidth:`2rem`},children:t.number}),(0,x.jsx)(`span`,{children:t.title})]},t.id))})]},t.id)})]})})]})}function Ce({pageId:e}){let[t,n]=(0,v.useState)([]),[r,i]=(0,v.useState)(``);(0,v.useEffect)(()=>{let e=setTimeout(()=>{let e=document.querySelector(`.content-page`);if(!e)return;let t=e.querySelectorAll(`h2, h3, [data-toc-title]`),r=[];t.forEach((e,t)=>{e.id||=(e.getAttribute(`data-toc-title`)||e.textContent||`heading-${t}`).toLowerCase().replace(/[^a-z0-9A-Z]+/g,`-`).replace(/(^-|-$)+/g,``)||`heading-${t}`,r.push({id:e.id,text:e.getAttribute(`data-toc-title`)||e.textContent||``,level:e.tagName===`H2`?1:2})}),n(r)},100);return()=>clearTimeout(e)},[e]),(0,v.useEffect)(()=>{let e=new IntersectionObserver(e=>{for(let t of e)t.isIntersecting&&i(t.target.id)},{rootMargin:`-20% 0px -75% 0px`});return document.querySelectorAll(`h2, h3, [data-toc-title]`).forEach(t=>e.observe(t)),()=>e.disconnect()},[t]);let a=e=>{document.getElementById(e)?.scrollIntoView({behavior:`smooth`,block:`start`})};return t.length===0?null:(0,x.jsxs)(`aside`,{className:`outline-panel`,"aria-label":`Phác thảo trang`,children:[(0,x.jsx)(`div`,{className:`outline-panel-label`,children:`Trong trang này`}),t.map(e=>(0,x.jsx)(`div`,{className:`outline-item ${e.level===2?`level-2`:``} ${r===e.id?`active`:``}`,onClick:()=>a(e.id),role:`button`,tabIndex:0,onKeyDown:t=>t.key===`Enter`&&a(e.id),children:e.text},e.id))]})}var S=class e extends Error{constructor(t,n){var r=`KaTeX parse error: `+t,i,a,o=n&&n.loc;if(o&&o.start<=o.end){var s=o.lexer.input;i=o.start,a=o.end,i===s.length?r+=` at end of input: `:r+=` at position `+(i+1)+`: `;var c=s.slice(i,a).replace(/[^]/g,`$&̲`),l=i>15?`…`+s.slice(i-15,i):s.slice(0,i),u=a+15<s.length?s.slice(a,a+15)+`…`:s.slice(a);r+=l+c+u}super(r),this.name=`ParseError`,this.position=void 0,this.length=void 0,this.rawMessage=void 0,Object.setPrototypeOf(this,e.prototype),this.position=i,i!=null&&a!=null&&(this.length=a-i),this.rawMessage=t}},we=/([A-Z])/g,Te=e=>e.replace(we,`-$1`).toLowerCase(),Ee={"&":`&amp;`,">":`&gt;`,"<":`&lt;`,'"':`&quot;`,"'":`&#x27;`},De=/[&><"']/g,Oe=e=>String(e).replace(De,e=>Ee[e]),ke=e=>e.type===`ordgroup`||e.type===`color`?e.body.length===1?ke(e.body[0]):e:e.type===`font`?ke(e.body):e,Ae=new Set([`mathord`,`textord`,`atom`]),je=e=>Ae.has(ke(e).type),Me=e=>{var t=/^[\x00-\x20]*([^\\/#?]*?)(:|&#0*58|&#x0*3a|&colon)/i.exec(e);return t?t[2]!==`:`||!/^[a-zA-Z][a-zA-Z0-9+\-.]*$/.test(t[1])?null:t[1].toLowerCase():`_relative`},Ne={displayMode:{type:`boolean`,description:`Render math in display mode, which puts the math in display style (so \\int and \\sum are large, for example), and centers the math on the page on its own line.`,cli:`-d, --display-mode`},output:{type:{enum:[`htmlAndMathml`,`html`,`mathml`]},description:`Determines the markup language of the output.`,cli:`-F, --format <type>`},leqno:{type:`boolean`,description:`Render display math in leqno style (left-justified tags).`},fleqn:{type:`boolean`,description:`Render display math flush left.`},throwOnError:{type:`boolean`,default:!0,cli:`-t, --no-throw-on-error`,cliDescription:`Render errors (in the color given by --error-color) instead of throwing a ParseError exception when encountering an error.`},errorColor:{type:`string`,default:`#cc0000`,cli:`-c, --error-color <color>`,cliDescription:`A color string given in the format 'rgb' or 'rrggbb' (no #). This option determines the color of errors rendered by the -t option.`,cliProcessor:e=>`#`+e},macros:{type:`object`,cli:`-m, --macro <def>`,cliDescription:`Define custom macro of the form '\\foo:expansion' (use multiple -m arguments for multiple macros).`,cliDefault:[],cliProcessor:(e,t)=>(t.push(e),t)},minRuleThickness:{type:`number`,description:"Specifies a minimum thickness, in ems, for fraction lines, `\\sqrt` top lines, `{array}` vertical lines, `\\hline`, `\\hdashline`, `\\underline`, `\\overline`, and the borders of `\\fbox`, `\\boxed`, and `\\fcolorbox`.",processor:e=>Math.max(0,e),cli:`--min-rule-thickness <size>`,cliProcessor:parseFloat},colorIsTextColor:{type:`boolean`,description:`Makes \\color behave like LaTeX's 2-argument \\textcolor, instead of LaTeX's one-argument \\color mode change.`,cli:`-b, --color-is-text-color`},strict:{type:[{enum:[`warn`,`ignore`,`error`]},`boolean`,`function`],description:`Turn on strict / LaTeX faithfulness mode, which throws an error if the input uses features that are not supported by LaTeX.`,cli:`-S, --strict`,cliDefault:!1},trust:{type:[`boolean`,`function`],description:`Trust the input, enabling all HTML features such as \\url.`,cli:`-T, --trust`},maxSize:{type:`number`,default:1/0,description:`If non-zero, all user-specified sizes, e.g. in \\rule{500em}{500em}, will be capped to maxSize ems. Otherwise, elements and spaces can be arbitrarily large`,processor:e=>Math.max(0,e),cli:`-s, --max-size <n>`,cliProcessor:parseInt},maxExpand:{type:`number`,default:1e3,description:`Limit the number of macro expansions to the specified number, to prevent e.g. infinite macro loops. If set to Infinity, the macro expander will try to fully expand as in LaTeX.`,processor:e=>Math.max(0,e),cli:`-e, --max-expand <n>`,cliProcessor:e=>e===`Infinity`?1/0:parseInt(e)},globalGroup:{type:`boolean`,cli:!1}};function Pe(e){if(typeof e!=`string`)return e.enum[0];switch(e){case`boolean`:return!1;case`string`:return``;case`number`:return 0;case`object`:return{};default:throw Error(`Unexpected schema type; settings must declare an explicit default.`)}}function Fe(e){return e.default===void 0?Pe(Array.isArray(e.type)?e.type[0]:e.type):e.default}function Ie(e,t,n,r){var i=n[t];e[t]=i===void 0?Fe(r):r.processor?r.processor(i):i}var Le=class{constructor(e){e===void 0&&(e={}),this.displayMode=void 0,this.output=void 0,this.leqno=void 0,this.fleqn=void 0,this.throwOnError=void 0,this.errorColor=void 0,this.macros=void 0,this.minRuleThickness=void 0,this.colorIsTextColor=void 0,this.strict=void 0,this.trust=void 0,this.maxSize=void 0,this.maxExpand=void 0,this.globalGroup=void 0,e||={};for(var t of Object.keys(Ne)){var n=Ne[t];n&&Ie(this,t,e,n)}}reportNonstrict(e,t,n){var r=this.strict;if(typeof r==`function`&&(r=r(e,t,n)),!(!r||r===`ignore`)){if(r===!0||r===`error`)throw new S(`LaTeX-incompatible input and strict mode is set to 'error': `+(t+` [`+e+`]`),n);r===`warn`?typeof console<`u`&&console.warn(`LaTeX-incompatible input and strict mode is set to 'warn': `+(t+` [`+e+`]`)):typeof console<`u`&&console.warn(`LaTeX-incompatible input and strict mode is set to `+(`unrecognized '`+r+`': `+t+` [`+e+`]`))}}useStrictBehavior(e,t,n){var r=this.strict;if(typeof r==`function`)try{r=r(e,t,n)}catch{r=`error`}return!r||r===`ignore`?!1:r===!0||r===`error`?!0:r===`warn`?(typeof console<`u`&&console.warn(`LaTeX-incompatible input and strict mode is set to 'warn': `+(t+` [`+e+`]`)),!1):(typeof console<`u`&&console.warn(`LaTeX-incompatible input and strict mode is set to `+(`unrecognized '`+r+`': `+t+` [`+e+`]`)),!1)}isTrusted(e){if(`url`in e&&e.url&&!e.protocol){var t=Me(e.url);if(t==null)return!1;e.protocol=t}return!!(typeof this.trust==`function`?this.trust(e):this.trust)}},Re=class{constructor(e,t,n){this.id=void 0,this.size=void 0,this.cramped=void 0,this.id=e,this.size=t,this.cramped=n}sup(){return qe[Je[this.id]]}sub(){return qe[Ye[this.id]]}fracNum(){return qe[Xe[this.id]]}fracDen(){return qe[Ze[this.id]]}cramp(){return qe[Qe[this.id]]}text(){return qe[$e[this.id]]}isTight(){return this.size>=2}},ze=0,Be=1,Ve=2,He=3,Ue=4,We=5,Ge=6,Ke=7,qe=[new Re(ze,0,!1),new Re(Be,0,!0),new Re(Ve,1,!1),new Re(He,1,!0),new Re(Ue,2,!1),new Re(We,2,!0),new Re(Ge,3,!1),new Re(Ke,3,!0)],Je=[Ue,We,Ue,We,Ge,Ke,Ge,Ke],Ye=[We,We,We,We,Ke,Ke,Ke,Ke],Xe=[Ve,He,Ue,We,Ge,Ke,Ge,Ke],Ze=[He,He,We,We,Ke,Ke,Ke,Ke],Qe=[Be,Be,He,He,We,We,Ke,Ke],$e=[ze,Be,Ve,He,Ve,He,Ve,He],et={DISPLAY:qe[ze],TEXT:qe[Ve],SCRIPT:qe[Ue],SCRIPTSCRIPT:qe[Ge]},tt=[{name:`latin`,blocks:[[256,591],[768,879]]},{name:`cyrillic`,blocks:[[1024,1279]]},{name:`armenian`,blocks:[[1328,1423]]},{name:`brahmic`,blocks:[[2304,4255]]},{name:`georgian`,blocks:[[4256,4351]]},{name:`cjk`,blocks:[[12288,12543],[19968,40879],[65280,65376]]},{name:`hangul`,blocks:[[44032,55215]]}];function nt(e){for(var t=0;t<tt.length;t++)for(var n=tt[t],r=0;r<n.blocks.length;r++){var i=n.blocks[r];if(e>=i[0]&&e<=i[1])return n.name}return null}var rt=[];tt.forEach(e=>e.blocks.forEach(e=>rt.push(...e)));function it(e){for(var t=0;t<rt.length;t+=2)if(e>=rt[t]&&e<=rt[t+1])return!0;return!1}var at=e=>e+` `+e,ot=80,st=function(e,t){return`M95,`+(622+e+t)+`
 c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
 c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
 c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
@@ -782,7 +782,158 @@ n <- 100                                        # số lượng thẻ\r
 r <- replicate(10^4, sum(sample(n) == (1:n)))   # xáo trộn; đếm trùng lặp\r
 sum(r >= 1) / 10^4                              # tỷ lệ có một trùng lặp\r
 \`\`\`\r
-`,fk=`May mắn. Sự trùng hợp. Sự ngẫu nhiên. Sự không chắc chắn. Rủi ro. Hoài nghi. Số phận. Cơ hội. Bạn có lẽ đã nghe những từ này vô số lần, nhưng khả năng cao là chúng đã được sử dụng theo một cách mơ hồ, không chính thức. Tiếc thay, mặc dù phổ biến trong khoa học và cuộc sống hàng ngày, xác suất có thể rất sâu sắc trái ngược với trực giác. Nếu chúng ta dựa vào trực giác có tính hợp lệ đáng ngờ, chúng ta sẽ đối mặt với rủi ro nghiêm trọng của việc đưa ra những dự đoán không chính xác hoặc đưa ra những quyết định quá tự tin. Mục tiêu của cuốn sách này là giới thiệu xác suất như một khung logic để lượng hóa sự không chắc chắn và ngẫu nhiên một cách có hệ thống. Chúng ta cũng sẽ cố gắng củng cố trực giác, cả khi những phỏng đoán ban đầu của chúng ta trùng khớp với lập luận logic và khi chúng ta không may mắn lắm.`,pk=`Toán học là logic của sự chắc chắn; xác suất là logic của sự không chắc chắn. Xác suất cực kỳ hữu ích trong một loạt các lĩnh vực rộng lớn, vì nó cung cấp công cụ để hiểu và giải thích sự biến đổi, tách tín hiệu khỏi tiếng ồn, và mô hình hóa các hiện tượng phức tạp. Để cho thấy chỉ một vài ứng dụng từ một danh sách liên tục đang mở rộng:\r
+`,fk=`<div class="exercise-block" data-toc-title="Bài tập 1">
+<div class="exercise-header">
+<span class="exercise-badge">Bài tập 1</span>
+</div>
+<div class="exercise-body">
+
+Cho $X \\sim \\mathcal{N}(0, 1)$ là biến ngẫu nhiên chuẩn tắc và xét biến đổi $Y = X^2$.
+
+<ol>
+<li data-label="(a)">
+
+Hàm $g(x) = x^2$ có phải là đơn ánh trên $\\mathbb{R}$ không? Điều này ảnh hưởng thế nào đến khả năng áp dụng **công thức thay đổi biến một chiều**?
+
+</li>
+<li data-label="(b)">
+
+Sử dụng hàm phân phối tích lũy (CDF), hãy tìm PDF của $Y = X^2$.
+
+</li>
+<li data-label="(c)">
+
+Phân phối của $Y$ có tên gọi là gì? Nêu tham số của nó.
+
+</li>
+</ol>
+
+</div>
+<div class="exercise-divider"></div>
+<details class="exercise-solution">
+<summary>
+<span class="solution-label-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
+<span class="solution-label-text"><span class="solution-label-eyebrow">Hướng dẫn giải</span></span>
+<svg class="solution-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+</summary>
+<div class="solution-content">
+<ol class="solution-steps">
+<li class="solution-step">
+<span class="solution-step-num">a</span>
+<div class="solution-step-body">
+
+**Kiểm tra tính đơn ánh.** Hàm $g(x) = x^2$ *không* phải đơn ánh trên $\\mathbb{R}$ vì $g(-x) = g(x)$ với mọi $x$ — ví dụ $g(1) = g(-1) = 1$.
+
+Vì vậy, **công thức thay đổi biến một chiều không áp dụng được** ở đây. Chiến lược phù hợp là bắt đầu từ CDF của $Y$.
+
+</div>
+</li>
+<li class="solution-step">
+<span class="solution-step-num">b</span>
+<div class="solution-step-body">
+
+**Tìm CDF của $Y = X^2$.** Với $y > 0$:
+
+$$F_Y(y) = P(X^2 \\le y) = P(-\\sqrt{y} \\le X \\le \\sqrt{y}) = \\Phi(\\sqrt{y}) - \\Phi(-\\sqrt{y})$$
+
+Vì phân phối chuẩn đối xứng, $\\Phi(-\\sqrt{y}) = 1 - \\Phi(\\sqrt{y})$, nên $F_Y(y) = 2\\Phi(\\sqrt{y}) - 1$. Lấy đạo hàm theo quy tắc chuỗi:
+
+$$f_Y(y) = 2\\varphi(\\sqrt{y}) \\cdot \\frac{1}{2\\sqrt{y}} = \\frac{1}{\\sqrt{2\\pi y}}\\,e^{-y/2}, \\quad y > 0.$$
+
+</div>
+</li>
+<li class="solution-step">
+<span class="solution-step-num">c</span>
+<div class="solution-step-body">
+
+So sánh với PDF của phân phối Gamma $f(y) = \\frac{\\lambda^a}{\\Gamma(a)}y^{a-1}e^{-\\lambda y}$, ta nhận ra:
+
+$$Y = X^2 \\sim \\operatorname{Gamma}\\!\\left(\\tfrac{1}{2},\\,\\tfrac{1}{2}\\right) \\equiv \\chi^2(1).$$
+
+Đây là **phân phối Chi-Square bậc 1** — sẽ được nghiên cứu kỹ hơn ở Chương 10.
+
+</div>
+</li>
+</ol>
+<div class="solution-note">
+
+**Lưu ý.** Kết quả mở rộng: nếu $Z_1, \\ldots, Z_n$ là i.i.d. $\\mathcal{N}(0,1)$, thì $Z_1^2 + \\cdots + Z_n^2 \\sim \\chi^2(n)$.
+
+</div>
+</div>
+</details>
+</div>
+
+<div class="exercise-block" data-toc-title="Bài tập 2">
+<div class="exercise-header">
+<span class="exercise-badge">Bài tập 2</span>
+</div>
+<div class="exercise-body">
+
+Cho $U \\sim \\text{Unif}(0, 1)$ và $F$ là một hàm phân phối tích lũy liên tục và tăng nghiêm ngặt.
+
+Chứng minh rằng biến ngẫu nhiên $X = F^{-1}(U)$ có CDF là $F$.
+
+</div>
+<div class="exercise-divider"></div>
+<details class="exercise-solution">
+<summary>
+<span class="solution-label-badge"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+<span class="solution-label-text"><span class="solution-label-eyebrow">Hướng dẫn giải</span></span>
+<svg class="solution-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+</summary>
+<div class="solution-content">
+<ol class="solution-steps">
+<li class="solution-step">
+<span class="solution-step-num">1</span>
+<div class="solution-step-body">
+
+**Tính CDF của $X$**. Với mọi $x \\in \\mathbb{R}$:
+
+$$P(X \\le x) = P(F^{-1}(U) \\le x).$$
+
+Vì $F$ tăng nghiêm ngặt, $F^{-1}(U) \\le x$ tương đương với $U \\le F(x)$.
+
+</div>
+</li>
+<li class="solution-step">
+<span class="solution-step-num">2</span>
+<div class="solution-step-body">
+
+Do $U \\sim \\text{Unif}(0,1)$, ta có $P(U \\le t) = t$ với $t \\in [0,1]$. Vì $F(x) \\in [0,1]$:
+
+$$P(U \\le F(x)) = F(x).$$
+
+Vậy $P(X \\le x) = F(x)$ với mọi $x$, tức là **CDF của $X$ chính là $F$**. $\\blacksquare$
+
+</div>
+</li>
+</ol>
+<div class="solution-note">
+
+**Ứng dụng.** Kết quả này gọi là *phương pháp nghịch đảo* (inverse transform sampling) — nền tảng để mô phỏng biến ngẫu nhiên có phân phối tùy ý bằng máy tính, chỉ từ một bộ sinh số ngẫu nhiên đều.
+
+</div>
+</div>
+</details>
+</div>
+
+<div class="exercise-block" data-toc-title="Bài tập 3">
+<div class="exercise-header">
+<span class="exercise-badge">Bài tập 3</span>
+<span class="exercise-title">Phân phối Mũ và tính không nhớ</span>
+</div>
+<div class="exercise-body">
+
+Cho $X \\sim \\text{Exp}(\\lambda)$. Chứng minh tính chất không nhớ (memoryless property) của phân phối mũ:
+
+$$P(X > s + t \\mid X > s) = P(X > t) \\quad \\text{với mọi } s, t > 0$$
+
+Giải thích ý nghĩa của tính chất này trong mô hình xếp hàng hoặc độ tin cậy của thiết bị.
+
+</div>
+</div>
+`,pk=`May mắn. Sự trùng hợp. Sự ngẫu nhiên. Sự không chắc chắn. Rủi ro. Hoài nghi. Số phận. Cơ hội. Bạn có lẽ đã nghe những từ này vô số lần, nhưng khả năng cao là chúng đã được sử dụng theo một cách mơ hồ, không chính thức. Tiếc thay, mặc dù phổ biến trong khoa học và cuộc sống hàng ngày, xác suất có thể rất sâu sắc trái ngược với trực giác. Nếu chúng ta dựa vào trực giác có tính hợp lệ đáng ngờ, chúng ta sẽ đối mặt với rủi ro nghiêm trọng của việc đưa ra những dự đoán không chính xác hoặc đưa ra những quyết định quá tự tin. Mục tiêu của cuốn sách này là giới thiệu xác suất như một khung logic để lượng hóa sự không chắc chắn và ngẫu nhiên một cách có hệ thống. Chúng ta cũng sẽ cố gắng củng cố trực giác, cả khi những phỏng đoán ban đầu của chúng ta trùng khớp với lập luận logic và khi chúng ta không may mắn lắm.`,mk=`Toán học là logic của sự chắc chắn; xác suất là logic của sự không chắc chắn. Xác suất cực kỳ hữu ích trong một loạt các lĩnh vực rộng lớn, vì nó cung cấp công cụ để hiểu và giải thích sự biến đổi, tách tín hiệu khỏi tiếng ồn, và mô hình hóa các hiện tượng phức tạp. Để cho thấy chỉ một vài ứng dụng từ một danh sách liên tục đang mở rộng:\r
 \r
 1. **Thống kê**: Xác suất là nền tảng và ngôn ngữ cho thống kê, cho phép nhiều phương pháp mạnh mẽ để sử dụng dữ liệu để học hỏi về thế giới.\r
 \r
@@ -835,7 +986,7 @@ Trong toàn bộ cuốn sách này, chúng ta sẽ sử dụng các chiến lư�
   <div class="math-box-content">\r
     <strong>Kiểm tra tính hợp lý:</strong> Sau khi giải một bài toán theo một cách nào đó, chúng ta thường sẽ cố gắng giải cùng bài toán theo một cách khác hoặc kiểm tra xem kết quả của chúng ta có hợp lý hay không trong các trường hợp đơn giản và cực đoan.\r
   </div>\r
-</div>`,mk=`Khung toán học cho xác suất được xây dựng xung quanh các tập hợp. Hãy tưởng tượng rằng một thí nghiệm được thực hiện, dẫn đến một trong số các kết quả có thể xảy ra của tập hợp. Trước khi thí nghiệm được thực hiện, không ai biết kết quả sẽ là gì; sau khi thực hiện, kết quả "trở nên rõ ràng" thành kết quả thực tế.\r
+</div>`,hk=`Khung toán học cho xác suất được xây dựng xung quanh các tập hợp. Hãy tưởng tượng rằng một thí nghiệm được thực hiện, dẫn đến một trong số các kết quả có thể xảy ra của tập hợp. Trước khi thí nghiệm được thực hiện, không ai biết kết quả sẽ là gì; sau khi thực hiện, kết quả "trở nên rõ ràng" thành kết quả thực tế.\r
 \r
 <div class="math-box definition">\r
   <div class="math-box-header">\r
@@ -958,7 +1109,7 @@ Như các ví dụ trước đó đã cho thấy, các sự kiện có thể đ�
 | **Mối quan hệ giữa các sự kiện** | |\r
 | $A$ kéo theo $B$ | $A \\subseteq B$ |\r
 | $A$ và $B$ là các sự kiện loại trừ lẫn nhau | $A \\cap B = \\emptyset$ |\r
-| $A_{1}, \\ldots, A_{n}$ là một phân hoạch của $S$ | $A_{1} \\cup \\cdots \\cup A_{n} = S, A_{i} \\cap A_{j} = \\emptyset \\text{ cho } i \\neq j$ |`,hk=`Từ xưa, định nghĩa sớm nhất về xác suất của một sự kiện là đếm số cách sự kiện có thể xảy ra và chia cho tổng số kết quả có thể xảy ra của thí nghiệm. Chúng ta gọi đây là định nghĩa đơn giản vì nó có tính hạn chế và dựa vào những giả định mạnh mẽ; bất chấp vậy, việc hiểu rõ định nghĩa này là quan trọng, và hữu ích khi không lạm dụng.\r
+| $A_{1}, \\ldots, A_{n}$ là một phân hoạch của $S$ | $A_{1} \\cup \\cdots \\cup A_{n} = S, A_{i} \\cap A_{j} = \\emptyset \\text{ cho } i \\neq j$ |`,gk=`Từ xưa, định nghĩa sớm nhất về xác suất của một sự kiện là đếm số cách sự kiện có thể xảy ra và chia cho tổng số kết quả có thể xảy ra của thí nghiệm. Chúng ta gọi đây là định nghĩa đơn giản vì nó có tính hạn chế và dựa vào những giả định mạnh mẽ; bất chấp vậy, việc hiểu rõ định nghĩa này là quan trọng, và hữu ích khi không lạm dụng.\r
 \r
 <div class="math-box definition">\r
   <div class="math-box-header">\r
@@ -1000,7 +1151,7 @@ Trong Chương 1.6, chúng ta sẽ thấy rằng kết quả về phần bù lu�
 \r
 * Khi có tính đối xứng trong bài toán làm cho các kết quả có cùng khả năng. Thường xuyên người ta giả định rằng một đồng xu có 50% khả năng rơi mặt ngửa khi ném, do tính đối xứng vật lý của đồng xu. Đối với một bộ bài chuẩn, được xáo đều, thường hợp lý để giả định rằng tất cả các thứ tự đều có cùng khả năng. Không có những viên bài nào quá háo hức đặc biệt thích ở vị trí trên cùng của bộ bài; bất kỳ vị trí cụ thể nào trong bộ bài đều có cùng khả năng chứa bất kỳ trong số 52 viên bài.\r
 * Khi các kết quả có cùng khả năng do thiết kế. Ví dụ, hãy xem xét thực hiện một cuộc khảo sát n người trong một quần thể gồm N người. Một mục tiêu phổ biến là thu được một mẫu ngẫu nhiên đơn giản, nghĩa là n người được chọn ngẫu nhiên với tất cả các tập con có kích thước n đều có cùng khả năng. Nếu thành công, điều này đảm bảo rằng định nghĩa sơ đẳng có thể áp dụng, nhưng trong thực tế điều này có thể khó đạt được vì các vấn đề khác nhau, ví dụ như không có danh sách đầy đủ, chính xác thông tin liên lạc của tất cả mọi người trong quần thể.\r
-* Khi định nghĩa đơn giản được sử dụng như một mô hình null hữu ích. Trong bối cảnh này, chúng ta giả định rằng định nghĩa đơn giản áp dụng chỉ để xem xét các dự đoán mà nó sẽ đưa ra, sau đó chúng ta có thể so sánh dữ liệu quan sát với các giá trị dự đoán để đánh giá xem giả thuyết về các kết quả có khả năng bằng nhau có thể chấp nhận được hay không.`,gk=`Tính xác suất đơn giản của một sự kiện A đòi hỏi đếm số viên sỏi trong A và số viên sỏi trong không gian mẫu S. Thường thì các tập hợp mà chúng ta cần đếm là rất lớn. Phần này giới thiệu một số phương pháp cơ bản để đếm; các phương pháp khác có thể tìm thấy trong các sách về tổ hợp, ngành toán học nghiên cứu về đếm.\r
+* Khi định nghĩa đơn giản được sử dụng như một mô hình null hữu ích. Trong bối cảnh này, chúng ta giả định rằng định nghĩa đơn giản áp dụng chỉ để xem xét các dự đoán mà nó sẽ đưa ra, sau đó chúng ta có thể so sánh dữ liệu quan sát với các giá trị dự đoán để đánh giá xem giả thuyết về các kết quả có khả năng bằng nhau có thể chấp nhận được hay không.`,_k=`Tính xác suất đơn giản của một sự kiện A đòi hỏi đếm số viên sỏi trong A và số viên sỏi trong không gian mẫu S. Thường thì các tập hợp mà chúng ta cần đếm là rất lớn. Phần này giới thiệu một số phương pháp cơ bản để đếm; các phương pháp khác có thể tìm thấy trong các sách về tổ hợp, ngành toán học nghiên cứu về đếm.\r
 \r
 ## 1.4.1 Quy tắc nhân\r
 \r
@@ -1500,7 +1651,7 @@ Một tại một thời điểm, với thay thế và với xác suất bằng 
 Như một ví dụ khác, với  $n = 365$  ngày trong một năm và  $k$  người, có bao nhiêu danh sách sinh nhật không có thứ tự có thể có? Ví dụ, với  $k = 3$ , chúng ta muốn đếm các danh sách như (Tháng Năm 1, Tháng Ba 31, Tháng Tư 11), trong đó tất cả các hoán vị được coi là tương đương. Chúng ta không thể làm một điều chỉnh đơn giản cho việc đếm trùng lặp như  $n^k / 3!$  vì, ví dụ, có 6 hoán vị của (Tháng Năm 1, Tháng Ba 31, Tháng Tư 11) nhưng chỉ có 3 hoán vị của (Tháng Ba 31, Tháng Ba 31, Tháng Tư 11). Theo Bose-Einstein, số lượng danh sách là  $\\binom{n+k-1}{k}$ . Tuy nhiên, các danh sách sinh nhật có thứ tự là bằng nhau, không phải các danh sách không có thứ tự, vì vậy giá trị Bose-Einstein không nên được sử dụng trong việc tính xác suất sinh nhật.\r
 \r
   </div>\r
-</div>`,_k=`Một chứng minh bằng câu chuyện là một chứng minh bằng cách diễn giải. Đối với các bài toán đếm, điều này thường có nghĩa là đếm cùng một điều gì đó theo hai cách khác nhau, thay vì làm những phép toán đại số tẻ nhạt. Một chứng minh bằng câu chuyện thường tránh được các phép tính phức tạp và đi xa hơn so với một chứng minh đại số trong việc giải thích tại sao kết quả lại đúng. Từ "câu chuyện" có nhiều nghĩa, một số mang tính toán học hơn những nghĩa khác, nhưng một chứng minh bằng câu chuyện (theo nghĩa mà chúng ta đang sử dụng) là một chứng minh toán học hoàn toàn hợp lệ. Dưới đây là một số ví dụ về chứng minh bằng câu chuyện, cũng như là các ví dụ bổ sung về đếm.\r
+</div>`,vk=`Một chứng minh bằng câu chuyện là một chứng minh bằng cách diễn giải. Đối với các bài toán đếm, điều này thường có nghĩa là đếm cùng một điều gì đó theo hai cách khác nhau, thay vì làm những phép toán đại số tẻ nhạt. Một chứng minh bằng câu chuyện thường tránh được các phép tính phức tạp và đi xa hơn so với một chứng minh đại số trong việc giải thích tại sao kết quả lại đúng. Từ "câu chuyện" có nhiều nghĩa, một số mang tính toán học hơn những nghĩa khác, nhưng một chứng minh bằng câu chuyện (theo nghĩa mà chúng ta đang sử dụng) là một chứng minh toán học hoàn toàn hợp lệ. Dưới đây là một số ví dụ về chứng minh bằng câu chuyện, cũng như là các ví dụ bổ sung về đếm.\r
 \r
 <div class="math-box example">\r
   <div class="math-box-header">\r
@@ -1622,7 +1773,7 @@ Chúng ta sẽ cho thấy cả hai vế đếm số cách chia $2n$ người th�
 <div class="qed"><div class="qed-mark"></div></div>\r
 \r
   </div>\r
-</div>`,vk=`Chúng ta đã từng thấy nhiều phương pháp để đếm kết quả trong không gian mẫu, cho phép chúng ta tính xác suất nếu định nghĩa đơn giản áp dụng. Nhưng định nghĩa đơn giản chỉ có thể đưa chúng ta đến một mức độ nào đó, vì nó yêu cầu các kết quả có xác suất bằng nhau và không thể xử lý một không gian mẫu vô hạn. Để tổng quát hóa khái niệm xác suất, chúng ta sẽ liệt kê một danh sách các điều mong muốn về cách xác suất nên hành xử (trong toán học, các mục trong danh sách này được gọi là tiên đề), và sau đó xác định một hàm xác suất là thứ gì đó thỏa mãn các tính chất mà chúng ta mong muốn!\r
+</div>`,yk=`Chúng ta đã từng thấy nhiều phương pháp để đếm kết quả trong không gian mẫu, cho phép chúng ta tính xác suất nếu định nghĩa đơn giản áp dụng. Nhưng định nghĩa đơn giản chỉ có thể đưa chúng ta đến một mức độ nào đó, vì nó yêu cầu các kết quả có xác suất bằng nhau và không thể xử lý một không gian mẫu vô hạn. Để tổng quát hóa khái niệm xác suất, chúng ta sẽ liệt kê một danh sách các điều mong muốn về cách xác suất nên hành xử (trong toán học, các mục trong danh sách này được gọi là tiên đề), và sau đó xác định một hàm xác suất là thứ gì đó thỏa mãn các tính chất mà chúng ta mong muốn!\r
 \r
 Đây là định nghĩa tổng quát về xác suất mà chúng ta sẽ sử dụng cho phần còn lại của cuốn sách này. Nó chỉ yêu cầu hai tiên đề, nhưng từ những tiên đề này có thể chứng minh được một loạt các kết quả về xác suất.\r
 \r
@@ -1798,7 +1949,7 @@ So sánh điều này với chuỗi Taylor cho $1/e$, chúng ta thấy rằng v�
   </div>\r
 </div>\r
 \r
-Bao hàm loại trừ là một công thức rất tổng quát cho xác suất của hợp các sự kiện, nhưng nó giúp chúng ta nhiều nhất khi có sự đối xứng giữa các sự kiện $A_j$; nếu không, tổng có thể trở nên cực kỳ tốn thời gian. Trong tổng quát, khi sự đối xứng không còn, chúng ta nên thử sử dụng các công cụ khác trước khi dùng bao hàm loại trừ như một lựa chọn cuối cùng.`,yk=`Xác suất cho phép chúng ta lượng hóa sự không chắc chắn và ngẫu nhiên một cách có hệ thống. Xác suất xuất hiện khi chúng ta thực hiện một thí nghiệm: tập hợp tất cả các kết quả có thể xảy ra của thí nghiệm được gọi là không gian mẫu, và một tập con của không gian mẫu được gọi là một sự kiện. Rất hữu ích là có thể chuyển đổi giữa mô tả các sự kiện bằng tiếng Anh và viết chúng dưới dạng tập hợp toán học (thường sử dụng hợp, giao và phần bù).\r
+Bao hàm loại trừ là một công thức rất tổng quát cho xác suất của hợp các sự kiện, nhưng nó giúp chúng ta nhiều nhất khi có sự đối xứng giữa các sự kiện $A_j$; nếu không, tổng có thể trở nên cực kỳ tốn thời gian. Trong tổng quát, khi sự đối xứng không còn, chúng ta nên thử sử dụng các công cụ khác trước khi dùng bao hàm loại trừ như một lựa chọn cuối cùng.`,bk=`Xác suất cho phép chúng ta lượng hóa sự không chắc chắn và ngẫu nhiên một cách có hệ thống. Xác suất xuất hiện khi chúng ta thực hiện một thí nghiệm: tập hợp tất cả các kết quả có thể xảy ra của thí nghiệm được gọi là không gian mẫu, và một tập con của không gian mẫu được gọi là một sự kiện. Rất hữu ích là có thể chuyển đổi giữa mô tả các sự kiện bằng tiếng Anh và viết chúng dưới dạng tập hợp toán học (thường sử dụng hợp, giao và phần bù).\r
 \r
 Thế giới viên đá có thể giúp chúng ta hình dung không gian mẫu và các sự kiện khi không gian mẫu là hữu hạn. Trong Thế giới viên đá, mỗi kết quả là một viên đá, và một sự kiện là một tập hợp các viên đá. Nếu tất cả các viên đá có cùng khối lượng (tức là có cùng khả năng xảy ra), chúng ta có thể áp dụng định nghĩa thô của xác suất, cho phép chúng ta tính xác suất bằng cách đếm.\r
 \r
@@ -1830,7 +1981,7 @@ $$\r
 P(A_1 \\cup A_2) = P(A_1) + P(A_2) - P(A_1 \\cap A_2).\r
 $$\r
 \r
-Việc phân biệt giữa các sự kiện và xác suất là rất quan trọng. Các sự kiện là các tập hợp, trong khi xác suất là các số. Trước khi thực hiện thí nghiệm, chúng ta thường không biết liệu một sự kiện cụ thể có xảy ra hay không. Vì vậy, chúng ta gán cho nó một xác suất xảy ra bằng một hàm xác suất $P$. Chúng ta có thể sử dụng các phép toán tập hợp để định nghĩa các sự kiện mới từ các sự kiện cũ, và sử dụng các tính chất của xác suất để liên hệ xác suất của các sự kiện mới với các xác suất của các sự kiện cũ.`,bk='R là một môi trường rất mạnh mẽ, phổ biến cho tính toán thống kê và đồ họa, có thể sử dụng miễn phí cho Mac OS X, Windows, và các hệ thống UNIX. Biết cách sử dụng R là một kỹ năng cực kỳ hữu ích. R và các thông tin hỗ trợ khác có thể được tìm thấy tại https://www.r-project.org. RStudio là một giao diện thay thế tuyệt vời cho R, có thể sử dụng miễn phí tại https://www.rstudio.com.\n\nTrong phần R ở cuối mỗi chương, chúng tôi cung cấp mã R để bạn có thể thử nghiệm một số ví dụ từ chương, đặc biệt là qua mô phỏng. Các phần này không nhằm là một giới thiệu đầy đủ về R; nhiều hướng dẫn R miễn phí có sẵn trên mạng, và nhiều cuốn sách về R cũng có sẵn. Tuy nhiên, các phần R cho thấy cách triển khai các mô phỏng, tính toán và trực quan hóa khác nhau đi kèm với nội dung của mỗi chương. Mã R ở cuối mỗi chương cũng có thể được tìm thấy tại http://stat110.net.\n\n### Vectơ\n\nR được xây dựng quanh các vectơ, và việc quen thuộc với "suy nghĩ vectơ" là rất quan trọng để sử dụng R hiệu quả. Để tạo một vectơ, chúng ta có thể sử dụng lệnh `c` (tên của lệnh này có nghĩa là kết hợp hoặc nối). Ví dụ,\n\n```r\nv <- c(3, 1, 4, 1, 5, 9)\n```\n\nxác định `v` là vectơ $(3,1,4,1,5,9)$. (Dấu mũi tên `<-` được nhập bằng `<` sau đó là `-`. Ký hiệu `=` cũng có thể được sử dụng thay thế, nhưng mũi tên cho thấy rõ hơn rằng biến ở bên trái được đặt bằng giá trị ở bên phải.) Tương tự, `n <- 110` đặt `n` bằng 110; R xem `n` là một vectơ có độ dài 1.\n\n```r\nsum(v)\n```\n\ntổng các phần tử của `v`, $\\max(v)$ cho giá trị lớn nhất, $\\min(v)$ cho giá trị nhỏ nhất, và $\\text{length}(v)$ cho độ dài.\n\nMột shortcut để nhận được vectơ $(1,2,\\dots,n)$ là nhập `1:n`; nói chung hơn, nếu `m` và `n` là các số nguyên thì `m:n` cho dãy các số nguyên từ `m` đến `n` (theo thứ tự tăng dần nếu $m \\leq n$ và theo thứ tự giảm dần nếu ngược lại).\n\nĐể truy cập phần tử thứ `i` của một vectơ `v`, sử dụng `v[i]`. Chúng ta cũng có thể lấy các vectơ con dễ dàng:\n\n```r\nv[c(1, 3, 5)]\n```\n\ncho vectơ gồm các phần tử thứ 1, thứ 3 và thứ 5 của `v`. Cũng có thể lấy một vectơ con bằng cách chỉ ra những gì cần loại bỏ, sử dụng dấu gạch ngang:\n\n```r\nv[-(2:4)]\n```\n\ncho ra vector được thu được bằng cách loại bỏ các phần tử thứ 2 đến thứ 4 của `v` (dấu ngoặc đơn là cần thiết vì `-2:4` sẽ là $(-2, -1, \\dots, 4)$).\n\nNhiều thao tác trong R được diễn giải theo từng thành phần. Ví dụ, trong toán học, lập phương của một vector không có định nghĩa chuẩn, nhưng trong R gõ `v^3` đơn giản lập phương từng phần tử riêng lẻ. Tương tự,\n\n```r\n1 / (1:100)^2\n```\n\nlà một cách rất gọn để nhận được vector $(1, \\frac{1}{2^{2}}, \\frac{1}{3^{2}}, \\dots, \\frac{1}{100^{2}})$.\n\nTrong toán học, $v + w$ là không xác định nếu $v$ và $w$ là các vector có độ dài khác nhau, nhưng trong R vector ngắn hơn sẽ được "lặp lại"! Ví dụ, `v + 3` thêm 3 vào từng phần tử của `v`.\n\n### Giai thừa và hệ số nhị thức\n\nChúng ta có thể tính $n!$ bằng `factorial(n)` và $\\binom{n}{k}$ bằng `choose(n,k)`. Như chúng ta đã thấy, giai thừa tăng trưởng cực nhanh. Giá trị lớn nhất của $n$ mà R trả về một số cho `factorial(n)` là bao nhiêu? Sau điểm này, R sẽ trả về `Inf` (vô cùng), kèm theo một thông báo cảnh báo. Tuy nhiên, vẫn có thể sử dụng `lfactorial(n)` cho các giá trị lớn hơn của $n$, tính toán $\\log(n!)$. Tương tự, `lchoose(n,k)` tính toán $\\log\\binom{n}{k}$.\n\n### Lấy mẫu và mô phỏng\n\nLệnh `sample` là một cách hữu ích để lấy mẫu ngẫu nhiên trong R. (Về mặt kỹ thuật, chúng là ngẫu nhiên giả vì có một thuật toán xác định bên dưới, nhưng chúng "giống như" các mẫu ngẫu nhiên cho hầu hết các mục đích thực tiễn.) Ví dụ,\n\n```r\nn <- 10; k <- 5\nsample(n, k)\n```\n\nsẽ tạo ra một mẫu ngẫu nhiên có thứ tự của 5 số từ 1 đến 10, không thay thế, và với xác suất bằng nhau cho từng số. Để lấy mẫu có thay thế thay vào đó, chỉ cần thêm vào `replace=TRUE`:\n\n```r\nn <- 10; k <- 5\nsample(n, k, replace=TRUE)\n```\n\nĐể tạo ra một hoán vị ngẫu nhiên của $1,2,\\dots,n$ chúng ta có thể sử dụng `sample(n, n)`, và do các cài đặt mặc định của R, có thể rút gọn thành `sample(n)`.\n\nChúng ta cũng có thể sử dụng `sample` để lấy mẫu từ một vector không phải số. Ví dụ, `letters` được xây dựng sẵn trong R là vector chứa 26 chữ cái viết thường tiếng Anh, và `sample(letters, 7)` sẽ tạo ra một từ ngẫu nhiên 7 chữ cái bằng cách lấy mẫu từ bảng chữ cái, không thay thế.\n\nLệnh `sample` cũng cho phép chúng ta chỉ định các xác suất tổng quát để lấy mẫu mỗi số. Ví dụ,\n\n```r\nsample(4, 3, replace=TRUE, prob=c(0.1, 0.2, 0.3, 0.4))\n```\n\nmẫu ba số giữa 1 và 4, với thay thế, và với các xác suất được cho bởi $(0.1, 0.2, 0.3, 0.4)$. Nếu việc lấy mẫu không có thay thế, thì ở mỗi giai đoạn xác suất của bất kỳ số nào chưa được chọn là tỷ lệ với xác suất gốc của nó.\n\nTạo ra nhiều mẫu ngẫu nhiên cho phép chúng ta thực hiện một mô phỏng cho một bài toán xác suất. Lệnh `replicate`, được giải thích ở dưới đây, là một cách thuận tiện để làm điều này.\n\n### Mô phỏng bài toán khớp\n\nHãy cho thấy bằng mô phỏng rằng xác suất của một thẻ khớp trong Ví dụ 1.6.4 gần bằng $1 - 1/e$ khi bộ bài đủ lớn. Sử dụng R, chúng ta có thể thực hiện thí nghiệm nhiều lần và xem bao nhiêu lần chúng ta gặp ít nhất một thẻ khớp:\n\n```r\nn <- 100\nr <- replicate(10^4, sum(sample(n) == (1:n)))\nsum(r >= 1) / 10^4\n```\n\nTrong dòng đầu tiên, chúng ta chọn số lượng thẻ trong bộ bài (ở đây là 100 thẻ). Trong dòng thứ hai, hãy làm từ trong ra ngoài:\n\n* `sample(n) == (1:n)` là một vector có độ dài `n`, phần tử thứ `i` của nó bằng 1 nếu thẻ thứ `i` khớp với vị trí của nó trong bộ bài và 0 nếu không. Đó là vì với hai số `a` và `b`, biểu thức `a == b` là `TRUE` nếu `a = b` và `FALSE` nếu không, và `TRUE` được mã hóa là 1 và `FALSE` được mã hóa là 0.\n* `sum` cộng các phần tử của vector, cho chúng ta số thẻ khớp trong lần chạy thí nghiệm này.\n* `replicate` thực hiện điều này $10^4$ lần. Chúng ta lưu trữ kết quả trong `r`, một vector có độ dài $10^4$ chứa số thẻ khớp từ mỗi lần chạy thí nghiệm.\n\nTrong dòng cuối cùng, chúng ta cộng số lần có ít nhất một thẻ khớp, và chúng ta chia cho số lần mô phỏng.\n\nĐể giải thích điều gì mà mã đang làm bên trong mã thay vì trong tài liệu riêng biệt, chúng ta có thể thêm các chú thích bằng ký hiệu `#` để đánh dấu bắt đầu của một chú thích. Các chú thích được bỏ qua bởi R nhưng có thể làm cho mã dễ hiểu hơn rất nhiều cho người đọc (ai đó có thể là bạn—ngay cả khi bạn sẽ là người duy nhất sử dụng mã của bạn, thường thì khó nhớ mọi thứ nghĩa là gì và cách mã hoạt động như thế nào khi nhìn vào nó một tháng sau khi viết). Các chú thích ngắn có thể đặt ở dòng trên.\n\nCùng một dòng với mã tương ứng; các chú thích dài nên được đặt trên dòng riêng. Ví dụ, một phiên bản được chú thích của mô phỏng trên là:\n\n```r\nn <- 100                                        # số lượng thẻ\nr <- replicate(10^4, sum(sample(n) == (1:n)))   # xáo trộn; đếm trùng lặp\nsum(r >= 1) / 10^4                              # tỷ lệ có một trùng lặp\n```\n\nBạn đã nhận được gì khi chạy mã? Chúng tôi nhận được 0.63, điều này khá gần với $1 - 1/e$.\n\n### Tính toán và mô phỏng bài toán sinh nhật\n\nMã sau sử dụng `prod` (cho phép tính tích của một vector) để tính xác suất có ít nhất một trùng lặp sinh nhật trong một nhóm 23 người:\n\n```r\nk <- 23\n1 - prod((365 - k + 1):365) / 365^k\n```\n\nTốt hơn nữa, R có các hàm tích hợp, `pbirthday` và `qbirthday`, cho bài toán sinh nhật! `pbirthday(k)` trả về xác suất có ít nhất một trùng lặp nếu phòng có `k` người. `qbirthday(p)` trả về số lượng người cần có để có xác suất `p` của ít nhất một trùng lặp. Ví dụ, `pbirthday(23)` là 0.507 và `qbirthday(0.5)` là 23.\n\nChúng ta cũng có thể tìm xác suất có ít nhất một trùng lặp sinh nhật ba người, tức là ba người có cùng ngày sinh; tất cả chúng ta phải làm là thêm `coincident=3` để nói rằng chúng ta đang tìm kiếm các trùng lặp ba người. Ví dụ, `pbirthday(23, coincident=3)` trả về 0.014, do đó 23 người cho chúng ta chỉ có 1.4% xác suất có một trùng lặp sinh nhật ba người. `qbirthday(0.5, coincident=3)` trả về 88, do đó chúng ta cần 88 người để có ít nhất 50% xác suất có ít nhất một trùng lặp sinh nhật ba người.\n\nĐể mô phỏng bài toán sinh nhật, chúng ta có thể sử dụng\n\n```r\nb <- sample(1:365, 23, replace=TRUE)\ntabulate(b)\n```\n\nđể tạo ra các ngày sinh ngẫu nhiên cho 23 người và sau đó thống kê số lượng người sinh vào mỗi ngày (lệnh `table(b)` tạo bảng đẹp hơn, nhưng chậm hơn). Chúng ta có thể chạy $10^4$ lần lặp như sau:\n\n```r\nr <- replicate(10^4, max(tabulate(sample(1:365, 23, replace=TRUE))))\nsum(r >= 2) / 10^4\n```\n\nNếu xác suất của các ngày khác nhau không đều, việc tính toán sẽ trở nên phức tạp hơn nhiều, nhưng mô phỏng có thể dễ dàng mở rộng vì `sample` cho phép chúng ta chỉ định xác suất của mỗi ngày (mặc định `sample` gán xác suất đều, do đó trong ví dụ trên xác suất là 1/365 cho mỗi ngày).',xk=`\r
+Việc phân biệt giữa các sự kiện và xác suất là rất quan trọng. Các sự kiện là các tập hợp, trong khi xác suất là các số. Trước khi thực hiện thí nghiệm, chúng ta thường không biết liệu một sự kiện cụ thể có xảy ra hay không. Vì vậy, chúng ta gán cho nó một xác suất xảy ra bằng một hàm xác suất $P$. Chúng ta có thể sử dụng các phép toán tập hợp để định nghĩa các sự kiện mới từ các sự kiện cũ, và sử dụng các tính chất của xác suất để liên hệ xác suất của các sự kiện mới với các xác suất của các sự kiện cũ.`,xk='R là một môi trường rất mạnh mẽ, phổ biến cho tính toán thống kê và đồ họa, có thể sử dụng miễn phí cho Mac OS X, Windows, và các hệ thống UNIX. Biết cách sử dụng R là một kỹ năng cực kỳ hữu ích. R và các thông tin hỗ trợ khác có thể được tìm thấy tại https://www.r-project.org. RStudio là một giao diện thay thế tuyệt vời cho R, có thể sử dụng miễn phí tại https://www.rstudio.com.\n\nTrong phần R ở cuối mỗi chương, chúng tôi cung cấp mã R để bạn có thể thử nghiệm một số ví dụ từ chương, đặc biệt là qua mô phỏng. Các phần này không nhằm là một giới thiệu đầy đủ về R; nhiều hướng dẫn R miễn phí có sẵn trên mạng, và nhiều cuốn sách về R cũng có sẵn. Tuy nhiên, các phần R cho thấy cách triển khai các mô phỏng, tính toán và trực quan hóa khác nhau đi kèm với nội dung của mỗi chương. Mã R ở cuối mỗi chương cũng có thể được tìm thấy tại http://stat110.net.\n\n### Vectơ\n\nR được xây dựng quanh các vectơ, và việc quen thuộc với "suy nghĩ vectơ" là rất quan trọng để sử dụng R hiệu quả. Để tạo một vectơ, chúng ta có thể sử dụng lệnh `c` (tên của lệnh này có nghĩa là kết hợp hoặc nối). Ví dụ,\n\n```r\nv <- c(3, 1, 4, 1, 5, 9)\n```\n\nxác định `v` là vectơ $(3,1,4,1,5,9)$. (Dấu mũi tên `<-` được nhập bằng `<` sau đó là `-`. Ký hiệu `=` cũng có thể được sử dụng thay thế, nhưng mũi tên cho thấy rõ hơn rằng biến ở bên trái được đặt bằng giá trị ở bên phải.) Tương tự, `n <- 110` đặt `n` bằng 110; R xem `n` là một vectơ có độ dài 1.\n\n```r\nsum(v)\n```\n\ntổng các phần tử của `v`, $\\max(v)$ cho giá trị lớn nhất, $\\min(v)$ cho giá trị nhỏ nhất, và $\\text{length}(v)$ cho độ dài.\n\nMột shortcut để nhận được vectơ $(1,2,\\dots,n)$ là nhập `1:n`; nói chung hơn, nếu `m` và `n` là các số nguyên thì `m:n` cho dãy các số nguyên từ `m` đến `n` (theo thứ tự tăng dần nếu $m \\leq n$ và theo thứ tự giảm dần nếu ngược lại).\n\nĐể truy cập phần tử thứ `i` của một vectơ `v`, sử dụng `v[i]`. Chúng ta cũng có thể lấy các vectơ con dễ dàng:\n\n```r\nv[c(1, 3, 5)]\n```\n\ncho vectơ gồm các phần tử thứ 1, thứ 3 và thứ 5 của `v`. Cũng có thể lấy một vectơ con bằng cách chỉ ra những gì cần loại bỏ, sử dụng dấu gạch ngang:\n\n```r\nv[-(2:4)]\n```\n\ncho ra vector được thu được bằng cách loại bỏ các phần tử thứ 2 đến thứ 4 của `v` (dấu ngoặc đơn là cần thiết vì `-2:4` sẽ là $(-2, -1, \\dots, 4)$).\n\nNhiều thao tác trong R được diễn giải theo từng thành phần. Ví dụ, trong toán học, lập phương của một vector không có định nghĩa chuẩn, nhưng trong R gõ `v^3` đơn giản lập phương từng phần tử riêng lẻ. Tương tự,\n\n```r\n1 / (1:100)^2\n```\n\nlà một cách rất gọn để nhận được vector $(1, \\frac{1}{2^{2}}, \\frac{1}{3^{2}}, \\dots, \\frac{1}{100^{2}})$.\n\nTrong toán học, $v + w$ là không xác định nếu $v$ và $w$ là các vector có độ dài khác nhau, nhưng trong R vector ngắn hơn sẽ được "lặp lại"! Ví dụ, `v + 3` thêm 3 vào từng phần tử của `v`.\n\n### Giai thừa và hệ số nhị thức\n\nChúng ta có thể tính $n!$ bằng `factorial(n)` và $\\binom{n}{k}$ bằng `choose(n,k)`. Như chúng ta đã thấy, giai thừa tăng trưởng cực nhanh. Giá trị lớn nhất của $n$ mà R trả về một số cho `factorial(n)` là bao nhiêu? Sau điểm này, R sẽ trả về `Inf` (vô cùng), kèm theo một thông báo cảnh báo. Tuy nhiên, vẫn có thể sử dụng `lfactorial(n)` cho các giá trị lớn hơn của $n$, tính toán $\\log(n!)$. Tương tự, `lchoose(n,k)` tính toán $\\log\\binom{n}{k}$.\n\n### Lấy mẫu và mô phỏng\n\nLệnh `sample` là một cách hữu ích để lấy mẫu ngẫu nhiên trong R. (Về mặt kỹ thuật, chúng là ngẫu nhiên giả vì có một thuật toán xác định bên dưới, nhưng chúng "giống như" các mẫu ngẫu nhiên cho hầu hết các mục đích thực tiễn.) Ví dụ,\n\n```r\nn <- 10; k <- 5\nsample(n, k)\n```\n\nsẽ tạo ra một mẫu ngẫu nhiên có thứ tự của 5 số từ 1 đến 10, không thay thế, và với xác suất bằng nhau cho từng số. Để lấy mẫu có thay thế thay vào đó, chỉ cần thêm vào `replace=TRUE`:\n\n```r\nn <- 10; k <- 5\nsample(n, k, replace=TRUE)\n```\n\nĐể tạo ra một hoán vị ngẫu nhiên của $1,2,\\dots,n$ chúng ta có thể sử dụng `sample(n, n)`, và do các cài đặt mặc định của R, có thể rút gọn thành `sample(n)`.\n\nChúng ta cũng có thể sử dụng `sample` để lấy mẫu từ một vector không phải số. Ví dụ, `letters` được xây dựng sẵn trong R là vector chứa 26 chữ cái viết thường tiếng Anh, và `sample(letters, 7)` sẽ tạo ra một từ ngẫu nhiên 7 chữ cái bằng cách lấy mẫu từ bảng chữ cái, không thay thế.\n\nLệnh `sample` cũng cho phép chúng ta chỉ định các xác suất tổng quát để lấy mẫu mỗi số. Ví dụ,\n\n```r\nsample(4, 3, replace=TRUE, prob=c(0.1, 0.2, 0.3, 0.4))\n```\n\nmẫu ba số giữa 1 và 4, với thay thế, và với các xác suất được cho bởi $(0.1, 0.2, 0.3, 0.4)$. Nếu việc lấy mẫu không có thay thế, thì ở mỗi giai đoạn xác suất của bất kỳ số nào chưa được chọn là tỷ lệ với xác suất gốc của nó.\n\nTạo ra nhiều mẫu ngẫu nhiên cho phép chúng ta thực hiện một mô phỏng cho một bài toán xác suất. Lệnh `replicate`, được giải thích ở dưới đây, là một cách thuận tiện để làm điều này.\n\n### Mô phỏng bài toán khớp\n\nHãy cho thấy bằng mô phỏng rằng xác suất của một thẻ khớp trong Ví dụ 1.6.4 gần bằng $1 - 1/e$ khi bộ bài đủ lớn. Sử dụng R, chúng ta có thể thực hiện thí nghiệm nhiều lần và xem bao nhiêu lần chúng ta gặp ít nhất một thẻ khớp:\n\n```r\nn <- 100\nr <- replicate(10^4, sum(sample(n) == (1:n)))\nsum(r >= 1) / 10^4\n```\n\nTrong dòng đầu tiên, chúng ta chọn số lượng thẻ trong bộ bài (ở đây là 100 thẻ). Trong dòng thứ hai, hãy làm từ trong ra ngoài:\n\n* `sample(n) == (1:n)` là một vector có độ dài `n`, phần tử thứ `i` của nó bằng 1 nếu thẻ thứ `i` khớp với vị trí của nó trong bộ bài và 0 nếu không. Đó là vì với hai số `a` và `b`, biểu thức `a == b` là `TRUE` nếu `a = b` và `FALSE` nếu không, và `TRUE` được mã hóa là 1 và `FALSE` được mã hóa là 0.\n* `sum` cộng các phần tử của vector, cho chúng ta số thẻ khớp trong lần chạy thí nghiệm này.\n* `replicate` thực hiện điều này $10^4$ lần. Chúng ta lưu trữ kết quả trong `r`, một vector có độ dài $10^4$ chứa số thẻ khớp từ mỗi lần chạy thí nghiệm.\n\nTrong dòng cuối cùng, chúng ta cộng số lần có ít nhất một thẻ khớp, và chúng ta chia cho số lần mô phỏng.\n\nĐể giải thích điều gì mà mã đang làm bên trong mã thay vì trong tài liệu riêng biệt, chúng ta có thể thêm các chú thích bằng ký hiệu `#` để đánh dấu bắt đầu của một chú thích. Các chú thích được bỏ qua bởi R nhưng có thể làm cho mã dễ hiểu hơn rất nhiều cho người đọc (ai đó có thể là bạn—ngay cả khi bạn sẽ là người duy nhất sử dụng mã của bạn, thường thì khó nhớ mọi thứ nghĩa là gì và cách mã hoạt động như thế nào khi nhìn vào nó một tháng sau khi viết). Các chú thích ngắn có thể đặt ở dòng trên.\n\nCùng một dòng với mã tương ứng; các chú thích dài nên được đặt trên dòng riêng. Ví dụ, một phiên bản được chú thích của mô phỏng trên là:\n\n```r\nn <- 100                                        # số lượng thẻ\nr <- replicate(10^4, sum(sample(n) == (1:n)))   # xáo trộn; đếm trùng lặp\nsum(r >= 1) / 10^4                              # tỷ lệ có một trùng lặp\n```\n\nBạn đã nhận được gì khi chạy mã? Chúng tôi nhận được 0.63, điều này khá gần với $1 - 1/e$.\n\n### Tính toán và mô phỏng bài toán sinh nhật\n\nMã sau sử dụng `prod` (cho phép tính tích của một vector) để tính xác suất có ít nhất một trùng lặp sinh nhật trong một nhóm 23 người:\n\n```r\nk <- 23\n1 - prod((365 - k + 1):365) / 365^k\n```\n\nTốt hơn nữa, R có các hàm tích hợp, `pbirthday` và `qbirthday`, cho bài toán sinh nhật! `pbirthday(k)` trả về xác suất có ít nhất một trùng lặp nếu phòng có `k` người. `qbirthday(p)` trả về số lượng người cần có để có xác suất `p` của ít nhất một trùng lặp. Ví dụ, `pbirthday(23)` là 0.507 và `qbirthday(0.5)` là 23.\n\nChúng ta cũng có thể tìm xác suất có ít nhất một trùng lặp sinh nhật ba người, tức là ba người có cùng ngày sinh; tất cả chúng ta phải làm là thêm `coincident=3` để nói rằng chúng ta đang tìm kiếm các trùng lặp ba người. Ví dụ, `pbirthday(23, coincident=3)` trả về 0.014, do đó 23 người cho chúng ta chỉ có 1.4% xác suất có một trùng lặp sinh nhật ba người. `qbirthday(0.5, coincident=3)` trả về 88, do đó chúng ta cần 88 người để có ít nhất 50% xác suất có ít nhất một trùng lặp sinh nhật ba người.\n\nĐể mô phỏng bài toán sinh nhật, chúng ta có thể sử dụng\n\n```r\nb <- sample(1:365, 23, replace=TRUE)\ntabulate(b)\n```\n\nđể tạo ra các ngày sinh ngẫu nhiên cho 23 người và sau đó thống kê số lượng người sinh vào mỗi ngày (lệnh `table(b)` tạo bảng đẹp hơn, nhưng chậm hơn). Chúng ta có thể chạy $10^4$ lần lặp như sau:\n\n```r\nr <- replicate(10^4, max(tabulate(sample(1:365, 23, replace=TRUE))))\nsum(r >= 2) / 10^4\n```\n\nNếu xác suất của các ngày khác nhau không đều, việc tính toán sẽ trở nên phức tạp hơn nhiều, nhưng mô phỏng có thể dễ dàng mở rộng vì `sample` cho phép chúng ta chỉ định xác suất của mỗi ngày (mặc định `sample` gán xác suất đều, do đó trong ví dụ trên xác suất là 1/365 cho mỗi ngày).',Sk=`\r
 Bài tập được đánh dấu với ☑ có lời giải chi tiết tại http://stat110.net.\r
 \r
 ### Đếm\r
@@ -2316,7 +2467,7 @@ với bất đẳng thức nghiêm ngặt nếu  $\\mathbf{p} \\neq \\mathbf{r}$
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
   <img src="imgs/img_in_image_box_400_580_546_729.jpg" alt="Image" style="max-width: 10%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-</div>`,Sk=`Xác suất có điều kiện là thiết yếu cho lập luận khoa học, y tế và pháp lý, vì nó cho thấy cách tích hợp bằng chứng vào hiểu biết của chúng ta về thế giới một cách logic và nhất quán. Trên thực tế, một góc nhìn hữu ích là tất cả xác suất đều có điều kiện; dù có hay không được viết rõ ràng, luôn luôn có kiến thức nền tảng (hoặc giả định) được xây dựng vào mỗi xác suất.
+</div>`,Ck=`Xác suất có điều kiện là thiết yếu cho lập luận khoa học, y tế và pháp lý, vì nó cho thấy cách tích hợp bằng chứng vào hiểu biết của chúng ta về thế giới một cách logic và nhất quán. Trên thực tế, một góc nhìn hữu ích là tất cả xác suất đều có điều kiện; dù có hay không được viết rõ ràng, luôn luôn có kiến thức nền tảng (hoặc giả định) được xây dựng vào mỗi xác suất.
 
 Giả sử, ví dụ, rằng một sáng chúng ta quan tâm đến sự kiện R rằng sẽ có mưa trong ngày đó. Gọi  $P(R)$  là đánh giá của chúng ta về xác suất mưa trước khi nhìn ra ngoài. Nếu sau đó chúng ta nhìn ra ngoài và thấy những đám mây u ám trong bầu trời, thì có lẽ xác suất mưa của chúng ta nên tăng lên; chúng ta ký hiệu xác suất mới này bằng  $P(R|C)$  (đọc là "xác suất của R cho trước C"), nơi C là sự kiện có những đám mây u ám. Khi chúng ta chuyển từ  $P(R)$  sang  $P(R|C)$ , chúng ta nói rằng chúng ta đang "điều kiện hóa trên C". Khi ngày càng tiến triển, chúng ta có thể thu được thêm nhiều thông tin hơn về điều kiện thời tiết, và chúng ta có thể liên tục cập nhật xác suất của mình. Nếu chúng ta quan sát thấy các sự kiện  $B_{1}, \\ldots, B_{n}$  đã xảy ra, thì chúng ta viết xác suất có điều kiện mới của mưa cho trước bằng bằng chứng này là  $P(R|B_{1}, \\ldots, B_{n})$ . Nếu cuối cùng chúng ta quan sát thấy rằng đã bắt đầu mưa, xác suất có điều kiện của chúng ta sẽ trở thành 1.
 
@@ -2326,7 +2477,7 @@ Chúng ta sẽ thảo luận một chiến lược được biết đến như l
 
 Do tầm quan trọng trung tâm của việc điều kiện hóa, cả như là phương tiện mà qua đó chúng ta cập nhật niềm tin để phản ánh bằng chứng và như là một chiến lược giải quyết vấn đề, chúng ta nói rằng
 
-Việc điều kiện hóa là linh hồn của thống kê.`,Ck=`<div class="math-box definition">\r
+Việc điều kiện hóa là linh hồn của thống kê.`,wk=`<div class="math-box definition">\r
   <div class="math-box-header">\r
     <div class="math-box-number">Định nghĩa 2.2.1</div>\r
     <div class="math-box-title">Xác suất có điều kiện</div>\r
@@ -2560,7 +2711,7 @@ Ban đầu kết quả này dường như vô lý! Trong Ví dụ 2.2.5, kết q
 Ví dụ, điều kiện hóa với "ít nhất một đứa là nữ sinh vào ngày 31 tháng 3 lúc 8:20 tối" sẽ gần như xác định một đứa trẻ, và việc biết thông tin về một đứa trẻ cụ thể không cho chúng ta thông tin gì về đứa trẻ còn lại. Thông tin dường như không liên quan như mùa sinh sinh ra sẽ giữa hai phần của Ví dụ 2.2.5. Bài tập 29 mở rộng ví dụ này đến một đặc điểm tùy ý độc lập với giới tính.\r
 \r
   </div>\r
-</div>`,wk=`Định nghĩa xác suất có điều kiện là đơn giản—chỉ là tỉ số của hai xác suất—nhưng nó có những hệ quả sâu rộng. Hệ quả đầu tiên được dễ dàng thu được bằng cách đưa mẫu số trong định nghĩa sang phía bên kia của phương trình.\r
+</div>`,Tk=`Định nghĩa xác suất có điều kiện là đơn giản—chỉ là tỉ số của hai xác suất—nhưng nó có những hệ quả sâu rộng. Hệ quả đầu tiên được dễ dàng thu được bằng cách đưa mẫu số trong định nghĩa sang phía bên kia của phương trình.\r
 \r
 <div class="math-box theorem">\r
   <div class="math-box-header">\r
@@ -3051,7 +3202,7 @@ $$\r
 \r
 Điều này giống như cách tiếp cận trước đây, chỉ khác là vai trò của B và C được đổi chỗ. Chúng ta đề cập riêng điều này chỉ để nhấn mạnh rằng điều tồi tệ là không nên thay vào công thức mà không suy nghĩ xem sự kiện nào nên đóng vai trò nào.\r
 \r
-Việc có nhiều cách khác nhau để tiếp cận loại bài toán điều kiện hóa này vừa khó khăn vừa mạnh mẽ.`,Tk=`Chúng ta đã xem xét một số ví dụ nơi việc điều kiện hóa trên một sự kiện thay đổi niềm tin của chúng ta về xác suất của một sự kiện khác. Tình huống mà các sự kiện không cung cấp thông tin nào về nhau được gọi là sự độc lập.\r
+Việc có nhiều cách khác nhau để tiếp cận loại bài toán điều kiện hóa này vừa khó khăn vừa mạnh mẽ.`,Ek=`Chúng ta đã xem xét một số ví dụ nơi việc điều kiện hóa trên một sự kiện thay đổi niềm tin của chúng ta về xác suất của một sự kiện khác. Tình huống mà các sự kiện không cung cấp thông tin nào về nhau được gọi là sự độc lập.\r
 \r
 <div class="math-box definition">\r
   <div class="math-box-header">\r
@@ -3300,7 +3451,7 @@ Chúng ta cũng có thể thấy bằng trực giác tại sao chúng không đ�
   </div>\r
 </div>\r
 \r
-`,Ek=`Một tính chất quan trọng của quy tắc Bayes là tính nhất quán: nếu chúng ta nhận được nhiều thông tin và muốn cập nhật xác suất để tích hợp tất cả thông tin, thì không quan trọng là chúng ta cập nhật tuần tự, từng thông tin một lần, hay đồng thời, sử dụng tất cả thông tin cùng lúc. Giả sử, ví dụ, rằng chúng ta đang thực hiện một thí nghiệm kéo dài một tuần và thu được dữ liệu vào cuối mỗi ngày. Chúng ta có thể sử dụng quy tắc Bayes mỗi ngày để cập nhật xác suất dựa trên dữ liệu từ ngày đó. Hoặc chúng ta có thể đi nghỉ trong tuần, quay lại vào chiều thứ Sáu và cập nhật bằng cách sử dụng toàn bộ dữ liệu trong tuần. Phương pháp nào cũng sẽ cho cùng một kết quả.\r
+`,Dk=`Một tính chất quan trọng của quy tắc Bayes là tính nhất quán: nếu chúng ta nhận được nhiều thông tin và muốn cập nhật xác suất để tích hợp tất cả thông tin, thì không quan trọng là chúng ta cập nhật tuần tự, từng thông tin một lần, hay đồng thời, sử dụng tất cả thông tin cùng lúc. Giả sử, ví dụ, rằng chúng ta đang thực hiện một thí nghiệm kéo dài một tuần và thu được dữ liệu vào cuối mỗi ngày. Chúng ta có thể sử dụng quy tắc Bayes mỗi ngày để cập nhật xác suất dựa trên dữ liệu từ ngày đó. Hoặc chúng ta có thể đi nghỉ trong tuần, quay lại vào chiều thứ Sáu và cập nhật bằng cách sử dụng toàn bộ dữ liệu trong tuần. Phương pháp nào cũng sẽ cho cùng một kết quả.\r
 \r
 Hãy xem xét một ứng dụng cụ thể của nguyên lý này.\r
 \r
@@ -3330,7 +3481,7 @@ $$\r
   </div>\r
 </div>\r
 \r
-Lưu ý rằng với kết quả kiểm tra lần hai dương tính, xác suất Fred bị bệnh nhảy từ 0.16 lên 0.78, khiến chúng ta tự tin hơn nhiều rằng Fred thực sự bị bệnh conditionitis. Bài học rút ra ở đây là việc lấy ý kiến thứ hai là một ý tưởng tốt!`,Dk=`Điều kiện hóa là một công cụ mạnh mẽ để giải quyết các vấn đề vì nó cho phép chúng ta thực hiện suy nghĩ ước ao: khi chúng ta gặp một bài toán mà nếu chỉ cần biết có xảy ra E hay không thì bài toán sẽ dễ hơn, chúng ta có thể điều kiện trên E và sau đó điều kiện trên  $E^{c}$ , xem xét các khả năng này riêng lẻ, rồi kết hợp chúng lại bằng LOTP.\r
+Lưu ý rằng với kết quả kiểm tra lần hai dương tính, xác suất Fred bị bệnh nhảy từ 0.16 lên 0.78, khiến chúng ta tự tin hơn nhiều rằng Fred thực sự bị bệnh conditionitis. Bài học rút ra ở đây là việc lấy ý kiến thứ hai là một ý tưởng tốt!`,Ok=`Điều kiện hóa là một công cụ mạnh mẽ để giải quyết các vấn đề vì nó cho phép chúng ta thực hiện suy nghĩ ước ao: khi chúng ta gặp một bài toán mà nếu chỉ cần biết có xảy ra E hay không thì bài toán sẽ dễ hơn, chúng ta có thể điều kiện trên E và sau đó điều kiện trên  $E^{c}$ , xem xét các khả năng này riêng lẻ, rồi kết hợp chúng lại bằng LOTP.\r
 \r
 ## 2.7.1 Chiến lược: điều kiện trên điều bạn ước mình biết\r
 \r
@@ -3510,7 +3661,7 @@ $$\r
 Sau đó có thể kiểm tra được rằng với mọi  $i$  và mọi  $p$ ,  $P(\\text{A wins}) + P(\\text{B wins}) = 1$ , do đó trò chơi đảm bảo kết thúc: xác suất là 0 rằng nó sẽ dao động mãi mãi.\r
 \r
   </div>\r
-</div>`,Ok=`Ví dụ tiếp theo là hai ví dụ về sai lầm trong tư duy điều kiện đã xảy ra trong bối cảnh pháp lý. Sai lầm của người cáo trạng là sự nhầm lẫn giữa  $P(A|B)$  và  $P(B|A)$ ; sai lầm của luật sư phòng thủ là sự không điều kiện trên tất cả bằng chứng.\r
+</div>`,kk=`Ví dụ tiếp theo là hai ví dụ về sai lầm trong tư duy điều kiện đã xảy ra trong bối cảnh pháp lý. Sai lầm của người cáo trạng là sự nhầm lẫn giữa  $P(A|B)$  và  $P(B|A)$ ; sai lầm của luật sư phòng thủ là sự không điều kiện trên tất cả bằng chứng.\r
 \r
 <div class="math-box example">\r
   <div class="math-box-header">\r
@@ -3682,7 +3833,7 @@ Nghịch lý Simpson xảy ra trong nhiều bối cảnh thực tế. Trong các
 \r
 - Trung bình đánh bóng trong bóng chày: Có thể người chơi 1 có tỷ lệ đánh bóng cao hơn người chơi 2 trong nửa đầu mùa giải bóng chày và cũng có tỷ lệ đánh bóng cao hơn người chơi 2 trong nửa sau mùa giải, nhưng lại có tỷ lệ đánh bóng tổng thể thấp hơn cho cả mùa giải. Điều này phụ thuộc vào số lần đánh bóng mà các vận động viên có trong mỗi nửa mùa giải. (Một lần đánh bóng là khi đến lượt vận động viên cố gắng đánh bóng; tỷ lệ đánh bóng của vận động viên là số lần đánh trúng bóng chia cho số lần đánh bóng của vận động viên đó.)\r
 \r
-- Tác động đến sức khỏe của hút thuốc: Cochran [4] phát hiện ra rằng trong bất kỳ nhóm tuổi nào, những người hút thuốc thuốc lá có tỷ lệ tử vong cao hơn so với những người hút thuốc xì gà, nhưng vì những người hút thuốc thuốc lá có độ tuổi trung bình thấp hơn so với những người hút thuốc xì gà, tỷ lệ tử vong tổng thể thấp hơn ở những người hút thuốc thuốc lá.`,kk=`Xác suất có điều kiện của A cho B là\r
+- Tác động đến sức khỏe của hút thuốc: Cochran [4] phát hiện ra rằng trong bất kỳ nhóm tuổi nào, những người hút thuốc thuốc lá có tỷ lệ tử vong cao hơn so với những người hút thuốc xì gà, nhưng vì những người hút thuốc thuốc lá có độ tuổi trung bình thấp hơn so với những người hút thuốc xì gà, tỷ lệ tử vong tổng thể thấp hơn ở những người hút thuốc thuốc lá.`,Ak=`Xác suất có điều kiện của A cho B là\r
 \r
 $$\r
 P(A|B)=\\frac{P(A\\cap B)}{P(B)}.\r
@@ -3717,7 +3868,7 @@ Những sai lầm phổ biến trong tư duy có điều kiện bao gồm:\r
 \r
 Hình 2.7 minh họa cách xác suất có thể được cập nhật khi có bằng chứng mới đến theo thứ tự. Hãy tưởng tượng rằng có một sự kiện A mà chúng ta quan tâm. Ví dụ vào sáng thứ Hai, xác suất tiên nghiệm cho A là  $P(A)$ . Nếu chúng ta quan sát vào chiều thứ Hai rằng B đã xảy ra, thì chúng ta có thể sử dụng quy tắc Bayes (hoặc định nghĩa xác suất có điều kiện) để tính xác suất hậu nghiệm  $P(A|B)$ .\r
 \r
-Chúng ta sử dụng xác suất hậu nghiệm này cho A làm xác suất mới vào sáng thứ Ba, và sau đó tiếp tục thu thập bằng chứng. Giả sử rằng vào thứ Ba chúng ta quan sát rằng C đã xảy ra. Khi đó chúng ta có thể tính xác suất hậu nghiệm mới  $P(A|B,C)$  theo nhiều cách khác nhau (trong bối cảnh này, cách tự nhiên nhất có lẽ là sử dụng quy tắc Bayes với điều kiện bổ sung thêm B). Điều này lại trở thành xác suất mới nếu chúng ta tiếp tục thu thập bằng chứng.`,Ak=`## Mô phỏng cách diễn giải tần suất\r
+Chúng ta sử dụng xác suất hậu nghiệm này cho A làm xác suất mới vào sáng thứ Ba, và sau đó tiếp tục thu thập bằng chứng. Giả sử rằng vào thứ Ba chúng ta quan sát rằng C đã xảy ra. Khi đó chúng ta có thể tính xác suất hậu nghiệm mới  $P(A|B,C)$  theo nhiều cách khác nhau (trong bối cảnh này, cách tự nhiên nhất có lẽ là sử dụng quy tắc Bayes với điều kiện bổ sung thêm B). Điều này lại trở thành xác suất mới nếu chúng ta tiếp tục thu thập bằng chứng.`,jk=`## Mô phỏng cách diễn giải tần suất\r
 \r
 Nhớ lại rằng cách diễn giải tần suất của xác suất có điều kiện dựa trên số lần lặp lại n của một thí nghiệm là  $P(A|B) \\approx n_{AB}/n_{B}$ , trong đó  $n_{AB}$  là số lần mà  $A \\cap B$  xảy ra và  $n_{B}$  là số lần mà B xảy ra. Hãy thử điều này bằng mô phỏng, và kiểm tra lại kết quả của Ví dụ 2.2.5. Do đó, hãy mô phỏng n gia đình, mỗi gia đình có hai con.\r
 \r
@@ -3808,7 +3959,7 @@ monty <- function() {\r
 }\r
 \`\`\`\r
 \r
-Lệnh \`print\` in ra đối số của nó lên màn hình. Chúng ta kết hợp điều này với lệnh \`paste\` vì nếu chúng ta dùng \`print("Monty mở cửa montydoor")\` thì R sẽ in ra nguyên văn "Monty mở cửa montydoor". Lệnh \`scan\` yêu cầu nhập dữ liệu từ người dùng; chúng ta dùng \`what = integer()\` khi muốn người dùng nhập một số nguyên và \`what = character()\` khi muốn người dùng nhập văn bản. Dùng \`substr(reply,1,1)\` lấy ra ký tự đầu tiên của \`reply\`, trong trường hợp người dùng trả lời với "yes" hay "yep" hay "yeah!" thay vì "y".`,jk=`## Bài tập\r
+Lệnh \`print\` in ra đối số của nó lên màn hình. Chúng ta kết hợp điều này với lệnh \`paste\` vì nếu chúng ta dùng \`print("Monty mở cửa montydoor")\` thì R sẽ in ra nguyên văn "Monty mở cửa montydoor". Lệnh \`scan\` yêu cầu nhập dữ liệu từ người dùng; chúng ta dùng \`what = integer()\` khi muốn người dùng nhập một số nguyên và \`what = character()\` khi muốn người dùng nhập văn bản. Dùng \`substr(reply,1,1)\` lấy ra ký tự đầu tiên của \`reply\`, trong trường hợp người dùng trả lời với "yes" hay "yep" hay "yeah!" thay vì "y".`,Mk=`## Bài tập\r
 \r
 Các bài tập được đánh dấu với ☑ có lời giải chi tiết tại http://stat110.net.\r
 \r
@@ -4444,7 +4595,7 @@ http://taylorandfrancis.com\r
 \r
 ## Biến ngẫu nhiên và phân phối của chúng\r
 \r
-Trong chương này, chúng ta giới thiệu biến ngẫu nhiên, một khái niệm vô cùng hữu ích giúp đơn giản hóa ký hiệu và mở rộng khả năng của chúng ta để lượng hóa sự không chắc chắn và tổng hợp kết quả của các thí nghiệm. Biến ngẫu nhiên là thiết yếu trong suốt phần còn lại của cuốn sách này, và trong thống kê nói chung, vì vậy việc suy nghĩ kỹ lưỡng về ý nghĩa của chúng, cả trực quan và toán học, là rất quan trọng.`,Mk=`Để thấy tại sao ký hiệu hiện tại của chúng ta có thể nhanh chóng trở nên phức tạp, hãy xem lại bài toán cược phá sản từ Chương 2. Trong bài toán này, chúng ta có thể rất quan tâm đến số tài sản mà mỗi người cược có tại bất kỳ thời điểm nào. Vì vậy chúng ta có thể tạo ra ký hiệu như để  $A_{jk}$  là sự kiện người cược A có đúng j đô la sau k ván, và tương tự định nghĩa một sự kiện  $B_{jk}$  cho người cược B, với mọi j và k.\r
+Trong chương này, chúng ta giới thiệu biến ngẫu nhiên, một khái niệm vô cùng hữu ích giúp đơn giản hóa ký hiệu và mở rộng khả năng của chúng ta để lượng hóa sự không chắc chắn và tổng hợp kết quả của các thí nghiệm. Biến ngẫu nhiên là thiết yếu trong suốt phần còn lại của cuốn sách này, và trong thống kê nói chung, vì vậy việc suy nghĩ kỹ lưỡng về ý nghĩa của chúng, cả trực quan và toán học, là rất quan trọng.`,Nk=`Để thấy tại sao ký hiệu hiện tại của chúng ta có thể nhanh chóng trở nên phức tạp, hãy xem lại bài toán cược phá sản từ Chương 2. Trong bài toán này, chúng ta có thể rất quan tâm đến số tài sản mà mỗi người cược có tại bất kỳ thời điểm nào. Vì vậy chúng ta có thể tạo ra ký hiệu như để  $A_{jk}$  là sự kiện người cược A có đúng j đô la sau k ván, và tương tự định nghĩa một sự kiện  $B_{jk}$  cho người cược B, với mọi j và k.\r
 \r
 Điều này đã quá phức tạp. Ngoài ra, chúng ta có thể cũng quan tâm đến các đại lượng khác, như sự chênh lệch giữa tài sản của họ (tài sản của người cược A trừ tài sản của người cược B) sau k ván, hoặc thời gian của trò chơi (số ván cho đến khi một người chơi phá sản). Biểu diễn sự kiện “thời gian của trò chơi là r ván” theo các  $A_{jk}$  và  $B_{jk}$  sẽ đòi hỏi một chuỗi dài, kỳ cục của các phép hợp và giao. Và rồi nếu chúng ta muốn biểu diễn tài sản của người cược A dưới dạng số tiền euro thay vì đô la thì sao? Chúng ta có thể nhân một số tiền đô la với tỷ giá hối đoái, nhưng chúng ta không thể nhân một sự kiện với tỷ giá hối đoái.\r
 \r
@@ -4527,25 +4678,61 @@ Tương tự như các chương trước, với một không gian mẫu có số
 \r
 Như chúng ta đã đề cập trước đó, nguồn gốc của sự ngẫu nhiên trong một biến ngẫu nhiên là chính thí nghiệm, trong đó một kết quả mẫu  $s \\in S$  được chọn theo một hàm xác suất  $P$ . Trước khi thực hiện thí nghiệm, kết quả  $s$  chưa được thực hiện, do đó chúng ta không biết giá trị của  $X$ , tuy nhiên chúng ta có thể tính xác suất để  $X$  nhận một giá trị hoặc một khoảng giá trị nhất định. Sau khi thực hiện thí nghiệm và kết quả  $s$  đã được thực hiện, biến ngẫu nhiên sẽ cụ thể hóa thành giá trị số  $X(s)$ .\r
 \r
-Biến ngẫu nhiên cung cấp các tóm tắt số học của thí nghiệm đang xét. Điều này rất hữu ích vì không gian mẫu của một thí nghiệm thường rất phức tạp hoặc đa chiều, và các kết quả  $s \\in S$  có thể là không phải số. Ví dụ, thí nghiệm có thể là thu thập một mẫu ngẫu nhiên các người trong một thành phố và hỏi họ nhiều câu hỏi khác nhau, có thể có câu trả lời là số (ví dụ: tuổi hoặc chiều cao) hoặc không phải số (ví dụ: đảng chính trị hoặc phim yêu thích). Việc biến ngẫu nhiên nhận các giá trị số là một sự đơn giản hóa rất tiện lợi so với việc phải làm việc với toàn bộ độ phức tạp của S ở mọi lúc.`,Nk=`Có hai loại chính của biến ngẫu nhiên được sử dụng trong thực hành: biến ngẫu nhiên rời rạc và biến ngẫu nhiên liên tục. Trong chương này và chương tiếp theo, sự tập trung của chúng ta là vào biến ngẫu nhiên rời rạc. Biến ngẫu nhiên liên tục được giới thiệu trong Chương 5.\r
-\r
-Định nghĩa 3.2.1 (Biến ngẫu nhiên rời rạc). Một biến ngẫu nhiên X được gọi là rời rạc nếu tồn tại một danh sách hữu hạn các giá trị  $a_1, a_2, \\ldots, a_n$  hoặc một danh sách vô hạn các giá trị  $a_1, a_2, \\ldots$  sao cho  $P(X = a_j \\text{ với một số } j) = 1$ . Nếu X là một biến ngẫu nhiên rời rạc, thì\r
-\r
-Tập hợp hữu hạn hoặc đếm được các giá trị x sao cho  $P(X = x) > 0$  được gọi là hỗ trợ của X.\r
-\r
-Thường xuyên nhất trong các ứng dụng, hỗ trợ của một biến ngẫu nhiên rời rạc là một tập hợp các số nguyên. Trong khi đó, một biến ngẫu nhiên liên tục có thể nhận bất kỳ giá trị thực nào trong một khoảng (có thể thậm chí là toàn bộ đường thẳng thực); các biến ngẫu nhiên như vậy được định nghĩa chính xác hơn trong Chương 5. Cũng có thể có một biến ngẫu nhiên là sự kết hợp của rời rạc và liên tục, ví dụ như bằng cách tung một đồng xu và sau đó tạo ra một biến ngẫu nhiên rời rạc nếu đồng xu rơi mặt Ngửa và tạo ra một biến ngẫu nhiên liên tục nếu đồng xu rơi mặt Sấp. Tuy nhiên, điểm bắt đầu để hiểu các biến ngẫu nhiên như vậy là hiểu các biến ngẫu nhiên rời rạc và liên tục.\r
-\r
-Cho một biến ngẫu nhiên, chúng ta muốn có thể mô tả hành vi của nó bằng ngôn ngữ xác suất. Ví dụ, chúng ta có thể muốn trả lời các câu hỏi về xác suất mà biến ngẫu nhiên sẽ rơi vào một khoảng nhất định: nếu L là số tiền kiếm được trong suốt thời gian làm việc của một sinh viên đại học Mỹ được chọn ngẫu nhiên, xác suất để L vượt quá một triệu đô la là bao nhiêu? Nếu M là số lượng động đất lớn ở California trong năm tới, xác suất để M bằng 0 là bao nhiêu?\r
-\r
+Biến ngẫu nhiên cung cấp các tóm tắt số học của thí nghiệm đang xét. Điều này rất hữu ích vì không gian mẫu của một thí nghiệm thường rất phức tạp hoặc đa chiều, và các kết quả  $s \\in S$  có thể là không phải số. Ví dụ, thí nghiệm có thể là thu thập một mẫu ngẫu nhiên các người trong một thành phố và hỏi họ nhiều câu hỏi khác nhau, có thể có câu trả lời là số (ví dụ: tuổi hoặc chiều cao) hoặc không phải số (ví dụ: đảng chính trị hoặc phim yêu thích). Việc biến ngẫu nhiên nhận các giá trị số là một sự đơn giản hóa rất tiện lợi so với việc phải làm việc với toàn bộ độ phức tạp của S ở mọi lúc.`,Pk=`Có hai loại chính của biến ngẫu nhiên được sử dụng trong thực hành: biến ngẫu nhiên rời rạc và biến ngẫu nhiên liên tục. Trong chương này và chương tiếp theo, sự tập trung của chúng ta là vào biến ngẫu nhiên rời rạc. Biến ngẫu nhiên liên tục được giới thiệu trong Chương 5.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 3.2.1</div>
+    <div class="math-box-title">Biến ngẫu nhiên rời rạc</div>
+  </div>
+  <div class="math-box-content">
+
+Một biến ngẫu nhiên X được gọi là rời rạc nếu tồn tại một danh sách hữu hạn các giá trị  $a_1, a_2, \\ldots, a_n$  hoặc một danh sách vô hạn các giá trị  $a_1, a_2, \\ldots$  sao cho  $P(X = a_j \\text{ với một số } j) = 1$ . Nếu X là một biến ngẫu nhiên rời rạc, thì
+
+Tập hợp hữu hạn hoặc đếm được các giá trị x sao cho  $P(X = x) > 0$  được gọi là hỗ trợ của X.
+
+  </div>
+</div>
+
+Thường xuyên nhất trong các ứng dụng, hỗ trợ của một biến ngẫu nhiên rời rạc là một tập hợp các số nguyên. Trong khi đó, một biến ngẫu nhiên liên tục có thể nhận bất kỳ giá trị thực nào trong một khoảng (có thể thậm chí là toàn bộ đường thẳng thực); các biến ngẫu nhiên như vậy được định nghĩa chính xác hơn trong Chương 5. Cũng có thể có một biến ngẫu nhiên là sự kết hợp của rời rạc và liên tục, ví dụ như bằng cách tung một đồng xu và sau đó tạo ra một biến ngẫu nhiên rời rạc nếu đồng xu rơi mặt Ngửa và tạo ra một biến ngẫu nhiên liên tục nếu đồng xu rơi mặt Sấp. Tuy nhiên, điểm bắt đầu để hiểu các biến ngẫu nhiên như vậy là hiểu các biến ngẫu nhiên rời rạc và liên tục.
+
+Cho một biến ngẫu nhiên, chúng ta muốn có thể mô tả hành vi của nó bằng ngôn ngữ xác suất. Ví dụ, chúng ta có thể muốn trả lời các câu hỏi về xác suất mà biến ngẫu nhiên sẽ rơi vào một khoảng nhất định: nếu L là số tiền kiếm được trong suốt thời gian làm việc của một sinh viên đại học Mỹ được chọn ngẫu nhiên, xác suất để L vượt quá một triệu đô la là bao nhiêu? Nếu M là số lượng động đất lớn ở California trong năm tới, xác suất để M bằng 0 là bao nhiêu?
+
 Phân phối của một biến ngẫu nhiên cung cấp câu trả lời cho các câu hỏi như vậy; nó xác định các xác suất của tất cả các sự kiện liên quan đến biến ngẫu nhiên, ví dụ như xác suất để nó bằng 3 và xác suất để nó ít nhất là 110. Chúng ta sẽ thấy rằng có nhiều cách tương đương để biểu diễn phân phối của một biến ngẫu nhiên. Đối với một biến ngẫu nhiên rời rạc, cách tự nhiên nhất để làm như vậy là bằng hàm khối lượng xác suất, mà chúng ta sẽ định nghĩa ngay bây giờ.\r
 \r
-Định nghĩa 3.2.2 (Hàm khối lượng xác suất). Hàm khối lượng xác suất (PMF) của một biến ngẫu nhiên rời rạc X là hàm  $p_X$  được cho bởi  $p_X(x) = P(X = x)$ . Lưu ý rằng đây là dương nếu x thuộc hỗ trợ của X, và 0 nếu không.\r
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 3.2.2</div>
+    <div class="math-box-title">Hàm khối lượng xác suất</div>
+  </div>
+  <div class="math-box-content">
+
+Hàm khối lượng xác suất (PMF) của một biến ngẫu nhiên rời rạc X là hàm  $p_X$  được cho bởi  $p_X(x) = P(X = x)$ . Lưu ý rằng đây là dương nếu x thuộc hỗ trợ của X, và 0 nếu không.
+
+  </div>
+</div>\r
 \r
-3.2.3. Trong việc viết  $P(X = x)$ , chúng ta đang sử dụng X = x để chỉ một sự kiện, bao gồm tất cả các kết quả s mà X gán số x. Sự kiện này cũng được viết là  $\\{X = x\\}$ ; chính thức,  $\\{X = x\\}$  được định nghĩa là  $\\{s \\in S : X(s) = x\\}$ , nhưng viết  $\\{X = x\\}$  ngắn gọn và dễ hiểu hơn. Trở lại Ví dụ 3.1.2, nếu X là số lần Ngửa trong hai lần tung đồng xu công bằng, thì  $\\{X = 1\\}$  bao gồm các kết quả mẫu HT và TH, hai kết quả mà X gán số 1. Vì  $\\{HT, TH\\}$  là một tập con của không gian mẫu, nó là một sự kiện. Do đó, việc nói về  $P(X = 1)$ , hay nói chung là  $P(X = x)$  là hợp lý. Nếu  $\\{X = x\\}$  không phải là một sự kiện, thì không có nghĩa gì khi tính xác suất của nó! Không có nghĩa là viết “ $P(X)$ ”; chúng ta chỉ có thể lấy xác suất của một sự kiện, không phải của một biến ngẫu nhiên.\r
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">3.2.3</div>
+  </div>
+  <div class="math-box-content">
+
+Trong việc viết  $P(X = x)$ , chúng ta đang sử dụng X = x để chỉ một sự kiện, bao gồm tất cả các kết quả s mà X gán số x. Sự kiện này cũng được viết là  $\\{X = x\\}$ ; chính thức,  $\\{X = x\\}$  được định nghĩa là  $\\{s \\in S : X(s) = x\\}$ , nhưng viết  $\\{X = x\\}$  ngắn gọn và dễ hiểu hơn. Trở lại Ví dụ 3.1.2, nếu X là số lần Ngửa trong hai lần tung đồng xu công bằng, thì  $\\{X = 1\\}$  bao gồm các kết quả mẫu HT và TH, hai kết quả mà X gán số 1. Vì  $\\{HT, TH\\}$  là một tập con của không gian mẫu, nó là một sự kiện. Do đó, việc nói về  $P(X = 1)$ , hay nói chung là  $P(X = x)$  là hợp lý. Nếu  $\\{X = x\\}$  không phải là một sự kiện, thì không có nghĩa gì khi tính xác suất của nó! Không có nghĩa là viết “ $P(X)$ ”; chúng ta chỉ có thể lấy xác suất của một sự kiện, không phải của một biến ngẫu nhiên.
+
+  </div>
+</div>\r
 \r
 Hãy xem một vài ví dụ về PMFs.\r
 \r
-Ví dụ 3.2.4 (Tiếp tục tung đồng xu). Trong ví dụ này, chúng ta sẽ tìm PMFs của tất cả các biến ngẫu nhiên trong Ví dụ 3.1.2, ví dụ với hai lần tung đồng xu công bằng. Dưới đây là các biến ngẫu nhiên mà chúng ta đã định nghĩa, cùng với PMFs của chúng:\r
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 3.2.4</div>
+    <div class="math-box-title">Tiếp tục tung đồng xu</div>
+  </div>
+  <div class="math-box-content">
+
+Trong ví dụ này, chúng ta sẽ tìm PMFs của tất cả các biến ngẫu nhiên trong Ví dụ 3.1.2, ví dụ với hai lần tung đồng xu công bằng. Dưới đây là các biến ngẫu nhiên mà chúng ta đã định nghĩa, cùng với PMFs của chúng:\r
 \r
 • X, số lần Ngửa. Vì X bằng 0 nếu xảy ra TT, bằng 1 nếu xảy ra HT hoặc TH,\r
 \r
@@ -4617,7 +4804,10 @@ Lưu ý rằng X và Y có cùng PMF (tức là  $p_{X}$  và  $p_{Y}$  là cùn
 \r
  \r
 \r
-và  $p_{I}(i) = 0$  cho tất cả các giá trị khác của i.\r
+và  $p_{I}(i) = 0$  cho tất cả các giá trị khác của i.
+
+  </div>
+</div>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
   <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">\r
@@ -4998,7 +5188,7 @@ với mọi số nguyên không âm  $k$ . Cho  $k = n/2 + j$ , kết quả mong
 Quay lại Ví dụ 3.1.2, chúng ta giờ biết rằng  $X \\sim \\text{Bin}(2, 1/2)$ ,  $Y \\sim \\text{Bin}(2, 1/2)$ , và  $I \\sim \\text{Bern}(1/2)$ . Nhằm với Định lý 3.3.7, X và Y = 2 - X có cùng phân phối, và nhắm với Hệ quả 3.3.8, phân phối của X (và của Y) đối xứng về 1.\r
 \r
   </div>\r
-</div>`,Pk=`Nếu chúng ta có một cái urn chứa w viên bi trắng và b viên bi đen, thì việc rút n viên bi từ urn với thay thế tạo ra một phân phối  $\\text{Bin}(n, w/(w + b))$  cho số viên bi trắng được lấy trong n phép thử, bởi vì các lần rút là các phép thử Bernoulli độc lập, mỗi lần với xác suất  $w/(w + b)$  của thành công. Nếu thay vì lấy không thay thế, như được minh họa trong Hình 3.7, thì số viên bi trắng tuân theo phân phối Hypergeometric.\r
+</div>`,Fk=`Nếu chúng ta có một cái urn chứa w viên bi trắng và b viên bi đen, thì việc rút n viên bi từ urn với thay thế tạo ra một phân phối  $\\text{Bin}(n, w/(w + b))$  cho số viên bi trắng được lấy trong n phép thử, bởi vì các lần rút là các phép thử Bernoulli độc lập, mỗi lần với xác suất  $w/(w + b)$  của thành công. Nếu thay vì lấy không thay thế, như được minh họa trong Hình 3.7, thì số viên bi trắng tuân theo phân phối Hypergeometric.\r
 \r
 <div class="math-box remark">\r
   <div class="math-box-header">\r
@@ -5155,7 +5345,7 @@ Chúng ta ưa chuộng chứng minh bằng câu chuyện vì nó ít tẻ nhạt
 Phân phối Binomial và Hypergeometric thường bị nhầm lẫn. Cả hai đều là phân phối rời rạc nhận các giá trị nguyên giữa 0 và n với một n nào đó, và cả hai đều có thể được diễn giải là số lần thành công trong n phép thử Bernoulli (với Hypergeometric, mỗi con hươu được đánh dấu trong mẫu được bắt lại có thể được coi là một thành công và mỗi con hươu không được đánh dấu là một thất bại). Tuy nhiên, một phần quan trọng trong câu chuyện Binomial là các phép thử Bernoulli liên quan đến nhau là độc lập. Các phép thử Bernoulli trong câu chuyện Hypergeometric là phụ thuộc, vì việc lấy mẫu được thực hiện mà không thay thế: biết rằng một con hươu trong mẫu của chúng ta được đánh dấu làm giảm xác suất con hươu thứ hai cũng được đánh dấu.\r
 \r
   </div>\r
-</div>`,Fk=`Một câu chuyện rất đơn giản, có liên quan chặt chẽ đến định nghĩa thô của xác suất, mô tả việc chọn một số ngẫu nhiên từ một tập hợp hữu hạn các khả năng có thể.\r
+</div>`,Ik=`Một câu chuyện rất đơn giản, có liên quan chặt chẽ đến định nghĩa thô của xác suất, mô tả việc chọn một số ngẫu nhiên từ một tập hợp hữu hạn các khả năng có thể.\r
 \r
 <div class="math-box remark">\r
   <div class="math-box-header">\r
@@ -5255,7 +5445,7 @@ Sẽ rất kỳ lạ nếu kết quả của (c) lớn hơn hoặc bằng kết 
 Tổng quát hơn, nếu  $k$  chiếc trượt được rút mà không thay thế, với  $0 \\leq k \\leq 100$ , thì lập luận tương tự cho thấy xác suất rút được số 100 là  $k/100$ . Lưu ý rằng điều này hợp lý trong trường hợp cực đoan  $k = 100$ , vì trong trường hợp này chúng ta rút tất cả các chiếc trượt.\r
 \r
   </div>\r
-</div>`,Ik=`Một hàm khác mô tả phân phối của một biến ngẫu nhiên là hàm phân phối tích lũy (CDF). Khác với hàm PMF, chỉ có các biến ngẫu nhiên rời rạc mới có, hàm CDF được định nghĩa cho tất cả các biến ngẫu nhiên.\r
+</div>`,Lk=`Một hàm khác mô tả phân phối của một biến ngẫu nhiên là hàm phân phối tích lũy (CDF). Khác với hàm PMF, chỉ có các biến ngẫu nhiên rời rạc mới có, hàm CDF được định nghĩa cho tất cả các biến ngẫu nhiên.\r
 \r
 <div class="math-box definition">\r
   <div class="math-box-header">\r
@@ -5366,7 +5556,7 @@ Ngược lại cũng đúng: chúng ta sẽ chứng minh trong Chương 5 rằng
 \r
 Tóm lại, chúng ta đã thấy ba cách biểu diễn tương đương về phân phối của một biến ngẫu nhiên. Hai trong số này là PMF và CDF: chúng ta biết hai hàm này chứa cùng một thông tin, vì chúng ta luôn có thể xác định được CDF từ PMF và ngược lại. Thường thì PMF dễ sử dụng hơn với các biến ngẫu nhiên rời rạc, vì việc đánh giá CDF đòi hỏi một phép tính tổng.\r
 \r
-Một cách thứ ba để mô tả một phân phối là với một câu chuyện giải thích (theo một cách chính xác) làm thế nào phân phối có thể phát sinh. Chúng ta đã sử dụng các câu chuyện về phân phối Binomial và Hypergeometric để suy ra các hàm mật độ xác suất tương ứng. Do đó, câu chuyện và hàm mật độ xác suất cũng chứa cùng một thông tin, mặc dù chúng ta thường có thể đạt được các chứng minh trực quan hơn với câu chuyện so với các tính toán hàm mật độ xác suất.`,Lk=`Trong phần này chúng ta sẽ thảo luận về ý nghĩa của việc lấy một hàm của một biến ngẫu nhiên, và chúng ta sẽ xây dựng sự hiểu biết về tại sao một hàm của một biến ngẫu nhiên là một biến ngẫu nhiên. Tức là, nếu  $X$  là một biến ngẫu nhiên, thì  $X^{2}$ ,  $e^{X}$ , và  $\\sin(X)$  cũng là các biến ngẫu nhiên, cũng như  $g(X)$  với bất kỳ hàm nào  $g: \\mathbb{R} \\to \\mathbb{R}$ .\r
+Một cách thứ ba để mô tả một phân phối là với một câu chuyện giải thích (theo một cách chính xác) làm thế nào phân phối có thể phát sinh. Chúng ta đã sử dụng các câu chuyện về phân phối Binomial và Hypergeometric để suy ra các hàm mật độ xác suất tương ứng. Do đó, câu chuyện và hàm mật độ xác suất cũng chứa cùng một thông tin, mặc dù chúng ta thường có thể đạt được các chứng minh trực quan hơn với câu chuyện so với các tính toán hàm mật độ xác suất.`,Rk=`Trong phần này chúng ta sẽ thảo luận về ý nghĩa của việc lấy một hàm của một biến ngẫu nhiên, và chúng ta sẽ xây dựng sự hiểu biết về tại sao một hàm của một biến ngẫu nhiên là một biến ngẫu nhiên. Tức là, nếu  $X$  là một biến ngẫu nhiên, thì  $X^{2}$ ,  $e^{X}$ , và  $\\sin(X)$  cũng là các biến ngẫu nhiên, cũng như  $g(X)$  với bất kỳ hàm nào  $g: \\mathbb{R} \\to \\mathbb{R}$ .\r
 \r
 Ví dụ, hãy tưởng tượng rằng hai đội bóng rổ (A và B) đang thi đấu một trận đấu bảy trận, và để  $X$  là số lần thắng của đội A (vì vậy  $X \\sim \\text{Bin}(7, 1/2)$  nếu hai đội hòa nhau và các trận đấu độc lập). Để  $g(x) = 7 - x$ , và để  $h(x) = 1$  nếu  $x \\geq 4$  và  $h(x) = 0$  nếu  $x < 4$ . Khi đó  $g(X) = 7 - X$  là số lần thắng của đội B, và  $h(X)$  là chỉ số của đội A thắng đa số các trận. Vì  $X$  là một biến ngẫu nhiên, cả  $g(X)$  và  $h(X)$  cũng là các biến ngẫu nhiên.\r
 \r
@@ -5601,13 +5791,8 @@ P(Z=X)=P(HHorTT)=1/2.\r
 $$\r
 \r
   </div>\r
-</div>\r
-\r
- \r
-\r
-### 3.8 Tính độc lập của các biến ngẫu nhiên\r
-\r
-Tương tự như khi chúng ta có khái niệm độc lập của các sự kiện, chúng ta cũng có thể định nghĩa tính độc lập của các biến ngẫu nhiên. Về mặt trực quan, nếu hai biến ngẫu nhiên X và Y độc lập, thì việc biết giá trị của X không cung cấp bất kỳ thông tin nào về giá trị của Y, và ngược lại. Định nghĩa này làm rõ ý tưởng này.\r
+</div>
+`,zk=`Tương tự như khi chúng ta có khái niệm độc lập của các sự kiện, chúng ta cũng có thể định nghĩa tính độc lập của các biến ngẫu nhiên. Về mặt trực quan, nếu hai biến ngẫu nhiên X và Y độc lập, thì việc biết giá trị của X không cung cấp bất kỳ thông tin nào về giá trị của Y, và ngược lại. Định nghĩa này làm rõ ý tưởng này.\r
 \r
 <div class="math-box definition">\r
   <div class="math-box-header">\r
@@ -5639,7 +5824,14 @@ với mọi x, y với x trong tập giá của X và y trong tập giá của Y
 \r
 Định nghĩa cho trường hợp nhiều hơn hai biến ngẫu nhiên là tương tự.\r
 \r
-Định nghĩa 3.8.2 (Độc lập của nhiều biến ngẫu nhiên). Các biến ngẫu nhiên  $X_{1}, \\ldots, X_{n}$  được gọi là độc lập nếu\r
+<div class="math-box definition">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 3.8.2</div>\r
+    <div class="math-box-title">Độc lập của nhiều biến ngẫu nhiên</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Các biến ngẫu nhiên  $X_{1}, \\ldots, X_{n}$  được gọi là độc lập nếu\r
 \r
  \r
 \r
@@ -5649,13 +5841,31 @@ với mọi x, y với x trong tập giá của X và y trong tập giá của Y
 \r
 với mọi  $x_1, \\ldots, x_n \\in \\mathbb{R}$ . Đối với vô số biến ngẫu nhiên, chúng ta nói rằng chúng độc lập nếu mọi tập con hữu hạn của các biến ngẫu nhiên đó độc lập.\r
 \r
+  </div>\r
+</div>\r
+\r
 So sánh với các tiêu chí cho tính độc lập của n sự kiện, có thể thấy lạ khi tính độc lập của  $X_{1},\\ldots,X_{n}$  chỉ yêu cầu một đẳng thức, trong khi với các sự kiện chúng ta\r
 \r
 Phải kiểm tra tính độc lập từng cặp cho tất cả  $\\binom{n}{2}$  cặp, tính độc lập ba chiều cho tất cả  $\\binom{n}{3}$  bộ ba, và cứ tiếp tục như vậy. Tuy nhiên, khi xem xét kỹ hơn định nghĩa, chúng ta thấy rằng tính độc lập của các biến ngẫu nhiên yêu cầu đẳng thức phải đúng cho tất cả các giá trị có thể  $x_1, \\ldots, x_n$  vô số điều kiện! Nếu chúng ta có thể tìm ra ngay cả một danh sách giá trị  $x_1, \\ldots, x_n$  mà đẳng thức trên không thỏa mãn, thì  $X_1, \\ldots, X_n$  không độc lập.\r
 \r
-3.8.3. Nếu  $X_1, \\ldots, X_n$  độc lập, thì chúng cũng độc lập từng cặp, tức là  $X_i$  độc lập với  $X_j$  với  $i \\neq j$ . Ý tưởng đằng sau việc chứng minh rằng  $X_i$  và  $X_j$  độc lập là để cho tất cả các  $x_k$  khác  $x_i, x_j$  tiến tới  $\\infty$  trong định nghĩa của tính độc lập, vì chúng ta đã biết  $X_k < \\infty$  là đúng (mặc dù cần một chút công sức để đưa ra bằng chứng đầy đủ cho giới hạn). Tuy nhiên, tính độc lập từng cặp không kéo theo tính độc lập tổng quát, như chúng ta đã thấy trong Chương 2 cho các sự kiện.\r
+<div class="math-box remark">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">3.8.3</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-Ví dụ 3.8.4. Trong một lần gieo hai con xúc xắc công bằng, nếu X là số mặt trên xúc xắc thứ nhất và Y là số mặt trên xúc xắc thứ hai, thì  $X + Y$  không độc lập với  $X - Y$  vì\r
+Nếu  $X_1, \\ldots, X_n$  độc lập, thì chúng cũng độc lập từng cặp, tức là  $X_i$  độc lập với  $X_j$  với  $i \\neq j$ . Ý tưởng đằng sau việc chứng minh rằng  $X_i$  và  $X_j$  độc lập là để cho tất cả các  $x_k$  khác  $x_i, x_j$  tiến tới  $\\infty$  trong định nghĩa của tính độc lập, vì chúng ta đã biết  $X_k < \\infty$  là đúng (mặc dù cần một chút công sức để đưa ra bằng chứng đầy đủ cho giới hạn). Tuy nhiên, tính độc lập từng cặp không kéo theo tính độc lập tổng quát, như chúng ta đã thấy trong Chương 2 cho các sự kiện.\r
+\r
+  </div>\r
+</div>\r
+\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 3.8.4</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Trong một lần gieo hai con xúc xắc công bằng, nếu X là số mặt trên xúc xắc thứ nhất và Y là số mặt trên xúc xắc thứ hai, thì  $X + Y$  không độc lập với  $X - Y$  vì\r
 \r
  \r
 \r
@@ -5664,6 +5874,9 @@ Ví dụ 3.8.4. Trong một lần gieo hai con xúc xắc công bằng, nếu X 
  \r
 \r
 Biết tổng là 12 cho chúng ta biết hiệu phải là 0, do đó các biến ngẫu nhiên cung cấp thông tin cho nhau.\r
+\r
+  </div>\r
+</div>\r
 \r
 Nếu X và Y độc lập thì cũng đúng, ví dụ như  $X^{2}$  độc lập với  $Y^{4}$ , vì nếu  $X^{2}$  cung cấp thông tin về  $Y^{4}$ , thì X sẽ cung cấp thông tin về Y (sử dụng  $X^{2}$  và  $Y^{4}$  làm trung gian: X xác định  $X^{2}$ , điều này sẽ cung cấp thông tin về  $Y^{4}$ , và từ đó lại cung cấp thông tin về Y). Tổng quát hơn, chúng ta có kết quả sau đây (trong đó chúng ta bỏ qua bằng chứng chính thức).\r
 \r
@@ -5691,7 +5904,14 @@ Chúng ta thường làm việc với các biến ngẫu nhiên độc lập và
   </div>\r
 </div>\r
 \r
-3.8.7 (i. vs. i.d.). "Độc lập" và "phân bố giống nhau" là hai khái niệm thường bị nhầm lẫn nhưng hoàn toàn khác nhau. Các biến ngẫu nhiên độc lập nếu chúng không cung cấp thông tin gì cho nhau; chúng phân bố giống nhau nếu chúng có cùng PMF (hoặc tương đương, cùng CDF). Việc hai biến ngẫu nhiên có độc lập hay không không liên quan gì đến việc chúng có cùng phân phối hay không. Chúng ta có thể có các biến ngẫu nhiên:\r
+<div class="math-box remark">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">3.8.7</div>\r
+    <div class="math-box-title">i. vs. i.d.</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+"Độc lập" và "phân bố giống nhau" là hai khái niệm thường bị nhầm lẫn nhưng hoàn toàn khác nhau. Các biến ngẫu nhiên độc lập nếu chúng không cung cấp thông tin gì cho nhau; chúng phân bố giống nhau nếu chúng có cùng PMF (hoặc tương đương, cùng CDF). Việc hai biến ngẫu nhiên có độc lập hay không không liên quan gì đến việc chúng có cùng phân phối hay không. Chúng ta có thể có các biến ngẫu nhiên:\r
 \r
 - độc lập và phân bố giống nhau. Gọi X là kết quả của một lần gieo xúc xắc, và gọi Y là kết quả của một lần gieo xúc xắc thứ hai, độc lập. Khi đó X và Y là i.i.d.\r
 \r
@@ -5700,6 +5920,9 @@ Chúng ta thường làm việc với các biến ngẫu nhiên độc lập và
 ● phụ thuộc và phân bố giống nhau. Hãy gọi X là số lần Nhờn trong n lần tung đồng xu công bằng độc lập, và gọi Y là số lần Sấp trong cùng n lần tung đó. Khi đó X và Y đều có phân bố  $\\text{Bin}(n, 1/2)$ , nhưng chúng rất phụ thuộc: nếu chúng ta biết X, thì chúng ta biết Y một cách hoàn hảo.\r
 \r
 ● phụ thuộc và không phân bố giống nhau. Hãy gọi X là chỉ số cho việc đảng đa số giữ quyền kiểm soát Hạ viện Hoa Kỳ sau cuộc bầu cử tiếp theo, và gọi Y là mức độ ủng hộ trung bình của đảng đa số trong các cuộc thăm dò ý kiến được thực hiện trong vòng một tháng trước cuộc bầu cử. Khi đó X và Y là phụ thuộc, và X và Y không có cùng phân bố.\r
+\r
+  </div>\r
+</div>\r
 \r
 Bằng cách lấy tổng của các biến ngẫu nhiên Bernoulli độc lập và đồng phân bố, chúng ta có thể viết ra câu chuyện của phân bố Binomial dưới dạng đại số.\r
 \r
@@ -5865,7 +6088,7 @@ $$\r
 Các trận trước cho chúng ta thông tin giúp chúng ta suy luận được đối thủ của mình là ai, điều này lại giúp chúng ta dự đoán các trận sau! Lưu ý rằng ví dụ này là đồng cấu với tình huống "đồng xu ngẫu nhiên" từ Ví dụ 2.3.7.\r
 \r
   </div>\r
-</div>`,Rk=`Phân phối Binomial và Hypergeometric có hai mối liên hệ quan trọng. Như chúng ta sẽ thấy trong mục này, chúng ta có thể chuyển từ Binomial sang Hypergeometric bằng cách điều kiện hóa, và có thể chuyển từ Hypergeometric sang Binomial bằng cách lấy giới hạn. Chúng ta sẽ bắt đầu với một ví dụ gợi ý.\r
+</div>`,Bk=`Phân phối Binomial và Hypergeometric có hai mối liên hệ quan trọng. Như chúng ta sẽ thấy trong mục này, chúng ta có thể chuyển từ Binomial sang Hypergeometric bằng cách điều kiện hóa, và có thể chuyển từ Hypergeometric sang Binomial bằng cách lấy giới hạn. Chúng ta sẽ bắt đầu với một ví dụ gợi ý.\r
 \r
 <div class="math-box example">\r
   <div class="math-box-header">\r
@@ -5969,7 +6192,7 @@ Các câu chuyện về phân phối Binomial và Hypergeometric cung cấp tr�
 \r
 Từ việc lấy mẫu  $n$  quả bóng từ urn với thay thế, trong khi Hypergeometric phát sinh từ việc lấy mẫu mà không thay thế. Khi số lượng quả bóng trong urn tăng lên rất lớn so với số lượng quả bóng được lấy ra, việc lấy mẫu với thay thế và lấy mẫu mà không thay thế trở nên về cơ bản tương đương. Về mặt thực tế, định lý này cho chúng ta biết rằng nếu  $N = w + b$  lớn so với  $n$ , chúng ta có thể xấp xỉ PMF của HGeom $(w, b, n)$  bằng PMF của Bin $(n, w/(w + b))$ .\r
 \r
-Vấn đề sinh nhật cho thấy rằng thật bất ngờ rằng có thể một quả bóng nào đó sẽ được lấy mẫu nhiều hơn một lần nếu lấy mẫu với thay thế; ví dụ, nếu 1.200 quả bóng trong tổng số 1.000.000 quả bóng được lấy ngẫu nhiên với thay thế, thì có khoảng 51% khả năng một quả bóng nào đó sẽ được lấy nhiều hơn một lần! Nhưng điều này trở nên ngày càng ít xảy ra khi N tăng lên, và ngay cả khi có khả năng cao sẽ có vài trùng lặp, xấp xỉ vẫn có thể hợp lý nếu khả năng cao là hầu hết các quả bóng trong mẫu chỉ được lấy mỗi lần.`,zk=`Biến ngẫu nhiên (r.v.) là một hàm số gán một số thực cho mỗi kết quả có thể xảy ra của một thí nghiệm. Phân phối của một r.v. X là một quy định đầy đủ về các xác suất cho các sự kiện liên quan đến X, như  $\\{X = 3\\}$  và  $\\{1 \\leq X \\leq 5\\}$ . Phân phối của một r.v. rời rạc có thể được định nghĩa bằng PMF, CDF, hoặc một câu chuyện. PMF của X là hàm số  $P(X = x)$  với  $x \\in \\mathbb{R}$ . CDF của X là hàm số  $P(X \\leq x)$  với  $x \\in \\mathbb{R}$ . Một câu chuyện cho X mô tả một thí nghiệm có thể dẫn đến một biến ngẫu nhiên có cùng phân phối với X.\r
+Vấn đề sinh nhật cho thấy rằng thật bất ngờ rằng có thể một quả bóng nào đó sẽ được lấy mẫu nhiều hơn một lần nếu lấy mẫu với thay thế; ví dụ, nếu 1.200 quả bóng trong tổng số 1.000.000 quả bóng được lấy ngẫu nhiên với thay thế, thì có khoảng 51% khả năng một quả bóng nào đó sẽ được lấy nhiều hơn một lần! Nhưng điều này trở nên ngày càng ít xảy ra khi N tăng lên, và ngay cả khi có khả năng cao sẽ có vài trùng lặp, xấp xỉ vẫn có thể hợp lý nếu khả năng cao là hầu hết các quả bóng trong mẫu chỉ được lấy mỗi lần.`,Vk=`Biến ngẫu nhiên (r.v.) là một hàm số gán một số thực cho mỗi kết quả có thể xảy ra của một thí nghiệm. Phân phối của một r.v. X là một quy định đầy đủ về các xác suất cho các sự kiện liên quan đến X, như  $\\{X = 3\\}$  và  $\\{1 \\leq X \\leq 5\\}$ . Phân phối của một r.v. rời rạc có thể được định nghĩa bằng PMF, CDF, hoặc một câu chuyện. PMF của X là hàm số  $P(X = x)$  với  $x \\in \\mathbb{R}$ . CDF của X là hàm số  $P(X \\leq x)$  với  $x \\in \\mathbb{R}$ . Một câu chuyện cho X mô tả một thí nghiệm có thể dẫn đến một biến ngẫu nhiên có cùng phân phối với X.\r
 \r
 Để một PMF là hợp lệ, nó phải không âm và tổng bằng 1. Để một CDF là hợp lệ, nó phải tăng, liên tục bên phải, hội tụ về 0 khi  $x \\to -\\infty$ , và hội tụ về 1 khi  $x \\to \\infty$ .\r
 \r
@@ -5995,7 +6218,7 @@ Chúng ta đã thấy bốn loại đối tượng cơ bản trong xác suất: 
   <img src="imgs/img_in_image_box_148_939_1246_1511.jpg" alt="Bốn đối tượng cơ bản trong xác suất" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 3.12:** Bốn đối tượng cơ bản trong xác suất: phân phối (bản thiết kế), biến ngẫu nhiên, sự kiện và số. Từ một CDF  $F$  chúng ta có thể tạo ra một  $r.v$ .  $X$ . Từ  $X$ , chúng ta có thể tạo ra nhiều  $r.v.s$  khác bằng cách lấy hàm của  $X$ . Có nhiều sự kiện mô tả hành vi của  $X$ . Đặc biệt, với bất kỳ hằng số nào  $x$ , các sự kiện  $X \\leq x$  và  $X = x$  là quan trọng. Biết xác suất của các sự kiện này với mọi  $x$  sẽ cho chúng ta CDF và (trong trường hợp rời rạc) PMF, đưa chúng ta vòng quanh.\r
-</div>`,Bk=`## Phân phối trong R\r
+</div>`,Hk=`## Phân phối trong R\r
 \r
 Tất cả các phân phối có tên mà chúng ta sẽ gặp trong cuốn sách này đều đã được triển khai trong R. Trong phần này chúng ta sẽ giải thích cách làm việc với phân phối Binomial và Hypergeometric trong R. Chúng ta cũng sẽ giải thích chung cách tạo các biến ngẫu nhiên từ bất kỳ phân phối rời rạc nào có hỗ trợ hữu hạn. Nhập lệnh help(distributions) sẽ cho một danh sách hữu ích các phân phối được tích hợp sẵn; nhiều phân phối khác có thể được sử dụng thông qua các gói R có thể được tải vào.\r
 \r
@@ -6068,7 +6291,7 @@ Tiếp theo, chúng ta sử dụng mẫu. Đây là cách để lấy 100 mẫu 
 sample(x, 100, prob=p, replace=TRUE)\r
 \`\`\`\r
 \r
-Các đầu vào là vector x để lấy mẫu, kích thước mẫu (100 trong trường hợp này), xác suất p để sử dụng khi lấy mẫu từ x (nếu bị bỏ qua, xác suất được giả định bằng nhau), và việc lấy mẫu có thay thế hay không.`,Vk=`Các bài tập được đánh dấu với ☑ có giải chi tiết tại http://stat110.net.\r
+Các đầu vào là vector x để lấy mẫu, kích thước mẫu (100 trong trường hợp này), xác suất p để sử dụng khi lấy mẫu từ x (nếu bị bỏ qua, xác suất được giả định bằng nhau), và việc lấy mẫu có thay thế hay không.`,Uk=`Các bài tập được đánh dấu với ☑ có giải chi tiết tại http://stat110.net.\r
 \r
 ## PMF và CDF\r
 \r
@@ -6358,7 +6581,7 @@ Taylor & Francis Group\r
 \r
 http://taylorandfrancis.com\r
 \r
-Mong đợi`,Hk=`Trong chương trước, chúng ta đã giới thiệu phân phối của một biến ngẫu nhiên, cho chúng ta đầy đủ thông tin về xác suất mà biến ngẫu nhiên sẽ rơi vào bất kỳ tập nào. Ví dụ, chúng ta có thể nói được khả năng biến ngẫu nhiên sẽ vượt quá 1000, sẽ bằng 5, hoặc sẽ nằm trong khoảng [0, 7]. Tuy nhiên, việc quản lý nhiều xác suất như vậy có thể trở nên phức tạp, vì vậy thường chúng ta muốn chỉ cần một số duy nhất tóm tắt giá trị "trung bình" của biến ngẫu nhiên.\r
+Mong đợi`,Wk=`Trong chương trước, chúng ta đã giới thiệu phân phối của một biến ngẫu nhiên, cho chúng ta đầy đủ thông tin về xác suất mà biến ngẫu nhiên sẽ rơi vào bất kỳ tập nào. Ví dụ, chúng ta có thể nói được khả năng biến ngẫu nhiên sẽ vượt quá 1000, sẽ bằng 5, hoặc sẽ nằm trong khoảng [0, 7]. Tuy nhiên, việc quản lý nhiều xác suất như vậy có thể trở nên phức tạp, vì vậy thường chúng ta muốn chỉ cần một số duy nhất tóm tắt giá trị "trung bình" của biến ngẫu nhiên.\r
 \r
 Có nhiều cách sử dụng từ "trung bình", nhưng cách sử dụng phổ biến nhất là kỳ vọng của biến ngẫu nhiên, cũng được gọi là giá trị kỳ vọng. Ngoài ra, một phần lớn thống kê là về việc hiểu sự biến động trong thế giới, vì vậy thường rất quan trọng để biết được sự "rải rác" của phân phối là thế nào; chúng ta sẽ formal hóa điều này với các khái niệm phương sai và độ lệch chuẩn. Như chúng ta sẽ thấy, phương sai và độ lệch chuẩn được định nghĩa thông qua giá trị kỳ vọng, vì vậy việc sử dụng giá trị kỳ vọng không chỉ dừng lại ở việc tính toán trung bình mà còn đi xa hơn nữa.\r
 \r
@@ -6509,7 +6732,7 @@ Việc chú ý đến thứ tự của phép toán là rất quan trọng khi l�
 Đối với kỳ vọng của một biến ngẫu nhiên được nâng lên lũy thừa, đầu tiên chúng ta lấy lũy thừa rồi mới lấy kỳ vọng. Ví dụ,  $E(X - 1)^4$  là  $E\\left((X - 1)^4\\right)$ , không phải  $(E(X - 1))^4$ .\r
 \r
   </div>\r
-</div>`,Uk=`Tính chất quan trọng nhất của kỳ vọng là tính tuyến tính: kỳ vọng của tổng các biến ngẫu nhiên là tổng của các kỳ vọng riêng lẻ.\r
+</div>`,Gk=`Tính chất quan trọng nhất của kỳ vọng là tính tuyến tính: kỳ vọng của tổng các biến ngẫu nhiên là tổng của các kỳ vọng riêng lẻ.\r
 \r
 <div class="math-box theorem">\r
   <div class="math-box-header">\r
@@ -6714,7 +6937,7 @@ như mong muốn. Nếu  $E(X)=E(Y)$ , thì theo tính tuyến tính chúng ta c
 <div class="qed"><span class="qed-mark"></span></div>\r
 \r
   </div>\r
-</div>`,Wk=`Chúng ta nay giới thiệu hai phân phối rời rạc nổi tiếng hơn nữa, là phân phối Geometric và Negative Binomial, và tính toán các giá trị kỳ vọng của chúng.\r
+</div>`,Kk=`Chúng ta nay giới thiệu hai phân phối rời rạc nổi tiếng hơn nữa, là phân phối Geometric và Negative Binomial, và tính toán các giá trị kỳ vọng của chúng.\r
 \r
 <div class="math-box definition">\r
   <div class="math-box-header">\r
@@ -7103,10 +7326,7 @@ một sự tăng lên chỉ  $1$  so với tình huống trước đó. Vô cùn
 \r
   </div>\r
 </div>\r
-\r
-### 4.4 Biến ngẫu nhiên chỉ báo và cây cầu cơ bản\r
-\r
-Phần này dành cho biến ngẫu nhiên chỉ báo, mà chúng ta đã từng gặp trong chương trước nhưng sẽ xem xét kỹ hơn ở đây. Đặc biệt, chúng ta sẽ cho thấy rằng biến ngẫu nhiên chỉ báo là một công cụ rất hữu ích để tính giá trị kỳ vọng.\r
+`,qk=`Phần này dành cho biến ngẫu nhiên chỉ báo, mà chúng ta đã từng gặp trong chương trước nhưng sẽ xem xét kỹ hơn ở đây. Đặc biệt, chúng ta sẽ cho thấy rằng biến ngẫu nhiên chỉ báo là một công cụ rất hữu ích để tính giá trị kỳ vọng.\r
 \r
 Nhớ lại từ chương trước, biến ngẫu nhiên chỉ báo  $I_{A}$  (hoặc  $I(A)$ ) cho một sự kiện A được định nghĩa là 1 nếu A xảy ra và 0 nếu không. Do đó  $I_{A}$  là một biến ngẫu nhiên Bernoulli, nơi thành công được định nghĩa là “A xảy ra” và thất bại được định nghĩa là “A không xảy ra”. Một số tính chất hữu ích của biến ngẫu nhiên chỉ báo được tổng hợp dưới đây.\r
 \r
@@ -7127,29 +7347,70 @@ Cho A và B là các sự kiện. Khi đó các tính chất sau đúng.\r
   </div>\r
 </div>\r
 \r
+<div class="math-box proof">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+    <div class="math-box-title">Định lý 4.4.1</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
 Chứng minh. Tính chất 1 đúng vì  $0^k = 0$  và  $1^k = 1$  với mọi số nguyên dương  $k$ . Tính chất 2 đúng vì  $1 - I_A$  là 1 nếu A không xảy ra và 0 nếu A xảy ra. Tính chất 3 đúng vì  $I_A I_B$  là 1 nếu cả  $I_A$  và  $I_B$  đều là 1, và 0 nếu không. Tính chất 4 đúng vì\r
 \r
  \r
 \r
- $$I_{A\\cup B}=1-I_{A^{c}\\cap B^{c}}=1-I_{A^{c}}I_{B^{c}}=1-\\big(1-I_{A}\\big)\\big(1-I_{B}\\big)=I_{A}+I_{B}-I_{A}I_{B}.$$ \r
+ $$I_{A\\cup B}=1-I_{A^{c}\\cap B^{c}}=1-I_{A^{c}}I_{B^{c}}=1-\\big(1-I_{A}\\big)\\big(1-I_{B}\\big)=I_{A}+I_{B}-I_{A}I_{B}.$$\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
+  </div>\r
+</div> \r
 \r
  \r
 \r
 Biến ngẫu nhiên chỉ báo cung cấp một mối liên hệ giữa xác suất và kỳ vọng; chúng ta gọi điều này là cây cầu cơ bản.\r
 \r
-Định lý 4.4.2 (Cây cầu cơ bản giữa xác suất và kỳ vọng). Có một sự tương ứng một-một giữa các sự kiện và biến ngẫu nhiên chỉ báo, và xác suất của một sự kiện A là giá trị kỳ vọng của biến ngẫu nhiên chỉ báo của nó  $I_{A}$ :\r
+<div class="math-box theorem">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 4.4.2</div>\r
+    <div class="math-box-title">Cây cầu cơ bản giữa xác suất và kỳ vọng</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Có một sự tương ứng một-một giữa các sự kiện và biến ngẫu nhiên chỉ báo, và xác suất của một sự kiện A là giá trị kỳ vọng của biến ngẫu nhiên chỉ báo của nó  $I_{A}$ :\r
 \r
  \r
 \r
- $$P(A)=E(I_{A}).$$ \r
+ $$P(A)=E(I_{A}).$$\r
+\r
+  </div>\r
+</div> \r
 \r
  \r
 \r
-Chứng minh. Với bất kỳ sự kiện nào  $A$ , ta có một biến ngẫu nhiên chỉ báo  $I_A$ . Đây là sự tương ứng một-một vì  $A$  xác định duy nhất  $I_A$  và ngược lại (để lấy lại  $A$  từ  $I_A$ , ta có thể sử dụng việc  $A = \\{s \\in S : I_A(s) = 1\\}$ . Vì  $I_A \\sim \\mathrm{Bern}(p)$  với  $p = P(A)$ , ta có  $E(I_A) = P(A)$ .\r
+<div class="math-box proof">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+    <div class="math-box-title">Định lý 4.4.2</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Với bất kỳ sự kiện nào  $A$ , ta có một biến ngẫu nhiên chỉ báo  $I_A$ . Đây là sự tương ứng một-một vì  $A$  xác định duy nhất  $I_A$  và ngược lại (để lấy lại  $A$  từ  $I_A$ , ta có thể sử dụng việc  $A = \\{s \\in S : I_A(s) = 1\\}$ . Vì  $I_A \\sim \\mathrm{Bern}(p)$  với  $p = P(A)$ , ta có  $E(I_A) = P(A)$ .\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
+  </div>\r
+</div>\r
 \r
 Cây cầu cơ bản nối các sự kiện với biến ngẫu nhiên chỉ báo của chúng, và cho phép chúng ta biểu diễn bất kỳ xác suất nào dưới dạng kỳ vọng. Như một ví dụ, chúng ta đưa ra một chứng minh ngắn về nguyên lý bao hàm - loại trừ và một bất đẳng thức liên quan được gọi là bất đẳng thức Boole hoặc bất đẳng thức Bonferroni sử dụng biến ngẫu nhiên chỉ báo.\r
 \r
-Ví dụ 4.4.3 (Boole, Bonferroni, và inclusion-exclusion). Cho  $A_{1}, A_{2}, \\ldots, A_{n}$  là các sự kiện. Lưu ý rằng\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 4.4.3</div>\r
+    <div class="math-box-title">Boole, Bonferroni, và inclusion-exclusion</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Cho  $A_{1}, A_{2}, \\ldots, A_{n}$  là các sự kiện. Lưu ý rằng\r
 \r
  \r
 \r
@@ -7169,11 +7430,20 @@ vì nếu vế trái bằng 0 thì điều này là hiển nhiên, và nếu v�
 \r
  \r
 \r
- $$\\begin{align*}1-I(A_{1}\\cup\\cdots\\cup A_{n})&=I(A_{1}^{c}\\cap\\cdots\\cap A_{n}^{c})\\\\&=(1-I(A_{1}))\\cdots(1-I(A_{n}))\\\\&=1-\\sum_{i}I(A_{i})+\\sum_{i<j}I(A_{i})I(A_{j})-\\cdots+(-1)^{n}I(A_{1})\\cdots I(A_{n}).\\end{align*}$$ \r
+$$\r
+\\begin{align*}\r
+1-I(A_{1}\\cup\\cdots\\cup A_{n})&=I(A_{1}^{c}\\cap\\cdots\\cap A_{n}^{c})\\\\\r
+&=(1-I(A_{1}))\\cdots(1-I(A_{n}))\\\\\r
+&=1-\\sum_{i}I(A_{i})+\\sum_{i<j}I(A_{i})I(A_{j})-\\cdots+(-1)^{n}I(A_{1})\\cdots I(A_{n}).\r
+\\end{align*}\r
+$$\r
 \r
  \r
 \r
 Lấy kỳ vọng của cả hai vế, bằng cầu nối cơ bản chúng ta đã chứng minh được định lý inclusion-exclusion.\r
+\r
+  </div>\r
+</div>\r
 \r
 Ngược lại, cầu nối cơ bản cũng cực kỳ hữu ích trong nhiều bài toán liên quan đến giá trị kỳ vọng. Chúng ta thường có thể biểu diễn một biến ngẫu nhiên rời rạc phức tạp mà ta không biết phân phối như là tổng của các biến ngẫu nhiên chỉ báo, điều này rất đơn giản. Cầu nối cơ bản cho phép chúng ta tìm giá trị kỳ vọng của các chỉ báo; sau đó, sử dụng tính tuyến tính, chúng ta tìm được giá trị kỳ vọng của biến ngẫu nhiên ban đầu. Chiến lược này cực kỳ hữu ích và linh hoạt—thực tế, chúng ta đã sử dụng nó khi tìm giá trị kỳ vọng của các phân phối Binomial và Hypergeometric ở trước trong chương này!\r
 \r
@@ -7181,9 +7451,16 @@ Nhận biết các bài toán có thể áp dụng được chiến lược này
 \r
 Chúng ta sẽ bắt đầu bằng việc quay lại hai bài toán từ Chương 1, bài toán phù hợp của de Montmort và bài toán sinh nhật.\r
 \r
-Ví dụ 4.4.4 (Phù hợp tiếp theo). Chúng ta có một bộ bài được xáo trộn kỹ gồm n quân bài, được đánh số từ 1 đến n. Một quân bài được coi là phù hợp nếu vị trí của quân bài trong bộ bài trùng với số ghi trên quân bài. Gọi X là số lượng quân bài phù hợp; tìm  $E(X)$ .\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 4.4.4</div>\r
+    <div class="math-box-title">Phù hợp tiếp theo</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-## Giải pháp:\r
+Chúng ta có một bộ bài được xáo trộn kỹ gồm n quân bài, được đánh số từ 1 đến n. Một quân bài được coi là phù hợp nếu vị trí của quân bài trong bộ bài trùng với số ghi trên quân bài. Gọi X là số lượng quân bài phù hợp; tìm  $E(X)$ .\r
+\r
+**Giải**\r
 \r
 Đầu tiên, hãy kiểm tra xem X có thể có bất kỳ phân phối nào mà chúng ta đã học chưa. Chỉ có hai phân phối là Binomial và Hypergeometric là ứng viên vì giá trị của X phải là một số nguyên giữa 0 và n. Nhưng không phân phối nào trong hai phân phối này\r
 \r
@@ -7214,6 +7491,9 @@ với mọi j. Vì vậy theo tính tuyến tính,\r
  \r
 \r
 Số lượng kỳ vọng của các lá bài trùng khớp là 1, bất kể n. Dù các  $I_j$  phụ thuộc vào nhau theo một cách phức tạp khiến phân phối của X không phải là phân phối Nhị thức hay Hypergeometric, tính tuyến tính vẫn đúng.\r
+\r
+  </div>\r
+</div>\r
 \r
 <div class="math-box example">\r
   <div class="math-box-header">\r
@@ -7404,7 +7684,7 @@ $$\r
 chứng minh lại điều mà chúng ta đã biết về kỳ vọng của một biến ngẫu nhiên Geometric.\r
 \r
   </div>\r
-</div>`,Gk=`Như chúng ta đã thấy trong悖论 St. Petersburg,  $E(g(X))$  không bằng  $g(E(X))$  nói chung nếu g không tuyến tính. Vậy chúng ta làm thế nào để tính đúng  $E(g(X))$ ? Vì  $g(X)$  là một biến ngẫu nhiên, một cách là tìm phân phối của  $g(X)$  và sau đó sử dụng định nghĩa của kỳ vọng. Có thể bất ngờ là điều này có thể tìm  $E(g(X))$  trực tiếp bằng phân phối của X mà không cần phải tìm phân phối của  $g(X)$  trước. Điều này được thực hiện bằng định luật của người thống kê vô thức (LOTUS).\r
+</div>`,Jk=`Như chúng ta đã thấy trong St. Petersburg,  $E(g(X))$  không bằng  $g(E(X))$  nói chung nếu g không tuyến tính. Vậy chúng ta làm thế nào để tính đúng  $E(g(X))$ ? Vì  $g(X)$  là một biến ngẫu nhiên, một cách là tìm phân phối của  $g(X)$  và sau đó sử dụng định nghĩa của kỳ vọng. Có thể bất ngờ là điều này có thể tìm  $E(g(X))$  trực tiếp bằng phân phối của X mà không cần phải tìm phân phối của  $g(X)$  trước. Điều này được thực hiện bằng định luật của người thống kê vô thức (LOTUS).\r
 \r
 <div class="math-box theorem">\r
   <div class="math-box-header">\r
@@ -7453,7 +7733,7 @@ E(g(X))&=\\sum_{s}g(X(s))P(\\{s\\})\\\\\r
 \\end{aligned}\r
 $$\r
 \r
-Trong bước cuối cùng, ta đã sử dụng việc  $\\sum_{s:X(s)=x}P(\\{s\\})$  là trọng lượng của viên đá siêu  $X=x$ .`,Kk=`Một ứng dụng quan trọng của LOTUS là để tìm phương sai của một biến ngẫu nhiên. Giống như giá trị kỳ vọng, phương sai là một chỉ số đơn số phản ánh phân phối của một biến ngẫu nhiên. Trong khi giá trị kỳ vọng cho chúng ta biết trọng tâm của phân phối, phương sai cho chúng ta biết mức độ phân tán của phân phối.\r
+Trong bước cuối cùng, ta đã sử dụng việc  $\\sum_{s:X(s)=x}P(\\{s\\})$  là trọng lượng của viên đá siêu  $X=x$ .`,Yk=`Một ứng dụng quan trọng của LOTUS là để tìm phương sai của một biến ngẫu nhiên. Giống như giá trị kỳ vọng, phương sai là một chỉ số đơn số phản ánh phân phối của một biến ngẫu nhiên. Trong khi giá trị kỳ vọng cho chúng ta biết trọng tâm của phân phối, phương sai cho chúng ta biết mức độ phân tán của phân phối.\r
 \r
 <div class="math-box definition">\r
   <div class="math-box-header">\r
@@ -7654,7 +7934,7 @@ $$\r
 Bài tập 48 sử dụng chiến lược này để tìm phương sai của phân phối Hypergeometric.\r
 \r
   </div>\r
-</div>`,qk=`Phân phối cuối cùng rời rạc mà chúng ta sẽ giới thiệu trong chương này là phân phối Poisson, đây là một phân phối rất phổ biến để mô hình hóa dữ liệu rời rạc. Chúng ta sẽ giới thiệu hàm PMF, kỳ vọng và phương sai của nó, sau đó thảo luận về câu chuyện của phân phối này chi tiết hơn.\r
+</div>`,Xk=`Phân phối cuối cùng rời rạc mà chúng ta sẽ giới thiệu trong chương này là phân phối Poisson, đây là một phân phối rất phổ biến để mô hình hóa dữ liệu rời rạc. Chúng ta sẽ giới thiệu hàm PMF, kỳ vọng và phương sai của nó, sau đó thảo luận về câu chuyện của phân phối này chi tiết hơn.\r
 \r
 <div class="math-box definition">\r
   <div class="math-box-header">\r
@@ -7948,7 +8228,7 @@ Lệnh pbirthday(1600, classes = 8760, coincident=4) trong R cho thấy rằng �
 Một lời giải thích trực quan cho lý do tại sao Phương pháp 1 kém chính xác hơn là do có sự phụ thuộc lớn hơn trong các chỉ số của phương pháp đó. Ví dụ, biết rằng các sinh viên năm hai 1, 2, 3, 4 có cùng ngày sinh-giờ sinh sẽ làm tăng đáng kể khả năng các sinh viên năm hai 1, 2, 3, 5 có cùng ngày sinh-giờ sinh. Trong khi đó, biết rằng ít nhất 4 sinh viên năm hai sinh vào một ngày-giờ cụ thể sẽ cung cấp rất ít thông tin về việc có ít nhất 4 sinh viên năm hai sinh vào một ngày-giờ cụ thể khác hay không.\r
 \r
   </div>\r
-</div>`,Jk=`Phân phối Poisson và Binomial có mối liên hệ chặt chẽ, và mối quan hệ này chính xác song song với mối quan hệ giữa Binomial và Hypergeometric mà chúng ta đã xem xét trong chương trước: chúng ta có thể chuyển từ Poisson sang Binomial bằng cách điều kiện hóa, và có thể chuyển từ Binomial sang Poisson bằng cách lấy giới hạn.\r
+</div>`,Zk=`Phân phối Poisson và Binomial có mối liên hệ chặt chẽ, và mối quan hệ này chính xác song song với mối quan hệ giữa Binomial và Hypergeometric mà chúng ta đã xem xét trong chương trước: chúng ta có thể chuyển từ Poisson sang Binomial bằng cách điều kiện hóa, và có thể chuyển từ Binomial sang Poisson bằng cách lấy giới hạn.\r
 \r
 Kết quả của chúng ta sẽ dựa trên sự thật rằng tổng của các Poisson độc lập là Poisson, giống như tổng của các Binomial độc lập là Binomial. Chúng ta sẽ chứng minh kết quả này bằng quy tắc xác suất toàn phần. Trong chương 6, chúng ta sẽ học một phương pháp nhanh hơn sử dụng một công cụ gọi là hàm sinh momen. Chương 13 cho thêm cái nhìn sâu sắc hơn về các kết quả này.\r
 \r
@@ -8129,7 +8409,7 @@ $$\r
 điều này thực sự chính xác một cách đáng kinh ngạc.\r
 \r
   </div>\r
-</div>`,Yk=`Một sự thật kỳ diệu và đẹp đẽ là chúng ta có thể sử dụng xác suất và kỳ vọng để chứng minh sự tồn tại của các đối tượng có tính chất mà chúng ta quan tâm. Kỹ thuật này được gọi là phương pháp xác suất, và nó dựa trên hai ý tưởng đơn giản nhưng lại có sức mạnh đáng ngạc nhiên. Giả sử tôi muốn chứng minh rằng tồn tại một đối tượng trong một tập hợp có một tính chất nhất định. Mong muốn này dường như ban đầu không liên quan gì đến xác suất; tôi có thể đơn giản kiểm tra từng đối tượng trong tập hợp một cách tuần tự cho đến khi tìm được một đối tượng có tính chất mong muốn.\r
+</div>`,Qk=`Một sự thật kỳ diệu và đẹp đẽ là chúng ta có thể sử dụng xác suất và kỳ vọng để chứng minh sự tồn tại của các đối tượng có tính chất mà chúng ta quan tâm. Kỹ thuật này được gọi là phương pháp xác suất, và nó dựa trên hai ý tưởng đơn giản nhưng lại có sức mạnh đáng ngạc nhiên. Giả sử tôi muốn chứng minh rằng tồn tại một đối tượng trong một tập hợp có một tính chất nhất định. Mong muốn này dường như ban đầu không liên quan gì đến xác suất; tôi có thể đơn giản kiểm tra từng đối tượng trong tập hợp một cách tuần tự cho đến khi tìm được một đối tượng có tính chất mong muốn.\r
 \r
 Phương pháp xác suất từ chối việc kiểm tra tốn công này thay vào đó là chọn ngẫu nhiên: chiến lược của chúng ta là chọn một đối tượng ngẫu nhiên từ tập hợp và chứng minh rằng có xác suất dương cho đối tượng ngẫu nhiên này có tính chất mong muốn. Lưu ý rằng chúng ta không cần tính xác suất chính xác, mà chỉ cần chứng minh rằng nó lớn hơn 0. Nếu chúng ta có thể chứng minh rằng xác suất của tính chất này xảy ra là dương, thì chúng ta biết rằng tồn tại một đối tượng có tính chất đó—ngay cả khi chúng ta không biết cách xây dựng cụ thể một đối tượng như vậy.\r
 \r
@@ -8166,7 +8446,7 @@ $$\r
   </div>\r
 </div>\r
 \r
-### 4.9.1 *Giao tiếp qua một kênh ồn ào\r
+### 4.9.1 Giao tiếp qua một kênh ồn ào\r
 \r
 Một ứng dụng quan trọng khác của phương pháp xác suất là trong lý thuyết thông tin, lĩnh vực nghiên cứu (trong số những điều khác) cách đạt được giao tiếp đáng tin cậy qua một kênh ồn ào. Xét bài toán của việc cố gắng gửi một thông điệp khi có tiếng ồn. Vấn đề này được hàng triệu người gặp phải mỗi ngày, ví dụ như khi gọi điện thoại (bạn có thể bị hiểu nhầm). Giả sử thông điệp bạn muốn gửi được biểu diễn dưới dạng một vector nhị phân  $x \\in \\{0,1\\}^k$ , và bạn muốn sử dụng một mã để cải thiện khả năng thông điệp của bạn được truyền đi thành công.\r
 \r
@@ -8338,7 +8618,7 @@ Do đó, tồn tại một mã  $c$  sao cho  $P(F(c, X)) < \\epsilon/2$ , tức
   </div>\r
 </div>\r
 \r
-Cũng có một định lý ngược với định lý trên, cho thấy rằng nếu yêu cầu tốc độ ít nhất là  $1 - H(p) + \\epsilon$ , thì không thể tìm được các mã làm cho xác suất lỗi giảm bất kỳ khi nào. Chính vì vậy  $1 - H(p)$  được gọi là sức chứa của kênh. Shannon cũng đã đạt được các kết quả tương tự cho nhiều kênh tổng quát hơn nhiều. Những kết quả này cho thấy giới hạn lý thuyết về những gì có thể đạt được, mà không nói rõ các mã nào để sử dụng. Nhiều thập kỷ nghiên cứu tiếp theo đã dành cho việc phát triển các mã cụ thể hoạt động tốt trong thực tế, bằng cách tiến gần đến giới hạn Shannon và cho phép mã hóa và giải mã hiệu quả.`,Xk=`Kỳ vọng của một biến ngẫu nhiên rời rạc X là\r
+Cũng có một định lý ngược với định lý trên, cho thấy rằng nếu yêu cầu tốc độ ít nhất là  $1 - H(p) + \\epsilon$ , thì không thể tìm được các mã làm cho xác suất lỗi giảm bất kỳ khi nào. Chính vì vậy  $1 - H(p)$  được gọi là sức chứa của kênh. Shannon cũng đã đạt được các kết quả tương tự cho nhiều kênh tổng quát hơn nhiều. Những kết quả này cho thấy giới hạn lý thuyết về những gì có thể đạt được, mà không nói rõ các mã nào để sử dụng. Nhiều thập kỷ nghiên cứu tiếp theo đã dành cho việc phát triển các mã cụ thể hoạt động tốt trong thực tế, bằng cách tiến gần đến giới hạn Shannon và cho phép mã hóa và giải mã hiệu quả.`,$k=`Kỳ vọng của một biến ngẫu nhiên rời rạc X là\r
 \r
 $$\r
 E(X)=\\sum_{x}x P(X=x).\r
@@ -8410,7 +8690,7 @@ Hình 4.9 mở rộng hơn nữa hình tương ứng từ chương trước, kh�
   <img src="imgs/img_in_image_box_148_152_1247_779.jpg" alt="Bốn đối tượng cơ bản trong xác suất" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 4.9:** Bốn đối tượng cơ bản trong xác suất: phân phối, biến ngẫu nhiên, sự kiện, và số. Từ một biến ngẫu nhiên X, chúng ta có thể tạo ra nhiều biến ngẫu nhiên khác bằng cách lấy hàm của X, và chúng ta có thể sử dụng LOTUS để tìm giá trị kỳ vọng của chúng. Giá trị trung bình, phương sai, và độ lệch chuẩn của X thể hiện trung bình và mức độ phân tán của phân phối của X (đặc biệt, chúng chỉ phụ thuộc vào F, chứ không trực tiếp phụ thuộc vào X bản thân).\r
-</div>`,Zk=`## Hình học, Phân bố Nhị thức Âm và Poisson\r
+</div>`,eA=`## Hình học, Phân bố Nhị thức Âm và Poisson\r
 \r
 Ba hàm số cho phân bố Hình học trong R là dgeom, pgeom, và rgeom, tương ứng với PMF, CDF, và sinh ngẫu nhiên. Đối với dgeom và pgeom, chúng ta cần cung cấp các đầu vào sau: (1) giá trị tại đó để đánh giá PMF hoặc CDF, và (2) tham số p. Đối với rgeom, chúng ta cần nhập (1) số lượng biến ngẫu nhiên để sinh ra và (2) tham số p.\r
 \r
@@ -8459,7 +8739,7 @@ mean(r)\r
 365*(1-(364/365)^k)\r
 \`\`\`\r
 \r
-Khi chúng ta chạy mã, cả giá trị mô phỏng và giá trị lý thuyết đều cho chúng ta khoảng 19.5.`,Qk=`Các bài tập được đánh dấu với ☑ có giải chi tiết tại http://stat110.net.\r
+Khi chúng ta chạy mã, cả giá trị mô phỏng và giá trị lý thuyết đều cho chúng ta khoảng 19.5.`,tA=`Các bài tập được đánh dấu với ☑ có giải chi tiết tại http://stat110.net.\r
 \r
 ## Kỳ vọng và phương sai\r
 \r
@@ -9105,7 +9385,7 @@ Lời khuyên: Sử dụng Ví dụ 1.5.2 (về đội trưởng) và Bài tập
 \r
 ## Biến ngẫu nhiên liên tục\r
 \r
-Cho đến nay chúng ta đã làm việc với các biến ngẫu nhiên rời rạc, những giá trị có thể xảy ra của chúng có thể được liệt kê. Trong chương này chúng ta sẽ thảo luận về các biến ngẫu nhiên liên tục (r.v.s), những biến có thể nhận bất kỳ giá trị thực nào trong một khoảng (có thể là khoảng có độ dài vô hạn, như  $(0,\\infty)$  hoặc toàn bộ đường thẳng thực). Trước tiên chúng ta sẽ xem xét các tính chất chung của các biến ngẫu nhiên liên tục. Sau đó chúng ta sẽ giới thiệu ba phân phối liên tục nổi tiếng—Đều, Chuẩn, và Phân phối Expo—ngoài việc có những câu chuyện quan trọng của riêng mình, chúng còn là các khối xây dựng cho nhiều phân phối liên tục hữu ích khác.`,$k=`<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
+Cho đến nay chúng ta đã làm việc với các biến ngẫu nhiên rời rạc, những giá trị có thể xảy ra của chúng có thể được liệt kê. Trong chương này chúng ta sẽ thảo luận về các biến ngẫu nhiên liên tục (r.v.s), những biến có thể nhận bất kỳ giá trị thực nào trong một khoảng (có thể là khoảng có độ dài vô hạn, như  $(0,\\infty)$  hoặc toàn bộ đường thẳng thực). Trước tiên chúng ta sẽ xem xét các tính chất chung của các biến ngẫu nhiên liên tục. Sau đó chúng ta sẽ giới thiệu ba phân phối liên tục nổi tiếng—Đều, Chuẩn, và Phân phối Expo—ngoài việc có những câu chuyện quan trọng của riêng mình, chúng còn là các khối xây dựng cho nhiều phân phối liên tục hữu ích khác.`,nA=`<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
   <div style="flex: 1; text-align: center;">\r
     <img src="imgs/img_in_chart_box_197_1024_680_1478.jpg" alt="CDF của biến rời rạc" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
   </div>\r
@@ -9120,11 +9400,10 @@ Cho đến nay chúng ta đã làm việc với các biến ngẫu nhiên rời 
 Nhớ rằng đối với một biến ngẫu nhiên rời rạc, hàm phân phối tích lũy (CDF) có những bước nhảy tại mỗi điểm trong miền hỗ trợ, và là phẳng ở nơi khác. Trái ngược với đó, đối với một biến ngẫu nhiên liên tục, hàm phân phối tích lũy tăng một cách mượt mà; xem Hình 5.1 để so sánh giữa CDF rời rạc và liên tục.\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.1.1</span>\r
-<span class="math-box-title">(Biến ngẫu nhiên liên tục)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.1.1</div>
+    <div class="math-box-title">Biến ngẫu nhiên liên tục</div>
+  </div>\r
 <div class="math-box-content">\r
 Một biến ngẫu nhiên có phân phối liên tục nếu CDF khác biệt được. Chúng ta cũng cho phép có các điểm cuối (hoặc hữu hạn các điểm) mà ở đó CDF liên tục nhưng không khác biệt được, miễn là CDF khác biệt được ở mọi nơi khác. Một biến ngẫu nhiên liên tục là biến ngẫu nhiên có phân phối liên tục.\r
 </div>\r
@@ -9133,11 +9412,10 @@ Một biến ngẫu nhiên có phân phối liên tục nếu CDF khác biệt �
 Với các biến ngẫu nhiên rời rạc, CDF khó khăn để làm việc vì tính nhảy của nó, và đạo hàm của nó gần như vô dụng vì nó không xác định tại các nhảy và bằng 0 ở nơi khác. Nhưng với các biến ngẫu nhiên liên tục, CDF thường thuận tiện để làm việc, và đạo hàm của nó là một hàm số rất hữu ích, gọi là hàm mật độ xác suất.\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.1.2</span>\r
-<span class="math-box-title">(Hàm mật độ xác suất)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.1.2</div>
+    <div class="math-box-title">Hàm mật độ xác suất</div>
+  </div>\r
 <div class="math-box-content">\r
 Đối với một biến ngẫu nhiên liên tục X với CDF F, hàm mật độ xác suất (PDF) của X là đạo hàm f của CDF, được cho bởi $f(x) = F'(x)$. Tập hỗ trợ của X, và của phân phối của nó, là tập hợp tất cả các x mà $f(x) > 0$.\r
 </div>\r
@@ -9148,11 +9426,10 @@ Một cách quan trọng mà các biến ngẫu nhiên liên tục khác với c
 PDF tương tự như PMF theo nhiều cách, nhưng có một sự khác biệt quan trọng: đối với một PDF f, lượng  $f(x)$  không phải là xác suất, và thực tế có thể có  $f(x) > 1$  cho một số giá trị của x. Để có được một xác suất, chúng ta cần tích phân PDF. Định lý cơ bản của giải tích cho chúng ta biết cách lấy lại CDF từ PDF.\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.1.3</span>\r
-<span class="math-box-title">(PDF sang CDF)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.1.3</div>
+    <div class="math-box-title">PDF sang CDF</div>
+  </div>\r
 <div class="math-box-content">\r
 Giả sử X là một biến ngẫu nhiên liên tục với PDF f. Khi đó CDF của X được cho bởi\r
 \r
@@ -9164,9 +9441,9 @@ $$\r
 </div>\r
 \r
 <div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+  </div>\r
 <div class="math-box-content">\r
 Theo định nghĩa của PDF, F là một nguyên hàm của f. Do đó theo định lý cơ bản của giải tích,\r
 \r
@@ -9187,11 +9464,10 @@ P(a<X<b)=P(a<X\\leq b)=P(a\\leq X<b)=P(a\\leq X\\leq b).\r
 $$\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">5.1.4</span>\r
-<span class="math-box-title">(Bao gồm hay không bao gồm các điểm cuối)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 5.1.4</div>
+    <div class="math-box-title">Bao gồm hay không bao gồm các điểm cuối</div>
+  </div>\r
 <div class="math-box-content">\r
 Chúng ta có thể thoải mái về việc bao gồm hay không bao gồm các điểm cuối như trên đối với các biến ngẫu nhiên liên tục, nhưng chúng ta không nên lơ là về điều này đối với các biến ngẫu nhiên rời rạc.\r
 </div>\r
@@ -9216,11 +9492,10 @@ Tóm lại:\r
 Tương tự như một PMF hợp lệ phải không âm và tổng bằng 1, một PDF hợp lệ phải không âm và tích phân bằng 1.\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.1.5</span>\r
-<span class="math-box-title">(PDF hợp lệ)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.1.5</div>
+    <div class="math-box-title">PDF hợp lệ</div>
+  </div>\r
 <div class="math-box-content">\r
 Hàm mật độ xác suất f của một biến ngẫu nhiên liên tục phải thỏa mãn hai điều kiện sau:\r
 \r
@@ -9230,9 +9505,9 @@ Hàm mật độ xác suất f của một biến ngẫu nhiên liên tục ph�
 </div>\r
 \r
 <div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+  </div>\r
 <div class="math-box-content">\r
 Điều kiện đầu tiên đúng vì xác suất không âm; nếu $f(x_0)$ âm, thì chúng ta có thể tích phân trên một miền nhỏ xung quanh $x_0$ và nhận được một xác suất âm. Thay thế, lưu ý rằng mật độ xác suất tại $x_0$ là độ dốc của hàm phân phối tích lũy tại $x_0$, do đó $f(x_0) < 0$ sẽ cho thấy rằng hàm phân phối tích lũy đang giảm tại $x_0$, điều này không được phép. Điều kiện thứ hai đúng vì $\\int_{-\\infty}^{\\infty} f(x) dx$ là xác suất của X rơi vào đâu đó trên trục số thực, điều này bằng 1.\r
 \r
@@ -9245,11 +9520,10 @@ Ngược lại, bất kỳ hàm nào f nào thỏa mãn các tính chất này l
 Bây giờ hãy xem xét một số ví dụ cụ thể về PDF. Hai phân phối trong các ví dụ sau được gọi là phân phối Logistic và Rayleigh, nhưng chúng ta sẽ không thảo luận về các câu chuyện của chúng ở đây; sự xuất hiện của chúng chủ yếu nhằm mục đích giúp quen thuộc với PDFs.\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.1.6</span>\r
-<span class="math-box-title">(Logistic)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 5.1.6</div>
+    <div class="math-box-title">Logistic</div>
+  </div>\r
 <div class="math-box-content">\r
 Phân phối Logistic có hàm phân phối tích lũy\r
 \r
@@ -9292,11 +9566,10 @@ Hình 5.2 cho thấy PDF (trái) và CDF (phải) của Logistic. Trên PDF, xá
 </div>\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.1.7</span>\r
-<span class="math-box-title">(Rayleigh)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 5.1.7</div>
+    <div class="math-box-title">Rayleigh</div>
+  </div>\r
 <div class="math-box-content">\r
 Phân phối Rayleigh có CDF\r
 \r
@@ -9357,11 +9630,10 @@ Khoảng cách, thời gian, diện tích, hoặc khối lượng. Việc suy ng
 Giả sử để cụ thể hơn rằng  $X$  là một độ dài, được đo bằng xentimét (cm). Khi đó  $f(x) = dF(x)/dx$  là xác suất cho mỗi cm tại  $x$ , điều này giải thích tại sao  $f(x)$  là mật độ xác suất. Xác suất là một đại lượng vô lượng (một số không có đơn vị vật lý), vì vậy các đơn vị của  $f(x)$  là  $cm^{-1}$ . Do đó, để có thể lấy lại một xác suất, chúng ta cần nhân  $f(x)$  với một độ dài. Khi chúng ta thực hiện một tích phân như  $\\int_{0}^{5} f(x) dx$ , điều này được thực hiện thông qua việc thường bị quên lãng  $dx$ .\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Suy nghĩ</span>\r
-<span class="math-box-number">5.1.9</span>\r
-<span class="math-box-title">(Mô phỏng)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Suy nghĩ 5.1.9</div>
+    <div class="math-box-title">Mô phỏng</div>
+  </div>\r
 <div class="math-box-content">\r
 Đối với một cách khác để suy nghĩ về mật độ xác suất (PDF), hãy xem xét cách mô phỏng sau đây dựa trên việc nhìn vào đồ thị của PDF. Để tạo ra X, chọn một điểm ngẫu nhiên đều dưới đường cong PDF; điều này có nghĩa là xác suất của bất kỳ vùng nào dưới đường cong là diện tích của vùng đó. Sau đó để X là tọa độ x của điểm ngẫu nhiên. Điều này được minh họa trong Hình 5.4.\r
 </div>\r
@@ -9380,11 +9652,10 @@ Khi đó X có phân phối mong muốn vì, theo cách xây dựng,  $P(a \\leq
 Định nghĩa của kỳ vọng cho biến ngẫu nhiên liên tục là tương tự như định nghĩa cho biến ngẫu nhiên rời rạc: thay tổng bằng tích phân và thay hàm xác suất rời rạc bằng hàm mật độ xác suất.\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.1.10</span>\r
-<span class="math-box-title">(Kỳ vọng của một biến ngẫu nhiên liên tục)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.1.10</div>
+    <div class="math-box-title">Kỳ vọng của một biến ngẫu nhiên liên tục</div>
+  </div>\r
 <div class="math-box-content">\r
 Giá trị kỳ vọng (cũng được gọi là kỳ vọng hoặc trung bình) của một biến ngẫu nhiên liên tục X với hàm mật độ xác suất f là\r
 \r
@@ -9411,11 +9682,10 @@ Với định nghĩa này, giá trị kỳ vọng vẫn giữ nguyên ý nghĩa 
 Tính tuyến tính của kỳ vọng vẫn đúng cho biến ngẫu nhiên liên tục, giống như trường hợp biến ngẫu nhiên rời rạc (chúng ta sẽ chứng minh điều này sau trong Ví dụ 7.2.4). Định lý LOTUS cũng đúng cho biến ngẫu nhiên liên tục, thay tổng bằng tích phân và thay hàm xác suất rời rạc bằng hàm mật độ xác suất:\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.1.11</span>\r
-<span class="math-box-title">(LOTUS, liên tục)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.1.11</div>
+    <div class="math-box-title">LOTUS, liên tục</div>
+  </div>\r
 <div class="math-box-content">\r
 Nếu X là một biến ngẫu nhiên liên tục với hàm mật độ xác suất f và g là một hàm từ R đến R, thì\r
 \r
@@ -9426,14 +9696,13 @@ $$\r
 </div>\r
 </div>\r
 \r
-Chúng ta giờ đã có tất cả các công cụ cần thiết để xử lý các phân phối được đề cập trong chương này, bắt đầu với phân phối đều.`,eA=`Trực giác, một biến ngẫu nhiên đều trên khoảng  $(a,b)$  là một số hoàn toàn ngẫu nhiên giữa a và b. Chúng ta formal hóa khái niệm "hoàn toàn ngẫu nhiên" trên một khoảng bằng cách chỉ định rằng hàm mật độ xác suất nên là hằng số trên khoảng đó.\r
+Chúng ta giờ đã có tất cả các công cụ cần thiết để xử lý các phân phối được đề cập trong chương này, bắt đầu với phân phối đều.`,rA=`Trực giác, một biến ngẫu nhiên đều trên khoảng  $(a,b)$  là một số hoàn toàn ngẫu nhiên giữa a và b. Chúng ta formal hóa khái niệm "hoàn toàn ngẫu nhiên" trên một khoảng bằng cách chỉ định rằng hàm mật độ xác suất nên là hằng số trên khoảng đó.\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.2.1</span>\r
-<span class="math-box-title">(Phân phối đều)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.2.1</div>
+    <div class="math-box-title">Phân phối đều</div>
+  </div>\r
 <div class="math-box-content">\r
 Một biến ngẫu nhiên liên tục U được gọi là có phân phối đều trên khoảng $(a, b)$ nếu hàm mật độ xác suất của nó là\r
 \r
@@ -9448,7 +9717,7 @@ Chúng ta ký hiệu điều này bằng $U \\sim \\text{Unif}(a, b)$.\r
 Đây là một hàm mật độ xác suất hợp lệ vì diện tích dưới đường cong chỉ là diện tích của một hình chữ nhật với chiều rộng b - a và chiều cao  $1/(b - a)$ . Hàm phân phối tích lũy là diện tích tích lũy dưới hàm mật độ xác suất:\r
 \r
 $$\r
-F(x)=\\left\\{\\begin{array}{ll}0&\\text{nếu }x\\leq a,\\\\ \\frac{x-a}{b-a}&\\text{nếu }a<x<b,\\\\ 1&\\text{nếu }x\\geq b.\\end{temp}\\right.\r
+F(x)=\\left\\{\\begin{array}{ll}0&\\text{nếu }x\\leq a,\\\\ \\frac{x-a}{b-a}&\\text{nếu }a<x<b,\\\\ 1&\\text{nếu }x\\geq b.\\end{array}\\right.\r
 $$\r
 \r
 Phân phối đều mà chúng ta sẽ sử dụng thường xuyên nhất là phân phối Unif(0, 1), cũng được gọi là phân phối đều chuẩn. Hàm mật độ xác suất và hàm phân phối tích lũy của Unif(0, 1) đặc biệt đơn giản:  $f(x) = 1$  và  $F(x) = x$  cho 0 < x < 1. Hình 5.6 cho thấy hàm mật độ xác suất và hàm phân phối tích lũy của Unif(0, 1) bên cạnh nhau.\r
@@ -9458,10 +9727,9 @@ Với một phân phối Unif(a, b) tổng quát, hàm mật độ xác suất l
 Với các phân phối đều, xác suất tỷ lệ với độ dài.\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.2.2</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.2.2</div>
+  </div>\r
 <div class="math-box-content">\r
 Cho $U \\sim \\text{Unif}(a, b)$, và cho $(c, d)$ là một khoảng con của $(a, b)$, có độ dài $l$ (vậy $l = d - c$). Khi đó xác suất của $U$ nằm trong khoảng $(c, d)$ tỷ lệ với $l$. Ví dụ, một khoảng con dài gấp đôi có xác suất chứa $U$ gấp đôi, và một khoảng con có cùng độ dài có xác suất chứa $U$ giống nhau.\r
 </div>\r
@@ -9479,9 +9747,9 @@ Cho $U \\sim \\text{Unif}(a, b)$, và cho $(c, d)$ là một khoảng con của 
   <strong>HÌNH 5.6:</strong> Phân phối xác suất (PDF) và hàm phân phối tích lũy (CDF) của Unif(0, 1).\r
 </div>\r
 <div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+  </div>\r
 <div class="math-box-content">\r
 Vì phân phối xác suất của $U$ là hằng số $\\frac{1}{b-a}$ trên khoảng $(a,b)$, diện tích dưới đường PDF từ $c$ đến $d$ là $\\frac{l}{b-a}$, điều này là một hằng số nhân với $l$.\r
 \r
@@ -9492,19 +9760,18 @@ Vì phân phối xác suất của $U$ là hằng số $\\frac{1}{b-a}$ trên kh
 Tính chất trên là một tính chất đặc biệt của phân phối đều; đối với bất kỳ phân phối nào khác, đều tồn tại các khoảng có cùng độ dài nhưng có xác suất khác nhau. Ngay cả sau khi điều kiện hóa trên một biến ngẫu nhiên đều  $U$  nằm trong một khoảng con nhất định, ta vẫn có phân phối đều và do đó vẫn có xác suất tỷ lệ với độ dài (trong khoảng con đó); chúng ta sẽ chứng minh điều này dưới đây.\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.2.3</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.2.3</div>
+  </div>\r
 <div class="math-box-content">\r
 Giả sử $U \\sim \\text{Unif}(a,b)$, và $(c,d)$ là một khoảng con của $(a,b)$. Khi đó, phân phối điều kiện của $U$ cho $U \\in (c,d)$ là $\\text{Unif}(c,d)$.\r
 </div>\r
 </div>\r
 \r
 <div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+  </div>\r
 <div class="math-box-content">\r
 Với $u$ trong $(c,d)$, hàm phân phối tích lũy điều kiện tại $u$ là\r
 \r
@@ -9519,10 +9786,9 @@ Hàm phân phối tích lũy điều kiện bằng 0 với $u \\leq c$ và bằn
 </div>\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.2.4</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 5.2.4</div>
+  </div>\r
 <div class="math-box-content">\r
 Hãy minh họa các định lý trên cho $U \\sim \\text{Unif}(0,1)$. Trong trường hợp đặc biệt này, độ dài miền xác định là 1, do đó xác suất bằng độ dài: xác suất của $U$ rơi vào khoảng $(0,0.3)$ là 0.3, cũng như xác suất rơi vào khoảng $(0.3,0.6)$, $(0.4,0.7)$, hoặc bất kỳ khoảng nào có độ dài 0.3 nào trong $(0,1)$.\r
 \r
@@ -9557,21 +9823,19 @@ $$\r
 Sự chứng minh trên không quá đau đầu, nhưng có một con đường dễ hơn, sử dụng một kỹ thuật thường hữu ích cho phân phối liên tục. Kỹ thuật này được gọi là biến đổi location-scale, và nó dựa trên quan sát rằng dịch chuyển và thay đổi tỷ lệ một biến ngẫu nhiên Uniform sẽ tạo ra một biến ngẫu nhiên Uniform khác. Dịch chuyển được coi là thay đổi vị trí và thay đổi tỷ lệ là thay đổi tỷ lệ, do đó thuật ngữ location-scale. Ví dụ, nếu X là Uniform trên khoảng  $(1,2)$ , thì  $X + 5$  là Uniform trên khoảng  $(6,7)$ ,  $2X$  là Uniform trên khoảng  $(2,4)$ , và  $2X + 5$  là Uniform trên  $(7,9)$ .\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.2.5</span>\r
-<span class="math-box-title">(Biến đổi location-scale)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.2.5</div>
+    <div class="math-box-title">Biến đổi location-scale</div>
+  </div>\r
 <div class="math-box-content">\r
 Giả sử X là một biến ngẫu nhiên và $Y = \\sigma X + \\mu$, trong đó $\\sigma$ và $\\mu$ là các hằng số với $\\sigma > 0$. Khi đó ta nói rằng Y đã được tạo ra bằng biến đổi location-scale của X. Tại đây $\\mu$ kiểm soát cách thay đổi vị trí và $\\sigma$ kiểm soát cách thay đổi tỷ lệ.\r
 </div>\r
 </div>\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">5.2.6</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 5.2.6</div>
+  </div>\r
 <div class="math-box-content">\r
 Trong một biến đổi location-scale, bắt đầu với $X \\sim \\text{Unif}(a, b)$ và biến đổi nó thành $Y = cX + d$ với c và d là các hằng số với c > 0, Y là một hàm tuyến tính của X và tính Uniform được bảo toàn: $Y \\sim \\text{Unif}(ca + d, cb + d)$. Nhưng nếu Y được định nghĩa là một biến đổi phi tuyến của X, thì Y nói chung sẽ không phải là Uniform. Ví dụ, với $X \\sim \\text{Unif}(a, b)$ với $0 \\leq a < b$, biến ngẫu nhiên được biến đổi $Y = X^2$ có khoảng hỗ trợ $(a^2, b^2)$ nhưng không phải là Uniform trên khoảng đó. Chương 8 sẽ khám phá các biến đổi của biến ngẫu nhiên một cách chi tiết.\r
 </div>\r
@@ -9618,23 +9882,21 @@ $$\r
 Kỹ thuật biến đổi địa điểm-tỷ lệ sẽ hoạt động cho bất kỳ họ phân phối nào mà việc dịch chuyển và tỷ lệ một biến ngẫu nhiên có phân phối trong họ sẽ tạo ra một biến ngẫu nhiên có phân phối trong họ. Kỹ thuật này không áp dụng cho các họ phân phối rời rạc (có khoảng hỗ trợ cố định) vì ví dụ, việc dịch chuyển hoặc tỷ lệ  $X \\sim \\text{Bin}(n, p)$  sẽ thay đổi khoảng hỗ trợ và tạo ra một biến ngẫu nhiên không còn phân phối nhị thức. Một biến ngẫu nhiên nhị thức phải có thể nhận tất cả các giá trị nguyên giữa 0 và một giới hạn trên nào đó, nhưng  $X + 4$  không thể nhận bất kỳ giá trị nào trong  $\\{0, 1, 2, 3\\}$  và 2X chỉ nhận các giá trị chẵn, vì vậy không biến ngẫu nhiên nào trong hai trường hợp này có phân phối nhị thức.\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Cảnh giác với phép thuật đồng cảm</span>\r
-<span class="math-box-number">5.2.7</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Cảnh giác với phép thuật đồng cảm 5.2.7</div>
+  </div>\r
 <div class="math-box-content">\r
 Khi sử dụng biến đổi địa điểm-tỷ lệ, việc dịch chuyển và tỷ lệ nên được áp dụng cho các biến ngẫu nhiên, không phải cho PDF của chúng. Việc nhầm lẫn hai điều này là một ví dụ về phép thuật đồng cảm (xem 3.7.7), và sẽ dẫn đến các PDF không hợp lệ. Ví dụ, giả sử $U \\sim \\text{Unif}(0,1)$, do đó PDF $f$ có $f(x) = 1$ trên $(0,1)$ (và $f(x) = 0$ ở nơi khác). Sau đó $3U + 1 \\sim \\text{Unif}(1,4)$, nhưng $3f + 1$ là hàm số bằng 4 trên $(0,1)$ và 1 ở nơi khác, điều này không phải là một PDF hợp lệ vì nó không tích phân được 1.\r
 </div>\r
-</div>`,tA=`Trong phần này, chúng ta sẽ thảo luận một tính chất đáng kinh ngạc của Phân phối Đều: cho trước một biến ngẫu nhiên  $\\text{Unif}(0,1)$ , chúng ta có thể xây dựng một biến ngẫu nhiên có bất kỳ phân phối liên tục nào mà chúng ta muốn. Ngược lại, cho một biến ngẫu nhiên có phân phối liên tục bất kỳ, chúng ta cũng có thể tạo ra một  $\\text{Unif}(0,1)$ . Chúng ta gọi đây là tính phổ biến của Phân phối Đều, vì nó cho thấy Phân phối Đều là một điểm bắt đầu phổ biến để xây dựng các biến ngẫu nhiên có phân phối khác. Tính phổ biến của Phân phối Đều còn được gọi bằng nhiều cái tên khác nhau, như phép biến đổi tích phân xác suất, lấy mẫu biến đổi ngược, phép biến đổi phân vị, và thậm chí là định lý cơ bản của mô phỏng.\r
+</div>`,iA=`Trong phần này, chúng ta sẽ thảo luận một tính chất đáng kinh ngạc của Phân phối Đều: cho trước một biến ngẫu nhiên  $\\text{Unif}(0,1)$ , chúng ta có thể xây dựng một biến ngẫu nhiên có bất kỳ phân phối liên tục nào mà chúng ta muốn. Ngược lại, cho một biến ngẫu nhiên có phân phối liên tục bất kỳ, chúng ta cũng có thể tạo ra một  $\\text{Unif}(0,1)$ . Chúng ta gọi đây là tính phổ biến của Phân phối Đều, vì nó cho thấy Phân phối Đều là một điểm bắt đầu phổ biến để xây dựng các biến ngẫu nhiên có phân phối khác. Tính phổ biến của Phân phối Đều còn được gọi bằng nhiều cái tên khác nhau, như phép biến đổi tích phân xác suất, lấy mẫu biến đổi ngược, phép biến đổi phân vị, và thậm chí là định lý cơ bản của mô phỏng.\r
 \r
 Để giữ cho các chứng minh đơn giản, chúng ta sẽ phát biểu tính phổ biến của Phân phối Đều cho trường hợp mà ta biết hàm ngược của hàm phân phối tích lũy (CDF) tồn tại. Các ý tưởng tương tự có thể được sử dụng để mô phỏng một lần rút ngẫu nhiên từ bất kỳ CDF nào mong muốn như một hàm của một  $\\text{Unif}(0,1)$ .\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.3.1</span>\r
-<span class="math-box-title">(Tính phổ biến của Phân phối Đều)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.3.1</div>
+    <div class="math-box-title">Tính phổ biến của Phân phối Đều</div>
+  </div>\r
 <div class="math-box-content">\r
 Gọi $F$ là một hàm phân phối tích lũy (CDF) là một hàm liên tục và tăng nghiêm ngặt trên miền hỗ trợ của phân phối. Điều này đảm bảo rằng hàm ngược $F^{-1}$ tồn tại, như một hàm từ $(0,1)$ đến $\\mathbb{R}$. Chúng ta có các kết quả sau.\r
 \r
@@ -9648,10 +9910,9 @@ Hãy đảm bảo rằng chúng ta hiểu rõ phần nào của định lý đan
 Phần thứ hai của định lý đi theo hướng ngược lại, bắt đầu từ một biến ngẫu nhiên X có CDF là F và sau đó tạo ra một $\\text{Unif}(0,1)$ biến ngẫu nhiên. Lại một lần nữa, F là một hàm, X là một biến ngẫu nhiên, và một hàm của một biến ngẫu nhiên là một biến ngẫu nhiên, do đó $F(X)$ là một biến ngẫu nhiên. Vì bất kỳ CDF nào cũng nằm giữa 0 và 1 ở mọi nơi, $F(X)$ phải nhận giá trị giữa 0 và 1. Tính phổ biến của Phân phối Đều nói rằng phân phối của $F(X)$ là đều trên $(0,1)$.\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">5.3.2</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 5.3.2</div>
+  </div>\r
 <div class="math-box-content">\r
 Phần thứ hai của tính phổ biến của Phân phối Đều liên quan đến việc đưa một biến ngẫu nhiên X vào chính CDF của nó F. Điều này có thể dường như tự tham chiếu một cách kỳ lạ, nhưng nó hợp lý vì F chỉ là một hàm (thỏa mãn các tính chất của một CDF hợp lệ), và một hàm của một biến ngẫu nhiên là một biến ngẫu nhiên. Tuy nhiên, có một sự nhầm lẫn về ký hiệu tiềm năng: $F(x) = P(X \\leq x)$ theo định nghĩa, nhưng nói rằng “$F(X) = P(X \\leq X) = 1$” là sai. Thay vào đó, ta nên trước tiên tìm biểu thức cho CDF dưới dạng một hàm của x, sau đó thay x bằng X để nhận được một biến ngẫu nhiên. Ví dụ, nếu CDF của X là $F(x) = 1 - e^{-x}$ với x > 0, thì $F(X) = 1 - e^{-X}$.\r
 </div>\r
@@ -9660,9 +9921,9 @@ Phần thứ hai của tính phổ biến của Phân phối Đều liên quan �
 Hiểu được phát biểu của định lý là phần khó; chứng minh chỉ là vài dòng cho mỗi hướng.\r
 \r
 <div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+  </div>\r
 <div class="math-box-content">\r
 1. Gọi $U \\sim \\text{Unif}(0,1)$ và $X = F^{-1}(U)$. Với mọi số thực $x$,\r
 \r
@@ -9687,11 +9948,10 @@ Do đó Y có CDF Unif(0,1).\r
 Để có thêm cái nhìn sâu sắc về hàm phân vị  $F^{-1}$  và tính phổ quát của Uniform, hãy xem xét một ví dụ quen thuộc với hàng triệu học sinh: phân vị trên một bài thi.\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.3.3</span>\r
-<span class="math-box-title">(Phân vị)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 5.3.3</div>
+    <div class="math-box-title">Phân vị</div>
+  </div>\r
 <div class="math-box-content">\r
 Một số lượng lớn học sinh làm một bài thi, được chấm theo thang điểm từ 0 đến 100. Gọi X là điểm số của một học sinh ngẫu nhiên. Phân phối liên tục dễ xử lý hơn ở đây, nên hãy xấp xỉ phân phối rời rạc của điểm số bằng một phân phối liên tục. Giả sử rằng X liên tục, có một CDF F mà tăng nghiêm ngặt trên $(0, 100)$. Trên thực tế, chỉ có hữu hạn học sinh và chỉ có hữu hạn điểm số có thể, nhưng một phân phối liên tục có thể là một xấp xỉ tốt.\r
 \r
@@ -9708,11 +9968,10 @@ Về mặt khác, phân bố của các percentile của sinh viên là đều: 
 Để minh họa tính phổ quát của Uniform, chúng ta sẽ áp dụng nó cho hai phân bố mà chúng ta đã gặp trong phần trước, đó là Logistic và Rayleigh.\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.3.4</span>\r
-<span class="math-box-title">(Phổ quát với Logistic)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 5.3.4</div>
+    <div class="math-box-title">Phổ quát với Logistic</div>
+  </div>\r
 <div class="math-box-content">\r
 Hàm phân phối tích lũy (CDF) của Logistic là\r
 \r
@@ -9761,11 +10020,10 @@ F(X)=\\frac{e^{X}}{1+e^{X}}\\sim \\text{Unif}(0,1).\r
 $$\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.3.5</span>\r
-<span class="math-box-title">(Tính phổ quát với Rayleigh)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 5.3.5</div>
+    <div class="math-box-title">Tính phổ quát với Rayleigh</div>
+  </div>\r
 <div class="math-box-content">\r
 Hàm phân phối tích lũy (CDF) của Rayleigh là\r
 \r
@@ -9818,10 +10076,9 @@ Cách làm tương tự sẽ hiệu quả cho một r.v. rời rạc có thể n
 Chúng ta giờ biết cách tạo ra một r.v. với một PMF tùy ý. Điều này đáp ứng lời hứa trong Chương 3 rằng bất kỳ hàm nào có các tính chất được nêu trong Định lý 3.2.7 đều là PMF của một r.v. nào đó.\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">5.3.6</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 5.3.6</div>
+  </div>\r
 <div class="math-box-content">\r
 Phía sau của tính phổ quát của Uniform, ngược lại, không hiệu quả với các r.v. rời rạc. Một hàm của một r.v. rời rạc vẫn là rời rạc, do đó nếu X rời rạc, thì $F(X)$ vẫn là rời rạc. Vì vậy, $F(X)$ không có phân phối Uniform. Ví dụ, nếu $X \\sim \\text{Bern}(p)$, thì $F(X)$ chỉ có hai giá trị có thể: $F(0) = 1 - p$ và $F(1) = 1$.\r
 </div>\r
@@ -9836,21 +10093,19 @@ Sử dụng ví dụ tương tự phân phối như bản vẽ và r.v. như nh�
 Câu hỏi liên quan đến tính phổ quát của Uniform, LOTUS, và mối quan hệ giữa các hàm phân phối tích lũy và hàm phân vị.\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.3.7</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.3.7</div>
+  </div>\r
 <div class="math-box-content">\r
 Hàm sống sót của một biến ngẫu nhiên X có hàm phân phối tích lũy F là hàm G được cho bởi $G(x) = 1 - F(x) = P(X > x)$.\r
 </div>\r
 </div>\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.3.8</span>\r
-<span class="math-box-title">(Kỳ vọng bằng cách tích phân hàm sống sót)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.3.8</div>
+    <div class="math-box-title">Kỳ vọng bằng cách tích phân hàm sống sót</div>
+  </div>\r
 <div class="math-box-content">\r
 Giả sử X là một biến ngẫu nhiên không âm. Kỳ vọng của nó có thể được tìm bằng cách tích phân hàm sống sót của nó:\r
 \r
@@ -9863,9 +10118,9 @@ Kết quả này là phiên bản liên tục của Định lý 4.4.8 (lưu ý r
 </div>\r
 \r
 <div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+  </div>\r
 <div class="math-box-content">\r
 Với bất kỳ số nào $x \\geq 0$, chúng ta có thể viết\r
 \r
@@ -9918,16 +10173,15 @@ bởi LOTUS và tính phổ quát của Uniform. Do đó, lần nữa chúng ta 
 \r
 $$\r
 \\int_{0}^{\\infty}(1-F(x))dx=\\int_{0}^{1}F^{-1}(p)dp=E(X).\r
-$$`,nA=`Phân phối chuẩn là một phân phối liên tục nổi tiếng với dạng PDF hình chuông. Nó được sử dụng cực kỳ rộng rãi trong thống kê nhờ một định lý, định lý giới hạn trung tâm, nói rằng dưới những giả định rất nhẹ, tổng của một số lượng lớn các biến ngẫu nhiên độc lập và đồng phân phối có phân phối gần như chuẩn, bất kể phân phối của các biến ngẫu nhiên riêng lẻ. Điều này có nghĩa là chúng ta có thể bắt đầu với các biến ngẫu nhiên độc lập từ hầu hết mọi phân phối, rời rạc hay liên tục, nhưng sau khi cộng lại một nhóm chúng, phân phối của biến ngẫu nhiên kết quả sẽ trông giống như phân phối chuẩn.\r
+$$`,aA=`Phân phối chuẩn là một phân phối liên tục nổi tiếng với dạng PDF hình chuông. Nó được sử dụng cực kỳ rộng rãi trong thống kê nhờ một định lý, định lý giới hạn trung tâm, nói rằng dưới những giả định rất nhẹ, tổng của một số lượng lớn các biến ngẫu nhiên độc lập và đồng phân phối có phân phối gần như chuẩn, bất kể phân phối của các biến ngẫu nhiên riêng lẻ. Điều này có nghĩa là chúng ta có thể bắt đầu với các biến ngẫu nhiên độc lập từ hầu hết mọi phân phối, rời rạc hay liên tục, nhưng sau khi cộng lại một nhóm chúng, phân phối của biến ngẫu nhiên kết quả sẽ trông giống như phân phối chuẩn.\r
 \r
 Định lý giới hạn trung tâm là một chủ đề cho Chương 10, nhưng trong lúc đó, chúng ta sẽ giới thiệu các tính chất của PDF và CDF chuẩn tắc và suy ra kỳ vọng và phương sai của phân phối chuẩn tắc. Để làm điều này, chúng ta sẽ lại sử dụng chiến lược biến đổi vị trí và tỷ lệ bằng cách bắt đầu với phân phối chuẩn tắc đơn giản nhất, phân phối chuẩn tắc chuẩn, được đặt tại 0 và có phương sai bằng 1. Sau khi suy ra các tính chất của phân phối chuẩn tắc chuẩn, chúng ta sẽ có thể đạt đến bất kỳ phân phối chuẩn tắc nào mà chúng ta muốn bằng cách dịch chuyển và tỷ lệ.\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.4.1</span>\r
-<span class="math-box-title">(Phân phối chuẩn tắc chuẩn)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.4.1</div>
+    <div class="math-box-title">Phân phối chuẩn tắc chuẩn</div>
+  </div>\r
 <div class="math-box-content">\r
 Một biến ngẫu nhiên liên tục Z được gọi là có phân phối chuẩn tắc chuẩn nếu PDF của nó $\\varphi$ được cho bởi\r
 \r
@@ -9948,10 +10202,9 @@ $$\r
 Một số người, khi nhìn thấy hàm  $\\Phi$  lần đầu tiên, bày tỏ sự lo lắng rằng nó được để lại dưới dạng tích phân. Không may là chúng ta không có nhiều lựa chọn trong việc này: thực ra, toán học cho thấy không thể tìm được một biểu thức đóng cho nguyên hàm của  $\\varphi$ , nghĩa là chúng ta không thể biểu diễn  $\\Phi$  dưới dạng tổng hữu hạn của các hàm số quen thuộc hơn như đa thức hoặc hàm mũ. Nhưng dù có biểu thức đóng hay không, nó vẫn là một hàm số xác định: nếu chúng ta đưa vào  $\\Phi$  một giá trị z, nó sẽ trả về diện tích tích lũy dưới PDF từ  $-\\infty$  lên đến z.\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ký hiệu</span>\r
-<span class="math-box-number">5.4.2</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ký hiệu 5.4.2</div>
+  </div>\r
 <div class="math-box-content">\r
 Chúng ta có thể biết phân phối chuẩn tắc phải là đặc biệt vì PDF và CDF của phân phối chuẩn tắc chuẩn nhận được các ký tự Hy Lạp riêng. Theo quy ước, chúng ta sử dụng $\\varphi$ cho PDF của phân phối chuẩn tắc chuẩn và $\\Phi$ cho CDF. Chúng ta sẽ thường sử dụng Z để ký hiệu một biến ngẫu nhiên chuẩn tắc chuẩn.\r
 </div>\r
@@ -10047,11 +10300,10 @@ Số hạng đầu tiên của tích phân từng phần bằng 0 vì  $e^{-z^{2
 Phân phối chuẩn tổng quát có hai tham số, được ký hiệu là  $\\mu$  và  $\\sigma^{2}$ , tương ứng với giá trị trung bình và phương sai (vì vậy phân phối chuẩn tiêu chuẩn là trường hợp đặc biệt khi  $\\mu = 0$  và  $\\sigma^{2} = 1$ ). Bắt đầu với một biến ngẫu nhiên chuẩn  $Z \\sim \\mathcal{N}(0, 1)$ , chúng ta có thể nhận được một biến ngẫu nhiên chuẩn với bất kỳ giá trị trung bình và phương sai nào bằng cách thực hiện biến đổi vị trí và tỷ lệ (dịch chuyển và thay đổi tỷ lệ).\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.4.3</span>\r
-<span class="math-box-title">(Phân phối chuẩn)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.4.3</div>
+    <div class="math-box-title">Phân phối chuẩn</div>
+  </div>\r
 <div class="math-box-content">\r
 Nếu $Z \\sim \\mathcal{N}(0,1)$, thì\r
 \r
@@ -10080,11 +10332,10 @@ $$\r
 Chúng ta có thể sử dụng chuẩn hóa để tìm hàm phân phối tích lũy (CDF) và hàm mật độ xác suất (PDF) của X theo hàm CDF và PDF của phân phối chuẩn tiêu chuẩn.\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.4.4</span>\r
-<span class="math-box-title">(CDF và PDF của phân phối chuẩn)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.4.4</div>
+    <div class="math-box-title">CDF và PDF của phân phối chuẩn</div>
+  </div>\r
 <div class="math-box-content">\r
 Cho $X \\sim \\mathcal{N}(\\mu, \\sigma^2)$. Khi đó CDF của X là\r
 \r
@@ -10101,9 +10352,9 @@ $$\r
 </div>\r
 \r
 <div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+  </div>\r
 <div class="math-box-content">\r
 Đối với CDF, chúng ta bắt đầu từ định nghĩa $F(x) = P(X \\leq x)$, chuẩn hóa, và sử dụng CDF của phân phối chuẩn tiêu chuẩn:\r
 \r
@@ -10130,11 +10381,10 @@ $$\r
 Cuối cùng, ba tiêu chuẩn quan trọng đối với phân phối chuẩn là xác suất của việc rơi vào khoảng một, hai, và ba độ lệch chuẩn so với giá trị trung bình. Quy tắc 68-95-99.7% cho chúng ta biết rằng các xác suất này chính là những con số mà tên gọi gợi ý.\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.4.5</span>\r
-<span class="math-box-title">(quy tắc 68-95-99.7%)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.4.5</div>
+    <div class="math-box-title">quy tắc 68-95-99.7%</div>
+  </div>\r
 <div class="math-box-content">\r
 Nếu $X \\sim \\mathcal{N}(\\mu, \\sigma^{2})$, thì\r
 \r
@@ -10151,11 +10401,10 @@ $$\r
 $$\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.4.6</span>\r
-<span class="math-box-title">(Thực hành với hàm phân phối tích lũy chuẩn tiêu chuẩn)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 5.4.6</div>
+    <div class="math-box-title">Thực hành với hàm phân phối tích lũy chuẩn tiêu chuẩn</div>
+  </div>\r
 <div class="math-box-content">\r
 Cho $X \\sim \\mathcal{N}(-1,4)$. Hỏi $P(|X| < 3)$, chính xác (theo $\\Phi$) và xấp xỉ?\r
 \r
@@ -10180,11 +10429,10 @@ $$\r
 Như chúng ta sẽ thấy sau này trong cuốn sách, nhiều phân phối quan trọng có thể được thu được thông qua việc biến đổi các biến ngẫu nhiên chuẩn theo cách tự nhiên, ví dụ như bình phương hay mũ hóa. Chương 8 sẽ đi sâu vào các biến đổi, nhưng trong lúc đó có rất nhiều điều chúng ta có thể làm chỉ bằng cách sử dụng LOTUS và các tính chất của hàm phân phối tích lũy.\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.4.7</span>\r
-<span class="math-box-title">(Phân phối chuẩn được gấp)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 5.4.7</div>
+    <div class="math-box-title">Phân phối chuẩn được gấp</div>
+  </div>\r
 <div class="math-box-content">\r
 Cho $Y = |Z|$ với $Z \\sim \\mathcal{N}(0, 1)$. Phân phối của Y được gọi là phân phối chuẩn được gấp với tham số $\\mu = 0$ và $\\sigma^2 = 1$. Trong ví dụ này, chúng ta sẽ tìm kỳ vọng, phương sai và phân phối của Y. Tại first sight, Y có thể dường như khó xử lý vì hàm giá trị tuyệt đối không khả vi tại 0 (do có góc nhọn), nhưng Y có một phân phối liên tục hoàn toàn hợp lệ.\r
 \r
@@ -10222,14 +10470,13 @@ Vậy hàm mật độ xác suất (PDF) của Y là $2\\varphi(y)$ với $y \\g
 \r
 <strong>Kiểm tra tính hợp lý:</strong> Lưu ý rằng $2\\Phi(y) - 1 \\rightarrow 2 - 1 = 1$ khi $y \\rightarrow \\infty$, như mong đợi, và rằng hàm CDF của Y là một hàm liên tục vì $\\Phi$ là liên tục và tại 0 không có bước nhảy: $2\\Phi(0) - 1 = 0$. Ngoài ra, hàm PDF của Y cũng hợp lý vì lấy giá trị tuyệt đối của Z sẽ "gập lại" khối lượng xác suất của khoảng giá trị âm của Z sang phía dương, ví dụ, xác suất cho các giá trị Z giữa -2 và -1 đóng góp vào xác suất cho các giá trị Y giữa 1 và 2. Điều này dẫn đến mật độ bằng 0 cho các giá trị âm và mật độ gấp đôi cho các giá trị dương.\r
 </div>\r
-</div>`,rA=`Phân phối Expo là phiên bản liên tục của phân phối Geometric. Nhớ lại rằng một biến ngẫu nhiên Geometric đếm số lần thất bại trước lần thành công đầu tiên trong một chuỗi các lần thử Bernoulli. Câu chuyện của phân phối Expo tương tự, nhưng giờ đây chúng ta đang chờ đợi một lần thành công trong thời gian liên tục, nơi các lần thành công đến với tốc độ  $\\lambda$  lần thành công mỗi đơn vị thời gian. Số lần thành công trung bình trong một khoảng thời gian có độ dài t là  $\\lambda t$ , mặc dù số lần thành công thực tế thay đổi ngẫu nhiên. Một biến ngẫu nhiên Expo đại diện cho thời gian chờ đợi cho lần đến đầu tiên của một lần thành công.\r
+</div>`,oA=`Phân phối Expo là phiên bản liên tục của phân phối Geometric. Nhớ lại rằng một biến ngẫu nhiên Geometric đếm số lần thất bại trước lần thành công đầu tiên trong một chuỗi các lần thử Bernoulli. Câu chuyện của phân phối Expo tương tự, nhưng giờ đây chúng ta đang chờ đợi một lần thành công trong thời gian liên tục, nơi các lần thành công đến với tốc độ  $\\lambda$  lần thành công mỗi đơn vị thời gian. Số lần thành công trung bình trong một khoảng thời gian có độ dài t là  $\\lambda t$ , mặc dù số lần thành công thực tế thay đổi ngẫu nhiên. Một biến ngẫu nhiên Expo đại diện cho thời gian chờ đợi cho lần đến đầu tiên của một lần thành công.\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.5.1</span>\r
-<span class="math-box-title">(Phân phối Expo)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.5.1</div>
+    <div class="math-box-title">Phân phối Expo</div>
+  </div>\r
 <div class="math-box-content">\r
 Một biến ngẫu nhiên liên tục X được gọi là có phân phối Expo với tham số $\\lambda$, nơi $\\lambda > 0$, nếu hàm mật độ xác suất (PDF) của nó là\r
 \r
@@ -10307,11 +10554,10 @@ vậy kỳ vọng và phương sai của phân phối  $\\text{Expo}(\\lambda)$ 
 Phân phối Exponential có một tính chất đặc biệt gọi là tính chất không nhớ, điều này nói rằng ngay cả khi bạn đã chờ hàng giờ hay ngày mà không thành công, sự thành công không phải là khả năng cao hơn để đến sớm. Trên thực tế, bạn có thể coi như vừa mới bắt đầu chờ 10 giây trước. Định nghĩa formal hóa ý tưởng này.\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.5.2</span>\r
-<span class="math-box-title">(Tính chất không nhớ)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 5.5.2</div>
+    <div class="math-box-title">Tính chất không nhớ</div>
+  </div>\r
 <div class="math-box-content">\r
 Một phân phối liên tục được cho là có tính chất không nhớ nếu một biến ngẫu nhiên X từ phân phối này thỏa mãn\r
 \r
@@ -10352,19 +10598,18 @@ Rõ ràng, tính chất nhớ lại không phải là mô tả phù hợp cho tu
 Tính chất nhớ lại là một tính chất đặc biệt của phân phối Exponential: không có phân phối liên tục nào khác trên  $(0, \\infty)$  có tính chất nhớ lại! Hãy chứng minh điều này.\r
 \r
 <div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">5.5.3</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 5.5.3</div>
+  </div>\r
 <div class="math-box-content">\r
 Nếu X là biến ngẫu nhiên dương liên tục có tính chất nhớ lại, thì X có phân phối Exponential.\r
 </div>\r
 </div>\r
 \r
 <div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+  </div>\r
 <div class="math-box-content">\r
 Giả sử X là biến ngẫu nhiên dương liên tục có tính chất nhớ lại. Gọi F là hàm phân phối tích lũy của X và G là hàm sống sót của X, được cho bởi $G(x) = 1 - F(x)$. Chúng ta sẽ chứng minh rằng $G(x) = e^{-\\lambda x}$ với một hằng số nào đó $\\lambda$, bằng cách trước tiên chứng minh rằng $G(xt) = G(t)^{x}$ với mọi số thực x > 0. Tính chất nhớ lại nói rằng\r
 \r
@@ -10433,11 +10678,10 @@ với mọi số nguyên không âm $j, k$. Nhìn từ sự tương tự giữa 
 Làm quen với tính chất không nhớ, ví dụ sau đây kể về cuộc đời của Fred, người trải nghiệm trực tiếp sự phiền toái của tính chất không nhớ sau khi chuyển đến một thành phố có hệ thống giao thông không nhớ.\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.5.4</span>\r
-<span class="math-box-title">(Blissville và Blotchville)</span>\r
-</div>\r
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 5.5.4</div>
+    <div class="math-box-title">Blissville và Blotchville</div>
+  </div>\r
 <div class="math-box-content">\r
 Fred sống ở Blissville, nơi các xe buýt luôn đến đúng giờ, với khoảng thời gian giữa các chuyến xe liên tiếp cố định là 10 phút. Sau khi mất đồng hồ, anh ta đến điểm dừng xe vào một thời điểm ngẫu nhiên trên một ngày nào đó (giả sử rằng xe buýt chạy 24 giờ một ngày, mỗi ngày, và thời điểm mà Fred đến là độc lập với quy trình đến xe buýt).\r
 \r
@@ -10461,14 +10705,13 @@ Cụ thể, thời gian chờ đợi của Fred ở Blissville không có tính 
 \r
 Hiện tượng này được gọi là mẫu có độ dài thiên lệch, và nó xuất hiện trong nhiều tình huống thực tế. Ví dụ, hỏi những người mẹ được chọn ngẫu nhiên về số lượng con cái họ có sẽ cho một phân phối khác với việc hỏi những người được chọn ngẫu nhiên về số lượng anh em họ có, bao gồm chính họ. Hỏi học sinh về quy mô lớp học của họ và trung bình kết quả có thể cho một giá trị cao hơn nhiều so với việc liệt kê danh sách các lớp và trung bình quy mô của từng lớp; điều này được gọi là nghịch lý kích thước lớp học. Xem bài tập 16 và 17 trong chương 4 để biết thêm về nghịch lý kích thước lớp học và mẫu có độ dài thiên lệch.\r
 \r
-Các cuộc phiêu lưu của Fred ở Blissville và Blotchville tiếp tục trong các bài tập (xem thêm MacKay [17] để biết thêm về các cuộc phiêu lưu của Fred). Các lần đến của xe buýt ở Blotchville tuân theo quy trình Poisson, đây là chủ đề của phần tiếp theo.`,iA=`Phân bố Exponential có liên hệ chặt chẽ với phân bố Poisson, như đã gợi ý bởi việc sử dụng  $\\lambda$  cho tham số của cả hai phân bố. Trong phần này, chúng ta sẽ thấy rằng Exponential và Poisson được liên kết bởi một câu chuyện chung, đó là câu chuyện của quy trình Poisson. Một quy trình Poisson là một chuỗi các lần đến xảy ra tại các thời điểm khác nhau trên một thời gian biểu, sao cho số lần đến trong một khoảng thời gian nhất định có phân bố Poisson. Quy trình Poisson được thảo luận chi tiết hơn trong chương 13, nhưng chúng ta đã có công cụ để hiểu định nghĩa và các tính chất cơ bản.\r
+Các cuộc phiêu lưu của Fred ở Blissville và Blotchville tiếp tục trong các bài tập (xem thêm MacKay [17] để biết thêm về các cuộc phiêu lưu của Fred). Các lần đến của xe buýt ở Blotchville tuân theo quy trình Poisson, đây là chủ đề của phần tiếp theo.`,sA=`Phân bố Exponential có liên hệ chặt chẽ với phân bố Poisson, như đã gợi ý bởi việc sử dụng  $\\lambda$  cho tham số của cả hai phân bố. Trong phần này, chúng ta sẽ thấy rằng Exponential và Poisson được liên kết bởi một câu chuyện chung, đó là câu chuyện của quy trình Poisson. Một quy trình Poisson là một chuỗi các lần đến xảy ra tại các thời điểm khác nhau trên một thời gian biểu, sao cho số lần đến trong một khoảng thời gian nhất định có phân bố Poisson. Quy trình Poisson được thảo luận chi tiết hơn trong chương 13, nhưng chúng ta đã có công cụ để hiểu định nghĩa và các tính chất cơ bản.\r
 \r
 <div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">5.6.1</span>\r
-<span class="math-box-title">(Quy trình Poisson)</span>\r
-</div>\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.6.1</div>\r
+    <div class="math-box-title">Quy trình Poisson</div>\r
+  </div>\r
 <div class="math-box-content">\r
 Một quá trình đến trong thời gian liên tục được gọi là quy trình Poisson với tốc độ $\\lambda$ nếu hai điều kiện sau được thỏa mãn:\r
 \r
@@ -10520,10 +10763,9 @@ Tương tự,  $T_{3}-T_{2} \\sim \\text{Expo}(\\lambda)$  độc lập với  $
 liên tục, và việc sử dụng một ký hiệu phổ biến  $\\lambda$  cho cả tham số của phân phối Poisson và Exponential là một ký hiệu hợp lý, vì  $\\lambda$  là tốc độ đến trong quá trình mà kết nối hai phân phối này.\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">5.6.2</span>\r
-</div>\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 5.6.2</div>\r
+  </div>\r
 <div class="math-box-content">\r
 Tổng thời gian cho đến khi có lần thứ hai sự kiện xảy ra, $T_{2}$, là tổng của hai biến ngẫu nhiên độc lập $\\mathrm{Expo}(\\lambda)$, $T_{1}$ và $T_{2}-T_{1}$. Điều này không có phân phối Exponential, mà thay vào đó là phân phối Gamma, được giới thiệu trong Chương 8.\r
 </div>\r
@@ -10532,11 +10774,10 @@ Tổng thời gian cho đến khi có lần thứ hai sự kiện xảy ra, $T_{
 Câu chuyện về quá trình Poisson cung cấp trực quan cho sự thật, được cho dưới đây, rằng giá trị nhỏ nhất của các biến ngẫu nhiên Exponential độc lập là một biến ngẫu nhiên Exponential khác.\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.6.3</span>\r
-<span class="math-box-title">(Giá trị nhỏ nhất của các Expos độc lập)</span>\r
-</div>\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.6.3</div>\r
+    <div class="math-box-title">Giá trị nhỏ nhất của các Expos độc lập</div>\r
+  </div>\r
 <div class="math-box-content">\r
 Gọi $X_1, \\ldots, X_n$ là độc lập, với $X_j \\sim \\text{Expo}(\\lambda_j)$. Gọi $L = \\min(X_1, \\ldots, X_n)$. Chứng minh rằng $L \\sim \\text{Expo}(\\lambda_1 + \\cdots + \\lambda_n)$, và diễn giải điều này một cách trực quan.\r
 \r
@@ -10555,10 +10796,9 @@ Trực quan, chúng ta có thể diễn giải các $\\lambda_j$ như tốc đ�
 </div>\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">5.6.4</span>\r
-</div>\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 5.6.4</div>\r
+  </div>\r
 <div class="math-box-content">\r
 Giá trị nhỏ nhất của các Exponential độc lập là Exponential, nhưng giá trị lớn nhất của các Exponential độc lập không phải là Exponential. Tuy nhiên, kết quả về giá trị nhỏ nhất này lại hữu ích trong việc nghiên cứu giá trị lớn nhất như vậy, như được minh họa trong hai ví dụ tiếp theo.\r
 </div>\r
@@ -10603,93 +10843,99 @@ $$\r
 </div>\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.6.6</span>\r
-<span class="math-box-title">(Sửa chữa máy)</span>\r
-</div>\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.6.6</div>\r
+    <div class="math-box-title">Sửa chữa máy</div>\r
+  </div>\r
 <div class="math-box-content">\r
 Một chiếc máy thường xuyên bị hỏng và cần được sửa chữa. Tại thời điểm 0, máy đang hoạt động. Nó hoạt động trong một khoảng thời gian $\\text{Expo}(\\lambda)$ (đo bằng ngày), sau đó bị hỏng. Sau đó, thời gian để sửa chữa máy là $\\text{Expo}(\\lambda)$, sau đó máy sẽ hoạt động trong một khoảng thời gian $\\text{Expo}(\\lambda)$ cho đến khi nó bị hỏng lần nữa, sau đó lại mất một khoảng thời gian $\\text{Expo}(\\lambda)$ để sửa chữa, và cứ như vậy. Giả sử rằng các $\\text{Expo}(\\lambda)$ r.v. này là độc lập và đồng phân bố.\r
 \r
-(a) Một sự chuyển tiếp xảy ra khi máy chuyển từ hoạt động sang hỏng, hoặc c<div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
+(a) Một sự chuyển tiếp xảy ra khi máy chuyển từ hoạt động sang hỏng, hoặc ngược lại. *(Phần nội dung tiếp theo bị thiếu do lỗi bản gốc)*.\r
 </div>\r
+</div>\r
+`,cA=`<div class="math-box theorem">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.7.1</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Giả sử $X_1, \\ldots, X_n$ là các biến ngẫu nhiên liên tục độc lập và đồng phân phối. Khi đó, xác suất để có ít nhất hai biến nhận cùng một giá trị (xảy ra hòa) là 0. Hơn nữa, tất cả $n!$ thứ tự có thể có của $X_1, \\ldots, X_n$ đều có cùng xác suất là $\\frac{1}{n!}$.\r
+\r
+  </div>\r
+</div>\r
+\r
+<div class="math-box proof">\r
+\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+  </div>\r
 <div class="math-box-content">\r
-Gọi $F$ là hàm phân phối tích lũy của $X_j$. Nhờ tính đối xứng, tất cả các thứ tự của $X_1,\\ldots,X_n$ đều có cùng xác suất. Ví dụ, $P(X_3 < X_2 < X_1) = P(X_1 < X_2 < X_3)$ vì cả hai vế đều có cùng cấu trúc: chúng đều có dạng $P(A < B < C)$ với $A,B,C$ là các mẫu độc lập và đồng phân phối từ $F$. Với bất kỳ $i$ và $j$ nào mà $i \\neq j$, xác suất của sự bằng nhau $X_i = X_j$ là 0 vì $X_i$ và $X_j$ là các biến ngẫu nhiên liên tục độc lập. Do đó, xác suất có ít nhất một sự bằng nhau trong $X_1,\\ldots,X_n$ cũng là 0, vì\r
+\r
+Gọi $F$ là hàm phân phối tích lũy của $X_j$. Nhờ tính đối xứng, tất cả các thứ tự của $X_1, \\ldots, X_n$ đều có cùng xác suất. Ví dụ, $P(X_3 \\lt X_2 \\lt X_1) = P(X_1 \\lt X_2 \\lt X_3)$ vì cả hai vế đều có cùng cấu trúc: chúng đều có dạng $P(A \\lt B \\lt C)$ với $A, B, C$ là các mẫu độc lập và đồng phân phối từ $F$. Với bất kỳ $i$ và $j$ nào mà $i \\neq j$, xác suất của sự bằng nhau $X_i = X_j$ là 0 vì $X_i$ và $X_j$ là các biến ngẫu nhiên liên tục độc lập. Do đó, xác suất có ít nhất một sự bằng nhau trong $X_1, \\ldots, X_n$ cũng là 0, vì\r
 \r
 $$\r
 P\\left(\\bigcup_{i\\neq j}\\{X_{i}=X_{j}\\}\\right)\\leq\\sum_{i\\neq j}P(X_{i}=X_{j})=0.\r
 $$\r
 \r
-Vậy, $X_{1},\\ldots,X_{n}$ là khác nhau với xác suất 1, và xác suất của bất kỳ thứ tự nào là 1/n!.\r
+Vậy, $X_{1},\\ldots,X_{n}$ là khác nhau với xác suất 1, và xác suất của bất kỳ thứ tự nào là $\\frac{1}{n!}$.\r
 \r
 <div class="qed"><span class="qed-mark"></span></div>\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">5.7.2</span>\r
-</div>\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 5.7.2</div>\r
+  </div>\r
 <div class="math-box-content">\r
-Định lý này có thể không đúng nếu các biến ngẫu nhiên phụ thuộc. Cho $n = 2$, và xem xét trường hợp cực đoan nơi $X_1$ và $X_2$ phụ thuộc đến mức chúng luôn bằng nhau, tức là $X_1 = X_2$ với xác suất 1. Khi đó $P(X_1 < X_2) = P(X_2 < X_1) = 0$. Với các $X_1$, $X_2$ phụ thuộc, chúng ta cũng có thể làm cho $P(X_1 < X_2) \\neq P(X_2 < X_1)$. Một ví dụ, xem Bài tập 42 từ Chương 3.\r
+\r
+Định lý này có thể không đúng nếu các biến ngẫu nhiên phụ thuộc. Cho $n = 2$, và xem xét trường hợp cực đoan nơi $X_1$ và $X_2$ phụ thuộc đến mức chúng luôn bằng nhau, tức là $X_1 = X_2$ với xác suất 1. Khi đó $P(X_1 \\lt X_2) = P(X_2 \\lt X_1) = 0$. Với các $X_1$, $X_2$ phụ thuộc, chúng ta cũng có thể làm cho $P(X_1 \\lt X_2) \\neq P(X_2 \\lt X_1)$. Một ví dụ, xem Bài tập 42 từ Chương 3.\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">5.7.3</span>\r
-</div>\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 5.7.3</div>\r
+  </div>\r
 <div class="math-box-content">\r
-Nếu X và Y là các biến ngẫu nhiên liên tục độc lập và đồng phân phối, thì\r
+\r
+Nếu $X$ và $Y$ là các biến ngẫu nhiên liên tục độc lập và đồng phân phối, thì\r
 \r
 $$\r
-P(X<Y)=P(Y<X)=\\frac{1}{2},\r
+P(X \\lt Y)=P(Y \\lt X)=\\frac{1}{2},\r
 $$\r
 \r
-bởi đối xứng và bởi vì xác suất để xảy ra hòa là 0. Trái ngược với đó, nếu X và Y là các bi�$$\r
-P(I_{110}=1,I_{111}=1)=P(I_{110}=1)P(I_{111}=1),\r
-$$\r
+bởi đối xứng và bởi vì xác suất để xảy ra hòa là 0. Trái ngược với đó, nếu $X$ và $Y$ là các biến ngẫu nhiên rời rạc thì xác suất xảy ra hòa có thể khác 0. Chúng ta có thể kết hợp tính đối xứng này cùng với các biến ngẫu nhiên chỉ báo trong các bài toán liên quan đến kỷ lục, như mức kỷ lục lượng mưa hay thành tích kỷ lục trong nhảy cao.\r
 \r
-Điều này cho thấy việc người nhảy thứ 110 thiết lập một kỷ lục là độc lập với việc người nhảy thứ 111 thiết lập một kỷ lục. Về mặt trực quan, điều này có vẻ hợp lý vì việc biết người nhảy thứ 111 thiết lập một kỷ lục không cho chúng ta bất kỳ thông tin nào về "việc nội bộ" cách các lần nhảy đầu tiên 110 lần được sắp xếp với nhau.\r
-\r
-(b) Theo tính tuyến tính, số kỳ vọng của các kỷ lục trong số n người nhảy đầu tiên là $\\sum_{j=1}^{n}\\frac{1}{j}$, điều này tiến đến $\\infty$ khi $n \\to \\infty$ vì chuỗi hài hòa phân kỳ.\r
-\r
-(c) Gọi $J_j$ là biến ngẫu nhiên chỉ báo cho việc xảy ra một kỷ lục kép tại thời điểm $j$, với $2 \\leq j \\leq n$. Khi đó $P(J_j = 1) = \\frac{1}{j(j-1)}$, theo lập luận của Phần (a). Do đó, số kỳ vọng của các kỷ lục kép là\r
-\r
-$$\r
-\\sum_{j=2}^{n}\\frac{1}{j(j-1)}=\\sum_{j=2}^{n}\\left(\\frac{1}{j-1}-\\frac{1}{j}\\right)=1-\\frac{1}{n},\r
-$$\r
-\r
-vì tất cả các số hạng khác triệt tiêu lẫn nhau. Như vậy, số kỳ vọng của các kỷ lục tiến đến $\\infty$ khi $n \\to \\infty$, nhưng số kỳ vọng của các kỷ lục kép tiến đến 1.\r
 </div>\r
-</div>�ối xứng này cùng với các biến ngẫu nhiên chỉ báo trong các bài toán liên quan đến kỷ lục, như mức kỷ lục lượng mưa hay thành tích kỷ lục trong nhảy cao.\r
+</div>\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">5.7.4</span>\r
-<span class="math-box-title">(Kỷ lục)</span>\r
-</div>\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.7.4</div>\r
+    <div class="math-box-title">Kỷ lục</div>\r
+  </div>\r
 <div class="math-box-content">\r
-Vận động viên thi đấu một người một lần ở cự ly nhảy cao. Gọi $X_j$ là độ cao người nhảy thứ j nhảy được, với $X_1, X_2, \\ldots$ độc lập và đồng phân phối với một phân phối liên tục. Ta nói rằng người nhảy thứ j thiết lập một kỷ lục nếu $X_j$ lớn hơn tất cả các $X_{j-1}, \\ldots, X_1$.\r
+\r
+Vận động viên thi đấu một người một lần ở cự ly nhảy cao. Gọi $X_j$ là độ cao người nhảy thứ $j$ nhảy được, với $X_1, X_2, \\ldots$ độc lập và đồng phân phối với một phân phối liên tục. Ta nói rằng người nhảy thứ $j$ thiết lập một kỷ lục nếu $X_j$ lớn hơn tất cả các $X_{j-1}, \\ldots, X_1$.\r
 \r
 (a) Sự kiện “người nhảy thứ 110 thiết lập một kỷ lục” có độc lập với sự kiện “người nhảy thứ 111 thiết lập một kỷ lục” không?\r
 \r
-(b) Tìm kỳ vọng số kỷ lục trong số n người nhảy đầu tiên. Điều gì xảy ra với kỳ vọng khi $n \\rightarrow \\infty$?\r
+(b) Tìm kỳ vọng số kỷ lục trong số $n$ người nhảy đầu tiên. Điều gì xảy ra với kỳ vọng khi $n \\rightarrow \\infty$?\r
 \r
-(c) Một kỷ lục kép xảy ra tại thời điểm j nếu cả người nhảy thứ j và người nhảy thứ $(j-1)$ thiết lập kỷ lục. Tìm kỳ vọng số kỷ lục kép trong số n người nhảy đầu tiên. Điều gì xảy ra với kỳ vọng khi $n \\to \\infty$?\r
+(c) Một kỷ lục kép xảy ra tại thời điểm $j$ nếu cả người nhảy thứ $j$ và người nhảy thứ $(j-1)$ thiết lập kỷ lục. Tìm kỳ vọng số kỷ lục kép trong số $n$ người nhảy đầu tiên. Điều gì xảy ra với kỳ vọng khi $n \\to \\infty$?\r
 \r
 <strong>Giải:</strong>\r
 \r
-(a) Gọi  $I_j$  là biến ngẫu nhiên chỉ báo cho sự kiện người nhảy thứ j thiết lập kỷ lục. Bởi đối xứng,  $P(I_j = 1) = 1/j$  (vì bất kỳ trong số các lần nhảy đầu tiên j nào cũng có thể là cao nhất trong số các lần nhảy đó). Cũng có,\r
+(a) Gọi $I_j$ là biến ngẫu nhiên chỉ báo cho sự kiện người nhảy thứ $j$ thiết lập kỷ lục. Bởi đối xứng, $P(I_j = 1) = \\frac{1}{j}$ (vì bất kỳ trong số các lần nhảy đầu tiên $j$ nào cũng có thể là cao nhất trong số các lần nhảy đó). Cũng có,\r
 \r
  \r
 \r
- $$P(I_{110}=1,I_{111}=1)=\\frac{109!}{111!}=\\frac{1}{110\\cdot111},$$ \r
+$$\r
+P(I_{110}=1,I_{111}=1)=\\frac{109!}{111!}=\\frac{1}{110\\cdot111},\r
+$$\r
 \r
  \r
 \r
@@ -10697,26 +10943,43 @@ vì để cả người nhảy thứ 110 và 111 đều thiết lập kỷ lục
 \r
  \r
 \r
- $$P(I_{110}=1,I_{111}=1)=P(I_{110}=1)P(I_{111}=1),$$ \r
+$$\r
+P(I_{110}=1,I_{111}=1)=P(I_{110}=1)P(I_{111}=1),\r
+$$\r
 \r
 \r
 \r
 Điều này cho thấy việc người nhảy thứ 110 thiết lập một kỷ lục là độc lập với việc người nhảy thứ 111 thiết lập một kỷ lục. Về mặt trực quan, điều này có vẻ hợp lý vì việc biết người nhảy thứ 111 thiết lập một kỷ lục không cho chúng ta bất kỳ thông tin nào về "việc nội bộ" cách các lần nhảy đầu tiên 110 lần được sắp xếp với nhau.\r
 \r
-(b) Theo tính tuyến tính, số kỳ vọng của các kỷ lục trong số n người nhảy đầu tiên là  $\\sum_{j=1}^{n}\\frac{1}{j}$ , điều này tiến đến  $\\infty$  khi  $n \\to \\infty$  vì chuỗi hài hòa phân kỳ.\r
+(b) Theo tính tuyến tính, số kỳ vọng của các kỷ lục trong số $n$ người nhảy đầu tiên là $\\sum_{j=1}^{n}\\frac{1}{j}$, điều này tiến đến $\\infty$ khi $n \\to \\infty$ vì chuỗi hài hòa phân kỳ.\r
 \r
-(c) Gọi  $J_j$  là biến ngẫu nhiên chỉ báo cho việc xảy ra một kỷ lục kép tại thời điểm  $j$ , với  $2 \\leq j \\leq n$ . Khi đó  $P(J_j = 1) = \\frac{1}{j(j-1)}$ , theo lập luận của Phần (a). Do đó, số kỳ vọng của các kỷ lục kép là\r
-\r
- \r
-\r
- $$\\sum_{j=2}^{n}\\frac{1}{j(j-1)}=\\sum_{j=2}^{n}\\left(\\frac{1}{j-1}-\\frac{1}{j}\\right)=1-\\frac{1}{n},$$ \r
+(c) Gọi $J_j$ là biến ngẫu nhiên chỉ báo cho việc xảy ra một kỷ lục kép tại thời điểm $j$, với $2 \\leq j \\leq n$. Khi đó $P(J_j = 1) = \\frac{1}{j(j-1)}$, theo lập luận của Phần (a). Do đó, số kỳ vọng của các kỷ lục kép là\r
 \r
  \r
 \r
-vì tất cả các số hạng khác triệt tiêu lẫn nhau. Như vậy, số kỳ vọng của các kỷ lục tiến đến  $\\infty$  khi  $n \\to \\infty$ , nhưng số kỳ vọng của các kỷ lục kép tiến đến 1.`,aA=`Một biến ngẫu nhiên liên tục có thể nhận bất kỳ giá trị nào trong một khoảng, mặc dù xác suất để nó bằng một giá trị cụ thể nào đó là 0. Hàm phân phối tích lũy (CDF) của một biến ngẫu nhiên liên tục là khả vi, và đạo hàm được gọi là hàm mật độ xác suất (PDF). Xác suất được cho bởi diện tích dưới đường cong PDF, chứ không phải giá trị của PDF tại một điểm. Chúng ta phải tích phân PDF để có được xác suất. Bảng dưới đây tổng hợp và so sánh một số khái niệm quan trọng trong trường hợp rời rạc và liên tục.\r
+$$\r
+\\sum_{j=2}^{n}\\frac{1}{j(j-1)}=\\sum_{j=2}^{n}\\left(\\frac{1}{j-1}-\\frac{1}{j}\\right)=1-\\frac{1}{n},\r
+$$\r
+\r
+ \r
+\r
+vì tất cả các số hạng khác triệt tiêu lẫn nhau. Như vậy, số kỳ vọng của các kỷ lục tiến đến $\\infty$ khi $n \\to \\infty$, nhưng số kỳ vọng của các kỷ lục kép tiến đến 1.\r
+\r
+</div>\r
+</div>\r
+`,lA=`Một biến ngẫu nhiên liên tục có thể nhận bất kỳ giá trị nào trong một khoảng, mặc dù xác suất để nó bằng một giá trị cụ thể nào đó là 0. Hàm phân phối tích lũy (CDF) của một biến ngẫu nhiên liên tục là khả vi, và đạo hàm được gọi là hàm mật độ xác suất (PDF). Xác suất được cho bởi diện tích dưới đường cong PDF, chứ không phải giá trị của PDF tại một điểm. Chúng ta phải tích phân PDF để có được xác suất. Bảng dưới đây tổng hợp và so sánh một số khái niệm quan trọng trong trường hợp rời rạc và liên tục.\r
 \r
 \r
-<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Biến ngẫu nhiên rời rạc</td><td style='text-align: center; word-wrap: break-word;'>Biến ngẫu nhiên liên tục</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>CDF</td><td style='text-align: center; word-wrap: break-word;'> $F(x) = P(X ≤ x)$ </td><td style='text-align: center; word-wrap: break-word;'> $F(x) = P(X ≤ x)$ </td></tr><tr><td rowspan="5">PMF/PDF</td><td style='text-align: center; word-wrap: break-word;'> $P(X = x)$ </td><td style='text-align: center; word-wrap: break-word;'> $f(x) = F&#x27;(x)$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>• PMF là độ cao của bước nhảy của F tại x.</td><td style='text-align: center; word-wrap: break-word;'>• PDF là đạo hàm của F.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>• PMF không âm.</td><td style='text-align: center; word-wrap: break-word;'>• PDF không âm.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>• PMF tổng bằng 1.</td><td style='text-align: center; word-wrap: break-word;'>• PDF tích phân bằng 1.</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>•  $P(X \\in A) = \\sum_{x \\in A} P(X = x)$ .</td><td style='text-align: center; word-wrap: break-word;'>•  $P(X \\in A) = \\int_{A} f(x) dx$ .</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Kỳ vọng</td><td style='text-align: center; word-wrap: break-word;'> $E(X) = \\sum_{x} xP(X = x)$ </td><td style='text-align: center; word-wrap: break-word;'> $E(X) = \\int_{-\\infty}^{\\infty} xf(x) dx$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>LOTUS</td><td style='text-align: center; word-wrap: break-word;'> $E(g(X)) = \\sum_{x} g(x)P(X = x)$ </td><td style='text-align: center; word-wrap: break-word;'> $E(g(X)) = \\int_{-\\infty}^{\\infty} g(x)f(x) dx$ </td></tr></table>\r
+| | Biến ngẫu nhiên rời rạc | Biến ngẫu nhiên liên tục |\r
+| :---: | :---: | :---: |\r
+| **CDF** | $F(x) = P(X \\leq x)$ | $F(x) = P(X \\leq x)$ |\r
+| **PMF/PDF** | $P(X = x)$ | $f(x) = F'(x)$ |\r
+| | PMF là độ cao của bước nhảy của F tại x. | PDF là đạo hàm của F. |\r
+| | PMF không âm. | PDF không âm. |\r
+| | PMF tổng bằng 1. | PDF tích phân bằng 1. |\r
+| | $P(X \\in A) = \\sum_{x \\in A} P(X = x)$ | $P(X \\in A) = \\int_{A} f(x) dx$ |\r
+| **Kỳ vọng** | $E(X) = \\sum_{x} xP(X = x)$ | $E(X) = \\int_{-\\infty}^{\\infty} xf(x) dx$ |\r
+| **LOTUS** | $E(g(X)) = \\sum_{x} g(x)P(X = x)$ | $E(g(X)) = \\int_{-\\infty}^{\\infty} g(x)f(x) dx$ |\r
 \r
 Ba phân phối liên tục quan trọng là Uniform, Normal, và Exponential. Một biến ngẫu nhiên  $\\text{Unif}(a,b)$  là một số "hoàn toàn ngẫu nhiên" trong khoảng  $(a,b)$ , và nó có tính chất xác suất tỉ lệ với độ dài. Tính phổ biến của Uniform cho chúng ta biết cách sử dụng một biến ngẫu nhiên  $\\text{Unif}(0,1)$  để xây dựng các biến ngẫu nhiên từ các phân phối khác mà chúng ta quan tâm; nó cũng nói rằng nếu chúng ta đưa một biến ngẫu nhiên liên tục vào hàm phân phối tích lũy của nó, biến ngẫu nhiên kết quả sẽ có phân phối  $\\text{Unif}(0,1)$ .\r
 \r
@@ -10726,15 +10989,15 @@ Một biến ngẫu nhiên Expo(  $\\lambda$ ) biểu diễn thời gian chờ �
 \r
 Một quá trình Poisson là một chuỗi các sự kiện đến trong thời gian liên tục sao cho số lượng sự kiện trong một khoảng thời gian là Poisson (với giá trị trung bình tỉ lệ với độ dài khoảng thời gian) và các khoảng thời gian rời nhau có số lượng sự kiện độc lập. Thời gian giữa các sự kiện trong một quá trình Poisson với tốc độ  $\\lambda$  là các biến ngẫu nhiên i.i.d.  $\\text{Expo}(\\lambda)$ .\r
 \r
-Một tính chất đối xứng hữu ích của các biến ngẫu nhiên i.i.d.  $X_1, X_2, \\ldots, X_n$  là tất cả các thứ tự đều có khả năng xảy ra như nhau. Ví dụ,  $P(X_1 < X_2 < X_3) = P(X_3 < X_2 < X_1)$ . Nếu các  $X_j$  là liên tục và đồng thời i.i.d., thì chúng ta cũng có thể kết luận, ví dụ, rằng  $P(X_1 < X_2 < X_3) = 1/6$ , trong khi ở trường hợp rời rạc, chúng ta cũng phải tính đến khả năng có sự trùng lặp.\r
+Một tính chất đối xứng hữu ích của các biến ngẫu nhiên i.i.d. $X_1, X_2, \\ldots, X_n$ là tất cả các thứ tự đều có khả năng xảy ra như nhau. Ví dụ, $P(X_1 \\lt X_2 \\lt X_3) = P(X_3 \\lt X_2 \\lt X_1)$. Nếu các $X_j$ là liên tục và đồng thời i.i.d., thì chúng ta cũng có thể kết luận, ví dụ, rằng $P(X_1 \\lt X_2 \\lt X_3) = 1/6$, trong khi ở trường hợp rời rạc, chúng ta cũng phải tính đến khả năng có sự trùng lặp.\r
 \r
 Một chiến lược mới mà chúng ta đã học cho các phân phối liên tục là biến đổi vị trí và quy mô, nói rằng nếu việc dịch chuyển và thay đổi quy mô không đưa chúng ta ra khỏi gia đình các phân phối mà chúng ta đang nghiên cứu, thì chúng ta có thể bắt đầu với thành viên đơn giản nhất của gia đình phân phối, tìm ra câu trả lời cho trường hợp đơn giản, sau đó sử dụng dịch chuyển và thay đổi quy mô để đạt được trường hợp tổng quát. Với ba phân phối chính của chương này, cách tiếp cận này hoạt động như sau.\r
 \r
-● Uniform: Nếu  $U \\sim \\text{Unif}(0,1)$ , thì  $\\tilde{U} = a + (b - a)U \\sim \\text{Unif}(a,b)$ .\r
+• Uniform: Nếu  $U \\sim \\text{Unif}(0,1)$ , thì  $\\tilde{U} = a + (b - a)U \\sim \\text{Unif}(a,b)$ .\r
 \r
-● Normal: Nếu  $Z \\sim \\mathcal{N}(0,1)$ , thì  $X = \\mu + \\sigma Z \\sim \\mathcal{N}(\\mu, \\sigma^2)$ .\r
+• Normal: Nếu  $Z \\sim \\mathcal{N}(0,1)$ , thì  $X = \\mu + \\sigma Z \\sim \\mathcal{N}(\\mu, \\sigma^2)$ .\r
 \r
-• Exponential: Nếu  $X \\sim \\text{Expo}(1)$ , thì  $Y = X/\\lambda \\sim \\text{Expo}(\\lambda)$ . Chúng ta không xem xét dịch chuyển ở đây vì một dịch chuyển khác không sẽ làm cho miền giá trị không còn là  $(0, \\infty)$ .\r
+• Exponential: Nếu  $X \\sim \\text{Expo}(1)$ , thì  $Y = X/\\lambda \\sim \\text{Expo}(\\lambda)$ . Chúng ta không xem xét dịch chuyển ở đây vì một dịch chuyển khác không sẽ làm cho miền giá trị không còn là  $(0, \\infty)$.\r
 \r
 Chúng ta có thể thêm phân phối Exponential và Geometric vào sơ đồ liên kết giữa các phân phối: Exponential là giới hạn liên tục của Geometric, và Poisson và Exponential được liên kết với nhau qua quá trình Poisson.\r
 \r
@@ -10749,101 +11012,8 @@ Và trong bản đồ của chúng ta về bốn đối tượng cơ bản trong
   <img src="imgs/img_in_image_box_149_1002_1248_1634.jpg" alt="Bốn đối tượng cơ bản trong xác suất" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
-  <strong>HÌNH 5.14:</strong> Bốn đối tượng cơ bản trong xác suất: phân phối, biến ngẫu nhiên, sự kiện, và số. Đối với một biến ngẫu nhiên liên tục X, chúng ta có $P(X = x) = 0$, do đó chúng ta sử dụng PDF như một bản phác thảo thay cho PMF.\r
-</div>\r
-\r
-Trong phần này chúng ta sẽ giới thiệu các phân phối liên tục trong R, học cách tạo các biểu đồ cơ bản, minh họa tính phổ biến của Uniform bằng mô phỏng, và mô phỏng thời gian đến trong một quy trình Poisson.\r
-\r
-## Phân phối Uniform, Normal, và Exponential\r
-\r
-Với các phân phối liên tục, hàm bắt đầu bằng d là hàm mật độ xác suất (PDF) thay vì hàm khối xác suất (PMF). Do đó, chúng ta có các hàm sau:\r
-\r
-- dunif, punif, runif. Để đánh giá PDF của Unif(a,b) tại x, chúng ta sử dụng dunif(x,a,b). Đối với CDF, chúng ta sử dụng punif(x,a,b). Để tạo n kết quả từ phân phối Unif(a,b), chúng ta sử dụng runif(n,a,b).\r
-\r
-- dnorm, pnorm, rnorm. Để đánh giá PDF của  $\\mathcal{N}(\\mu,\\sigma^{2})$  tại x, chúng ta sử dụng dnorm(x,mu,sigma), trong đó mu là trung bình  $\\mu$  và sigma là độ lệch chuẩn (không phải phương sai)  $\\sigma$ . Đối với CDF, chúng ta sử dụng pnorm(x,mu,sigma). Để tạo n kết quả từ phân phối  $\\mathcal{N}(\\mu,\\sigma^{2})$ , chúng ta sử dụng rnorm(n,mu,sigma).\r
-\r
-<div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">5.9.1</span>\r
-<span class="math-box-title">(Tham số Normal trong R)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Lưu ý rằng chúng ta phải nhập độ lệch chuẩn, không phải phương sai! Ví dụ, để có CDF của $\\mathcal{N}(10,3)$ tại 12, chúng ta sử dụng \`pnorm(12,10,sqrt(3))\`. Bỏ qua điều này là một lỗi lập trình phổ biến và nghiêm trọng.\r
-</div>\r
-</div>\r
-\r
--  $\\exp$ ,  $\\exp$ ,  $\\exp$ ,  $\\exp$ . Để đánh giá PDF của  $\\text{Expo}(\\lambda)$  tại  $x$ , chúng ta sử dụng  $\\text{dexp}(x, \\lambda)$ . Đối với CDF, chúng ta sử dụng  $\\text{pexp}(x, \\lambda)$ . Để tạo  $n$  kết quả từ phân phối  $\\text{Expo}(\\lambda)$ , chúng ta sử dụng  $\\text{rexp}(n, \\lambda)$ .\r
-\r
-Do tầm quan trọng của các biến đổi vị trí và tỷ lệ cho các phân phối liên tục, R có các thiết lập tham số mặc định cho mỗi trong ba gia đình này. Mặc định cho Uniform là  $\\text{Unif}(0,1)$ , mặc định cho Normal là  $\\mathcal{N}(0,1)$ , và mặc định cho Exponential là  $\\text{Expo}(1)$ . Ví dụ,  $\\text{dunif}(0.5)$ , không có đầu vào bổ sung, đánh giá PDF của  $\\text{Unif}(0,1)$  tại 0.5, và  $\\text{rnorm}(10)$ , không có đầu vào bổ sung, tạo ra 10 kết quả từ phân phối  $\\mathcal{N}(0,1)$ . Điều này có nghĩa là có hai cách để tạo một biến ngẫu nhiên  $\\mathcal{N}(\\mu,\\sigma^{2})$  trong R. Sau khi chọn các giá trị của  $\\mu$  và  $\\sigma$ , ví dụ như\r
-\r
-\`\`\`R\r
-sigma <- 2\r
-\`\`\`\r
-\r
-chúng ta có thể làm cả hai cách sau:\r
-\r
-\`\`\`R\r
-rnorm(1, mu, sigma)\r
-\r
-mu + sigma*rnorm(1)\r
-\`\`\`\r
-\r
-Cả hai cách đều tạo ra một kết quả từ phân phối $\\mathcal{N}(\\mu,\\sigma^{2})$.\r
-\r
-## Biểu đồ trong R\r
-\r
-Một cách đơn giản để vẽ biểu đồ một hàm số trong R là sử dụng lệnh curve. Ví dụ,\r
-\r
-curve(dnorm, from=-3, to=3, n=1000)\r
-\r
-tạo ra một biểu đồ của mật độ xác suất chuẩn từ -3 đến 3. Điều gì thực sự đang xảy ra là R đánh giá hàm số tại một số lượng hữu hạn các điểm gần nhau và nối các điểm này bằng các đoạn thẳng rất ngắn để tạo ra ảo ảnh của một đường cong. Đầu vào n=1000 cho R biết rằng nó sẽ đánh giá tại 1000 điểm để đường cong trông rất mịn; nếu chúng ta chọn n=20, tính chất tính tuyến tính từng đoạn sẽ trở nên rõ rệt.\r
-\r
-Một lệnh khác tạo ra biểu đồ được gọi là plot. Lệnh này có rất nhiều đầu vào có thể tùy chỉnh để thay đổi biểu đồ trông như thế nào; vì mục đích minh họa, chúng ta sẽ vẽ lại mật độ xác suất chuẩn một lần nữa bằng lệnh plot thay vì curve.\r
-\r
-Đầu vào quan trọng nhất của lệnh plot là một vector giá trị x và một vector giá trị y để vẽ. Một lệnh hữu ích cho mục đích này là seq. Như đã giới thiệu trong Chương 1, seq(a,b,d) tạo ra vector các giá trị từ a đến b, với các giá trị liên tiếp cách nhau d.\r
-\r
-x <- seq(-3,3,0.01)\r
-y <- dnorm(x)\r
-\r
-Vậy x bao gồm tất cả các số từ -3 đến 3, cách nhau 0.01, và y chứa các giá trị của mật độ xác suất chuẩn tại mỗi điểm trong x. Bây giờ chúng ta chỉ cần vẽ hai vector này với  $\\text{plot}(x,y)$ . Mặc định là biểu đồ phân tán. Để vẽ biểu đồ đường, chúng ta sử dụng  $\\text{plot}(x,y,\\text{type}="1").$  Chúng ta cũng có thể thiết lập nhãn trục và tiêu đề biểu đồ bằng xlab, ylab và main.\r
-\r
-\`\`\`R\r
-plot(x, y, type="l", xlab="x", ylab="dnorm(x)", main="N(0,1) PDF")\r
-\`\`\`\r
-\r
-Giới hạn trục có thể được thiết lập thủ công bằng xlim và ylim. Nếu, ví dụ, bạn muốn trục dọc đi từ 0 đến 1, bạn sẽ thêm ylim=c(0,1) bên trong lệnh plot.\r
-\r
-Cuối cùng, để thay đổi màu sắc của biểu đồ, thêm  $\\text{col="orange" hoặc col="green", hoặc bất kỳ màu sắc nào bạn thích!}$ \r
-\r
-## Tính phổ biến với Logistic\r
-\r
-Chúng ta đã chứng minh trong Ví dụ 5.3.4 rằng với  $U \\sim \\text{Unif}(0,1)$ , biến ngẫu nhiên  $\\log(U/(1-U))$  tuân theo phân phối Logistic. Trong R, chúng ta chỉ cần tạo ra một số lớn các giá trị  $\\text{Unif}(0,1)$  và biến đổi chúng.\r
-\r
-\`\`\`R\r
-u <- runif(10^4)\r
-x <- log(u/(1-u))\r
-\`\`\`\r
-\r
-Bây giờ \`x\` chứa $10^4$ thực hiện từ phân phối của $\\log(U/(1-U))$. Chúng ta có thể trực quan hóa chúng bằng histogram, sử dụng lệnh \`hist(x)\`. Histogram giống như một PDF Logistic, điều này làm cho chúng ta yên tâm. Để điều khiển độ tinh tế của histogram, chúng ta có thể thiết lập số lượng các khoảng trong histogram: \`hist(x, breaks=100)\` tạo ra một histogram tinh tế hơn, trong khi \`hist(x, breaks=10)\` tạo ra một histogram thô hơn.\r
-\r
-## Mô phỏng quy trình Poisson\r
-\r
-Để mô phỏng  $n$  lần đến trong một quy trình Poisson với tốc độ  $\\lambda$ , chúng ta trước tiên tạo ra các khoảng thời gian giữa các lần đến như là các biến ngẫu nhiên độc lập và đồng nhất Exponentials và lưu trữ chúng trong một vector:\r
-\r
-\`\`\`R\r
-n <- 50\r
-lambda <- 10\r
-x <- rexp(n, lambda)\r
-\`\`\`\r
-\r
-Sau đó chúng ta chuyển đổi các khoảng thời gian giữa các lần đến thành các thời điểm đến bằng hàm \`cumsum\`, vốn có nghĩa là “tổng tích lũy”.\r
-\r
-\`\`\`R\r
-t <- cumsum(x)\r
-\`\`\`\r
-\r
-Vector \`t\` hiện chứa tất cả các thời điểm đến mô phỏng.`,oA=`Các bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.\r
+  <strong>HÌNH 5.14:</strong> Bốn đối tượng cơ bản trong xác suất: phân phối, biến ngẫu nhiên, sự kiện, và số. Đối với một biến ngẫu nhiên liên tục $X$, chúng ta có $P(X = x) = 0$, do đó chúng ta sử dụng PDF như một bản phác thảo thay cho PMF.\r
+</div>`,uA='Trong phần này chúng ta sẽ giới thiệu các phân phối liên tục trong R, học cách tạo các biểu đồ cơ bản, minh họa tính phổ biến của Uniform bằng mô phỏng, và mô phỏng thời gian đến trong một quy trình Poisson.\r\n\r\n## Phân phối Uniform, Normal, và Exponential\r\n\r\nVới các phân phối liên tục, hàm bắt đầu bằng d là hàm mật độ xác suất (PDF) thay vì hàm khối xác suất (PMF). Do đó, chúng ta có các hàm sau:\r\n\r\n- `dunif`, `punif`, `runif`. Để đánh giá PDF của $\\text{Unif}(a,b)$ tại $x$, chúng ta sử dụng `dunif(x,a,b)`. Đối với CDF, chúng ta sử dụng `punif(x,a,b)`. Để tạo $n$ kết quả từ phân phối $\\text{Unif}(a,b)$, chúng ta sử dụng `runif(n,a,b)`.\r\n\r\n- `dnorm`, `pnorm`, `rnorm`. Để đánh giá PDF của $\\mathcal{N}(\\mu,\\sigma^{2})$ tại $x$, chúng ta sử dụng `dnorm(x,mu,sigma)`, trong đó `mu` là trung bình $\\mu$ và `sigma` là độ lệch chuẩn (không phải phương sai) $\\sigma$. Đối với CDF, chúng ta sử dụng `pnorm(x,mu,sigma)`. Để tạo $n$ kết quả từ phân phối $\\mathcal{N}(\\mu,\\sigma^{2})$, chúng ta sử dụng `rnorm(n,mu,sigma)`.\r\n\r\n<div class="math-box remark">\r\n<div class="math-box-header">\r\n<span class="math-box-name">Ghi chú</span>\r\n<span class="math-box-number">5.9.1</span>\r\n<span class="math-box-title">(Tham số Normal trong R)</span>\r\n</div>\r\n<div class="math-box-content">\r\n\r\nLưu ý rằng chúng ta phải nhập độ lệch chuẩn, không phải phương sai! Ví dụ, để có CDF của $\\mathcal{N}(10,3)$ tại 12, chúng ta sử dụng `pnorm(12,10,sqrt(3))`. Bỏ qua điều này là một lỗi lập trình phổ biến và nghiêm trọng.\r\n\r\n</div>\r\n</div>\r\n\r\n- `dexp`, `pexp`, `rexp`. Để đánh giá PDF của $\\text{Expo}(\\lambda)$ tại $x$, chúng ta sử dụng `dexp(x, lambda)`. Đối với CDF, chúng ta sử dụng `pexp(x, lambda)`. Để tạo $n$ kết quả từ phân phối $\\text{Expo}(\\lambda)$, chúng ta sử dụng `rexp(n, lambda)`.\r\n\r\nDo tầm quan trọng của các biến đổi vị trí và tỷ lệ cho các phân phối liên tục, R có các thiết lập tham số mặc định cho mỗi trong ba gia đình này. Mặc định cho Uniform là $\\text{Unif}(0,1)$, mặc định cho Normal là $\\mathcal{N}(0,1)$, và mặc định cho Exponential là $\\text{Expo}(1)$. Ví dụ, `dunif(0.5)`, không có đầu vào bổ sung, đánh giá PDF của $\\text{Unif}(0,1)$ tại 0.5, và `rnorm(10)`, không có đầu vào bổ sung, tạo ra 10 kết quả từ phân phối $\\mathcal{N}(0,1)$. Điều này có nghĩa là có hai cách để tạo một biến ngẫu nhiên $\\mathcal{N}(\\mu,\\sigma^{2})$ trong R. Sau khi chọn các giá trị của $\\mu$ và $\\sigma$, ví dụ như\r\n\r\n```R\r\nsigma <- 2\r\n```\r\n\r\nchúng ta có thể làm cả hai cách sau:\r\n\r\n```R\r\nrnorm(1, mu, sigma)\r\n\r\nmu + sigma*rnorm(1)\r\n```\r\n\r\nCả hai cách đều tạo ra một kết quả từ phân phối $\\mathcal{N}(\\mu,\\sigma^{2})$.\r\n\r\n## Biểu đồ trong R\r\n\r\nMột cách đơn giản để vẽ biểu đồ một hàm số trong R là sử dụng lệnh curve. Ví dụ,\r\n\r\n```R\r\ncurve(dnorm, from=-3, to=3, n=1000)\r\n```\r\n\r\ntạo ra một biểu đồ của mật độ xác suất chuẩn từ -3 đến 3. Điều gì thực sự đang xảy ra là R đánh giá hàm số tại một số lượng hữu hạn các điểm gần nhau và nối các điểm này bằng các đoạn thẳng rất ngắn để tạo ra ảo ảnh của một đường cong. Đầu vào n=1000 cho R biết rằng nó sẽ đánh giá tại 1000 điểm để đường cong trông rất mịn; nếu chúng ta chọn n=20, tính chất tính tuyến tính từng đoạn sẽ trở nên rõ rệt.\r\n\r\nMột lệnh khác tạo ra biểu đồ được gọi là plot. Lệnh này có rất nhiều đầu vào có thể tùy chỉnh để thay đổi biểu đồ trông như thế nào; vì mục đích minh họa, chúng ta sẽ vẽ lại mật độ xác suất chuẩn một lần nữa bằng lệnh plot thay vì curve.\r\n\r\nĐầu vào quan trọng nhất của lệnh `plot` là một vector giá trị `x` và một vector giá trị `y` để vẽ. Một lệnh hữu ích cho mục đích này là `seq`. Như đã giới thiệu trong Chương 1, `seq(a,b,d)` tạo ra vector các giá trị từ `a` đến `b`, với các giá trị liên tiếp cách nhau `d`.\r\n\r\n```R\r\nx <- seq(-3,3,0.01)\r\ny <- dnorm(x)\r\n```\r\n\r\nVậy `x` bao gồm tất cả các số từ -3 đến 3, cách nhau 0.01, và `y` chứa các giá trị của mật độ xác suất chuẩn tại mỗi điểm trong `x`. Bây giờ chúng ta chỉ cần vẽ hai vector này với `plot(x,y)`. Mặc định là biểu đồ phân tán. Để vẽ biểu đồ đường, chúng ta sử dụng `plot(x,y,type="l")`. Chúng ta cũng có thể thiết lập nhãn trục và tiêu đề biểu đồ bằng `xlab`, `ylab` và `main`.\r\n\r\n```R\r\nplot(x, y, type="l", xlab="x", ylab="dnorm(x)", main="N(0,1) PDF")\r\n```\r\n\r\nGiới hạn trục có thể được thiết lập thủ công bằng xlim và ylim. Nếu, ví dụ, bạn muốn trục dọc đi từ 0 đến 1, bạn sẽ thêm ylim=c(0,1) bên trong lệnh plot.\r\n\r\nCuối cùng, để thay đổi màu sắc của biểu đồ, thêm `col="orange"` hoặc `col="green"`, hoặc bất kỳ màu sắc nào bạn thích!\r\n\r\n## Tính phổ biến với Logistic\r\n\r\nChúng ta đã chứng minh trong Ví dụ 5.3.4 rằng với  $U \\sim \\text{Unif}(0,1)$ , biến ngẫu nhiên  $\\log(U/(1-U))$  tuân theo phân phối Logistic. Trong R, chúng ta chỉ cần tạo ra một số lớn các giá trị  $\\text{Unif}(0,1)$  và biến đổi chúng.\r\n\r\n```R\r\nu <- runif(10^4)\r\nx <- log(u/(1-u))\r\n```\r\n\r\nBây giờ `x` chứa $10^4$ thực hiện từ phân phối của $\\log(U/(1-U))$. Chúng ta có thể trực quan hóa chúng bằng histogram, sử dụng lệnh `hist(x)`. Histogram giống như một PDF Logistic, điều này làm cho chúng ta yên tâm. Để điều khiển độ tinh tế của histogram, chúng ta có thể thiết lập số lượng các khoảng trong histogram: `hist(x, breaks=100)` tạo ra một histogram tinh tế hơn, trong khi `hist(x, breaks=10)` tạo ra một histogram thô hơn.\r\n\r\n## Mô phỏng quy trình Poisson\r\n\r\nĐể mô phỏng  $n$  lần đến trong một quy trình Poisson với tốc độ  $\\lambda$ , chúng ta trước tiên tạo ra các khoảng thời gian giữa các lần đến như là các biến ngẫu nhiên độc lập và đồng nhất Exponentials và lưu trữ chúng trong một vector:\r\n\r\n```R\r\nn <- 50\r\nlambda <- 10\r\nx <- rexp(n, lambda)\r\n```\r\n\r\nSau đó chúng ta chuyển đổi các khoảng thời gian giữa các lần đến thành các thời điểm đến bằng hàm `cumsum`, vốn có nghĩa là “tổng tích lũy”.\r\n\r\n```R\r\nt <- cumsum(x)\r\n```\r\n\r\nVector `t` hiện chứa tất cả các thời điểm đến mô phỏng.\r\n',dA=`Các bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.\r
 \r
 ## PDFs và CDFs\r
 \r
@@ -11349,27 +11519,29 @@ Lưu ý: Chú ý rằng  $P(N = n) + P(N > n) = P(N > n - 1)$ .\r
 \r
 ## Những khoảnh khắc\r
 \r
-Khoảnh khắc thứ n của một biến ngẫu nhiên X là  $E(X^n)$ . Trong chương này, chúng ta khám phá cách các khoảnh khắc của một biến ngẫu nhiên làm nổi bật phân phối của nó. Chúng ta đã từng thấy rằng hai khoảnh khắc đầu tiên là hữu ích vì chúng cung cấp kỳ vọng  $E(X)$  và phương sai  $E(X^2) - (EX)^2$ , hai đại lượng tóm tắt quan trọng về giá trị trung bình của X và mức độ phân tán của phân phối của nó. Tuy nhiên, vẫn còn nhiều điều hơn nữa về một phân phối ngoài kỳ vọng và phương sai. Chúng ta sẽ thấy rằng các khoảnh khắc thứ ba và thứ tư cho chúng ta biết về sự bất đối xứng của một phân phối và hành vi của đuôi hoặc các giá trị cực trị, hai đặc tính không được thể hiện qua kỳ vọng và phương sai. Sau khi giới thiệu các khoảnh khắc, chúng ta sẽ thảo luận về hàm sinh momen (MGF), không chỉ giúp chúng ta tính toán các khoảnh khắc mà còn cung cấp một cách hữu ích khác để xác định một phân phối.`,sA=`Kỳ vọng được gọi là một đo lường về xu hướng trung tâm vì nó cho chúng ta biết điều gì đó về trung tâm của một phân phối, cụ thể là trọng tâm khối lượng. Các đo lường về xu hướng trung tâm khác thường được sử dụng trong thống kê là trung vị và chế độ, mà chúng ta nay định nghĩa.\r
+Khoảnh khắc thứ n của một biến ngẫu nhiên X là  $E(X^n)$ . Trong chương này, chúng ta khám phá cách các khoảnh khắc của một biến ngẫu nhiên làm nổi bật phân phối của nó. Chúng ta đã từng thấy rằng hai khoảnh khắc đầu tiên là hữu ích vì chúng cung cấp kỳ vọng  $E(X)$  và phương sai  $E(X^2) - (EX)^2$ , hai đại lượng tóm tắt quan trọng về giá trị trung bình của X và mức độ phân tán của phân phối của nó. Tuy nhiên, vẫn còn nhiều điều hơn nữa về một phân phối ngoài kỳ vọng và phương sai. Chúng ta sẽ thấy rằng các khoảnh khắc thứ ba và thứ tư cho chúng ta biết về sự bất đối xứng của một phân phối và hành vi của đuôi hoặc các giá trị cực trị, hai đặc tính không được thể hiện qua kỳ vọng và phương sai. Sau khi giới thiệu các khoảnh khắc, chúng ta sẽ thảo luận về hàm sinh momen (MGF), không chỉ giúp chúng ta tính toán các khoảnh khắc mà còn cung cấp một cách hữu ích khác để xác định một phân phối.`,fA=`Kỳ vọng được gọi là một đo lường về xu hướng trung tâm vì nó cho chúng ta biết điều gì đó về trung tâm của một phân phối, cụ thể là trọng tâm khối lượng. Các đo lường về xu hướng trung tâm khác thường được sử dụng trong thống kê là trung vị và chế độ, mà chúng ta nay định nghĩa.\r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.1.1</span>\r
-<span class="math-box-title">(Trung vị)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 6.1.1</div>\r
+    <div class="math-box-title">Trung vị</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Chúng ta nói rằng $c$ là một trung vị của một biến ngẫu nhiên $X$ nếu $P(X \\leq c) \\geq 1/2$ và $P(X \\geq c) \\geq 1/2$. (Cách đơn giản nhất để điều này xảy ra là nếu hàm phân phối tích lũy (CDF) của $X$ chạm vào 1/2 chính xác tại $c$, nhưng chúng ta biết rằng một số CDF có bước nhảy.)\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.1.2</span>\r
-<span class="math-box-title">(Chế độ)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 6.1.2</div>\r
+    <div class="math-box-title">Chế độ</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Đối với một biến ngẫu nhiên rời rạc X, chúng ta nói rằng c là một chế độ của X nếu nó tối đa hóa PMF: $P(X = c) \\geq P(X = x)$ cho tất cả x. Đối với một biến ngẫu nhiên liên tục X với PDF f, chúng ta nói rằng c là một chế độ nếu nó tối đa hóa PDF: $f(c) \\geq f(x)$ cho tất cả x.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11391,11 +11563,11 @@ Lưu ý rằng một phân phối có thể có nhiều trung vị và nhiều c
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.1.3</span>\r
-<span class="math-box-title">(Trung bình, trung vị, và chế độ cho mức lương)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 6.1.3</div>\r
+    <div class="math-box-title">Trung bình, trung vị, và chế độ cho mức lương</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Một công ty nhất định có 100 nhân viên. Gọi $s_{1}, s_{2}, \\ldots, s_{100}$ là các mức lương của họ, được sắp xếp theo thứ tự tăng dần (chúng ta vẫn có thể làm điều này ngay cả khi một số mức lương xuất hiện nhiều hơn một lần). Gọi X là mức lương của một nhân viên được chọn ngẫu nhiên (được chọn đều). Trung bình, trung vị, và chế độ cho dữ liệu $s_{1}, s_{2}, \\ldots, s_{100}$ được định nghĩa là các đại lượng tương ứng cho X.\r
 \r
 Mức lương điển hình là gì? Mô tả bằng một số duy nhất nào là hữu ích nhất cho dữ liệu mức lương? Câu trả lời, như thường lệ, là phụ thuộc vào mục tiêu. Các tóm tắt khác nhau tiết lộ các đặc điểm khác nhau của dữ liệu, do đó có thể khó chọn một số duy nhất. Thường không cần thiết phải làm như vậy, vì thông thường chúng ta có thể cung cấp nhiều tóm tắt (và vẽ biểu đồ dữ liệu). Ở đây chúng ta ngắn gọn so sánh trung bình, trung vị, và chế độ, mặc dù thường thì có ý nghĩa để báo cáo cả ba (và các tóm tắt khác nữa).\r
@@ -11405,6 +11577,7 @@ Nếu các mức lương đều khác nhau, chế độ không cung cấp một 
 Tiếp theo, hãy xem xét trung vị. Có hai số "ở giữa", $s_{50}$ và $s_{51}$. Trên thực tế, bất kỳ số nào $m$ với $s_{50} \\leq m \\leq s_{51}$ đều là trung vị, vì có ít nhất 50% khả năng rằng mức lương của nhân viên ngẫu nhiên là trong $\\{s_{1}, \\ldots, s_{50}\\}$ (trong trường hợp đó nó không lớn hơn $m$) và ít nhất 50% khả năng rằng nó trong $\\{s_{51}, \\ldots, s_{100}\\}$ (trong trường hợp đó nó không nhỏ hơn $m$). Thường thì người ta chọn $m = (s_{50} + s_{51})/2$, trung bình của hai số ở giữa. Nếu số lượng nhân viên là lẻ, vấn đề này sẽ không xảy ra; trong trường hợp đó, có một trung vị duy nhất, số ở giữa khi tất cả các mức lương được liệt kê theo thứ tự tăng dần.\r
 \r
 So với trung bình, trung vị ít nhạy cảm hơn với các giá trị cực đoan. Ví dụ, nếu mức lương của tổng giám đốc thay đổi từ chỉ cao hơn một chút so với bất kỳ ai khác thành cao hơn rất nhiều so với bất kỳ ai khác, điều này có thể ảnh hưởng lớn đến trung bình nhưng không ảnh hưởng đến trung vị. Sự bền vững này là lý do tại sao trung vị có thể là một chỉ số tổng kết hợp lý hơn so với trung bình về mức lương điển hình. Về mặt khác, giả sử rằng chúng ta muốn biết tổng chi phí công ty đang trả cho lương nhân viên. Nếu chỉ biết một chế độ hay một trung vị, chúng ta không thể rút ra thông tin này, nhưng nếu biết trung bình, chúng ta chỉ cần nhân nó với 100.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11412,15 +11585,16 @@ Giả sử rằng chúng ta đang cố gắng đoán trước giá trị của m
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.1.4</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 6.1.4</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Cho X là một biến ngẫu nhiên với trung bình $\\mu$, và m là một trung vị của X.\r
 \r
 - Giá trị của $c$ mà làm nhỏ nhất sai số bình phương trung bình $E(X-c)^{2}$ là $c=\\mu$.\r
 \r
 - Một giá trị của c mà làm nhỏ nhất sai số tuyệt đối trung bình $E|X - c|$ là c = m.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11429,6 +11603,7 @@ Cho X là một biến ngẫu nhiên với trung bình $\\mu$, và m là một t
 <span class="math-box-name">Chứng minh</span>\r
 </div>\r
 <div class="math-box-content">\r
+\r
 Chúng ta sẽ trước tiên chứng minh một đẳng thức hữu ích:\r
 \r
 $$\r
@@ -11474,8 +11649,12 @@ E(Y)&=E(YI)+E(Y(1-I))\\\\\r
 $$\r
 \r
 Theo định nghĩa của trung vị, chúng ta có $2P(X \\leq m) - 1 \\geq 0$. Do đó, $E(Y) \\geq 0$, điều này kéo theo $E(|X - m|) \\leq E(|X - a|)$.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
 </div>\r
-</div>\r
+</div>>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
   <img src="imgs/img_in_chart_box_302_931_1079_1385.jpg" alt="Hai PDF với trung bình 2 và phương sai 12" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
@@ -11510,14 +11689,15 @@ Trong phần tiếp theo, chúng ta sẽ đi vào chi tiết hơn về cách di�
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.4:</strong> Trái: $\\mathcal{N}(0,1)$ PDF (sáng) và một PDF được thay đổi $t_{3}$ (tối). Cả hai đều có trung bình 0 và phương sai 1, nhưng cái sau có đỉnh nhọn hơn và đuôi nặng hơn. Phải: phiên bản phóng to của hành vi đuôi bên phải.\r
-</div>`,cA=`<div class="math-box definition">\r
+</div>`,pA=`<div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.2.1</span>\r
-<span class="math-box-title">(Các loại momen)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 6.2.1</div>\r
+    <div class="math-box-title">Các loại momen</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Gọi X là một biến ngẫu nhiên có kỳ vọng $\\mu$ và phương sai $\\sigma^2$. Với bất kỳ số nguyên dương nào n, momen thứ n của X là $E(X^n)$, momen trung tâm thứ n là $E((X-\\mu)^n)$, và momen chuẩn hóa thứ n là $E\\left(\\left(\\frac{X-\\mu}{\\sigma}\\right)^n\\right)$. Trong toàn bộ câu trước đó, "nếu tồn tại" được bỏ qua.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11546,11 +11726,11 @@ Chúng ta sẽ định nghĩa độ lệch (skewness), một chỉ số số đ�
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.2.2</span>\r
-<span class="math-box-title">(Độ lệch dạng)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 6.2.2</div>\r
+    <div class="math-box-title">Độ lệch dạng</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Độ lệch dạng của một r.v. X với giá trị trung bình $\\mu$ và phương sai $\\sigma^{2}$ là moment chuẩn hóa thứ ba của X:\r
 \r
 $$\r
@@ -11558,6 +11738,7 @@ $$\r
 $$\r
 \r
 Bằng cách chuẩn hóa trước, chúng ta làm cho định nghĩa của Skew(X) không phụ thuộc vào vị trí hay quy mô của X, điều này hợp lý vì chúng ta đã có $\\mu$ và $\\sigma$ để cung cấp thông tin về vị trí và quy mô. Ngoài ra, việc chuẩn hóa trước mang lại tính chất đẹp là các đơn vị mà X được đo lường (ví dụ, inch so với mét) sẽ không ảnh hưởng đến độ lệch dạng.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11565,12 +11746,13 @@ Bằng cách chuẩn hóa trước, chúng ta làm cho định nghĩa của Skew
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.2.3</span>\r
-<span class="math-box-title">(Đối xứng của một r.v.)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 6.2.3</div>\r
+    <div class="math-box-title">Đối xứng của một r.v.</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Chúng ta nói rằng một r.v. X có phân phối đối xứng quanh $\\mu$ nếu $X - \\mu$ có cùng phân phối như $\\mu - X$. Chúng ta cũng nói rằng X đối xứng hoặc rằng phân phối của X đối xứng; tất cả đều có cùng nghĩa.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11602,11 +11784,12 @@ cho thấy rằng $P(X \\leq \\mu) \\geq 1/2$ và $P(X \\geq \\mu) \\geq 1/2$.\r
 \r
 <div class="math-box remark">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">6.2.4</span>\r
-</div>\r
+    <div class="math-box-number">Ghi chú 6.2.4</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Đôi khi người ta nói "X là đối xứng" để có nghĩa "X đối xứng quanh 0". Lưu ý rằng nếu X đối xứng quanh $\\mu$, thì $X - \\mu$ là đối xứng quanh 0. Đối xứng quanh 0 đặc biệt thuận tiện vì lúc đó -X và X có cùng phân phối, và hàm mật độ xác suất của X (nếu X liên tục) là một hàm chẵn, như được trình bày dưới đây.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11616,20 +11799,22 @@ Chúng ta cũng có thể mô tả một cách đại số về dạng của hà
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.2.5</span>\r
-<span class="math-box-title">(Đối xứng theo hàm mật độ xác suất)</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 6.2.5</div>\r
+    <div class="math-box-title">Đối xứng theo hàm mật độ xác suất</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Giả sử X là một biến ngẫu nhiên liên tục có hàm mật độ xác suất f. Khi đó X đối xứng quanh $\\mu$ nếu và chỉ nếu $f(x) = f(2\\mu - x)$ với mọi x.\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box proof">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
+    <div class="math-box-number">Chứng minh</span>\r
 </div>\r
 <div class="math-box-content">\r
+\r
 Gọi F là hàm phân phối tích lũy của X. Nếu tính đối xứng đúng, ta có\r
 \r
 $$\r
@@ -11649,25 +11834,31 @@ $$\r
 $$\r
 \r
 Những moment trung tâm lẻ cho một số thông tin về đối xứng.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
 </div>\r
-</div>\r
+</div>>\r
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.2.6</span>\r
-<span class="math-box-title">(Những moment trung tâm lẻ của một phân phối đối xứng)</span>\r
-</div>\r
+<div class="math-box-number">Định lý 6.2.6</div>\r
+    <div class="math-box-title">Những moment trung tâm lẻ của một phân phối đối xứng</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Giả sử X đối xứng quanh giá trị kỳ vọng của nó $\\mu$. Khi đó với mọi số lẻ m, moment trung tâm thứ m $E(X - \\mu)^m$ bằng 0 nếu nó tồn tại.\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box proof">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
+    <div class="math-box-number">Chứng minh</span>\r
 </div>\r
 <div class="math-box-content">\r
+\r
 Vì $X - \\mu$ có cùng phân phối với $\\mu - X$, chúng có cùng moment thứ m (nếu tồn tại):\r
 \r
 $$\r
@@ -11675,8 +11866,12 @@ E(X-\\mu)^{m}=E(\\mu-X)^{m}.\r
 $$\r
 \r
 Gọi $Y = (X - \\mu)^m$. Khi đó $(\\mu - X)^m = (-(X - \\mu))^m = (-1)^m Y = -Y$, do đó phương trình trên chỉ nói rằng $E(Y) = -E(Y)$. Vậy $E(Y) = 0$.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
 </div>\r
-</div>\r
+</div>>\r
 \r
 Điều này đưa chúng ta đến việc xem xét việc sử dụng một kỳ vọng chuẩn hóa lẻ để đo lường độ lệch của một phân phối. Kỳ vọng chuẩn hóa thứ nhất luôn luôn bằng 0, do đó kỳ vọng chuẩn hóa thứ ba được lấy làm định nghĩa của độ lệch. Độ lệch dương cho thấy có một đuôi bên phải dài hơn so với đuôi bên trái, và độ lệch âm cho thấy ngược lại. (Ngược lại của khẳng định trên là sai, tuy nhiên: tồn tại các phân phối bất đối xứng mà các kỳ vọng trung tâm lẻ đều bằng 0.)\r
 \r
@@ -11688,26 +11883,28 @@ Giống như việc đo lường độ lệch, không có chỉ số nào có th
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.2.7</span>\r
-<span class="math-box-title">(Độ nhọn)</span>\r
-</div>\r
+<div class="math-box-number">Định nghĩa 6.2.7</div>\r
+    <div class="math-box-title">Độ nhọn</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Độ nhọn của một biến ngẫu nhiên X với kỳ vọng $\\mu$ và phương sai $\\sigma^{2}$ là một phiên bản dịch của kỳ vọng chuẩn hóa thứ tư của X:\r
 \r
 $$\r
 \\mathrm{K u r t}(X)=E\\left(\\frac{X-\\mu}{\\sigma}\\right)^{4}-3.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box remark">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">6.2.8</span>\r
-</div>\r
+    <div class="math-box-number">Ghi chú 6.2.8</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Lý do cho việc trừ 3 là vì điều này khiến phân phối chuẩn có độ nhọn bằng 0 (như được trình bày trong Chương 6.5). Điều này cung cấp một cơ sở thuận tiện cho so sánh. Tuy nhiên, một số nguồn định nghĩa độ nhọn mà không có số 3, trong trường hợp đó họ gọi phiên bản của chúng ta là "độ nhọn dư".\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11720,17 +11917,17 @@ Hình 6.6 cho thấy ba phân phối có tên và liệt kê độ lệch và đ
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.6:</strong> Độ lệch về phía bên và độ nhọn của một số phân phối có tên. Trái: PDF của Expo(1), độ lệch = 2, độ nhọn = 6. Giữa: PMF của Pois(4), độ lệch = 0.5, độ nhọn = 0.25. Phải: PDF của Unif(0,1), độ lệch = 0, độ nhọn = -1.2.\r
-</div>`,lA=`Trong suy luận thống kê, một vấn đề trung tâm là làm thế nào sử dụng dữ liệu để ước lượng các tham số chưa biết của một phân phối, hoặc các hàm của các tham số chưa biết. Đặc biệt, người ta thường muốn ước lượng trung bình và phương sai của một phân phối. Nếu dữ liệu là các biến ngẫu nhiên độc lập và đồng phân phối  $X_{1}, \\ldots, X_{n}$  nơi mà trung bình  $E(X_{j})$  là chưa biết, thì cách đơn giản nhất để ước lượng trung bình là đơn giản trung bình của các  $X_{j}$ , lấy giá trị trung bình cộng.\r
+</div>`,mA=`Trong suy luận thống kê, một vấn đề trung tâm là làm thế nào sử dụng dữ liệu để ước lượng các tham số chưa biết của một phân phối, hoặc các hàm của các tham số chưa biết. Đặc biệt, người ta thường muốn ước lượng trung bình và phương sai của một phân phối. Nếu dữ liệu là các biến ngẫu nhiên độc lập và đồng phân phối  $X_{1}, \\ldots, X_{n}$  nơi mà trung bình  $E(X_{j})$  là chưa biết, thì cách đơn giản nhất để ước lượng trung bình là đơn giản trung bình của các  $X_{j}$ , lấy giá trị trung bình cộng.\r
 \r
 Ví dụ, nếu dữ liệu quan sát là 3, 1, 1, 5, thì một cách đơn giản và tự nhiên để ước lượng trung bình của phân phối tạo ra dữ liệu là sử dụng  $(3+1+1+5)/4 = 2.5$ . Điều này được gọi là trung bình mẫu. Tương tự, nếu chúng ta muốn ước lượng momen thứ hai của phân phối tạo ra dữ liệu 3, 1, 1, 5, thì một cách đơn giản và tự nhiên là sử dụng  $(3^2 + 1^2 + 1^2 + 5^2)/4 = 9$ . Điều này được gọi là momen thứ hai mẫu. Tổng quát, các momen mẫu được định nghĩa như sau.\r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.3.1</span>\r
-<span class="math-box-title">(Các momen mẫu)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 6.3.1</div>\r
+    <div class="math-box-title">Các momen mẫu</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Giả sử $X_{1}, \\ldots, X_{n}$ là các biến ngẫu nhiên độc lập và đồng phân phối. Momen mẫu thứ k là biến ngẫu nhiên.\r
 \r
 $$\r
@@ -11742,6 +11939,7 @@ Trung bình mẫu  $\\bar{X}_{n}$  là momen mẫu thứ nhất:\r
 $$\r
 \\bar{X}_{n}=\\frac{1}{n}\\sum_{j=1}^{n}X_{j}.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11757,11 +11955,11 @@ Giá trị trung bình và phương sai của giá trị trung bình mẫu thư�
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.3.2</span>\r
-<span class="math-box-title">(Giá trị trung bình và phương sai của giá trị trung bình mẫu)</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 6.3.2</div>\r
+    <div class="math-box-title">Giá trị trung bình và phương sai của giá trị trung bình mẫu</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Giả sử $X_1, \\ldots, X_n$ là các biến ngẫu nhiên độc lập và đồng phân phối với giá trị trung bình $\\mu$ và phương sai $\\sigma^2$. Khi đó giá trị trung bình mẫu $\\bar{X}_n$ là không thiên lệch khi ước lượng $\\mu$. Nói cách khác,\r
 \r
 $$\r
@@ -11773,31 +11971,37 @@ Phương sai của  $\\bar{X}_{n}$  được cho bởi\r
 $$\r
 \\mathrm{Var}(\\bar{X}_{n})=\\frac{\\sigma^{2}}{n}.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box proof">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
+    <div class="math-box-number">Chứng minh</span>\r
 </div>\r
 <div class="math-box-content">\r
+\r
 Chúng ta có $E(\\bar{X}_n) = \\mu$ vì chúng ta đã chỉ ra ở trên rằng mô men mẫu thứ k là không thiên lệch khi ước lượng mô men thứ k. Đối với phương sai, chúng ta sẽ sử dụng tính chất (được trình bày trong chương sau) rằng phương sai của tổng các biến ngẫu nhiên độc lập là tổng các phương sai:\r
 \r
 $$\r
 \\mathrm{Var}(\\bar{X}_{n})=\\frac{1}{n^{2}}\\mathrm{Var}(X_{1}+\\cdots+X_{n})=\\frac{n}{n^{2}}\\mathrm{Var}(X_{1})=\\frac{\\sigma^{2}}{n}.\r
 $$\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
 </div>\r
-</div>\r
+</div>>\r
 \r
 Để ước lượng phương sai của phân phối của các biến ngẫu nhiên độc lập và đồng phân phối  $X_{1},\\ldots,X_{n}$ , một cách tiếp cận tự nhiên dựa trên các khái niệm trên là bắt chước công thức  $\\operatorname{Var}(X)=E(X^{2})-(EX)^{2}$  bằng cách lấy mô men mẫu thứ hai và trừ đi bình phương của giá trị trung bình mẫu. Có những ưu điểm của phương pháp này, nhưng một phương pháp phổ biến hơn là như sau.\r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.3.3</span>\r
-<span class="math-box-title">(Phương sai mẫu và độ lệch chuẩn mẫu)</span>\r
-</div>\r
+<div class="math-box-number">Định nghĩa 6.3.3</div>\r
+    <div class="math-box-title">Phương sai mẫu và độ lệch chuẩn mẫu</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Giả sử $X_{1}, \\ldots, X_{n}$ là các biến ngẫu nhiên độc lập và đồng phân phối. Phương sai mẫu là biến ngẫu nhiên\r
 \r
 $$\r
@@ -11805,6 +12009,7 @@ S_{n}^{2}=\\frac{1}{n-1}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}.\r
 $$\r
 \r
 Độ lệch chuẩn mẫu là căn bậc hai của phương sai mẫu.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11814,16 +12019,17 @@ $$\r
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.3.4</span>\r
-<span class="math-box-title">(Không thiên lệch của độ lệch chuẩn mẫu)</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 6.3.4</div>\r
+    <div class="math-box-title">Không thiên lệch của độ lệch chuẩn mẫu</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Gọi $X_1, \\ldots, X_n$ là các biến ngẫu nhiên độc lập và đồng phân phối với kỳ vọng $\\mu$ và phương sai $\\sigma^2$. Khi đó độ lệch chuẩn mẫu $S_n^2$ không thiên lệch khi ước lượng $\\sigma^2$, tức là,\r
 \r
 $$\r
 E(S_{n}^{2})=\\sigma^{2}.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11832,6 +12038,7 @@ $$\r
 <span class="math-box-name">Chứng minh</span>\r
 </div>\r
 <div class="math-box-content">\r
+\r
 Chìa khóa cho chứng minh là danh tính hữu ích\r
 \r
 $$\r
@@ -11861,8 +12068,12 @@ n E(X_{1}-\\mu)^{2}=E\\left(\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}\\right)+n E(
 $$\r
 \r
 Theo định nghĩa của phương sai, $E(X_1 - \\mu)^2 = \\text{Var}(X_1) = \\sigma^2$, và $E(\\bar{X}_n - \\mu)^2 = \\text{Var}(\\bar{X}_n) = \\sigma^2/n$. Thay các kết quả này vào trên và đơn giản hóa, chúng ta có $E(S_n^2) = \\sigma^2$.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
 </div>\r
-</div>\r
+</div>>\r
 \r
 Tương tự, chúng ta có thể định nghĩa độ lệch chuẩn mẫu là\r
 \r
@@ -11876,7 +12087,7 @@ $$\r
 \\frac{\\frac{1}{n}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{4}}{S_{n}^{4}}-3.\r
 $$\r
 \r
-Sau mô men bậc tư, việc diễn giải các mô men bằng đồ thị nhanh chóng trở nên khó khăn hơn và việc ước lượng chúng từ dữ liệu nếu không biết trước cũng trở nên khó khăn hơn. Tuy nhiên, trong phần còn lại của chương này, chúng ta sẽ thấy rằng việc biết tất cả các mô men của một phân phối vẫn có thể hữu ích. Chúng ta cũng sẽ nghiên cứu một cách tính các mô men mà thường dễ hơn so với LOTUS. Cả tính hữu ích và cách tính các mô men đều có mối liên hệ chặt chẽ với một bản thiết kế gọi là hàm sinh mô men, mà chúng ta dành phần lớn nội dung còn lại của chương này để nghiên cứu.`,uA=`Một hàm sinh là một dây phơi mà chúng ta treo lên một chuỗi các số để trưng bày. – Herbert Wilf [28]\r
+Sau mô men bậc tư, việc diễn giải các mô men bằng đồ thị nhanh chóng trở nên khó khăn hơn và việc ước lượng chúng từ dữ liệu nếu không biết trước cũng trở nên khó khăn hơn. Tuy nhiên, trong phần còn lại của chương này, chúng ta sẽ thấy rằng việc biết tất cả các mô men của một phân phối vẫn có thể hữu ích. Chúng ta cũng sẽ nghiên cứu một cách tính các mô men mà thường dễ hơn so với LOTUS. Cả tính hữu ích và cách tính các mô men đều có mối liên hệ chặt chẽ với một bản thiết kế gọi là hàm sinh mô men, mà chúng ta dành phần lớn nội dung còn lại của chương này để nghiên cứu.`,hA=`Một hàm sinh là một dây phơi mà chúng ta treo lên một chuỗi các số để trưng bày. – Herbert Wilf [28]\r
 \r
 Hàm sinh là một công cụ mạnh mẽ trong tổ hợp học và xác suất, kết nối giữa các chuỗi số và thế giới của giải tích. Trong xác suất, chúng được sử dụng để nghiên cứu cả các phân phối rời rạc và liên tục. Ý tưởng chung đằng sau một hàm sinh là như sau: bắt đầu từ một chuỗi các số, tạo ra một hàm liên tục – hàm sinh – mà chứa đựng chuỗi số đó. Khi đó, chúng ta có toàn bộ công cụ của giải tích để xử lý hàm sinh.\r
 \r
@@ -11884,12 +12095,13 @@ Một hàm sinh mô men, như tên gọi gợi ý, là một hàm sinh mà chứ
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.4.1</span>\r
-<span class="math-box-title">(Hàm sinh mô men)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 6.4.1</div>\r
+    <div class="math-box-title">Hàm sinh mô men</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Hàm sinh mô men (MGF) của một biến ngẫu nhiên X là $M(t) = E(e^{tX})$, như một hàm của t, nếu điều này hữu hạn trên một khoảng mở $(-a, a)$ chứa 0. Ngược lại, chúng ta nói rằng hàm sinh mô men của X không tồn tại.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11899,22 +12111,23 @@ Lưu ý rằng  $M(0) = 1$  với bất kỳ hàm sinh mô men hợp lệ nào M
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.4.2</span>\r
-<span class="math-box-title">(MGF của phân phối Bernoulli)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 6.4.2</div>\r
+    <div class="math-box-title">MGF của phân phối Bernoulli</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Với $X \\sim \\text{Bern}(p)$, $e^{tX}$ nhận giá trị $e^t$ với xác suất $p$ và giá trị 1 với xác suất $q$, do đó $M(t) = E(e^{tX}) = pe^t + q$. Vì điều này hữu hạn với mọi giá trị của $t$, hàm sinh mô men được xác định trên toàn bộ trục số thực.\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.4.3</span>\r
-<span class="math-box-title">(MGF hình học)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 6.4.3</div>\r
+    <div class="math-box-title">MGF hình học</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Đối với $X \\sim \\text{Geom}(p)$,\r
 \r
 $$\r
@@ -11922,16 +12135,17 @@ M(t)=E(e^{tX})=\\sum_{k=0}^{\\infty}e^{tk}q^{k}p=p\\sum_{k=0}^{\\infty}(qe^{t})^
 $$\r
 \r
 cho $qe^t < 1$, tức là cho $t$ trong $(-\\infty, \\log(1/q))$, nào là một khoảng mở chứa 0.\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.4.4</span>\r
-<span class="math-box-title">(MGF đều)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 6.4.4</div>\r
+    <div class="math-box-title">MGF đều</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Giả sử $U \\sim \\text{Unif}(a, b)$. Khi đó MGF của $U$ là\r
 \r
 $$\r
@@ -11939,6 +12153,7 @@ M(t)=E(e^{tU})=\\frac{1}{b-a}\\int_{a}^{b}e^{tu}du=\\frac{e^{tb}-e^{ta}}{t(b-a)}
 $$\r
 \r
 cho $t \\neq 0$, và $M(0) = 1$.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11946,20 +12161,22 @@ Ba định lý tiếp theo cho ba lý do tại sao MGF là quan trọng. Thứ n
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.4.5</span>\r
-<span class="math-box-title">(Moments qua đạo hàm của MGF)</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 6.4.5</div>\r
+    <div class="math-box-title">Moments qua đạo hàm của MGF</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Cho MGF của X, chúng ta có thể tìm moment thứ n của X bằng cách đánh giá đạo hàm thứ n của MGF tại 0: $E(X^{n}) = M^{(n)}(0)$.\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box proof">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
+    <div class="math-box-number">Chứng minh</span>\r
 </div>\r
 <div class="math-box-content">\r
+\r
 Điều này có thể được thấy bằng cách nhận ra rằng khai triển Taylor của $M(t)$ quanh 0 là\r
 \r
 $$\r
@@ -11979,19 +12196,24 @@ M(t)=\\sum_{n=0}^{\\infty}E(X^{n})\\frac{t^{n}}{n!}.\r
 $$\r
 \r
 So sánh các hệ số của hai khai triển, chúng ta nhận được $E(X^{n}) = M^{(n)}(0)$.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
 </div>\r
-</div>\r
+</div>>\r
 \r
 Định lý trên là bất ngờ vì đối với một biến ngẫu nhiên liên tục X, để tính các moment thì dường như đòi hỏi phải làm tích phân với LOTUS, nhưng với MGF thì có thể tìm các moment bằng cách lấy đạo hàm thay vì làm tích phân!\r
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.4.6</span>\r
-<span class="math-box-title">(MGF xác định phân phối)</span>\r
-</div>\r
+<div class="math-box-number">Định lý 6.4.6</div>\r
+    <div class="math-box-title">MGF xác định phân phối</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 MGF của một biến ngẫu nhiên xác định phân phối của nó: nếu hai biến ngẫu nhiên có cùng MGF, thì chúng phải có cùng phân phối. Trên thực tế, nếu chỉ cần có một khoảng nhỏ $(-a, a)$ chứa 0 mà trên đó các MGFs bằng nhau, thì các biến ngẫu nhiên phải có cùng phân phối.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -11999,16 +12221,17 @@ Kết quả trên là một định lý khó trong phân tích, vì vậy chúng
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.4.7</span>\r
-<span class="math-box-title">(MGF của tổng các biến ngẫu nhiên độc lập)</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 6.4.7</div>\r
+    <div class="math-box-title">MGF của tổng các biến ngẫu nhiên độc lập</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Nếu X và Y độc lập, thì MGF của $X + Y$ là tích của các MGF riêng lẻ:\r
 \r
 $$\r
 M_{X+Y}(t)=M_{X}(t)M_{Y}(t).\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
@@ -12018,16 +12241,17 @@ $$\r
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.4.8</span>\r
-<span class="math-box-title">(MGF của Binomial)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 6.4.8</div>\r
+    <div class="math-box-title">MGF của Binomial</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 MGF của một biến ngẫu nhiên $\\text{Bern}(p)$ là $pe^{t} + q$, do đó MGF của một biến ngẫu nhiên $\\text{Bin}(n,p)$ là\r
 \r
 $$\r
 M(t)=(p e^{t}+q)^{n}.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
@@ -12044,16 +12268,17 @@ Hình 6.7 vẽ MGF của phân phối Bin(2,1/2),  $M(t) = \\left(\\frac{1}{2}e^
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.4.9</span>\r
-<span class="math-box-title">(MGF của Negative Binomial)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 6.4.9</div>\r
+    <div class="math-box-title">MGF của Negative Binomial</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Chúng ta biết MGF của một biến ngẫu nhiên Geom(p) là $\\frac{p}{1-qe^{t}}$ cho $qe^{t} < 1$, do đó MGF của $X \\sim \\mathrm{NBin}(r, p)$ là\r
 \r
 $$\r
 M(t)=\\left(\\frac{p}{1-q e^{t}}\\right)^{r},\\mathrm{for}\\ q e^{t}<1.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
@@ -12061,11 +12286,12 @@ $$\r
 \r
 <div class="math-box remark">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">6.4.10</span>\r
-</div>\r
+    <div class="math-box-number">Ghi chú 6.4.10</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Không phải tất cả các biến ngẫu nhiên (r.v.) đều có hàm sinh moment (MGF). Một số r.v. X thậm chí không tồn tại $E(X)$, hoặc không tồn tại $E(X^n)$ với một số $n > 1$, trong trường hợp này MGF rõ ràng sẽ không tồn tại. Nhưng ngay cả khi tất cả các moment của X tồn tại, MGF có thể không tồn tại nếu các moment tăng quá nhanh. May mắn thay, có một cách để giải quyết vấn đề này: chèn một số ảo! Hàm $\\psi(t) = E(e^{itX})$ với $i = \\sqrt{-1}$ được gọi là hàm đặc trưng bởi các nhà thống kê và biến đổi Fourier bởi mọi người khác. Kết quả cho thấy rằng hàm đặc trưng luôn tồn tại. Trong cuốn sách này chúng ta sẽ tập trung vào MGF thay vì hàm đặc trưng, để tránh phải xử lý các số ảo.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -12073,16 +12299,17 @@ Như chúng ta đã thấy trong chương trước, các phép biến đổi v�
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.4.11</span>\r
-<span class="math-box-title">(MGF của phép biến đổi vị trí-tỷ lệ)</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 6.4.11</div>\r
+    <div class="math-box-title">MGF của phép biến đổi vị trí-tỷ lệ</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Nếu X có MGF $M(t)$, thì MGF của $a + bX$ là\r
 \r
 $$\r
 E(e^{t(a+bX)})=e^{at}E(e^{btX})=e^{at}M(bt).\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
@@ -12090,11 +12317,11 @@ Ví dụ, hãy sử dụng định lý này để giúp tìm MGF của các phâ
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.4.12</span>\r
-<span class="math-box-title">(MGF của phân phối chuẩn)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 6.4.12</div>\r
+    <div class="math-box-title">MGF của phân phối chuẩn</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 MGF của một r.v. chuẩn chuẩn Z là\r
 \r
 $$\r
@@ -12112,16 +12339,17 @@ vì PDF của  $\\mathcal{N}(t,1)$  tích phân bằng 1. Do đó, MGF của  $X
 $$\r
 M_{X}(t)=e^{\\mu t}M_{Z}(\\sigma t)=e^{\\mu t}e^{(\\sigma t)^{2}/2}=e^{\\mu t+\\frac{1}{2}\\sigma^{2}t^{2}}.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.4.13</span>\r
-<span class="math-box-title">(MGF của phân phối mũ)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 6.4.13</div>\r
+    <div class="math-box-title">MGF của phân phối mũ</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 MGF của $X \\sim \\text{Expo}(1)$ là\r
 \r
 $$\r
@@ -12133,16 +12361,17 @@ Do đó, MGF của  $Y = X/\\lambda \\sim \\text{Expo}(\\lambda)$  là\r
 $$\r
 M_{Y}(t)=M_{X}\\left(\\frac{t}{\\lambda}\\right)=\\frac{\\lambda}{\\lambda-t}\\quad for\\ t<\\lambda.\r
 $$\r
+\r
 </div>\r
-</div>`,dA=`Chúng ta hiện tại sẽ đưa ra một số ví dụ về việc sử dụng MGF để tìm các momen. Định lý 6.4.5 cho thấy rằng chúng ta có thể tìm được các momen bằng cách lấy đạo hàm của MGF và đánh giá tại 0, thay vì phải thực hiện một tổng hoặc tích phân phức tạp bằng cách sử dụng LOTUS. Tốt hơn nữa, trong một số trường hợp, chúng ta có thể đồng thời tìm được tất cả các momen của một phân phối thông qua một khai triển Taylor, thay vì phải lấy đạo hàm nhiều lần.\r
+</div>`,gA=`Chúng ta hiện tại sẽ đưa ra một số ví dụ về việc sử dụng MGF để tìm các momen. Định lý 6.4.5 cho thấy rằng chúng ta có thể tìm được các momen bằng cách lấy đạo hàm của MGF và đánh giá tại 0, thay vì phải thực hiện một tổng hoặc tích phân phức tạp bằng cách sử dụng LOTUS. Tốt hơn nữa, trong một số trường hợp, chúng ta có thể đồng thời tìm được tất cả các momen của một phân phối thông qua một khai triển Taylor, thay vì phải lấy đạo hàm nhiều lần.\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.5.1</span>\r
-<span class="math-box-title">(Các momen của phân phối Exponential)</span>\r
-</div>\r
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 6.5.1</div>
+    <div class="math-box-title">Các momen của phân phối Exponential</div>
+  </div>\r
 <div class="math-box-content">\r
+\r
 Trong ví dụ này, chúng ta sẽ cho thấy cách sử dụng MGF của phân phối Exponential để tìm tất cả các momen của phân phối Exponential một cách đồng thời! Giả sử rằng $X \\sim \\text{Expo}(1)$. MGF của X là $M(t) = 1/(1 - t)$ với t < 1.\r
 \r
 Như được trình bày trong Định lý 6.4.5, chúng ta có thể tìm được các momen bằng cách lấy đạo hàm của MGF và đánh giá tại 0. Tuy nhiên, trong trường hợp này, chúng ta nhận ra $1/(1-t)$ là một chuỗi hình học, hợp lệ trong một khoảng xung quanh 0. Với $|t| < 1$,\r
@@ -12174,16 +12403,17 @@ $$\r
 $$\r
 \\mathrm{Var}(Y)=E(Y^{2})-(EY)^{2}=\\frac{2}{\\lambda^{2}}-\\frac{1}{\\lambda^{2}}=\\frac{1}{\\lambda^{2}}.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.5.2</span>\r
-<span class="math-box-title">(Các momen của phân phối chuẩn chuẩn)</span>\r
-</div>\r
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 6.5.2</div>
+    <div class="math-box-title">Các momen của phân phối chuẩn chuẩn</div>
+  </div>\r
 <div class="math-box-content">\r
+\r
 Trong ví dụ này, chúng ta sẽ tìm tất cả các momen của phân phối chuẩn chuẩn. Giả sử rằng $Z \\sim \\mathcal{N}(0,1)$. Chúng ta có thể sử dụng cùng một mẹo của việc so sánh các hệ số của khai triển Taylor.\r
 \r
 $$\r
@@ -12207,27 +12437,18 @@ Kết quả này cũng cho thấy độ nhọn của một biến ngẫu nhiên 
 $$\r
 \\mathrm{K u r t}(X)=E\\left(\\frac{X-\\mu}{\\sigma}\\right)^{4}-3=E(Z^{4})-3=3-3=0.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.5.3</span>\r
-<span class="math-box-title">(Các moment của phân phối Log-Normal)</span>\r
-</div>\r
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 6.5.3</div>
+    <div class="math-box-title">Các moment của phân phối Log-Normal</div>
+  </div>\r
 <div class="math-box-content">\r
-Bây giờ hãy xem xét phân phối Log-Normal. Ta nói rằng Y là Log-Normal với tham số $\\mu$ và $\\sigma^{2}$, ký hiệu là $Y \\sim \\mathcal{L} \\mathcal{N}(\\mu, \\sigma^{2})$, nếu $Y = e^{X}$ trong đó $X \\sim \\mathcal{N}(\\mu, \\sigma^{2})$.\r
 \r
-<div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">6.5.4</span>\r
-</div>\r
-<div class="math-box-content">\r
-Phân phối Log-Normal không có nghĩa là "log của một Normal", bởi vì một Normal có thể âm. Thay vào đó, Log-Normal có nghĩa là "log là Normal". Rất quan trọng để phân biệt giữa kỳ vọng và phương sai của Log-Normal và kỳ vọng và phương sai của Normal gốc. Ở đây chúng ta đang định nghĩa $\\mu$ và $\\sigma^{2}$ là kỳ vọng và phương sai của Normal gốc, đây là quy ước phổ biến nhất.\r
-</div>\r
-</div>\r
+Bây giờ hãy xem xét phân phối Log-Normal. Ta nói rằng Y là Log-Normal với tham số $\\mu$ và $\\sigma^{2}$, ký hiệu là $Y \\sim \\mathcal{L} \\mathcal{N}(\\mu, \\sigma^{2})$, nếu $Y = e^{X}$ trong đó $X \\sim \\mathcal{N}(\\mu, \\sigma^{2})$.\r
 \r
 Đáng chú ý, hàm sinh moment (MGF) của Log-Normal không tồn tại, bởi vì $E(e^{tY})$ là vô hạn với mọi t > 0. Hãy xem xét trường hợp $Y = e^{Z}$ với $Z \\sim \\mathcal{N}(0,1)$; bằng LOTUS,\r
 \r
@@ -12281,15 +12502,29 @@ $$\r
 \r
 trong đó ở bước cuối cùng chúng ta đã phân tích  $m^6 - 3m^2 + 2 = (m^2 + 2)(m - 1)^2(m + 1)^2$ . Độ lệch là dương vì  $m > 1$ , và nó tăng nhanh chóng khi  $\\sigma$  tăng lên.\r
 \r
+</div>\r
+</div>\r
+\r
+<div class="math-box remark">\r
+<div class="math-box-header">
+    <div class="math-box-number">Ghi chú 6.5.4</div>
+  </div>\r
+<div class="math-box-content">\r
+\r
+Phân phối Log-Normal không có nghĩa là "log của một Normal", bởi vì một Normal có thể âm. Thay vào đó, Log-Normal có nghĩa là "log là Normal". Rất quan trọng để phân biệt giữa kỳ vọng và phương sai của Log-Normal và kỳ vọng và phương sai của Normal gốc. Ở đây chúng ta đang định nghĩa $\\mu$ và $\\sigma^{2}$ là kỳ vọng và phương sai của Normal gốc, đây là quy ước phổ biến nhất.\r
+\r
+</div>\r
+</div>\r
+\r
 Trong ví dụ tiếp theo, chúng ta giới thiệu phân phối Weibull, đây là một trong những phân phối được sử dụng rộng rãi nhất trong phân tích sinh tồn (nghiên cứu thời gian đến khi một sự kiện xảy ra, ví dụ như mô hình hóa thời gian sống của một người mắc một bệnh cụ thể).\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.5.5</span>\r
-<span class="math-box-title">(Phân phối Weibull)</span>\r
-</div>\r
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 6.5.5</div>
+    <div class="math-box-title">Phân phối Weibull</div>
+  </div>\r
 <div class="math-box-content">\r
+\r
 Như bạn có thể nhớ từ chương trước, phân phối Exponential là không nhớ, điều này khiến nó không thực tế cho việc mô hình hóa thời gian sống của con người, ví dụ. Tuy nhiên, chỉ cần nâng một biến ngẫu nhiên Exponential lên một lũy thừa sẽ cải thiện đáng kể tính linh hoạt và ứng dụng của phân phối này.\r
 \r
 Gọi $T = X^{1/\\gamma}$, với $X \\sim \\text{Expo}(\\lambda)$ và $\\lambda, \\gamma > 0$. Phân phối của T được gọi là phân phối Weibull, và chúng ta ký hiệu bằng $T \\sim \\text{Wei}(\\lambda, \\gamma)$. Điều này mở rộng phân phối Exponential, với trường hợp $\\gamma = 1$ giảm lại thành phân phối Exponential.\r
@@ -12360,29 +12595,29 @@ $$\r
 \r
 Tích phân này phân kỳ cho $t > 0$ vì số hạng $tx^{3}$ chi phối hơn số hạng $x$; cụ thể hơn, chúng ta có $tx^{3} - x > x$ với mọi $x$ đủ lớn (cụ thể, với $x > \\sqrt{2/t}$, do đó tích phân này phân kỳ bằng cách so sánh với tích phân phân kỳ $\\int_{0}^{\\infty} e^{x} dx$. Do đó, hàm sinh momen của $T$ không tồn tại, mặc dù tất cả các momen của $T$ đều tồn tại.\r
 \r
+</div>\r
+</div>\r
+\r
 <div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">6.5.6</span>\r
-</div>\r
+<div class="math-box-header">
+    <div class="math-box-number">Ghi chú 6.5.6</div>
+  </div>\r
 <div class="math-box-content">\r
+\r
 Có nhiều cách tham số hóa khác nhau của Weibull thường được sử dụng, ví dụ, chúng ta đang bao gồm một thang đo trong Exponential và sau đó nâng lên một lũy thừa, nhưng cũng thường xuyên để lấy một Expo(1) nâng lên một lũy thừa và sau đó điều chỉnh lại. Do đó, cần cẩn thận khi đọc các tài liệu tham khảo khác nhau: luôn kiểm tra xem quy ước nào đang được sử dụng. Cách tham số hóa của chúng ta ở đây được sử dụng rộng rãi trong thống kê y học, và thuận tiện để làm việc với vì chúng ta chỉ cần nâng một biến ngẫu nhiên Expo($\\lambda$) lên một lũy thừa.\r
-</div>\r
-</div>\r
+\r
 </div>\r
 </div>\r
 \r
-### 6.6 Tổng của các biến ngẫu nhiên độc lập qua hàm sinh momen\r
-\r
-Vì hàm sinh momen của tổng các biến ngẫu nhiên độc lập chỉ là tích của các hàm sinh momen riêng lẻ, chúng ta nay có một chiến lược mới để tìm phân phối của tổng các biến ngẫu nhiên độc lập: nhân các hàm sinh momen riêng lẻ lại với nhau và xem tích có thể được nhận diện là hàm sinh momen của một phân phối tên gọi hay không. Hai ví dụ tiếp theo minh họa chiến lược này.\r
+`,_A=`Vì hàm sinh momen của tổng các biến ngẫu nhiên độc lập chỉ là tích của các hàm sinh momen riêng lẻ, chúng ta nay có một chiến lược mới để tìm phân phối của tổng các biến ngẫu nhiên độc lập: nhân các hàm sinh momen riêng lẻ lại với nhau và xem tích có thể được nhận diện là hàm sinh momen của một phân phối tên gọi hay không. Hai ví dụ tiếp theo minh họa chiến lược này.\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.6.1</span>\r
-<span class="math-box-title">(Tổng của các Poisson độc lập)</span>\r
-</div>\r
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 6.6.1</div>
+    <div class="math-box-title">Tổng của các Poisson độc lập</div>
+  </div>\r
 <div class="math-box-content">\r
+\r
 Sử dụng MGFs, chúng ta có thể dễ dàng chứng minh rằng tổng của các Poisson độc lập là Poisson. Trước tiên hãy tìm MGF của $X \\sim \\text{Pois}(\\lambda)$:\r
 \r
  \r
@@ -12401,25 +12636,28 @@ $$\r
 \r
 đây là MGF của Pois($\\lambda + \\mu$). Vì MGF xác định phân phối, chúng ta đã chứng minh rằng $X + Y \\sim \\text{Pois}(\\lambda + \\mu)$. So sánh với chứng minh trong Chương 4 (Định lý 4.8.1), cần sử dụng luật xác suất tổng hợp và tổng hợp qua tất cả các giá trị có thể của X. Chứng minh sử dụng MGFs đơn giản hơn rất nhiều.\r
 \r
-<div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">6.6.2</span>\r
-</div>\r
-<div class="math-box-content">\r
-Quan trọng là X và Y phải độc lập trong ví dụ trên. Để thấy tại sao, hãy xem xét một dạng phụ thuộc cực đoan: X = Y. Trong trường hợp này, $X + Y = 2X$, điều này không thể là Poisson vì giá trị của nó luôn là số chẵn!\r
-</div>\r
-</div>\r
 </div>\r
 </div>\r
 \r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.6.3</span>\r
-<span class="math-box-title">(Tổng của các Normal độc lập)</span>\r
-</div>\r
+<div class="math-box remark">\r
+<div class="math-box-header">
+    <div class="math-box-number">Ghi chú 6.6.2</div>
+  </div>\r
 <div class="math-box-content">\r
+\r
+Quan trọng là X và Y phải độc lập trong ví dụ trên. Để thấy tại sao, hãy xem xét một dạng phụ thuộc cực đoan: X = Y. Trong trường hợp này, $X + Y = 2X$, điều này không thể là Poisson vì giá trị của nó luôn là số chẵn!\r
+\r
+</div>\r
+</div>\r
+\r
+\r
+<div class="math-box example">\r
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 6.6.3</div>
+    <div class="math-box-title">Tổng của các Normal độc lập</div>
+  </div>\r
+<div class="math-box-content">\r
+\r
 Nếu chúng ta có $X_1 \\sim \\mathcal{N}(\\mu_1, \\sigma_1^2)$ và $X_2 \\sim \\mathcal{N}(\\mu_2, \\sigma_2^2)$ độc lập, thì MGF của $X_1 + X_2$ là\r
 \r
  \r
@@ -12429,16 +12667,17 @@ M_{X_{1}+X_{2}}(t)=M_{X_{1}}(t)M_{X_{2}}(t)=e^{\\mu_{1}t+\\frac{1}{2}\\sigma_{1}
 $$\r
 \r
 đây là $\\mathcal{N}(\\mu_1 + \\mu_2, \\sigma_1^2 + \\sigma_2^2)$ MGF. Lại một lần nữa, vì MGF xác định phân phối, điều đó có nghĩa là $X_1 + X_2 \\sim \\mathcal{N}(\\mu_1 + \\mu_2, \\sigma_1^2 + \\sigma_2^2)$. Do đó tổng của các Normal độc lập là Normal, và các kỳ vọng và phương sai đơn giản cộng lại.\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.6.4</span>\r
-<span class="math-box-title">(Tổng là Normal)</span>\r
-</div>\r
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 6.6.4</div>
+    <div class="math-box-title">Tổng là Normal</div>
+  </div>\r
 <div class="math-box-content">\r
+\r
 Một phiên bản ngược lại của ví dụ trước cũng đúng: nếu $X_1$ và $X_2$ độc lập và $X_1 + X_2$ là Normal, thì $X_1$ và $X_2$ phải là Normal! Điều này được gọi là định lý của Cramér. Chứng minh trong tổng quát là khó, nhưng nó trở nên dễ hơn nhiều nếu $X_1$ và $X_2$ là i.i.d. với MGF $M(t)$. Không mất tính tổng quát, chúng ta có thể giả định $X_1 + X_2 \\sim \\mathcal{N}(0,1)$, và MGF của nó là\r
 \r
  \r
@@ -12448,25 +12687,29 @@ e^{t^{2}/2}=E(e^{t(X_{1}+X_{2})})=E(e^{t X_{1}})E(e^{t X_{2}})=(M(t))^{2},\r
 $$\r
 \r
 nên $M(t) = e^{t^{2}/4}$, đây là MGF của $\\mathcal{N}(0,1/2)$. Do đó, $X_{1}, X_{2} \\sim \\mathcal{N}(0,1/2)$.\r
+\r
 </div>\r
 </div>\r
 \r
-Trong Chương 8 chúng ta sẽ thảo luận một kỹ thuật tổng quát hơn để tìm phân phối của tổng các biến ngẫu nhiên, điều này áp dụng khi các MGF riêng lẻ không tồn tại, hoặc khi tích các MGF riêng lẻ không thể nhận biết và chúng ta muốn lấy PMF/PDF thay vào đó.`,fA=`Trong phần này chúng ta sẽ thảo luận về hàm sinh xác suất, đây là những hàm tương tự như MGFs nhưng được đảm bảo tồn tại cho các biến ngẫu nhiên có giá trị nguyên không âm. Trước tiên chúng ta sẽ sử dụng PGFs\r
+Trong Chương 8 chúng ta sẽ thảo luận một kỹ thuật tổng quát hơn để tìm phân phối của tổng các biến ngẫu nhiên, điều này áp dụng khi các MGF riêng lẻ không tồn tại, hoặc khi tích các MGF riêng lẻ không thể nhận biết và chúng ta muốn lấy PMF/PDF thay vào đó.\r
+\r
+`,vA=`Trong phần này chúng ta sẽ thảo luận về hàm sinh xác suất, đây là những hàm tương tự như MGFs nhưng được đảm bảo tồn tại cho các biến ngẫu nhiên có giá trị nguyên không âm. Trước tiên chúng ta sẽ sử dụng PGFs\r
 \r
 Để chinh phục một bài toán đếm dường như bất khả xâm phạm. Sau đó chúng ta sẽ chứng minh rằng hàm sinh xác suất của một biến ngẫu nhiên rời rạc không âm xác định phân phối của nó, điều này mà chúng ta đã bỏ qua trong bối cảnh tổng quát hơn là hàm sinh moment.\r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">6.7.1</span>\r
-<span class="math-box-title">(Hàm sinh xác suất)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 6.7.1</div>\r
+    <div class="math-box-title">Hàm sinh xác suất</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Hàm sinh xác suất (PGF) của một biến ngẫu nhiên rời rạc không âm X với hàm phân phối xác suất $p_k = P(X = k)$ là hàm sinh của hàm phân phối xác suất. Theo LOTUS, điều này là\r
 \r
 $$\r
 E(t^{X})=\\sum_{k=0}^{\\infty}p_{k}t^{k}.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
@@ -12482,11 +12725,11 @@ là hàm sinh moment được đánh giá tại  $\\log t$ .\r
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.7.2</span>\r
-<span class="math-box-title">(Tạo ra xác suất khi gieo xúc xắc)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 6.7.2</div>\r
+    <div class="math-box-title">Tạo ra xác suất khi gieo xúc xắc</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Frederick Mosteller, người sáng lập bộ môn Thống kê Đại học Harvard, một lần kể về khoảnh khắc thay đổi cuộc đời sau đây:\r
 \r
 Một khoảnh khắc quan trọng trong cuộc đời tôi xảy ra trong một lớp học vào năm thứ hai đại học. Chúng tôi có câu hỏi: Khi gieo ba con xúc xắc, xác suất để tổng các mặt được quay lên bằng 10 là bao nhiêu? Các sinh viên trong khóa học này rất giỏi, nhưng chúng tôi đều được kết quả chủ yếu bằng cách đếm ngón tay. Khi chúng tôi đến lớp, tôi nói với giáo viên, "Đó là điều rất tốt—chúng tôi đã được kết quả—but nếu chúng tôi được hỏi về sáu con xúc xắc và xác suất để được 18, chúng tôi vẫn sẽ ở nhà đếm. Làm thế nào để giải các bài toán như thế này?" Ông nói, "Tôi không biết, nhưng tôi biết một người có thể làm được và tôi sẽ hỏi người đó."\r
@@ -12566,6 +12809,7 @@ Vậy,\r
 $$\r
 P(X=18)=\\frac{3431}{6^{6}}.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
@@ -12573,23 +12817,25 @@ Vì hàm sinh moment là một công cụ hữu ích để ghi lại PMF, nó ho
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">6.7.3</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 6.7.3</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Cho X và Y là các biến ngẫu nhiên rời rạc không âm, có hàm sinh moment lần lượt là $g_X$ và $g_Y$. Giả sử rằng $g_X(t) = g_Y(t)$ với mọi t trong $(-a, a)$, với 0 < a < 1. Khi đó X và Y có cùng phân phối, và các giá trị PMF có thể được khôi phục bằng cách lấy đạo hàm của $g_X$:\r
 \r
 $$\r
 P(X=k)=P(Y=k)=\\frac{g_{X}^{(k)}(0)}{k!}.\r
 $$\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box proof">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
+    <div class="math-box-number">Chứng minh</span>\r
 </div>\r
 <div class="math-box-content">\r
+\r
 Viết\r
 \r
 $$\r
@@ -12603,15 +12849,19 @@ g_{X}^{\\prime}(t)=\\sum_{k=1}^{\\infty}k p_{k}t^{k-1},\r
 $$\r
 \r
 vậy $g_{X}^{\\prime}(0) = p_{1}$ (đổi chỗ đạo hàm và tổng vô hạn được chính đáng hóa bởi các kết quả trong phân tích thực). Sau đó $P(X = 1)$ đã được khôi phục. Tiếp tục như vậy, chúng ta có thể khôi phục toàn bộ PMF bằng cách lấy đạo hàm.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
 </div>\r
-</div>\r
+</div>>\r
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">6.7.4</span>\r
-</div>\r
+<div class="math-box-number">Ví dụ 6.7.4</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Cho $X \\sim \\text{Bin}(n, p)$. Hàm sinh momen của một $\\text{Bern}(p)$ biến ngẫu nhiên là $pt + q$ (với $q = 1 - p$), vậy hàm sinh momen của $X$ là $g(t) = (pt + q)^n$. Định lý trên nói rằng bất kỳ biến ngẫu nhiên nào có hàm sinh momen này phải thực sự là phân phối Binomial. Hơn nữa, chúng ta có thể khôi phục PMF bằng cách tính toán\r
 \r
 $$\r
@@ -12657,8 +12907,9 @@ E(X(X-1)\\cdots(X-k+1))=k!\\binom{n}{k}p^{k}.\r
 $$\r
 \r
 Chia cả hai vế cho $k!$, điều này dẫn đến $E\\binom{X}{k} = \\binom{n}{k}p^k$, điều này cũng có thể được xem bằng chứng bằng câu chuyện: $\\binom{X}{k}$ là số cách chọn $k$ từ $X$ lần thử Bernoulli thành công, đây là số cách chọn $k$ từ $n$ lần thử ban đầu sao cho tất cả $k$ đều thành công. Tạo một biến ngẫu nhiên chỉ báo cho mỗi trong số $\\binom{n}{k}$ tập con có kích thước $k$ và sử dụng tính tuyến tính, kết quả được suy ra.\r
+\r
 </div>\r
-</div>`,pA=`Một cách hữu ích để nghiên cứu một phân phối là thông qua các mô men. Các mô men đầu tiên 4 thường được sử dụng như một cơ sở để mô tả định lượng phân phối trông như thế nào, mặc dù nhiều mô tả khác cũng có thể được sử dụng. Đặc biệt, mô men thứ nhất là giá trị trung bình, mô men trung tâm thứ hai là phương sai, mô men chuẩn hóa thứ ba đo lường độ lệch (không đối xứng), và mô men chuẩn hóa thứ tư trừ 3 là một cách đo lường đuôi phân phối nặng đến mức nào.\r
+</div>`,yA=`Một cách hữu ích để nghiên cứu một phân phối là thông qua các mô men. Các mô men đầu tiên 4 thường được sử dụng như một cơ sở để mô tả định lượng phân phối trông như thế nào, mặc dù nhiều mô tả khác cũng có thể được sử dụng. Đặc biệt, mô men thứ nhất là giá trị trung bình, mô men trung tâm thứ hai là phương sai, mô men chuẩn hóa thứ ba đo lường độ lệch (không đối xứng), và mô men chuẩn hóa thứ tư trừ 3 là một cách đo lường đuôi phân phối nặng đến mức nào.\r
 \r
 Các mô men hữu ích hơn nữa không chỉ để nghiên cứu vị trí và hình dạng của một phân phối, đặc biệt là khi hàm sinh mô men (MGF) tồn tại (điều này mạnh hơn việc nói rằng tất cả các mô men đều tồn tại). Hàm sinh mô men của một biến ngẫu nhiên X là hàm M được định nghĩa bởi\r
 \r
@@ -12683,179 +12934,181 @@ Hình 6.8 bổ sung bản đồ của chúng ta về mối liên hệ giữa cá
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.8:</strong> Đối với một biến ngẫu nhiên X, chúng ta có thể nghiên cứu các moment của nó $E(X)$, $E(X^{2})$, $\\ldots$. Những điều này có thể được tính toán bằng LOTUS hoặc bằng MGF (nếu tồn tại). Nếu MGF tồn tại, nó xác định phân phối, đưa chúng ta quay lại vòng tròn và bổ sung thêm cho danh sách các bản vẽ.\r
-</div>`,mA=`## Hàm\r
-\r
-MGF của một biến ngẫu nhiên là một hàm. Như một ví dụ về việc định nghĩa và làm việc với hàm trong R, hãy sử dụng MGF của  $\\mathcal{N}(0,1)$ , được cho bởi  $M(t) = e^{t^{2}/2}$ . Mã nguồn\r
-\r
-\`\`\`r\r
-M <- function(t) {exp(t^2/2)}\r
-\`\`\`\r
-\r
-định nghĩa  $M$  là hàm này. Hàm(t) cho thấy chúng ta đang định nghĩa một hàm của một biến  $t$  (gọi là đối số của hàm). Sau đó, ví dụ,  $M(0)$  đánh giá hàm tại  $0$ ,  $M(1:10)$  đánh giá hàm tại  $1,2,\\ldots,10$ , và curve $(M,\\text{from}=-3,\\text{to}=3)$  vẽ đồ thị của  $M$  từ  $-3$  đến  $3$ . Viết\r
-\r
-$$\r
-\\mathrm{M} <-\\mathrm{function}(\\mathrm{x})\\{\\exp(\\mathrm{x}\\hat{\\ }2/2)\\}\r
-$$\r
-\r
-sẽ định nghĩa cùng một hàm M, ngoại trừ bây giờ đối số được gọi là x. Việc đặt tên cho các đối số có lợi cho các hàm có nhiều biến hơn, vì R sẽ giúp chúng ta khỏi phải nhớ thứ tự để viết\r
-\r
-Đối số, và cho phép chúng ta gán giá trị mặc định. Ví dụ, hàm sinh moment sinh học (MGF) của  $\\mathcal{N}(\\mu,\\sigma^{2})$  được cho bởi  $g(t)=\\exp(\\mu t+\\sigma^{2}t^{2}/2)$ , điều này phụ thuộc vào  $t,\\mu$ , và  $\\sigma$ . Chúng ta có thể định nghĩa điều này trong R bằng cách\r
-\r
-\`\`\`r\r
-g <- function(t, mean=0, sd=1) {\r
-  exp(mean * t + sd^2 * t^2 / 2)\r
-}\r
-\`\`\`\r
-\r
-Giá trị của  $g(1,2,3)$ ? Đó là  $\\mathcal{N}(2,3^2)$  MGF được đánh giá tại 1, nhưng có thể khó nhớ được đối số nào là gì, đặc biệt là khi làm việc với nhiều hàm có nhiều đối số trong suốt nhiều tháng. Vì vậy, chúng ta cũng có thể viết  $g(t=1,\\text{mean}=2,\\text{sd}=3)$  hoặc  $g(\\text{mean}=2,\\text{sd}=3,\\text{t}=1)$  hoặc bất kỳ một trong các hoán vị khác để có cùng ý nghĩa.\r
-\r
-Cũng như vậy, khi định nghĩa  $g$  chúng ta đã chỉ định các giá trị mặc định là 0 cho mean và 1 cho độ lệch chuẩn, vì vậy nếu chúng ta muốn  $\\mathcal{N}(0,5^{2})$  MGF được đánh giá tại 3, chúng ta có thể sử dụng  $g(t=3,sd=5)$  như một cách viết tắt. Ở đây, việc viết  $g(3,5)$  sẽ gây ra sự mơ hồ về đối số nào bị bỏ qua; thực tế, R sẽ diễn giải điều này là  $g(t=3,mean=5)$ .\r
-\r
-## Các momen\r
-\r
-LOTUS giúp chúng ta dễ dàng viết bất kỳ momen nào của một biến ngẫu nhiên liên tục dưới dạng một tích phân, sau đó R có thể giúp chúng ta tính tích phân một cách số, sử dụng lệnh integrate. Ví dụ, hãy ước lượng momen thứ 6 của một  $\\mathcal{N}(0,1)$  biến ngẫu nhiên. Mã nguồn\r
-\r
-\`\`\`r\r
-g <- function(x) x^6*dnorm(x)\r
-integrate(g, lower = -Inf, upper = Inf)\r
-\`\`\`\r
-\r
-yêu cầu R tính toán  $\\int_{-\\infty}^{\\infty} g(x)dx$ , nơi  $g(x) = x^6 \\varphi(x)$  với  $\\varphi$  là  $\\mathcal{N}(0,1)$  hàm mật độ xác suất (PDF). Khi chúng ta chạy mã này, R báo cáo 15 (kết quả đúng, như chúng ta biết từ chương này!) và sai số tuyệt đối nhỏ hơn  $7.9 \\times 10^{-5}$ . Tương tự, để kiểm tra rằng momen thứ 2 (và phương sai) của một  $\\text{Unif}(-1,1)$  biến ngẫu nhiên là  $1/3$ , chúng ta có thể sử dụng\r
-\r
-\`\`\`r\r
-h <- function(x) x^2*dunif(x,-1,1)\r
-integrate(h, lower = -1, upper = 1)\r
-\`\`\`\r
-\r
-<div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">6.9.1</span>\r
-</div>\r
-<div class="math-box-content">\r
-Tích phân số gặp khó khăn với một số hàm; như thường lệ, kiểm tra kết quả bằng nhiều cách là một ý tưởng tốt. Sử dụng upper = Inf được ưa chuộng hơn là sử dụng một số lớn như giới hạn trên khi tích phân đến $\\infty$ (và tương tự cho giới hạn dưới là $-\\infty$). Ví dụ, trên nhiều hệ thống, integrate(dnorm,0,10^6) báo cáo 0 trong khi integrate(dnorm,0,Inf) báo cáo kết quả đúng, 0.5.\r
-</div>\r
-</div>\r
-\r
-Đối với các momen của biến ngẫu nhiên rời rạc, chúng ta có thể sử dụng LOTUS và lệnh sum. Ví dụ, để tìm momen thứ 2 của  $X \\sim \\text{Pois}(7)$ , chúng ta có thể sử dụng\r
-\r
-\`\`\`r\r
-g <- function(k) k^2*dpois(k,7)\r
-sum(g(0:100))\r
-\`\`\`\r
-\r
-Ở đây chúng ta đã tính tổng đến 100 vì rõ ràng sau khi nhận ra các số hạng, tổng đóng góp của tất cả các số hạng sau  $k = 100$  là không đáng kể (chọn một\r
-\r
-Giới hạn trên trong cách này khác với cách sử dụng lệnh integrate trong trường hợp liên tục). Kết quả rất gần với 56, điều này làm ta an tâm vì $E(X^{2}) = \\mathrm{Var}(X) + (EX)^{2} = 7 + 49 = 56.$\r
-\r
-Một mẫu momen có thể được tìm thấy trong một dòng lệnh trong R. Nếu  $\\mathbf{x}$  là một vector dữ liệu, thì  $\\text{mean}(\\mathbf{x})$  cho giá trị trung bình mẫu và, tổng quát hơn,  $\\text{mean}(\\mathbf{x} \\hat{\\mathbf{n}})$  cho giá trị trung bình mẫu thứ n với bất kỳ số nguyên dương nào  $n$ . Ví dụ,\r
-\r
-\`\`\`r\r
-x <- rnorm(100)\r
-mean(x^6)\r
-\`\`\`\r
-\r
-cho kết quả momen thứ 6 của 100 quan sát độc lập và đồng phân phối  $\\mathcal{N}(0,1)$ . Mức độ gần với momen thứ 6 thực sự là bao nhiêu? Các momen mẫu khác gần với các momen thực sự tương ứng đến mức nào?\r
-\r
-Phương sai mẫu cũng có thể được tìm thấy trong một dòng lệnh trong R. Nếu x là một vector dữ liệu, thì  $\\text{var}(x)$  cho phương sai mẫu. Hàm này trả về NA (không có sẵn) nếu x có độ dài là 1, vì mẫu số trong mẫu là 0 trong trường hợp này. Việc không trả về giá trị số trong trường hợp này là hợp lý, không chỉ vì định nghĩa mà còn vì sẽ vô lý nếu cố gắng ước lượng độ biến thiên của một quần thể khi chỉ có một quan sát!\r
-\r
-Để minh họa đơn giản việc sử dụng giá trị trung bình mẫu và phương sai mẫu để ước lượng giá trị trung bình và phương sai thực sự của một phân phối, chúng ta tạo ra 1000 lần từ phân phối  $\\mathcal{N}(0,1)$  và lưu các giá trị vào z. Sau đó, chúng ta tính giá trị trung bình mẫu và phương sai mẫu bằng mean và var.\r
-\r
-\`\`\`r\r
-z <- rnorm(1000)\r
-mean(z)\r
-var(z)\r
-\`\`\`\r
-\r
-Chúng ta phát hiện ra rằng  $\\text{mean}(z)$  gần 0 và  $\\text{var}(z)$  gần 1. Bạn có thể thử điều này với phân phối  $\\mathcal{N}(\\mu,\\sigma^2)$  (hoặc phân phối khác) mà bạn chọn; chỉ cần nhớ rằng  $\\text{norm}$  lấy  $\\sigma$  và không phải  $\\sigma^2$  làm đầu vào!\r
-\r
-Độ lệch chuẩn mẫu của x có thể được tìm thấy bằng cách sử dụng  $\\text{sd}(x)$ . Điều này cho kết quả giống như  $\\text{sqrt}(\\text{var}(x))$ .\r
-\r
-R không đi kèm với các hàm built-in cho độ lệch mẫu skewness hoặc độ vồng mẫu kurtosis, nhưng chúng ta có thể định nghĩa các hàm riêng của mình như sau.\r
-\r
-\`\`\`r\r
-skew <- function(x) {\r
-  centralmoment <- mean((x - mean(x))^3)\r
-  centralmoment / (sd(x)^3)\r
-}\r
-\r
-kurt <- function(x) {\r
-  centralmoment <- mean((x - mean(x))^4)\r
-  centralmoment / (sd(x)^4) - 3\r
-}\r
-\`\`\`\r
-\r
-Để tìm trung vị của một biến ngẫu nhiên liên tục có hàm phân phối tích lũy $F$, chúng ta cần giải phương trình $F(x) = 1/2$ đối với $x$, điều này tương đương với việc tìm nghiệm (điểm bằng 0) của hàm số $g$ được cho bởi $g(x) = F(x) - 1/2$. Điều này có thể thực hiện bằng lệnh uniroot trong R. Ví dụ, hãy tìm trung vị của phân phối Expo(1). Mã lệnh\r
-\r
-\`\`\`r\r
-g <- function(x) pexp(x) - 1/2\r
-uniroot(g, lower=0, upper=1)\r
-\`\`\`\r
-\r
-hỏi R tìm một nghiệm của hàm số mong muốn giữa 0 và 1. Điều này trả về một kết quả rất gần với kết quả đúng là  $\\log(2) \\approx 0.693$ . Tất nhiên, trong trường hợp này chúng ta có thể giải  $1 - e^{-x} = 1/2$  trực tiếp mà không cần sử dụng các phương pháp số học.\r
-\r
-<div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">6.9.2</span>\r
-</div>\r
-<div class="math-box-content">\r
-Lệnh uniroot rất hữu ích nhưng nó chỉ cố gắng tìm một nghiệm (như tên gọi), và không có đảm bảo rằng nó sẽ tìm được một nghiệm.\r
-</div>\r
-</div>\r
-\r
-Một cách dễ dàng hơn để tìm trung vị của  $\\text{Expo}(1)$  trong  $\\mathbb{R}$  là sử dụng  $\\qexp(1/2)$ . Hàm  $\\qexp$  là hàm phân vị của phân phối  $\\text{Expo}(1)$ , điều này có nghĩa là  $\\qexp(p)$  là giá trị của  $x$  sao cho  $P(X \\leq x) = p$  với  $X \\sim \\text{Expo}(1)$ .\r
-\r
-Để tìm chế độ của một phân phối liên tục, chúng ta có thể sử dụng hàm optimize trong R. Ví dụ, hãy tìm chế độ của phân phối Gamma(6,1), đây là một phân phối quan trọng mà chúng ta sẽ giới thiệu trong chương sau. Hàm mật độ xác suất của nó tỉ lệ với  $x^{5}e^{-x}$ . Sử dụng giải tích, chúng ta có thể tìm thấy chế độ tại x = 5. Sử dụng R, chúng ta có thể tìm thấy chế độ rất gần x = 5 như sau.\r
-\r
-\`\`\`r\r
-h <- function(x) x^5*exp(-x)\r
-optimize(h,lower=0,upper=20,maximum=TRUE)\r
-\`\`\`\r
-\r
-Nếu chúng ta muốn tìm giá trị nhỏ nhất thay vì giá trị lớn nhất, chúng ta có thể đặt maximum=FALSE.\r
-\r
-Tiếp theo, hãy làm một ví dụ rời rạc về trung vị và chế độ. Một sự thật thú vị về phân phối $\\text{Bin}(n, p)$ là nếu giá trị kỳ vọng np là một số nguyên, thì trung vị và chế độ cũng là np (ngay cả khi phân phối rất lệch). Để kiểm tra sự thật này về trung vị cho phân phối $\\text{Bin}(50, 0.2)$, chúng ta có thể sử dụng mã lệnh sau.\r
-\r
-\`\`\`r\r
-n <- 50; p <- 0.2\r
-which.max(pbinom(0:n,n,p)>=0.5)\r
-\`\`\`\r
-\r
-Hàm which.max tìm vị trí của giá trị lớn nhất trong một vector, cho vị trí đầu tiên của một giá trị lớn nhất. Vì TRUE được mã hóa là 1 và FALSE được mã hóa là 0, giá trị lớn nhất đầu tiên trong pbinom(0:n,n,p)>=0.5 là tại giá trị đầu tiên mà hàm phân phối tích lũy đạt ít nhất 0.5. Kết quả của mã lệnh trên là 11, nhưng chúng ta phải cẩn thận tránh sai số off-by-one: chỉ số 11 tương ứng với trung vị là 10, vì chúng ta bắt đầu đánh giá hàm phân phối tích lũy tại 0. Tương tự, which.max(dbinom(0:n,n,p)) trả về 11, cho thấy chế độ nằm ở 10.\r
-\r
-Trung vị mẫu của một vector dữ liệu x có thể được tìm thấy bằng lệnh median(x). But\r
-\r
-mode(x) không cho ta giá trị chế độ của x (thay vào đó, nó cung cấp thông tin về kiểu dữ liệu của x). Để tìm chế độ mẫu (hoặc chế độ mẫu, trong trường hợp có nhiều chế độ), ta có thể sử dụng hàm sau.\r
-\r
-\`\`\`r\r
-datamodel <- function(x) {\r
-  t <- table(x)\r
-  m <- max(t)\r
-  as.numeric(names(t[t==m]))\r
-}\r
-\`\`\`\r
-\r
-### Phân phối Log-Normal và Weibull\r
-\r
-Tương tự các hàm dnorm, pnorm, và rnorm cho phân phối chuẩn, các hàm dlnorm, plnorm, và rlnorm lần lượt cho mật độ xác suất, hàm phân phối tích lũy và tạo mẫu ngẫu nhiên cho biến ngẫu nhiên Log-Normal. Các tham số được sử dụng cho các hàm này trong phân phối Log-Normal là trung bình và độ lệch chuẩn của phân phối chuẩn gốc.\r
-\r
-Ví dụ,  $\\text{dlnorm}(x,1,2)$  cho mật độ xác suất của phân phối  $\\mathcal{L}\\mathcal{N}(1,4)$  (không phải  $\\mathcal{L}\\mathcal{N}(1,2)$ , cũng không phải là Log-Normal có trung bình là 1). Do mối quan hệ giữa phân phối chuẩn và Log-Normal,  $\\text{rlnorm}(n,\\text{mu},\\text{sigma})$  tương đương với  $\\exp(\\text{rnorm}(n,\\text{mu},\\text{sigma}))$ .\r
-\r
-Với phân phối Weibull, ta có thể nhận được mật độ xác suất, hàm phân phối tích lũy và tạo mẫu ngẫu nhiên bằng các hàm dweibull, pweibull, và rweibull tương ứng. Cách tham số hóa trong R khác với cách chúng ta đang sử dụng, nhưng dễ dàng chuyển đổi giữa chúng: cho phân phối Wei(  $\\lambda, \\gamma$ ), hãy đặt  $a = \\gamma$  và  $b = \\lambda^{-1/\\gamma}$ .\r
-\r
-Sau đó,  $\\text{dweibull}(x, a, b)$  cho mật độ xác suất của  $\\text{Wei}(\\lambda, \\gamma)$ ,  $\\text{pweibull}(x, a, b)$  cho hàm phân phối tích lũy, và  $\\text{rweibull}(n, a, b)$  tạo ra  $n$  mẫu độc lập đồng nhất từ phân phối. Do mối quan hệ giữa phân phối Exponential và Weibull, một cách khác để tạo  $\\text{Wei}(\\lambda, \\gamma)$  biến ngẫu nhiên là tạo  $\\text{Expo}(\\lambda)$  biến ngẫu nhiên và sau đó nâng từng cái lên lũy thừa  $1/\\gamma$ .\r
-\r
-### Mô phỏng xúc xắc\r
-\r
-Trong phần 6.7 (có dấu sao), chúng ta đã chỉ ra rằng khi gieo 6 xúc xắc công bằng, xác suất tổng cộng là 18 là $3431/6^{6} \\approx 0.07354$. Tuy nhiên, chứng minh khá phức tạp. Nếu chỉ cần một đáp án gần đúng, mô phỏng là phương pháp dễ dàng hơn nhiều. Và chúng ta đã biết cách làm rồi! Đây là mã cho một triệu lần lặp lại:\r
-\r
-\`\`\`r\r
-r <- replicate(10^6, sum(sample(6,6,replace=TRUE)))\r
-sum(r==18)/10^6\r
-\`\`\`\r
-\r
-Trong mô phỏng của chúng ta, điều này cho ra 0.07346, rất gần với 0.07354.`,hA=`Bài tập được đánh dấu với ☑ có lời giải chi tiết tại http://stat110.net.\r
+</div>`,bA=`## Hàm
+
+MGF của một biến ngẫu nhiên là một hàm. Như một ví dụ về việc định nghĩa và làm việc với hàm trong R, hãy sử dụng MGF của  $\\mathcal{N}(0,1)$ , được cho bởi  $M(t) = e^{t^{2}/2}$ . Mã nguồn
+
+\`\`\`r
+M <- function(t) {exp(t^2/2)}
+\`\`\`
+
+định nghĩa  $M$  là hàm này. Hàm(t) cho thấy chúng ta đang định nghĩa một hàm của một biến  $t$  (gọi là đối số của hàm). Sau đó, ví dụ,  $M(0)$  đánh giá hàm tại  $0$ ,  $M(1:10)$  đánh giá hàm tại  $1,2,\\ldots,10$ , và curve $(M,\\text{from}=-3,\\text{to}=3)$  vẽ đồ thị của  $M$  từ  $-3$  đến  $3$ . Viết
+
+$$
+\\mathrm{M} <-\\mathrm{function}(\\mathrm{x})\\{\\exp(\\mathrm{x}\\hat{\\ }2/2)\\}
+$$
+
+sẽ định nghĩa cùng một hàm M, ngoại trừ bây giờ đối số được gọi là x. Việc đặt tên cho các đối số có lợi cho các hàm có nhiều biến hơn, vì R sẽ giúp chúng ta khỏi phải nhớ thứ tự để viết
+
+Đối số, và cho phép chúng ta gán giá trị mặc định. Ví dụ, hàm sinh moment sinh học (MGF) của  $\\mathcal{N}(\\mu,\\sigma^{2})$  được cho bởi  $g(t)=\\exp(\\mu t+\\sigma^{2}t^{2}/2)$ , điều này phụ thuộc vào  $t,\\mu$ , và  $\\sigma$ . Chúng ta có thể định nghĩa điều này trong R bằng cách
+
+\`\`\`r
+g <- function(t, mean=0, sd=1) {
+  exp(mean * t + sd^2 * t^2 / 2)
+}
+\`\`\`
+
+Giá trị của  $g(1,2,3)$ ? Đó là  $\\mathcal{N}(2,3^2)$  MGF được đánh giá tại 1, nhưng có thể khó nhớ được đối số nào là gì, đặc biệt là khi làm việc với nhiều hàm có nhiều đối số trong suốt nhiều tháng. Vì vậy, chúng ta cũng có thể viết  $g(t=1,\\text{mean}=2,\\text{sd}=3)$  hoặc  $g(\\text{mean}=2,\\text{sd}=3,\\text{t}=1)$  hoặc bất kỳ một trong các hoán vị khác để có cùng ý nghĩa.
+
+Cũng như vậy, khi định nghĩa  $g$  chúng ta đã chỉ định các giá trị mặc định là 0 cho mean và 1 cho độ lệch chuẩn, vì vậy nếu chúng ta muốn  $\\mathcal{N}(0,5^{2})$  MGF được đánh giá tại 3, chúng ta có thể sử dụng  $g(t=3,sd=5)$  như một cách viết tắt. Ở đây, việc viết  $g(3,5)$  sẽ gây ra sự mơ hồ về đối số nào bị bỏ qua; thực tế, R sẽ diễn giải điều này là  $g(t=3,mean=5)$ .
+
+## Các momen
+
+LOTUS giúp chúng ta dễ dàng viết bất kỳ momen nào của một biến ngẫu nhiên liên tục dưới dạng một tích phân, sau đó R có thể giúp chúng ta tính tích phân một cách số, sử dụng lệnh integrate. Ví dụ, hãy ước lượng momen thứ 6 của một  $\\mathcal{N}(0,1)$  biến ngẫu nhiên. Mã nguồn
+
+\`\`\`r
+g <- function(x) x^6*dnorm(x)
+integrate(g, lower = -Inf, upper = Inf)
+\`\`\`
+
+yêu cầu R tính toán  $\\int_{-\\infty}^{\\infty} g(x)dx$ , nơi  $g(x) = x^6 \\varphi(x)$  với  $\\varphi$  là  $\\mathcal{N}(0,1)$  hàm mật độ xác suất (PDF). Khi chúng ta chạy mã này, R báo cáo 15 (kết quả đúng, như chúng ta biết từ chương này!) và sai số tuyệt đối nhỏ hơn  $7.9 \\times 10^{-5}$ . Tương tự, để kiểm tra rằng momen thứ 2 (và phương sai) của một  $\\text{Unif}(-1,1)$  biến ngẫu nhiên là  $1/3$ , chúng ta có thể sử dụng
+
+\`\`\`r
+h <- function(x) x^2*dunif(x,-1,1)
+integrate(h, lower = -1, upper = 1)
+\`\`\`
+
+<div class="math-box remark">
+<div class="math-box-header">
+    <div class="math-box-number">Ghi chú 6.9.1</div>
+  </div>
+<div class="math-box-content">
+
+Tích phân số gặp khó khăn với một số hàm; như thường lệ, kiểm tra kết quả bằng nhiều cách là một ý tưởng tốt. Sử dụng upper = Inf được ưa chuộng hơn là sử dụng một số lớn như giới hạn trên khi tích phân đến $\\infty$ (và tương tự cho giới hạn dưới là $-\\infty$). Ví dụ, trên nhiều hệ thống, integrate(dnorm,0,10^6) báo cáo 0 trong khi integrate(dnorm,0,Inf) báo cáo kết quả đúng, 0.5.
+
+</div>
+</div>
+
+Đối với các momen của biến ngẫu nhiên rời rạc, chúng ta có thể sử dụng LOTUS và lệnh sum. Ví dụ, để tìm momen thứ 2 của  $X \\sim \\text{Pois}(7)$ , chúng ta có thể sử dụng
+
+\`\`\`r
+g <- function(k) k^2*dpois(k,7)
+sum(g(0:100))
+\`\`\`
+
+Ở đây chúng ta đã tính tổng đến 100 vì rõ ràng sau khi nhận ra các số hạng, tổng đóng góp của tất cả các số hạng sau  $k = 100$  là không đáng kể (chọn một
+
+Giới hạn trên trong cách này khác với cách sử dụng lệnh integrate trong trường hợp liên tục). Kết quả rất gần với 56, điều này làm ta an tâm vì $E(X^{2}) = \\mathrm{Var}(X) + (EX)^{2} = 7 + 49 = 56.$
+
+Một mẫu momen có thể được tìm thấy trong một dòng lệnh trong R. Nếu  $\\mathbf{x}$  là một vector dữ liệu, thì  $\\text{mean}(\\mathbf{x})$  cho giá trị trung bình mẫu và, tổng quát hơn,  $\\text{mean}(\\mathbf{x} \\hat{\\mathbf{n}})$  cho giá trị trung bình mẫu thứ n với bất kỳ số nguyên dương nào  $n$ . Ví dụ,
+
+\`\`\`r
+x <- rnorm(100)
+mean(x^6)
+\`\`\`
+
+cho kết quả momen thứ 6 của 100 quan sát độc lập và đồng phân phối  $\\mathcal{N}(0,1)$ . Mức độ gần với momen thứ 6 thực sự là bao nhiêu? Các momen mẫu khác gần với các momen thực sự tương ứng đến mức nào?
+
+Phương sai mẫu cũng có thể được tìm thấy trong một dòng lệnh trong R. Nếu x là một vector dữ liệu, thì  $\\text{var}(x)$  cho phương sai mẫu. Hàm này trả về NA (không có sẵn) nếu x có độ dài là 1, vì mẫu số trong mẫu là 0 trong trường hợp này. Việc không trả về giá trị số trong trường hợp này là hợp lý, không chỉ vì định nghĩa mà còn vì sẽ vô lý nếu cố gắng ước lượng độ biến thiên của một quần thể khi chỉ có một quan sát!
+
+Để minh họa đơn giản việc sử dụng giá trị trung bình mẫu và phương sai mẫu để ước lượng giá trị trung bình và phương sai thực sự của một phân phối, chúng ta tạo ra 1000 lần từ phân phối  $\\mathcal{N}(0,1)$  và lưu các giá trị vào z. Sau đó, chúng ta tính giá trị trung bình mẫu và phương sai mẫu bằng mean và var.
+
+\`\`\`r
+z <- rnorm(1000)
+mean(z)
+var(z)
+\`\`\`
+
+Chúng ta phát hiện ra rằng  $\\text{mean}(z)$  gần 0 và  $\\text{var}(z)$  gần 1. Bạn có thể thử điều này với phân phối  $\\mathcal{N}(\\mu,\\sigma^2)$  (hoặc phân phối khác) mà bạn chọn; chỉ cần nhớ rằng  $\\text{norm}$  lấy  $\\sigma$  và không phải  $\\sigma^2$  làm đầu vào!
+
+Độ lệch chuẩn mẫu của x có thể được tìm thấy bằng cách sử dụng  $\\text{sd}(x)$ . Điều này cho kết quả giống như  $\\text{sqrt}(\\text{var}(x))$ .
+
+R không đi kèm với các hàm built-in cho độ lệch mẫu skewness hoặc độ vồng mẫu kurtosis, nhưng chúng ta có thể định nghĩa các hàm riêng của mình như sau.
+
+\`\`\`r
+skew <- function(x) {
+  centralmoment <- mean((x - mean(x))^3)
+  centralmoment / (sd(x)^3)
+}
+
+kurt <- function(x) {
+  centralmoment <- mean((x - mean(x))^4)
+  centralmoment / (sd(x)^4) - 3
+}
+\`\`\`
+
+Để tìm trung vị của một biến ngẫu nhiên liên tục có hàm phân phối tích lũy $F$, chúng ta cần giải phương trình $F(x) = 1/2$ đối với $x$, điều này tương đương với việc tìm nghiệm (điểm bằng 0) của hàm số $g$ được cho bởi $g(x) = F(x) - 1/2$. Điều này có thể thực hiện bằng lệnh uniroot trong R. Ví dụ, hãy tìm trung vị của phân phối Expo(1). Mã lệnh
+
+\`\`\`r
+g <- function(x) pexp(x) - 1/2
+uniroot(g, lower=0, upper=1)
+\`\`\`
+
+hỏi R tìm một nghiệm của hàm số mong muốn giữa 0 và 1. Điều này trả về một kết quả rất gần với kết quả đúng là  $\\log(2) \\approx 0.693$ . Tất nhiên, trong trường hợp này chúng ta có thể giải  $1 - e^{-x} = 1/2$  trực tiếp mà không cần sử dụng các phương pháp số học.
+
+<div class="math-box remark">
+<div class="math-box-header">
+    <div class="math-box-number">Ghi chú 6.9.2</div>
+  </div>
+<div class="math-box-content">
+
+Lệnh uniroot rất hữu ích nhưng nó chỉ cố gắng tìm một nghiệm (như tên gọi), và không có đảm bảo rằng nó sẽ tìm được một nghiệm.
+
+</div>
+</div>
+
+Một cách dễ dàng hơn để tìm trung vị của  $\\text{Expo}(1)$  trong  $\\mathbb{R}$  là sử dụng  $\\qexp(1/2)$ . Hàm  $\\qexp$  là hàm phân vị của phân phối  $\\text{Expo}(1)$ , điều này có nghĩa là  $\\qexp(p)$  là giá trị của  $x$  sao cho  $P(X \\leq x) = p$  với  $X \\sim \\text{Expo}(1)$ .
+
+Để tìm chế độ của một phân phối liên tục, chúng ta có thể sử dụng hàm optimize trong R. Ví dụ, hãy tìm chế độ của phân phối Gamma(6,1), đây là một phân phối quan trọng mà chúng ta sẽ giới thiệu trong chương sau. Hàm mật độ xác suất của nó tỉ lệ với  $x^{5}e^{-x}$ . Sử dụng giải tích, chúng ta có thể tìm thấy chế độ tại x = 5. Sử dụng R, chúng ta có thể tìm thấy chế độ rất gần x = 5 như sau.
+
+\`\`\`r
+h <- function(x) x^5*exp(-x)
+optimize(h,lower=0,upper=20,maximum=TRUE)
+\`\`\`
+
+Nếu chúng ta muốn tìm giá trị nhỏ nhất thay vì giá trị lớn nhất, chúng ta có thể đặt maximum=FALSE.
+
+Tiếp theo, hãy làm một ví dụ rời rạc về trung vị và chế độ. Một sự thật thú vị về phân phối $\\text{Bin}(n, p)$ là nếu giá trị kỳ vọng np là một số nguyên, thì trung vị và chế độ cũng là np (ngay cả khi phân phối rất lệch). Để kiểm tra sự thật này về trung vị cho phân phối $\\text{Bin}(50, 0.2)$, chúng ta có thể sử dụng mã lệnh sau.
+
+\`\`\`r
+n <- 50; p <- 0.2
+which.max(pbinom(0:n,n,p)>=0.5)
+\`\`\`
+
+Hàm which.max tìm vị trí của giá trị lớn nhất trong một vector, cho vị trí đầu tiên của một giá trị lớn nhất. Vì TRUE được mã hóa là 1 và FALSE được mã hóa là 0, giá trị lớn nhất đầu tiên trong pbinom(0:n,n,p)>=0.5 là tại giá trị đầu tiên mà hàm phân phối tích lũy đạt ít nhất 0.5. Kết quả của mã lệnh trên là 11, nhưng chúng ta phải cẩn thận tránh sai số off-by-one: chỉ số 11 tương ứng với trung vị là 10, vì chúng ta bắt đầu đánh giá hàm phân phối tích lũy tại 0. Tương tự, which.max(dbinom(0:n,n,p)) trả về 11, cho thấy chế độ nằm ở 10.
+
+Trung vị mẫu của một vector dữ liệu x có thể được tìm thấy bằng lệnh median(x). But
+
+mode(x) không cho ta giá trị chế độ của x (thay vào đó, nó cung cấp thông tin về kiểu dữ liệu của x). Để tìm chế độ mẫu (hoặc chế độ mẫu, trong trường hợp có nhiều chế độ), ta có thể sử dụng hàm sau.
+
+\`\`\`r
+datamodel <- function(x) {
+  t <- table(x)
+  m <- max(t)
+  as.numeric(names(t[t==m]))
+}
+\`\`\`
+
+### Phân phối Log-Normal và Weibull
+
+Tương tự các hàm dnorm, pnorm, và rnorm cho phân phối chuẩn, các hàm dlnorm, plnorm, và rlnorm lần lượt cho mật độ xác suất, hàm phân phối tích lũy và tạo mẫu ngẫu nhiên cho biến ngẫu nhiên Log-Normal. Các tham số được sử dụng cho các hàm này trong phân phối Log-Normal là trung bình và độ lệch chuẩn của phân phối chuẩn gốc.
+
+Ví dụ,  $\\text{dlnorm}(x,1,2)$  cho mật độ xác suất của phân phối  $\\mathcal{L}\\mathcal{N}(1,4)$  (không phải  $\\mathcal{L}\\mathcal{N}(1,2)$ , cũng không phải là Log-Normal có trung bình là 1). Do mối quan hệ giữa phân phối chuẩn và Log-Normal,  $\\text{rlnorm}(n,\\text{mu},\\text{sigma})$  tương đương với  $\\exp(\\text{rnorm}(n,\\text{mu},\\text{sigma}))$ .
+
+Với phân phối Weibull, ta có thể nhận được mật độ xác suất, hàm phân phối tích lũy và tạo mẫu ngẫu nhiên bằng các hàm dweibull, pweibull, và rweibull tương ứng. Cách tham số hóa trong R khác với cách chúng ta đang sử dụng, nhưng dễ dàng chuyển đổi giữa chúng: cho phân phối Wei(  $\\lambda, \\gamma$ ), hãy đặt  $a = \\gamma$  và  $b = \\lambda^{-1/\\gamma}$ .
+
+Sau đó,  $\\text{dweibull}(x, a, b)$  cho mật độ xác suất của  $\\text{Wei}(\\lambda, \\gamma)$ ,  $\\text{pweibull}(x, a, b)$  cho hàm phân phối tích lũy, và  $\\text{rweibull}(n, a, b)$  tạo ra  $n$  mẫu độc lập đồng nhất từ phân phối. Do mối quan hệ giữa phân phối Exponential và Weibull, một cách khác để tạo  $\\text{Wei}(\\lambda, \\gamma)$  biến ngẫu nhiên là tạo  $\\text{Expo}(\\lambda)$  biến ngẫu nhiên và sau đó nâng từng cái lên lũy thừa  $1/\\gamma$ .
+
+### Mô phỏng xúc xắc
+
+Trong phần 6.7 (có dấu sao), chúng ta đã chỉ ra rằng khi gieo 6 xúc xắc công bằng, xác suất tổng cộng là 18 là $3431/6^{6} \\approx 0.07354$. Tuy nhiên, chứng minh khá phức tạp. Nếu chỉ cần một đáp án gần đúng, mô phỏng là phương pháp dễ dàng hơn nhiều. Và chúng ta đã biết cách làm rồi! Đây là mã cho một triệu lần lặp lại:
+
+\`\`\`r
+r <- replicate(10^6, sum(sample(6,6,replace=TRUE)))
+sum(r==18)/10^6
+\`\`\`
+
+Trong mô phỏng của chúng ta, điều này cho ra 0.07346, rất gần với 0.07354.`,xA=`Bài tập được đánh dấu với ☑ có lời giải chi tiết tại http://stat110.net.\r
 \r
 ## Trung bình, trung vị, chế độ và các mô-men\r
 \r
@@ -13013,24 +13266,25 @@ Tất nhiên, trong cuộc sống thực, chúng ta thường quan tâm đến m
 \r
 - Chuỗi thời gian: Để nghiên cứu cách một điều gì đó phát triển theo thời gian, chúng ta thường có thể tiến hành một loạt các phép đo theo thời gian, và sau đó nghiên cứu chuỗi này một cách đồng thời. Có nhiều ứng dụng của các chuỗi như vậy, chẳng hạn như nhiệt độ toàn cầu, giá cổ phiếu, hoặc tỷ lệ thất nghiệp quốc gia. Các chuỗi đo lường được xem xét đồng thời có thể giúp chúng ta suy luận xu hướng nhằm dự báo các phép đo trong tương lai.\r
 \r
-Chương này xem xét các phân phối đồng thời, cũng được gọi là phân phối đa biến, vốn nắm bắt thông tin trước đây bị bỏ sót về cách nhiều biến ngẫu nhiên tương tác với nhau. Chúng tôi giới thiệu các phiên bản đa biến của CDF, PMF, và PDF nhằm cung cấp một quy định đầy đủ về mối quan hệ giữa nhiều biến ngẫu nhiên. Sau khi nền tảng này được thiết lập, chúng ta sẽ nghiên cứu một vài phân phối đa biến nổi tiếng, mở rộng phân phối Binomial và Normal sang nhiều chiều hơn.`,gA=`Ba khái niệm chính cho phần này là phân phối chung, biên và điều kiện. Nhớ rằng phân phối của một biến ngẫu nhiên đơn lẻ X cung cấp thông tin đầy đủ về xác suất của X rơi vào bất kỳ tập con nào của đường thẳng thực. Tương tự, phân phối chung của hai biến ngẫu nhiên X và Y cung cấp thông tin đầy đủ về xác suất của vector  $(X, Y)$  rơi vào bất kỳ tập con nào của mặt phẳng. Phân phối biên của X là phân phối riêng của X, bỏ qua giá trị của Y, và phân phối điều kiện của X cho Y = y là phân phối đã được cập nhật cho X sau khi quan sát Y = y. Chúng ta sẽ xem xét các khái niệm này trước trong trường hợp rời rạc, sau đó mở rộng chúng sang trường hợp liên tục.\r
+Chương này xem xét các phân phối đồng thời, cũng được gọi là phân phối đa biến, vốn nắm bắt thông tin trước đây bị bỏ sót về cách nhiều biến ngẫu nhiên tương tác với nhau. Chúng tôi giới thiệu các phiên bản đa biến của CDF, PMF, và PDF nhằm cung cấp một quy định đầy đủ về mối quan hệ giữa nhiều biến ngẫu nhiên. Sau khi nền tảng này được thiết lập, chúng ta sẽ nghiên cứu một vài phân phối đa biến nổi tiếng, mở rộng phân phối Binomial và Normal sang nhiều chiều hơn.`,SA=`Ba khái niệm chính cho phần này là phân phối chung, biên và điều kiện. Nhớ rằng phân phối của một biến ngẫu nhiên đơn lẻ X cung cấp thông tin đầy đủ về xác suất của X rơi vào bất kỳ tập con nào của đường thẳng thực. Tương tự, phân phối chung của hai biến ngẫu nhiên X và Y cung cấp thông tin đầy đủ về xác suất của vector  $(X, Y)$  rơi vào bất kỳ tập con nào của mặt phẳng. Phân phối biên của X là phân phối riêng của X, bỏ qua giá trị của Y, và phân phối điều kiện của X cho Y = y là phân phối đã được cập nhật cho X sau khi quan sát Y = y. Chúng ta sẽ xem xét các khái niệm này trước trong trường hợp rời rạc, sau đó mở rộng chúng sang trường hợp liên tục.\r
 \r
-#### 7.1.1 Rời rạc\r
+## 7.1.1 Rời rạc\r
 \r
 Mô tả tổng quát nhất về phân phối chung của hai biến ngẫu nhiên là hàm phân phối tích lũy chung (joint CDF), được áp dụng cho cả biến ngẫu nhiên rời rạc và liên tục.\r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.1.1</span>\r
-<span class="math-box-title">(Hàm phân phối tích lũy chung)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 7.1.1</div>\r
+    <div class="math-box-title">Hàm phân phối tích lũy chung</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Hàm phân phối tích lũy chung của các biến ngẫu nhiên X và Y là hàm $F_{X,Y}$ được cho bởi\r
 \r
-$$\r
-F_{X,Y}(x,y)=P(X\\leq x,Y\\leq y).\r
-$$\r
+\r
+ $$F_{X,Y}(x,y)=P(X\\leq x,Y\\leq y).$$ \r
+\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13040,16 +13294,17 @@ Xấu số, hàm phân phối tích lũy chung của các biến ngẫu nhiên r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.1.2</span>\r
-<span class="math-box-title">(Hàm phân phối xác suất chung)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 7.1.2</div>\r
+    <div class="math-box-title">Hàm phân phối xác suất chung</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Hàm phân phối xác suất chung của các biến ngẫu nhiên rời rạc X và Y là hàm $p_{X,Y}$ được cho bởi\r
 \r
-$$\r
-p_{X,Y}(x,y)=P(X=x,Y=y).\r
-$$\r
+\r
+ $$p_{X,Y}(x,y)=P(X=x,Y=y).$$ \r
+\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13057,40 +13312,39 @@ Hàm phân phối xác suất chung của n biến ngẫu nhiên rời rạc đ�
 \r
 Giống như các hàm phân phối xác suất đơn biến phải không âm và tổng bằng 1, chúng ta yêu cầu các hàm phân phối xác suất chung hợp lệ phải không âm và tổng bằng 1, trong đó tổng được thực hiện trên tất cả các giá trị có thể của X và Y:\r
 \r
-$$\r
-\\sum_{x}\\sum_{y}P(X=x,Y=y)=1.\r
-$$\r
+\r
+ $$\\sum_{x}\\sum_{y}P(X=x,Y=y)=1.$$ \r
+\r
 \r
 Hàm phân phối xác suất chung xác định phân phối vì chúng ta có thể sử dụng nó để tìm xác suất của sự kiện  $(X, Y) \\in A$  cho bất kỳ tập hợp nào  $A$  của các điểm trong miền hỗ trợ của  $(X, Y)$ . Tất cả chúng ta phải làm là tổng hàm phân phối xác suất chung trên  $A$ :\r
 \r
-$$\r
-P((X,Y)\\in A)=\\sum_{(x,y)\\in A}P(X=x,Y=y).\r
-$$\r
+\r
+ $$P((X,Y)\\in A)=\\sum_{(x,y)\\in A}P(X=x,Y=y).$$ \r
+\r
 \r
 Hình 7.1 cho thấy một sơ đồ về cách mà hàm PMF chung của hai biến ngẫu nhiên rời rạc có thể trông như thế nào. Chiều cao của một thanh dọc tại  $(x, y)$  biểu diễn xác suất  $P(X = x, Y = y)$ . Để hàm PMF chung hợp lệ, tổng chiều cao của các thanh dọc phải bằng 1.\r
 \r
-<div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_332_344_1022_817.jpg" alt="PMF chung của các biến ngẫu nhiên rời rạc X và Y" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
-<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
-  <strong>HÌNH 7.1:</strong> PMF chung của các biến ngẫu nhiên rời rạc X và Y.\r
-</div>\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_332_344_1022_817.jpg" alt="PMF chung của các biến ngẫu nhiên rời rạc X và Y" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
 \r
+**HÌNH 7.1:** PMF chung của các biến ngẫu nhiên rời rạc X và Y.\r
+</div>\r
 \r
 Từ phân phối chung của X và Y, chúng ta có thể lấy được phân phối của X riêng lẻ bằng cách tổng hợp qua các giá trị có thể của Y. Điều này cho chúng ta phân phối PMF quen thuộc của X mà chúng ta đã thấy trong các chương trước. Trong bối cảnh phân phối chung, chúng ta sẽ gọi nó là phân phối biên hoặc phân phối không điều kiện của X, để làm rõ rằng chúng ta đang đề cập đến phân phối của X riêng lẻ, mà không xét đến giá trị của Y.\r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.1.3</span>\r
-<span class="math-box-title">(PMF biên)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 7.1.3</div>\r
+    <div class="math-box-title">PMF biên</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Đối với các biến ngẫu nhiên rời rạc X và Y, PMF biên của X là\r
 \r
-$$\r
-P(X=x)=\\sum_{y}P(X=x,Y=y).\r
-$$\r
+\r
+ $$P(X=x)=\\sum_{y}P(X=x,Y=y).$$ \r
+\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13098,21 +13352,19 @@ PMF biên của X là PMF của X, xem xét X riêng lẻ thay vì cùng với Y
 \r
 Quy trình để thu được PMF biên từ PMF chung được minh họa trong Hình 7.2. Ở đây chúng ta nhìn nhận toàn cảnh của PMF chung để có cái nhìn rõ ràng hơn; mỗi cột của PMF chung tương ứng với một giá trị cố định x và mỗi hàng tương ứng với một giá trị cố định y. Với bất kỳ x nào, xác suất  $P(X = x)$  là tổng chiều cao của các thanh trong cột tương ứng của PMF chung: chúng ta có thể hình dung việc lấy tất cả các thanh trong cột đó và xếp chồng lên nhau để nhận được xác suất biên. Lặp lại điều này cho tất cả các x, chúng ta sẽ đạt được PMF biên, được thể hiện bằng chữ in đậm.\r
 \r
-<div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_430_140_949_747.jpg" alt="Phân phối xác suất biên P(X=x)" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
-<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
-  <strong>HÌNH 7.2:</strong> Nhìn từ trên xuống của phân phối xác suất đồng thời từ Hình 7.1. Phân phối xác suất biên $P(X = x)$ được xác định bằng cách tổng hợp dọc theo phân phối xác suất đồng thời trong hướng y.\r
-</div>\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_430_140_949_747.jpg" alt="Phân phối xác suất biên P(X=x)" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
 \r
+**HÌNH 7.2:** Nhìn từ trên xuống của phân phối xác suất đồng thời từ Hình 7.1. Phân phối xác suất biên $P(X = x)$ được xác định bằng cách tổng hợp dọc theo phân phối xác suất đồng thời trong hướng y.\r
+</div>\r
 \r
 Tương tự, phân phối xác suất biên của Y được xác định bằng cách tổng hợp trên tất cả các giá trị có thể của X. Do đó, cho trước phân phối xác suất đồng thời, chúng ta có thể loại bỏ Y để nhận được phân phối xác suất của X, hoặc loại bỏ X để nhận được phân phối xác suất của Y. Tuy nhiên, nếu chúng ta chỉ biết các phân phối xác suất biên của X và Y, không có cách nào để khôi phục lại phân phối xác suất đồng thời mà không có thêm giả định. Rõ ràng là cách xếp các thanh trong Hình 7.2, nhưng rất mơ hồ cách giải xếp các thanh sau khi đã được xếp!\r
 \r
 Một cách khác để đi từ phân phối đồng thời đến phân phối biên là thông qua hàm phân phối tích lũy đồng thời. Trong trường hợp này, chúng ta lấy giới hạn thay vì tổng hợp: hàm phân phối tích lũy biên của X là\r
 \r
-$$\r
-F_{X}(x)=P(X\\leq x)=\\lim_{y\\to\\infty}P(X\\leq x,Y\\leq y)=\\lim_{y\\to\\infty}F_{X,Y}(x,y).\r
-$$\r
+\r
+ $$F_{X}(x)=P(X\\leq x)=\\lim_{y\\to\\infty}P(X\\leq x,Y\\leq y)=\\lim_{y\\to\\infty}F_{X,Y}(x,y).$$ \r
+\r
 \r
 Tuy nhiên, như đã đề cập ở trên, thường thì dễ hơn để làm việc với các phân phối xác suất đồng thời.\r
 \r
@@ -13120,16 +13372,17 @@ Bây giờ giả sử rằng chúng ta quan sát giá trị của X và muốn c
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.1.4</span>\r
-<span class="math-box-title">(Phân phối xác suất điều kiện)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 7.1.4</div>\r
+    <div class="math-box-title">Phân phối xác suất điều kiện</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Với các biến ngẫu nhiên rời rạc X và Y, phân phối xác suất điều kiện của Y cho X = x là\r
 \r
-$$\r
-P(Y=y|X=x)=\\frac{P(X=x,Y=y)}{P(X=x)}.\r
-$$\r
+\r
+ $$P(Y=y|X=x)=\\frac{P(X=x,Y=y)}{P(X=x)}.$$ \r
+\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13139,42 +13392,51 @@ Lưu ý rằng PMF có điều kiện (cho x cố định) là một PMF hợp l
 \r
 Hình 7.3 minh họa định nghĩa của PMF có điều kiện. Để điều kiện hóa trên sự kiện  $X = x$ , chúng ta trước tiên lấy PMF chung và tập trung vào các thanh dọc nơi  $X$  nhận giá trị  $x$ ; trong hình, những thanh này được hiển thị bằng nét đậm. Tất cả các thanh dọc khác đều không liên quan vì chúng mâu thuẫn với kiến thức rằng sự kiện  $X = x$  đã xảy ra. Vì tổng chiều cao của các thanh đậm là xác suất biên  $P(X = x)$ , chúng ta sau đó chuẩn hóa lại PMF có điều kiện bằng cách chia cho  $P(X = x)$ ; điều này đảm bảo rằng PMF có điều kiện sẽ tổng thành 1. Do đó PMF có điều kiện là PMF, giống như xác suất có điều kiện là xác suất. Lưu ý rằng có một PMF có điều kiện khác nhau của  $Y$  cho mỗi giá trị có thể xảy ra của  $X$ ; Hình 7.3 chỉ nhấn mạnh một trong số những PMF có điều kiện này.\r
 \r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_248_754_1202_1156.jpg" alt="Image" width="68%" /></div>\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_248_754_1202_1156.jpg" alt="PMF có điều kiện của Y cho X = x" style="max-width: 68%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
 \r
-\r
-### HÌNH 7.3\r
-\r
-PMF có điều kiện của Y cho X = x. PMF có điều kiện  $P(Y = y | X = x)$  được thu được bằng cách chuẩn hóa lại cột của PMF chung mà tương thích với sự kiện X = x.\r
+**HÌNH 7.3:** PMF có điều kiện của Y cho X = x. PMF có điều kiện  $P(Y = y | X = x)$  được thu được bằng cách chuẩn hóa lại cột của PMF chung mà tương thích với sự kiện X = x.\r
+</div>\r
 \r
 Chúng ta cũng có thể liên hệ phân phối có điều kiện của Y cho X = x với phân phối của X cho Y = y, bằng quy tắc Bayes:\r
 \r
- \r
 \r
  $$P(Y=y|X=x)=\\frac{P(X=x|Y=y)P(Y=y)}{P(X=x)}.$$ \r
 \r
- \r
 \r
 Và bằng cách sử dụng LOTP, chúng ta có một cách khác để tìm PMF biên: PMF biên của X là trung bình có trọng số của các PMF có điều kiện  $P(X = x | Y = y)$ , trong đó các trọng số là các xác suất  $P(Y = y)$ :\r
 \r
- \r
 \r
  $$P(X=x)=\\sum_{y}P(X=x|Y=y)P(Y=y).$$ \r
 \r
 \r
-\r
 Hãy cùng làm qua một ví dụ số để bổ sung cho các biểu đồ mà chúng ta đã xem.\r
 \r
-Ví dụ 7.1.5 (bảng 2 × 2). Ví dụ đơn giản nhất của một phân phối liên hợp rời rạc là khi X và Y đều là các biến ngẫu nhiên Bernoulli. Trong trường hợp này, hàm mật độ xác suất liên hợp được xác định hoàn toàn bởi bốn giá trị  $P(X = 1, Y = 1)$ ,  $P(X = 0, Y = 1)$ ,  $P(X = 1, Y = 0)$ , và  $P(X = 0, Y = 0)$ , do đó chúng ta có thể biểu diễn hàm mật độ xác suất liên hợp của X và Y bằng một bảng  $2 \\times 2$ .\r
+<div class="math-box example">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 7.1.5</div>\r
+    <div class="math-box-title">bảng 2 × 2</div>\r
+  </div>\r
+<div class="math-box-content"> Ví dụ đơn giản nhất của một phân phối liên hợp rời rạc là khi X và Y đều là các biến ngẫu nhiên Bernoulli. Trong trường hợp này, hàm mật độ xác suất liên hợp được xác định hoàn toàn bởi bốn giá trị  $P(X = 1, Y = 1)$ ,  $P(X = 0, Y = 1)$ ,  $P(X = 1, Y = 0)$ , và  $P(X = 0, Y = 0)$ , do đó chúng ta có thể biểu diễn hàm mật độ xác suất liên hợp của X và Y bằng một bảng  $2 \\times 2$ .\r
 \r
 Tình huống rất đơn giản này thực ra có một vị trí quan trọng trong thống kê, vì các bảng như vậy thường được sử dụng để nghiên cứu liệu một loại điều trị có liên quan đến một kết quả cụ thể hay không. Trong những tình huống như vậy, X có thể là chỉ số của việc nhận điều trị, và Y có thể là chỉ số của kết quả quan tâm.\r
 \r
 Ví dụ, giả sử chúng ta chọn ngẫu nhiên một người đàn ông trưởng thành từ dân số Hoa Kỳ. Gọi X là chỉ số của cá nhân được chọn là người hút thuốc hiện tại, và gọi Y là chỉ số của việc ông ấy phát triển ung thư phổi ở một thời điểm nào đó trong đời. Giả sử hàm mật độ xác suất liên hợp như sau (những con số này chỉ mang tính minh họa; chúng không được ước lượng từ dữ liệu thực tế).\r
 \r
-<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Y = 1</td><td style='text-align: center; word-wrap: break-word;'>Y = 0</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X = 1</td><td style='text-align: center; word-wrap: break-word;'> $\\frac{5}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{20}{100}$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X = 0</td><td style='text-align: center; word-wrap: break-word;'> $\\frac{3}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{72}{100}$ </td></tr></table>\r
+|  | Y = 1 | Y = 0 |\r
+| :---: | :---: | :---: |\r
+| X = 1 | $\\frac{5}{100}$ | $\\frac{20}{100}$ |\r
+| X = 0 | $\\frac{3}{100}$ | $\\frac{72}{100}$ |\r
+\r
 \r
 Để tìm xác suất biên  $P(Y = 1)$ , chúng ta cộng các xác suất trong hai ô của bảng nơi Y = 1. Chúng ta làm tương tự cho  $P(Y = 0)$ ,  $P(X = 1)$ , và  $P(X = 0)$  và ghi các xác suất này ở mép của bảng (làm cho từ "biên" trở nên phù hợp!).\r
 \r
-<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Y = 1</td><td style='text-align: center; word-wrap: break-word;'>Y = 0</td><td style='text-align: center; word-wrap: break-word;'>Tổng</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X = 1</td><td style='text-align: center; word-wrap: break-word;'> $\\frac{5}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{20}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{25}{100}$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X = 0</td><td style='text-align: center; word-wrap: break-word;'> $\\frac{3}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{72}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{75}{100}$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Tổng</td><td style='text-align: center; word-wrap: break-word;'> $\\frac{8}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{92}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{100}{100}$ </td></tr></table>\r
+|  | Y = 1 | Y = 0 | Tổng |\r
+| :---: | :---: | :---: | :---: |\r
+| X = 1 | $\\frac{5}{100}$ | $\\frac{20}{100}$ | $\\frac{25}{100}$ |\r
+| X = 0 | $\\frac{3}{100}$ | $\\frac{72}{100}$ | $\\frac{75}{100}$ |\r
+| Tổng | $\\frac{8}{100}$ | $\\frac{92}{100}$ | $\\frac{100}{100}$ |\r
+\r
 \r
 Điều này cho thấy phân phối biên của X là Bern(0.25) và phân phối biên của Y là Bern(0.08). Nói cách khác, xác suất không điều kiện rằng cá nhân là người hút thuốc hiện tại là 0.25, và xác suất không điều kiện của việc ông ấy phát triển ung thư phổi là 0.08.\r
 \r
@@ -13182,21 +13444,40 @@ Bây giờ giả sử chúng ta quan sát được X = 1, tức là cá nhân l�
 \r
  \r
 \r
+ \r
  $$P(Y=1|X=1)=\\frac{P(X=1,Y=1)}{P(X=1)}=\\frac{5/100}{25/100}=0.2,$$ \r
-\r
-\r
+ \r
 \r
 Vậy phân phối có điều kiện của Y cho X = 1 là Bern(0.2). Bằng một phép tính tương tự, phân phối có điều kiện của Y cho X = 0 là Bern(0.04). Điều này cho chúng ta biết rằng xác suất mắc bệnh ung thư phổi là 0.2 đối với những người hút thuốc nhưng chỉ là 0.04 đối với những người không hút thuốc.\r
 \r
-7.1.6. Từ "marginal" có nghĩa ngược nhau trong kinh tế học và thống kê. Trong kinh tế học, nó đề cập đến đạo hàm, ví dụ như doanh thu biên là đạo hàm của doanh thu theo số lượng sản phẩm bán ra. Trong thống kê, nó đề cập đến tích phân hoặc tổng, có thể hiểu một cách trực quan bằng cách viết các tổng vào hàng dọc của một bảng, như trong ví dụ trên.\r
+</div>\r
+</div>\r
+\r
+<div class="math-box remark">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 7.1.6</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Từ "marginal" có nghĩa ngược nhau trong kinh tế học và thống kê. Trong kinh tế học, nó đề cập đến đạo hàm, ví dụ như doanh thu biên là đạo hàm của doanh thu theo số lượng sản phẩm bán ra. Trong thống kê, nó đề cập đến tích phân hoặc tổng, có thể hiểu một cách trực quan bằng cách viết các tổng vào hàng dọc của một bảng, như trong ví dụ trên.\r
+\r
+</div>\r
+</div>\r
 \r
 Với sự hiểu biết về phân phối chung, phân phối biên và phân phối có điều kiện, chúng ta có thể quay lại định nghĩa về sự độc lập mà chúng ta đã giới thiệu trong Chương 3.\r
 \r
-Định nghĩa 7.1.7 (Độc lập của các biến ngẫu nhiên rời rạc). Các biến ngẫu nhiên X và Y độc lập nếu với mọi x và y,\r
+<div class="math-box definition">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 7.1.7</div>\r
+    <div class="math-box-title">Độc lập của các biến ngẫu nhiên rời rạc</div>\r
+  </div>\r
+<div class="math-box-content"> Các biến ngẫu nhiên X và Y độc lập nếu với mọi x và y,\r
 \r
  \r
 \r
+ \r
  $$F_{X,Y}(x,y)=F_{X}(x)F_{Y}(y).$$ \r
+ \r
 \r
  \r
 \r
@@ -13204,7 +13485,9 @@ Nếu X và Y là rời rạc, điều này tương đương với điều kiệ
 \r
  \r
 \r
+ \r
  $$P(X=x,Y=y)=P(X=x)P(Y=y)$$ \r
+ \r
 \r
  \r
 \r
@@ -13212,11 +13495,16 @@ với mọi x, y, và cũng tương đương với điều kiện\r
 \r
  \r
 \r
+ \r
  $$P(Y=y|X=x)=P(Y=y)$$ \r
+ \r
 \r
  \r
 \r
 với mọi x, y sao cho  $P(X = x) > 0$ .\r
+\r
+</div>\r
+</div>\r
 \r
 Sử dụng thuật ngữ từ chương này, định nghĩa nói rằng với các biến ngẫu nhiên độc lập, hàm phân phối tích lũy chung phân tích thành tích của các hàm phân phối tích lũy biên, hoặc rằng hàm phân phối xác suất chung phân tích thành tích của các hàm phân phối xác suất biên. Hãy nhớ rằng nói chung, các phân phối biên không xác định phân phối chung: đây là lý do tại sao chúng ta muốn nghiên cứu phân phối chung ban đầu! Nhưng trong trường hợp đặc biệt của sự độc lập, các phân phối biên là tất cả những gì chúng ta cần để xác định phân phối chung; chúng ta có thể lấy hàm phân phối xác suất chung bằng cách nhân các hàm phân phối xác suất biên.\r
 \r
@@ -13224,26 +13512,31 @@ Một cách khác để nhìn nhận sự độc lập là tất cả các hàm 
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.1.8</span>\r
-<span class="math-box-title">(Độc lập trong bảng $2 \\times 2$)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 7.1.8</div>\r
+    <div class="math-box-title">Độc lập trong bảng $2 \\times 2$</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Trở lại bảng từ ví dụ trước, chúng ta có thể sử dụng hai cách nhìn về sự độc lập để thấy tại sao X và Y không độc lập.\r
 \r
-<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Y = 1</td><td style='text-align: center; word-wrap: break-word;'>Y = 0</td><td style='text-align: center; word-wrap: break-word;'>Total</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X = 1</td><td style='text-align: center; word-wrap: break-word;'> $\\frac{5}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{20}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{25}{100}$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X = 0</td><td style='text-align: center; word-wrap: break-word;'> $\\frac{3}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{72}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{75}{100}$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>Total</td><td style='text-align: center; word-wrap: break-word;'> $\\frac{8}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{92}{100}$ </td><td style='text-align: center; word-wrap: break-word;'> $\\frac{100}{100}$ </td></tr></table>\r
+|  | Y = 1 | Y = 0 | Total |\r
+| :---: | :---: | :---: | :---: |\r
+| X = 1 | $\\frac{5}{100}$ | $\\frac{20}{100}$ | $\\frac{25}{100}$ |\r
+| X = 0 | $\\frac{3}{100}$ | $\\frac{72}{100}$ | $\\frac{75}{100}$ |\r
+| Total | $\\frac{8}{100}$ | $\\frac{92}{100}$ | $\\frac{100}{100}$ |\r
+\r
 \r
 Đầu tiên, hàm PMF liên hợp không phải là tích của các PMF biên. Ví dụ,\r
 \r
-$$\r
-P(X=1,Y=1)\\neq P(X=1)P(Y=1).\r
-$$\r
+\r
+ $$P(X=1,Y=1)\\neq P(X=1)P(Y=1).$$ \r
+\r
 \r
 Tìm thấy ngay một cặp giá trị x và y sao cho\r
 \r
-$$\r
-P(X=x,Y=y)\\neq P(X=x)P(Y=y)\r
-$$\r
+\r
+ $$P(X=x,Y=y)\\neq P(X=x)P(Y=y)$$ \r
+\r
 \r
 đã đủ để loại bỏ tính độc lập.\r
 \r
@@ -13252,51 +13545,49 @@ Thứ hai, chúng ta đã tìm thấy rằng phân phối biên của Y là  $\\
 Mặc dù chúng ta đã tìm thấy rằng X và Y phụ thuộc, chúng ta không thể rút ra kết luận về việc hút thuốc gây ung thư phổi dựa trên mối liên hệ này riêng lẻ. Như chúng ta đã học từ nghịch lý Simpson, các mối liên hệ sai lệch có thể xảy ra khi chúng ta không tính đến các biến nhiễu.\r
 \r
 Chúng ta sẽ làm thêm một ví dụ nữa về phân phối liên hợp rời rạc để kết thúc phần này. Chúng ta đã đặt tên cho nó là câu chuyện gà - trứng; trong đó, chúng ta sử dụng suy nghĩ mong muốn để tìm một PMF liên hợp, và nỗ lực của chúng ta dẫn đến một kết quả bất ngờ về tính độc lập.\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Câu chuyện</span>\r
-<span class="math-box-number">7.1.9</span>\r
-<span class="math-box-title">(Gà - trứng)</span>\r
-</div>\r
+    <div class="math-box-number">Câu chuyện 7.1.9</div>\r
+    <div class="math-box-title">Gà - trứng</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Giả sử một con gà đẻ một số ngẫu nhiên trứng, N, nơi $N \\sim \\text{Pois}(\\lambda)$. Mỗi trứng độc lập nở với xác suất p và không nở với xác suất q = 1 - p. Gọi X là số trứng nở và Y là số trứng không nở, do đó $X + Y = N$. Phân phối liên hợp của X và Y là gì?\r
 \r
 **Giải pháp:**\r
 \r
 Chúng ta tìm phân phối liên hợp $P(X = i, Y = j)$ cho các số nguyên không âm i và j. Điều kiện cho tổng số trứng N, các trứng là các phép thử Bernoulli độc lập với xác suất thành công p, do đó phân phối điều kiện của X và Y là $X|N = n \\sim \\text{Bin}(n, p)$ và $Y|N = n \\sim \\text{Bin}(n, q)$. Vì cuộc sống của chúng ta sẽ dễ hơn nếu chỉ biết tổng số trứng, hãy sử dụng suy nghĩ mong muốn: điều kiện hóa theo N và áp dụng định lý xác suất tổng. Điều này cho ta\r
 \r
-$$\r
-P(X=i,Y=j)=\\sum_{n=0}^{\\infty}P(X=i,Y=j|N=n)P(N=n).\r
-$$\r
+\r
+ $$P(X=i,Y=j)=\\sum_{n=0}^{\\infty}P(X=i,Y=j|N=n)P(N=n).$$ \r
+\r
 \r
 Tổng là trên tất cả các giá trị có thể của n, giữ nguyên i và j. Nhưng trừ khi  $n = i + j$ , thì không thể có X bằng i và Y bằng j. Ví dụ, cách duy nhất để có 5 trứng nở và 6 trứng không nở là có tổng cộng 11 trứng. Do đó\r
 \r
-$$\r
-P(X=i,Y=j|N=n)=0\r
-$$\r
+\r
+ $$P(X=i,Y=j|N=n)=0$$ \r
+\r
 \r
 Khi  $n = i + j$ , điều này có nghĩa là tất cả các số hạng khác trong tổng có thể bỏ qua:\r
 \r
-$$\r
-P(X=i,Y=j)=P(X=i,Y=j|N=i+j)P(N=i+j).\r
-$$\r
+\r
+ $$P(X=i,Y=j)=P(X=i,Y=j|N=i+j)P(N=i+j).$$ \r
+\r
 \r
 Điều kiện  $N = i + j$ , các sự kiện  $X = i$  và  $Y = j$  là chính xác cùng một sự kiện, vì vậy giữ cả hai là thừa. Chúng ta sẽ giữ  $X = i$ ; phần còn lại là việc thay thế hàm PMF Binomial để nhận được  $P(X = i|N = i + j)$  và hàm PMF Poisson để nhận được  $P(N = i + j)$ . Như vậy,\r
 \r
-$$\r
-\\begin{aligned}\r
-P(X=i,Y=j)&=P(X=i|N=i+j)P(N=i+j)\\\\\r
-&=\\binom{i+j}{i}p^{i}q^{j}\\cdot\\frac{e^{-\\lambda}\\lambda^{i+j}}{(i+j)!}\\\\\r
-&=\\frac{e^{-\\lambda p}(\\lambda p)^{i}}{i!}\\cdot\\frac{e^{-\\lambda q}(\\lambda q)^{j}}{j!}.\r
-\\end{aligned}\r
-$$\r
+\r
+ $$\\begin{aligned} P(X=i,Y=j)&=P(X=i|N=i+j)P(N=i+j)\\\\ &=\\binom{i+j}{i}p^{i}q^{j}\\cdot\\frac{e^{-\\lambda}\\lambda^{i+j}}{(i+j)!}\\\\ &=\\frac{e^{-\\lambda p}(\\lambda p)^{i}}{i!}\\cdot\\frac{e^{-\\lambda q}(\\lambda q)^{j}}{j!}. \\end{aligned}$$ \r
+\r
 \r
 Hàm PMF chung phân rã thành tích của hàm PMF Pois($\\lambda p$) (như một hàm số của i) và hàm PMF Pois($\\lambda q$) (như một hàm số của j). Điều này cho chúng ta hai sự kiện đẹp đẽ: (1) X và Y là độc lập, vì hàm PMF chung của chúng là tích của các hàm PMF riêng lẻ của chúng, và (2) $X \\sim \\text{Pois}(\\lambda p)$ và $Y \\sim \\text{Pois}(\\lambda q)$.\r
 \r
 Lúc đầu, điều này có thể dường như rất trái ngược với trực giác. Làm sao mà X lại độc lập với Y? Không phải biết rằng nhiều trứng nở thì có nghĩa là có lẽ không nhiều trứng không nở? Với một số lượng trứng cố định, sự độc lập này là không thể: biết số lượng trứng nở sẽ xác định hoàn toàn số lượng trứng không nở. Nhưng trong ví dụ này, số lượng trứng là ngẫu nhiên, tuân theo phân phối Poisson, và đây chính là loại ngẫu nhiên đúng đắn để làm cho X và Y độc lập một cách không điều kiện. Đây là một tính chất đặc biệt của phân phối Poisson.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13304,11 +13595,12 @@ Câu chuyện gà - trứng bổ sung cho kết quả sau đây từ Chương 4:
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.1.10</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 7.1.10</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Nếu $X \\sim \\text{Pois}(\\lambda p)$, $Y \\sim \\text{Pois}(\\lambda q)$, và $X$ và $Y$ là độc lập, thì $N = X + Y \\sim \\text{Pois}(\\lambda)$ và $X|N = n \\sim \\text{Bin}(n, p)$.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13316,93 +13608,97 @@ Theo câu chuyện gà - trứng, chúng ta giờ đây có định lý đảo c
 \r
 <div class="math-box theorem">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.1.11</span>\r
-</div>\r
+    <div class="math-box-number">Định lý 7.1.11</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Nếu $N \\sim \\mathrm{Pois}(\\lambda)$ và $X|N = n \\sim \\mathrm{Bin}(n, p)$, thì $X \\sim \\mathrm{Pois}(\\lambda p)$, $Y = N - X \\sim \\mathrm{Pois}(\\lambda q)$, và $X$ và $Y$ là độc lập.\r
+\r
 </div>\r
 </div>\r
 \r
 <div class="math-box remark">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">7.1.12</span>\r
-</div>\r
+    <div class="math-box-number">Ghi chú 7.1.12</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Trong câu chuyện gà - trứng, điều không hợp lệ để nói “$P(X = x|N = n) = P(X = x|X + Y = n) = P(X = x|Y = n - x)$”, vì trong $P(X = x|N = n)$ chúng ta không đang điều kiện trên X = x. Thực tế, $P(X = x|N = n)$ là hàm PMF của Bin $(n,p)$, trong khi $P(X = x|Y = n - x) = P(X = x)$ là hàm PMF của Pois($\\lambda p$). Sai lầm này của việc thay x vào X ở phía phải của thanh điều kiện minh họa rõ tầm quan trọng của việc phân biệt cẩn thận giữa X và x, và giữa phía trái và phía phải của thanh điều kiện.\r
+\r
 </div>\r
 </div>\r
+\r
+## 7.1.2 Liên tục\r
 \r
 Một lần chúng ta đã hiểu được phân phối rời rạc chung, thì không khó lắm để xem xét phân phối chung liên tục. Chúng ta chỉ cần thực hiện các thay thế quen thuộc hiện nay của tích phân thay cho tổng và PDF thay cho PMF, nhớ rằng xác suất của bất kỳ điểm riêng lẻ nào giờ đây là 0.\r
 \r
 Chính thức, để X và Y có phân phối chung liên tục, chúng ta yêu cầu rằng hàm phân phối tích lũy chung\r
 \r
-$$\r
-F_{X,Y}(x,y)=P(X\\leq x,Y\\leq y)\r
-$$\r
+\r
+ $$F_{X,Y}(x,y)=P(X\\leq x,Y\\leq y)$$ \r
+\r
 \r
 phải khả vi với respect đến x và y. Đạo hàm riêng với respect đến x và y được gọi là PDF chung. PDF chung xác định phân phối chung, như vậy cũng là hàm phân phối tích lũy chung.\r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.1.13</span>\r
-<span class="math-box-title">(PDF chung)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 7.1.13</div>\r
+    <div class="math-box-title">PDF chung</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Nếu X và Y là liên tục với hàm phân phối tích lũy chung $F_{X,Y}$, thì PDF chung của chúng là đạo hàm của hàm phân phối tích lũy chung với respect đến x và y:\r
 \r
-$$\r
-f_{X,Y}(x,y)=\\frac{\\partial^{2}}{\\partial x\\partial y}F_{X,Y}(x,y).\r
-$$\r
+\r
+ $$f_{X,Y}(x,y)=\\frac{\\partial^{2}}{\\partial x\\partial y}F_{X,Y}(x,y).$$ \r
+\r
+\r
 </div>\r
 </div>\r
 \r
 Chúng ta yêu cầu các PDF chung hợp lệ phải không âm và tích phân bằng 1:\r
 \r
-$$\r
-f_{X,Y}(x,y)\\geq 0,\\mathrm{~and~}\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)d x d y=1.\r
-$$\r
+\r
+ $$f_{X,Y}(x,y)\\geq 0,\\mathrm{~and~}\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)d x d y=1.$$ \r
+\r
 \r
 Trong trường hợp đơn biến, PDF là hàm mà chúng ta tích phân để được xác suất của một khoảng. Tương tự, PDF chung của hai biến ngẫu nhiên là hàm mà chúng ta tích phân để được xác suất của một miền hai chiều. Ví dụ,\r
 \r
-$$\r
-P(X<3,\\ 1<Y<4)=\\int_{1}^{4}\\int_{-\\infty}^{3}f_{X,Y}(x,y)dxdy.\r
-$$\r
+\r
+ $$P(X<3,\\ 1<Y<4)=\\int_{1}^{4}\\int_{-\\infty}^{3}f_{X,Y}(x,y)dxdy.$$ \r
+\r
 \r
 Với một miền tổng quát  $A \\subseteq \\mathbb{R}^2$ ,\r
 \r
-$$\r
-P((X,Y)\\in A)=\\iint\\limits_{A}f_{X,Y}(x,y)dxdy.\r
-$$\r
+\r
+ $$P((X,Y)\\in A)=\\iint\\limits_{A}f_{X,Y}(x,y)dxdy.$$ \r
+\r
 \r
 Hình 7.4 cho thấy một hình vẽ về cái mà PDF chung của hai biến ngẫu nhiên có thể trông như thế nào. Như thường lệ với các biến ngẫu nhiên liên tục, chúng ta cần nhớ rằng độ cao của bề mặt  $f_{X,Y}(x,y)$  tại một điểm riêng lẻ không đại diện cho xác suất. Xác suất của bất kỳ điểm cụ thể nào trong mặt phẳng là 0. Bây giờ rằng chúng ta đã tăng thêm một chiều, xác suất của bất kỳ đường hay đường cong nào trong mặt phẳng cũng là 0. Chỉ có cách duy nhất để chúng ta có xác suất khác 0 là tích phân trên một miền có diện tích dương trong mặt phẳng xy.\r
 \r
 Khi chúng ta tích phân PDF chung trên một miền A, chúng ta đang tính toán thể tích dưới bề mặt của PDF chung và trên A. Do đó, xác suất được biểu diễn bằng thể tích dưới PDF chung. Tổng thể tích dưới một PDF chung hợp lệ là 1.\r
 \r
-<div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_418_143_988_520.jpg" alt="PDF chung của các biến ngẫu nhiên liên tục X và Y" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
-<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
-  <strong>HÌNH 7.4:</strong> PDF chung của các biến ngẫu nhiên liên tục X và Y.\r
-</div>\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_418_143_988_520.jpg" alt="PDF chung của các biến ngẫu nhiên liên tục X và Y" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
 \r
+**HÌNH 7.4:** PDF chung của các biến ngẫu nhiên liên tục X và Y.\r
+</div>\r
 \r
 Trong trường hợp rời rạc, chúng ta nhận được PMF biên của X bằng cách tổng hợp trên tất cả các giá trị có thể của Y trong PDF chung. Trong trường hợp liên tục, chúng ta nhận được PDF biên của X bằng cách tích phân trên tất cả các giá trị có thể của Y trong PDF chung.\r
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.1.14</span>\r
-<span class="math-box-title">(PDF biên)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 7.1.14</div>\r
+    <div class="math-box-title">PDF biên</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Đối với các biến ngẫu nhiên liên tục X và Y có PDF chung $f_{X,Y}$, PDF biên của X là\r
 \r
-$$\r
-f_{X}(x)=\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)d y.\r
-$$\r
+\r
+ $$f_{X}(x)=\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)d y.$$ \r
+\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13410,9 +13706,9 @@ $$\r
 \r
 Để đơn giản hóa ký hiệu, chúng ta chủ yếu đã tập trung vào phân phối chung của hai biến ngẫu nhiên thay vì n biến ngẫu nhiên, nhưng việc biên hóa hoạt động tương tự với bất kỳ số lượng biến nào. Ví dụ, nếu chúng ta có PDF chung của X, Y, Z, W nhưng muốn có PDF chung của X, W, chúng ta chỉ cần tích phân trên tất cả các giá trị có thể của Y và Z:\r
 \r
-$$\r
-f_{X,W}(x,w)=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}f_{X,Y,Z,W}(x,y,z,w)d y d z.\r
-$$\r
+\r
+ $$f_{X,W}(x,w)=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}f_{X,Y,Z,W}(x,y,z,w)d y d z.$$ \r
+\r
 \r
 Tư duy về mặt này rất dễ—chỉ tích phân trên các biến không mong muốn để nhận được PDF chung của các biến mong muốn—nhưng tính toán nó có thể dễ hoặc không dễ.\r
 \r
@@ -13420,16 +13716,17 @@ Trở lại trường hợp phân phối chung của hai biến ngẫu nhiên X 
 \r
 <div class="math-box definition">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.1.15</span>\r
-<span class="math-box-title">(PDF điều kiện)</span>\r
-</div>\r
+    <div class="math-box-number">Định nghĩa 7.1.15</div>\r
+    <div class="math-box-title">PDF điều kiện</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Đối với các biến ngẫu nhiên liên tục X và Y có PDF chung $f_{X,Y}$, PDF điều kiện của Y cho X = x là\r
 \r
-$$\r
-f_{Y|X}(y|x)=\\frac{f_{X,Y}(x,y)}{f_{X}(x)},\r
-$$\r
+\r
+ $$f_{Y|X}(y|x)=\\frac{f_{X,Y}(x,y)}{f_{X}(x)},$$ \r
+\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13437,54 +13734,64 @@ với tất cả  $x$  mà  $f_{X}(x) > 0$ . Điều này được xem như mộ
 \r
 <div class="math-box remark">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">7.1.16</span>\r
-</div>\r
+    <div class="math-box-number">Ghi chú 7.1.16</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Các chỉ số mà chúng ta đặt dưới tất cả các $f$ chỉ là để nhắc nhở chúng ta rằng chúng ta có ba hàm số khác nhau cần xử lý. Chúng ta có thể viết lại $g(y|x)=f(x,y)/h(x)$, trong đó $f$ là hàm mật độ xác suất chung, $h$ là hàm mật độ xác suất biên của $X$, và $g$ là hàm mật độ xác suất có điều kiện của $Y$ cho $X=x$, nhưng điều này làm cho việc ghi nhớ nào là chữ cái nào đại diện cho hàm số nào trở nên khó khăn hơn.\r
+\r
 </div>\r
 </div>\r
 \r
 Hình 7.5 minh họa định nghĩa của hàm mật độ xác suất có điều kiện. Chúng ta lấy một dải dọc của hàm mật độ xác suất chung tương ứng với giá trị quan sát của  $X$ . Vì diện tích tổng thể dưới dải này là  $f_{X}(x)$ , chúng ta sau đó chia cho  $f_{X}(x)$  để đảm bảo rằng hàm mật độ xác suất có điều kiện sẽ có diện tích bằng 1. Do đó, hàm mật độ xác suất có điều kiện của  $Y$  cho  $X = x$  thỏa mãn các tính chất của một hàm mật độ xác suất hợp lệ, cho bất kỳ  $x$  nào trong miền hỗ trợ của  $X$ .\r
 \r
-<div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_177_628_1235_959.jpg" alt="Hàm mật độ xác suất có điều kiện của Y cho X = x" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
-<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
-  <strong>HÌNH 7.5:</strong> Hàm mật độ xác suất có điều kiện của Y cho X = x. Hàm mật độ xác suất có điều kiện $f_{Y|X}(y|x)$ được thu được bằng cách chuẩn hóa lại dải của hàm mật độ xác suất chung tại giá trị cố định $x$.\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_177_628_1235_959.jpg" alt="Hàm mật độ xác suất có điều kiện của Y cho X = x" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+\r
+**HÌNH 7.5:** Hàm mật độ xác suất có điều kiện của Y cho X = x. Hàm mật độ xác suất có điều kiện $f_{Y|X}(y|x)$ được thu được bằng cách chuẩn hóa lại dải của hàm mật độ xác suất chung tại giá trị cố định $x$.\r
 </div>\r
 \r
 <div class="math-box remark">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">7.1.17</span>\r
-</div>\r
+    <div class="math-box-number">Ghi chú 7.1.17</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Làm thế nào chúng ta có thể nói về việc điều kiện hóa trên $X = x$ cho $X$ là biến ngẫu nhiên liên tục, với điều kiện rằng sự kiện này có xác suất bằng 0? Về mặt nghiêm túc, chúng ta thực sự đang điều kiện hóa trên sự kiện $X$ nằm trong một khoảng nhỏ chứa $x$, nói cụ thể là $X \\in (x - \\epsilon, x + \\epsilon)$, và sau đó lấy giới hạn khi $\\epsilon$ tiến tới 0 từ phía phải. Chúng ta sẽ không quan tâm đến chi tiết kỹ thuật này; may mắn thay, nhiều kết quả quan trọng như quy tắc Bayes hoạt động trong trường hợp liên tục chính xác như mong đợi.\r
+\r
 </div>\r
 </div>\r
 \r
 Lưu ý rằng chúng ta có thể khôi phục lại hàm mật độ xác suất chung  $f_{X,Y}$  nếu chúng ta có hàm mật độ xác suất có điều kiện  $f_{Y|X}$  và hàm mật độ xác suất tương ứng  $f_{X}$ :\r
 \r
-$$\r
-f_{X,Y}(x,y)=f_{Y|X}(y|x)f_{X}(x).\r
-$$\r
+\r
+ $$f_{X,Y}(x,y)=f_{Y|X}(y|x)f_{X}(x).$$ \r
+\r
 \r
 Tương tự, chúng ta có thể khôi phục lại hàm mật độ xác suất chung nếu chúng ta có  $f_{X|Y}$  và  $f_{Y}$ :\r
 \r
  \r
 \r
+ \r
  $$f_{X,Y}(x,y)=f_{X|Y}(x|y)f_{Y}(y).$$ \r
+ \r
 \r
  \r
 \r
 Điều này cho phép chúng ta phát triển các phiên bản liên tục của quy tắc Bayes và định lý tổng xác suất. Các phiên bản liên tục tương tự như các phiên bản rời rạc, với hàm mật độ xác suất thay cho xác suất và tích phân thay cho tổng.\r
 \r
-Định lý 7.1.18 (Dạng liên tục của quy tắc Bayes và định lý tổng xác suất). Đối với các biến ngẫu nhiên liên tục X và Y, ta có dạng liên tục của quy tắc Bayes như sau:\r
+<div class="math-box theorem">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định lý 7.1.18</div>\r
+    <div class="math-box-title">Dạng liên tục của quy tắc Bayes và định lý tổng xác suất</div>\r
+  </div>\r
+<div class="math-box-content"> Đối với các biến ngẫu nhiên liên tục X và Y, ta có dạng liên tục của quy tắc Bayes như sau:\r
 \r
  \r
 \r
+ \r
  $$f_{Y|X}(y|x)=\\frac{f_{X|Y}(x|y)f_{Y}(y)}{f_{X}(x)},\\mathrm{f o r}f_{X}(x)>0.$$ \r
+ \r
 \r
  \r
 \r
@@ -13492,15 +13799,28 @@ Và ta có dạng liên tục của định lý tổng xác suất như sau:\r
 \r
  \r
 \r
+ \r
  $$f_{X}(x)=\\int_{-\\infty}^{\\infty}f_{X|Y}(x|y)f_{Y}(y)d y.$$ \r
+ \r
 \r
  \r
 \r
-Chứng minh. Theo định nghĩa của PDF điều kiện, ta có\r
+</div>\r
+</div>\r
+\r
+<div class="math-box proof">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+ Theo định nghĩa của PDF điều kiện, ta có\r
 \r
  \r
 \r
+ \r
  $$f_{Y|X}(y|x)f_{X}(x)=f_{X,Y}(x,y)=f_{X|Y}(x|y)f_{Y}(y).$$ \r
+ \r
 \r
  \r
 \r
@@ -13508,15 +13828,26 @@ Dạng liên tục của quy tắc Bayes được suy ra ngay lập tức bằng
 \r
  \r
 \r
+ \r
  $$f_{X}(x)=\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)d y=\\int_{-\\infty}^{\\infty}f_{X|Y}(x|y)f_{Y}(y)d y.$$ \r
+ \r
 \r
  \r
+\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
+</div>\r
+</div>\r
 \r
 Vì tò mò, hãy xem xem điều gì sẽ xảy ra nếu ta thay biểu thức khác cho  $f_{X,Y}(x,y)$  thay vào trong chứng minh định lý tổng xác suất:\r
 \r
  \r
 \r
+ \r
  $$f_{X}(x)=\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)d y=\\int_{-\\infty}^{\\infty}f_{Y|X}(y|x)f_{X}(x)d y=f_{X}(x)\\int_{-\\infty}^{\\infty}f_{Y|X}(y|x)d y.$$ \r
+ \r
 \r
  \r
 \r
@@ -13524,7 +13855,9 @@ Vì tò mò, hãy xem xem điều gì sẽ xảy ra nếu ta thay biểu thức 
 \r
  \r
 \r
+ \r
  $$\\int_{-\\infty}^{\\infty}f_{Y|X}(y|x)d y=1,$$ \r
+ \r
 \r
  \r
 \r
@@ -13534,7 +13867,9 @@ Ta hiện nay có các dạng của quy tắc Bayes và định lý tổng xác 
 \r
  \r
 \r
+ \r
  $$P(X=x)=\\int_{-\\infty}^{\\infty}P(X=x|Y=y)f_{Y}(y)dy.$$ \r
+ \r
 \r
  \r
 \r
@@ -13542,29 +13877,40 @@ Lấy X là biến ngẫu nhiên chỉ báo của một sự kiện A và x = 1,
 \r
  \r
 \r
+ \r
  $$P(A)=\\int_{-\\infty}^{\\infty}P(A|Y=y)f_{Y}(y)dy.$$ \r
-\r
-\r
+ \r
 \r
 <div style="text-align: center;">Dưới đây là bốn phiên bản của quy tắc Bayes, được tóm tắt trong một bảng.</div>\r
 \r
+|  | Y rời rạc | Y liên tục |\r
+| :---: | :---: | :---: |\r
+| X rời rạc | $P(Y = y|X = x) = \\frac{P(X = x|Y = y)P(Y = y)}{P(X = x)}$ | $f_{Y}(y|X = x) = \\frac{P(X = x|Y = y)f_{Y}(y)}{P(X = x)}$ |\r
+| X liên tục | $P(Y = y|X = x) = \\frac{f_{X}(x|Y = y)P(Y = y)}{f_{X}(x)}$ | $f_{Y|X}(y|x) = \\frac{f_{X|Y}(x|y)f_{Y}(y)}{f_{X}(x)}$ |\r
 \r
-\r
-<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Y rời rạc</td><td style='text-align: center; word-wrap: break-word;'>Y liên tục</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X rời rạc</td><td style='text-align: center; word-wrap: break-word;'> $P(Y = y|X = x) = \\frac{P(X = x|Y = y)P(Y = y)}{P(X = x)}$ </td><td style='text-align: center; word-wrap: break-word;'> $f_{Y}(y|X = x) = \\frac{P(X = x|Y = y)f_{Y}(y)}{P(X = x)}$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X liên tục</td><td style='text-align: center; word-wrap: break-word;'> $P(Y = y|X = x) = \\frac{f_{X}(x|Y = y)P(Y = y)}{f_{X}(x)}$ </td><td style='text-align: center; word-wrap: break-word;'> $f_{Y|X}(y|x) = \\frac{f_{X|Y}(x|y)f_{Y}(y)}{f_{X}(x)}$ </td></tr></table>\r
 \r
 <div style="text-align: center;">Và đây là bốn phiên bản của LOTP, được tóm tắt trong một bảng. Hàng đầu tiên cho các biểu thức cho  $P(X = x)$ , trong khi hàng cuối cùng cho các biểu thức cho  $f_X(x)$ .</div>\r
 \r
+|  | Y rời rạc | Y liên tục |\r
+| :---: | :---: | :---: |\r
+| X rời rạc | $\\sum_{y} P(X = x | Y = y) P(Y = y)$ | $\\int_{-\\infty}^{\\infty} P(X = x | Y = y) f_{Y}(y) dy$ |\r
+| X liên tục | $\\sum_{y} f_{X}(x | Y = y) P(Y = y)$ | $\\int_{-\\infty}^{\\infty} f_{X | Y}(x | y) f_{Y}(y) dy$ |\r
 \r
-\r
-<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'></td><td style='text-align: center; word-wrap: break-word;'>Y rời rạc</td><td style='text-align: center; word-wrap: break-word;'>Y liên tục</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X rời rạc</td><td style='text-align: center; word-wrap: break-word;'> $\\sum_{y} P(X = x | Y = y) P(Y = y)$ </td><td style='text-align: center; word-wrap: break-word;'> $\\int_{-\\infty}^{\\infty} P(X = x | Y = y) f_{Y}(y) dy$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>X liên tục</td><td style='text-align: center; word-wrap: break-word;'> $\\sum_{y} f_{X}(x | Y = y) P(Y = y)$ </td><td style='text-align: center; word-wrap: break-word;'> $\\int_{-\\infty}^{\\infty} f_{X | Y}(x | y) f_{Y}(y) dy$ </td></tr></table>\r
 \r
 Cuối cùng, hãy thảo luận về định nghĩa của sự độc lập cho các biến ngẫu nhiên liên tục; sau đó chúng ta sẽ chuyển sang các ví dụ cụ thể. Như trong trường hợp rời rạc, chúng ta có thể xem sự độc lập của các biến ngẫu nhiên liên tục dưới hai cách nhìn. Một là, hàm phân phối tích lũy chung phân tích thành tích của các hàm phân phối lân cận, hoặc hàm mật độ xác suất chung phân tích thành tích của các hàm mật độ xác suất lân cận. Cách khác là hàm mật độ xác suất có điều kiện của Y cho X = x giống như hàm mật độ xác suất lân cận của Y, do đó việc điều kiện hóa theo X không cung cấp thông tin nào về Y.\r
 \r
-Định nghĩa 7.1.19 (Sự độc lập của các biến ngẫu nhiên liên tục). Các biến ngẫu nhiên X và Y được gọi là độc lập nếu với mọi x và y,\r
+<div class="math-box definition">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 7.1.19</div>\r
+    <div class="math-box-title">Sự độc lập của các biến ngẫu nhiên liên tục</div>\r
+  </div>\r
+<div class="math-box-content"> Các biến ngẫu nhiên X và Y được gọi là độc lập nếu với mọi x và y,\r
 \r
  \r
 \r
+ \r
  $$F_{X,Y}(x,y)=F_{X}(x)F_{Y}(y).$$ \r
+ \r
 \r
  \r
 \r
@@ -13572,7 +13918,9 @@ Nếu X và Y là liên tục với hàm mật độ xác suất chung  $f_{X,Y}
 \r
  \r
 \r
+ \r
  $$f_{X,Y}(x,y)=f_{X}(x)f_{Y}(y)$$ \r
+ \r
 \r
  \r
 \r
@@ -13580,31 +13928,65 @@ với mọi x, y, và cũng tương đương với điều kiện\r
 \r
  \r
 \r
+ \r
  $$f_{Y|X}(y|x)=f_{Y}(y)$$ \r
+ \r
 \r
  \r
 \r
 với mọi x, y sao cho  $f_{X}(x) > 0$ .\r
 \r
-7.1.20. Hàm mật độ xác suất lân cận của Y,  $f_{Y}(y)$ , là một hàm số của y chỉ; nó không thể phụ thuộc vào x theo bất kỳ cách nào. Hàm mật độ xác suất có điều kiện  $f_{Y|X}(y|x)$  có thể phụ thuộc vào x nói chung. Chỉ trong trường hợp đặc biệt của sự độc lập thì  $f_{Y|X}(y|x)$  mới không phụ thuộc vào x.\r
+</div>\r
+</div>\r
+\r
+<div class="math-box remark">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 7.1.20</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Hàm mật độ xác suất lân cận của Y,  $f_{Y}(y)$ , là một hàm số của y chỉ; nó không thể phụ thuộc vào x theo bất kỳ cách nào. Hàm mật độ xác suất có điều kiện  $f_{Y|X}(y|x)$  có thể phụ thuộc vào x nói chung. Chỉ trong trường hợp đặc biệt của sự độc lập thì  $f_{Y|X}(y|x)$  mới không phụ thuộc vào x.\r
+\r
+</div>\r
+</div>\r
 \r
 Đôi khi chúng ta có một hàm mật độ xác suất chung cho X và Y mà phân tích thành một hàm số của x nhân với một hàm số của y, mà không biết trước có hay không các hàm số này là các hàm mật độ xác suất lân cận, hoặc thậm chí có phải là các hàm mật độ xác suất hợp lệ hay không. Kết quả tiếp theo sẽ giải quyết tình huống này.\r
 \r
-Đề xuất 7.1.21. Giả sử rằng hàm mật độ xác suất (PDF) chung  $f_{X,Y}$  của X và Y có thể phân tích thành\r
+<div class="math-box proposition">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Đề xuất 7.1.21</div>\r
+  </div>\r
+<div class="math-box-content"> Giả sử rằng hàm mật độ xác suất (PDF) chung  $f_{X,Y}$  của X và Y có thể phân tích thành\r
 \r
  \r
 \r
+ \r
  $$f_{X,Y}(x,y)=g(x)h(y)$$ \r
+ \r
 \r
  \r
 \r
 với mọi x và y, ở đó g và h là các hàm không âm. Khi đó X và Y độc lập. Cũng như vậy, nếu hoặc g hoặc h là một PDF hợp lệ, thì cái kia cũng là một PDF hợp lệ và g và h là các PDF biên của X và Y, tương ứng. (Kết quả tương tự trong trường hợp rời rạc cũng đúng.)\r
 \r
-Chứng minh. Đặt  $c = \\int_{-\\infty}^{\\infty} h(y)dy$ . Nhân và chia cho  $c$ , ta có thể viết\r
+</div>\r
+</div>\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box proof">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Đặt  $c = \\int_{-\\infty}^{\\infty} h(y)dy$ . Nhân và chia cho  $c$ , ta có thể viết\r
 \r
  \r
 \r
+ \r
  $$f_{X,Y}(x,y)=c g(x)\\cdot\\frac{h(y)}{c}.$$ \r
+ \r
 \r
  \r
 \r
@@ -13612,25 +13994,34 @@ Chứng minh. Đặt  $c = \\int_{-\\infty}^{\\infty} h(y)dy$ . Nhân và chia c
 \r
  \r
 \r
+ \r
  $$f_{X}(x)=\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)d y=c g(x)\\int_{-\\infty}^{\\infty}\\frac{h(y)}{c}d y=c g(x).$$ \r
+ \r
 \r
  \r
 \r
 Từ đó suy ra  $\\int_{-\\infty}^{\\infty} c g(x) dx = 1$  vì một PDF biên là một PDF hợp lệ (biết tích phân của h đã cho ta tích phân của g một cách miễn phí!). Khi đó PDF biên của Y là\r
 \r
-$$\r
-f_{Y}(y)=\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)dx=\\frac{h(y)}{c}\\int_{-\\infty}^{\\infty}cg(x)dx=\\frac{h(y)}{c}.\r
-$$\r
+\r
+ $$f_{Y}(y)=\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)dx=\\frac{h(y)}{c}\\int_{-\\infty}^{\\infty}cg(x)dx=\\frac{h(y)}{c}.$$ \r
+\r
 \r
 Do đó, X và Y độc lập với các PDF  $cg(x)$  và  $h(y)/c$ , tương ứng. Nếu g hoặc h đã là một PDF hợp lệ, thì c = 1, do đó cái kia cũng là một PDF hợp lệ.\r
 \r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
+</div>\r
+</div>\r
+\r
 <div class="math-box remark">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">7.1.22</span>\r
-</div>\r
+    <div class="math-box-number">Ghi chú 7.1.22</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Trong đề xuất trên, chúng ta cần hàm mật độ xác suất chung có thể phân tích thành một hàm của x nhân với một hàm của y với mọi $(x, y)$ trong mặt phẳng $R^2$, không chỉ với $(x, y)$ mà $f_{X,Y}(x, y) > 0$. Lý do cho điều này được minh họa trong ví dụ tiếp theo.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13638,32 +14029,32 @@ Một trường hợp đơn giản của một phân phối chung liên tục l�
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.1.23</span>\r
-<span class="math-box-title">(Đều trên một miền trong mặt phẳng)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 7.1.23</div>\r
+    <div class="math-box-title">Đều trên một miền trong mặt phẳng</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Giả sử $(X, Y)$ là một điểm hoàn toàn ngẫu nhiên trong hình vuông $\\{(x, y) : x, y \\in [0, 1]\\}$, theo nghĩa là hàm mật độ xác suất chung của X và Y là hằng số trên hình vuông và 0 ngoài nó:\r
 \r
-$$\r
-f_{X,Y}(x,y)=\\left\\{\\begin{array}{ll}1&\\text{nếu } x,y\\in[0,1],\\\\0&\\text{khác.} \\end{array}\\right.\r
-$$\r
+\r
+ $$f_{X,Y}(x,y)=\\left\\{\\begin{array}{ll}1&\\text{nếu } x,y\\in[0,1],\\\\0&\\text{khác.} \\end{array}\\right.$$ \r
+\r
 \r
 Hằng số 1 được chọn để hàm mật độ xác suất chung sẽ tích phân đến 1. Phân phối này được gọi là phân phối đều trên hình vuông.\r
 \r
 Tưởng tượng thì hợp lý rằng X và Y nên là  $\\text{Unif}(0,1)$  theo biên. Chúng ta có thể kiểm tra điều này bằng cách tính\r
 \r
-$$\r
-f_{X}(x)=\\int_{0}^{1}f_{X,Y}(x,y)d y=\\int_{0}^{1}1d y=1,\r
-$$\r
+\r
+ $$f_{X}(x)=\\int_{0}^{1}f_{X,Y}(x,y)d y=\\int_{0}^{1}1d y=1,$$ \r
+\r
 \r
 và tương tự cho  $f_Y$ . Ngoài ra, X và Y là độc lập, bởi vì hàm mật độ xác suất (PDF) chung có thể được phân tích thành tích của các PDF riêng lẻ (điều này chỉ đơn giản trở thành  $1 = 1 \\cdot 1$ , nhưng quan trọng là phải lưu ý rằng giá trị của X không giới hạn các giá trị có thể có của Y). Do đó, phân bố có điều kiện của Y cho X = x là  $\\text{Unif}(0,1)$ , bất kể giá trị của x.\r
 \r
 Bây giờ, hãy xét  $(X,Y)$  là một điểm hoàn toàn ngẫu nhiên trong hình tròn đơn vị  $\\{(x,y):x^2+y^2\\leq1\\}$ , với hàm mật độ chung (joint PDF)\r
 \r
-$$\r
-f_{X,Y}(x,y)=\\left\\{\\begin{array}{ll}\\frac{1}{\\pi}&\\text{nếu } x^{2}+y^{2}\\leq 1,\\\\0&\\text{khác.}\\end{array}\\right.\r
-$$\r
+\r
+ $$f_{X,Y}(x,y)=\\left\\{\\begin{array}{ll}\\frac{1}{\\pi}&\\text{nếu } x^{2}+y^{2}\\leq 1,\\\\0&\\text{khác.}\\end{array}\\right.$$ \r
+\r
 \r
 Lại nữa, hằng số  $1/\\pi$  được chọn để làm cho hàm mật độ chung tích phân bằng 1; giá trị này được suy ra từ thực tế rằng tích phân của 1 trên một miền nào đó trong mặt phẳng là diện tích của miền đó.\r
 \r
@@ -13671,30 +14062,30 @@ Lưu ý rằng X và Y không độc lập, bởi vì nói chung, biết giá tr
 \r
 Phân bố biên của X giờ là\r
 \r
-$$\r
-f_{X}(x)=\\int_{-\\sqrt{1-x^{2}}}^{\\sqrt{1-x^{2}}}\\frac{1}{\\pi}d y=\\frac{2}{\\pi}\\sqrt{1-x^{2}},\\quad-1\\leq x\\leq1.\r
-$$\r
+\r
+ $$f_{X}(x)=\\int_{-\\sqrt{1-x^{2}}}^{\\sqrt{1-x^{2}}}\\frac{1}{\\pi}d y=\\frac{2}{\\pi}\\sqrt{1-x^{2}},\\quad-1\\leq x\\leq1.$$ \r
+\r
 \r
 Bởi đối xứng,  $f_{Y}(y) = \\frac{2}{\\pi} \\sqrt{1 - y^{2}}$ . Lưu ý rằng các phân bố biên của X và Y không đều trên  $[-1, 1]$ ; thay vào đó, X và Y có xu hướng rơi gần 0 hơn là gần  $\\pm 1$ .\r
 \r
-<div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_454_1200_936_1600.jpg" alt="Nhìn từ trên xuống của PDF chung đều trên hình tròn đơn vị" style="max-width: 40%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
-<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
-  <strong>HÌNH 7.6:</strong> Nhìn từ trên xuống của hàm mật độ xác suất (PDF) chung đều trên hình tròn đơn vị. Cố định $X = x$, $Y$ bị giới hạn trong khoảng $[-\\sqrt{1-x^{2}}, \\sqrt{1-x^{2}}]$.\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_454_1200_936_1600.jpg" alt="Nhìn từ trên xuống của PDF chung đều trên hình tròn đơn vị" style="max-width: 40%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+\r
+**HÌNH 7.6:** Nhìn từ trên xuống của hàm mật độ xác suất (PDF) chung đều trên hình tròn đơn vị. Cố định $X = x$, $Y$ bị giới hạn trong khoảng $[-\\sqrt{1-x^{2}}, \\sqrt{1-x^{2}}]$.\r
 </div>\r
 \r
 Giả sử chúng ta quan sát X = x. Như được minh họa trong Hình 7.6, điều này sẽ giới hạn Y phải nằm\r
 \r
 trong khoảng  $[-\\sqrt{1-x^{2}},\\sqrt{1-x^{2}}]$ . Cụ thể, phân phối có điều kiện của Y cho X = x là\r
 \r
-$$\r
-f_{Y|X}(y|x)=\\frac{f_{X,Y}(x,y)}{f_{X}(x)}=\\frac{\\frac{1}{\\pi}}{\\frac{2}{\\pi}\\sqrt{1-x^{2}}}=\\frac{1}{2\\sqrt{1-x^{2}}}\r
-$$\r
+\r
+ $$f_{Y|X}(y|x)=\\frac{f_{X,Y}(x,y)}{f_{X}(x)}=\\frac{\\frac{1}{\\pi}}{\\frac{2}{\\pi}\\sqrt{1-x^{2}}}=\\frac{1}{2\\sqrt{1-x^{2}}}$$ \r
+\r
 \r
 cho $-\\sqrt{1-x^2} \\leq y \\leq \\sqrt{1-x^2}$, và 0 nếu không. Phân phối PDF có điều kiện này là hằng số như một hàm số của y, điều này cho thấy phân phối có điều kiện của Y là đều trên khoảng $[-\\sqrt{1-x^2}, \\sqrt{1-x^2}]$. Sự kiện rằng phân phối PDF có điều kiện không độc lập với x xác nhận sự kiện rằng X và Y không độc lập.\r
 \r
 Tổng quát, cho một miền $R$ trong mặt phẳng, phân phối đều trên $R$ được định nghĩa là có PDF chung là hằng số bên trong $R$ và 0 bên ngoài $R$. Hằng số này là nghịch đảo của diện tích của $R$. Nếu $R$ là hình chữ nhật $\\{(x,y):a\\leq x\\leq b,c\\leq y\\leq d\\}$, thì $X$ và $Y$ sẽ độc lập; khác với hình tròn, các lát dọc của một hình chữ nhật đều giống nhau. Nhưng cho bất kỳ miền nào mà giá trị của $X$ ràng buộc các giá trị có thể của $Y$ hoặc ngược lại, $X$ và $Y$ sẽ không độc lập.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13702,33 +14093,27 @@ Làm một ví dụ khác về việc làm việc với PDF chung, hãy xem xét
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.1.24</span>\r
-<span class="math-box-title">(So sánh Exponentials có tốc độ khác nhau)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 7.1.24</div>\r
+    <div class="math-box-title">So sánh Exponentials có tốc độ khác nhau</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Cho $T_1 \\sim \\text{Expo}(\\lambda_1)$ và $T_2 \\sim \\text{Expo}(\\lambda_2)$ là độc lập. Tìm $P(T_1 < T_2)$. Ví dụ, $T_1$ có thể là tuổi thọ của một tủ lạnh và $T_2$ có thể là tuổi thọ của một bếp (nếu chúng ta sẵn sàng giả định các phân phối Exponential cho những điều này), và sau đó $P(T_1 < T_2)$ là xác suất rằng tủ lạnh hỏng trước bếp. Chúng ta biết từ Chương 5 rằng $\\min(T_1, T_2) \\sim \\text{Expo}(\\lambda_1 + \\lambda_2)$, điều này cho chúng ta biết về khi thiết bị điện tử đầu tiên sẽ hỏng, nhưng chúng ta có thể cũng muốn biết về thiết bị nào sẽ hỏng trước.\r
 \r
 **Giải pháp:**\r
 \r
 Chúng ta chỉ cần tích phân PDF chung của $T_{1}$ và $T_{2}$ trên miền phù hợp, đó là tất cả $(t_{1}, t_{2})$ với $t_{1} > 0, t_{2} > 0$, và $t_{1} < t_{2}$. Điều này cho ra\r
 \r
-$$\r
-\\begin{aligned}\r
-P(T_{1}<T_{2})&=\\int_{0}^{\\infty}\\int_{0}^{t_{2}}\\lambda_{1}e^{-\\lambda_{1}t_{1}}\\lambda_{2}e^{-\\lambda_{2}t_{2}}dt_{1}dt_{2}\\\\\r
-&=\\int_{0}^{\\infty}\\left(\\int_{0}^{t_{2}}\\lambda_{1}e^{-\\lambda_{1}t_{1}}dt_{1}\\right)\\lambda_{2}e^{-\\lambda_{2}t_{2}}dt_{2}\\\\\r
-&=\\int_{0}^{\\infty}(1-e^{-\\lambda_{1}t_{2}})\\lambda_{2}e^{-\\lambda_{2}t_{2}}dt_{2}\\\\\r
-&=1-\\int_{0}^{\\infty}\\lambda_{2}e^{-(\\lambda_{1}+\\lambda_{2})t_{2}}dt_{2}\\\\\r
-&=1-\\frac{\\lambda_{2}}{\\lambda_{1}+\\lambda_{2}}\\\\\r
-&=\\frac{\\lambda_{1}}{\\lambda_{1}+\\lambda_{2}}.\r
-\\end{aligned}\r
-$$\r
+\r
+ $$\\begin{aligned} P(T_{1}<T_{2})&=\\int_{0}^{\\infty}\\int_{0}^{t_{2}}\\lambda_{1}e^{-\\lambda_{1}t_{1}}\\lambda_{2}e^{-\\lambda_{2}t_{2}}dt_{1}dt_{2}\\\\ &=\\int_{0}^{\\infty}\\left(\\int_{0}^{t_{2}}\\lambda_{1}e^{-\\lambda_{1}t_{1}}dt_{1}\\right)\\lambda_{2}e^{-\\lambda_{2}t_{2}}dt_{2}\\\\ &=\\int_{0}^{\\infty}(1-e^{-\\lambda_{1}t_{2}})\\lambda_{2}e^{-\\lambda_{2}t_{2}}dt_{2}\\\\ &=1-\\int_{0}^{\\infty}\\lambda_{2}e^{-(\\lambda_{1}+\\lambda_{2})t_{2}}dt_{2}\\\\ &=1-\\frac{\\lambda_{2}}{\\lambda_{1}+\\lambda_{2}}\\\\ &=\\frac{\\lambda_{1}}{\\lambda_{1}+\\lambda_{2}}. \\end{aligned}$$ \r
+\r
 \r
 Kết quả này hợp lý nếu chúng ta diễn giải  $\\lambda_{1}$  và  $\\lambda_{2}$  như tốc độ. Ví dụ,\r
 \r
 Nếu tủ lạnh có tỷ lệ hỏng gấp đôi lò nướng, thì nó nói rằng cơ hội là 2 đối 1 thuận lợi cho tủ lạnh hỏng trước. Như một kiểm tra đơn giản, lưu ý rằng kết quả giảm xuống 1/2 khi  $\\lambda_{1} = \\lambda_{2}$ , điều này phải đúng do tính đối xứng.\r
 \r
 Một phương pháp khác để đạt được cùng kết quả là sử dụng LOTP để điều kiện hóa trên $T_{1}$ (hoặc điều kiện hóa trên $T_{2}$). Một cách tiếp cận thứ ba, sử dụng một câu chuyện về các quá trình Poisson, được trình bày trong Chương 13.\r
+\r
 </div>\r
 </div>\r
 \r
@@ -13736,107 +14121,93 @@ Ví dụ cuối cùng của chúng ta trong phần này minh họa cách chúng 
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.1.25</span>\r
-<span class="math-box-title">(PDF Cauchy)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 7.1.25</div>\r
+    <div class="math-box-title">PDF Cauchy</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Giả sử X và Y là i.i.d. $\\mathcal{N}(0,1)$, và đặt $T = X/Y$. (Chúng ta có thể định nghĩa T tùy ý trong trường hợp Y = 0; việc chọn cách định nghĩa T trong trường hợp này không ảnh hưởng đến phân phối của T, vì $P(Y = 0) = 0$.) Phân phối của T là một phân phối nổi tiếng mang tên phân phối Cauchy, và chúng ta sẽ gặp lại nó trong các chương sau. Trong khi đó, hãy tìm PDF của T.\r
 \r
 **Giải pháp:**\r
 \r
 Chúng ta sẽ tìm một biểu thức cho CDF của T trước, sau đó lấy đạo hàm để tìm PDF. Chúng ta có thể viết\r
 \r
-$$\r
-F_{T}(t)=P(T\\leq t)=P\\left(\\frac{X}{Y}\\leq t\\right)=P\\left(\\frac{X}{|Y|}\\leq t\\right),\r
-$$\r
+\r
+ $$F_{T}(t)=P(T\\leq t)=P\\left(\\frac{X}{Y}\\leq t\\right)=P\\left(\\frac{X}{|Y|}\\leq t\\right),$$ \r
+\r
 \r
 vì các biến ngẫu nhiên  $\\frac{X}{Y}$  và  $\\frac{X}{|Y|}$  có cùng phân phối do tính đối xứng của phân phối chuẩn. Bây giờ  $|Y|$  không âm, vì vậy chúng ta có thể nhân nó vào cả hai vế mà không làm đảo chiều bất đẳng thức. Do đó, chúng ta quan tâm đến việc tìm\r
 \r
-$$\r
-F_{T}(t)=P(X\\leq t|Y|).\r
-$$\r
+\r
+ $$F_{T}(t)=P(X\\leq t|Y|).$$ \r
+\r
 \r
 Chúng ta tính xác suất này bằng cách tích phân mật độ xác suất chung của X và Y trên vùng mà  $X \\leq t|Y|$  thỏa mãn. Mật độ xác suất chung của X và Y chính là tích của các mật độ xác suất riêng, do tính độc lập. Vì vậy,\r
 \r
-$$\r
-\\begin{align*}\r
-F_{T}(t)&=P(X\\leq t|Y|)\\\\\r
-&=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{t|y|}\\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}dxdy.\r
-\\end{align*}\r
-$$\r
+\r
+ $$\\begin{align*} F_{T}(t)&=P(X\\leq t|Y|)\\\\ &=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{t|y|}\\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}dxdy. \\end{align*}$$ \r
+\r
 \r
 Lưu ý rằng giới hạn tích phân bên trong (giới hạn cho x) phụ thuộc vào y, trong khi giới hạn tích phân bên ngoài (giới hạn cho y) không thể phụ thuộc vào x (xem phụ lục toán học để biết thêm về giới hạn tích phân với tích phân kép). Với một số phép biến đổi, chúng ta có thể rút gọn tích phân kép thành tích phân đơn:\r
 \r
-$$\r
-\\begin{align*}\r
-F_{T}(t)&=\\int_{-\\infty}^{\\infty}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}\\left(\\int_{-\\infty}^{t|y|}\\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}dx\\right)dy\\\\\r
-&=\\int_{-\\infty}^{\\infty}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}\\Phi(t|y|)dy\\\\\r
-&=\\sqrt{\\frac{2}{\\pi}}\\int_{0}^{\\infty}e^{-y^{2}/2}\\Phi(ty)dy.\r
-\\end{align*}\r
-$$\r
+\r
+ $$\\begin{align*} F_{T}(t)&=\\int_{-\\infty}^{\\infty}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}\\left(\\int_{-\\infty}^{t|y|}\\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}dx\\right)dy\\\\ &=\\int_{-\\infty}^{\\infty}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}\\Phi(t|y|)dy\\\\ &=\\sqrt{\\frac{2}{\\pi}}\\int_{0}^{\\infty}e^{-y^{2}/2}\\Phi(ty)dy. \\end{align*}$$ \r
+\r
 \r
 Chúng ta có thể đạt được cùng một kết quả mà không cần thực hiện tích phân kép bằng cách sử dụng một trong các phiên bản của định lý giá trị trung bình. Cho  $I$  là biến ngẫu nhiên chỉ báo cho sự kiện  $X \\leq t|Y|$ , chúng ta lại có\r
 \r
-$$\r
-\\begin{align*}\r
-P(I=1)&=\\int_{-\\infty}^{\\infty}P(I=1|Y=y)f_{Y}(y)dy\\\\\r
-&=\\int_{-\\infty}^{\\infty}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}\\Phi(t|y|)dy.\r
-\\end{align*}\r
-$$\r
+\r
+ $$\\begin{align*} P(I=1)&=\\int_{-\\infty}^{\\infty}P(I=1|Y=y)f_{Y}(y)dy\\\\ &=\\int_{-\\infty}^{\\infty}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}\\Phi(t|y|)dy. \\end{align*}$$ \r
+\r
 \r
 Tại thời điểm này, chúng ta dường như bị mắc kẹt với một tích phân mà không biết cách tính. Rất may, chúng ta được yêu cầu tìm hàm mật độ xác suất (PDF), không phải hàm phân phối tích lũy (CDF), vì vậy thay vì tính tích phân, chúng ta có thể chỉ đạo hàm của nó theo  $t$  (không phải theo  $y$ , vì  $y$  là biến giả). Chúng ta được phép đổi thứ tự tích phân và đạo hàm dưới điều kiện kỹ thuật nhẹ nhàng, mà ở đây đã thỏa mãn. (Kỹ thuật này được gọi là đạo hàm dưới dấu tích phân, hoặc DUThIS để ngắn gọn.) Khi đó\r
 \r
-$$\r
-\\begin{aligned}\r
-f_{T}(t)&=F_{T}^{\\prime}(t)=\\sqrt{\\frac{2}{\\pi}}\\int_{0}^{\\infty}\\frac{\\partial}{\\partial t}\\left(e^{-y^{2}/2}\\Phi(ty)\\right)dy\\\\\r
-&=\\sqrt{\\frac{2}{\\pi}}\\int_{0}^{\\infty}ye^{-y^{2}/2}\\varphi(ty)dy\\\\\r
-&=\\frac{1}{\\pi}\\int_{0}^{\\infty}ye^{-\\frac{(1+t^{2})y^{2}}{2}}dy\\\\\r
-&=\\frac{1}{\\pi(1+t^{2})},\r
-\\end{aligned}\r
-$$\r
+\r
+ $$\\begin{aligned} f_{T}(t)&=F_{T}^{\\prime}(t)=\\sqrt{\\frac{2}{\\pi}}\\int_{0}^{\\infty}\\frac{\\partial}{\\partial t}\\left(e^{-y^{2}/2}\\Phi(ty)\\right)dy\\\\ &=\\sqrt{\\frac{2}{\\pi}}\\int_{0}^{\\infty}ye^{-y^{2}/2}\\varphi(ty)dy\\\\ &=\\frac{1}{\\pi}\\int_{0}^{\\infty}ye^{-\\frac{(1+t^{2})y^{2}}{2}}dy\\\\ &=\\frac{1}{\\pi(1+t^{2})}, \\end{aligned}$$ \r
+\r
 \r
 sử dụng phép thay thế  $u = (1 + t^{2})y^{2}/2$ ,  $du = (1 + t^{2})ydy$  cho bước cuối cùng. Do đó, hàm mật độ xác suất của  $T$  là\r
 \r
-$$\r
-f_{T}(t)=\\frac{1}{\\pi(1+t^{2})},\\quad t\\in\\mathbb{R}.\r
-$$\r
+\r
+ $$f_{T}(t)=\\frac{1}{\\pi(1+t^{2})},\\quad t\\in\\mathbb{R}.$$ \r
+\r
 \r
 Vì\r
 \r
-$$\r
-\\int_{-\\infty}^{\\infty}\\frac{1}{1+t^{2}}dt=\\arctan(\\infty)-\\arctan(-\\infty)=\\pi,\r
-$$\r
+\r
+ $$\\int_{-\\infty}^{\\infty}\\frac{1}{1+t^{2}}dt=\\arctan(\\infty)-\\arctan(-\\infty)=\\pi,$$ \r
+\r
 \r
 chúng ta đã có được một hàm mật độ xác suất hợp lệ. Nếu chúng ta muốn tìm hàm phân phối tích lũy (CDF) thì chúng ta có thể tích phân hàm mật độ xác suất trên khoảng thích hợp:\r
 \r
-$$\r
-F_{T}(t)=\\int_{-\\infty}^{t}\\frac{1}{\\pi(1+u^{2})}d u=\\frac{1}{\\pi}\\arctan(t)+\\frac{1}{2}.\r
-$$\r
+\r
+ $$F_{T}(t)=\\int_{-\\infty}^{t}\\frac{1}{\\pi(1+u^{2})}d u=\\frac{1}{\\pi}\\arctan(t)+\\frac{1}{2}.$$ \r
+\r
 \r
 Như chúng ta đã đề cập, phân phối của  $T$  được gọi là phân phối Cauchy. Hàm mật độ xác suất (PDF) của Cauchy có hình dạng tương tự như đường cong chuông chuẩn, nhưng đuôi của nó giảm chậm hơn về 0. Hình 7.7 chồng chất PDF của Cauchy và PDF chuẩn; đuôi dày hơn của PDF Cauchy rõ rệt.\r
 \r
 Một điều thú vị về phân phối Cauchy là dù PDF của nó đối xứng về 0, kỳ vọng của nó không tồn tại, vì tích phân  $\\int_{-\\infty}^{\\infty} \\frac{t}{\\pi(1+t^2)} dt$  phân kỳ: lưu ý rằng khi  $t$  lớn,  $\\frac{t}{1+t^2} \\approx \\frac{1}{t}$ , và  $\\int_{1}^{\\infty} \\frac{1}{t} dt = \\infty$ . Việc viết “  $E\\left(\\frac{X}{Y}\\right) = E(X)E\\left(\\frac{1}{Y}\\right) = 0 \\cdot E\\left(\\frac{1}{Y}\\right) = 0$ ” sẽ là một sai lầm, vì  $E\\left(\\frac{1}{Y}\\right)$  cũng không tồn tại.  $\\square$ \r
 \r
-<div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_306_167_1083_624.jpg" alt="Phân phối PDF Cauchy và N(0,1)" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
-<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
-  <strong>HÌNH 7.7:</strong> Phân phối PDF Cauchy (màu tối) và $\\mathcal{N}(0,1)$ PDF (màu sáng). Phân phối Cauchy có đuôi nặng hơn nhiều so với phân phối chuẩn.\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_chart_box_306_167_1083_624.jpg" alt="Phân phối PDF Cauchy và N(0,1)" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+\r
+**HÌNH 7.7:** Phân phối PDF Cauchy (màu tối) và $\\mathcal{N}(0,1)$ PDF (màu sáng). Phân phối Cauchy có đuôi nặng hơn nhiều so với phân phối chuẩn.\r
 </div>\r
 \r
+</div>\r
+</div>\r
 \r
-#### 7.1.3 Hỗn hợp\r
+## 7.1.3 Hỗn hợp\r
 \r
 Cũng có thể chúng ta quan tâm đến phân phối chung của một biến ngẫu nhiên rời rạc và một biến ngẫu nhiên liên tục. Trường hợp này đã được đề cập khi thảo luận về bốn dạng của quy tắc Bayes và LOTP. Về mặt ý niệm, trường hợp này tương tự như các trường hợp khác, nhưng vì ký hiệu có thể phức tạp, chúng ta sẽ làm một ví dụ để làm rõ hơn.\r
 \r
 <div class="math-box example">\r
 <div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.1.26</span>\r
-<span class="math-box-title">(Công ty nào sản xuất bóng đèn?)</span>\r
-</div>\r
+    <div class="math-box-number">Ví dụ 7.1.26</div>\r
+    <div class="math-box-title">Công ty nào sản xuất bóng đèn?</div>\r
+  </div>\r
 <div class="math-box-content">\r
+\r
 Một bóng đèn được sản xuất bởi một trong hai công ty. Các bóng đèn được sản xuất bởi Công ty 0 có thời gian sử dụng là Expo($\\lambda_0$), và các bóng đèn được sản xuất bởi Công ty 1 có thời gian sử dụng là Expo($\\lambda_1$), với $\\lambda_0 < \\lambda_1$. Bóng đèn quan tâm ở đây được sản xuất bởi Công ty 0 với xác suất $p_0$ và bởi Công ty 1 với xác suất $p_1 = 1 - p_0$, nhưng từ việc kiểm tra bóng đèn chúng ta không biết công ty nào sản xuất nó.\r
 \r
 Gọi T là thời gian bóng đèn sử dụng, và I là chỉ số của việc nó được sản xuất bởi Công ty 1.\r
@@ -13853,30 +14224,25 @@ Vì T là một biến ngẫu nhiên liên tục và I là rời rạc, phân ph
 \r
 Để  $I = 0$  và một cho  $I = 1$ . Như được nêu trong bài toán, phân phối có điều kiện của  $T$  cho  $I = 0$  là  $\\mathrm{Expo}(\\lambda_0)$  và cho  $I = 1$  là  $\\mathrm{Expo}(\\lambda_1)$ . Phân phối biên của  $I$  là  $\\mathrm{Bern}(p_1)$ .\r
 \r
-<div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_426_315_981_735.jpg" alt="Phân phối chung hỗn hợp của T và I" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
-<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
-  <strong>HÌNH 7.8:</strong> Phân phối chung hỗn hợp của T và I.\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_426_315_981_735.jpg" alt="Phân phối chung hỗn hợp của T và I" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+\r
+**HÌNH 7.8:** Phân phối chung hỗn hợp của T và I.\r
 </div>\r
 \r
 Do đó, chúng ta được cung cấp phân phối chung của T và I dưới dạng (1) phân phối biên của I và (2) phân phối có điều kiện của T cho I. Vấn đề sau đó yêu cầu chúng ta lật ngược lại và tìm (1) phân phối biên của T và (2) phân phối có điều kiện của I cho T. Diễn đạt theo cách này, điều này trở nên rõ ràng rằng LOTP và quy tắc Bayes sẽ là những người bạn của chúng ta.\r
 \r
 (a) Trong phần này chúng ta được yêu cầu suy ra phân phối biên của T. Đối với hàm phân bố tích lũy, chúng ta sử dụng định luật xác suất tổng, điều kiện theo I:\r
 \r
-$$\r
-\\begin{aligned}\r
-F_{T}(t)=P(T\\leq t)&=P(T\\leq t|I=0)p_{0}+P(T\\leq t|I=1)p_{1}\\\\\r
-&=(1-e^{-\\lambda_{0}t})p_{0}+(1-e^{-\\lambda_{1}t})p_{1}\\\\\r
-&=1-p_{0}e^{-\\lambda_{0}t}-p_{1}e^{-\\lambda_{1}t}\r
-\\end{aligned}\r
-$$\r
+\r
+ $$\\begin{aligned} F_{T}(t)=P(T\\leq t)&=P(T\\leq t|I=0)p_{0}+P(T\\leq t|I=1)p_{1}\\\\ &=(1-e^{-\\lambda_{0}t})p_{0}+(1-e^{-\\lambda_{1}t})p_{1}\\\\ &=1-p_{0}e^{-\\lambda_{0}t}-p_{1}e^{-\\lambda_{1}t} \\end{aligned}$$ \r
+\r
 \r
 cho  $t > 0$ . Phân phối xác suất mật độ biên là đạo hàm của hàm phân bố tích lũy:\r
 \r
-$$\r
-f_{T}(t)=p_{0}\\lambda_{0}e^{-\\lambda_{0}t}+p_{1}\\lambda_{1}e^{-\\lambda_{1}t},\\text{ với }t>0.\r
-$$\r
+\r
+ $$f_{T}(t)=p_{0}\\lambda_{0}e^{-\\lambda_{0}t}+p_{1}\\lambda_{1}e^{-\\lambda_{1}t},\\text{ với }t>0.$$ \r
+\r
 \r
 Chúng ta cũng có thể lấy trực tiếp kết quả này từ phiên bản "X liên tục, Y rời rạc" của LOTP, nhưng chúng ta không đã chứng minh phiên bản này của LOTP, và việc làm qua ví dụ này giúp cho thấy tại sao phiên bản này của LOTP hoạt động như vậy.\r
 \r
@@ -13884,1144 +14250,1104 @@ Chúng ta cũng có thể lấy trực tiếp kết quả này từ phiên bản
 \r
 (c) Sử dụng một dạng hỗn hợp của quy tắc Bayes, đó là phiên bản "X liên tục, Y rời rạc" trong bảng các dạng của quy tắc Bayes, ta có\r
 \r
-$$\r
-P(I=1|T=t)=\\frac{f_{T}(t|I=1)P(I=1)}{f_{T}(t)},\r
-$$\r
+\r
+ $$P(I=1|T=t)=\\frac{f_{T}(t|I=1)P(I=1)}{f_{T}(t)},$$ \r
+\r
 \r
 trong đó  $f_{T}(t|I=1)$  là PDF có điều kiện của T cho I=1, được đánh giá tại t. Sử dụng sự thật rằng  $T|I=1 \\sim \\mathrm{Expo}(\\lambda_{1})$  và PDF biên được suy ra trong (a),\r
 \r
  \r
 \r
-$$\r
-P(I=1|T=t)=\\frac{p_{1}\\lambda_{1}e^{-\\lambda_{1}t}}{p_{0}\\lambda_{0}e^{-\\lambda_{0}t}+p_{1}\\lambda_{1}e^{-\\lambda_{1}t}}=\\frac{p_{1}\\lambda_{1}}{p_{0}\\lambda_{0}e^{(\\lambda_{1}-\\lambda_{0})t}+p_{1}\\lambda_{1}}.\r
-$$\r
+\r
+ $$P(I=1|T=t)=\\frac{p_{1}\\lambda_{1}e^{-\\lambda_{1}t}}{p_{0}\\lambda_{0}e^{-\\lambda_{0}t}+p_{1}\\lambda_{1}e^{-\\lambda_{1}t}}=\\frac{p_{1}\\lambda_{1}}{p_{0}\\lambda_{0}e^{(\\lambda_{1}-\\lambda_{0})t}+p_{1}\\lambda_{1}}.$$ \r
+\r
 \r
 Do đó phân phối có điều kiện của $I$ cho $T = t$ là Bernoulli với xác suất thành công này. Xác suất này tiến đến $0$ khi $t \\to \\infty$, điều này hợp lý về mặt trực quan: thời gian bóng đèn kéo dài càng lâu, chúng ta sẽ càng chắc chắn rằng nó được sản xuất bởi Công ty 0, vì bóng đèn của họ có tốc độ thất bại thấp hơn $\\lambda_0$ và kỳ vọng tuổi thọ cao hơn $\\frac{1}{\\lambda_0}$.\r
-</div>\r
-</div>`,_A=`Phiên bản hai chiều của LOTUS cho phép chúng ta tính kỳ vọng của một biến ngẫu nhiên là hàm của hai biến ngẫu nhiên X và Y, bằng cách sử dụng phân phối chung của X và Y.\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.2.1</span>\r
-<span class="math-box-title">(2D LOTUS)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Gọi $g$ là một hàm từ $\\mathbb{R}^2$ đến $\\mathbb{R}$. Nếu $X$ và $Y$ là rời rạc, thì\r
-\r
-$$\r
-E(g(X,Y))=\\sum_{x}\\sum_{y}g(x,y)P(X=x,Y=y).\r
-$$\r
-\r
-Nếu X và Y là liên tục với PDF chung $f_{X,Y}$, thì\r
-\r
-$$\r
-E(g(X,Y))=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}g(x,y)f_{X,Y}(x,y)d x d y.\r
-$$\r
-</div>\r
-</div>\r
-\r
-Giống như phiên bản một chiều của nó, 2D LOTUS giúp chúng ta tránh phải tìm phân phối của  $g(X,Y)$  để tính kỳ vọng của nó. Thay vào đó, chỉ cần có PMF chung hoặc PDF chung của X và Y là đủ.\r
-\r
-Một ứng dụng của 2D LOTUS là để tìm khoảng cách kỳ vọng giữa hai biến ngẫu nhiên.\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.2.2</span>\r
-<span class="math-box-title">(Khoảng cách kỳ vọng giữa hai Uniforms)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Gọi X và Y là các biến ngẫu nhiên i.i.d. Unif(0,1). Tìm $E(|X - Y|)$.\r
-\r
-**Giải pháp:**\r
-\r
-Vì PDF chung là 1 trên hình vuông đơn vị $\\{(x,y):x,y\\in[0,1]\\}$, 2D LOTUS cho\r
-\r
-$$\r
-\\begin{aligned}\r
-E(|X-Y|)&=\\int_{0}^{1}\\int_{0}^{1}|x-y|dx dy\\\\\r
-&=\\int_{0}^{1}\\int_{y}^{1}(x-y)dx dy+\\int_{0}^{1}\\int_{0}^{y}(y-x)dx dy\\\\\r
-&=2\\int_{0}^{1}\\int_{y}^{1}(x-y)dx dy=1/3.\r
-\\end{aligned}\r
-$$\r
-\r
-Đầu tiên chúng ta chia tích phân thành hai phần để có thể loại bỏ giá trị tuyệt đối; sau đó chúng ta sử dụng tính đối xứng.\r
-\r
-Chú ý, bằng cách giải bài toán này, chúng ta cũng đã tìm ra giá trị kỳ vọng của  $M = \\max(X, Y)$  và  $L = \\min(X, Y)$ . Vì  $M + L$  là cùng một biến ngẫu nhiên với  $X + Y$  và  $M - L$  là cùng một biến ngẫu nhiên với  $|X - Y|$ ,\r
-\r
-$$\r
-E(M+L)=E(X+Y)=1,\r
-$$\r
-\r
-$$\r
-E(M-L)=E(|X-Y|)=1/3.\r
-$$\r
-\r
-Đây là hệ phương trình gồm hai phương trình và hai ẩn số, chúng ta có thể giải để tìm được $E(M) = 2/3$ và $E(L) = 1/3$. Như một kiểm tra, $E(M)$ vượt quá $E(L)$, như mong đợi, và $E(M)$ và $E(L)$ cách đều 1/2, như mong đợi nhờ tính đối xứng.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.2.3</span>\r
-<span class="math-box-title">(Kỳ vọng khoảng cách giữa hai Normal)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Với $X, Y \\stackrel{\\mathrm{i.i.d.}}{\\sim} \\mathcal{N}(0, 1)$, tìm $E(|X - Y|)$.\r
-\r
-**Giải pháp:**\r
-\r
-Chúng ta có thể sử dụng lại 2D LOTUS, cho\r
-\r
-$$\r
-E(|X-Y|)=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}|x-y|\\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}d x d y,\r
-$$\r
-\r
-nhưng một cách giải dễ hơn sử dụng thực tế rằng tổng hoặc hiệu của các Normal độc lập cũng là Normal, như chúng ta đã chứng minh bằng MGFs trong Chương 6. Khi đó  $X - Y \\sim \\mathcal{N}(0,2)$ , do đó chúng ta có thể viết  $X - Y = \\sqrt{2}Z$  với  $Z \\sim \\mathcal{N}(0,1)$ , và  $E(|X - Y|) = \\sqrt{2}E|Z|$ . Như vậy, chúng ta đã giảm một bài toán 2D LOTUS xuống một bài toán 1D LOTUS! Như đã trình bày trong Ví dụ 5.4.7, \r
-\r
-$$\r
-E|Z|=\\sqrt{\\frac{2}{\\pi}},\r
-$$\r
-\r
-VẬY\r
-\r
-$$\r
-E(|X-Y|)=\\frac{2}{\\sqrt{\\pi}}.\r
-$$\r
-</div>\r
-</div>\r
-\r
-Chúng ta cũng có thể sử dụng 2D LOTUS để cho một chứng minh khác về tính tuyến tính của kỳ vọng.\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.2.4</span>\r
-<span class="math-box-title">(Tính tuyến tính qua 2D LOTUS)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Cho X và Y là các biến ngẫu nhiên liên tục (phương pháp tương tự cũng hoạt động trong trường hợp rời rạc). Theo 2D LOTUS,\r
-\r
-$$\r
-\\begin{align*}\r
-E(X+Y)&=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}(x+y)f_{X,Y}(x,y)dxdy\\\\\r
-&=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}xf_{X,Y}(x,y)dxdy+\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}yf_{X,Y}(x,y)dxdy\\\\\r
-&=E(X)+E(Y).\r
-\\end{align*}\r
-$$\r
-\r
-Đây là một chứng minh ngắn gọn về tính tuyến tính của kỳ vọng. Đối với bước cuối cùng, chúng ta đã sử dụng 2D LOTUS và sự thật rằng X là một hàm của X và Y (mà thực ra là một hàm phụ thuộc hoàn toàn vào X, không liên quan đến Y), và tương tự như vậy với Y. Một cách khác để đạt được bước cuối cùng là viết\r
-\r
-$$\r
-\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}yf_{X,Y}(x,y)dxdy=\\int_{-\\infty}^{\\infty}y\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)dxdy=\\int_{-\\infty}^{\\infty}yf_{Y}(y)dy=E(Y),\r
-$$\r
-\r
-trong đó chúng ta đã lấy $y$ ra khỏi tích phân bên trong (vì $y$ là hằng số khi tích phân theo $x$) và sau đó nhận ra PDF biên của $Y$. Đối với hạng tử $E(X)$, chúng ta có thể trước tiên đổi thứ tự tích phân, từ $dxdy$ sang $dydx$, và sau đó áp dụng cùng lập luận như đã sử dụng cho hạng tử $E(Y)$.\r
-</div>\r
-</div>`,vA=`Tương tự như cách mà kỳ vọng và phương sai cung cấp các bản tóm tắt bằng một số của phân phối của một biến ngẫu nhiên đơn lẻ, hiệp phương sai là một bản tóm tắt bằng một số của phân phối chung của hai biến ngẫu nhiên. Một cách nói chung, hiệp phương sai đo lường xu hướng của hai biến ngẫu nhiên đi lên hoặc đi xuống cùng nhau, tương đối với các kỳ vọng của chúng: hiệp phương sai dương giữa X và Y cho thấy khi X tăng, Y cũng có xu hướng tăng, và hiệp phương sai âm cho thấy khi X tăng, Y có xu hướng giảm. Dưới đây là định nghĩa chính xác.\r
-\r
-<div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.3.1</span>\r
-<span class="math-box-title">(Hiệp phương sai)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Hiệp phương sai giữa hai biến ngẫu nhiên X và Y là\r
-\r
-$$\r
-\\mathrm{Cov}(X,Y)=E((X-EX)(Y-EY)).\r
-$$\r
-\r
-Nhân ra và sử dụng tính tuyến tính, ta có một biểu thức tương đương:\r
-\r
-$$\r
-\\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y).\r
-$$\r
-</div>\r
-</div>\r
-\r
-Hãy suy nghĩ về định nghĩa một cách trực quan. Nếu X và Y có xu hướng di chuyển theo cùng một hướng, thì X - EX và Y - EY sẽ có xu hướng đều dương hoặc đều âm, do đó  $(X - EX)(Y - EY)$  sẽ dương trung bình, cho một hiệp phương sai dương. Nếu X và Y có xu hướng di chuyển theo hướng ngược nhau, thì X - EX và Y - EY sẽ có xu hướng có dấu ngược nhau, cho một hiệp phương sai âm.\r
-\r
-Nếu X và Y độc lập, thì hiệp phương sai của chúng bằng 0. Chúng ta nói rằng các biến ngẫu nhiên có hiệp phương sai bằng 0 là không tương quan.\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.3.2</span>\r
-</div>\r
-<div class="math-box-content">\r
-Nếu X và Y độc lập, thì chúng là không tương quan.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
-<div class="math-box-content">\r
-Chúng ta sẽ chứng minh trong trường hợp X và Y là liên tục, với hàm mật độ xác suất $f_{X}$ và $f_{Y}$. Vì X và Y độc lập, hàm mật độ xác suất chung của chúng là tích của các hàm mật độ xác suất biên. Theo định lý 2D LOTUS,\r
-\r
-$$\r
-\\begin{aligned}\r
-E(XY)&=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}xyf_{X}(x)f_{Y}(y)dxdy\\\\\r
-&=\\int_{-\\infty}^{\\infty}yf_{Y}(y)\\left(\\int_{-\\infty}^{\\infty}xf_{X}(x)dx\\right)dy\\\\\r
-&=\\int_{-\\infty}^{\\infty}xf_{X}(x)dx\\int_{-\\infty}^{\\infty}yf_{Y}(y)dy\\\\\r
-&=E(X)E(Y).\r
-\\end{aligned}\r
-$$\r
-\r
-Chứng minh trong trường hợp rời rạc là giống nhau, với hàm xác suất rời rạc thay vì hàm mật độ xác suất.\r
-</div>\r
-</div>\r
-\r
-Định lý ngược lại của định lý này là sai: chỉ vì $X$ và $Y$ là không tương quan không có nghĩa là chúng độc lập. Ví dụ, giả sử $X \\sim \\mathcal{N}(0,1)$, và giả sử $Y = X^2$. Khi đó $E(XY) = E(X^3) = 0$ vì các momen lẻ của phân phối chuẩn chuẩn hóa bằng 0 do tính đối xứng. Do đó $X$ và $Y$ là không tương quan,\r
-\r
-$$\r
-\\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)=0-0=0,\r
-$$\r
-\r
-nhưng chúng chắc chắn không độc lập: Y là một hàm của X, do đó biết X cho chúng ta thông tin hoàn hảo về Y. Hiệp phương sai là một thước đo mối quan hệ tuyến tính, do đó các biến ngẫu nhiên có thể phụ thuộc theo cách phi tuyến và vẫn có hiệp phương sai bằng 0, như ví dụ này cho thấy. Biểu đồ góc phải của Hình 7.9 cho thấy các mẫu từ phân phối chung của X và Y trong ví dụ này. Ba biểu đồ còn lại minh họa sự tương quan dương, tương quan âm và độc lập.\r
-\r
-Hiệp phương sai có các tính chất chính sau.\r
-\r
-1.  $\\mathrm{Cov}(X,X)=\\mathrm{Var}(X).$ \r
-\r
-2.  $\\mathrm{Cov}(X,Y)=\\mathrm{Cov}(Y,X).$ \r
-\r
-3.  $\\mathrm{Cov}(X,c)=0$  với bất kỳ hằng số nào c.\r
-\r
-4.  $\\mathrm{Cov}(aX,Y)=a\\mathrm{Cov}(X,Y)$  với bất kỳ hằng số nào a.\r
-\r
-5.  $\\mathrm{Cov}(X+Y,Z)=\\mathrm{Cov}(X,Z)+\\mathrm{Cov}(Y,Z).$ \r
-\r
-6.  $\\mathrm{Cov}(X+Y,Z+W)=\\mathrm{Cov}(X,Z)+\\mathrm{Cov}(X,W)+\\mathrm{Cov}(Y,Z)+\\mathrm{Cov}(Y,W).$ \r
-\r
-7.  $\\mathrm{Var}(X + Y) = \\mathrm{Var}(X) + \\mathrm{Var}(Y) + 2\\mathrm{Cov}(X, Y)$ . Với  $n$  biến ngẫu nhiên  $X_1, \\ldots, X_n$ ,\r
-\r
- \r
-\r
- $$\\mathrm{Var}(X_{1}+\\cdots+X_{n})=\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n})+2\\sum_{i<j}\\mathrm{Cov}(X_{i},X_{j}).$$ \r
-\r
-\r
-\r
-<div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_194_384_1192_1377.jpg" alt="Phân phối chung dưới các cấu trúc phụ thuộc khác nhau" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
-<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
-  <strong>HÌNH 7.9:</strong> Lấy từ phân phối chung của $(X, Y)$ dưới các cấu trúc phụ thuộc khác nhau. Góc trên trái: X và Y có tương quan dương. Góc trên phải: X và Y có tương quan âm. Góc dưới trái: X và Y độc lập, do đó không tương quan. Góc dưới phải: Y là hàm xác định của X, nhưng X và Y không tương quan.\r
-</div>\r
-\r
-Các tính chất đầu tiên năm tính chất tiếp theo dễ dàng suy ra từ định nghĩa và các tính chất cơ bản của kỳ vọng. Tính chất 6 suy ra từ Tính chất 2 và Tính chất 5, bằng cách khai triển\r
-\r
-$$\r
-\\begin{aligned}\r
-\\operatorname{Cov}(X+Y,Z+W)&=\\operatorname{Cov}(X,Z+W)+\\operatorname{Cov}(Y,Z+W)\\\\\r
-&=\\operatorname{Cov}(Z+W,X)+\\operatorname{Cov}(Z+W,Y)\\\\\r
-&=\\operatorname{Cov}(Z,X)+\\operatorname{Cov}(W,X)+\\operatorname{Cov}(Z,Y)+\\operatorname{Cov}(W,Y)\\\\\r
-&=\\operatorname{Cov}(X,Z)+\\operatorname{Cov}(X,W)+\\operatorname{Cov}(Y,Z)+\\operatorname{Cov}(Y,W).\r
-\\end{aligned}\r
-$$\r
-\r
-Tính chất 7 suy ra từ việc viết phương sai của một biến ngẫu nhiên thành covariance của nó với chính nó (theo Tính chất 1) và sau đó sử dụng Tính chất 6 liên tiếp.\r
-\r
-Chúng ta đã hoàn thành lời hứa từ Chương 4 rằng đối với các biến ngẫu nhiên độc lập, phương sai của tổng là tổng các phương sai:\r
-\r
-$$\r
-\\mathrm{Var}\\left(\\sum_{j=1}^{n}X_{j}\\right)=\\sum_{j=1}^{n}\\mathrm{Var}(X_{j})\\text{ nếu } X_{1},\\ldots,X_{n}\\text{ là độc lập}.\r
-$$\r
-\r
-Theo Định lý 7.3.2, các biến ngẫu nhiên độc lập là không tương quan, do đó trong trường hợp này tất cả các hạng tử covariance sẽ biến mất khỏi biểu thức trong Tính chất 7.\r
-\r
-<div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">7.3.3</span>\r
-</div>\r
-<div class="math-box-content">\r
-Nếu X và Y là độc lập, thì các tính chất của covariance cho\r
-\r
-$$\r
-\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y).\r
-$$\r
-</div>\r
-</div>\r
-\r
-Là một lỗi phổ biến để khẳng định “  $\\operatorname{Var}(X-Y) = \\operatorname{Var}(X) - \\operatorname{Var}(Y)$ ”; đây là một lỗi phân loại vì  $\\operatorname{Var}(X) - \\operatorname{Var}(Y)$  có thể âm. Đối với X và Y tổng quát, chúng ta có\r
-\r
-$$\r
-\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)-2\\mathrm{Cov}(X,Y).\r
-$$\r
-\r
-Vì covariance phụ thuộc vào các đơn vị mà X và Y được đo lường—if chúng ta quyết định đo X bằng centimeters thay vì meters, covariance sẽ được nhân với 100—nên dễ dàng hơn để diễn giải một phiên bản không có đơn vị của covariance gọi là correlation.\r
-\r
-<div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.3.4</span>\r
-<span class="math-box-title">(Correlation)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Correlation giữa các biến ngẫu nhiên X và Y là\r
-\r
-$$\r
-\\mathrm{Corr}(X,Y)=\\frac{\\mathrm{Cov}(X,Y)}{\\sqrt{\\mathrm{Var}(X)\\mathrm{Var}(Y)}}.\r
-$$\r
-</div>\r
-</div>\r
-\r
-(Đây là không xác định trong các trường hợp đặc biệt  $\\operatorname{Var}(X)=0$  hoặc  $\\operatorname{Var}(Y)=0$ .)\r
-\r
-Lưu ý rằng việc dịch chuyển và thay đổi tỷ lệ của X và Y không ảnh hưởng đến correlation của chúng. Dịch chuyển không ảnh hưởng đến  $\\text{Cov}(X, Y)$ ,  $\\text{Var}(X)$ , hoặc  $\\text{Var}(Y)$ , do đó correlation không thay đổi. Về mặt tỷ lệ, việc chúng ta chia cho độ lệch chuẩn của X và Y đảm bảo rằng hệ số tỷ lệ sẽ triệt tiêu:\r
-\r
-$$\r
-\\mathrm{Corr}(cX,Y)=\\frac{\\mathrm{Cov}(cX,Y)}{\\sqrt{\\mathrm{Var}(cX)\\mathrm{Var}(Y)}}=\\frac{c\\mathrm{Cov}(X,Y)}{\\sqrt{c^{2}\\mathrm{Var}(X)\\mathrm{Var}(Y)}}=\\mathrm{Corr}(X,Y).\r
-$$\r
-\r
-Correlation là tiện lợi để diễn giải vì nó không phụ thuộc vào các đơn vị đo lường và luôn nằm trong khoảng -1 đến 1.\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.3.5</span>\r
-<span class="math-box-title">(Các giới hạn của hệ số tương quan)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Với bất kỳ các biến ngẫu nhiên X và Y nào,\r
-\r
-$$\r
--1\\leq\\mathrm{Corr}(X,Y)\\leq1.\r
-$$\r
-</div>\r
-</div>\r
-\r
-<div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
-<div class="math-box-content">\r
-Không mất tính tổng quát, ta có thể giả sử X và Y có phương sai bằng 1, vì việc thay đổi tỷ lệ không thay đổi hệ số tương quan. Gọi $\\rho = \\text{Corr}(X, Y) = \\text{Cov}(X, Y)$. Sử dụng tính chất phương sai không âm, cùng với Tính chất 7 của phương hiệp biến, ta có\r
-\r
-$$\r
-\\mathrm{Var}(X+Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)+2\\mathrm{Cov}(X,Y)=2+2\\rho\\geq0,\r
-$$\r
-\r
-$$\r
-\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)-2\\mathrm{Cov}(X,Y)=2-2\\rho\\geq0.\r
-$$\r
-\r
-Vậy, $-1 \\leq \\rho \\leq 1$.\r
-</div>\r
-</div>\r
-\r
-Dưới đây là một ví dụ về cách tính phương hiệp biến và hệ số tương quan.\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.3.6</span>\r
-<span class="math-box-title">(Cực đại và cực tiểu của phân phối mũ)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Gọi X và Y là các biến ngẫu nhiên độc lập và đồng phân phối Expo(1). Tìm hệ số tương quan giữa $\\max(X, Y)$ và $\\min(X, Y)$.\r
-\r
-**Giải pháp:**\r
-\r
-Gọi $M = \\max(X, Y)$ và $L = \\min(X, Y)$. Nhờ tính chất nhớ và các kết quả từ Chương 5, ta biết rằng $L \\sim \\text{Expo}(2)$, $M - L \\sim \\text{Expo}(1)$, và M - L độc lập với L (xem Ví dụ 5.6.5). Do đó,\r
-\r
-$$\r
-\\mathrm{Cov}(M,L)=\\mathrm{Cov}(M-L+L,L)=\\mathrm{Cov}(M-L,L)+\\mathrm{Cov}(L,L)=0+\\mathrm{Var}(L)=\\frac{1}{4},\r
-$$\r
-\r
-$$\r
-\\mathrm{Var}(M)=\\mathrm{Var}(M-L+L)=\\mathrm{Var}(M-L)+\\mathrm{Var}(L)=1+\\frac{1}{4}=\\frac{5}{4},\r
-$$\r
-\r
-và\r
-\r
-$$\r
-\\mathrm{Corr}(M,L)=\\frac{\\mathrm{Cov}(M,L)}{\\sqrt{\\mathrm{Var}(M)\\mathrm{Var}(L)}}=\\frac{\\frac{1}{4}}{\\sqrt{\\frac{5}{4}\\cdot\\frac{1}{4}}}=\\frac{1}{\\sqrt{5}}.\r
-$$\r
-</div>\r
-</div>\r
-\r
-<div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">7.3.7</span>\r
-</div>\r
-<div class="math-box-content">\r
-Trong ví dụ trên, điều hợp lý là hệ số tương quan dương vì M bị ràng buộc phải lớn hơn hoặc bằng L. Lập luận sau đây sẽ là một sai lầm: “Hoặc M = X, L = Y hoặc M = Y, L = X, do đó hoặc $\\text{Cov}(M, L) = \\text{Cov}(X, Y)$ hoặc $\\text{Cov}(M, L) = \\text{Cov}(Y, X)$. Nhưng $\\text{Cov}(Y, X) = \\text{Cov}(X, Y)$, do đó ta luôn có $\\text{Cov}(M, L) = \\text{Cov}(X, Y) = 0$.” Điều này đúng là cả hai trường hợp M = X, L = Y hoặc M = Y, L = X sẽ xảy ra, nhưng đây là các sự kiện, không phải trường hợp xác định. Lập luận sẽ bị phá vỡ nếu được viết cẩn thận bằng xác suất điều kiện.\r
-</div>\r
-</div>\r
-\r
-Tính chất của phương hiệp biến cũng có thể là công cụ hữu ích để tìm phương sai, đặc biệt khi biến ngẫu nhiên quan tâm là tổng của các biến ngẫu nhiên phụ thuộc. Ví dụ tiếp theo sử dụng tính chất của phương hiệp biến để suy ra phương sai của phân phối Hypergeometric. Nếu bạn đã làm Bài tập 48 từ Chương 4, bạn có thể so sánh hai cách suy ra.\r
-\r
-$$\r
-\\begin{aligned}\r
-\\operatorname{Var}(X)&=\\operatorname{Var}\\left(\\sum_{j=1}^{n}I_{j}\\right)\\\\\r
-&=\\operatorname{Var}(I_{1})+\\cdots+\\operatorname{Var}(I_{n})+2\\sum_{i<j}\\operatorname{Cov}(I_{i},I_{j})\\\\\r
-&=np(1-p)+2\\binom{n}{2}\\operatorname{Cov}(I_{1},I_{2}),\r
-\\end{aligned}\r
-$$\r
-\r
-vì tất cả  $\\binom{n}{2}$  cặp chỉ báo có cùng hiệp phương sai nhờ tính đối xứng. Bây giờ chúng ta chỉ cần tìm  $\\text{Cov}(I_{1}, I_{2})$ . Theo cầu nối cơ bản,\r
-\r
-$$\r
-\\begin{aligned}\r
-\\operatorname{Cov}(I_{1},I_{2})&=E(I_{1}I_{2})-E(I_{1})E(I_{2})\\\\\r
-&=P(\\text{bóng thứ 1 và thứ 2 đều trắng})-P(\\text{bóng thứ 1 trắng})P(\\text{bóng thứ 2 trắng})\\\\\r
-&=\\frac{w}{w+b}\\cdot\\frac{w-1}{w+b-1}-p^{2}.\r
-\\end{aligned}\r
-$$\r
-\r
-Thay giá trị này vào công thức trên và đơn giản hóa, chúng ta cuối cùng đạt được\r
-\r
-$$\r
-\\mathrm{Var}(X)=\\frac{N-n}{N-1}np(1-p),\r
-$$\r
-\r
-trong đó $N = w + b$. Điều này khác với phương sai của phân phối Binomial là $np(1 - p)$ bởi một hệ số $\\frac{N - n}{N - 1}$, được gọi là sự điều chỉnh quần thể hữu hạn. Sự khác biệt này phát sinh từ thực tế là trong câu chuyện Binomial, chúng ta lấy mẫu có hoàn lại, do đó cùng một bóng có thể được rút nhiều lần; trong câu chuyện siêu hình học, chúng ta lấy mẫu không hoàn lại, do đó mỗi bóng chỉ xuất hiện trong mẫu tối đa một lần.\r
-</div>\r
-</div>\r
-\r
-Nếu chúng ta xem N là "kích thước quần thể" của urn, thì khi N tăng rất lớn so với kích thước mẫu n, sẽ trở nên cực kỳ khó để trong việc lấy mẫu có hoàn lại, chúng ta rút cùng một bóng nhiều lần. Do đó, việc lấy mẫu có hoàn lại và không hoàn lại trở nên tương đương trong giới hạn khi  $N \\to \\infty$  với n cố định, và sự điều chỉnh quần thể hữu hạn tiến tới 1.\r
-\r
-Trường hợp khác mà việc lấy mẫu có và không hoàn lại là tương đương là trường hợp đơn giản khi chúng ta chỉ rút một bóng từ urn, và thực sự, sự điều chỉnh quần thể hữu hạn cũng bằng 1 khi n = 1.\r
-\r
-Các phần cuối cùng trong chương này giới thiệu phân phối Multinomial và phân phối Multivariate Normal. Phân phối Multinomial là phân phối đa biến rời rạc nổi tiếng nhất, và phân phối Multivariate Normal là phân phối đa biến liên tục nổi tiếng nhất.`,yA=`Phân phối Multinomial là sự tổng quát hóa của phân phối Binomial. Trong khi phân phối Binomial đếm số lần thành công trong một số lần thử cố định mà chỉ có thể được phân loại là thành công hoặc thất bại, phân phối Multinomial theo dõi các lần thử mà kết quả có thể rơi vào nhiều loại, ví dụ như xuất sắc, đủ, kém; hoặc đỏ, vàng, xanh, xanh lá, xanh lam.\r
-\r
-<div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Câu chuyện</span>\r
-<span class="math-box-number">7.4.1</span>\r
-<span class="math-box-title">(Phân phối Multinomial)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Mỗi trong số $n$ vật thể được đặt độc lập vào một trong $k$ loại. Một vật thể được đặt vào loại $j$ với xác suất $p_j$, trong đó các $p_j$ là không âm và $\\sum_{j=1}^{k} p_j = 1$. Gọi $X_1$ là số vật thể trong loại 1, $X_2$ là số vật thể trong loại 2, v.v., do đó $X_1 + \\cdots + X_k = n$. Khi đó $\\mathbf{X} = (X_1, \\ldots, X_k)$ được cho là có phân phối Multinomial với tham số $n$ và $\\mathbf{p} = (p_1, \\ldots, p_k)$. Chúng ta viết điều này là $\\mathbf{X} \\sim \\text{Mult}_k(n, \\mathbf{p})$.\r
-</div>\r
-</div>\r
-\r
-Chúng ta gọi X là vector ngẫu nhiên vì nó là một vector của các biến ngẫu nhiên. Hàm mật độ xác suất chung của X có thể được suy ra từ câu chuyện.\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.4.2</span>\r
-<span class="math-box-title">(Hàm mật độ xác suất chung của Multinomial)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Nếu $\\mathbf{X} \\sim \\text{Mult}_{k}(n, \\mathbf{p})$, thì hàm mật độ xác suất chung của $\\mathbf{X}$ là\r
-\r
-$$\r
-P(X_{1}=n_{1},\\cdots,X_{k}=n_{k})=\\frac{n!}{n_{1}!n_{2}!\\cdots n_{k}!}\\cdot p_{1}^{n_{1}}p_{2}^{n_{2}}\\cdots p_{k}^{n_{k}},\r
-$$\r
-\r
-cho $n_{1}, \\ldots, n_{k}$ thỏa mãn $n_{1} + \\cdots + n_{k} = n$.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
-<div class="math-box-content">\r
-Nếu $n_{1},\\ldots,n_{k}$ không cộng lại thành $n$, thì sự kiện $\\{X_{1}=n_{1},\\ldots,X_{k}=n_{k}\\}$ là không thể xảy ra: mỗi vật thể phải đến đâu đó, và không có vật thể mới nào có thể xuất hiện từ đâu. Nếu $n_{1},\\ldots,n_{k}$ cộng lại thành $n$, thì bất kỳ cách nào cụ thể để đặt $n_{1}$ vật thể vào loại 1, $n_{2}$ vật thể vào loại 2, v.v., có xác suất $p_{1}^{n_{1}}p_{2}^{n_{2}}\\ldots p_{k}^{n_{k}}$, và có\r
-\r
-$$\r
-\\frac{n!}{n_{1}!n_{2}!\\cdots n_{k}!}\r
-$$\r
-\r
-cách để thực hiện điều này, như đã thảo luận trong Ví dụ 1.4.18 trong bối cảnh sắp xếp lại các chữ cái trong STATISTICS. Do đó, hàm mật độ xác suất chung là như đã nói.\r
-</div>\r
-</div>\r
-\r
-Vì chúng ta đã xác định rõ phân phối chung của X, chúng ta có đủ thông tin để xác định các phân phối biên và điều kiện, cũng như độ hiệp phương sai giữa bất kỳ hai thành phần nào của X.\r
-\r
-Hãy xem xét từng điều một, bắt đầu với phân phối biên của  $X_{j}$ , nào\r
-\r
-thành phần thứ  $j$  của  $\\mathbf{X}$ . Nếu chúng ta áp dụng định nghĩa một cách mù quáng, chúng ta sẽ phải tính tổng PMF chung trên tất cả các thành phần của  $\\mathbf{X}$  khác  $X_{j}$ . Việc tính  $k-1$  tổng là một điều không dễ chịu, ít nhất là vậy. May mắn thay, chúng ta có thể tránh được các phép tính tẻ nhạt nếu thay vào đó sử dụng câu chuyện của phân phối Multinomial:  $X_{j}$  là số lượng vật thể trong nhóm  $j$ , nơi mỗi trong số  $n$  vật thể độc lập thuộc nhóm  $j$  với xác suất  $p_{j}$ . Định nghĩa thành công là rơi vào nhóm  $j$ . Khi đó chúng ta chỉ có  $n$  phép thử Bernoulli độc lập, do đó phân phối biên của  $X_{j}$  là  $\\mathrm{Bin}(n, p_{j})$ .\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.4.3</span>\r
-<span class="math-box-title">(Biên của Multinomial)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Các biên của một phân phối Multinomial là phân phối Binomial. Cụ thể, nếu $\\mathbf{X} \\sim \\text{Mult}_{k}(n, \\mathbf{p})$, thì $X_{j} \\sim \\text{Bin}(n, p_{j})$.\r
-</div>\r
-</div>\r
-\r
-Mở rộng hơn nữa, bất cứ khi nào chúng ta hợp nhất nhiều nhóm lại với nhau trong một vector ngẫu nhiên Multinomial, chúng ta sẽ nhận được một vector ngẫu nhiên Multinomial khác. Ví dụ, giả sử chúng ta lấy mẫu ngẫu nhiên $n$ người trong một quốc gia có 5 đảng chính trị. (Nếu việc lấy mẫu được thực hiện mà không thay thế, $n$ phép thử không độc lập, nhưng độc lập là một sự xấp xỉ tốt miễn là dân số lớn hơn đáng kể so với mẫu, như chúng ta đã thảo luận trong Định lý 3.9.3 và Ví dụ 7.3.8.) Gọi\r
-\r
-$$\r
-\\mathbf{X}=(X_{1},\\ldots,X_{5})\\sim\\operatorname{Mult}_{5}(n,(p_{1},\\ldots,p_{5}))\r
-$$\r
-\r
-là các đảng chính trị của mẫu, tức là $X_{j}$ là số người trong mẫu ủng hộ đảng $j$.\r
-\r
-Giả sử rằng đảng 1 và 2 là hai đảng lớn, trong khi các đảng 3 đến 5 là các đảng nhỏ. Nếu chúng quyết định thay vì theo dõi tất cả 5 đảng, chúng ta chỉ muốn đếm số người ủng hộ đảng 1, đảng 2, hoặc "khác", thì chúng ta có thể định nghĩa một vector ngẫu nhiên mới hợp nhất tất cả các đảng thứ ba vào một nhóm:\r
-\r
-$$\r
-\\mathbf{Y}=(X_{1},X_{2},X_{3}+X_{4}+X_{5}).\r
-$$\r
-\r
-Theo câu chuyện của phân phối Multinomial,\r
-\r
-$$\r
-\\mathbf{Y}\\sim\\operatorname{Mult}_{3}(n,(p_{1},p_{2},p_{3}+p_{4}+p_{5})).\r
-$$\r
-\r
-Tất nhiên, ý tưởng này áp dụng cho việc hợp nhất các nhóm trong bất kỳ Multinomial nào, không chỉ trong bối cảnh các đảng chính trị.\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.4.4</span>\r
-<span class="math-box-title">(Hợp nhất Multinomial)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Nếu $\\mathbf{X} \\sim \\text{Mult}_{k}(n, \\mathbf{p})$, thì với bất kỳ hai nhóm phân biệt nào $i$ và $j$, $X_i + X_j \\sim \\text{Bin}(n, p_i + p_j)$. Vector đếm nhận được từ việc hợp nhất các nhóm $i$ và $j$ vẫn là Multinomial. Ví dụ, hợp nhất các nhóm 1 và 2 cho\r
-\r
-$$\r
-(X_{1}+X_{2},X_{3},\\ldots,X_{k})\\sim\\operatorname{Mult}_{k-1}(n,(p_{1}+p_{2},p_{3},\\ldots,p_{k})).\r
-$$\r
-</div>\r
-</div>\r
-\r
-Bây giờ cho phân phối điều kiện. Giả sử chúng ta quan sát được  $X_{1}$ , số lượng\r
-\r
-Các đối tượng trong danh mục 1, và chúng tôi muốn cập nhật phân phối của chúng cho các danh mục khác  $(X_{2}, \\ldots, X_{k})$ . Một cách để làm điều này là với định nghĩa của PMF có điều kiện:\r
-\r
-$$\r
-P(X_{2}=n_{2},\\cdots,X_{k}=n_{k}|X_{1}=n_{1})=\\frac{P(X_{1}=n_{1},X_{2}=n_{2},\\cdots,X_{k}=n_{k})}{P(X_{1}=n_{1})}.\r
-$$\r
-\r
-Tử số là PMF chung của Multinomial, và mẫu số là PMF biên của $X_{1}$, cả hai đều mà chúng ta đã có được trước đó. Tuy nhiên, chúng tôi thích sử dụng câu chuyện Multinomial để suy ra phân phối có điều kiện của $(X_{2},\\ldots,X_{k})$ mà không cần tính toán đại số. Cho rằng có $n_{1}$ đối tượng trong danh mục 1, các đối tượng còn lại $n-n_{1}$ sẽ rơi vào các danh mục 2 đến k, độc lập với nhau. Theo quy tắc Bayes, xác suất có điều kiện rơi vào danh mục j là\r
-\r
-$$\r
-P(\\text{trong danh mục }j|\\text{không trong danh mục }1)=\\frac{P(\\text{trong danh mục }j)}{P(\\text{không trong danh mục }1)}=\\frac{p_{j}}{p_{2}+\\cdots+p_{k}},\r
-$$\r
-\r
-cho $j = 2, \\ldots, k$. Điều này có vẻ hợp lý: các xác suất cập nhật tỉ lệ với các xác suất ban đầu $(p_2, \\ldots, p_k)$, nhưng chúng phải được chuẩn hóa lại để tạo thành một vector xác suất hợp lệ. Kết hợp tất cả các điều trên, chúng ta có kết quả sau.\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.4.5</span>\r
-<span class="math-box-title">(Điều kiện của Multinomial)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Nếu $\\mathbf{X} \\sim \\text{Mult}_{k}(n, \\mathbf{p})$, thì\r
-\r
-$$\r
-(X_{2},\\cdots,X_{k})|X_{1}=n_{1}\\sim\\operatorname{Mult}_{k-1}(n-n_{1},(p_{2}^{\\prime},\\cdots,p_{k}^{\\prime})),\r
-$$\r
-\r
-trong đó $p_{j}^{\\prime} = p_{j} / (p_{2} + \\cdots + p_{k})$.\r
-</div>\r
-</div>\r
-\r
-Cuối cùng, chúng ta biết rằng các thành phần trong một vector ngẫu nhiên Multinomial là phụ thuộc vào nhau vì chúng bị ràng buộc bởi $X_{1}+\\cdots+X_{k}=n$. Để tìm phương sai giữa $X_{i}$ và $X_{j}$, chúng ta có thể sử dụng các tính chất biên và nhóm lại mà chúng ta vừa thảo luận.\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.4.6</span>\r
-<span class="math-box-title">(Phương sai trong một Multinomial)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Cho $(X_1, \\ldots, X_k) \\sim \\text{Mult}_k(n, \\mathbf{p})$, trong đó $\\mathbf{p} = (p_1, \\ldots, p_k)$. Với $i \\neq j$, $\\text{Cov}(X_i, X_j) = -np_i p_j$.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
-<div class="math-box-content">\r
-Để cụ thể, hãy lấy $i = 1$ và $j = 2$. Sử dụng tính chất nhóm và các phân phối biên của một Multinomial, chúng ta biết $X_1 + X_2 \\sim \\mathrm{Bin}(n, p_1 + p_2)$, $X_1 \\sim \\mathrm{Bin}(n, p_1)$, và $X_2 \\sim \\mathrm{Bin}(n, p_2)$. Do đó\r
-\r
-$$\r
-\\mathrm{Var}(X_{1}+X_{2})=\\mathrm{Var}(X_{1})+\\mathrm{Var}(X_{2})+2\\mathrm{Cov}(X_{1},X_{2})\r
-$$\r
-\r
-trở thành\r
-\r
-$$\r
-n(p_{1}+p_{2})(1-(p_{1}+p_{2}))=np_{1}(1-p_{1})+np_{2}(1-p_{2})+2\\mathrm{Cov}(X_{1},X_{2}).\r
-$$\r
-\r
-Giải phương trình để tìm $\\mathrm{Cov}(X_1, X_2)$ cho $\\mathrm{Cov}(X_1, X_2) = -np_1p_2$. Bằng cùng lập luận như vậy, với $i \\neq j$, chúng ta có $\\mathrm{Cov}(X_i, X_j) = -np_i p_j$.\r
-</div>\r
-</div>\r
-\r
-Các thành phần có sự tương quan âm, như chúng ta mong đợi: nếu chúng ta biết có nhiều đối tượng trong danh mục i, thì sẽ không còn nhiều đối tượng còn lại có thể nằm trong danh mục j. Bài tập 65 yêu cầu một chứng minh khác cho kết quả này, sử dụng các chỉ số.\r
-\r
-<div class="math-box remark">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ghi chú</span>\r
-<span class="math-box-number">7.4.7</span>\r
-<span class="math-box-title">(Thử nghiệm độc lập nhưng thành phần phụ thuộc)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Các thành phần $k$ của một Multinomial là phụ thuộc, nhưng các đối tượng $n$ trong câu chuyện của Multinomial được phân loại độc lập. Trong trường hợp cực đoan $k = 2$, một vector ngẫu nhiên $\\text{Mult}_{k}(n, \\mathbf{p})$ trông như $(X, n - X)$ với $X \\sim \\text{Bin}(n, p_{1})$, mà chúng ta có thể xem như (số lần thành công, số lần thất bại), nơi "thành công" được xác định là nhận được danh mục 1. Số lần thành công có mối quan hệ âm hoàn toàn với số lần thất bại, ngay cả khi các lần thử nghiệm là độc lập.\r
-</div>\r
-</div>\r
-\r
-Chúng ta kết thúc phần này với một ví dụ dũng cảm kết nối nhiều khái niệm quan trọng nhất cho Multinomial.\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.4.8</span>\r
-<span class="math-box-title">(Nữ anh hùng Thống kê)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Người anh hùng siêu năng Statwoman sử dụng xác suất và thống kê để chống tội phạm. Cô đã chiến đấu với vô số kẻ thù, đôi khi thậm chí chiến đấu với nhiều kẻ tại cùng một lúc. Tuy nhiên, để đơn giản, giả sử rằng mỗi trận chiến của cô là với đúng một trong số các đối thủ sau: Confounder, Extrapolator, và Overfitter.\r
-\r
-Giả sử rằng Statwoman sẽ có $n$ trận chiến trong năm tới (với $n$ là một số nguyên dương), và mỗi trận chiến là với Confounder với xác suất $p_{1}$, Extrapolator với xác suất $p_{2}$, và Overfitter với xác suất $p_{3}$, độc lập. Ở đây $p_{1}, p_{2}, p_{3}$ là không âm và tổng bằng 1. Gọi $X_{1}, X_{2}, X_{3}$ là số trận chiến Statwoman sẽ có với Confounder, Extrapolator, và Overfitter trong năm tới, tương ứng.\r
-\r
-(a) Tìm phân phối chung của $X_{1}, X_{2}, X_{3}$.\r
-\r
-(b) Tìm độ tương quan giữa $X_{1}$ và $X_{2}$.\r
-\r
-(c) Giả sử chỉ cho phần này rằng hóa ra Extrapolator và Overfitter đã cùng nhau lên kế hoạch ác độc, vì vậy việc nghiên cứu tổng số trận chiến của họ với Statwoman là quan tâm. Gọi $X_{23} = X_{2} + X_{3}$. Tìm phân phối chung của $X_{1}, X_{23}$.\r
-\r
-(d) Giả sử chỉ cho phần này rằng các tham số $p_{1}, p_{2}, p_{3}$ là chưa biết, $n = 360$, và quan sát được rằng chính xác 36 trận chiến của Statwoman là với Overfitter. Một cách tự nhiên để ước lượng $p_{3}$ là sử dụng 36/360 = 0.1. Ước lượng cực đại khả năng (MLE) của $p_{3}$ là giá trị của $p_{3}$ làm cho dữ liệu quan sát, $X_{3} = 36$, trở nên có khả năng nhất. Nghĩa là, MLE là giá trị của $p_{3}$ làm cực đại $P(X_{3} = 36)$. Chứng minh rằng MLE là ước lượng tự nhiên, 0.1.\r
-\r
-(e) Giả sử chỉ cho phần này rằng Overfitter đã bị bắt, nhờ những nỗ lực dũng cảm! Vì vậy, giả sử rằng tất cả các trận chiến của Statwoman trong năm tới sẽ là với một trong hai đối thủ khác của cô. Tìm hàm mật độ xác suất chung của $X_{1}, X_{2}$, cho rằng $X_{3} = 0$.\r
-\r
-(f) Bây giờ giả sử rằng, thay vì số trận chiến là một hằng số $n$, số trận chiến là $N \\sim \\mathrm{Pois}(\\lambda)$. Tìm phân phối chung của $X_{1}, X_{2}, X_{3}$.\r
-\r
-**Giải pháp:**\r
-\r
-(a) Theo câu chuyện của Multinomial, $(X_{1}, X_{2}, X_{3}) \\sim \\text{Mult}_{3}(n, (p_{1}, p_{2}, p_{3}))$.\r
-\r
-(b) Chúng ta có $X_1 \\sim \\text{Bin}(n, p_1)$, $X_2 \\sim \\text{Bin}(n, p_2)$, và $\\text{Cov}(X_1, X_2) = -np_1p_2$, nên\r
-\r
-$$\r
-\\mathrm{Corr}(X_{1},X_{2})=\\frac{\\mathrm{Cov}(X_{1},X_{2})}{\\mathrm{SD}(X_{1})\\mathrm{SD}(X_{2})}=\\frac{-np_{1}p_{2}}{\\sqrt{np_{1}(1-p_{1})np_{2}(1-p_{2})}}=-\\sqrt{\\frac{p_{1}p_{2}}{(1-p_{1})(1-p_{2})}}.\r
-$$\r
-\r
-(c) Theo tính chất nhóm của phân phối Multinomial,\r
-\r
-$$\r
-(X_{1},X_{23})\\sim\\operatorname{Mult}_{2}(n,(p_{1},p_{2}+p_{3})).\r
-$$\r
-\r
-(d) Tổng quát cho $X \\sim \\mathrm{Bin}(n, p)$, nếu quan sát được X = x thì ước lượng tối đa (MLE) của p là giá trị của p làm cực đại hàm số\r
-\r
-$$\r
-L(p)=\\binom{n}{x}p^{x}(1-p)^{n-x}.\r
-$$\r
-\r
-( Hàm số L được gọi là hàm likelihood trong thống kê. Đó là xác suất của dữ liệu, được xem như một hàm số của tham số với dữ liệu được coi là cố định.)\r
-\r
-Như thường xảy ra khi làm việc với tích của các số dương, việc lấy log là hữu ích. Nó tương đương với việc tìm giá trị $\\hat{p}$ làm cực đại\r
-\r
-$$\r
-\\log L(p)=\\log\\binom{n}{x}+x\\log p+(n-x)\\log(1-p),\r
-$$\r
-\r
-vì log là một hàm liên tục, tăng nghiêm ngặt. Đặt đạo hàm của $\\log L(p)$ (theo p, giữ x không đổi) bằng 0, ta có\r
-\r
-$$\r
-\\frac{x}{\\hat{p}}-\\frac{n-x}{1-\\hat{p}}=0,\r
-$$\r
-\r
-điều này sắp xếp lại thành $\\hat{p}=x/n$. Chúng ta đã tìm được một cực đại vì đạo hàm cấp hai của $\\log L(p)$ là\r
-\r
-$$\r
--\\frac{x}{p^{2}}-\\frac{n-x}{(1-p)^{2}}<0.\r
-$$\r
-\r
-Vậy ước lượng tối đa của $p_{3}$ là $\\hat{p}_{3} = 36/360 = 0.1$.\r
-\r
-(e) Theo kết quả về điều kiện của phân phối Multinomial,\r
-\r
-$$\r
-(X_{1},X_{2})|(X_{3}=0)\\sim\\operatorname{Mult}_{2}\\left(n,\\left(\\frac{p_{1}}{p_{1}+p_{2}},\\frac{p_{2}}{p_{1}+p_{2}}\\right)\\right).\r
-$$\r
-\r
-(f) Lập luận như trong câu chuyện gà và trừng,\r
-\r
-$$\r
-P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3})=\\sum_{n=0}^{\\infty}P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3}|N=n)P(N=n),\r
-$$\r
-\r
-Ở đây tất cả các số hạng của tổng đều bằng 0 ngoại trừ số hạng với $n = x_{1} + x_{2} + x_{3}$. Với giá trị này của n,\r
-\r
-$$\r
-\\begin{aligned}\r
-P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3})&=P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3}|N=n)P(N=n)\\\\\r
-&=\\frac{n!}{x_{1}!x_{2}!x_{3}!}p_{1}^{x_{1}}p_{2}^{x_{2}}p_{3}^{x_{3}}\\cdot e^{-\\lambda}\\frac{\\lambda^{n}}{n!}\\\\\r
-&=\\frac{e^{-\\lambda p_{1}}(\\lambda p_{1})^{x_{1}}}{x_{1}!}\\cdot\\frac{e^{-\\lambda p_{2}}(\\lambda p_{2})^{x_{2}}}{x_{2}!}\\cdot\\frac{e^{-\\lambda p_{3}}(\\lambda p_{3})^{x_{3}}}{x_{3}!},\r
-\\end{aligned}\r
-$$\r
-\r
-với mọi số nguyên không âm $x_1, x_2, x_3$. Do đó, $X_1, X_2, X_3$ là độc lập, với $X_j \\sim \\text{Pois}(\\lambda p_j)$. Kết quả này là một mở rộng của phân phối Multinomial của câu chuyện gà và trừng.\r
-</div>\r
-</div>ial của câu chuyện gà và trừng.\r
-</div>\r
-</div>ac{p_{1}p_{2}}{(1-p_{1})(1-p_{2})}}.$$ \r
-\r
- \r
-\r
-(c) Theo tính chất nhóm của phân phối Multinomial,\r
-\r
- \r
-\r
- $$(X_{1},X_{23})\\sim\\mathrm{M u l t}_{2}(n,(p_{1},p_{2}+p_{3})).$$ \r
-\r
- \r
-\r
-(d) Tổng quát cho  $X \\sim \\mathrm{Bin}(n, p)$ , nếu quan sát được X = x thì ước lượng tối đa (MLE) của p là giá trị của p làm cực đại hàm số\r
-\r
- \r
-\r
- $$L(p)=\\binom{n}{x}p^{x}(1-p)^{n-x}.$$ \r
-\r
- \r
-\r
-( Hàm số L được gọi là hàm likelihood trong thống kê. Đó là xác suất của dữ liệu, được xem như một hàm số của tham số với dữ liệu được coi là cố định.)\r
-\r
-Như thường xảy ra khi làm việc với tích của các số dương, việc lấy log là hữu ích. Nó tương đương với việc tìm giá trị  $\\hat{p}$  làm cực đại\r
-\r
- \r
-\r
- $$\\log L(p)=\\log\\binom{n}{x}+x\\log p+(n-x)\\log(1-p),$$ \r
-\r
- \r
-\r
-vì log là một hàm liên tục, tăng nghiêm ngặt. Đặt đạo hàm của  $\\log L(p)$  (theo p, giữ x không đổi) bằng 0, ta có\r
-\r
- \r
-\r
- $$\\frac{x}{\\hat{p}}-\\frac{n-x}{1-\\hat{p}}=0,$$ \r
-\r
- \r
-\r
-điều này sắp xếp lại thành  $\\hat{p}=x/n$ . Chúng ta đã tìm được một cực đại vì đạo hàm cấp hai của  $\\log L(p)$  là\r
-\r
- \r
-\r
- $$-\\frac{x}{p^{2}}-\\frac{n-x}{(1-p)^{2}}<0.$$ \r
-\r
- \r
-\r
-Vậy ước lượng tối đa của  $p_{3}$  là  $\\hat{p}_{3} = 36/360 = 0.1$ .\r
-\r
-(e) Theo kết quả về điều kiện của phân phối Multinomial,\r
-\r
- \r
-\r
- $$(X_{1},X_{2})|(X_{3}=0)\\sim\\operatorname{M u l t}_{2}\\left(n,\\left(\\frac{p_{1}}{p_{1}+p_{2}},\\frac{p_{2}}{p_{1}+p_{2}}\\right)\\right).$$ \r
-\r
- \r
-\r
-(f) Lập luận như trong câu chuyện gà và trừng,\r
-\r
- \r
-\r
- $$P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3})=\\sum_{n=0}^{\\infty}P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3}|N=n)P(N=n),$$ \r
-\r
-\r
-\r
-Ở đây tất cả các số hạng của tổng đều bằng 0 ngoại trừ số hạng với  $n = x_{1} + x_{2} + x_{3}$ . Với giá trị này của n,\r
-\r
- \r
-\r
- $$\\begin{aligned}P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3})&=P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3}|N=n)P(N=n)\\\\&=\\frac{n!}{x_{1}!x_{2}!x_{3}!}p_{1}^{x_{1}}p_{2}^{x_{2}}p_{3}^{x_{3}}\\cdot e^{-\\lambda}\\frac{\\lambda^{n}}{n!}\\\\&=\\frac{e^{-\\lambda p_{1}}(\\lambda p_{1})^{x_{1}}}{x_{1}!}\\cdot\\frac{e^{-\\lambda p_{2}}(\\lambda p_{2})^{x_{2}}}{x_{2}!}\\cdot\\frac{e^{-\\lambda p_{3}}(\\lambda p_{3})^{x_{3}}}{x_{3}!},\\end{aligned}$$ \r
-\r
- \r
-\r
-với mọi số nguyên không âm  $x_1, x_2, x_3$ . Do đó,  $X_1, X_2, X_3$  là độc lập, với  $X_j \\sim \\text{Pois}(\\lambda p_j)$ . Kết quả này là một mở rộng của phân phối Multinomial của câu chuyện gà và trừng. □`,bA=`Phân phối chuẩn đa biến là một phân phối đa biến liên tục mà mở rộng phân phối chuẩn vào các chiều số cao hơn. Chúng ta sẽ không làm việc với mật độ xác suất chung khá phức tạp của phân phối chuẩn đa biến. Thay vào đó, chúng ta định nghĩa phân phối chuẩn đa biến thông qua mối quan hệ với phân phối chuẩn đơn biến.\r
-\r
-Phân phối chuẩn đa biến là một phân phối đa biến liên tục mà mở rộng phân phối chuẩn vào các chiều số cao hơn. Chúng ta sẽ không làm việc với mật độ xác suất chung khá phức tạp của phân phối chuẩn đa biến. Thay vào đó, chúng ta định nghĩa phân phối chuẩn đa biến thông qua mối quan hệ với phân phối chuẩn đơn biến.\r
-\r
-<div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.5.1</span>\r
-<span class="math-box-title">(Phân phối chuẩn đa biến)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Một vector ngẫu nhiên k-chiều $\\mathbf{X} = (X_1, \\ldots, X_k)$ được gọi là có phân phối chuẩn đa biến (MVN) nếu mọi tổ hợp tuyến tính của các $X_j$ có phân phối chuẩn. Tức là, chúng ta yêu cầu\r
-\r
-$$\r
-t_{1}X_{1}+\\cdots+t_{k}X_{k}\r
-$$\r
-\r
-phải có phân phối chuẩn với bất kỳ hằng số nào $t_{1}, \\ldots, t_{k}$. Nếu $t_{1}X_{1} + \\cdots + t_{k}X_{k}$ là một hằng số (ví dụ như khi tất cả $t_{i} = 0$), chúng ta coi rằng nó có phân phối chuẩn, mặc dù là một phân phối chuẩn suy biến với phương sai bằng 0. Một trường hợp đặc biệt quan trọng là k = 2; phân phối này được gọi là phân phối chuẩn hai chiều (BVN).\r
-</div>\r
-</div>\r
-\r
-Nếu $(X_1, \\ldots, X_k)$ là MVN, thì phân phối biên của $X_1$ là chuẩn, vì chúng ta có thể lấy $t_1$ bằng 1 và tất cả các $t_j$ khác bằng 0. Tương tự, phân phối biên của mỗi $X_j$ là chuẩn. Tuy nhiên, điều ngược lại là sai: có thể có các biến ngẫu nhiên chuẩn $X_1, \\ldots, X_k$ sao cho $(X_1, \\ldots, X_k)$ không phải là phân phối chuẩn đa biến.\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.5.2</span>\r
-<span class="math-box-title">(Không phải là ví dụ của MVN)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Đây là một ví dụ về hai biến ngẫu nhiên có phân phối biên là chuẩn nhưng phân phối chung không phải là phân phối chuẩn hai chiều. Cho $X \\sim \\mathcal{N}(0,1)$, và cho\r
-\r
-$$\r
-S=\\begin{cases}1&\\text{với xác suất }1/2\\\\ -1&\\text{với xác suất }1/2\\end{cases}\r
-$$\r
-\r
-là một dấu ngẫu nhiên độc lập với X. Khi đó Y = SX là một biến ngẫu nhiên chuẩn tiêu chuẩn, do tính đối xứng của phân phối chuẩn (xem Bài tập 30 từ Chương 5). Tuy nhiên, $(X,Y)$ không phải là Bivariate Normal vì $P(X+Y=0)=P(S=-1)=1/2$, điều này cho thấy rằng $X+Y$ không thể là Normal (hoặc, nói cách khác, có bất kỳ phân phối liên tục nào). Vì $X+Y$ là một tổ hợp tuyến tính của $X$ và $Y$ mà không phải là phân phối Normal, nên $(X,Y)$ không phải là Bivariate Normal.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.5.3</span>\r
-<span class="math-box-title">(MVN thực tế)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Với $Z, W \\stackrel{i.i.d.}{\\sim} \\mathcal{N}(0,1)$, $(Z, W)$ là Bivariate Normal vì tổng của các Normal độc lập là Normal. Ngoài ra, $(Z + 2W, 3Z + 5W)$ cũng là Bivariate Normal, vì một tổ hợp tuyến tính tùy ý\r
-\r
-$$\r
-t_{1}(Z+2W)+t_{2}(3Z+5W)\r
-$$\r
-\r
-cũng có thể được viết lại thành một tổ hợp tuyến tính của $Z$ và $W$,\r
-\r
-$$\r
-(t_{1}+3t_{2})Z+(2t_{1}+5t_{2})W,\r
-$$\r
-\r
-mà là Normal.\r
-</div>\r
-</div>\r
-\r
-Ví dụ trên cho thấy rằng nếu chúng ta bắt đầu với một Multivariate Normal và lấy tổ hợp tuyến tính của các thành phần, chúng ta sẽ tạo ra một Multivariate Normal mới. Hai định lý tiếp theo nói rằng chúng ta cũng có thể tạo ra các MVN mới từ các MVN cũ bằng các phép toán phân tách và nối tiếp.\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.5.4</span>\r
-</div>\r
-<div class="math-box-content">\r
-Nếu $(X_{1}, X_{2}, X_{3})$ là Multivariate Normal, thì các thành phần con $(X_{1}, X_{2})$ cũng là Multivariate Normal.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
-<div class="math-box-content">\r
-Bất kỳ tổ hợp tuyến tính nào $t_{1}X_{1}+t_{2}X_{2}$ cũng có thể được xem như một tổ hợp tuyến tính của $X_{1}, X_{2}, X_{3}$ với hệ số của $X_{3}$ bằng 0. Do đó $t_{1}X_{1}+t_{2}X_{2}$ là Normal với mọi $t_{1}, t_{2}$, điều này cho thấy $(X_{1}, X_{2})$ là MVN.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.5.5</span>\r
-</div>\r
-<div class="math-box-content">\r
-Nếu $\\mathbf{X} = (X_1, \\ldots, X_n)$ và $\\mathbf{Y} = (Y_1, \\ldots, Y_m)$ là các vector ngẫu nhiên Multivariate Normal với $\\mathbf{X}$ độc lập với $\\mathbf{Y}$, thì vector ngẫu nhiên nối tiếp $\\mathbf{W} = (X_1, \\ldots, X_n, Y_1, \\ldots, Y_m)$ là Multivariate Normal.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
-<div class="math-box-content">\r
-Bất kỳ tổ hợp tuyến tính nào $s_1X_1 + \\cdots + s_nX_n + t_1Y_1 + \\cdots + t_mY_m$ là Normal vì $s_1X_1 + \\cdots + s_nX_n$ và $t_1Y_1 + \\cdots + t_mY_m$ là Normal (theo định nghĩa của MVN) và độc lập, do đó tổng của chúng là Normal (như được chỉ ra trong chương 6 bằng các hàm sinh momen).\r
-</div>\r
-</div>\r
-\r
-Một phân phối Multivariate Normal được xác định hoàn toàn bằng cách biết trung bình của từng thành phần, phương sai của từng thành phần, và hiệp phương sai hoặc tương quan giữa bất kỳ hai thành phần nào. Một cách khác để nói điều này là các tham số của một vector ngẫu nhiên MVN $(X_{1}, \\ldots, X_{k})$ là như sau:\r
-\r
-- vector trung bình $(\\mu_1, \\ldots, \\mu_k)$, nơi $E(X_j) = \\mu_j$;\r
-- ma trận hiệp phương sai, là ma trận $k \\times k$ chứa các hiệp phương sai giữa các thành phần, được sắp xếp sao cho phần tử hàng $i$, cột $j$ là $\\text{Cov}(X_i, X_j)$.\r
-\r
-Ví dụ, để xác định đầy đủ một phân phối Bivariate Normal cho $(X, Y)$, chúng ta cần biết năm tham số:\r
-\r
-- các tham số trung bình $E(X)$, $E(Y)$;\r
-- các phương sai $\\mathrm{Var}(X)$, $\\mathrm{Var}(Y)$;\r
-- hệ số tương quan $\\mathrm{Corr}(X, Y)$.\r
-\r
-Chúng ta sẽ trình bày trong Ví dụ 8.1.10 rằng hàm mật độ xác suất chung của một phân phối Bivariate Normal $(X,Y)$ với các phân phối biên $\\mathcal{N}(0,1)$ và hệ số tương quan $\\rho\\in(-1,1)$ là\r
-\r
-$$\r
-f_{X,Y}(x,y)=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2\\tau^{2}}(x^{2}+y^{2}-2\\rho x y)\\right),\r
-$$\r
-\r
-với $\\tau = \\sqrt{1 - \\rho^2}$. Hình 7.10 vẽ các hàm mật độ xác suất chung cho hai phân phối Bivariate Normal khác nhau với các phân phối biên $\\mathcal{N}(0,1)$, cùng với các biểu đồ đường mức tương ứng. Ở bên trái, $X$ và $Y$ không tương quan, do đó các đường mức của hàm mật độ xác suất chung là các đường tròn. Ở bên phải, $X$ và $Y$ có hệ số tương quan là 0.75, do đó các đường mức là các elip, phản ánh thực tế rằng $Y$ có xu hướng lớn khi $X$ lớn.\r
-\r
-<div class="image-container">\r
-<img src="imgs/img_in_chart_box_196_420_671_824.jpg" alt="Mật độ xác suất chung không tương quan" width="45%" />\r
-<img src="imgs/img_in_chart_box_750_418_1228_824.jpg" alt="Mật độ xác suất chung có tương quan" width="45%" />\r
-<img src="imgs/img_in_chart_box_177_942_665_1409.jpg" alt="Đường mức không tương quan" width="45%" />\r
-<img src="imgs/img_in_chart_box_729_945_1219_1413.jpg" alt="Đường mức có tương quan" width="45%" />\r
-</div>\r
-\r
-<div style="text-align: center;"><b>HÌNH 7.10</b></div>\r
-<div style="text-align: center;">Phân phối xác suất mật độ chung của hai phân phối chuẩn hai chiều, cùng với các biểu diễn đường cong tương ứng. Ở bên trái, X và Y có phân phối biên độ $\\mathcal{N}(0,1)$ và không có độ tương quan. Ở bên phải, X và Y có phân phối biên độ $\\mathcal{N}(0,1)$ và có độ tương quan bằng 0.75.</div>\r
-\r
-Tương tự như phân phối của một biến ngẫu nhiên được xác định bởi hàm phân phối tích lũy, hàm xác suất khối rời rạc/hàm mật độ xác suất, hoặc hàm sinh moment, phân phối chung của một vector ngẫu nhiên được xác định bởi hàm phân phối tích lũy chung, hàm xác suất khối chung/hàm mật độ xác suất chung, hoặc hàm sinh moment chung, mà chúng ta sẽ định nghĩa ngay sau đây.\r
-\r
-<div class="math-box definition">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định nghĩa</span>\r
-<span class="math-box-number">7.5.6</span>\r
-<span class="math-box-title">(Hàm sinh moment chung)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Hàm sinh moment chung (joint MGF) của một vector ngẫu nhiên $\\mathbf{X} = (X_1, \\ldots, X_k)$ là hàm $M$ được xác định bởi\r
-\r
-$$\r
-M(\\mathbf{t})=E(e^{\\mathbf{t}^{\\prime}\\mathbf{X}})=E\\left(e^{t_{1}X_{1}+\\cdots+t_{k}X_{k}}\\right),\r
-$$\r
-\r
-với $\\mathbf{t} = (t_1, \\ldots, t_k) \\in \\mathbb{R}^k$. Chúng ta yêu cầu kỳ vọng này phải hữu hạn trong một hình hộp chứa gốc tọa độ trong $\\mathbb{R}^k$; nếu không, chúng ta nói rằng hàm sinh moment chung không tồn tại.\r
-</div>\r
-</div>\r
-\r
-Đối với một vector ngẫu nhiên đa biến chuẩn, hàm sinh moment chung đặc biệt tốt vì số hạng trong lũy thừa, $t_{1}X_{1}+\\cdots+t_{k}X_{k}$, là một biến ngẫu nhiên chuẩn theo định nghĩa. Điều này có nghĩa là chúng ta có thể sử dụng những gì chúng ta biết về hàm sinh moment đơn biến chuẩn để tìm hàm sinh moment chung của phân phối đa biến chuẩn! Nhớ rằng với bất kỳ biến ngẫu nhiên chuẩn nào W,\r
-\r
-$$\r
-E(e^{W})=e^{E(W)+\\frac{1}{2}\\mathrm{Var}(W)}.\r
-$$\r
-\r
-Do đó hàm sinh moment chung của một vector ngẫu nhiên đa biến $(X_{1},\\ldots,X_{k})$ là\r
-\r
-$$\r
-E(e^{t_{1}X_{1}+\\cdots+t_{k}X_{k}})=\\exp\\left(t_{1}E(X_{1})+\\cdots+t_{k}E(X_{k})+\\frac{1}{2}\\mathrm{Var}(t_{1}X_{1}+\\cdots+t_{k}X_{k})\\right).\r
-$$\r
-\r
-Số hạng phương sai có thể được mở rộng bằng các tính chất của hiệp phương sai.\r
-\r
-Chúng ta biết rằng nói chung, tính độc lập là điều kiện mạnh hơn so với tương quan bằng 0; các biến ngẫu nhiên có thể không tương quan nhưng không độc lập. Một tính chất đặc biệt của phân phối đa biến chuẩn là rằng đối với các biến ngẫu nhiên có phân phối chung là MVN, tính độc lập và tương quan bằng 0 là các điều kiện tương đương.\r
-\r
-<div class="math-box theorem">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Định lý</span>\r
-<span class="math-box-number">7.5.7</span>\r
-</div>\r
-<div class="math-box-content">\r
-Trong một vector ngẫu nhiên đa biến chuẩn, không tương quan kéo theo độc lập. Nghĩa là, nếu $\\mathbf{X} \\sim \\text{MVN}$ có thể được viết dưới dạng $\\mathbf{X} = (\\mathbf{X}_1, \\mathbf{X}_2)$, trong đó $\\mathbf{X}_1$ và $\\mathbf{X}_2$ là các subvectors, và từng thành phần của $\\mathbf{X}_{1}$ không tương quan với từng thành phần của $\\mathbf{X}_{2}$, thì $\\mathbf{X}_{1}$ và $\\mathbf{X}_{2}$ là độc lập. $^{1}$\r
-\r
-Đặc biệt, nếu $(X, Y)$ là Bivariate Normal và $\\text{Corr}(X, Y) = 0$, thì X và Y là độc lập.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box proof">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Chứng minh</span>\r
-</div>\r
-<div class="math-box-content">\r
-Chúng ta sẽ chứng minh định lý này trong trường hợp Bivariate Normal; chứng minh trong các chiều cao hơn là tương tự. Cho $(X,Y)$ là Bivariate Normal với $E(X)=\\mu_{1}$, $E(Y)=\\mu_{2}$, $\\mathrm{Var}(X)=\\sigma_{1}^{2}$, $\\mathrm{Var}(Y)=\\sigma_{2}^{2}$, và $\\mathrm{Corr}(X,Y)=\\rho$. Hàm sinh moment chung là\r
-\r
-$$\r
-\\begin{aligned}\r
-M_{X,Y}(s,t)=E(e^{sX+tY})&=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}\\mathrm{Var}(sX+tY)\\right)\\\\\r
-&=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}(s^{2}\\sigma_{1}^{2}+t^{2}\\sigma_{2}^{2}+2st\\sigma_{1}\\sigma_{2}\\rho)\\right).\r
-\\end{aligned}\r
-$$\r
-\r
-Nếu $\\rho = 0$, hàm sinh moment chung giảm xuống thành\r
-\r
-$$\r
-M_{X,Y}(s,t)=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}(s^{2}\\sigma_{1}^{2}+t^{2}\\sigma_{2}^{2})\\right).\r
-$$\r
-\r
-Nhưng đây cũng là hàm sinh moment chung của $(Z, W)$ nơi $Z \\sim \\mathcal{N}(\\mu_1, \\sigma_1^2)$ và $W \\sim \\mathcal{N}(\\mu_2, \\sigma_2^2)$ và $Z$ độc lập với $W$. Vì hàm sinh moment chung xác định phân phối chung, do đó phải là $(X, Y)$ có cùng phân phối chung như $(Z, W)$. Do đó $X$ và $Y$ là độc lập.\r
-</div>\r
-</div>\r
-\r
-Định lý này không áp dụng cho Ví dụ 7.5.2. Trong ví dụ đó, như bạn có thể kiểm tra, X và Y không tương quan nhưng không độc lập, nhưng điều này không mâu thuẫn với định lý vì $(X, Y)$ không phải là BVN. Hai ví dụ tiếp theo cho thấy các tình huống mà định lý này áp dụng.\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.5.8</span>\r
-<span class="math-box-title">(Độc lập của tổng và hiệu)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Cho $X, Y \\stackrel{\\mathrm{i.i.d.}}{\\sim} \\mathcal{N}(0, 1)$. Tìm phân phối chung của $(X + Y, X - Y)$.\r
-\r
-**Giải pháp:**\r
-\r
-Vì $(X + Y, X - Y)$ là Bivariate Normal và\r
-\r
-$$\r
-\\mathrm{Cov}(X+Y,X-Y)=\\mathrm{Var}(X)-\\mathrm{Cov}(X,Y)+\\mathrm{Cov}(Y,X)-\\mathrm{Var}(Y)=0,\r
-$$\r
-\r
-$X + Y$ độc lập với $X - Y$. Hơn nữa, chúng là i.i.d. $\\mathcal{N}(0,2)$. Bằng phương pháp tương tự, ta có thể thấy rằng nếu $X \\sim \\mathcal{N}(\\mu_1, \\sigma^2)$ và $Y \\sim \\mathcal{N}(\\mu_2, \\sigma^2)$ là độc lập (với phương sai giống nhau), thì $X + Y$ độc lập với $X - Y$.\r
-</div>\r
-</div>\r
-\r
-Trong Bài tập 72, bạn sẽ mở rộng ví dụ này cho trường hợp mà X và Y là Bivariate Normal với tương quan tổng quát $\\rho$.\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.5.9</span>\r
-<span class="math-box-title">(Sự độc lập của tổng mẫu và phương sai mẫu)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Giả sử rằng $X_{1}, \\ldots, X_{n}$ là i.i.d. $\\mathcal{N}(\\mu, \\sigma^{2})$, với $n \\geq 2$. Định nghĩa\r
-\r
-$$\r
-\\bar{X}_{n}=\\frac{1}{n}(X_{1}+\\cdots+X_{n}),\r
-$$\r
-\r
-$$\r
-S_{n}^{2}=\\frac{1}{n-1}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}.\r
-$$\r
-\r
-Như đã được trình bày trong Chương 6, tổng mẫu $\\bar{X}_n$ có kỳ vọng $\\mu$ (trung bình đúng) và phương sai mẫu $S_n^2$ có kỳ vọng $\\sigma^2$ (phương sai đúng). Chứng minh rằng $\\bar{X}_n$ và $S_n^2$ là độc lập bằng cách áp dụng các ý tưởng MVN vào $(\\bar{X}_n, X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$.\r
-\r
-**Giải pháp:**\r
-\r
-Vector $(\\bar{X}_n, X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$ là MVN vì bất kỳ tổ hợp tuyến tính nào của các thành phần của nó cũng có thể được viết dưới dạng tổ hợp tuyến tính của $X_1, \\ldots, X_n$. Hơn nữa, $E(X_j - \\bar{X}_n) = 0$ nhờ tính tuyến tính. Bây giờ ta tính hiệp phương sai của $\\bar{X}_n$ với $X_j - \\bar{X}_n$:\r
-\r
-$$\r
-\\mathrm{Cov}(\\bar{X}_{n},X_{j}-\\bar{X}_{n})=\\mathrm{Cov}(\\bar{X}_{n},X_{j})-\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n}).\r
-$$\r
-\r
-Với $\\mathrm{Cov}(X_{n}, X_{j})$, ta có thể khai triển $X_{n}$, và hầu hết các số hạng sẽ triệt tiêu do tính độc lập:\r
-\r
-$$\r
-\\mathrm{Cov}(\\bar{X}_{n},X_{j})=\\mathrm{Cov}\\left(\\frac{1}{n}X_{1}+\\cdots+\\frac{1}{n}X_{n},X_{j}\\right)=\\mathrm{Cov}\\left(\\frac{1}{n}X_{j},X_{j}\\right)=\\frac{1}{n}\\mathrm{Var}(X_{j})=\\frac{\\sigma^{2}}{n}.\r
-$$\r
-\r
-Với $\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n})$, ta sử dụng các tính chất của phương sai:\r
-\r
- \r
-\r
-$$\r
-\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n})=\\mathrm{Var}(\\bar{X}_{n})=\\frac{1}{n^{2}}\\left(\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n})\\right)=\\frac{\\sigma^{2}}{n}.\r
-$$\r
-\r
-Do đó $\\operatorname{Cov}(\\bar{X}_n, X_j - \\bar{X}_n) = 0$, điều này có nghĩa là $\\bar{X}_n$ không tương quan với từng thành phần của $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$. Vì không tương quan có nghĩa là độc lập trong một vector MVN, ta có $\\bar{X}_n$ độc lập với vector $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$. Tuy nhiên, $S_n^2$ là một hàm của $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$, do đó $\\bar{X}_n$ cũng độc lập với $S_n^2$.\r
-\r
-Có thể chứng minh rằng tính độc lập của tổng mẫu và phương sai mẫu là một đặc điểm độc nhất của Normal! Nếu các $X_j$ tuân theo phân phối nào khác, thì $\\bar{X}_n$ và $S_n^2$ sẽ phụ thuộc vào nhau.\r
-</div>\r
-</div>\r
-\r
-<div class="math-box example">\r
-<div class="math-box-header">\r
-<span class="math-box-name">Ví dụ</span>\r
-<span class="math-box-number">7.5.10</span>\r
-<span class="math-box-title">(Tạo Bivariate Normal)</span>\r
-</div>\r
-<div class="math-box-content">\r
-Giả sử rằng ta có thể truy cập các biến ngẫu nhiên độc lập và đồng phân phối $X, Y \\sim \\mathcal{N}(0, 1)$, nhưng muốn tạo một vector ngẫu nhiên Bivariate Normal $(Z, W)$ với $\\text{Corr}(Z, W) = \\rho$ và $Z, W$ có phân phối biên là $\\mathcal{N}(0, 1)$, với mục đích chạy một mô phỏng. Làm thế nào để xây dựng $Z$ và $W$ từ các tổ hợp tuyến tính của $X$ và $Y$?\r
-\r
-**Giải pháp:**\r
-\r
-Theo định nghĩa của Phân phối chuẩn đa biến, bất kỳ $(Z, W)$ nào có dạng\r
-\r
-$$\r
-\\begin{aligned}\r
-Z&=aX+bY\\\\\r
-W&=cX+dY\r
-\\end{aligned}\r
-$$\r
-\r
-sẽ là Phân phối chuẩn hai biến. Vì vậy, hãy thử tìm các giá trị phù hợp a, b, c, d. Các giá trị trung bình đã là 0. Đặt phương sai bằng 1 sẽ cho\r
-\r
-$$\r
-a^{2}+b^{2}=1,c^{2}+d^{2}=1.\r
-$$\r
-\r
-Đặt hiệp phương sai của Z và W bằng $\\rho$ sẽ cho\r
-\r
-$$\r
-a c+b d=\\rho.\r
-$$\r
-\r
-Tại đây có nhiều ẩn số hơn phương trình, và chúng ta chỉ cần một nghiệm. Để đơn giản, hãy tìm một nghiệm với b = 0. Khi đó $a^2 = 1$, vì vậy hãy lấy a = 1. Bây giờ $ac + bd = \\rho$ sẽ rút gọn thành $c = \\rho$, và sau đó có thể sử dụng $c^2 + d^2 = 1$ để tìm d phù hợp. Kết hợp tất cả các yếu tố lại, chúng ta có thể tạo ra $(Z, W)$ như sau\r
-\r
-$$\r
-\\begin{aligned}\r
-Z&=X\\\\\r
-W&=\\rho X+\\sqrt{1-\\rho^{2}}Y.\r
-\\end{aligned}\r
-$$\r
-\r
-Lưu ý rằng trong trường hợp cực đoan $\\rho = 1$ (được gọi là tương quan dương hoàn hảo) điều này nói rằng hãy để $W = Z \\sim \\mathcal{N}(0,1)$, trong trường hợp cực đoan $\\rho = -1$ (được gọi là tương quan âm hoàn hảo) nó nói rằng hãy để $W = -Z$ với $Z \\sim \\mathcal{N}(0,1)$, và trong trường hợp đơn giản $\\rho = 0$ nó nói rằng hãy để $(Z, W) = (X, Y)$.\r
-</div>\r
-</div>`,xA=`Phân phối chung cho phép chúng ta mô tả hành vi của nhiều biến ngẫu nhiên phát sinh từ cùng một thí nghiệm. Các hàm quan trọng liên quan đến phân phối chung là hàm phân phối tích lũy chung, hàm PMF/PDF chung, PMF/PDF biên, và PMF/PDF điều kiện. Bảng trên trang sau tóm tắt các định nghĩa này cho hai biến ngẫu nhiên rời rạc và hai biến ngẫu nhiên liên tục. Phân phối chung cũng có thể là hỗn hợp của rời rạc và liên tục, trong trường hợp này chúng ta kết hợp và sử dụng PMF và PDF.\r
 \r
-<div class="table-container">\r
-<table>\r
-  <tr>\r
-    <th></th>\r
-    <th>Hai biến ngẫu nhiên rời rạc</th>\r
-    <th>Hai biến ngẫu nhiên liên tục</th>\r
-  </tr>\r
-  <tr>\r
-    <td>Hàm phân phối tích lũy chung</td>\r
-    <td>$F_{X,Y}(x,y) = P(X \\leq x, Y \\leq y)$</td>\r
-    <td>$F_{X,Y}(x,y) = P(X \\leq x, Y \\leq y)$</td>\r
-  </tr>\r
-  <tr>\r
-    <td rowspan="4">Phân phối xác suất/tích phân chung</td>\r
-    <td>$P(X = x, Y = y)$</td>\r
-    <td>$f_{X,Y}(x,y) = \\frac{\\partial^{2}}{\\partial x \\partial y} F_{X,Y}(x,y)$</td>\r
-  </tr>\r
-  <tr>\r
-    <td>• Phân phối xác suất chung không âm.</td>\r
-    <td>• Phân bố mật độ xác suất chung không âm.</td>\r
-  </tr>\r
-  <tr>\r
-    <td>• Phân phối xác suất chung tổng thành 1.</td>\r
-    <td>• Phân bố mật độ xác suất chung tích phân thành 1.</td>\r
-  </tr>\r
-  <tr>\r
-    <td>• $P((X,Y) \\in A) = \\sum_{(x,y) \\in A} P(X = x, Y = y).$</td>\r
-    <td>• $P((X,Y) \\in A) = \\iint_{A} f_{X,Y}(x,y) \\, dx \\, dy.$</td>\r
-  </tr>\r
-  <tr>\r
-    <td rowspan="2">Phân phối xác suất/tích phân biên</td>\r
-    <td>$P(X = x) = \\sum_{y} P(X = x, Y = y)$</td>\r
-    <td>$f_{X}(x) = \\int_{-\\infty}^{\\infty} f_{X,Y}(x,y) \\, dy$</td>\r
-  </tr>\r
-  <tr>\r
-    <td>$= \\sum_{y} P(X = x|Y = y)P(Y = y)$</td>\r
-    <td>$= \\int_{-\\infty}^{\\infty} f_{X|Y}(x|y) f_{Y}(y) \\, dy$</td>\r
-  </tr>\r
-  <tr>\r
-    <td rowspan="2">Phân phối xác suất/tích phân điều kiện</td>\r
-    <td>$P(Y = y|X = x) = \\frac{P(X = x, Y = y)}{P(X = x)}$</td>\r
-    <td>$f_{Y|X}(y|x) = \\frac{f_{X,Y}(x,y)}{f_{X}(x)}$</td>\r
-  </tr>\r
-  <tr>\r
-    <td>$= \\frac{P(X = x|Y = y)P(Y = y)}{P(X = x)}$</td>\r
-    <td>$= \\frac{f_{X|Y}(x|y)f_{Y}(y)}{f_{X}(x)}$</td>\r
-  </tr>\r
-  <tr>\r
-    <td rowspan="2">Sự độc lập</td>\r
-    <td>$P(X \\leq x, Y \\leq y) = P(X \\leq x)P(Y \\leq y)$</td>\r
-    <td>$P(X \\leq x, Y \\leq y) = P(X \\leq x)P(Y \\leq y)$</td>\r
-  </tr>\r
-  <tr>\r
-    <td>$P(X = x, Y = y) = P(X = x)P(Y = y)$ cho tất cả $x$ và $y$.</td>\r
-    <td>$f_{X,Y}(x,y) = f_{X}(x)f_{Y}(y)$ cho tất cả $x$ và $y$.</td>\r
-  </tr>\r
-  <tr>\r
-    <td>LOTUS</td>\r
-    <td>$E(g(X,Y)) = \\sum_{y} \\sum_{x} g(x,y)P(X = x, Y = y)$</td>\r
-    <td>$E(g(X,Y)) = \\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} g(x,y)f_{X,Y}(x,y) \\, dx \\, dy$</td>\r
-  </tr>\r
-</table>\r
 </div>\r
+</div>`,CA=`Phiên bản hai chiều của LOTUS cho phép chúng ta tính kỳ vọng của một biến ngẫu nhiên là hàm của hai biến ngẫu nhiên X và Y, bằng cách sử dụng phân phối chung của X và Y.
+
+<div class="math-box theorem">
+<div class="math-box-header">
+    <div class="math-box-number">Định lý 7.2.1</div>
+    <div class="math-box-title">2D LOTUS</div>
+  </div>
+<div class="math-box-content">
+
+Gọi $g$ là một hàm từ $\\mathbb{R}^2$ đến $\\mathbb{R}$. Nếu $X$ và $Y$ là rời rạc, thì
+
+
+ $$E(g(X,Y))=\\sum_{x}\\sum_{y}g(x,y)P(X=x,Y=y).$$ 
+
+
+Nếu X và Y là liên tục với PDF chung $f_{X,Y}$, thì
+
+
+ $$E(g(X,Y))=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}g(x,y)f_{X,Y}(x,y)d x d y.$$ 
+
+
+</div>
+</div>
+
+Giống như phiên bản một chiều của nó, 2D LOTUS giúp chúng ta tránh phải tìm phân phối của  $g(X,Y)$  để tính kỳ vọng của nó. Thay vào đó, chỉ cần có PMF chung hoặc PDF chung của X và Y là đủ.
+
+Một ứng dụng của 2D LOTUS là để tìm khoảng cách kỳ vọng giữa hai biến ngẫu nhiên.
+
+<div class="math-box example">
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 7.2.2</div>
+    <div class="math-box-title">Khoảng cách kỳ vọng giữa hai Uniforms</div>
+  </div>
+<div class="math-box-content">
+
+Gọi X và Y là các biến ngẫu nhiên i.i.d. Unif(0,1). Tìm $E(|X - Y|)$.
+
+**Giải pháp:**
+
+Vì PDF chung là 1 trên hình vuông đơn vị $\\{(x,y):x,y\\in[0,1]\\}$, 2D LOTUS cho
+
+
+ $$\\begin{aligned} E(|X-Y|)&=\\int_{0}^{1}\\int_{0}^{1}|x-y|dx dy\\\\ &=\\int_{0}^{1}\\int_{y}^{1}(x-y)dx dy+\\int_{0}^{1}\\int_{0}^{y}(y-x)dx dy\\\\ &=2\\int_{0}^{1}\\int_{y}^{1}(x-y)dx dy=1/3. \\end{aligned}$$ 
+
+
+Đầu tiên chúng ta chia tích phân thành hai phần để có thể loại bỏ giá trị tuyệt đối; sau đó chúng ta sử dụng tính đối xứng.
+
+Chú ý, bằng cách giải bài toán này, chúng ta cũng đã tìm ra giá trị kỳ vọng của  $M = \\max(X, Y)$  và  $L = \\min(X, Y)$ . Vì  $M + L$  là cùng một biến ngẫu nhiên với  $X + Y$  và  $M - L$  là cùng một biến ngẫu nhiên với  $|X - Y|$ ,
+
+
+ $$E(M+L)=E(X+Y)=1,$$ 
+
+
+
+ $$E(M-L)=E(|X-Y|)=1/3.$$ 
+
+
+Đây là hệ phương trình gồm hai phương trình và hai ẩn số, chúng ta có thể giải để tìm được $E(M) = 2/3$ và $E(L) = 1/3$. Như một kiểm tra, $E(M)$ vượt quá $E(L)$, như mong đợi, và $E(M)$ và $E(L)$ cách đều 1/2, như mong đợi nhờ tính đối xứng.
+
+</div>
+</div>
+
+<div class="math-box example">
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 7.2.3</div>
+    <div class="math-box-title">Kỳ vọng khoảng cách giữa hai Normal</div>
+  </div>
+<div class="math-box-content">
+
+Với $X, Y \\stackrel{\\mathrm{i.i.d.}}{\\sim} \\mathcal{N}(0, 1)$, tìm $E(|X - Y|)$.
+
+**Giải pháp:**
+
+Chúng ta có thể sử dụng lại 2D LOTUS, cho
+
+
+ $$E(|X-Y|)=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}|x-y|\\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2}d x d y,$$ 
+
+
+nhưng một cách giải dễ hơn sử dụng thực tế rằng tổng hoặc hiệu của các Normal độc lập cũng là Normal, như chúng ta đã chứng minh bằng MGFs trong Chương 6. Khi đó  $X - Y \\sim \\mathcal{N}(0,2)$ , do đó chúng ta có thể viết  $X - Y = \\sqrt{2}Z$  với  $Z \\sim \\mathcal{N}(0,1)$ , và  $E(|X - Y|) = \\sqrt{2}E|Z|$ . Như vậy, chúng ta đã giảm một bài toán 2D LOTUS xuống một bài toán 1D LOTUS! Như đã trình bày trong Ví dụ 5.4.7, 
+
+
+ $$E|Z|=\\sqrt{\\frac{2}{\\pi}},$$ 
+
+
+VẬY
+
+
+ $$E(|X-Y|)=\\frac{2}{\\sqrt{\\pi}}.$$ 
+
+
+</div>
+</div>
+
+Chúng ta cũng có thể sử dụng 2D LOTUS để cho một chứng minh khác về tính tuyến tính của kỳ vọng.
+
+<div class="math-box example">
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 7.2.4</div>
+    <div class="math-box-title">Tính tuyến tính qua 2D LOTUS</div>
+  </div>
+<div class="math-box-content">
+
+Cho X và Y là các biến ngẫu nhiên liên tục (phương pháp tương tự cũng hoạt động trong trường hợp rời rạc). Theo 2D LOTUS,
+
+
+ $$\\begin{align*} E(X+Y)&=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}(x+y)f_{X,Y}(x,y)dxdy\\\\ &=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}xf_{X,Y}(x,y)dxdy+\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}yf_{X,Y}(x,y)dxdy\\\\ &=E(X)+E(Y). \\end{align*}$$ 
+
+
+Đây là một chứng minh ngắn gọn về tính tuyến tính của kỳ vọng. Đối với bước cuối cùng, chúng ta đã sử dụng 2D LOTUS và sự thật rằng X là một hàm của X và Y (mà thực ra là một hàm phụ thuộc hoàn toàn vào X, không liên quan đến Y), và tương tự như vậy với Y. Một cách khác để đạt được bước cuối cùng là viết
+
+
+ $$\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}yf_{X,Y}(x,y)dxdy=\\int_{-\\infty}^{\\infty}y\\int_{-\\infty}^{\\infty}f_{X,Y}(x,y)dxdy=\\int_{-\\infty}^{\\infty}yf_{Y}(y)dy=E(Y),$$ 
+
+
+trong đó chúng ta đã lấy $y$ ra khỏi tích phân bên trong (vì $y$ là hằng số khi tích phân theo $x$) và sau đó nhận ra PDF biên của $Y$. Đối với hạng tử $E(X)$, chúng ta có thể trước tiên đổi thứ tự tích phân, từ $dxdy$ sang $dydx$, và sau đó áp dụng cùng lập luận như đã sử dụng cho hạng tử $E(Y)$.
+
+</div>
+</div>`,wA=`Tương tự như cách mà kỳ vọng và phương sai cung cấp các bản tóm tắt bằng một số của phân phối của một biến ngẫu nhiên đơn lẻ, hiệp phương sai là một bản tóm tắt bằng một số của phân phối chung của hai biến ngẫu nhiên. Một cách nói chung, hiệp phương sai đo lường xu hướng của hai biến ngẫu nhiên đi lên hoặc đi xuống cùng nhau, tương đối với các kỳ vọng của chúng: hiệp phương sai dương giữa X và Y cho thấy khi X tăng, Y cũng có xu hướng tăng, và hiệp phương sai âm cho thấy khi X tăng, Y có xu hướng giảm. Dưới đây là định nghĩa chính xác.
+
+<div class="math-box definition">
+<div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 7.3.1</div>
+    <div class="math-box-title">Hiệp phương sai</div>
+  </div>
+<div class="math-box-content">
+
+Hiệp phương sai giữa hai biến ngẫu nhiên X và Y là
+
+
+ $$\\mathrm{Cov}(X,Y)=E((X-EX)(Y-EY)).$$ 
+
+
+Nhân ra và sử dụng tính tuyến tính, ta có một biểu thức tương đương:
+
+
+ $$\\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y).$$ 
+
+
+</div>
+</div>
+
+Hãy suy nghĩ về định nghĩa một cách trực quan. Nếu X và Y có xu hướng di chuyển theo cùng một hướng, thì X - EX và Y - EY sẽ có xu hướng đều dương hoặc đều âm, do đó  $(X - EX)(Y - EY)$  sẽ dương trung bình, cho một hiệp phương sai dương. Nếu X và Y có xu hướng di chuyển theo hướng ngược nhau, thì X - EX và Y - EY sẽ có xu hướng có dấu ngược nhau, cho một hiệp phương sai âm.
+
+Nếu X và Y độc lập, thì hiệp phương sai của chúng bằng 0. Chúng ta nói rằng các biến ngẫu nhiên có hiệp phương sai bằng 0 là không tương quan.
+
+<div class="math-box theorem">
+<div class="math-box-header">
+    <div class="math-box-number">Định lý 7.3.2</div>
+  </div>
+<div class="math-box-content">
+
+Nếu X và Y độc lập, thì chúng là không tương quan.
+
+</div>
+</div>
+
+<div class="math-box proof">
+<div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+</div>
+<div class="math-box-content">
+
+Chúng ta sẽ chứng minh trong trường hợp X và Y là liên tục, với hàm mật độ xác suất $f_{X}$ và $f_{Y}$. Vì X và Y độc lập, hàm mật độ xác suất chung của chúng là tích của các hàm mật độ xác suất biên. Theo định lý 2D LOTUS,
+
+
+ $$\\begin{aligned} E(XY)&=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}xyf_{X}(x)f_{Y}(y)dxdy\\\\ &=\\int_{-\\infty}^{\\infty}yf_{Y}(y)\\left(\\int_{-\\infty}^{\\infty}xf_{X}(x)dx\\right)dy\\\\ &=\\int_{-\\infty}^{\\infty}xf_{X}(x)dx\\int_{-\\infty}^{\\infty}yf_{Y}(y)dy\\\\ &=E(X)E(Y). \\end{aligned}$$ 
+
+
+Chứng minh trong trường hợp rời rạc là giống nhau, với hàm xác suất rời rạc thay vì hàm mật độ xác suất.
+
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+</div>
+</div>
+
+Định lý ngược lại của định lý này là sai: chỉ vì $X$ và $Y$ là không tương quan không có nghĩa là chúng độc lập. Ví dụ, giả sử $X \\sim \\mathcal{N}(0,1)$, và giả sử $Y = X^2$. Khi đó $E(XY) = E(X^3) = 0$ vì các momen lẻ của phân phối chuẩn chuẩn hóa bằng 0 do tính đối xứng. Do đó $X$ và $Y$ là không tương quan,
+
+
+ $$\\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)=0-0=0,$$ 
+
+
+nhưng chúng chắc chắn không độc lập: Y là một hàm của X, do đó biết X cho chúng ta thông tin hoàn hảo về Y. Hiệp phương sai là một thước đo mối quan hệ tuyến tính, do đó các biến ngẫu nhiên có thể phụ thuộc theo cách phi tuyến và vẫn có hiệp phương sai bằng 0, như ví dụ này cho thấy. Biểu đồ góc phải của Hình 7.9 cho thấy các mẫu từ phân phối chung của X và Y trong ví dụ này. Ba biểu đồ còn lại minh họa sự tương quan dương, tương quan âm và độc lập.
+
+Hiệp phương sai có các tính chất chính sau.
+
+1.  $\\mathrm{Cov}(X,X)=\\mathrm{Var}(X).$ 
+
+2.  $\\mathrm{Cov}(X,Y)=\\mathrm{Cov}(Y,X).$ 
+
+3.  $\\mathrm{Cov}(X,c)=0$  với bất kỳ hằng số nào c.
+
+4.  $\\mathrm{Cov}(aX,Y)=a\\mathrm{Cov}(X,Y)$  với bất kỳ hằng số nào a.
+
+5.  $\\mathrm{Cov}(X+Y,Z)=\\mathrm{Cov}(X,Z)+\\mathrm{Cov}(Y,Z).$ 
+
+6.  $\\mathrm{Cov}(X+Y,Z+W)=\\mathrm{Cov}(X,Z)+\\mathrm{Cov}(X,W)+\\mathrm{Cov}(Y,Z)+\\mathrm{Cov}(Y,W).$ 
+
+7.  $\\mathrm{Var}(X + Y) = \\mathrm{Var}(X) + \\mathrm{Var}(Y) + 2\\mathrm{Cov}(X, Y)$ . Với  $n$  biến ngẫu nhiên  $X_1, \\ldots, X_n$ ,
+
+ 
+
+ 
+ $$\\mathrm{Var}(X_{1}+\\cdots+X_{n})=\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n})+2\\sum_{i<j}\\mathrm{Cov}(X_{i},X_{j}).$$ 
+ 
+
+
+
+<div style="text-align: center; margin: 2.5rem 0;">
+  <img src="imgs/img_in_chart_box_194_384_1192_1377.jpg" alt="Phân phối chung dưới các cấu trúc phụ thuộc khác nhau" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+</div>
+<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">
+  <strong>HÌNH 7.9:</strong> Lấy từ phân phối chung của $(X, Y)$ dưới các cấu trúc phụ thuộc khác nhau. Góc trên trái: X và Y có tương quan dương. Góc trên phải: X và Y có tương quan âm. Góc dưới trái: X và Y độc lập, do đó không tương quan. Góc dưới phải: Y là hàm xác định của X, nhưng X và Y không tương quan.
+</div>
+
+Các tính chất đầu tiên năm tính chất tiếp theo dễ dàng suy ra từ định nghĩa và các tính chất cơ bản của kỳ vọng. Tính chất 6 suy ra từ Tính chất 2 và Tính chất 5, bằng cách khai triển
+
+
+ $$\\begin{aligned} \\operatorname{Cov}(X+Y,Z+W)&=\\operatorname{Cov}(X,Z+W)+\\operatorname{Cov}(Y,Z+W)\\\\ &=\\operatorname{Cov}(Z+W,X)+\\operatorname{Cov}(Z+W,Y)\\\\ &=\\operatorname{Cov}(Z,X)+\\operatorname{Cov}(W,X)+\\operatorname{Cov}(Z,Y)+\\operatorname{Cov}(W,Y)\\\\ &=\\operatorname{Cov}(X,Z)+\\operatorname{Cov}(X,W)+\\operatorname{Cov}(Y,Z)+\\operatorname{Cov}(Y,W). \\end{aligned}$$ 
+
+
+Tính chất 7 suy ra từ việc viết phương sai của một biến ngẫu nhiên thành covariance của nó với chính nó (theo Tính chất 1) và sau đó sử dụng Tính chất 6 liên tiếp.
+
+Chúng ta đã hoàn thành lời hứa từ Chương 4 rằng đối với các biến ngẫu nhiên độc lập, phương sai của tổng là tổng các phương sai:
+
+
+ $$\\mathrm{Var}\\left(\\sum_{j=1}^{n}X_{j}\\right)=\\sum_{j=1}^{n}\\mathrm{Var}(X_{j})\\text{ nếu } X_{1},\\ldots,X_{n}\\text{ là độc lập}.$$ 
+
+
+Theo Định lý 7.3.2, các biến ngẫu nhiên độc lập là không tương quan, do đó trong trường hợp này tất cả các hạng tử covariance sẽ biến mất khỏi biểu thức trong Tính chất 7.
+
+<div class="math-box remark">
+<div class="math-box-header">
+<div class="math-box-number">Ghi chú 7.3.3</div>
+  </div>
+<div class="math-box-content">
+
+Nếu X và Y là độc lập, thì các tính chất của covariance cho
+
+
+ $$\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y).$$ 
+
+
+</div>
+</div>
+
+Là một lỗi phổ biến để khẳng định “  $\\operatorname{Var}(X-Y) = \\operatorname{Var}(X) - \\operatorname{Var}(Y)$ ”; đây là một lỗi phân loại vì  $\\operatorname{Var}(X) - \\operatorname{Var}(Y)$  có thể âm. Đối với X và Y tổng quát, chúng ta có
+
+
+ $$\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)-2\\mathrm{Cov}(X,Y).$$ 
+
+
+Vì covariance phụ thuộc vào các đơn vị mà X và Y được đo lường—if chúng ta quyết định đo X bằng centimeters thay vì meters, covariance sẽ được nhân với 100—nên dễ dàng hơn để diễn giải một phiên bản không có đơn vị của covariance gọi là correlation.
+
+<div class="math-box definition">
+<div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 7.3.4</div>
+    <div class="math-box-title">Correlation</div>
+  </div>
+<div class="math-box-content">
+
+Correlation giữa các biến ngẫu nhiên X và Y là
+
+
+ $$\\mathrm{Corr}(X,Y)=\\frac{\\mathrm{Cov}(X,Y)}{\\sqrt{\\mathrm{Var}(X)\\mathrm{Var}(Y)}}.$$ 
+
+
+</div>
+</div>
+
+(Đây là không xác định trong các trường hợp đặc biệt  $\\operatorname{Var}(X)=0$  hoặc  $\\operatorname{Var}(Y)=0$ .)
+
+Lưu ý rằng việc dịch chuyển và thay đổi tỷ lệ của X và Y không ảnh hưởng đến correlation của chúng. Dịch chuyển không ảnh hưởng đến  $\\text{Cov}(X, Y)$ ,  $\\text{Var}(X)$ , hoặc  $\\text{Var}(Y)$ , do đó correlation không thay đổi. Về mặt tỷ lệ, việc chúng ta chia cho độ lệch chuẩn của X và Y đảm bảo rằng hệ số tỷ lệ sẽ triệt tiêu:
+
+
+ $$\\mathrm{Corr}(cX,Y)=\\frac{\\mathrm{Cov}(cX,Y)}{\\sqrt{\\mathrm{Var}(cX)\\mathrm{Var}(Y)}}=\\frac{c\\mathrm{Cov}(X,Y)}{\\sqrt{c^{2}\\mathrm{Var}(X)\\mathrm{Var}(Y)}}=\\mathrm{Corr}(X,Y).$$ 
+
+
+Correlation là tiện lợi để diễn giải vì nó không phụ thuộc vào các đơn vị đo lường và luôn nằm trong khoảng -1 đến 1.
+
+<div class="math-box theorem">
+<div class="math-box-header">
+    <div class="math-box-number">Định lý 7.3.5</div>
+    <div class="math-box-title">Các giới hạn của hệ số tương quan</div>
+  </div>
+<div class="math-box-content">
+
+Với bất kỳ các biến ngẫu nhiên X và Y nào,
+
+
+ $$-1\\leq\\mathrm{Corr}(X,Y)\\leq1.$$ 
+
+
+</div>
+</div>
+
+<div class="math-box proof">
+<div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+</div>
+<div class="math-box-content">
+
+Không mất tính tổng quát, ta có thể giả sử X và Y có phương sai bằng 1, vì việc thay đổi tỷ lệ không thay đổi hệ số tương quan. Gọi $\\rho = \\text{Corr}(X, Y) = \\text{Cov}(X, Y)$. Sử dụng tính chất phương sai không âm, cùng với Tính chất 7 của phương hiệp biến, ta có
+
+
+ $$\\mathrm{Var}(X+Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)+2\\mathrm{Cov}(X,Y)=2+2\\rho\\geq0,$$ 
+
+
+
+ $$\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)-2\\mathrm{Cov}(X,Y)=2-2\\rho\\geq0.$$ 
+
+
+Vậy, $-1 \\leq \\rho \\leq 1$.
+
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+</div>
+</div>
+
+Dưới đây là một ví dụ về cách tính phương hiệp biến và hệ số tương quan.
+
+<div class="math-box example">
+<div class="math-box-header">
+<div class="math-box-number">Ví dụ 7.3.6</div>
+    <div class="math-box-title">Cực đại và cực tiểu của phân phối mũ</div>
+  </div>
+<div class="math-box-content">
+
+Gọi X và Y là các biến ngẫu nhiên độc lập và đồng phân phối Expo(1). Tìm hệ số tương quan giữa $\\max(X, Y)$ và $\\min(X, Y)$.
+
+**Giải pháp:**
+
+Gọi $M = \\max(X, Y)$ và $L = \\min(X, Y)$. Nhờ tính chất nhớ và các kết quả từ Chương 5, ta biết rằng $L \\sim \\text{Expo}(2)$, $M - L \\sim \\text{Expo}(1)$, và M - L độc lập với L (xem Ví dụ 5.6.5). Do đó,
+
+
+ $$\\mathrm{Cov}(M,L)=\\mathrm{Cov}(M-L+L,L)=\\mathrm{Cov}(M-L,L)+\\mathrm{Cov}(L,L)=0+\\mathrm{Var}(L)=\\frac{1}{4},$$ 
+
+
+
+ $$\\mathrm{Var}(M)=\\mathrm{Var}(M-L+L)=\\mathrm{Var}(M-L)+\\mathrm{Var}(L)=1+\\frac{1}{4}=\\frac{5}{4},$$ 
+
+
+và
+
+
+ $$\\mathrm{Corr}(M,L)=\\frac{\\mathrm{Cov}(M,L)}{\\sqrt{\\mathrm{Var}(M)\\mathrm{Var}(L)}}=\\frac{\\frac{1}{4}}{\\sqrt{\\frac{5}{4}\\cdot\\frac{1}{4}}}=\\frac{1}{\\sqrt{5}}.$$ 
+
+
+</div>
+</div>
+
+<div class="math-box remark">
+<div class="math-box-header">
+    <div class="math-box-number">Ghi chú 7.3.7</div>
+  </div>
+<div class="math-box-content">
+
+Trong ví dụ trên, điều hợp lý là hệ số tương quan dương vì M bị ràng buộc phải lớn hơn hoặc bằng L. Lập luận sau đây sẽ là một sai lầm: “Hoặc M = X, L = Y hoặc M = Y, L = X, do đó hoặc $\\text{Cov}(M, L) = \\text{Cov}(X, Y)$ hoặc $\\text{Cov}(M, L) = \\text{Cov}(Y, X)$. Nhưng $\\text{Cov}(Y, X) = \\text{Cov}(X, Y)$, do đó ta luôn có $\\text{Cov}(M, L) = \\text{Cov}(X, Y) = 0$.” Điều này đúng là cả hai trường hợp M = X, L = Y hoặc M = Y, L = X sẽ xảy ra, nhưng đây là các sự kiện, không phải trường hợp xác định. Lập luận sẽ bị phá vỡ nếu được viết cẩn thận bằng xác suất điều kiện.
+
+</div>
+</div>
+
+Tính chất của phương hiệp biến cũng có thể là công cụ hữu ích để tìm phương sai, đặc biệt khi biến ngẫu nhiên quan tâm là tổng của các biến ngẫu nhiên phụ thuộc. Ví dụ tiếp theo sử dụng tính chất của phương hiệp biến để suy ra phương sai của phân phối Hypergeometric. Nếu bạn đã làm Bài tập 48 từ Chương 4, bạn có thể so sánh hai cách suy ra.
+
+<div class="math-box example">
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 7.3.8</div>
+    <div class="math-box-title">Phương sai của phân phối Hypergeometric</div>
+</div>
+<div class="math-box-content">
+
+
+ $$\\begin{aligned} \\operatorname{Var}(X)&=\\operatorname{Var}\\left(\\sum_{j=1}^{n}I_{j}\\right)\\\\ &=\\operatorname{Var}(I_{1})+\\cdots+\\operatorname{Var}(I_{n})+2\\sum_{i<j}\\operatorname{Cov}(I_{i},I_{j})\\\\ &=np(1-p)+2\\binom{n}{2}\\operatorname{Cov}(I_{1},I_{2}), \\end{aligned}$$ 
+
+
+vì tất cả  $\\binom{n}{2}$  cặp chỉ báo có cùng hiệp phương sai nhờ tính đối xứng. Bây giờ chúng ta chỉ cần tìm  $\\text{Cov}(I_{1}, I_{2})$ . Theo cầu nối cơ bản,
+
+
+ $$\\begin{aligned} \\operatorname{Cov}(I_{1},I_{2})&=E(I_{1}I_{2})-E(I_{1})E(I_{2})\\\\ &=P(\\text{bóng thứ 1 và thứ 2 đều trắng})-P(\\text{bóng thứ 1 trắng})P(\\text{bóng thứ 2 trắng})\\\\ &=\\frac{w}{w+b}\\cdot\\frac{w-1}{w+b-1}-p^{2}. \\end{aligned}$$ 
+
+
+Thay giá trị này vào công thức trên và đơn giản hóa, chúng ta cuối cùng đạt được
+
+
+ $$\\mathrm{Var}(X)=\\frac{N-n}{N-1}np(1-p),$$ 
+
+
+trong đó $N = w + b$. Điều này khác với phương sai của phân phối Binomial là $np(1 - p)$ bởi một hệ số $\\frac{N - n}{N - 1}$, được gọi là sự điều chỉnh quần thể hữu hạn. Sự khác biệt này phát sinh từ thực tế là trong câu chuyện Binomial, chúng ta lấy mẫu có hoàn lại, do đó cùng một bóng có thể được rút nhiều lần; trong câu chuyện siêu hình học, chúng ta lấy mẫu không hoàn lại, do đó mỗi bóng chỉ xuất hiện trong mẫu tối đa một lần.
+
+</div>
+</div>
+
+Nếu chúng ta xem N là "kích thước quần thể" của urn, thì khi N tăng rất lớn so với kích thước mẫu n, sẽ trở nên cực kỳ khó để trong việc lấy mẫu có hoàn lại, chúng ta rút cùng một bóng nhiều lần. Do đó, việc lấy mẫu có hoàn lại và không hoàn lại trở nên tương đương trong giới hạn khi  $N \\to \\infty$  với n cố định, và sự điều chỉnh quần thể hữu hạn tiến tới 1.
+
+Trường hợp khác mà việc lấy mẫu có và không hoàn lại là tương đương là trường hợp đơn giản khi chúng ta chỉ rút một bóng từ urn, và thực sự, sự điều chỉnh quần thể hữu hạn cũng bằng 1 khi n = 1.
+
+Các phần cuối cùng trong chương này giới thiệu phân phối Multinomial và phân phối Multivariate Normal. Phân phối Multinomial là phân phối đa biến rời rạc nổi tiếng nhất, và phân phối Multivariate Normal là phân phối đa biến liên tục nổi tiếng nhất.`,TA=`Phân phối Multinomial là sự tổng quát hóa của phân phối Binomial. Trong khi phân phối Binomial đếm số lần thành công trong một số lần thử cố định mà chỉ có thể được phân loại là thành công hoặc thất bại, phân phối Multinomial theo dõi các lần thử mà kết quả có thể rơi vào nhiều loại, ví dụ như xuất sắc, đủ, kém; hoặc đỏ, vàng, xanh, xanh lá, xanh lam.
+
+<div class="math-box definition">
+<div class="math-box-header">
+    <div class="math-box-number">Câu chuyện 7.4.1</div>
+    <div class="math-box-title">Phân phối Multinomial</div>
+  </div>
+<div class="math-box-content">
+
+Mỗi trong số $n$ vật thể được đặt độc lập vào một trong $k$ loại. Một vật thể được đặt vào loại $j$ với xác suất $p_j$, trong đó các $p_j$ là không âm và $\\sum_{j=1}^{k} p_j = 1$. Gọi $X_1$ là số vật thể trong loại 1, $X_2$ là số vật thể trong loại 2, v.v., do đó $X_1 + \\cdots + X_k = n$. Khi đó $\\mathbf{X} = (X_1, \\ldots, X_k)$ được cho là có phân phối Multinomial với tham số $n$ và $\\mathbf{p} = (p_1, \\ldots, p_k)$. Chúng ta viết điều này là $\\mathbf{X} \\sim \\text{Mult}_k(n, \\mathbf{p})$.
+
+</div>
+</div>
+
+Chúng ta gọi X là vector ngẫu nhiên vì nó là một vector của các biến ngẫu nhiên. Hàm mật độ xác suất chung của X có thể được suy ra từ câu chuyện.
+
+<div class="math-box theorem">
+<div class="math-box-header">
+    <div class="math-box-number">Định lý 7.4.2</div>
+    <div class="math-box-title">Hàm mật độ xác suất chung của Multinomial</div>
+  </div>
+<div class="math-box-content">
+
+Nếu $\\mathbf{X} \\sim \\text{Mult}_{k}(n, \\mathbf{p})$, thì hàm mật độ xác suất chung của $\\mathbf{X}$ là
+
+
+ $$P(X_{1}=n_{1},\\cdots,X_{k}=n_{k})=\\frac{n!}{n_{1}!n_{2}!\\cdots n_{k}!}\\cdot p_{1}^{n_{1}}p_{2}^{n_{2}}\\cdots p_{k}^{n_{k}},$$ 
+
+
+cho $n_{1}, \\ldots, n_{k}$ thỏa mãn $n_{1} + \\cdots + n_{k} = n$.
+
+</div>
+</div>
+
+<div class="math-box proof">
+<div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+</div>
+<div class="math-box-content">
+
+Nếu $n_{1},\\ldots,n_{k}$ không cộng lại thành $n$, thì sự kiện $\\{X_{1}=n_{1},\\ldots,X_{k}=n_{k}\\}$ là không thể xảy ra: mỗi vật thể phải đến đâu đó, và không có vật thể mới nào có thể xuất hiện từ đâu. Nếu $n_{1},\\ldots,n_{k}$ cộng lại thành $n$, thì bất kỳ cách nào cụ thể để đặt $n_{1}$ vật thể vào loại 1, $n_{2}$ vật thể vào loại 2, v.v., có xác suất $p_{1}^{n_{1}}p_{2}^{n_{2}}\\ldots p_{k}^{n_{k}}$, và có
+
+
+ $$\\frac{n!}{n_{1}!n_{2}!\\cdots n_{k}!}$$ 
+
+
+cách để thực hiện điều này, như đã thảo luận trong Ví dụ 1.4.18 trong bối cảnh sắp xếp lại các chữ cái trong STATISTICS. Do đó, hàm mật độ xác suất chung là như đã nói.
+
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+</div>
+</div>
+
+Vì chúng ta đã xác định rõ phân phối chung của X, chúng ta có đủ thông tin để xác định các phân phối biên và điều kiện, cũng như độ hiệp phương sai giữa bất kỳ hai thành phần nào của X.
+
+Hãy xem xét từng điều một, bắt đầu với phân phối biên của  $X_{j}$ , nào
+
+thành phần thứ  $j$  của  $\\mathbf{X}$ . Nếu chúng ta áp dụng định nghĩa một cách mù quáng, chúng ta sẽ phải tính tổng PMF chung trên tất cả các thành phần của  $\\mathbf{X}$  khác  $X_{j}$ . Việc tính  $k-1$  tổng là một điều không dễ chịu, ít nhất là vậy. May mắn thay, chúng ta có thể tránh được các phép tính tẻ nhạt nếu thay vào đó sử dụng câu chuyện của phân phối Multinomial:  $X_{j}$  là số lượng vật thể trong nhóm  $j$ , nơi mỗi trong số  $n$  vật thể độc lập thuộc nhóm  $j$  với xác suất  $p_{j}$ . Định nghĩa thành công là rơi vào nhóm  $j$ . Khi đó chúng ta chỉ có  $n$  phép thử Bernoulli độc lập, do đó phân phối biên của  $X_{j}$  là  $\\mathrm{Bin}(n, p_{j})$ .
+
+<div class="math-box theorem">
+<div class="math-box-header">
+<div class="math-box-number">Định lý 7.4.3</div>
+    <div class="math-box-title">Biên của Multinomial</div>
+  </div>
+<div class="math-box-content">
+
+Các biên của một phân phối Multinomial là phân phối Binomial. Cụ thể, nếu $\\mathbf{X} \\sim \\text{Mult}_{k}(n, \\mathbf{p})$, thì $X_{j} \\sim \\text{Bin}(n, p_{j})$.
+
+</div>
+</div>
+
+Mở rộng hơn nữa, bất cứ khi nào chúng ta hợp nhất nhiều nhóm lại với nhau trong một vector ngẫu nhiên Multinomial, chúng ta sẽ nhận được một vector ngẫu nhiên Multinomial khác. Ví dụ, giả sử chúng ta lấy mẫu ngẫu nhiên $n$ người trong một quốc gia có 5 đảng chính trị. (Nếu việc lấy mẫu được thực hiện mà không thay thế, $n$ phép thử không độc lập, nhưng độc lập là một sự xấp xỉ tốt miễn là dân số lớn hơn đáng kể so với mẫu, như chúng ta đã thảo luận trong Định lý 3.9.3 và Ví dụ 7.3.8.) Gọi
+
+
+ $$\\mathbf{X}=(X_{1},\\ldots,X_{5})\\sim\\operatorname{Mult}_{5}(n,(p_{1},\\ldots,p_{5}))$$ 
+
+
+là các đảng chính trị của mẫu, tức là $X_{j}$ là số người trong mẫu ủng hộ đảng $j$.
+
+Giả sử rằng đảng 1 và 2 là hai đảng lớn, trong khi các đảng 3 đến 5 là các đảng nhỏ. Nếu chúng quyết định thay vì theo dõi tất cả 5 đảng, chúng ta chỉ muốn đếm số người ủng hộ đảng 1, đảng 2, hoặc "khác", thì chúng ta có thể định nghĩa một vector ngẫu nhiên mới hợp nhất tất cả các đảng thứ ba vào một nhóm:
+
+
+ $$\\mathbf{Y}=(X_{1},X_{2},X_{3}+X_{4}+X_{5}).$$ 
+
+
+Theo câu chuyện của phân phối Multinomial,
+
+
+ $$\\mathbf{Y}\\sim\\operatorname{Mult}_{3}(n,(p_{1},p_{2},p_{3}+p_{4}+p_{5})).$$ 
+
+
+Tất nhiên, ý tưởng này áp dụng cho việc hợp nhất các nhóm trong bất kỳ Multinomial nào, không chỉ trong bối cảnh các đảng chính trị.
+
+<div class="math-box theorem">
+<div class="math-box-header">
+    <div class="math-box-number">Định lý 7.4.4</div>
+    <div class="math-box-title">Hợp nhất Multinomial</div>
+  </div>
+<div class="math-box-content">
+
+Nếu $\\mathbf{X} \\sim \\text{Mult}_{k}(n, \\mathbf{p})$, thì với bất kỳ hai nhóm phân biệt nào $i$ và $j$, $X_i + X_j \\sim \\text{Bin}(n, p_i + p_j)$. Vector đếm nhận được từ việc hợp nhất các nhóm $i$ và $j$ vẫn là Multinomial. Ví dụ, hợp nhất các nhóm 1 và 2 cho
+
+
+ $$(X_{1}+X_{2},X_{3},\\ldots,X_{k})\\sim\\operatorname{Mult}_{k-1}(n,(p_{1}+p_{2},p_{3},\\ldots,p_{k})).$$ 
+
+
+</div>
+</div>
+
+Bây giờ cho phân phối điều kiện. Giả sử chúng ta quan sát được  $X_{1}$ , số lượng
+
+Các đối tượng trong danh mục 1, và chúng tôi muốn cập nhật phân phối của chúng cho các danh mục khác  $(X_{2}, \\ldots, X_{k})$ . Một cách để làm điều này là với định nghĩa của PMF có điều kiện:
+
+
+ $$P(X_{2}=n_{2},\\cdots,X_{k}=n_{k}|X_{1}=n_{1})=\\frac{P(X_{1}=n_{1},X_{2}=n_{2},\\cdots,X_{k}=n_{k})}{P(X_{1}=n_{1})}.$$ 
+
+
+Tử số là PMF chung của Multinomial, và mẫu số là PMF biên của $X_{1}$, cả hai đều mà chúng ta đã có được trước đó. Tuy nhiên, chúng tôi thích sử dụng câu chuyện Multinomial để suy ra phân phối có điều kiện của $(X_{2},\\ldots,X_{k})$ mà không cần tính toán đại số. Cho rằng có $n_{1}$ đối tượng trong danh mục 1, các đối tượng còn lại $n-n_{1}$ sẽ rơi vào các danh mục 2 đến k, độc lập với nhau. Theo quy tắc Bayes, xác suất có điều kiện rơi vào danh mục j là
+
+
+ $$P(\\text{trong danh mục }j|\\text{không trong danh mục }1)=\\frac{P(\\text{trong danh mục }j)}{P(\\text{không trong danh mục }1)}=\\frac{p_{j}}{p_{2}+\\cdots+p_{k}},$$ 
+
+
+cho $j = 2, \\ldots, k$. Điều này có vẻ hợp lý: các xác suất cập nhật tỉ lệ với các xác suất ban đầu $(p_2, \\ldots, p_k)$, nhưng chúng phải được chuẩn hóa lại để tạo thành một vector xác suất hợp lệ. Kết hợp tất cả các điều trên, chúng ta có kết quả sau.
+
+<div class="math-box theorem">
+<div class="math-box-header">
+    <div class="math-box-number">Định lý 7.4.5</div>
+    <div class="math-box-title">Điều kiện của Multinomial</div>
+  </div>
+<div class="math-box-content">
+
+Nếu $\\mathbf{X} \\sim \\text{Mult}_{k}(n, \\mathbf{p})$, thì
+
+
+ $$(X_{2},\\cdots,X_{k})|X_{1}=n_{1}\\sim\\operatorname{Mult}_{k-1}(n-n_{1},(p_{2}^{\\prime},\\cdots,p_{k}^{\\prime})),$$ 
+
+
+trong đó $p_{j}^{\\prime} = p_{j} / (p_{2} + \\cdots + p_{k})$.
+
+</div>
+</div>
+
+Cuối cùng, chúng ta biết rằng các thành phần trong một vector ngẫu nhiên Multinomial là phụ thuộc vào nhau vì chúng bị ràng buộc bởi $X_{1}+\\cdots+X_{k}=n$. Để tìm phương sai giữa $X_{i}$ và $X_{j}$, chúng ta có thể sử dụng các tính chất biên và nhóm lại mà chúng ta vừa thảo luận.
+
+<div class="math-box theorem">
+<div class="math-box-header">
+    <div class="math-box-number">Định lý 7.4.6</div>
+    <div class="math-box-title">Phương sai trong một Multinomial</div>
+  </div>
+<div class="math-box-content">
+
+Cho $(X_1, \\ldots, X_k) \\sim \\text{Mult}_k(n, \\mathbf{p})$, trong đó $\\mathbf{p} = (p_1, \\ldots, p_k)$. Với $i \\neq j$, $\\text{Cov}(X_i, X_j) = -np_i p_j$.
+
+</div>
+</div>
+
+<div class="math-box proof">
+<div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+</div>
+<div class="math-box-content">
+
+Để cụ thể, hãy lấy $i = 1$ và $j = 2$. Sử dụng tính chất nhóm và các phân phối biên của một Multinomial, chúng ta biết $X_1 + X_2 \\sim \\mathrm{Bin}(n, p_1 + p_2)$, $X_1 \\sim \\mathrm{Bin}(n, p_1)$, và $X_2 \\sim \\mathrm{Bin}(n, p_2)$. Do đó
+
+
+ $$\\mathrm{Var}(X_{1}+X_{2})=\\mathrm{Var}(X_{1})+\\mathrm{Var}(X_{2})+2\\mathrm{Cov}(X_{1},X_{2})$$ 
+
+
+trở thành
+
+
+ $$n(p_{1}+p_{2})(1-(p_{1}+p_{2}))=np_{1}(1-p_{1})+np_{2}(1-p_{2})+2\\mathrm{Cov}(X_{1},X_{2}).$$ 
+
+
+Giải phương trình để tìm $\\mathrm{Cov}(X_1, X_2)$ cho $\\mathrm{Cov}(X_1, X_2) = -np_1p_2$. Bằng cùng lập luận như vậy, với $i \\neq j$, chúng ta có $\\mathrm{Cov}(X_i, X_j) = -np_i p_j$.
+
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+</div>
+</div>
+
+Các thành phần có sự tương quan âm, như chúng ta mong đợi: nếu chúng ta biết có nhiều đối tượng trong danh mục i, thì sẽ không còn nhiều đối tượng còn lại có thể nằm trong danh mục j. Bài tập 65 yêu cầu một chứng minh khác cho kết quả này, sử dụng các chỉ số.
+
+<div class="math-box remark">
+<div class="math-box-header">
+<div class="math-box-number">Ghi chú 7.4.7</div>
+    <div class="math-box-title">Thử nghiệm độc lập nhưng thành phần phụ thuộc</div>
+  </div>
+<div class="math-box-content">
+
+Các thành phần $k$ của một Multinomial là phụ thuộc, nhưng các đối tượng $n$ trong câu chuyện của Multinomial được phân loại độc lập. Trong trường hợp cực đoan $k = 2$, một vector ngẫu nhiên $\\text{Mult}_{k}(n, \\mathbf{p})$ trông như $(X, n - X)$ với $X \\sim \\text{Bin}(n, p_{1})$, mà chúng ta có thể xem như (số lần thành công, số lần thất bại), nơi "thành công" được xác định là nhận được danh mục 1. Số lần thành công có mối quan hệ âm hoàn toàn với số lần thất bại, ngay cả khi các lần thử nghiệm là độc lập.
+
+</div>
+</div>
+
+Chúng ta kết thúc phần này với một ví dụ dũng cảm kết nối nhiều khái niệm quan trọng nhất cho Multinomial.
+
+<div class="math-box example">
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 7.4.8</div>
+    <div class="math-box-title">Nữ anh hùng Thống kê</div>
+  </div>
+<div class="math-box-content">
+
+Người anh hùng siêu năng Statwoman sử dụng xác suất và thống kê để chống tội phạm. Cô đã chiến đấu với vô số kẻ thù, đôi khi thậm chí chiến đấu với nhiều kẻ tại cùng một lúc. Tuy nhiên, để đơn giản, giả sử rằng mỗi trận chiến của cô là với đúng một trong số các đối thủ sau: Confounder, Extrapolator, và Overfitter.
+
+Giả sử rằng Statwoman sẽ có $n$ trận chiến trong năm tới (với $n$ là một số nguyên dương), và mỗi trận chiến là với Confounder với xác suất $p_{1}$, Extrapolator với xác suất $p_{2}$, và Overfitter với xác suất $p_{3}$, độc lập. Ở đây $p_{1}, p_{2}, p_{3}$ là không âm và tổng bằng 1. Gọi $X_{1}, X_{2}, X_{3}$ là số trận chiến Statwoman sẽ có với Confounder, Extrapolator, và Overfitter trong năm tới, tương ứng.
+
+(a) Tìm phân phối chung của $X_{1}, X_{2}, X_{3}$.
+
+(b) Tìm độ tương quan giữa $X_{1}$ và $X_{2}$.
+
+(c) Giả sử chỉ cho phần này rằng hóa ra Extrapolator và Overfitter đã cùng nhau lên kế hoạch ác độc, vì vậy việc nghiên cứu tổng số trận chiến của họ với Statwoman là quan tâm. Gọi $X_{23} = X_{2} + X_{3}$. Tìm phân phối chung của $X_{1}, X_{23}$.
+
+(d) Giả sử chỉ cho phần này rằng các tham số $p_{1}, p_{2}, p_{3}$ là chưa biết, $n = 360$, và quan sát được rằng chính xác 36 trận chiến của Statwoman là với Overfitter. Một cách tự nhiên để ước lượng $p_{3}$ là sử dụng 36/360 = 0.1. Ước lượng cực đại khả năng (MLE) của $p_{3}$ là giá trị của $p_{3}$ làm cho dữ liệu quan sát, $X_{3} = 36$, trở nên có khả năng nhất. Nghĩa là, MLE là giá trị của $p_{3}$ làm cực đại $P(X_{3} = 36)$. Chứng minh rằng MLE là ước lượng tự nhiên, 0.1.
+
+(e) Giả sử chỉ cho phần này rằng Overfitter đã bị bắt, nhờ những nỗ lực dũng cảm! Vì vậy, giả sử rằng tất cả các trận chiến của Statwoman trong năm tới sẽ là với một trong hai đối thủ khác của cô. Tìm hàm mật độ xác suất chung của $X_{1}, X_{2}$, cho rằng $X_{3} = 0$.
+
+(f) Bây giờ giả sử rằng, thay vì số trận chiến là một hằng số $n$, số trận chiến là $N \\sim \\mathrm{Pois}(\\lambda)$. Tìm phân phối chung của $X_{1}, X_{2}, X_{3}$.
+
+**Giải pháp:**
+
+(a) Theo câu chuyện của Multinomial, $(X_{1}, X_{2}, X_{3}) \\sim \\text{Mult}_{3}(n, (p_{1}, p_{2}, p_{3}))$.
+
+(b) Chúng ta có $X_1 \\sim \\text{Bin}(n, p_1)$, $X_2 \\sim \\text{Bin}(n, p_2)$, và $\\text{Cov}(X_1, X_2) = -np_1p_2$, nên
+
+
+ $$\\mathrm{Corr}(X_{1},X_{2})=\\frac{\\mathrm{Cov}(X_{1},X_{2})}{\\mathrm{SD}(X_{1})\\mathrm{SD}(X_{2})}=\\frac{-np_{1}p_{2}}{\\sqrt{np_{1}(1-p_{1})np_{2}(1-p_{2})}}=-\\sqrt{\\frac{p_{1}p_{2}}{(1-p_{1})(1-p_{2})}}.$$ 
+
+
+(c) Theo tính chất nhóm của phân phối Multinomial,
+
+
+ $$(X_{1},X_{23})\\sim\\operatorname{Mult}_{2}(n,(p_{1},p_{2}+p_{3})).$$ 
+
+
+(d) Tổng quát cho $X \\sim \\mathrm{Bin}(n, p)$, nếu quan sát được X = x thì ước lượng tối đa (MLE) của p là giá trị của p làm cực đại hàm số
+
+
+ $$L(p)=\\binom{n}{x}p^{x}(1-p)^{n-x}.$$ 
+
+
+( Hàm số L được gọi là hàm likelihood trong thống kê. Đó là xác suất của dữ liệu, được xem như một hàm số của tham số với dữ liệu được coi là cố định.)
+
+Như thường xảy ra khi làm việc với tích của các số dương, việc lấy log là hữu ích. Nó tương đương với việc tìm giá trị $\\hat{p}$ làm cực đại
+
+
+ $$\\log L(p)=\\log\\binom{n}{x}+x\\log p+(n-x)\\log(1-p),$$ 
+
+
+vì log là một hàm liên tục, tăng nghiêm ngặt. Đặt đạo hàm của $\\log L(p)$ (theo p, giữ x không đổi) bằng 0, ta có
+
+
+ $$\\frac{x}{\\hat{p}}-\\frac{n-x}{1-\\hat{p}}=0,$$ 
+
+
+điều này sắp xếp lại thành $\\hat{p}=x/n$. Chúng ta đã tìm được một cực đại vì đạo hàm cấp hai của $\\log L(p)$ là
+
+
+ $$-\\frac{x}{p^{2}}-\\frac{n-x}{(1-p)^{2}}<0.$$ 
+
+
+Vậy ước lượng tối đa của $p_{3}$ là $\\hat{p}_{3} = 36/360 = 0.1$.
+
+(e) Theo kết quả về điều kiện của phân phối Multinomial,
+
+
+ $$(X_{1},X_{2})|(X_{3}=0)\\sim\\operatorname{Mult}_{2}\\left(n,\\left(\\frac{p_{1}}{p_{1}+p_{2}},\\frac{p_{2}}{p_{1}+p_{2}}\\right)\\right).$$ 
+
+
+(f) Lập luận như trong câu chuyện gà và trừng,
+
+
+ $$P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3})=\\sum_{n=0}^{\\infty}P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3}|N=n)P(N=n),$$ 
+
+
+Ở đây tất cả các số hạng của tổng đều bằng 0 ngoại trừ số hạng với $n = x_{1} + x_{2} + x_{3}$. Với giá trị này của n,
+
+
+ $$\\begin{aligned} P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3})&=P(X_{1}=x_{1},X_{2}=x_{2},X_{3}=x_{3}|N=n)P(N=n)\\\\ &=\\frac{n!}{x_{1}!x_{2}!x_{3}!}p_{1}^{x_{1}}p_{2}^{x_{2}}p_{3}^{x_{3}}\\cdot e^{-\\lambda}\\frac{\\lambda^{n}}{n!}\\\\ &=\\frac{e^{-\\lambda p_{1}}(\\lambda p_{1})^{x_{1}}}{x_{1}!}\\cdot\\frac{e^{-\\lambda p_{2}}(\\lambda p_{2})^{x_{2}}}{x_{2}!}\\cdot\\frac{e^{-\\lambda p_{3}}(\\lambda p_{3})^{x_{3}}}{x_{3}!}, \\end{aligned}$$ 
+
+
+với mọi số nguyên không âm $x_1, x_2, x_3$. Do đó, $X_1, X_2, X_3$ là độc lập, với $X_j \\sim \\text{Pois}(\\lambda p_j)$. Kết quả này là một mở rộng của phân phối Multinomial của câu chuyện gà và trừng.
+
+</div>
+</div>`,EA=`Phân phối chuẩn đa biến là một phân phối đa biến liên tục mà mở rộng phân phối chuẩn vào các chiều số cao hơn. Chúng ta sẽ không làm việc với mật độ xác suất chung khá phức tạp của phân phối chuẩn đa biến. Thay vào đó, chúng ta định nghĩa phân phối chuẩn đa biến thông qua mối quan hệ với phân phối chuẩn đơn biến.
+
+<div class="math-box definition">
+<div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 7.5.1</div>
+    <div class="math-box-title">Phân phối chuẩn đa biến</div>
+  </div>
+<div class="math-box-content">
+
+Một vector ngẫu nhiên k-chiều $\\mathbf{X} = (X_1, \\ldots, X_k)$ được gọi là có phân phối chuẩn đa biến (MVN) nếu mọi tổ hợp tuyến tính của các $X_j$ có phân phối chuẩn. Tức là, chúng ta yêu cầu
+
+
+ $$t_{1}X_{1}+\\cdots+t_{k}X_{k}$$ 
+
+
+phải có phân phối chuẩn với bất kỳ hằng số nào $t_{1}, \\ldots, t_{k}$. Nếu $t_{1}X_{1} + \\cdots + t_{k}X_{k}$ là một hằng số (ví dụ như khi tất cả $t_{i} = 0$), chúng ta coi rằng nó có phân phối chuẩn, mặc dù là một phân phối chuẩn suy biến với phương sai bằng 0. Một trường hợp đặc biệt quan trọng là k = 2; phân phối này được gọi là phân phối chuẩn hai chiều (BVN).
+
+</div>
+</div>
+
+Nếu $(X_1, \\ldots, X_k)$ là MVN, thì phân phối biên của $X_1$ là chuẩn, vì chúng ta có thể lấy $t_1$ bằng 1 và tất cả các $t_j$ khác bằng 0. Tương tự, phân phối biên của mỗi $X_j$ là chuẩn. Tuy nhiên, điều ngược lại là sai: có thể có các biến ngẫu nhiên chuẩn $X_1, \\ldots, X_k$ sao cho $(X_1, \\ldots, X_k)$ không phải là phân phối chuẩn đa biến.
+
+<div class="math-box example">
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 7.5.2</div>
+    <div class="math-box-title">Không phải là ví dụ của MVN</div>
+  </div>
+<div class="math-box-content">
+
+Đây là một ví dụ về hai biến ngẫu nhiên có phân phối biên là chuẩn nhưng phân phối chung không phải là phân phối chuẩn hai chiều. Cho $X \\sim \\mathcal{N}(0,1)$, và cho
+
+
+ $$S=\\begin{cases}1&\\text{với xác suất }1/2\\\\ -1&\\text{với xác suất }1/2\\end{cases}$$ 
+
+
+là một dấu ngẫu nhiên độc lập với X. Khi đó Y = SX là một biến ngẫu nhiên chuẩn tiêu chuẩn, do tính đối xứng của phân phối chuẩn (xem Bài tập 30 từ Chương 5). Tuy nhiên, $(X,Y)$ không phải là Bivariate Normal vì $P(X+Y=0)=P(S=-1)=1/2$, điều này cho thấy rằng $X+Y$ không thể là Normal (hoặc, nói cách khác, có bất kỳ phân phối liên tục nào). Vì $X+Y$ là một tổ hợp tuyến tính của $X$ và $Y$ mà không phải là phân phối Normal, nên $(X,Y)$ không phải là Bivariate Normal.
+
+</div>
+</div>
+
+<div class="math-box example">
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 7.5.3</div>
+    <div class="math-box-title">MVN thực tế</div>
+  </div>
+<div class="math-box-content">
+
+Với $Z, W \\stackrel{i.i.d.}{\\sim} \\mathcal{N}(0,1)$, $(Z, W)$ là Bivariate Normal vì tổng của các Normal độc lập là Normal. Ngoài ra, $(Z + 2W, 3Z + 5W)$ cũng là Bivariate Normal, vì một tổ hợp tuyến tính tùy ý
+
+
+ $$t_{1}(Z+2W)+t_{2}(3Z+5W)$$ 
+
+
+cũng có thể được viết lại thành một tổ hợp tuyến tính của $Z$ và $W$,
+
+
+ $$(t_{1}+3t_{2})Z+(2t_{1}+5t_{2})W,$$ 
+
+
+mà là Normal.
+
+</div>
+</div>
+
+Ví dụ trên cho thấy rằng nếu chúng ta bắt đầu với một Multivariate Normal và lấy tổ hợp tuyến tính của các thành phần, chúng ta sẽ tạo ra một Multivariate Normal mới. Hai định lý tiếp theo nói rằng chúng ta cũng có thể tạo ra các MVN mới từ các MVN cũ bằng các phép toán phân tách và nối tiếp.
+
+<div class="math-box theorem">
+<div class="math-box-header">
+    <div class="math-box-number">Định lý 7.5.4</div>
+  </div>
+<div class="math-box-content">
+
+Nếu $(X_{1}, X_{2}, X_{3})$ là Multivariate Normal, thì các thành phần con $(X_{1}, X_{2})$ cũng là Multivariate Normal.
+
+</div>
+</div>
+
+<div class="math-box proof">
+<div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+</div>
+<div class="math-box-content">
+
+Bất kỳ tổ hợp tuyến tính nào $t_{1}X_{1}+t_{2}X_{2}$ cũng có thể được xem như một tổ hợp tuyến tính của $X_{1}, X_{2}, X_{3}$ với hệ số của $X_{3}$ bằng 0. Do đó $t_{1}X_{1}+t_{2}X_{2}$ là Normal với mọi $t_{1}, t_{2}$, điều này cho thấy $(X_{1}, X_{2})$ là MVN.
+
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+</div>
+</div>
+
+<div class="math-box theorem">
+<div class="math-box-header">
+<div class="math-box-number">Định lý 7.5.5</div>
+  </div>
+<div class="math-box-content">
+
+Nếu $\\mathbf{X} = (X_1, \\ldots, X_n)$ và $\\mathbf{Y} = (Y_1, \\ldots, Y_m)$ là các vector ngẫu nhiên Multivariate Normal với $\\mathbf{X}$ độc lập với $\\mathbf{Y}$, thì vector ngẫu nhiên nối tiếp $\\mathbf{W} = (X_1, \\ldots, X_n, Y_1, \\ldots, Y_m)$ là Multivariate Normal.
+
+</div>
+</div>
+
+<div class="math-box proof">
+<div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+</div>
+<div class="math-box-content">
+
+Bất kỳ tổ hợp tuyến tính nào $s_1X_1 + \\cdots + s_nX_n + t_1Y_1 + \\cdots + t_mY_m$ là Normal vì $s_1X_1 + \\cdots + s_nX_n$ và $t_1Y_1 + \\cdots + t_mY_m$ là Normal (theo định nghĩa của MVN) và độc lập, do đó tổng của chúng là Normal (như được chỉ ra trong chương 6 bằng các hàm sinh momen).
+
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+</div>
+</div>
+
+Một phân phối Multivariate Normal được xác định hoàn toàn bằng cách biết trung bình của từng thành phần, phương sai của từng thành phần, và hiệp phương sai hoặc tương quan giữa bất kỳ hai thành phần nào. Một cách khác để nói điều này là các tham số của một vector ngẫu nhiên MVN $(X_{1}, \\ldots, X_{k})$ là như sau:
+
+- vector trung bình $(\\mu_1, \\ldots, \\mu_k)$, nơi $E(X_j) = \\mu_j$;
+- ma trận hiệp phương sai, là ma trận $k \\times k$ chứa các hiệp phương sai giữa các thành phần, được sắp xếp sao cho phần tử hàng $i$, cột $j$ là $\\text{Cov}(X_i, X_j)$.
+
+Ví dụ, để xác định đầy đủ một phân phối Bivariate Normal cho $(X, Y)$, chúng ta cần biết năm tham số:
+
+- các tham số trung bình $E(X)$, $E(Y)$;
+- các phương sai $\\mathrm{Var}(X)$, $\\mathrm{Var}(Y)$;
+- hệ số tương quan $\\mathrm{Corr}(X, Y)$.
+
+Chúng ta sẽ trình bày trong Ví dụ 8.1.10 rằng hàm mật độ xác suất chung của một phân phối Bivariate Normal $(X,Y)$ với các phân phối biên $\\mathcal{N}(0,1)$ và hệ số tương quan $\\rho\\in(-1,1)$ là
+
+
+ $$f_{X,Y}(x,y)=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2\\tau^{2}}(x^{2}+y^{2}-2\\rho x y)\\right),$$ 
+
+
+với $\\tau = \\sqrt{1 - \\rho^2}$. Hình 7.10 vẽ các hàm mật độ xác suất chung cho hai phân phối Bivariate Normal khác nhau với các phân phối biên $\\mathcal{N}(0,1)$, cùng với các biểu đồ đường mức tương ứng. Ở bên trái, $X$ và $Y$ không tương quan, do đó các đường mức của hàm mật độ xác suất chung là các đường tròn. Ở bên phải, $X$ và $Y$ có hệ số tương quan là 0.75, do đó các đường mức là các elip, phản ánh thực tế rằng $Y$ có xu hướng lớn khi $X$ lớn.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 0.75rem;">
+    <img src="imgs/img_in_chart_box_196_420_671_824.jpg" alt="Mật độ xác suất chung không tương quan" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+    <img src="imgs/img_in_chart_box_750_418_1228_824.jpg" alt="Mật độ xác suất chung có tương quan" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+    <img src="imgs/img_in_chart_box_177_942_665_1409.jpg" alt="Đường mức không tương quan" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+    <img src="imgs/img_in_chart_box_729_945_1219_1413.jpg" alt="Đường mức có tương quan" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+  </div>
+
+**HÌNH 7.10:** Phân phối xác suất mật độ chung của hai phân phối chuẩn hai chiều, cùng với các biểu diễn đường cong tương ứng. Ở bên trái, X và Y có phân phối biên độ $\\mathcal{N}(0,1)$ và không có độ tương quan. Ở bên phải, X và Y có phân phối biên độ $\\mathcal{N}(0,1)$ và có độ tương quan bằng 0.75.
+</div>
+
+Tương tự như phân phối của một biến ngẫu nhiên được xác định bởi hàm phân phối tích lũy, hàm xác suất khối rời rạc/hàm mật độ xác suất, hoặc hàm sinh moment, phân phối chung của một vector ngẫu nhiên được xác định bởi hàm phân phối tích lũy chung, hàm xác suất khối chung/hàm mật độ xác suất chung, hoặc hàm sinh moment chung, mà chúng ta sẽ định nghĩa ngay sau đây.
+
+<div class="math-box definition">
+<div class="math-box-header">
+<div class="math-box-number">Định nghĩa 7.5.6</div>
+    <div class="math-box-title">Hàm sinh moment chung</div>
+  </div>
+<div class="math-box-content">
+
+Hàm sinh moment chung (joint MGF) của một vector ngẫu nhiên $\\mathbf{X} = (X_1, \\ldots, X_k)$ là hàm $M$ được xác định bởi
+
+
+ $$M(\\mathbf{t})=E(e^{\\mathbf{t}^{\\prime}\\mathbf{X}})=E\\left(e^{t_{1}X_{1}+\\cdots+t_{k}X_{k}}\\right),$$ 
+
+
+với $\\mathbf{t} = (t_1, \\ldots, t_k) \\in \\mathbb{R}^k$. Chúng ta yêu cầu kỳ vọng này phải hữu hạn trong một hình hộp chứa gốc tọa độ trong $\\mathbb{R}^k$; nếu không, chúng ta nói rằng hàm sinh moment chung không tồn tại.
+
+</div>
+</div>
+
+Đối với một vector ngẫu nhiên đa biến chuẩn, hàm sinh moment chung đặc biệt tốt vì số hạng trong lũy thừa, $t_{1}X_{1}+\\cdots+t_{k}X_{k}$, là một biến ngẫu nhiên chuẩn theo định nghĩa. Điều này có nghĩa là chúng ta có thể sử dụng những gì chúng ta biết về hàm sinh moment đơn biến chuẩn để tìm hàm sinh moment chung của phân phối đa biến chuẩn! Nhớ rằng với bất kỳ biến ngẫu nhiên chuẩn nào W,
+
+
+ $$E(e^{W})=e^{E(W)+\\frac{1}{2}\\mathrm{Var}(W)}.$$ 
+
+
+Do đó hàm sinh moment chung của một vector ngẫu nhiên đa biến $(X_{1},\\ldots,X_{k})$ là
+
+
+ $$E(e^{t_{1}X_{1}+\\cdots+t_{k}X_{k}})=\\exp\\left(t_{1}E(X_{1})+\\cdots+t_{k}E(X_{k})+\\frac{1}{2}\\mathrm{Var}(t_{1}X_{1}+\\cdots+t_{k}X_{k})\\right).$$ 
+
+
+Số hạng phương sai có thể được mở rộng bằng các tính chất của hiệp phương sai.
+
+Chúng ta biết rằng nói chung, tính độc lập là điều kiện mạnh hơn so với tương quan bằng 0; các biến ngẫu nhiên có thể không tương quan nhưng không độc lập. Một tính chất đặc biệt của phân phối đa biến chuẩn là rằng đối với các biến ngẫu nhiên có phân phối chung là MVN, tính độc lập và tương quan bằng 0 là các điều kiện tương đương.
+
+<div class="math-box theorem">
+<div class="math-box-header">
+    <div class="math-box-number">Định lý 7.5.7</div>
+  </div>
+<div class="math-box-content">
+
+Trong một vector ngẫu nhiên đa biến chuẩn, không tương quan kéo theo độc lập. Nghĩa là, nếu $\\mathbf{X} \\sim \\text{MVN}$ có thể được viết dưới dạng $\\mathbf{X} = (\\mathbf{X}_1, \\mathbf{X}_2)$, trong đó $\\mathbf{X}_1$ và $\\mathbf{X}_2$ là các subvectors, và từng thành phần của $\\mathbf{X}_{1}$ không tương quan với từng thành phần của $\\mathbf{X}_{2}$, thì $\\mathbf{X}_{1}$ và $\\mathbf{X}_{2}$ là độc lập. $^{1}$
+
+Đặc biệt, nếu $(X, Y)$ là Bivariate Normal và $\\text{Corr}(X, Y) = 0$, thì X và Y là độc lập.
+
+</div>
+</div>
+
+<div class="math-box proof">
+<div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+</div>
+<div class="math-box-content">
+
+Chúng ta sẽ chứng minh định lý này trong trường hợp Bivariate Normal; chứng minh trong các chiều cao hơn là tương tự. Cho $(X,Y)$ là Bivariate Normal với $E(X)=\\mu_{1}$, $E(Y)=\\mu_{2}$, $\\mathrm{Var}(X)=\\sigma_{1}^{2}$, $\\mathrm{Var}(Y)=\\sigma_{2}^{2}$, và $\\mathrm{Corr}(X,Y)=\\rho$. Hàm sinh moment chung là
+
+
+ $$\\begin{aligned} M_{X,Y}(s,t)=E(e^{sX+tY})&=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}\\mathrm{Var}(sX+tY)\\right)\\\\ &=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}(s^{2}\\sigma_{1}^{2}+t^{2}\\sigma_{2}^{2}+2st\\sigma_{1}\\sigma_{2}\\rho)\\right). \\end{aligned}$$ 
+
+
+Nếu $\\rho = 0$, hàm sinh moment chung giảm xuống thành
+
+
+ $$M_{X,Y}(s,t)=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}(s^{2}\\sigma_{1}^{2}+t^{2}\\sigma_{2}^{2})\\right).$$ 
+
+
+Nhưng đây cũng là hàm sinh moment chung của $(Z, W)$ nơi $Z \\sim \\mathcal{N}(\\mu_1, \\sigma_1^2)$ và $W \\sim \\mathcal{N}(\\mu_2, \\sigma_2^2)$ và $Z$ độc lập với $W$. Vì hàm sinh moment chung xác định phân phối chung, do đó phải là $(X, Y)$ có cùng phân phối chung như $(Z, W)$. Do đó $X$ và $Y$ là độc lập.
+
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+</div>
+</div>
+
+Định lý này không áp dụng cho Ví dụ 7.5.2. Trong ví dụ đó, như bạn có thể kiểm tra, X và Y không tương quan nhưng không độc lập, nhưng điều này không mâu thuẫn với định lý vì $(X, Y)$ không phải là BVN. Hai ví dụ tiếp theo cho thấy các tình huống mà định lý này áp dụng.
+
+<div class="math-box example">
+<div class="math-box-header">
+<div class="math-box-number">Ví dụ 7.5.8</div>
+    <div class="math-box-title">Độc lập của tổng và hiệu</div>
+  </div>
+<div class="math-box-content">
+
+Cho $X, Y \\stackrel{\\mathrm{i.i.d.}}{\\sim} \\mathcal{N}(0, 1)$. Tìm phân phối chung của $(X + Y, X - Y)$.
+
+**Giải pháp:**
+
+Vì $(X + Y, X - Y)$ là Bivariate Normal và
+
+
+ $$\\mathrm{Cov}(X+Y,X-Y)=\\mathrm{Var}(X)-\\mathrm{Cov}(X,Y)+\\mathrm{Cov}(Y,X)-\\mathrm{Var}(Y)=0,$$ 
+
+
+$X + Y$ độc lập với $X - Y$. Hơn nữa, chúng là i.i.d. $\\mathcal{N}(0,2)$. Bằng phương pháp tương tự, ta có thể thấy rằng nếu $X \\sim \\mathcal{N}(\\mu_1, \\sigma^2)$ và $Y \\sim \\mathcal{N}(\\mu_2, \\sigma^2)$ là độc lập (với phương sai giống nhau), thì $X + Y$ độc lập với $X - Y$.
+
+</div>
+</div>
+
+Trong Bài tập 72, bạn sẽ mở rộng ví dụ này cho trường hợp mà X và Y là Bivariate Normal với tương quan tổng quát $\\rho$.
+
+<div class="math-box example">
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 7.5.9</div>
+    <div class="math-box-title">Sự độc lập của tổng mẫu và phương sai mẫu</div>
+  </div>
+<div class="math-box-content">
+
+Giả sử rằng $X_{1}, \\ldots, X_{n}$ là i.i.d. $\\mathcal{N}(\\mu, \\sigma^{2})$, với $n \\geq 2$. Định nghĩa
+
+
+ $$\\bar{X}_{n}=\\frac{1}{n}(X_{1}+\\cdots+X_{n}),$$ 
+
+
+
+ $$S_{n}^{2}=\\frac{1}{n-1}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}.$$ 
+
+
+Như đã được trình bày trong Chương 6, tổng mẫu $\\bar{X}_n$ có kỳ vọng $\\mu$ (trung bình đúng) và phương sai mẫu $S_n^2$ có kỳ vọng $\\sigma^2$ (phương sai đúng). Chứng minh rằng $\\bar{X}_n$ và $S_n^2$ là độc lập bằng cách áp dụng các ý tưởng MVN vào $(\\bar{X}_n, X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$.
+
+**Giải pháp:**
+
+Vector $(\\bar{X}_n, X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$ là MVN vì bất kỳ tổ hợp tuyến tính nào của các thành phần của nó cũng có thể được viết dưới dạng tổ hợp tuyến tính của $X_1, \\ldots, X_n$. Hơn nữa, $E(X_j - \\bar{X}_n) = 0$ nhờ tính tuyến tính. Bây giờ ta tính hiệp phương sai của $\\bar{X}_n$ với $X_j - \\bar{X}_n$:
+
+
+ $$\\mathrm{Cov}(\\bar{X}_{n},X_{j}-\\bar{X}_{n})=\\mathrm{Cov}(\\bar{X}_{n},X_{j})-\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n}).$$ 
+
+
+Với $\\mathrm{Cov}(X_{n}, X_{j})$, ta có thể khai triển $X_{n}$, và hầu hết các số hạng sẽ triệt tiêu do tính độc lập:
+
+
+ $$\\mathrm{Cov}(\\bar{X}_{n},X_{j})=\\mathrm{Cov}\\left(\\frac{1}{n}X_{1}+\\cdots+\\frac{1}{n}X_{n},X_{j}\\right)=\\mathrm{Cov}\\left(\\frac{1}{n}X_{j},X_{j}\\right)=\\frac{1}{n}\\mathrm{Var}(X_{j})=\\frac{\\sigma^{2}}{n}.$$ 
+
+
+Với $\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n})$, ta sử dụng các tính chất của phương sai:
+
+ 
+
+
+ $$\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n})=\\mathrm{Var}(\\bar{X}_{n})=\\frac{1}{n^{2}}\\left(\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n})\\right)=\\frac{\\sigma^{2}}{n}.$$ 
+
+
+Do đó $\\operatorname{Cov}(\\bar{X}_n, X_j - \\bar{X}_n) = 0$, điều này có nghĩa là $\\bar{X}_n$ không tương quan với từng thành phần của $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$. Vì không tương quan có nghĩa là độc lập trong một vector MVN, ta có $\\bar{X}_n$ độc lập với vector $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$. Tuy nhiên, $S_n^2$ là một hàm của $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$, do đó $\\bar{X}_n$ cũng độc lập với $S_n^2$.
+
+Có thể chứng minh rằng tính độc lập của tổng mẫu và phương sai mẫu là một đặc điểm độc nhất của Normal! Nếu các $X_j$ tuân theo phân phối nào khác, thì $\\bar{X}_n$ và $S_n^2$ sẽ phụ thuộc vào nhau.
+
+</div>
+</div>
+
+<div class="math-box example">
+<div class="math-box-header">
+    <div class="math-box-number">Ví dụ 7.5.10</div>
+    <div class="math-box-title">Tạo Bivariate Normal</div>
+  </div>
+<div class="math-box-content">
+
+Giả sử rằng ta có thể truy cập các biến ngẫu nhiên độc lập và đồng phân phối $X, Y \\sim \\mathcal{N}(0, 1)$, nhưng muốn tạo một vector ngẫu nhiên Bivariate Normal $(Z, W)$ với $\\text{Corr}(Z, W) = \\rho$ và $Z, W$ có phân phối biên là $\\mathcal{N}(0, 1)$, với mục đích chạy một mô phỏng. Làm thế nào để xây dựng $Z$ và $W$ từ các tổ hợp tuyến tính của $X$ và $Y$?
+
+**Giải pháp:**
+
+Theo định nghĩa của Phân phối chuẩn đa biến, bất kỳ $(Z, W)$ nào có dạng
+
+
+ $$\\begin{aligned} Z&=aX+bY\\\\ W&=cX+dY \\end{aligned}$$ 
+
+
+sẽ là Phân phối chuẩn hai biến. Vì vậy, hãy thử tìm các giá trị phù hợp a, b, c, d. Các giá trị trung bình đã là 0. Đặt phương sai bằng 1 sẽ cho
+
+
+ $$a^{2}+b^{2}=1,c^{2}+d^{2}=1.$$ 
+
+
+Đặt hiệp phương sai của Z và W bằng $\\rho$ sẽ cho
+
+
+ $$a c+b d=\\rho.$$ 
+
+
+Tại đây có nhiều ẩn số hơn phương trình, và chúng ta chỉ cần một nghiệm. Để đơn giản, hãy tìm một nghiệm với b = 0. Khi đó $a^2 = 1$, vì vậy hãy lấy a = 1. Bây giờ $ac + bd = \\rho$ sẽ rút gọn thành $c = \\rho$, và sau đó có thể sử dụng $c^2 + d^2 = 1$ để tìm d phù hợp. Kết hợp tất cả các yếu tố lại, chúng ta có thể tạo ra $(Z, W)$ như sau
+
+
+ $$\\begin{aligned} Z&=X\\\\ W&=\\rho X+\\sqrt{1-\\rho^{2}}Y. \\end{aligned}$$ 
+
+
+Lưu ý rằng trong trường hợp cực đoan $\\rho = 1$ (được gọi là tương quan dương hoàn hảo) điều này nói rằng hãy để $W = Z \\sim \\mathcal{N}(0,1)$, trong trường hợp cực đoan $\\rho = -1$ (được gọi là tương quan âm hoàn hảo) nó nói rằng hãy để $W = -Z$ với $Z \\sim \\mathcal{N}(0,1)$, và trong trường hợp đơn giản $\\rho = 0$ nó nói rằng hãy để $(Z, W) = (X, Y)$.
+
+</div>
+</div>`,DA=`Phân phối chung cho phép chúng ta mô tả hành vi của nhiều biến ngẫu nhiên phát sinh từ cùng một thí nghiệm. Các hàm quan trọng liên quan đến phân phối chung là hàm phân phối tích lũy chung, hàm PMF/PDF chung, PMF/PDF biên, và PMF/PDF điều kiện. Bảng trên trang sau tóm tắt các định nghĩa này cho hai biến ngẫu nhiên rời rạc và hai biến ngẫu nhiên liên tục. Phân phối chung cũng có thể là hỗn hợp của rời rạc và liên tục, trong trường hợp này chúng ta kết hợp và sử dụng PMF và PDF.\r
+\r
+| | Hai biến ngẫu nhiên rời rạc | Hai biến ngẫu nhiên liên tục |\r
+| :--- | :--- | :--- |\r
+| Hàm phân phối tích lũy chung | 
+ $$F_{X,Y}(x,y) = P(X \\leq x, Y \\leq y)$$ 
+ | 
+ $$F_{X,Y}(x,y) = P(X \\leq x, Y \\leq y)$$ 
+ |\r
+| Phân phối xác suất/tích phân chung | 
+ $$P(X = x, Y = y)$$ 
+ | 
+ $$f_{X,Y}(x,y) = \\frac{\\partial^{2}}{\\partial x \\partial y} F_{X,Y}(x,y)$$ 
+ |\r
+| | • Phân phối xác suất chung không âm. | • Phân bố mật độ xác suất chung không âm. |\r
+| | • Phân phối xác suất chung tổng thành 1. | • Phân bố mật độ xác suất chung tích phân thành 1. |\r
+| | • 
+ $$P((X,Y) \\in A) = \\sum_{(x,y) \\in A} P(X = x, Y = y).$$ 
+ | • 
+ $$P((X,Y) \\in A) = \\iint_{A} f_{X,Y}(x,y) \\, dx \\, dy.$$ 
+ |\r
+| Phân phối xác suất/tích phân biên | 
+ $$P(X = x) = \\sum_{y} P(X = x, Y = y)$$ 
+ | 
+ $$f_{X}(x) = \\int_{-\\infty}^{\\infty} f_{X,Y}(x,y) \\, dy$$ 
+ |\r
+| | 
+ $$= \\sum_{y} P(X = x \\mid Y = y)P(Y = y)$$ 
+ | 
+ $$= \\int_{-\\infty}^{\\infty} f_{X \\mid Y}(x \\mid y) f_{Y}(y) \\, dy$$ 
+ |\r
+| Phân phối xác suất/tích phân điều kiện | 
+ $$P(Y = y \\mid X = x) = \\frac{P(X = x, Y = y)}{P(X = x)}$$ 
+ | 
+ $$f_{Y \\mid X}(y \\mid x) = \\frac{f_{X,Y}(x,y)}{f_{X}(x)}$$ 
+ |\r
+| | 
+ $$= \\frac{P(X = x \\mid Y = y)P(Y = y)}{P(X = x)}$$ 
+ | 
+ $$= \\frac{f_{X \\mid Y}(x \\mid y)f_{Y}(y)}{f_{X}(x)}$$ 
+ |\r
+| Sự độc lập | 
+ $$P(X \\leq x, Y \\leq y) = P(X \\leq x)P(Y \\leq y)$$ 
+ | 
+ $$P(X \\leq x, Y \\leq y) = P(X \\leq x)P(Y \\leq y)$$ 
+ |\r
+| | 
+ $$P(X = x, Y = y) = P(X = x)P(Y = y)$$ 
+ cho tất cả 
+ $$x$$ 
+ và 
+ $$y$$ 
+. | 
+ $$f_{X,Y}(x,y) = f_{X}(x)f_{Y}(y)$$ 
+ cho tất cả 
+ $$x$$ 
+ và 
+ $$y$$ 
+. |\r
+| LOTUS | 
+ $$E(g(X,Y)) = \\sum_{y} \\sum_{x} g(x,y)P(X = x, Y = y)$$ 
+ | 
+ $$E(g(X,Y)) = \\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} g(x,y)f_{X,Y}(x,y) \\, dx \\, dy$$ 
+ |\r
 \r
 Biến thiên hiệp phương là một số đơn để tóm tắt xu hướng của hai biến ngẫu nhiên để di chuyển theo cùng một hướng. Nếu hai biến ngẫu nhiên độc lập, thì chúng cũng không tương quan, nhưng ngược lại không đúng. Tương quan là một phiên bản được chuẩn hóa, không có đơn vị của biến thiên hiệp phương mà luôn nằm giữa -1 và 1.\r
 \r
@@ -15029,14 +15355,13 @@ Hai phân phối đa biến quan trọng có tên là Multinomial và Multivaria
 \r
 Phân phối Multivariate Normal là một dạng tổng quát của Normal; một vector ngẫu nhiên được xác định là MVN nếu bất kỳ tổ hợp tuyến tính nào của các thành phần của nó có phân phối Normal. Một tính chất quan trọng của phân phối MVN là trong một vector ngẫu nhiên MVN, không tương quan kéo theo độc lập.\r
 \r
-<div class="image-container">\r
-<img src="imgs/img_in_image_box_150_663_1247_1446.jpg" alt="Đối tượng cơ bản của xác suất" width="78%" />\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_150_663_1247_1446.jpg" alt="Đối tượng cơ bản của xác suất" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+\r
+**HÌNH 7.11:** Đối tượng cơ bản của xác suất cho phân phối đa biến. Một phân phối chung được xác định bởi một hàm phân phối tích lũy chung, hàm PMF/PDF chung, hoặc hàm MGF chung. Một vector ngẫu nhiên $(X, Y)$ tạo ra nhiều lượng chung, biên, và điều kiện hữu ích. Sử dụng 2D LOTUS, chúng ta có thể tìm giá trị kỳ vọng của một hàm của $X$ và $Y$. Tổng các PMF chung hoặc tích phân PDF chung trên tất cả $y$ sẽ cho phân phối biên của $X$, đưa chúng trở lại trường hợp phân phối một chiều.\r
 </div>\r
 \r
-<div style="text-align: center;"><b>HÌNH 7.11</b></div>\r
-<div style="text-align: center;">Đối tượng cơ bản của xác suất cho phân phối đa biến. Một phân phối chung được xác định bởi một hàm phân phối tích lũy chung, hàm PMF/PDF chung, hoặc hàm MGF chung. Một vector ngẫu nhiên $(X, Y)$ tạo ra nhiều lượng chung, biên, và điều kiện hữu ích. Sử dụng 2D LOTUS, chúng ta có thể tìm giá trị kỳ vọng của một hàm của $X$ và $Y$. Tổng các PMF chung hoặc tích phân PDF chung trên tất cả $y$ sẽ cho phân phối biên của $X$, đưa chúng trở lại trường hợp phân phối một chiều.</div>\r
-\r
-Hình 7.11 mở rộng sơ đồ của chúng ta về các đối tượng cơ bản của xác suất đến bối cảnh đa biến (được xem như đa biến để đơn giản hóa ký hiệu). Một phân phối chung có thể được sử dụng để tạo ra các vector ngẫu nhiên $(X, Y)$. Các đại lượng chung, biên, và điều kiện có thể sau đó được nghiên cứu. Tính tổng phân phối xác suất rời rạc chung hoặc tích phân phân phối xác suất mật độ chung trên tất cả $y$ cho phân phối biên của $X$, đưa chúng trở lại thế giới một chiều.`,SA=`## Đa thức\r
+Hình 7.11 mở rộng sơ đồ của chúng ta về các đối tượng cơ bản của xác suất đến bối cảnh đa biến (được xem như đa biến để đơn giản hóa ký hiệu). Một phân phối chung có thể được sử dụng để tạo ra các vector ngẫu nhiên $(X, Y)$. Các đại lượng chung, biên, và điều kiện có thể sau đó được nghiên cứu. Tính tổng phân phối xác suất rời rạc chung hoặc tích phân phân phối xác suất mật độ chung trên tất cả $y$ cho phân phối biên của $X$, đưa chúng trở lại thế giới một chiều.`,OA=`## Đa thức\r
 \r
 Các hàm cho phân phối Đa thức là \`dmultinom\` (nó là phân phối xác suất chung của phân phối Đa thức) và \`rmultinom\` (nó tạo ra các thực hiện của các vector ngẫu nhiên Đa thức). Phân phối tích lũy chung của phân phối Đa thức là một điều khó để xử lý, vì vậy nó không được xây dựng vào R.\r
 \r
@@ -15051,9 +15376,9 @@ dmultinom(x,n,p)\r
 \r
 trả về xác suất $P(X_{1}=2, X_{2}=0, X_{3}=3)$, trong đó\r
 \r
-$$\r
-\\mathbf{X}=(X_{1},X_{2},X_{3})\\sim\\operatorname{Mult}_{3}(5,(1/3,1/3,1/3)).\r
-$$\r
+
+ $$\\mathbf{X}=(X_{1},X_{2},X_{3})\\sim\\operatorname{Mult}_{3}(5,(1/3,1/3,1/3)).$$ 
+\r
 \r
 Tất nhiên, \`n\` phải bằng \`sum(x)\`; nếu chúng ta cố gắng làm \`multinom(x,7,p)\`, R sẽ báo lỗi.\r
 \r
@@ -15088,9 +15413,9 @@ r <- rmvnorm(n = 10^3, mean = meanvector, sigma = covmatrix)\r
 \r
 Ma trận hiệp phương sai ở đây là\r
 \r
-$$\r
-\\begin{pmatrix}1&\\rho\\\\ \\rho&1\\end{pmatrix}\r
-$$\r
+
+ $$\\begin{pmatrix}1&\\rho\\\\ \\rho&1\\end{pmatrix}$$ 
+\r
 \r
 vì\r
 \r
@@ -15123,7 +15448,7 @@ Chúng ta có thể làm việc với phân phối Cauchy được giới thiệ
 hist(rcauchy(1000))\r
 \`\`\`\r
 \r
-Do các giá trị cực đoan trong đuôi của phân phối, biểu đồ tần suất này trông không giống chút nào với hàm mật độ xác suất (PDF) của phân phối mà nó được tạo ra.`,CA=`﻿Các bài tập được đánh dấu với ☑ có giải chi tiết tại http://stat110.net.\r
+Do các giá trị cực đoan trong đuôi của phân phối, biểu đồ tần suất này trông không giống chút nào với hàm mật độ xác suất (PDF) của phân phối mà nó được tạo ra.`,kA=`﻿Các bài tập được đánh dấu với ☑ có giải chi tiết tại http://stat110.net.\r
 \r
 ## Phân phối chung, biên và điều kiện\r
 \r
@@ -15247,7 +15572,9 @@ Lời khuyên: Một tam giác có thể được tạo thành từ ba đoạn t
 \r
  \r
 \r
- $$F(a_{2},b_{2})-F(a_{1},b_{2})+F(a_{1},b_{1})-F(a_{2},b_{1}).$$ \r
+ 
+ $$F(a_{2},b_{2})-F(a_{1},b_{2})+F(a_{1},b_{1})-F(a_{2},b_{1}).$$ 
+ \r
 \r
 \r
 \r
@@ -15255,7 +15582,9 @@ Lời khuyên: Một tam giác có thể được tạo thành từ ba đoạn t
 \r
  \r
 \r
- $$f_{X,Y}(x,y)=x+y,\\mathrm{~for~}0<x<1\\mathrm{~and~}0<y<1.$$ \r
+ 
+ $$f_{X,Y}(x,y)=x+y,\\mathrm{~for~}0<x<1\\mathrm{~and~}0<y<1.$$ 
+ \r
 \r
  \r
 \r
@@ -15271,7 +15600,9 @@ Lời khuyên: Một tam giác có thể được tạo thành từ ba đoạn t
 \r
  \r
 \r
- $$f_{X,Y}(x,y)=c x y,\\mathrm{~for~}0<x<y<1.$$ \r
+ 
+ $$f_{X,Y}(x,y)=c x y,\\mathrm{~for~}0<x<y<1.$$ 
+ \r
 \r
  \r
 \r
@@ -15289,7 +15620,9 @@ Lời khuyên: Một tam giác có thể được tạo thành từ ba đoạn t
 \r
  \r
 \r
- $$B=\\{(x,y,z):x^{2}+y^{2}+z^{2}\\leq1\\}.$$ \r
+ 
+ $$B=\\{(x,y,z):x^{2}+y^{2}+z^{2}\\leq1\\}.$$ 
+ \r
 \r
  \r
 \r
@@ -15321,7 +15654,9 @@ Lời khuyên: Theo công thức nghiệm bậc hai, đa thức  $ax^2 + bx + c$
 \r
  \r
 \r
- $$v_{n}=\\frac{\\pi^{n/2}}{\\Gamma(n/2+1)},$$ \r
+ 
+ $$v_{n}=\\frac{\\pi^{n/2}}{\\Gamma(n/2+1)},$$ 
+ \r
 \r
  \r
 \r
@@ -15329,7 +15664,9 @@ trong đó  $\\Gamma$  là hàm gamma, một hàm rất nổi tiếng được �
 \r
  \r
 \r
- $$\\Gamma(a)=\\int_{0}^{\\infty}x^{a}e^{-x}\\frac{dx}{x}$$ \r
+ 
+ $$\\Gamma(a)=\\int_{0}^{\\infty}x^{a}e^{-x}\\frac{dx}{x}$$ 
+ \r
 \r
  \r
 \r
@@ -15405,7 +15742,9 @@ Lời khuyên: Một cách nhanh chóng là sử dụng (b) và thực tế rằ
 \r
  \r
 \r
- $$F(x,y)=1-e^{-x}-e^{-y}+e^{-(x+y+\\theta x y)},$$ \r
+ 
+ $$F(x,y)=1-e^{-x}-e^{-y}+e^{-(x+y+\\theta x y)},$$ 
+ \r
 \r
  \r
 \r
@@ -15455,7 +15794,9 @@ Lưu ý: Để tính tích phân, hãy chuyển sang tọa độ cực (xem ph�
 \r
  \r
 \r
- $$E(X-Y)^{2}=2\\sigma^{2}.$$ \r
+ 
+ $$E(X-Y)^{2}=2\\sigma^{2}.$$ 
+ \r
 \r
  \r
 \r
@@ -15463,7 +15804,9 @@ Lưu ý: Để tính tích phân, hãy chuyển sang tọa độ cực (xem ph�
 \r
  \r
 \r
- $$(X-Y)^{2}=(X-\\mu+\\mu-Y)^{2}=(X-\\mu)^{2}-2(X-\\mu)(Y-\\mu)+(Y-\\mu)^{2}.$$ \r
+ 
+ $$(X-Y)^{2}=(X-\\mu+\\mu-Y)^{2}=(X-\\mu)^{2}-2(X-\\mu)(Y-\\mu)+(Y-\\mu)^{2}.$$ 
+ \r
 \r
  \r
 \r
@@ -15507,7 +15850,9 @@ URN đã được rỗng ra. Gán nhãn các quả bóng đen là  $1,2,\\ldots,
 \r
  \r
 \r
- $$E(I_{j})=\\frac{r}{w+1}.$$ \r
+ 
+ $$E(I_{j})=\\frac{r}{w+1}.$$ 
+ \r
 \r
  \r
 \r
@@ -15517,7 +15862,9 @@ URN đã được rỗng ra. Gán nhãn các quả bóng đen là  $1,2,\\ldots,
 \r
  \r
 \r
- $$E(I_{i}I_{j})=\\frac{\\binom{r+1}{2}}{\\binom{w+2}{2}}=\\frac{(r+1)r}{(w+2)(w+1)}.$$ \r
+ 
+ $$E(I_{i}I_{j})=\\frac{\\binom{r+1}{2}}{\\binom{w+2}{2}}=\\frac{(r+1)r}{(w+2)(w+1)}.$$ 
+ \r
 \r
  \r
 \r
@@ -15527,7 +15874,9 @@ Gợi ý: Hình dung  $w + 2$  vị trí, vào đó các quả bóng đen  $i$  
 \r
  \r
 \r
- $$\\mathrm{Var}(X)=\\frac{rb(w+b+1)(w-r+1)}{(w+1)^{2}(w+2)}.$$ \r
+ 
+ $$\\mathrm{Var}(X)=\\frac{rb(w+b+1)(w-r+1)}{(w+1)^{2}(w+2)}.$$ 
+ \r
 \r
  \r
 \r
@@ -15547,7 +15896,9 @@ Gợi ý: Giả sử  $\\operatorname{Var}(X_i) = 1$  với mọi  $i$ ; điều
 \r
  \r
 \r
- $$\\mathrm{Var}(XY)=\\mathrm{Var}(X)\\mathrm{Var}(Y)+(EX)^{2}\\mathrm{Var}(Y)+(EY)^{2}\\mathrm{Var}(X).$$ \r
+ 
+ $$\\mathrm{Var}(XY)=\\mathrm{Var}(X)\\mathrm{Var}(Y)+(EX)^{2}\\mathrm{Var}(Y)+(EY)^{2}\\mathrm{Var}(X).$$ 
+ \r
 \r
  \r
 \r
@@ -15611,7 +15962,9 @@ Diện tích có dấu được đóng góp bởi  $(x_{i}, y_{i})$  và  $(x_{j
 \r
  \r
 \r
- $$r=\\frac{1}{n}\\sum_{i=1}^{n}(x_{i}-\\bar{x})(y_{i}-\\bar{y}),$$ \r
+ 
+ $$r=\\frac{1}{n}\\sum_{i=1}^{n}(x_{i}-\\bar{x})(y_{i}-\\bar{y}),$$ 
+ \r
 \r
  \r
 \r
@@ -15619,7 +15972,9 @@ trong đó\r
 \r
  \r
 \r
- $$\\bar{x}=\\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\text{ và }\\bar{y}=\\frac{1}{n}\\sum_{i=1}^{n}y_{i}$$ \r
+ 
+ $$\\bar{x}=\\frac{1}{n}\\sum_{i=1}^{n}x_{i}\\text{ và }\\bar{y}=\\frac{1}{n}\\sum_{i=1}^{n}y_{i}$$ 
+ \r
 \r
  \r
 \r
@@ -15643,7 +15998,9 @@ Gợi ý: Xét  $E((X-\\tilde{X})(Y-\\tilde{Y}))$  theo hai cách: như trung b�
 \r
  \r
 \r
- $$\\begin{array}{r l}{\\mathrm{(i v)}}&{{}\\mathrm{Cov}(W_{1},W_{2}+W_{3})=\\mathrm{Cov}(W_{1},W_{2})+\\mathrm{Cov}(W_{1},W_{3}).}\\end{array}$$ \r
+ 
+ $$\\begin{array}{r l}{\\mathrm{(i v)}}&{{}\\mathrm{Cov}(W_{1},W_{2}+W_{3})=\\mathrm{Cov}(W_{1},W_{2})+\\mathrm{Cov}(W_{1},W_{3}).}\\end{array}$$ 
+ \r
 \r
  \r
 \r
@@ -15653,7 +16010,9 @@ Thay vì có một loạt các ước lượng riêng lẻ, nhà thống kê mu�
 \r
  \r
 \r
- $$\\hat{\\theta}=w_{1}\\hat{\\theta}_{1}+w_{2}\\hat{\\theta}_{2},$$ \r
+ 
+ $$\\hat{\\theta}=w_{1}\\hat{\\theta}_{1}+w_{2}\\hat{\\theta}_{2},$$ 
+ \r
 \r
  \r
 \r
@@ -15767,7 +16126,9 @@ và Giấy, với xác suất bằng nhau. Gọi X, Y, Z là số người chơi
 \r
  \r
 \r
- $$f_{X,Y}(x,y)=c\\exp\\left(-\\frac{x^{2}}{2}-\\frac{y^{2}}{2}\\right)\\text{for all }x\\text{ và }y,$$ \r
+ 
+ $$f_{X,Y}(x,y)=c\\exp\\left(-\\frac{x^{2}}{2}-\\frac{y^{2}}{2}\\right)\\text{for all }x\\text{ và }y,$$ 
+ \r
 \r
  \r
 \r
@@ -15783,7 +16144,9 @@ trong đó c là hằng số.\r
 \r
  \r
 \r
- $$f_{X,Y}(x,y)=c\\exp\\left(-\\frac{x^{2}}{2}-\\frac{y^{2}}{2}\\right)\\text{for }xy>0,$$ \r
+ 
+ $$f_{X,Y}(x,y)=c\\exp\\left(-\\frac{x^{2}}{2}-\\frac{y^{2}}{2}\\right)\\text{for }xy>0,$$ 
+ \r
 \r
  \r
 \r
@@ -15899,7 +16262,9 @@ rằng diện tích dưới đường cong ROC là xác suất để một ngư�
 \r
  \r
 \r
- $$R_{n}=1+\\sum_{j=1}^{n-1}I_{j},$$ \r
+ 
+ $$R_{n}=1+\\sum_{j=1}^{n-1}I_{j},$$ 
+ \r
 \r
  \r
 \r
@@ -15909,7 +16274,9 @@ trong đó  $I_{j} = I(X_{n} > X_{j})$ . Sau đó sử dụng điều này để
 \r
  \r
 \r
- $$\\sum_{j=1}^{n}j=\\frac{n(n+1)}{2}\\mathrm{~a n d~}\\sum_{j=1}^{n}j^{2}=\\frac{n(n+1)(2n+1)}{6},$$ \r
+ 
+ $$\\sum_{j=1}^{n}j=\\frac{n(n+1)}{2}\\mathrm{~a n d~}\\sum_{j=1}^{n}j^{2}=\\frac{n(n+1)(2n+1)}{6},$$ 
+ \r
 \r
  \r
 \r
@@ -15944,7 +16311,9 @@ Gọi  $N$  là số lượng từ khác nhau mà Shakespeare biết, và giả 
 \r
  \r
 \r
- $$e^{-\\lambda}(\\lambda-\\lambda^{2}/2!+\\lambda^{3}/3!-\\lambda^{4}/4!+\\dots).$$ \r
+ 
+ $$e^{-\\lambda}(\\lambda-\\lambda^{2}/2!+\\lambda^{3}/3!-\\lambda^{4}/4!+\\dots).$$ 
+ \r
 \r
  \r
 \r
@@ -15952,7 +16321,9 @@ Gọi  $N$  là số lượng từ khác nhau mà Shakespeare biết, và giả 
 \r
  \r
 \r
- $$P(X=1)-P(X=2)+P(X=3)-P(X=4)+\\cdots.$$ \r
+ 
+ $$P(X=1)-P(X=2)+P(X=3)-P(X=4)+\\cdots.$$ 
+ \r
 \r
  \r
 \r
@@ -15962,7 +16333,9 @@ Gợi ý: Điều kiện theo  $\\lambda$  và sử dụng Phần (b).\r
 \r
  \r
 \r
- $$E(W_{1})-E(W_{2})+E(W_{3})-E(W_{4})+\\cdots.$$ \r
+ 
+ $$E(W_{1})-E(W_{2})+E(W_{3})-E(W_{4})+\\cdots.$$ 
+ \r
 \r
  \r
 \r
@@ -15994,7 +16367,9 @@ Nếu chúng ta cần phân phối đầy đủ của  $g(X)$ , không chỉ k�
 \r
  \r
 \r
- $$P(g(X)=y)=\\sum_{x:g(x)=y}P(X=x).$$ \r
+ 
+ $$P(g(X)=y)=\\sum_{x:g(x)=y}P(X=x).$$ 
+ \r
 \r
  \r
 \r
@@ -16002,7 +16377,9 @@ Trong trường hợp  $g$  là một tới một, tình huống trở nên đ�
 \r
  \r
 \r
- $$P(g(X)=y)=P(X=g^{-1}(y))$$ \r
+ 
+ $$P(g(X)=y)=P(X=g^{-1}(y))$$ 
+ \r
 \r
  \r
 \r
@@ -16012,1528 +16389,1347 @@ Trong trường hợp  $g$  là một tới một, tình huống trở nên đ�
 \r
  \r
 \r
- $$F_{g(X)}(y)=P(g(X)\\leq y)=P(X\\leq g^{-1}(y))=F_{X}(g^{-1}(y)).$$ \r
+ 
+ $$F_{g(X)}(y)=P(g(X)\\leq y)=P(X\\leq g^{-1}(y))=F_{X}(g^{-1}(y)).$$ 
+ \r
 \r
  \r
 \r
 Chúng ta có thể sau đó lấy đạo hàm theo  $y$  để nhận được PDF của  $g(X)$ . Điều này cho một phiên bản một chiều của công thức thay đổi biến, vốn mở rộng cho các phép biến đổi khả nghịch trong nhiều chiều.\r
-`,wA=`Định lý 8.1.1 (Thay đổi biến số trong một chiều). Cho X là một biến ngẫu nhiên liên tục có hàm mật độ xác suất  $f_{X}$ , và cho  $Y = g(X)$ , trong đó  $g$  khả vi và nghiêm ngặt tăng (hoặc nghiêm ngặt giảm). Khi đó hàm mật độ xác suất của Y được cho bởi\r
-\r
- \r
-\r
- $$f_{Y}(y)=f_{X}(x)\\left|\\frac{d x}{d y}\\right|,$$ \r
-\r
- \r
-\r
-trong đó  $x = g^{-1}(y)$ . Tập xác định của Y là tất cả  $g(x)$  với x trong tập xác định của X.\r
-\r
-Chứng minh. Giả sử g nghiêm ngặt tăng. Hàm phân phối tích lũy của Y là\r
-\r
- \r
-\r
- $$F_{Y}(y)=P(Y\\leq y)=P(g(X)\\leq y)=P(X\\leq g^{-1}(y))=F_{X}(g^{-1}(y))=F_{X}(x),$$ \r
-\r
- \r
-\r
-do đó bằng quy tắc chuỗi, hàm mật độ xác suất của Y là\r
-\r
- \r
-\r
- $$f_{Y}(y)=f_{X}(x)\\frac{dx}{dy}.$$ \r
-\r
- \r
-\r
-Chứng minh cho trường hợp  $g$  nghiêm ngặt giảm là tương tự. Trong trường hợp này hàm mật độ xác suất kết thúc là  $-f_{X}(x)\\frac{dx}{dy}$ , điều này không âm vì  $\\frac{dx}{dy}<0$  nếu  $g$  nghiêm ngặt giảm. Sử dụng  $|\\frac{dx}{dy}|$ , như trong phát biểu của định lý, bao gồm cả hai trường hợp.\r
-\r
-Khi áp dụng công thức thay đổi biến số, chúng ta có thể chọn tính toán  $\\frac{dx}{dy}$ , hoặc tính toán  $\\frac{dy}{dx}$  và lấy nghịch đảo. Theo quy tắc chuỗi, hai cách này cho cùng một kết quả, do đó chúng ta có thể chọn cách nào dễ hơn.\r
-\r
-8.1.2. Khi tìm phân phối của Y, hãy đảm bảo:\r
-\r
-- Kiểm tra các giả thiết của định lý thay đổi biến số kỹ lưỡng nếu bạn muốn áp dụng nó (nếu không áp dụng được, một chiến lược tốt là bắt đầu với hàm phân phối tích lũy của Y).\r
-\r
-• Biểu diễn kết quả cuối cùng cho hàm mật độ xác suất của Y dưới dạng một hàm số của y.\r
-\r
-• Chỉ định tập xác định của Y.\r
-\r
-Công thức thay đổi biến số (trong trường hợp g nghiêm ngặt tăng) rất dễ nhớ khi viết dưới dạng\r
-\r
- \r
-\r
- $$f_{Y}(y)d y=f_{X}(x)d x,$$ \r
-\r
- \r
-\r
-điều này có một sự đối xứng đẹp mắt. Công thức này cũng hợp lý nếu chúng ta suy nghĩ về đơn vị. Ví dụ, giả sử X là một phép đo bằng inch và Y = 2.54X là chuyển đổi sang xentimét (cm). Khi đó đơn vị của  $f_X(x)$  là inch  $^{-1}$  và đơn vị của  $f_Y(y)$  là cm  $^{-1}$ , do đó nói điều gì đó như “  $f_Y(y) = f_X(x)$ ” là vô lý. Tuy nhiên, dx được đo bằng inch và dy được đo bằng cm, do đó  $f_Y(y)dy$  và  $f_X(x)dx$  là các đại lượng không có đơn vị, và việc so sánh chúng là hợp lý. Tốt hơn nữa,\r
-\r
- $f_{X}(x)dx$  và  $f_{Y}(y)dy$  có các diễn giải về xác suất (nhớ lại từ Chương 5 rằng  $f_{X}(x)dx$  thực chất là xác suất để X nằm trong một khoảng rất nhỏ có độ dài dx, trung tâm tại x), điều này giúp dễ hình dung trực giác hơn về điều mà công thức thay đổi biến đang nói.\r
-\r
-Ví dụ tiếp theo sẽ dẫn đến các PDF của hai biến ngẫu nhiên được định nghĩa là các biến đổi của một biến ngẫu nhiên chuẩn. Trong ví dụ đầu tiên công thức thay đổi biến áp dụng; trong ví dụ thứ hai công thức đó không áp dụng.\r
-\r
-Ví dụ 8.1.3 (PDF của Phân phối Log-Normal). Cho  $X \\sim \\mathcal{N}(0,1)$ ,  $Y = e^X$ . Trong Chương 6 chúng ta đã gọi phân phối của Y là Log-Normal, và chúng ta đã tìm tất cả các momen của nó bằng cách sử dụng MGF của phân phối chuẩn. Bây giờ chúng ta có thể sử dụng công thức thay đổi biến để tìm PDF của Y, vì  $g(x) = e^x$  là hàm tăng nghiêm ngặt. Cho  $y = e^x$ , do đó  $x = \\log y$  và  $dy/dx = e^x$ . Khi đó\r
-\r
- \r
-\r
- $$f_{Y}(y)=f_{X}(x)\\left|\\frac{dx}{dy}\\right|=\\varphi(x)\\frac{1}{e^{x}}=\\varphi(\\log y)\\frac{1}{y},\\quad y>0.$$ \r
-\r
- \r
-\r
-Lưu ý rằng sau khi áp dụng công thức thay đổi biến, chúng ta viết tất cả các biểu thức ở vế phải dưới dạng theo y, và chúng ta chỉ định miền giá trị của phân phối. Để xác định miền giá trị, chúng ta chỉ cần quan sát rằng khi x thay đổi từ  $-\\infty$  đến  $\\infty$ ,  $e^{x}$  thay đổi từ 0 đến  $\\infty$ .\r
-\r
-Chúng ta có thể đạt được kết quả giống nhau bằng cách làm việc từ định nghĩa của hàm phân phối tích lũy, dịch sự kiện  $Y \\leq y$  thành sự kiện tương đương liên quan đến X. Với y > 0,\r
-\r
- \r
-\r
- $$F_{Y}(y)=P(Y\\leq y)=P(e^{X}\\leq y)=P(X\\leq\\log y)=\\Phi(\\log y),$$ \r
-\r
- \r
-\r
-do đó PDF là lại\r
-\r
- \r
-\r
- $$f_{Y}(y)=\\frac{d}{d y}\\Phi(\\log y)=\\varphi(\\log y)\\frac{1}{y},\\quad y>0.$$ \r
-\r
- \r
-\r
-Ví dụ 8.1.4 (PDF của Phân phối Chi-Square). Cho  $X \\sim \\mathcal{N}(0,1)$ ,  $Y = X^2$ . Phân phối của Y là một ví dụ về phân phối Chi-Square, được giới thiệu chính thức trong Chương 10. Để tìm PDF của Y, chúng ta không thể áp dụng công thức thay đổi biến nữa vì  $g(x) = x^2$  không phải là một song ánh; thay vào đó chúng ta bắt đầu từ hàm phân phối tích lũy.\r
-\r
-Bằng cách vẽ đồ thị của  $y = x^2$ , chúng ta có thể thấy rằng sự kiện  $X^2 \\leq y$  tương đương với sự kiện  $-\\sqrt{y} \\leq X \\leq \\sqrt{y}$ . Khi đó\r
-\r
- \r
-\r
- $$F_{Y}(y)=P(X^{2}\\leq y)=P(-\\sqrt{y}\\leq X\\leq\\sqrt{y})=\\Phi(\\sqrt{y})-\\Phi(-\\sqrt{y})=2\\Phi(\\sqrt{y})-1,$$ \r
-\r
- \r
-\r
-VẬY\r
-\r
- \r
-\r
- $$f_{Y}(y)=2\\varphi(\\sqrt{y})\\cdot\\frac{1}{2}y^{-1/2}=\\varphi(\\sqrt{y})y^{-1/2},\\quad y>0.$$ \r
-\r
- \r
-\r
-Ví dụ tiếp theo sẽ làm sáng tỏ một sự xuất hiện bất ngờ của một phân phối hoàn toàn không phải là chuẩn.\r
-\r
-Ví dụ 8.1.5 (Đèn hải đăng). Một đèn hải đăng trên bờ đang phát ánh sáng hướng ra biển với một góc ngẫu nhiên  $U$  (được đo bằng radian), nơi\r
-\r
- \r
-\r
- $$U\\sim\\mathrm{Unif}\\left(\\frac{-\\pi}{2},\\frac{\\pi}{2}\\right).$$ \r
-\r
- \r
-\r
-Xét một đường thẳng song song với bờ và cách bờ 1 dặm, như được minh họa trong Hình 8.1. Một góc bằng 0 có nghĩa là tia sáng vuông góc với bờ, trong khi một góc bằng  $\\pi/2$  có nghĩa là tia sáng song song với bờ, phát sáng sang phải từ góc nhìn của hình.\r
-\r
-Gọi X là điểm mà ánh sáng chạm vào đường thẳng, nơi gốc của đường thẳng là điểm trên đường thẳng gần nhất với đèn hải đăng. Tìm phân phối của X.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_326_647_1071_940.jpg" alt="Image" width="53%" /></div>\r
-\r
-\r
-### HÌNH 8.1\r
-\r
-Một đèn hải đăng phát sáng với một góc ngẫu nhiên U, nhìn từ trên xuống.\r
-\r
-Giải pháp: Xét tam giác vuông trong Hình 8.1, độ dài cạnh đối của U chia cho độ dài cạnh kề của U là  $X/1 = X$ , do đó\r
-\r
- \r
-\r
- $$X=\\tan(U).$$ \r
-\r
- \r
-\r
-( Hình minh họa trường hợp U > 0 và tương ứng X > 0, nhưng quan hệ này cũng đúng khi  $U \\leq 0$ .) Gọi x là một giá trị có thể của X và u là giá trị tương ứng có thể của U, do đó\r
-\r
- \r
-\r
- $$x=\\tan(u) \\text{ và } u=\\arctan(x).$$ \r
-\r
- \r
-\r
-Theo công thức thay đổi biến, áp dụng vì  $\\tan$  là một hàm số khả vi, tăng nghiêm ngặt trên  $(-\\pi/2, \\pi/2)$ ,\r
-\r
- \r
-\r
- $$f_{X}(x)=f_{U}(u)\\frac{d u}{d x}=\\frac{1}{\\pi}\\cdot\\frac{1}{1+x^{2}},$$ \r
-\r
- \r
-\r
-điều này cho thấy X là Cauchy. Đặc biệt, điều này có nghĩa là  $E|X|$  là vô hạn (vì giá trị kỳ vọng của một Cauchy không tồn tại), do đó trung bình X ở vô cùng xa so với gốc của đường thẳng!\r
-\r
-Sự kiện rằng X là Cauchy cũng có thể hiểu được trong ánh sáng của tính phổ quát của Uniform. Như được trình bày trong Ví dụ 7.1.25, hàm phân phối tích lũy (CDF) của Cauchy là\r
-\r
- \r
-\r
- $$F(x)=\\frac{1}{\\pi}\\arctan(x)+0.5.$$ \r
-\r
- \r
-\r
-Ngược lại là  $F^{-1}(v) = \\tan(\\pi(v - 0.5))$ , do đó với  $V \\sim \\text{Unif}(0,1)$  chúng ta có\r
-\r
- \r
-\r
- $$F^{-1}(V)=\\tan\\left(\\pi\\left(V-0.5\\right)\\right)\\sim Cauchy.$$ \r
-\r
- \r
-\r
-Điều này phù hợp với kết quả trước đây của chúng ta vì  $\\pi(V - 0.5) \\sim \\mathrm{Unif}(-\\pi/2, \\pi/2)$ .\r
-\r
-Chúng ta cũng có thể sử dụng công thức thay đổi biến để tìm hàm mật độ xác suất (PDF) của một biến đổi vị trí-thang.\r
-\r
-Ví dụ 8.1.6 (PDF của một biến đổi vị trí-thang). Giả sử X có PDF  $f_{X}$ , và cho  $Y = a + bX$ , với  $b \\neq 0$ . Cho  $y = a + bx$ , để phản ánh mối quan hệ giữa Y và X. Khi đó  $\\frac{dy}{dx} = b$ , do đó PDF của Y là\r
-\r
- \r
-\r
- $$f_{Y}(y)=f_{X}(x)\\left|\\frac{dx}{dy}\\right|=f_{X}\\left(\\frac{y-a}{b}\\right)\\frac{1}{|b|}.$$ \r
-\r
- \r
-\r
-Công thức thay đổi biến có thể mở rộng đến  $n$  chiều, nơi nó cho chúng ta biết cách sử dụng PDF chung của một vector ngẫu nhiên  $\\mathbf{X}$  để tìm PDF chung của vector ngẫu nhiên được biến đổi  $\\mathbf{Y}=g(\\mathbf{X})$ . Công thức tương tự như phiên bản một chiều, nhưng nó liên quan đến một phiên bản đa chiều của đạo hàm gọi là ma trận Jacobian; xem các phần A.6 và A.7 của phụ lục toán học để biết thêm về các Jacobian.\r
-\r
-Định lý 8.1.7 (Thay đổi biến). Cho  $\\mathbf{X} = (X_1, \\ldots, X_n)$  là một vector ngẫu nhiên liên tục với PDF chung  $f_{\\mathbf{X}}$ . Cho  $g: A_0 \\to B_0$  là một hàm số nghịch đảo được, nơi  $A_0$  và  $B_0$  là các tập mở  $^1$  của  $\\mathbb{R}^n$ ,  $A_0$  chứa miền giá trị của  $\\mathbf{X}$ , và  $B_0$  là miền giá trị của  $g$ .\r
-\r
-Cho  $\\mathbf{Y} = g(\\mathbf{X})$ , và phản ánh điều này bằng cách cho  $\\mathbf{y} = g(\\mathbf{x})$ . Vì  $g$  là nghịch đảo được, chúng ta cũng có  $\\mathbf{X} = g^{-1}(\\mathbf{Y})$  và  $ \\mathbf{x} = g^{-\r
-^{-1}(\\mathbf{y}) $.\r
-\r
-Giả sử rằng tất cả các đạo hàm riêng  $\\frac{\\partial x_{i}}{\\partial y_{j}}$  tồn tại và liên tục, do đó chúng ta có thể tạo ra ma trận Jacobian\r
-\r
- \r
-\r
- $$\\frac{\\partial\\mathbf{x}}{\\partial\\mathbf{y}}=\\left(\\begin{array}{c c c c}\\frac{\\partial x_{1}}{\\partial y_{1}}&\\frac{\\partial x_{1}}{\\partial y_{2}}&\\cdots&\\frac{\\partial x_{1}}{\\partial y_{n}}\\\\ \\vdots&&&\\vdots\\\\ \\frac{\\partial x_{n}}{\\partial y_{1}}&\\frac{\\partial x_{n}}{\\partial y_{2}}&\\cdots&\\frac{\\partial x_{n}}{\\partial y_{n}}\\end{array}\\right).$$ \r
-\r
- \r
-\r
-Cũng giả sử rằng định thức của ma trận Jacobian này luôn khác 0. Khi đó PDF chung của Y là\r
-\r
- \r
-\r
- $$f_{\\mathbf{Y}}(\\mathbf{y})=f_{\\mathbf{X}}\\left(\\mathbf{g}^{-\\mathbf{1}}(\\mathbf{y})\\right)\\cdot\\left|\\frac{\\partial\\mathbf{x}}{\\partial\\mathbf{y}}\\right|\\quad\\mathrm{f o r}\\mathbf{y}\\in B_{0},$$ \r
-\r
-\r
-\r
-và 0 khác. (Các thanh ngoặc trong Jacobian nói rằng ta lấy định thức và các thanh ngoặc ngoài nói rằng ta lấy giá trị tuyệt đối.)\r
-\r
-Đó là, để chuyển đổi  $f_{\\mathbf{X}}(\\mathbf{x})$  sang  $f_{\\mathbf{Y}}(\\mathbf{y})$  ta biểu diễn  $\\mathbf{x}$  trong  $f_{\\mathbf{X}}(\\mathbf{x})$  theo  $\\mathbf{y}$  và sau đó nhân với giá trị tuyệt đối của định thức của Jacobian  $\\partial\\mathbf{x}/\\partial\\mathbf{y}$ .\r
-\r
-Tương tự như trường hợp 1D,\r
-\r
- \r
-\r
- $$\\left|\\frac{\\partial\\mathbf{x}}{\\partial\\mathbf{y}}\\right|=\\left|\\frac{\\partial\\mathbf{y}}{\\partial\\mathbf{x}}\\right|^{-1},$$ \r
-\r
- \r
-\r
-nên ta có thể tính toán whichever của hai Jacobian nào dễ hơn, và sau cùng biểu diễn hàm mật độ xác suất chung của Y dưới dạng một hàm số của y.\r
-\r
-Chúng ta sẽ không chứng minh công thức thay đổi biến ở đây, nhưng ý tưởng là áp dụng công thức thay đổi biến từ giải tích nhiều biến và sự kiện nếu  $A$  là một miền trong  $A_0$  và  $B = \\{g(\\mathbf{x}): \\mathbf{x} \\in A\\}$  là miền tương ứng trong  $B_0$ , thì  $\\mathbf{X} \\in A$  tương đương với  $\\mathbf{Y} \\in B$ -chúng là cùng một sự kiện. Do đó  $P(\\mathbf{X} \\in A) = P(\\mathbf{Y} \\in B)$ , điều này cho thấy rằng\r
-\r
- \r
-\r
- $$\\int\\limits_{A}f_{\\mathbf{X}}(\\mathbf{x})d\\mathbf{x}=\\int\\limits_{B}f_{\\mathbf{Y}}(\\mathbf{y})d\\mathbf{y}.$$ \r
-\r
- \r
-\r
-Công thức thay đổi biến từ giải tích nhiều biến (được xem lại trong phụ lục toán học) có thể sau đó được áp dụng cho tích phân ở vế trái, với phép thay thế  $\\mathbf{x} = g^{-1}(\\mathbf{y})$ .\r
-\r
-8.1.8. Một sự khác biệt quan trọng về mặt khái niệm giữa các phép biến đổi của biến ngẫu nhiên rời rạc và các phép biến đổi của biến ngẫu nhiên liên tục là với biến ngẫu nhiên rời rạc ta không cần Jacobian, trong khi với biến ngẫu nhiên liên tục ta cần Jacobian. Ví dụ, giả sử X là một biến ngẫu nhiên dương và  $Y = X^{3}$ . Nếu X là rời rạc, thì\r
-\r
- \r
-\r
- $$P(Y=y)=P(X=y^{1/3})$$ \r
-\r
- \r
-\r
-chuyển đổi giữa các hàm xác suất rời rạc. Nhưng nếu X là liên tục, ta cần Jacobian (trong một chiều, Jacobian chỉ là đạo hàm) để chuyển đổi giữa các hàm mật độ xác suất:\r
-\r
- \r
-\r
- $$f_{Y}(y)=f_{X}(x)\\frac{dx}{dy}=f_{X}(y^{1/3})\\frac{1}{3y^{2/3}}.$$ \r
-\r
- \r
-\r
-Bài tập 23 là một câu chuyện cảnh báo về một người đã không sử dụng Jacobian khi cần thiết.\r
-\r
-Ví dụ tiếp theo hai áp dụng công thức thay đổi biến trong 2D.\r
-\r
-Ví dụ 8.1.9 (Box-Muller). Cho  $U \\sim \\text{Unif}(0, 2\\pi)$ , và cho  $T \\sim \\text{Expo}(1)$  độc lập với U. Định nghĩa\r
-\r
- \r
-\r
- $$X=\\sqrt{2T}\\cos U,\\ Y=\\sqrt{2T}\\sin U.$$ \r
-\r
- \r
-\r
-Tìm hàm mật độ xác suất chung của  $(X,Y)$ . Họ có độc lập không? Phân phối biên của chúng là gì?\r
-\r
-Giải pháp:\r
-\r
-Phân phối xác suất mật độ chung của U và T là\r
-\r
- \r
-\r
- $$f_{U,T}(u,t)=\\frac{1}{2\\pi}e^{-t},$$ \r
-\r
- \r
-\r
-cho  $u \\in (0, 2\\pi)$  và  $t > 0$ . Xem  $(X, Y)$  như một điểm trong mặt phẳng,\r
-\r
- \r
-\r
- $$X^{2}+Y^{2}=2T(\\cos^{2}U+\\sin^{2}U)=2T$$ \r
-\r
- \r
-\r
-là khoảng cách bình phương từ gốc tọa độ và U là góc; tức là,  $(\\sqrt{2T}, U)$  biểu diễn  $(X, Y)$  dưới dạng tọa độ cực.\r
-\r
-Vì chúng ta có thể phục hồi  $(U,T)$  từ  $(X,Y)$ , phép biến đổi là khả nghịch. Ma trận Jacobian\r
-\r
- \r
-\r
- $$\\frac{\\partial(x,y)}{\\partial(u,t)}=\\left(\\begin{array}{cc}-\\sqrt{2t}\\sin u&\\frac{1}{\\sqrt{2t}}\\cos u\\\\ \\sqrt{2t}\\cos u&\\frac{1}{\\sqrt{2t}}\\sin u\\end{array}\\right)$$ \r
-\r
- \r
-\r
-tồn tại, có các phần tử liên tục và có định thức tuyệt đối\r
-\r
- \r
-\r
- $$\\left|-\\sin^{2}u-\\cos^{2}u\\right|=1$$ \r
-\r
- \r
-\r
-(không bao giờ bằng 0). Sau đó, để lại  $x = \\sqrt{2t} \\cos u$ ,  $y = \\sqrt{2t} \\sin u$  để phản ánh phép biến đổi từ  $(U, T)$  đến  $(X, Y)$ , chúng ta có\r
-\r
- \r
-\r
- $$\\begin{aligned}f_{X,Y}(x,y)&=f_{U,T}(u,t)\\cdot\\left|\\frac{\\partial(u,t)}{\\partial(x,y)}\\right|\\\\&=\\frac{1}{2\\pi}e^{-t}\\cdot1\\\\&=\\frac{1}{2\\pi}e^{-\\frac{1}{2}(x^{2}+y^{2})}\\\\&=\\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}\\cdot\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2},\\end{aligned}$$ \r
-\r
- \r
-\r
-cho tất cả các số thực x và y.\r
-\r
-Phân phối xác suất mật độ chung  $f_{X,Y}$  phân tích thành một hàm của  $x$  nhân với một hàm của  $y$ , do đó  $X$  và  $Y$  là độc lập. Hơn nữa, chúng ta nhận ra phân phối xác suất mật độ chung là tích của hai hàm mật độ xác suất chuẩn, do đó  $X$  và  $Y$  là các biến ngẫu nhiên độc lập và đồng phân phối  $\\mathcal{N}(0,1)$ ! Kết quả này được gọi là phương pháp Box-Muller để tạo ra các biến ngẫu nhiên chuẩn.\r
-\r
-Ví dụ 8.1.10 (Phân phối xác suất mật độ chung của phân phối chuẩn hai chiều). Trong Chương 7, chúng ta đã thấy một số tính chất của phân phối chuẩn hai chiều và tìm được hàm sinh moment chung. Bây giờ hãy tìm phân phối xác suất mật độ chung của nó.\r
-\r
-Giả sử  $(Z, W)$  là BVN với  $\\mathcal{N}(0,1)$  phân phối biên và  $\\operatorname{Corr}(Z,W) = \\rho$ . (Nếu chúng ta muốn phân phối xác suất mật độ chung khi các phân phối biên không phải là chuẩn tiêu chuẩn, chúng ta có thể chuẩn hóa từng thành phần riêng lẻ và sử dụng kết quả dưới đây.) Giả sử rằng  $-1 < \\rho < 1$  vì nếu không, phân phối sẽ là phân bố suy biến (với Z và W hoàn toàn tương quan).\r
-\r
-Như được trình bày trong Ví dụ 7.5.10, chúng ta có thể xây dựng  $(Z, W)$  như\r
-\r
- \r
-\r
- $$\\begin{aligned}Z&=X\\\\W&=\\rho X+\\tau Y,\\end{aligned}$$ \r
-\r
- \r
-\r
-với  $\\tau = \\sqrt{1 - \\rho^2}$  và  $X, Y$  i.i.d.  $\\mathcal{N}(0,1)$ . Chúng ta cũng cần biến đổi ngược. Giải phương trình  $Z = X$  để tìm  $X$ , chúng ta có  $X = Z$ . Thay giá trị này vào  $W = \\rho X + \\tau Y$  và giải phương trình để tìm  $Y$ , chúng ta có\r
-\r
- \r
-\r
- $$X=Z$$ \r
-\r
- \r
-\r
- \r
-\r
- $$Y=-\\frac{\\rho}{\\tau}Z+\\frac{1}{\\tau}W.$$ \r
-\r
- \r
-\r
-Ma trận Jacobian là\r
-\r
- \r
-\r
- $$\\frac{\\partial(x,y)}{\\partial(z,w)}=\\left(\\begin{array}{cc}{{{1}}}&{{{0}}} \\\\{{{-\\frac{\\rho}{\\tau}}}}&{{{\\frac{1}{\\tau}}}}\\end{array}\\right),$$ \r
-\r
- \r
-\r
-điều này có định thức tuyệt đối là  $1/\\tau$ . Do đó theo công thức thay đổi biến,\r
-\r
- \r
-\r
- $$\\begin{aligned}f_{Z,W}(z,w)&=f_{X,Y}(x,y)\\cdot\\left|\\frac{\\partial(x,y)}{\\partial(z,w)}\\right|\\\\&=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2}(x^{2}+y^{2})\\right)\\\\&=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2}(z^{2}+(-\\frac{\\rho}{\\tau}z+\\frac{1}{\\tau}w)^{2})\\right)\\\\&=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2\\tau^{2}}(z^{2}+w^{2}-2\\rho zw)\\right),for all real z,w.\\\\ \\end{aligned}$$ \r
-\r
- \r
-\r
-Trong bước cuối cùng chúng ta đã nhân các hạng tử và sử dụng tính chất  $\\rho^{2} + \\tau^{2} = 1$ . ☐`,TA=`Một phép convolution là tổng của các biến ngẫu nhiên độc lập. Như chúng ta đã đề cập trước đó, chúng ta thường cộng các biến ngẫu nhiên độc lập vì tổng là một bản tóm tắt hữu ích của một thí nghiệm (trong n thí nghiệm Bernoulli, chúng ta có thể chỉ quan tâm đến tổng số lần thành công), và vì các tổng dẫn đến các giá trị trung bình, cũng rất hữu ích (trong n thí nghiệm Bernoulli, tỷ lệ thành công).\r
-\r
-Nhiệm vụ chính trong phần này là xác định phân phối của T = X + Y, trong đó X và Y là các biến ngẫu nhiên độc lập có phân phối đã biết. Trong các chương trước, chúng ta đã thấy cách các câu chuyện và các hàm MGF có thể giúp chúng ta thực hiện điều này.\r
-\r
-Task. Ví dụ, chúng ta đã sử dụng câu chuyện để cho thấy rằng tổng của các Binomials độc lập với cùng xác suất thành công là Binomial, và rằng tổng của các Geometrics i.i.d. là Negative Binomial. Chúng ta đã sử dụng MGFs để cho thấy rằng tổng của các Normals độc lập là Normal.\r
-\r
-Một phương pháp thứ ba để xác định phân phối của T là bằng cách sử dụng tổng convolution hoặc tích phân. Các công thức được đưa ra trong định lý sau đây. Như chúng ta sẽ thấy, một tổng convolution không hơn gì là luật tổng xác suất, điều kiện hóa theo giá trị của X hoặc Y; một tích phân convolution là tương tự.\r
-\r
-Định lý 8.2.1 (Tổng convolution và tích phân convolution). Cho X và Y là các biến ngẫu nhiên độc lập và  $T = X + Y$  là tổng của chúng. Nếu X và Y là rời rạc, thì PMF của T là\r
-\r
- \r
-\r
- $$\\begin{align*}P(T=t)&=\\sum_{x}P(Y=t-x)P(X=x)\\\\&=\\sum_{y}P(X=t-y)P(Y=y).\\end{align*}$$ \r
-\r
- \r
-\r
-Nếu X và Y là liên tục, thì PDF của T là\r
-\r
- \r
-\r
- $$\\begin{aligned}f_{T}(t)&=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)dx\\\\&=\\int_{-\\infty}^{\\infty}f_{X}(t-y)f_{Y}(y)dy.\\end{aligned}$$ \r
-\r
- \r
-\r
-Chứng minh. Đối với trường hợp rời rạc, chúng ta sử dụng LOTP, điều kiện hóa theo X:\r
-\r
- \r
-\r
- $$\\begin{align*}P(T=t)&=\\sum_{x}P(X+Y=t|X=x)P(X=x)\\\\&=\\sum_{x}P(Y=t-x|X=x)P(X=x)\\\\&=\\sum_{x}P(Y=t-x)P(X=x).\\end{align*}$$ \r
-\r
- \r
-\r
-Điều kiện hóa theo Y thay vào, chúng ta nhận được công thức thứ hai cho PMF của T.\r
-\r
-8.2.2. Chúng ta sử dụng giả định rằng X và Y là độc lập để đi từ  $P(Y = t - x | X = x)$  đến  $P(Y = t - x)$  trong bước cuối cùng. Chúng ta chỉ được phép loại bỏ điều kiện X = x nếu phân phối có điều kiện của Y cho X = x giống như phân phối biên của Y, tức là X và Y là độc lập. Một sai lầm phổ biến là giả định rằng sau khi thay x vào X, chúng ta đã "đã sử dụng thông tin" rằng X = x, khi thực tế chúng ta cần giả định độc lập để loại bỏ điều kiện. Ngược lại, chúng ta sẽ phá hủy thông tin mà không có cơ sở.\r
-\r
-Trong trường hợp liên tục, vì giá trị của một PDF tại một điểm không phải là xác suất, chúng ta\r
-\r
-Đầu tiên tìm CDF, sau đó lấy đạo hàm để nhận được PDF. Theo định lý tổng xác suất,\r
-\r
- \r
-\r
- $$\\begin{aligned}F_{T}(t)=P(X+Y\\leq t)&=\\int_{-\\infty}^{\\infty}P(X+Y\\leq t|X=x)f_{X}(x)dx\\\\&=\\int_{-\\infty}^{\\infty}P(Y\\leq t-x)f_{X}(x)dx\\\\&=\\int_{-\\infty}^{\\infty}F_{Y}(t-x)f_{X}(x)dx.\\end{aligned}$$ \r
-\r
- \r
-\r
-Lại một lần nữa, chúng ta cần tính độc lập để loại bỏ điều kiện X = x. Để nhận được PDF, chúng ta sau đó lấy đạo hàm theo t, đổi thứ tự tích phân và đạo hàm. Điều này cho ra\r
-\r
- \r
-\r
- $$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)d x.$$ \r
-\r
- \r
-\r
-Tính toán dựa trên Y thay vào, chúng ta nhận được công thức thứ hai cho  $f_{T}$ .\r
-\r
-Một cách chứng minh khác sử dụng công thức thay đổi biến trong hai chiều. Điểm duy nhất là công thức thay đổi biến yêu cầu phép biến đổi nghịch đảo từ  $\\mathbb{R}^2$  sang  $\\mathbb{R}^2$ , nhưng  $(X,Y) \\mapsto X + Y$  ánh xạ  $\\mathbb{R}^2$  sang  $\\mathbb{R}$  và không nghịch đảo được. Chúng ta có thể vượt qua điều này bằng cách thêm một thành phần dư thừa vào phép biến đổi, nhằm làm cho nó nghịch đảo được. Như vậy, chúng ta xem xét phép biến đổi nghịch đảo  $(X,Y) \\mapsto (X + Y,X)$  (sử dụng  $(X,Y) \\mapsto (X + Y,Y)$  cũng hợp lệ như nhau). Sau khi có PDF chung của  $X + Y$  và  $X$ , chúng ta tích phân theo  $X$  để nhận được PDF biên của  $X + Y$ .\r
-\r
-Đặt  $T = X + Y$ ,  $W = X$ , và đặt  $t = x + y$ ,  $w = x$ . Có vẻ như việc đặt tên mới cho X là "W" là thừa, nhưng việc làm như vậy giúp dễ dàng phân biệt giữa các biến trước và sau phép biến đổi: chúng ta đang biến đổi  $(X, Y) \\mapsto (T, W)$ . Sau đó\r
-\r
- \r
-\r
- $$\\frac{\\partial(t,w)}{\\partial(x,y)}=\\left(\\begin{array}{cc}{{{1}}}&{{{1}}} \\\\{{{1}}}&{{{0}}}\\end{array}\\right)$$ \r
-\r
- \r
-\r
-có định thức tuyệt đối bằng 1, do đó  $|\\left|\\frac{\\partial(x,y)}{\\partial(t,w)}\\right|$  cũng bằng 1. Như vậy, PDF chung của T và W là\r
-\r
- \r
-\r
- $$f_{T,W}(t,w)=f_{X,Y}(x,y)=f_{X}(x)f_{Y}(y)=f_{X}(w)f_{Y}(t-w),$$ \r
-\r
- \r
-\r
-và PDF biên của T là\r
-\r
- \r
-\r
- $$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{T,W}(t,w)d w=\\int_{-\\infty}^{\\infty}f_{X}(x)f_{Y}(t-x)d x,$$ \r
-\r
- \r
-\r
-như kết quả mà chúng ta đã có ở trên.\r
-\r
-8.2.3. Không khó để nhớ công thức tích phân convolution bằng cách suy luận theo kiểu tương tự từ\r
-\r
- \r
-\r
- $$P(T=t)=\\sum_{x}P(Y=t-x)P(X=x)$$ \r
-\r
-\r
-\r
-\r
-\r
- $$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)d x.$$ \r
-\r
- \r
-\r
-Nhưng vẫn cần cẩn trọng. Ví dụ, Bài tập 23 cho thấy một công thức tương tự nhưng trông giống nhau cho PDF của tích của hai biến ngẫu nhiên liên tục độc lập là sai: cần một Jacobian (cho các tích phân convolution, định thức tuyệt đối của Jacobian bằng 1 nên không thể nhận thấy trong công thức tích phân convolution).\r
-\r
-Vì các tích phân convolution chính là luật tổng xác suất, chúng ta đã sử dụng chúng trong các chương trước mà không cần đề cập đến từ "convolution"; xem ví dụ, như chứng minh đầu tiên và cũng là tốn thời gian nhất của Định lý 3.8.9 (tổng của các Binomials độc lập), cũng như chứng minh của Định lý 4.8.1 (tổng của các Poisson độc lập). Trong các ví dụ dưới đây, chúng ta tìm phân phối của tổng các Exponentials và tổng các Uniforms sử dụng tích phân convolution.\r
-\r
-Ví dụ 8.2.4 (Convolution của Exponential). Cho  $X, Y \\stackrel{i.i.d.}{\\sim} \\operatorname{Expo}(\\lambda)$ . Tìm phân phối của  $T = X + Y$ .\r
-\r
-Giải:\r
-\r
-Với t > 0, công thức convolution cho\r
-\r
- \r
-\r
- $$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)d x=\\int_{0}^{t}\\lambda e^{-\\lambda(t-x)}\\lambda e^{-\\lambda x}d x,$$ \r
-\r
- \r
-\r
-trong đó chúng ta giới hạn tích phân từ 0 đến t vì chúng ta cần  $t - x > 0$  và x > 0 để các PDF bên trong tích phân không bằng 0. Rút gọn, chúng ta có\r
-\r
- \r
-\r
- $$f_{T}(t)=\\lambda^{2}\\int_{0}^{t}e^{-\\lambda t}d x=\\lambda^{2}t e^{-\\lambda t},\\mathrm{f o r}t>0.$$ \r
-\r
- \r
-\r
-Đây được gọi là phân phối Gamma(2, λ). Chúng ta sẽ giới thiệu phân phối Gamma chi tiết trong Phần 8.4.\r
-\r
-Ví dụ 8.2.5 (Convolution của Uniform). Cho  $X, Y \\stackrel{i.i.d.}{\\sim}$  Unif(0, 1). Tìm phân phối của  $T = X + Y$ .\r
-\r
-Giải:\r
-\r
-PDF của X (và của Y) là\r
-\r
- \r
-\r
- $$g(x)=\\left\\{\\begin{array}{ll}1,&x\\in(0,1),\\\\0,&otherwise.\\end{array}\\right.$$ \r
-\r
- \r
-\r
-Công thức convolution cho\r
-\r
- \r
-\r
- $$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)d x=\\int_{-\\infty}^{\\infty}g(t-x)g(x)d x.$$ \r
-\r
- \r
-\r
-Hàm số tích phân bằng 1 nếu và chỉ nếu  $0 < t - x < 1$  và  $0 < x < 1$ ; đây là một điều kiện hình thang. Tương đương, điều kiện là  $\\max(0, t - 1) < x < \\min(t, 1)$ .\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_308_180_1079_633.jpg" alt="Image" width="55%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 8.2</div>\r
-\r
-\r
-<div style="text-align: center;">Vùng trong mặt phẳng  $(t, x)$  nơi  $g(t - x)g(x)$  bằng 1.</div>\r
-\r
-\r
-Từ Hình 8.2, ta thấy rằng với  $0 < t \\leq 1$ , x bị giới hạn trong khoảng  $(0, t)$ , và với  $1 < t < 2$ , x bị giới hạn trong khoảng  $(t-1, 1)$ . Do đó, hàm mật độ xác suất của T là một hàm tuyến tính từng khúc:\r
-\r
- \r
-\r
- $$f_{T}(t)=\\left\\{\\begin{array}{ll}\\displaystyle\\int_{0}^{t}dx=t&\\text{với}0<t\\leq1,\\\\ \\displaystyle\\int_{t-1}^{1}dx=2-t&\\text{với}1<t<2.\\end{array}\\right.$$ \r
-\r
- \r
-\r
-Hình 8.3 vẽ hàm mật độ xác suất của T. Nó có dạng một tam giác với các đỉnh tại 0, 1 và 2, vì vậy nó được gọi là phân phối Tam giác(0, 1, 2).\r
-\r
-Về mặt trực quan, điều này có vẻ hợp lý vì T có xu hướng nhận các giá trị gần giữa hơn là gần các cực trị: một giá trị gần 1 có thể được đạt được nếu cả X và Y đều ở mức trung bình, nếu X lớn nhưng Y nhỏ, hoặc nếu Y lớn nhưng X nhỏ. Trong khi đó, một giá trị gần 2 chỉ có thể xảy ra nếu cả X và Y đều lớn. Nhớ lại Ví dụ 3.2.5, hàm phân phối xác suất của tổng hai lần gieo xúc xắc cũng có dạng tam giác. Một lần gieo xúc xắc có phân phối rời rạc đều trên các số nguyên từ 1 đến 6, vì vậy trong bài toán đó chúng ta đang xem xét một phép convolute của hai phân phối rời rạc đều. Điều này hợp lý vì hàm mật độ xác suất mà chúng ta đã thu được ở đây có dạng tương tự.`,EA=`Trong phần này và phần tiếp theo, chúng ta sẽ giới thiệu hai phân phối liên tục, Beta và Gamma, mà chúng có liên quan đến một số phân phối có tên mà chúng ta đã\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_306_174_1083_629.jpg" alt="Hình ảnh" width="55%" /></div>\r
-\r
-\r
-### HÌNH 8.3\r
-\r
-<div style="text-align: center;">Phân phối xác suất của  $T = X + Y$ , nơi X và Y là i.i.d. Unif(0,1).</div>\r
-\r
-\r
-đã được nghiên cứu và cũng liên quan đến nhau qua một câu chuyện chia sẻ. Đây là một đoạn trích từ chủ đề biến đổi, nhưng chúng ta sẽ cần sử dụng một thay đổi biến để liên kết phân phối Beta và Gamma vào cuối cùng.\r
-\r
-Phân phối Beta là một phân phối liên tục trên khoảng  $(0,1)$ . Nó là một tổng quát hóa của phân phối  $\\text{Unif}(0,1)$ , cho phép PDF không phải là hằng số trên khoảng  $(0,1)$ .\r
-\r
-Định nghĩa 8.3.1 (Phân phối Beta). Một biến ngẫu nhiên X được gọi là có phân phối Beta với tham số a và b, nơi a > 0 và b > 0, nếu PDF của nó là\r
-\r
- \r
-\r
- $$f(x)=\\frac{1}{\\beta(a,b)}x^{a-1}(1-x)^{b-1},\\quad0<x<1,$$ \r
-\r
- \r
-\r
-trong đó hằng số  $\\beta(a,b)$  được chọn để làm cho PDF tích phân đến 1. Chúng ta viết điều này là  $X \\sim \\text{Beta}(a,b)$ .\r
-\r
-Khi  $a = b = 1$ , PDF của Beta(1,1) là hằng số trên (0,1), do đó phân phối Beta(1,1) và Unif(0,1) là giống nhau. Bằng cách thay đổi các giá trị của  $a$  và  $b$ , chúng ta nhận được các PDF với nhiều dạng khác nhau; Hình 8.4 cho thấy bốn ví dụ. Dưới đây là một vài mẫu chung:\r
-\r
-• Nếu  $a < 1$  và  $b < 1$ , PDF có dạng U và mở lên. Nếu  $a > 1$  và  $b > 1$ , PDF mở xuống.\r
-\r
-• Nếu  $a = b$ , PDF đối xứng về  $1/2$ . Nếu  $a > b$ , PDF thiên về các giá trị lớn hơn  $1/2$ ; nếu  $a < b$ , PDF thiên về các giá trị nhỏ hơn  $1/2$ .\r
-\r
-Theo định nghĩa, hằng số  $\\beta(a,b)$  thỏa mãn\r
-\r
- \r
-\r
- $$\\beta(a,b)=\\int_{0}^{1}x^{a-1}(1-x)^{b-1}d x.$$ \r
-\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_196_422_685_889.jpg" alt="Image" width="34%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_694_421_1184_888.jpg" alt="Image" width="35%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_196_923_686_1388.jpg" alt="Image" width="35%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_696_928_1183_1384.jpg" alt="Image" width="34%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 8.4</div>\r
-\r
-\r
-<div style="text-align: center;">Phân phối Beta cho các giá trị khác nhau của a và b. Theo chiều kim đồng hồ, bắt đầu từ góc trên bên trái: Beta(0.5, 0.5), Beta(2, 1), Beta(5, 5), Beta(2, 8).</div>\r
-\r
-Một tích phân có dạng này được gọi là tích phân beta, và chúng ta sẽ cần phải làm một chút giải tích để suy ra một công thức tổng quát cho  $\\beta(a,b)$ . Nhưng trong trường hợp đặc biệt khi a và b là các số nguyên dương, Thomas Bayes đã tìm ra cách tính tích phân này bằng một chứng minh dựa trên câu chuyện thay vì dùng giải tích!\r
-\r
-Câu chuyện 8.3.2 (Câu chuyện của Bayes về sân bi-a). Hãy chứng minh mà không dùng giải tích rằng với bất kỳ các số nguyên k và n nào với  $0 \\leq k \\leq n$ ,\r
-\r
- \r
-\r
- $$\\int_{0}^{1}\\binom{n}{k}x^{k}(1-x)^{n-k}d x=\\frac{1}{n+1}.$$ \r
-\r
- \r
-\r
-Giải pháp:\r
-\r
-Bằng cách kể hai câu chuyện, chúng ta sẽ chứng minh rằng vế trái và vế phải đều bằng  $P(X = k)$ , với X là một biến ngẫu nhiên mà chúng ta sẽ xây dựng.\r
-\r
-Câu chuyện 1: Bắt đầu với  $n+1$  quả bóng, n quả trắng và 1 quả xám. Đánh ngẫu nhiên mỗi quả bóng lên đoạn đơn vị  $[0, 1]$ , sao cho vị trí của các quả bóng là các biến ngẫu nhiên độc lập đồng nhất Unif(0, 1). Gọi X là số quả bóng trắng nằm bên trái quả bóng xám; X là một biến ngẫu nhiên rời rạc với các giá trị có thể là 0, 1,  $\\ldots$ , n. Hình 8.5 minh họa thiết lập thí nghiệm của chúng ta.\r
-\r
-Để tính xác suất của sự kiện  $X = k$ , chúng ta sử dụng LOTP, điều kiện hóa theo vị trí của quả bóng xám, mà chúng ta sẽ gọi là  $B$ . Điều kiện hóa theo  $B = p$ , số lượng quả bóng trắng rơi bên trái của  $p$  có phân phối  $\\mathrm{Bin}(n, p)$ , vì chúng ta có thể xem mỗi quả bóng trắng là một phép thử Bernoulli độc lập, nơi thành công được định nghĩa là rơi bên trái của  $p$ . Gọi  $f$  là hàm mật độ xác suất của  $B$ ;  $f(p) = 1$  vì  $B \\sim \\mathrm{Unif}(0, 1)$ . Do đó\r
-\r
- \r
-\r
- $$P(X=k)=\\int_{0}^{1}P(X=k|B=p)f(p)dp=\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}dp.$$ \r
-\r
- \r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_247_1101_1143_1349.jpg" alt="Image" width="64%" /></div>\r
-\r
-\r
-### HÌNH 8.5\r
-\r
-Câu chuyện của Bayes về sân bi-a. Ở đây chúng ta ném n = 6 quả bóng trắng và một quả bóng xám lên đoạn đơn vị, và quan sát X = 2 quả bóng nằm bên trái quả bóng xám.\r
-\r
-Câu chuyện 2: Bắt đầu với  $n + 1$  quả bóng, tất cả đều trắng. Ném ngẫu nhiên mỗi quả bóng lên đoạn đơn vị; sau đó chọn một quả bóng ngẫu nhiên và sơn nó thành xám. Lại gọi X là số quả bóng trắng nằm bên trái quả bóng xám. Nhờ tính đối xứng, bất kỳ một trong  $n + 1$  quả bóng nào cũng có thể được sơn thành xám với xác suất như nhau, do đó\r
-\r
- \r
-\r
- $$P(X=k)=\\frac{1}{n+1}$$ \r
-\r
- \r
-\r
-với  $k = 0, 1, \\ldots, n$ .\r
-\r
-Đây là trọng tâm: X có cùng phân phối trong hai câu chuyện! Nó không quan trọng là chúng ta sơn quả bóng xám trước rồi ném, hay là ném trước rồi mới sơn quả bóng xám. Vì vậy  $P(X = k)$  là như nhau trong Câu chuyện 1 và Câu chuyện 2, và\r
-\r
- \r
-\r
- $$\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}dp=\\frac{1}{n+1}$$ \r
-\r
- \r
-\r
-cho  $k = 0, 1, \\ldots, n$ . Dù có  $k'$  trong tích phân, giá trị của tích phân không phụ thuộc vào  $k$ . Thay thế  $a - 1$  cho  $k$  và  $b - 1$  cho  $n - k$ , điều này cho thấy rằng với các giá trị nguyên dương của  $a$  và  $b$ ,\r
-\r
- \r
-\r
- $$\\beta(a,b)=\\frac{1}{(a+b-1)\\binom{a+b-2}{a-1}}=\\frac{(a-1)!(b-1)!}{(a+b-1)!}.$$ \r
-\r
- \r
-\r
-Sau này trong chương này, chúng ta sẽ học  $\\beta(a,b)$  là gì với các a và b tổng quát.\r
-\r
-Beta là một họ linh hoạt của phân phối trên  $(0,1)$ , và có nhiều câu chuyện. Một trong những câu chuyện này là rằng một biến ngẫu nhiên Beta thường được sử dụng để đại diện cho một xác suất chưa biết. Đó là, chúng ta có thể sử dụng Beta để đặt xác suất lên các xác suất chưa biết!\r
-\r
-Câu chuyện 8.3.3 (Tính liên hợp Beta-Binomial). Chúng ta có một đồng xu rơi mặt ngửa với xác suất p, nhưng chúng ta không biết p là gì. Mục tiêu của chúng ta là suy luận giá trị của p sau khi quan sát kết quả của n lần tung đồng xu. Càng lớn n là, chúng ta càng có thể ước lượng chính xác hơn p.\r
-\r
-Có nhiều cách để thực hiện điều này. Một phương pháp chính là suy luận Bayesian, phương pháp này xem tất cả các đại lượng chưa biết là các biến ngẫu nhiên. Trong tiếp cận Bayesian, chúng ta sẽ xem xác suất chưa biết p là một biến ngẫu nhiên và cấp cho p một phân phối. Điều này được gọi là phân phối tiên nghiệm, và nó phản ánh sự không chắc chắn về giá trị thực của p trước khi quan sát các lần tung đồng xu. Sau khi thực hiện thí nghiệm và thu thập dữ liệu, phân phối tiên nghiệm được cập nhật bằng quy tắc Bayes; điều này cho ra phân phối hậu nghiệm, phản ánh niềm tin mới của chúng ta về p.\r
-\r
-Hãy xem điều gì xảy ra nếu phân phối tiên nghiệm của p là một phân phối Beta. Cho  $p \\sim \\text{Beta}(a, b)$  với các hằng số a và b đã biết, và cho X là số lần ngửa trong n lần tung đồng xu. Điều kiện biết giá trị thực của p, các lần tung chỉ là các phép thử Bernoulli độc lập với xác suất p thành công, vì vậy\r
-\r
- \r
-\r
- $$X|p\\sim\\mathrm{Bin}(n,p).$$ \r
-\r
- \r
-\r
-Lưu ý rằng X không phải là phân phối Binomial theo biên; nó là phân phối Binomial điều kiện, cho p. Phân phối biên của X được gọi là phân phối Beta-Binomial. Để có phân phối hậu nghiệm của p, chúng ta sử dụng quy tắc Bayes (dưới dạng hỗn hợp, vì X là rời rạc và p là liên tục). Cho  $f(p)$  là phân phối tiên nghiệm và  $f(p|X=k)$  là\r
-\r
-phân phối hậu nghiệm sau khi quan sát k lần Lật mặt,\r
-\r
- \r
-\r
- $$\\begin{align*}f(p|X=k)&=\\frac{P(X=k|p)f(p)}{P(X=k)}\\\\&=\\frac{\\binom{n}{k}p^{k}(1-p)^{n-k}\\cdot\\frac{1}{\\beta(a,b)}p^{a-1}(1-p)^{b-1}}{P(X=k)}.\\end{align*}$$ \r
-\r
- \r
-\r
-Mẫu số, tức là PMF biên của X, được cho bởi\r
-\r
- \r
-\r
- $$P(X=k)=\\int_{0}^{1}P(X=k|p)f(p)dp=\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}f(p)dp.$$ \r
-\r
- \r
-\r
-Với  $a = b = 1$  (tức là prior của  $p$  là Unif(0, 1)), chúng ta đã chỉ ra trong câu chuyện Bayes’ billiards rằng  $P(X = k) = 1/(n+1)$ , tức là  $X$  là Discrete Uniform trên  $\\{0, 1, \\ldots, n\\}$ . Với  $a$  và  $b$  là bất kỳ số nguyên dương nào, chúng ta cũng có thể lại sử dụng câu chuyện Bayes’ billiards để tìm  $P(X = k)$ ; thú vị là  $X$  sau đó được cho là có phân phối Negative Hypergeometric (câu chuyện và PMF của nó chúng ta đã thấy trong Ví dụ 4.4.7).\r
-\r
-Nhưng dường như không dễ để tìm  $P(X=k)$  tổng quát cho các giá trị thực  $a,b$ . Liên quan đến điều này, chúng ta vẫn chưa đánh giá  $\\beta(a,b)$  tổng quát. Chúng ta có bị kẹt?\r
-\r
-Thực ra, phép tính này đơn giản hơn nhiều so với vẻ ngoài ban đầu. PDF có điều kiện  $f(p|X=k)$  là một hàm số của p, điều này có nghĩa là mọi thứ không phụ thuộc vào p chỉ là hằng số. Chúng ta có thể loại bỏ tất cả các hằng số này và tìm PDF đến một hằng số nhân (sau đó hằng số chuẩn hóa là bất cứ điều gì cần thiết để làm cho PDF tích phân bằng 1). Điều này cho ta\r
-\r
- \r
-\r
- $$f(p|X=k)\\propto p^{a+k-1}(1-p)^{b+n-k-1},$$ \r
-\r
- \r
-\r
-đây là PDF của  $\\mathrm{Beta}(a+k,b+n-k)$ , đến một hằng số nhân. Do đó, phân phối hậu nghiệm của p là\r
-\r
- \r
-\r
- $$p|X=k\\sim\\mathrm{Beta}(a+k,b+n-k).$$ \r
-\r
- \r
-\r
-Phân phối hậu nghiệm của p sau khi quan sát X = k vẫn là một phân phối Beta! Đây là một mối quan hệ đặc biệt giữa Beta và Binomial được gọi là tính liên hợp: nếu chúng ta có một prior Beta trên p và dữ liệu là Binomial điều kiện theo p, thì khi chuyển từ prior sang posterior, chúng ta không rời khỏi họ các phân phối Beta. Chúng ta nói rằng Beta là prior liên hợp của Binomial.\r
-\r
-Ngoài ra, hãy lưu ý công thức rất đơn giản để cập nhật phân phối của p. Chúng ta chỉ cần thêm số lần quan sát thành công, k, vào tham số đầu tiên của phân phối Beta, và số lần quan sát thất bại, n - k, vào tham số thứ hai. Do đó, a và b có một ý nghĩa cụ thể trong ngữ cảnh này, ít nhất khi a và b là các số nguyên dương: hãy xem a - 1 là số lần thành công trước đây và b - 1 là số lần thất bại trước đây trong các thí nghiệm trước (các thí nghiệm trước có thể là thực hoặc tưởng tượng). Thêm vào k lần thành công và n - k lần thất bại từ hiện tại\r
-\r
-Thí nghiệm, chúng ta có  $a + k - 1$  thành công và  $b + n - k - 1$  thất bại, và prior Beta(  $a, b$ ) được cập nhật thành posterior Beta(  $a + k, b + n - k$ ).\r
-\r
-Như trong phần 2.6, chúng ta có thể cập nhật dần niềm tin của mình khi nhận được thêm bằng chứng: chúng ta bắt đầu với một phân phối prior và cập nhật để nhận được phân phối posterior, cái này trở thành prior mới, cái mà chúng ta cập nhật để nhận được phân phối posterior mới, v.v. Sự đẹp đẽ ở đây là tất cả điều này có thể thực hiện trong gia đình phân phối Beta, với việc cập nhật tham số dễ dàng dựa trên việc đếm số thành công và thất bại quan sát được.\r
-\r
-Để cụ thể hơn, Hình 8.6 cho thấy trường hợp nơi prior là Beta(1,1) (được xem như Unif(0,1), như đã nói trước đó), và chúng ta quan sát n = 5 lần tung đồng xu, tất cả đều rơi vào Mặt. Khi đó posterior là Beta(6,1), được vẽ ở nửa phải của Hình 8.6. Lưu ý cách phân phối posterior tích hợp bằng chứng từ các lần tung đồng xu: các giá trị lớn hơn của p có mật độ cao hơn, phù hợp với việc chúng ta quan sát tất cả Mặt.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_197_773_682_1236.jpg" alt="Image" width="34%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_699_775_1180_1232.jpg" alt="Image" width="34%" /></div>\r
-\r
-\r
-### HÌNH 8.6\r
-\r
-<div style="text-align: center;">Beta là prior liên hợp của Binomial. Trái: prior là  $\\text{Unif}(0,1)$ . Phải: sau khi quan sát 5 Mặt trong 5 lần tung, posterior là  $\\text{Beta}(6,1)$ .</div>\r
-\r
-\r
-Mô hình này là phiên bản liên tục của Ví dụ 2.3.7, ví dụ đầu tiên của chúng ta về quy tắc Bayes. Trong ví dụ đó, chúng ta cũng có một đồng xu với xác suất Mặt p là không biết, nhưng thông tin prior khiến chúng ta tin rằng p chỉ có thể nhận một trong hai giá trị có thể, 1/2 hoặc 3/4. Chính vì vậy, prior phân phối của chúng ta trên p—mặc dù chúng ta chưa gọi nó như vậy!—là rời rạc. Cụ thể hơn, PMF prior của chúng ta là\r
-\r
- \r
-\r
- $$\\begin{aligned}&P(p=1/2)=1/2,\\\\&P(p=3/4)=1/2.\\\\ \\end{aligned}$$ \r
-\r
- \r
-\r
-Sau khi quan sát ba lần Mặt liên tiếp, chúng ta cập nhật PMF này để nhận được PMF posterior, cái này gán xác suất 0.23 cho  $p = \\frac{1}{2}$  và xác suất 0.77\r
-\r
-để  $p = 3/4$ . Cùng một logic này cũng áp dụng cho ví dụ trong chương này, ngoại trừ việc chúng ta nay cho  $p$  một phân phối tiên nghiệm liên tục, điều này phù hợp nếu chúng ta tin rằng  $p$  có thể nhận bất kỳ giá trị nào giữa 0 và 1.\r
-\r
-Để kết thúc phần này, dưới đây là hai ví dụ minh họa cách tính liên hợp Beta-Binomial và cách Bayes' billiards có thể làm cho một số bài toán dường như phức tạp trở nên dễ dàng hơn.\r
-\r
-Ví dụ 8.3.4 (Bayes' serum). Một loại thuốc mới, Bayes' serum, vừa được phát triển để điều trị căn bệnh conditionitis. Một cuộc thử nghiệm lâm sàng sắp được tiến hành để nghiên cứu hiệu quả của loại thuốc này. Bayes' serum sẽ được áp dụng cho n bệnh nhân mắc conditionitis. Cho p, kết quả của các bệnh nhân là độc lập, với mỗi bệnh nhân có xác suất p bị khỏi bệnh nhờ điều trị. Tuy nhiên p là chưa biết. Để lượng hóa sự không chắc chắn về p, chúng ta mô hình hóa p như một biến ngẫu nhiên, với phân phối tiên nghiệm  $p \\sim \\text{Unif}(0, 1)$ .\r
-\r
-(a) Tìm xác suất chính xác k trong số n bệnh nhân sẽ được khỏi bệnh nhờ điều trị (không điều kiện, không cho p).\r
-\r
-(b) Giờ giả sử rằng thuốc điều trị rất hiệu quả trong cuộc thử nghiệm lâm sàng: tất cả n bệnh nhân đều được khỏi bệnh! Với thông tin này, tìm xác suất p lớn hơn 1/2. Đáp án của bạn nên được đơn giản hóa đầy đủ và chỉ được biểu diễn theo n.\r
-\r
-Giải pháp:\r
-\r
-(a) Bằng LOTP theo sau bởi Bayes' billiards hoặc so sánh mẫu với một PDF Beta, xác suất là\r
-\r
- \r
-\r
- $$\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}d p=\\frac{1}{n+1}.$$ \r
-\r
- \r
-\r
-(b) Bằng tính liên hợp Beta-Binomial, phân phối hậu nghiệm của p cho dữ liệu là  $\\text{Beta}(1+n,1)$ , có PDF  $(n+1)p^n$  cho 0 < p < 1. Do đó,\r
-\r
- \r
-\r
- $$P\\left(p>\\frac{1}{2}\\right)=\\int_{1/2}^{1}(n+1)p^{n}d p=p^{n+1}\\Big|_{1/2}^{1}=1-\\frac{1}{2^{n+1}}.$$ \r
-\r
- \r
-\r
-Ví dụ 8.3.5. Một cầu thủ bóng rổ sẽ thực hiện  $N \\sim \\text{Pois}(\\lambda)$  cú ném phạt trong trận đấu ngày mai. Gọi  $X_j$  là chỉ số của cô ấy thành công trong cú ném phạt thứ j, và  $X = X_1 + \\cdots + X_N$  là tổng số cú ném phạt cô ấy thành công trong trận đấu (vì vậy X = 0 nếu N = 0). Để mô hình hóa sự không chắc chắn về khả năng ném phạt của cô ấy, hãy cho  $p \\sim \\text{Beta}(a, b)$ . Cho p, cầu thủ có xác suất p thành công trong cú ném phạt và xác suất q = 1 - p để thất bại. Giả sử rằng  $X_1, X_2, \\ldots$  là độc lập điều kiện cho p, và rằng N độc lập với p,  $X_1, X_2, \\ldots$ .\r
-\r
-(a) Tìm phân phối có điều kiện của X cho N, p.\r
-\r
-(b) Tìm phân phối có điều kiện của X cho p.\r
-\r
-(c) Tìm phân phối có điều kiện của X cho N, trong trường hợp a = b = 1.\r
-\r
-(d) Tìm phân phối có điều kiện của p cho X, N.\r
-\r
-Giải pháp:\r
-\r
-(a) Theo câu chuyện về Binomial,  $X|(N,p) \\sim \\mathrm{Bin}(N,p)$ .\r
-\r
-(b) Theo câu chuyện trứng và gà,  $X|p \\sim \\text{Pois}(\\lambda p)$ .\r
-\r
-(c) Với  $k = 0, 1, \\ldots, n$ , theo LOTP và Billiards Bayes chúng ta có\r
-\r
- \r
-\r
- $$P(X=k|N=n)=\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}dp=\\frac{1}{n+1}.$$ \r
-\r
- \r
-\r
-Vậy phân phối có điều kiện của X cho N là Uniform rời rạc trên  $\\{0,1,\\ldots,N\\}$ .\r
-\r
-(d) Theo tính liên hợp Beta-Binomial,  $p|(X,N) \\sim \\mathrm{Beta}(a + X, b + N - X)$ .`,DA=`Phân phối Gamma là một phân phối liên tục trên trục số dương; nó là một mở rộng của phân phối Exponential. Trong khi một biến ngẫu nhiên Exponential biểu diễn thời gian chờ đợi cho lần thành công đầu tiên dưới điều kiện tính bộ nhớ, chúng ta sẽ thấy rằng một biến ngẫu nhiên Gamma biểu diễn tổng thời gian chờ đợi cho nhiều lần thành công.\r
-\r
-Trước khi viết xuống PDF, chúng ta trước tiên giới thiệu hàm gamma, một hàm rất nổi tiếng trong toán học mà mở rộng hàm giai thừa vượt qua giới hạn của các số nguyên không âm.\r
-\r
-Định nghĩa 8.4.1 (Hàm gamma). Hàm gamma  $\\Gamma$  được định nghĩa bởi\r
-\r
- \r
-\r
- $$\\Gamma(a)=\\int_{0}^{\\infty}x^{a}e^{-x}\\frac{d x}{x},$$ \r
-\r
- \r
-\r
-với các số thực a > 0.\r
-\r
-Chúng ta cũng có thể giản ước một  $x$  và viết lại tích phân thành  $x^{a-1}e^{-x}$ , nhưng hóa ra việc giữ nguyên  $\\frac{dx}{x}$  lại thuận tiện hơn vì nó thường được sử dụng trong phép biến đổi dạng  $u = cx$ , và sau đó chúng ta có sự kiện hữu ích rằng  $\\frac{du}{u} = \\frac{dx}{x}$ . Dưới đây là hai tính chất quan trọng của hàm gamma.\r
-\r
-•  $\\Gamma(a+1) = a\\Gamma(a)$  với mọi  $a > 0$ . Điều này được suy ra từ tích phân từng phần:\r
-\r
- \r
-\r
- $$\\Gamma(a+1)=\\int_{0}^{\\infty}x^{a}e^{-x}d x=-x^{a}e^{-x}\\bigg|_{0}^{\\infty}+a\\int_{0}^{\\infty}x^{a-1}e^{-x}d x=0+a\\Gamma(a).$$ \r
-\r
- \r
-\r
-●  $\\Gamma(n) = (n-1)!$  nếu n là một số nguyên dương. Điều này có thể được chứng minh bằng quy nạp, bắt đầu với n = 1 và sử dụng quan hệ đệ quy  $\\Gamma(a+1) = a\\Gamma(a)$ . Do đó, nếu chúng ta đánh giá hàm gamma tại các giá trị nguyên dương, chúng ta sẽ khôi phục lại hàm giai thừa (mặc dù bị dịch chuyển 1 đơn vị).\r
-\r
-Bây giờ hãy giả sử rằng trên một cái chốc lát, chúng ta quyết định chia cả hai vế của định nghĩa trên cho  $\\Gamma(a)$ . Chúng ta có\r
-\r
- \r
-\r
- $$1=\\int_{0}^{\\infty}\\frac{1}{\\Gamma(a)}x^{a}e^{-x}\\frac{d x}{x},$$ \r
-\r
- \r
-\r
-do đó hàm dưới dấu tích phân là một PDF hợp lệ được hỗ trợ trên  $(0,\\infty)$ . Đây là định nghĩa của PDF của phân phối Gamma. Cụ thể, chúng ta nói rằng  $X$  có phân phối Gamma với tham số  $a$  và  $1$ , ký hiệu là  $X\\sim\\operatorname{Gamma}(a,1)$ , nếu PDF của nó là\r
-\r
- \r
-\r
- $$f_{X}(x)=\\frac{1}{\\Gamma(a)}x^{a}e^{-x}\\frac{1}{x},\\quad x>0.$$ \r
-\r
- \r
-\r
-Từ phân phối Gamma(a,1), chúng ta thu được phân phối Gamma tổng quát bằng phép biến đổi tỷ lệ: nếu  $X \\sim \\text{Gamma}(a,1)$  và  $\\lambda > 0$ , thì phân phối của  $Y = X/\\lambda$  được gọi là phân phối Gamma(a,  $\\lambda$ ). Bằng công thức thay đổi biến với  $x = \\lambda y$  và  $dx/dy = \\lambda$ , PDF của Y là\r
-\r
- \r
-\r
- $$f_{Y}(y)=f_{X}(x)\\left|\\frac{dx}{dy}\\right|=\\frac{1}{\\Gamma(a)}(\\lambda y)^{a}e^{-\\lambda y}\\frac{1}{\\lambda y}\\lambda=\\frac{1}{\\Gamma(a)}(\\lambda y)^{a}e^{-\\lambda y}\\frac{1}{y},\\quad y>0.$$ \r
-\r
- \r
-\r
-Điều này được tóm tắt trong định nghĩa sau.\r
-\r
-Định nghĩa 8.4.2 (Phân phối Gamma). Một biến ngẫu nhiên Y được gọi là có phân phối Gamma với tham số a và  $\\lambda$ , trong đó a > 0 và  $\\lambda > 0$ , nếu PDF của nó là\r
-\r
- \r
-\r
- $$f(y)=\\frac{1}{\\Gamma(a)}(\\lambda y)^{a}e^{-\\lambda y}\\frac{1}{y},\\quad y>0.$$ \r
-\r
- \r
-\r
-Chúng ta viết  $Y \\sim \\text{Gamma}(a, \\lambda)$ .\r
-\r
-Lấy  $a = 1$ , PDF của Gamma $(1,\\lambda)$  là  $f(y) = \\lambda e^{-\\lambda y}$  với  $y > 0$ , do đó phân phối Gamma $(1,\\lambda)$  và phân phối Expo $( \\lambda )$  là giống nhau. Tham số bổ sung  $a$  cho phép các PDF Gamma có nhiều dạng hình hơn. Hình 8.7 cho thấy bốn PDF Gamma. Với các giá trị nhỏ của  $a$ , PDF bị lệch, nhưng khi  $a$  tăng, PDF bắt đầu trông giống đối xứng và dạng chuông hơn; chúng ta sẽ học lý do cho điều này trong Chương 10. Tăng  $\\lambda$  sẽ làm nén PDF về phía các giá trị nhỏ hơn, điều này có thể thấy bằng cách so sánh các PDF Gamma $(3,1)$  và Gamma $(3,0.5)$ .\r
-\r
-Hãy tìm kỳ vọng, phương sai và các momen khác của phân phối Gamma, bắt đầu với  $X \\sim \\text{Gamma}(a, 1)$ . Chúng ta sẽ sử dụng các tính chất của hàm gamma cũng như kỹ thuật làm tích phân bằng nhận dạng mẫu. Với kỳ vọng, chúng ta viết định nghĩa của  $E(X)$ ,\r
-\r
- \r
-\r
- $$E(X)=\\int_{0}^{\\infty}\\frac{1}{\\Gamma(a)}x^{a+1}e^{-x}\\frac{d x}{x},$$ \r
-\r
- \r
-\r
-nhưng thay vì cố gắng tích phân bằng phương pháp tích phân từng phần đầy ác liệt, chúng ta nhận ra rằng sau khi lấy ra  $1/\\Gamma(a)$ , phần còn lại chính là hàm gamma được đánh giá tại  $a+1$ . Do đó\r
-\r
- \r
-\r
- $$E(X)=\\frac{\\Gamma(a+1)}{\\Gamma(a)}=\\frac{a\\Gamma(a)}{\\Gamma(a)}=a.$$ \r
-\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_197_423_684_888.jpg" alt="Hình ảnh" width="34%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_694_424_1184_889.jpg" alt="Hình ảnh" width="35%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_197_924_685_1388.jpg" alt="Hình ảnh" width="34%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_694_927_1184_1386.jpg" alt="Hình ảnh" width="35%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 8.7</div>\r
-\r
-\r
-<div style="text-align: center;">Phân phối Gamma với các giá trị khác nhau của a và  $\\lambda$ . Theo chiều kim đồng hồ từ góc trên bên trái: Gamma(3, 1), Gamma(3, 0.5), Gamma(5, 0.5), Gamma(10, 1).</div>\r
-\r
-Tương tự, đối với phương sai, LOTUS cho chúng ta một biểu thức tích phân cho momen thứ hai,\r
-\r
- \r
-\r
- $$E(X^{2})=\\int_{0}^{\\infty}\\frac{1}{\\Gamma(a)}x^{a+2}e^{-x}\\frac{d x}{x},$$ \r
-\r
- \r
-\r
-và chúng ta nhận ra hàm gamma được đánh giá tại  $a + 2$ . Do đó\r
-\r
- \r
-\r
- $$E(X^{2})=\\frac{\\Gamma(a+2)}{\\Gamma(a)}=\\frac{(a+1)a\\Gamma(a)}{\\Gamma(a)}=(a+1)a$$ \r
-\r
- \r
-\r
-và\r
-\r
- \r
-\r
- $$\\mathrm{Var}(X)=(a+1)a-a^{2}=a.$$ \r
-\r
- \r
-\r
-Vậy đối với  $X \\sim \\text{Gamma}(a, 1)$ ,  $E(X) = \\text{Var}(X) = a$ .\r
-\r
-Momen thứ c không khó hơn momen thứ hai; chúng ta chỉ cần sử dụng LOTUS và nhận ra định nghĩa của  $\\Gamma(a+c)$ . Điều này cho\r
-\r
- \r
-\r
- $$E(X^{c})=\\int_{0}^{\\infty}\\frac{1}{\\Gamma(a)}x^{a+c}e^{-x}\\frac{dx}{x}=\\frac{\\Gamma(a+c)}{\\Gamma(a)}$$ \r
-\r
- \r
-\r
-cho mọi số thực c sao cho tích phân hội tụ, tức là cho c > -a.\r
-\r
-Chúng ta có thể chuyển đổi đến  $Y = X/\\lambda \\sim \\text{Gamma}(a, \\lambda)$  để có\r
-\r
- \r
-\r
- $$E(Y)=\\frac{1}{\\lambda}E(X)=\\frac{a}{\\lambda},$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\mathrm{Var}(Y)=\\frac{1}{\\lambda^{2}}\\mathrm{Var}(X)=\\frac{a}{\\lambda^{2}},$$ \r
-\r
- \r
-\r
- \r
-\r
- $$E(Y^{c})=\\frac{1}{\\lambda^{c}}E(X^{c})=\\frac{1}{\\lambda^{c}}\\cdot\\frac{\\Gamma(a+c)}{\\Gamma(a)},\\quad c>-a.$$ \r
-\r
- \r
-\r
-Nhìn lại các đồ thị PDF của Gamma, chúng nhất quán với phát hiện của chúng ta rằng kỳ vọng và phương sai là tăng theo a và giảm theo  $\\lambda$ .\r
-\r
-Đến nay, chúng ta đã học về phân phối Gamma thông qua PDF, điều này cho phép chúng ta nhận ra các mô hình tổng quát từ các đồ thị PDF và suy ra kỳ vọng và phương sai. Tuy nhiên, PDF không cung cấp nhiều cái nhìn về lý do tại sao chúng ta lại sử dụng phân phối Gamma, và cũng không cho chúng ta nhiều cách giải thích cho các tham số a và  $\\lambda$ . Đối với điều này, chúng ta cần kết nối Gamma với các phân phối đã biết thông qua các câu chuyện. Phần còn lại của mục này dành cho các câu chuyện liên quan đến phân phối Gamma.\r
-\r
-Trong trường hợp đặc biệt khi a là số nguyên, chúng ta có thể biểu diễn một  $\\Gamma(a, \\lambda)$  biến ngẫu nhiên thành một tổng (tập hợp) của các biến ngẫu nhiên độc lập và đồng phân phối  $\\operatorname{Expo}(\\lambda)$ .\r
-\r
-Định lý 8.4.3. Cho  $X_{1},\\ldots,X_{n}$  là i.i.d.  $\\mathrm{Expo}(\\lambda)$ . Khi đó\r
-\r
- \r
-\r
- $$X_{1}+\\cdots+X_{n}\\sim\\mathrm{Gamma}(n,\\lambda).$$ \r
-\r
-\r
-\r
-Bằng chứng. MGF của Expo(λ) là  $\\frac{\\lambda}{\\lambda-t}$  cho  $t < \\lambda$ , do đó MGF của  $X_{1} + \\cdots + X_{n}$  là\r
-\r
- \r
-\r
- $$M_{n}(t)=\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{n}$$ \r
-\r
- \r
-\r
-cho  $t < \\lambda$ . Cho  $Y \\sim \\text{Gamma}(n, \\lambda)$ ; chúng ta sẽ chứng minh rằng MGF của  $Y$  giống như của  $X_1 + \\cdots + X_n$ . Theo LOTUS,\r
-\r
- \r
-\r
- $$E(e^{t Y})=\\int_{0}^{\\infty}e^{t y}\\frac{1}{\\Gamma(n)}(\\lambda y)^{n}e^{-\\lambda y}\\frac{d y}{y}.$$ \r
-\r
- \r
-\r
-Lại một lần nữa, chúng ta sẽ sử dụng nhận dạng mẫu để tính tích phân. Chúng ta chỉ cần thực hiện các phép biến đổi đại số cho đến khi phần còn lại trong tích phân là một PDF Gamma quen thuộc:\r
-\r
- \r
-\r
- $$\\begin{align*}E(e^{tY})&=\\int_{0}^{\\infty}e^{ty}\\frac{1}{\\Gamma(n)}(\\lambda y)^{n} e^{-\\lambda y}\\frac{dy}{y}\\\\&=\\frac{\\lambda^{n}}{(\\lambda-t)^{n}}\\int_{0}^{\\infty}\\frac{1}{\\Gamma(n)}e^{-(\\lambda-t)y}((\\lambda-t)y)^{n}\\frac{dy}{y}.\\end{align*}$$ \r
-\r
- \r
-\r
-Chúng ta đã kéo  $\\lambda^n$  ra khỏi tích phân, sau đó nhân với  $(\\lambda-t)^n$  bên trong trong khi chia cho nó bên ngoài. Bây giờ biểu thức bên trong tích phân là PDF của  $\\Gamma(n,\\lambda-t)$ , giả sử  $t < \\lambda$ . Vì PDFs tích phân bằng 1, chúng ta có\r
-\r
- \r
-\r
- $$E(e^{tY})=\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{n}$$ \r
-\r
- \r
-\r
-cho  $t < \\lambda$ ; nếu  $t \\geq \\lambda$  tích phân không hội tụ.\r
-\r
-Chúng ta đã chứng minh rằng  $X_1 + \\cdots + X_n$  và  $Y \\sim \\text{Gamma}(n, \\lambda)$  có cùng MGF. Vì MGF xác định phân phối,  $X_1 + \\cdots + X_n \\sim \\text{Gamma}(n, \\lambda)$ .\r
-\r
-Thay thế, chúng ta có thể tính tích phân convolution một cách quy nạp. Chỉ cần xem xét trường hợp  $\\lambda = 1$ , vì sau khi làm xong trường hợp này, chúng ta có thể thay đổi tỷ lệ các biến ngẫu nhiên để chứng minh kết quả cho mọi  $\\lambda$ . Cho  $T_n = X_1 + \\cdots + X_n$ . Chúng ta sẽ chứng minh bằng quy nạp rằng  $T_n \\sim \\text{Gamma}(n, 1)$  với mọi  $n \\geq 1$ . Với  $n = 1$ , điều này đúng vì PDF của Gamma  $(1, 1)$  là  $e^{-x}$  (cho x > 0), giống như PDF của Expo  $(1)$ . Bây giờ giả sử rằng  $T_n \\sim \\text{Gamma}(n, 1)$ , và chứng minh rằng  $T_{n+1} \\sim \\text{Gamma}(n+1, 1)$ . PDF của  $T_{n+1} = T_n + X_{n+1}$  được cho bởi tích phân convolution\r
-\r
- \r
-\r
- $$\\int_{0}^{\\infty}f_{T_{n}}(x)f_{X_{n+1}}(t-x)dx=\\frac{1}{\\Gamma(n)}\\int_{0}^{t}x^{n-1}e^{-x}e^{-(t-x)}dx=\\frac{e^{-t}}{\\Gamma(n)}\\int_{0}^{t}x^{n-1}dx=\\frac{t^{n}e^{-t}}{\\Gamma(n+1)}$$ \r
-\r
- \r
-\r
-cho t > 0, điều này hoàn tất quy nạp.\r
-\r
-Do đó, nếu  $Y \\sim \\text{Gamma}(a, \\lambda)$  với a là số nguyên, chúng ta có thể biểu diễn Y dưới dạng tổng của a biến ngẫu nhiên độc lập và đồng phân phối  $\\text{Expo}(\\lambda)$ ,  $X_1 + \\cdots + X_a$ , và tính kỳ vọng và phương sai ngay lập tức:\r
-\r
- \r
-\r
- $$E(Y)=E(X_{1}+\\cdots+X_{a})=aE(X_{1})=\\frac{a}{\\lambda},$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\mathrm{Var}(Y)=\\mathrm{Var}(X_{1}+\\cdots+X_{a})=a\\mathrm{Var}(X_{1})=\\frac{a}{\\lambda^{2}},$$ \r
-\r
-\r
-\r
-Trong thỏa thuận với các kết quả chúng ta đã rút ra trước đây cho tổng quát a.\r
-\r
-Định lý 8.4.3 cũng cho phép chúng ta nối Gamma distribution với câu chuyện của quá trình Poisson. Chúng tôi đã chỉ ra trong Chương 5 rằng trong một quá trình Poisson với tốc độ  $\\lambda$ , các khoảng thời gian giữa các lần đến là i.i.d.  $\\text{Expo}(\\lambda)$  biến ngẫu nhiên. Nhưng tổng thời gian chờ đợi  $T_n$  cho lần đến thứ  $n$  là tổng của  $n$  khoảng thời gian giữa các lần đến; ví dụ, Hình 8.8 minh họa cách  $T_3$  là tổng của 3 khoảng thời gian giữa các lần đến  $X_1, X_2, X_3$ . Do đó, theo định lý,  $T_n \\sim \\text{Gamma}(n, \\lambda)$ . Các khoảng thời gian giữa các lần đến trong một quá trình Poisson là các biến ngẫu nhiên Exponential, trong khi các thời gian đến nguyên bản là các biến ngẫu nhiên Gamma.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_303_523_1078_719.jpg" alt="Image" width="55%" /></div>\r
-\r
-\r
-### HÌNH 8.8\r
-\r
-Quá trình Poisson. Các khoảng thời gian giữa các lần đến  $X_j$  là i.i.d.  $\\mathrm{Expo}(\\lambda)$ , trong khi các thời gian đến nguyên bản  $T_j$  là  $\\mathrm{Gamma}(j, \\lambda)$ .\r
-\r
-8.4.4. Khác với  $X_{j}$ , các  $T_{j}$  không độc lập, vì chúng bị ràng buộc phải tăng; chúng cũng không phân bố giống nhau.\r
-\r
-Cuối cùng, chúng ta có một cách diễn giải cho các tham số của phân phối Gamma  $(a,\\lambda)$ . Trong câu chuyện về quá trình Poisson, a là số lần thành công mà chúng ta đang chờ đợi, và  $\\lambda$  là tốc độ mà các lần thành công đến;  $Y \\sim \\text{Gamma}(a,\\lambda)$  là tổng thời gian chờ đợi cho lần đến thứ a trong một quá trình Poisson với tốc độ  $\\lambda$ .\r
-\r
-Một hệ quả của câu chuyện này là rằng một phép cộng của các Gamma với cùng  $\\lambda$  vẫn là Gamma. Bài tập 29 khám phá sự thật này từ nhiều góc độ khác nhau.\r
-\r
-Khi chúng tôi giới thiệu phân phối Exponential, chúng tôi xem nó là phiên bản liên tục của phân phối Geometric: Geometric chờ đợi lần thành công đầu tiên trong thời gian rời rạc, và Exponential chờ đợi lần thành công đầu tiên trong thời gian liên tục. Tương tự, chúng ta có thể nói rằng phân phối Gamma là phiên bản liên tục của phân phối Negative Binomial: Negative Binomial là tổng của các thời gian chờ đợi Geometric, và Gamma là tổng của các thời gian chờ đợi Exponential. Trong Bài tập 54 bạn sẽ sử dụng các hàm sinh momen để chứng minh rằng phân phối Gamma có thể được lấy làm giới hạn liên tục của phân phối Negative Binomial.\r
-\r
-Một câu chuyện cuối cùng về Gamma là rằng nó chia sẻ cùng mối quan hệ đặc biệt với Poisson mà Beta chia sẻ với Binomial: Gamma là phân phối tiên nghiệm liên hợp của Poisson. Trước đây chúng tôi đã thấy rằng phân phối Beta có thể biểu diễn một xác suất thành công chưa biết vì miền giá trị của nó là  $(0, 1)$ . Phân phối Gamma, mặt khác, có thể biểu diễn một tốc độ chưa biết trong một quá trình Poisson vì miền giá trị của nó là  $(0, \\infty)$ .\r
-\r
-Để điều tra, chúng ta sẽ quay lại Blotchville, nơi xe buýt đến theo một quy trình Poisson với tốc độ  $\\lambda$ . Trước đây người ta giả sử rằng  $\\lambda = 1/10$ , do đó khoảng thời gian giữa các xe buýt là i.i.d. Exponentials với trung bình 10 phút, nhưng bây giờ chúng ta sẽ giả sử Fred không biết tốc độ  $\\lambda$  mà xe buýt đến và cần phải xác định nó. Fred sẽ theo cách tiếp cận Bayesian và coi tốc độ chưa biết là một biến ngẫu nhiên.\r
-\r
-Câu chuyện 8.4.5 (Tính liên hợp Gamma-Poisson). Tại Blotchville, xe buýt đến một điểm dừng buýt theo quy trình Poisson với tốc độ  $\\lambda$  xe buýt mỗi giờ, nơi  $\\lambda$  là chưa biết. Dựa trên những cuộc phiêu lưu đáng nhớ của mình tại Blotchville, Fred lượng hóa sự không chắc chắn về  $\\lambda$  bằng phân phối tiên nghiệm  $\\lambda \\sim \\Gamma(\\gamma, b_0)$ , nơi  $r_0$  và  $b_0$  là các hằng số dương đã biết, với  $r_0$  là một số nguyên.\r
-\r
-Để hiểu rõ hơn về hệ thống xe buýt, Fred muốn biết thêm về  $\\lambda$ . Anh là một người rất kiên nhẫn, và quyết định sẽ ngồi tại điểm dừng buýt trong t giờ và đếm số xe buýt đến trong khoảng thời gian này. Gọi Y là số xe buýt trong khoảng thời gian này, và giả sử Fred quan sát được rằng Y = y.\r
-\r
-(a) Tìm phân phối chung hỗn hợp của Fred cho Y và  $\\lambda$ .\r
-\r
-(b) Tìm phân phối biên của Fred cho Y.\r
-\r
-(c) Tìm phân phối hậu nghiệm của Fred cho  $\\lambda$ , tức là phân phối điều kiện của  $\\lambda$  cho dữ liệu y.\r
-\r
-(d) Tìm kỳ vọng hậu nghiệm  $E(\\lambda|Y=y)$  và phương sai hậu nghiệm  $\\operatorname{Var}(\\lambda|Y=y)$ .\r
-\r
-Giải: Lưu ý sự tương đồng giữa cấu trúc của bài toán này với cấu trúc của phân phối chung hỗn hợp từ Ví dụ 7.1.26. Chúng ta biết rằng  $\\lambda \\sim \\text{Gamma}(r_{0},b_{0})$  theo biên, và theo định nghĩa của quy trình Poisson, điều kiện biết tốc độ thật  $\\lambda$ , số xe buýt trong khoảng thời gian dài  $t$  phân phối  $\\text{Pois}(\\lambda t)$ . Nói cách khác, điều mà chúng ta được cho là\r
-\r
- \r
-\r
- $$\\lambda\\sim Gamma(r_{0},b_{0})$$ \r
-\r
- \r
-\r
- \r
-\r
- $$Y|\\lambda\\sim Pois(\\lambda t).$$ \r
-\r
- \r
-\r
-Sau đó chúng ta được yêu cầu lật ngược lại: tìm phân phối biên của Y và phân phối điều kiện của  $\\lambda$  cho Y = y, tức là phân phối hậu nghiệm. Đây là đặc trưng của suy luận Bayesian: chúng ta có một phân phối tiên nghiệm cho các tham số chưa biết (trong trường hợp này là phân phối Gamma cho  $\\lambda$ ) và một mô hình cho dữ liệu điều kiện các tham số chưa biết (trong trường hợp này là phân phối Poisson cho Y điều kiện  $\\lambda$ ), và chúng ta sử dụng quy tắc Bayes để nhận được phân phối của các tham số chưa biết điều kiện dữ liệu quan sát. Vậy hãy bắt đầu.\r
-\r
-(a) Gọi  $f_{0}$  là mật độ xác suất tiên nghiệm của  $\\lambda$ . Phân phối chung hỗn hợp của Y và  $\\lambda$  là\r
-\r
- \r
-\r
- $$f(y,\\lambda)=P(Y=y|\\lambda)f_{0}(\\lambda)=\\frac{e^{-\\lambda t}(\\lambda t)^{y}}{y!}\\frac{(b_{0}\\lambda)^{r_{0}}e^{-b_{0}\\lambda}}{\\lambda\\Gamma(r_{0})},$$ \r
-\r
- \r
-\r
-cho  $y = 0, 1, 2, \\ldots$  và  $\\lambda > 0$ . Phân phối chung hỗn hợp được vẽ trong Hình 8.9;\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_248_167_1147_1075.jpg" alt="Image" width="64%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 8.9</div>\r
-\r
-\r
-<div style="text-align: center;">Phân phối hỗn hợp của Y và  $\\lambda$ . (a) Khi điều kiện hóa trên một giá trị cụ thể của  $\\lambda$ , chiều cao tương đối tạo thành một PMF Poisson. (b) Trong hướng ngược lại, điều kiện hóa trên Y = y cho phân phối hậu nghiệm của  $\\lambda$ .</div>\r
-\r
-\r
-Có một PMF điều kiện của Y cho mỗi giá trị của  $\\lambda$  và một PDF điều kiện của  $\\lambda$  cho mỗi giá trị của Y.\r
-\r
-(b) Để tìm PMF biên của Y, ta tích phân theo  $\\lambda$  từ phân phối hỗn hợp; đây cũng là một dạng của LOTP. Điều này cho\r
-\r
- \r
-\r
- $$\\begin{align*}P(Y=y)&=\\int_{0}^{\\infty}P(Y=y|\\lambda)f_{0}(\\lambda)d\\lambda\\\\&=\\int_{0}^\\infty\\frac{e^{-\\lambda t}(\\lambda t)^{y}}{y!}\\frac{(b_{0}\\lambda)^{r_{0}}e^{-b_{0}\\lambda}}{\\Gamma(r_{0})}\\frac{d\\lambda}{\\lambda}.\\end{align*}$$ \r
-\r
- \r
-\r
-Hãy làm tích phân bằng cách nhận dạng mẫu, tập trung vào các số hạng liên quan đến  $\\lambda$ . Chúng ta nhận thấy  $\\lambda^{r_0+y}$  và  $e^{-(b_0+t)\\lambda}$  ẩn trong tích phân, điều này gợi ý việc so sánh với một PDF  $\\Gamma(r_0+y, b_0+t)$ . Tách ra tất cả các số hạng không phụ thuộc vào  $\\lambda$ , sau đó nhân với bất cứ điều gì cần thiết để đạt được PDF mong muốn trong tích phân,\r
-\r
-nhớ nhân với nghịch đảo ở ngoài:\r
-\r
- \r
-\r
- $$\\begin{align*}P(Y=y)&=\\frac{t^{y}b_{0}^{r_{0}}}{y!\\Gamma(r_{0})}\\int_{0}^{\\infty}e^{-(b_{0}+t)\\lambda}\\lambda^{r_{0}+y}\\frac{d\\lambda}{\\lambda}\\\\&=\\frac{\\Gamma(r_{0}+y)}{y!\\Gamma(r_{0})}\\frac{t^{y}b_{0}^{r_{0}}}{(b_{0}+t)^{r_{0}+y}}\\int_{0}^{\\infty}\\frac{1}{\\Gamma(r_{0}+y)}e^{-(b_{0}+t)\\lambda}((b_{0}+t)\\lambda)^{r_{0}+y}\\frac{d\\lambda}{\\lambda}\\\\&=\\frac{(r_{0}+y-1)!}{(r_{0}-1)!y!}\\left(\\frac{t}{b_{0}+t}\\right)^{y}\\left(\\frac{b_{0}}{b_{0}+t}\\right)^{r_{0}}.\\end{align*}$$ \r
-\r
- \r
-\r
-Trong bước cuối cùng, chúng ta đã sử dụng tính chất  $\\Gamma(n) = (n - 1)!$ , điều này đúng vì  $r_0$  là một số nguyên. Đây là  $\\mathrm{NBin}(r_0, b_0/(b_0 + t))$  PMF, do đó phân phối biên của Y là Negative Binomial với tham số  $r_0$  và  $b_0/(b_0 + t)$ .\r
-\r
-(c) Theo quy tắc Bayes, PDF hậu nghiệm của  $\\lambda$  được cho bởi\r
-\r
- \r
-\r
- $$f_{1}(\\lambda|y)=\\frac{P(Y=y|\\lambda)f_{0}(\\lambda)}{P(Y=y)}.$$ \r
-\r
- \r
-\r
-Chúng ta đã tìm được  $P(Y = y)$  trong phần trước, nhưng vì nó không phụ thuộc vào  $\\lambda$ , chúng ta có thể coi nó là một phần của hằng số chuẩn hóa. Kết hợp điều này và các nhân tử khác không phụ thuộc vào  $\\lambda$  vào hằng số chuẩn hóa,\r
-\r
- \r
-\r
- $$f_{1}(\\lambda|y)\\propto e^{-\\lambda t}\\lambda^{y}\\lambda^{r_{0}}e^{-b_{0}\\lambda}\\frac{1}{\\lambda}=e^{-(b_{0}+t)\\lambda}\\lambda^{r_{0}+y}\\frac{1}{\\lambda},$$ \r
-\r
- \r
-\r
-điều này cho thấy phân phối hậu nghiệm của  $\\lambda$  là  $\\Gamma(\\gamma, y, b_0 + t)$ .\r
-\r
-Khi chuyển từ phân phối tiên nghiệm đến hậu nghiệm, phân phối của  $\\lambda$  vẫn thuộc họ Gamma, do đó Gamma thực sự là phân phối tiên nghiệm liên hợp cho Poisson.\r
-\r
-Bây giờ chúng ta đã có PDF hậu nghiệm của  $\\lambda$ , chúng ta có một cách tiếp cận đẹp hơn để giải (b). Sắp xếp lại quy tắc Bayes, PMF biên của Y là\r
-\r
- \r
-\r
- $$P(Y=y)=\\frac{P(Y=y|\\lambda)f_{0}(\\lambda)}{f_{1}(\\lambda|y)},$$ \r
-\r
- \r
-\r
-trong đó chúng ta biết tử số từ phát biểu của bài toán và mẫu số từ phép tính chúng ta vừa làm. Thay các thành phần này vào và đơn giản hóa lại cho kết quả\r
-\r
- \r
-\r
- $$Y\\sim\\mathrm{NBin}(r_{0},b_{0}/(b_{0}+t)).$$ \r
-\r
- \r
-\r
-(d) Vì PDF điều kiện là PDF, hoàn toàn hợp lý để tính kỳ vọng và phương sai của  $\\lambda$  với respect đến phân phối hậu nghiệm. Kỳ vọng và phương sai của phân phối  $\\Gamma(r_{0} + y, b_{0} + t)$  cho chúng ta\r
-\r
- \r
-\r
- $$E(\\lambda|Y=y)=\\frac{r_{0}+y}{b_{0}+t}\\quad và\\quad\\operatorname{Var}(\\lambda|Y=y)=\\frac{r_{0}+y}{(b_{0}+t)^{2}}.$$ \r
-\r
- \r
-\r
-Ví dụ này cho ta một cách diễn giải khác cho các tham số trong Gamma khi\r
-\r
-Đây đang được sử dụng như một phân phối tiền nghiệm liên hợp. Fred’s  $\\text{Gamma}(r_0, b_0)$  tiền nghiệm đã được cập nhật thành một  $\\text{Gamma}(r_0 + y, b_0 + t)$  hậu nghiệm sau khi quan sát  $y$  lần đến trong  $t$  giờ. Chúng ta có thể tưởng tượng rằng trong quá khứ, Fred đã quan sát  $r_0$  xe buýt đến trong  $b_0$  giờ; sau khi có dữ liệu mới, anh ấy đã quan sát  $r_0 + y$  xe buýt trong  $b_0 + t$  giờ. Vì vậy chúng ta có thể diễn giải  $r_0$  như số lần đến trước đây và  $b_0$  như tổng thời gian cần thiết cho những lần đến trước đây.`,OA=`Trong phần này, chúng ta sẽ kết nối phân phối Beta và Gamma với một câu chuyện chung. Là một phần thưởng thêm, câu chuyện này sẽ cho chúng ta một biểu thức cho hằng số chuẩn hóa của PDF Beta(a, b) theo các hàm gamma, và nó sẽ cho phép chúng ta dễ dàng tìm kỳ vọng của phân phối Beta(a, b).\r
-\r
-Câu chuyện 8.5.1 (Ngân hàng - Bưu điện). Trong lúc đi làm các việc, bạn cần đi đến ngân hàng, sau đó đến bưu điện. Gọi  $X \\sim \\text{Gamma}(a, \\lambda)$  là thời gian bạn phải chờ trong hàng tại ngân hàng, và gọi  $Y \\sim \\text{Gamma}(b, \\lambda)$  là thời gian bạn phải chờ trong hàng tại bưu điện (với cùng  $\\lambda$  cho cả hai). Giả sử X và Y độc lập. Hỏi phân phối chung của  $T = X + Y$  (tổng thời gian chờ tại ngân hàng và bưu điện) và  $W = \\frac{X}{X + Y}$  (phần trăm thời gian chờ bạn dành tại ngân hàng là bao nhiêu)?\r
-\r
-Giải pháp:\r
-\r
-Chúng ta sẽ thực hiện một thay đổi biến trong hai chiều để tìm PDF chung của T và W. Gọi  $t = x + y$ ,  $w = \\frac{x}{x+y}$ . Sau đó  $x = tw$ ,  $y = t(1 - w)$ , và\r
-\r
- \r
-\r
- $$\\frac{\\partial(x,y)}{\\partial(t,w)}=\\left(\\begin{array}{c c}{w}&{t}\\\\ {1-w}&{-t}\\\\ \\end{array}\\right),$$ \r
-\r
- \r
-\r
-điều này có định thức tuyệt đối là t. Do đó\r
-\r
- \r
-\r
- $$\\begin{align*}f_{T,W}(t,w)&=f_{X,Y}(x,y)\\cdot\\left|\\frac{\\partial(x,y)}{\\partial(t,w)}\\right|\\\\&=f_{X}(x)f_{Y}(y)\\cdot t\\\\&=\\frac{1}{\\Gamma(a)}(\\lambda x)^{a} e^{-\\lambda x}\\frac{1}{x}\\cdot\\frac{1}{\\Gamma(b)}(\\lambda y)^{b} e^{-\\lambda y}\\frac{1}{y}\\cdot t\\\\&=\\frac{1}{\\Gamma(a)}(\\lambda t w)^{a} e^{-\\lambda t w}\\frac{1}{t w}\\cdot\\frac{1}{\\Gamma(b)}(\\lambda t(1-w))^{b} e^{-\\lambda t(1-w)}\\frac{1}{t(1-w)}\\cdot t.\\end{align*}$$ \r
-\r
- \r
-\r
-Hãy nhóm tất cả các số hạng liên quan đến w lại với nhau, và tất cả các số hạng liên quan đến t lại với nhau:\r
-\r
- \r
-\r
- $$\\begin{align*}f_{T,W}(t,w)&=\\frac{1}{\\Gamma(a)\\Gamma(b)}w^{a-1}(1-w)^{b-1}(\\lambda t)^{a+b}e^{-\\lambda t}\\frac{1}{t}\\\\&=\\left(\\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}w^{a-1}(1-w)^{b-1}\\right)\\left(\\frac{1}{\\Gamma(a+b)}(\\lambda t)^{a+b}e^{-\\lambda t}\\frac{1}{t}\\right),\\end{align*}$$ \r
-\r
-\r
-\r
-Với 0 < w < 1 và t > 0. Dạng của PDF liên hợp, cùng với Định lý 7.1.21, cho chúng ta biết một số điều sau:\r
-\r
-1. Vì PDF liên hợp phân tích thành một hàm số của t nhân với một hàm số của w, chúng ta có T và W là độc lập: tổng thời gian chờ đợi là độc lập với phân số thời gian dành cho ngân hàng.\r
-\r
-2. Chúng ta nhận ra PDF biên của  $T$  và suy ra rằng  $T \\sim \\Gamma(\\alpha + b, \\lambda)$ .\r
-\r
-3. PDF của W là\r
-\r
- \r
-\r
- $$f_{W}(w)=\\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}w^{a-1}(1-w)^{b-1},\\quad0<w<1,$$ \r
-\r
- \r
-\r
-theo Định lý 7.1.21 hoặc chỉ bằng cách tích phân theo T từ PDF liên hợp của T và W. PDF này tỉ lệ với  $\\operatorname{Beta}(a,b)$  PDF, do đó nó chính là  $\\operatorname{Beta}(a,b)$  PDF! Lưu ý rằng như một sản phẩm phụ của phép tính vừa rồi, chúng ta đã tìm thấy hằng số chuẩn hóa của phân phối Beta:\r
-\r
- \r
-\r
- $$\\frac{1}{\\beta(a,b)}=\\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}$$ \r
-\r
- \r
-\r
-là hằng số đi trước PDF của Beta(a, b).\r
-\r
-Tóm lại, câu chuyện ngân hàng–bưu điện cho chúng ta biết rằng khi chúng ta cộng các biến ngẫu nhiên Gamma độc lập X và Y với cùng tốc độ  $\\lambda$ , tổng  $X + Y$  có phân phối Gamma, phân số  $X/(X + Y)$  có phân phối Beta, và tổng là độc lập với phân số.\r
-\r
-Chúng ta có thể sử dụng kết quả này để tìm kỳ vọng của  $W \\sim \\text{Beta}(a, b)$  mà không cần chút nào của phép tính vi phân.\r
-\r
-Ví dụ 8.5.2 (Kỳ vọng Beta). Với ký hiệu như trên, lưu ý rằng vì T và W là độc lập, chúng là không tương quan:  $E(TW) = E(T)E(W)$ . Viết lại theo X và Y, chúng ta có\r
-\r
- \r
-\r
- $$E\\left((X+Y)\\cdot\\frac{X}{X+Y}\\right)=E(X+Y)E\\left(\\frac{X}{X+Y}\\right),$$ \r
-\r
- \r
-\r
- \r
-\r
- $$E(X)=E(X+Y)E\\left(\\frac{X}{X+Y}\\right),$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\frac{E(X)}{E(X+Y)}=E\\left(\\frac{X}{X+Y}\\right).$$ \r
-\r
- \r
-\r
-Thường thì đẳng thức cuối cùng sẽ là một sai lầm khủng khiếp: trước mặt một kỳ vọng như  $E(X/(X + Y))$ , chúng ta không thường được phép đưa E vào tử số và mẫu số như ý. Trong trường hợp này, tuy nhiên, câu chuyện ngân hàng–bưu điện cho phép ta thực hiện phép đưa E vào tử số và mẫu số, do đó tìm kỳ vọng của W trở nên dễ dàng bằng cách tìm kỳ vọng của X và  $X + Y$ :\r
-\r
- \r
-\r
- $$E(W)=E\\left(\\frac{X}{X+Y}\\right)=\\frac{E(X)}{E(X+Y)}=\\frac{a/\\lambda}{a/\\lambda+b/\\lambda}=\\frac{a}{a+b}.$$ \r
-\r
-\r
-\r
-Một cách tiếp cận khác là tiến hành từ định nghĩa của kỳ vọng:\r
-\r
- \r
-\r
- $$E(W)=\\int_{0}^{1}\\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}w^{a}(1-w)^{b-1}d w.$$ \r
-\r
- \r
-\r
-Bằng nhận dạng mẫu, hàm số dưới dấu tích phân là một  $\\mathrm{Beta}(a+1,b)$  PDF, lên đến một hằng số chuẩn hóa. Sau khi đạt được sự khớp chính xác với PDF, chúng ta áp dụng các tính chất của hàm gamma:\r
-\r
- \r
-\r
- $$\\begin{aligned}E(W)&=\\frac{\\Gamma(a+b)}{\\Gamma(a)}\\frac{\\Gamma(a+1)}{\\Gamma(a+b+1)}\\int_{0}^{1}\\frac{\\Gamma(a+b+1)}{\\Gamma(a+1)\\Gamma(b)}w^{a}(1-w)^{b-1}dw\\\\&=\\frac{\\Gamma(a+b)}{\\Gamma(a)}\\frac{a\\Gamma(a)}{(a+b)\\Gamma(a+b)}\\\\&=\\frac{a}{a+b}.\\end{aligned}$$ \r
-\r
- \r
-\r
-Trong Bài tập 30, bạn sẽ sử dụng cách tiếp cận này để tìm phương sai và các momen khác của phân phối Beta.\r
-\r
-Bây giờ chúng ta biết hằng số chuẩn hóa của Beta, chúng ta cũng có thể nhanh chóng tìm được PMF của phân phối Beta-Binomial.\r
-\r
-Ví dụ 8.5.3 (PMF của Beta-Binomial). Cho  $X|p \\sim \\text{Bin}(n, p)$ , với  $p \\sim \\text{Beta}(a, b)$ . Như đã đề cập trong Câu chuyện 8.3.3, X có phân phối Beta-Binomial. Tìm phân phối biên của X.\r
-\r
-Giải pháp: Gọi  $f(p)$  là PDF của Beta  $(a,b)$ . Sau đó\r
-\r
- \r
-\r
- $$\\begin{align*}P(X=k)&=\\int_{0}^{1}P(X=k|p)f(p)dp\\\\&=\\frac{1}{\\beta(a,b)}\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}p^{a-1}(1-p)^{b-1}dp\\\\&=\\frac{\\binom{n}{k}}{\\beta(a,b)}\\int_{0}^{1}p^{a+k-1}(1-p)^{b+n-k-1}dp\\\\&=\\binom{n}{k}\\frac{\\beta(a+k,b+n-k)}{\\beta(a,b)},\\end{align*}$$ \r
-\r
- \r
-\r
-với  $k = 0, 1, \\ldots, n$ .`,kA=`Cuối cùng biến đổi mà chúng ta sẽ xem xét trong chương này là biến đổi đưa  $n$  biến ngẫu nhiên  $X_{1},\\ldots,X_{n}$  và sắp xếp chúng theo thứ tự, tạo ra\r
-\r
-transformed đ.c.l.  $\\min(X_1, \\ldots, X_n), \\ldots, \\max(X_1, \\ldots, X_n)$ . Các biến đ.c.l. đã được biến đổi được gọi là thống kê thứ tự,  $^2$  và chúng thường hữu ích khi chúng ta quan tâm đến phân phối của các giá trị cực trị, như chúng ta đã gợi ý trước đó.\r
-\r
-Ngoài ra, giống như trung bình mẫu  $\\bar{X}_{n}$ , các thống kê thứ tự đóng vai trò như những tóm tắt hữu ích của một thí nghiệm, vì chúng ta có thể sử dụng chúng để xác định các ngưỡng cho 5% quan sát tồi tệ nhất, 25% tồi tệ nhất, 25% tốt nhất, và cứ như vậy (những ngưỡng này được gọi là phân vị của mẫu).\r
-\r
-Định nghĩa 8.6.1 (Thống kê thứ tự). Với các biến đ.c.l.  $X_{1}, X_{2}, \\ldots, X_{n}$ , các thống kê thứ tự là các biến ngẫu nhiên  $X_{(1)}, X_{(2)}, \\ldots, X_{(n)}$ , nơi\r
-\r
- \r
-\r
- $$X_{(1)}=\\min(X_{1},\\ldots,X_{n}),$$ \r
-\r
- \r
-\r
- \r
-\r
- $$X_{(2)} là thứ hai nhỏ nhất của  $X_{1},\\ldots,X_{n}$ ,$$ \r
-\r
- \r
-\r
- \r
-\r
- $$X_{(n-1)} là thứ hai lớn nhất của  $X_{1},\\ldots,X_{n}$ ,$$ \r
-\r
- \r
-\r
- \r
-\r
- $$X_{(n)}=\\max(X_{1},\\ldots,X_{n}).$$ \r
-\r
- \r
-\r
-Chú ý rằng  $X_{(1)} \\leq X_{(2)} \\leq \\ldots \\leq X_{(n)}$  theo định nghĩa. Chúng ta gọi  $X_{(j)}$  là thống kê thứ tự thứ j. Nếu n là số lẻ,  $X_{((n+1)/2)}$  được gọi là trung vị mẫu của  $X_{1}, \\ldots, X_{n}$ .\r
-\r
-8.6.2. Các thống kê thứ tự  $X_{(1)}, \\ldots, X_{(n)}$  là các biến ngẫu nhiên, và mỗi  $X_{(j)}$  là một hàm số của  $X_{1}, \\ldots, X_{n}$ . Ngay cả khi các biến ngẫu nhiên ban đầu độc lập, các thống kê thứ tự vẫn phụ thuộc vào nhau: nếu chúng ta biết rằng  $X_{(1)} = 100$ , thì  $X_{(n)}$  được buộc phải lớn hơn hoặc bằng 100.\r
-\r
-Chúng ta sẽ tập trung vào trường hợp mà  $X_{1}, \\ldots, X_{n}$  là các biến ngẫu nhiên độc lập và đồng phân phối liên tục. Lý do là vì với các biến ngẫu nhiên rời rạc, có xác suất dương để có các giá trị trùng nhau; với các biến ngẫu nhiên liên tục, xác suất để có giá trị trùng nhau là chính xác 0, điều này làm cho việc tính toán dễ dàng hơn nhiều. Do đó, cho phần còn lại của chương này, hãy giả định rằng  $X_{1}, \\ldots, X_{n}$  là độc lập, đồng phân phối và liên tục, với hàm phân phối tích lũy F và hàm mật độ xác suất f. Chúng ta sẽ suy ra hàm phân phối tích lũy và hàm mật độ xác suất riêng lẻ của từng thống kê thứ tự  $X_{(j)}$ , cũng như hàm mật độ xác suất chung của  $(X_{(1)}, \\ldots, X_{(n)})$ .\r
-\r
-Một vấn đề phức tạp mà chúng ta gặp ngay lập tức là việc biến đổi sang các thống kê thứ tự không khả nghịch: bắt đầu với  $\\min(X,Y) = 3$  và  $\\max(X,Y) = 5$ , chúng ta không thể xác định được liệu các giá trị ban đầu của X và Y có phải là 3 và 5 hay ngược lại. Do đó, công thức thay đổi biến từ  $R^n$  sang  $R^n$  không áp dụng. Thay vào đó, chúng ta sẽ tiếp cận trực tiếp, sử dụng hình ảnh để hướng dẫn khi cần thiết.\r
-\r
-Hãy bắt đầu với hàm phân phối tích lũy của  $X_{(n)} = \\max(X_1,... X_n)$ . Vì  $X_{(n)}$  nhỏ hơn x nếu\r
-\r
-và chỉ nếu tất cả các  $X_{j}$  đều nhỏ hơn x, hàm phân phối tích lũy (CDF) của  $X_{(n)}$  là\r
-\r
- \r
-\r
- $$\\begin{aligned}F_{X_{(n)}}(x)&=P(\\max(X_{1},\\cdots,X_{n})\\leq x)\\\\&=P(X_{1}\\leq x,\\cdots,X_{n}\\leq x)\\\\&=P(X_{1}\\leq x)\\cdots P(X_{n}\\leq x)\\\\&=(F(x))^{n},\\end{aligned}$$ \r
-\r
- \r
-\r
-trong đó  $F$  là CDF của từng  $X_i$ . Tương tự,  $X_{(1)} = \\min(X_1, \\ldots, X_n)$  vượt quá  $x$  nếu và chỉ nếu tất cả các  $X_j$  vượt quá  $x$ , do đó CDF của  $X_{(1)}$  là\r
-\r
- \r
-\r
- $$\\begin{aligned}F_{X_{(1)}}(x)&=1-P(\\min(X_{1},\\cdots,X_{n})>x)\\\\&=1-P(X_{1}>x,\\cdots,X_{n}>x)\\\\&=1-(1-F(x))^{n}.\\\\ \\end{aligned}$$ \r
-\r
- \r
-\r
-Cùng logic này giúp chúng ta tìm được CDF của  $X_{(j)}$ . Đối với sự kiện  $X_{(j)} \\leq x$  xảy ra, chúng ta cần ít nhất j trong số các  $X_i$  rơi vào bên trái của x. Điều này được minh họa trong Hình 8.10.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_320_761_1079_998.jpg" alt="Image" width="54%" /></div>\r
-\r
-\r
-### HÌNH 8.10\r
-\r
-Sự kiện  $X_{(j)} \\leq x$  tương đương với sự kiện “ít nhất j  $X_{i}$ ’s rơi vào bên trái của  $x$ ”.\r
-\r
-Vì dường như số lượng  $X_i$  ở bên trái của  $x$  sẽ quan trọng đối với chúng ta, hãy định nghĩa một biến ngẫu nhiên mới,  $N$ , để theo dõi điều đó: định nghĩa  $N$  là số lượng  $X_i$  rơi vào bên trái của  $x$ . Mỗi  $X_i$  rơi vào bên trái của  $x$  với xác suất  $F(x)$ , độc lập. Nếu chúng ta định nghĩa thành công là rơi vào bên trái của  $x$ , chúng ta có  $n$  phép thử Bernoulli độc lập với xác suất  $F(x)$  của thành công, do đó  $N \\sim \\text{Bin}(n, F(x))$ . Khi đó, theo PMF của Binomial,\r
-\r
- \r
-\r
- $$\\begin{align*}P(X_{(j)}\\leq x)&=P(\\text{ít nhất j trong số các } X_{i} \\text{ rơi vào bên trái của } x)\\\\&=P(N\\geq j)\\\\&=\\sum_{k=j}^{n}\\binom{n}{k}F(x)^{k}(1-F(x))^{n-k}.\\end{align*}$$ \r
-\r
- \r
-\r
-Chúng ta do đó có kết quả sau đây cho CDF của  $X_{(j)}$ .\r
-\r
-Định lý 8.6.3 (CDF của thống kê thứ tự). Gọi  $X_{1}, \\ldots, X_{n}$  là các biến ngẫu nhiên độc lập và đồng phân phối (i.i.d.) liên tục với CDF F. Khi đó, CDF của thống kê thứ tự thứ j  $X_{(j)}$  là\r
-\r
- \r
-\r
- $$P(X_{(j)}\\leq x)=\\sum_{k=j}^{n}\\binom{n}{k}F(x)^{k}(1-F(x))^{n-k}.$$ \r
-\r
-\r
-\r
-Để có được PDF của  $X_{(j)}$ , chúng ta có thể đạo hàm CDF theo x, nhưng biểu thức kết quả là xấu (mặc dù có thể đơn giản hóa). Thay vào đó chúng ta sẽ lấy một cách tiếp cận trực tiếp hơn. Xét  $f_{X_{(j)}}(x)dx$ , xác suất mà thống kê thứ tự thứ j rơi vào một khoảng vô cùng nhỏ có độ dài dx xung quanh x. Cách duy nhất để điều này xảy ra được minh họa trong Hình 8.11. Chúng ta cần một trong số  $X_{i}$  rơi vào khoảng vô cùng nhỏ xung quanh x, và chúng ta cần chính xác j-1 trong số  $X_{i}$  rơi vào bên trái của x, để lại số còn lại n-j rơi vào bên phải của x.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_230_443_1166_686.jpg" alt="Image" width="66%" /></div>\r
-\r
-\r
-### HÌNH 8.11\r
-\r
-Để cho  $X_{(j)}$  rơi vào một khoảng nhỏ của x, chúng ta yêu cầu rằng một trong số  $X_{i}$  rơi vào khoảng nhỏ và chính xác j - 1 rơi vào bên trái của x.\r
-\r
-Xác suất của sự kiện cực kỳ cụ thể này là bao nhiêu? Hãy chia nhỏ thí nghiệm thành các giai đoạn.\r
-\r
-● Trước tiên, chúng ta chọn cái nào trong số  $X_{i}$  sẽ rơi vào khoảng vô cùng nhỏ xung quanh x. Có n lựa chọn như vậy, mỗi lựa chọn xảy ra với xác suất  $f(x)dx$ , nơi f là PDF của  $X_{i}$ .\r
-\r
-● Tiếp theo, chúng ta chọn chính xác  $j-1$  trong số các phần còn lại  $n-1$  để rơi vào bên trái của  $x$ . Có  $(n-1)$  lựa chọn như vậy, mỗi lựa chọn có xác suất  $F(x)^{j-1}(1-F(x))^{n-j}$  theo  $\\mathrm{Bin}(n,F(x))$  PMF.\r
-\r
-Chúng ta nhân xác suất của hai giai đoạn để có được\r
-\r
- \r
-\r
- $$f_{X_{(j)}}(x)d x=n f(x)d x\\binom{n-1}{j-1}F(x)^{j-1}(1-F(x))^{n-j}.$$ \r
-\r
- \r
-\r
-Loại bỏ các dx từ cả hai vế, chúng ta có được PDF mà chúng ta mong muốn.\r
-\r
-Định lý 8.6.4 (PDF của thống kê thứ tự). Cho  $X_{1},\\ldots,X_{n}$  là các biến ngẫu nhiên độc lập và đồng phân phối với CDF F và PDF f. Khi đó PDF biên của thống kê thứ tự thứ j  $X_{(j)}$  là\r
-\r
- \r
-\r
- $$f_{X_{(j)}}(x)=n\\binom{n-1}{j-1}f(x)F(x)^{j-1}(1-F(x))^{n-j}.$$ \r
-\r
- \r
-\r
-Nhìn chung, các thống kê thứ tự của  $X_{1},\\ldots,X_{n}$  sẽ không theo một phân phối có tên, nhưng các thống kê thứ tự của phân phối chuẩn Uniform là một ngoại lệ.\r
-\r
-Ví dụ 8.6.5 (Thống kê thứ tự của Uniforms). Hãy  $U_1,\\ldots,U_n$  là i.i.d. Unif $(0,1)$ . Sau đó cho  $0\\leq x\\leq1$ ,  $f(x)=1$  và  $F(x)=x$ , nên PDF của  $U_{(j)}$  là\r
-\r
- \r
-\r
- $$f_{U_{(j)}}(x)=n\\binom{n-1}{j-1}x^{j-1}(1-x)^{n-j}.$$ \r
-\r
- \r
-\r
-Đây là PDF của Beta(j, n - j + 1)! Do đó  $U_{(j)} \\sim \\text{Beta}(j, n - j + 1)$ , và  $E(U_{(j)}) = \\frac{j}{n+1}$ . Trường hợp đơn giản n = 2 phù hợp với Ví dụ 7.2.2, nơi chúng ta đã sử dụng 2D LOTUS để cho thấy rằng cho i.i.d.  $U_1, U_2 \\sim \\text{Unif}(0, 1)$ ,\r
-\r
- \r
-\r
- $$E(\\max(U_{1},U_{2}))=2/3,\\;E(\\min(U_{1},U_{2}))=1/3.$$ \r
-\r
- \r
-\r
-Bây giờ rằng chúng ta biết  $\\max(U_1, U_2)$  và  $\\min(U_1, U_2)$  tuân theo các phân phối Beta, kỳ vọng của phân phối Beta xác nhận các phát hiện của chúng ta trước đây.`,AA=`Trong chương này chúng ta đã thảo luận ba lớp biến đổi rộng rãi:\r
-\r
-- biến đổi nghịch đảo  $\\mathbf{Y} = g(\\mathbf{X})$  của các vector ngẫu nhiên liên tục, có thể được xử lý bằng công thức thay đổi biến (dưới một số giả định kỹ thuật, đặc biệt là rằng các đạo hàm riêng  $\\partial x_i/\\partial y_j$  tồn tại và liên tục);\r
-\r
-- convolutions, nơi chúng ta có thể xác định phân phối bằng (theo thứ tự giảm dần của ưu tiên) các câu chuyện, MGFs, hoặc tổng/integral convolution;\r
-\r
-● biến đổi của các r.v. liên tục i.i.d. thành các thống kê thứ tự của chúng.\r
-\r
-Hình 8.12 minh họa các mối liên hệ giữa vector ngẫu nhiên gốc  $(X, Y)$  và vector ngẫu nhiên biến đổi  $(Z, W) = g(X, Y)$ , nơi g là một biến đổi nghịch đảo thỏa mãn một số giả định kỹ thuật. Công thức thay đổi biến sử dụng các Jacobians để đưa chúng ta từ PDF chung của  $(X, Y)$  sang PDF chung của  $(Z, W)$ .\r
-\r
-Hãy  $A$  là một miền trong miền hỗ trợ của  $(X,Y)$ , và  $B = \\{g(x,y):(x,y) \\in A\\}$  là miền tương ứng trong miền hỗ trợ của  $(Z,W)$ . Sau đó  $(X,Y) \\in A$  là sự kiện giống như  $(Z,W) \\in B$ , do đó\r
-\r
- \r
-\r
- $$P((X,Y)\\in A)=P((Z,W)\\in B).$$ \r
-\r
- \r
-\r
-Để tìm xác suất này, chúng ta có thể tích phân PDF chung của  $(X,Y)$  trên A hoặc tích phân PDF chung của  $(Z,W)$  trên B.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_150_156_1247_799.jpg" alt="Image" width="78%" /></div>\r
-\r
-\r
-### HÌNH 8.12\r
-\r
-Cho  $(Z, W) = g(X, Y)$ , nơi g là một phép biến đổi khả nghịch thỏa mãn một số giả định kỹ thuật nhất định. Công thức thay đổi biến cho phép chúng ta chuyển đổi giữa các PDF chung của  $(X, Y)$  và  $(Z, W)$ .\r
-\r
-Trong chương này, cũng như trong nhiều chương khác, chúng ta đã sử dụng rộng rãi quy tắc Bayes và LOTP, đặc biệt là dưới dạng liên tục hoặc hỗn hợp. Và chúng ta thường sử dụng chiến lược tích phân bằng cách nhận diện mẫu. Vì bất kỳ PDF hợp lệ nào cũng phải tích phân bằng 1, và đến nay chúng ta biết rất nhiều PDF hợp lệ, chúng ta thường có thể sử dụng xác suất để giúp chúng ta làm toán tích phân, ngoài ra còn sử dụng toán tích phân để giúp chúng ta làm xác suất!\r
-\r
-Hai phân phối mới mà chúng ta đã giới thiệu là Beta và Gamma, vốn chứa đựng nhiều câu chuyện và liên kết với các phân phối khác. Beta là một dạng tổng quát của phân phối Unif(0,1), và nó có các câu chuyện sau đây.\r
-\r
-- Thứ tự thống kê của Uniform: Thứ j của n biến ngẫu nhiên độc lập và đồng phân phối Unif(0,1) có phân phối Beta(j, n - j + 1).\r
-\r
-● Xác suất chưa biết, tiền xấp xỉ của Binomial: Nếu  $p \\sim \\text{Beta}(a, b)$  và  $X|p \\sim \\text{Bin}(n, p)$ , thì  $p|X = k \\sim \\text{Beta}(a + k, b + n - k)$ . Phân phối hậu nghiệm của  $p$  vẫn nằm trong gia đình phân phối Beta sau khi cập nhật dựa trên dữ liệu Binomial, một tính chất được gọi là tính liên hợp. Các tham số  $a$  và  $b$  có thể được diễn giải như số lần thành công và thất bại trước đây, lần lượt.\r
-\r
-Gamma là một dạng tổng quát của phân phối Exponential, và nó có các câu chuyện sau đây.\r
-\r
-• Quá trình Poisson: Trong một quá trình Poisson với tốc độ  $\\lambda$ , thời gian chờ đợi tổng cộng cho n sự kiện\r
-\r
-được phân phối  $\\Gamma(\\eta, \\lambda)$ . Do đó,  $\\Gamma(\\eta, \\lambda)$  là phiên bản liên tục của phân phối Negative Binomial.\r
-\r
-• Tỷ lệ chưa biết, tiền xấp xỉ của Poisson: Nếu  $\\lambda \\sim \\text{Gamma}(r_0, b_0)$  và  $Y \\mid \\lambda \\sim \\text{Pois}(\\lambda t)$ , thì  $\\lambda | Y = y \\sim \\text{Gamma}(r_0 + y, b_0 + t)$ . Phân phối hậu nghiệm của  $\\lambda$  vẫn nằm trong gia đình phân phối Gamma sau khi cập nhật dựa trên dữ liệu Poisson. Các tham số  $r_0$  và  $b_0$  có thể được diễn giải như số lần quan sát thành công trước đây và tổng thời gian chờ đợi cho những thành công đó, lần lượt.\r
-\r
-Phân phối Beta và Gamma có liên quan với nhau qua câu chuyện ngân hàng–bưu cục, nói rằng nếu  $X \\sim \\Gamma(\\alpha, \\lambda)$ ,  $Y \\sim \\Gamma(\\alpha, \\lambda)$  là độc lập, thì  $X + Y \\sim \\Gamma(\\alpha, \\lambda)$ ,  $\\frac{X}{X + Y} \\sim \\Gamma(\\alpha, \\lambda)$ , với  $X + Y$  và  $\\frac{X}{X + Y}$  độc lập.\r
-\r
-Bản đồ các kết nối, mà chúng ta đã thấy lần cuối trong Chương 5, được cập nhật ở đây để bao gồm phân phối Beta và Gamma. Các phân phối được liệt kê trong ngoặc đơn là các trường hợp đặc biệt của các phân phối không nằm trong ngoặc đơn.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_284_728_1123_1405.jpg" alt="Image" width="60%" /></div>`,jA=`Phân phối Beta và Gamma\r
-\r
-db  $\\alpha(x,a,b)$  và  $\\beta\\alpha(x,a,b)$ . Để sinh ra  $n$  thực hiện từ phân phối  $\\beta\\alpha(a,b)$ , chúng ta sử dụng  $\\beta\\alpha(n,a,b)$ .\r
-\r
-- dgamma, pgamma, rgamma: Để đánh giá mật độ xác suất (PDF) hoặc hàm phân phối tích lũy (CDF) của Gamma(a, λ) tại x, chúng ta sử dụng dgamma(x, a, lambda) hoặc pgamma(x, a, lambda). Để sinh ra n thực hiện từ phân phối Gamma(a, λ), chúng ta sử dụng rgamma(n, a, lambda).\r
-\r
-Ví dụ, chúng ta có thể kiểm tra rằng phân phối Gamma(3,2) có kỳ vọng 3/2 và phương sai 3/4. Để làm điều này, chúng ta sinh ra một số lượng lớn các biến ngẫu nhiên Gamma(3,2) bằng rgamma, sau đó tính toán kỳ vọng và phương sai của chúng:\r
-\r
-y <- rgamma(10^5,3,2)\r
-mean(y)\r
-var(y)\r
-\r
-Bạn có nhận được các giá trị gần 1.5 và 0.75 lần lượt không?\r
-\r
-## Tích của các phân phối đều\r
-\r
-Sử dụng R, chúng ta có thể nhanh chóng kiểm tra rằng với  $X, Y \\stackrel{i.i.d.}{\\sim}$  Unif(0,1), phân phối của  $T = X + Y$  có dạng tam giác:\r
-\r
-x <- runif(10^5)\r
-y <- runif(10^5)\r
-hist(x + y)\r
-\r
-Biểu đồ tần suất trông giống như một bậc thang tăng dần rồi giảm dần, một xấp xỉ rời rạc của tam giác.\r
-\r
-## Billiards Bayes\r
-\r
-Trong câu chuyện billiards của Bayes, chúng ta có n quả bóng trắng và 1 quả bóng xám, ném chúng lên đoạn thẳng đơn vị hoàn toàn ngẫu nhiên, và đếm số lượng quả bóng trắng nằm bên trái quả bóng xám. Gọi p là vị trí của quả bóng xám và X là số lượng quả bóng trắng nằm bên trái quả bóng xám, chúng ta có\r
-\r
- \r
-\r
- $$p\\sim\\mathrm{U n i f}(0,1)$$ \r
-\r
- \r
-\r
- \r
-\r
- $$X|p\\sim\\mathrm{Bin}(n,p).$$ \r
-\r
- \r
-\r
-Bằng cách thực hiện thí nghiệm này một số lần lớn, chúng ta có thể kiểm tra các kết quả mà chúng ta đã suy ra trong chương này về hàm xác suất khối biên của X và hàm mật độ xác suất hậu nghiệm của p cho X = x. Chúng ta sẽ gọi số lần mô phỏng là nsim, để tránh xung đột tên với số lượng quả bóng trắng, n, mà chúng ta đặt bằng 10:\r
-\r
- \r
-\r
- $$\\mathrm{n s i m}\\mathrm{<-~}10\\mathrm{~}\\mathrm{~5~}$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\mathbf{n}<-10$$ \r
-\r
-\r
-\r
-Chúng ta mô phỏng  $10^{5}$  giá trị của p, sau đó mô phỏng  $10^{5}$  giá trị từ phân phối có điều kiện của X cho p:\r
-\r
-p <- runif(nsim)\r
-x <- rbinom(nsim,n,p)\r
-\r
-Chú ý rằng chúng ta đưa toàn bộ vector p vào rbinom. Điều này có nghĩa là phần tử đầu tiên của x được sinh ra bằng phần tử đầu tiên của p, phần tử thứ hai của x được sinh ra bằng phần tử thứ hai của p, và cứ như vậy. Do đó, điều kiện theo một phần tử cụ thể của p, phần tử tương ứng của x là Binomial, nhưng các phần tử của p tự thân là Uniform, chính xác như mô hình đã chỉ định.\r
-\r
-Theo lập luận của Bayes’ billiards, phân phối biên của X nên là Discrete Uniform trên các số nguyên từ 0 đến n. Liệu điều này có đúng không? Chúng ta có thể tạo một biểu đồ tần suất của x để kiểm tra! Vì phân phối của X là rời rạc, chúng ta thông báo cho R tạo các khoảng của biểu đồ tần suất tại -0.5, 0.5, 1.5, … để mỗi thanh được đặt ở giữa giá trị nguyên:\r
-\r
-hist(x, breaks=seq(-0.5,n+0.5,1))\r
-\r
-Thật vậy, tất cả các thanh của biểu đồ tần suất đều gần như bằng nhau về độ cao, phù hợp với phân phối Discrete Uniform.\r
-\r
-Bây giờ xét đến phân phối hậu nghiệm của  $p$  cho  $X = x$ . Việc điều kiện hóa rất đơn giản trong R. Để xem xét chỉ các giá trị mô phỏng của  $p$  nơi giá trị của  $X$  là 3, chúng ta sử dụng các dấu ngoặc vuông, như sau:  $\\mathbf{p}[\\mathbf{x}==3]$ . Đặc biệt, chúng ta có thể tạo một biểu đồ tần suất của các giá trị này để xem phân phối hậu nghiệm của  $p$  cho  $X = 3$  trông như thế nào; hãy thử  $\\text{hist}(\\mathbf{p}[\\mathbf{x}==3])$ .\r
-\r
-Theo kết quả của tính liên hợp Beta-Binomial, phân phối hậu nghiệm đúng là  $p|X = 3 \\sim \\text{Beta}(4, 8)$ . Chúng ta có thể vẽ biểu đồ tần suất của  $p[x == 3]$  bên cạnh biểu đồ tần suất của các giá trị mô phỏng từ phân phối Beta(4, 8) để xác nhận rằng chúng trông giống nhau:\r
-\r
-par(mfrow=c(1,2))\r
-hist(p[x==3])\r
-hist(rbeta(10^4,4,8))\r
-\r
-Dòng đầu tiên thông báo cho R rằng chúng ta muốn hai biểu đồ đặt cạnh nhau, và hai dòng tiếp theo tạo ra các biểu đồ tần suất.\r
-\r
-## Mô phỏng các thống kê thứ tự\r
-\r
-Mô phỏng các thống kê thứ tự trong R rất dễ dàng: chúng ta chỉ cần mô phỏng các biến ngẫu nhiên độc lập và đồng phân phối và sử dụng sort để sắp xếp chúng theo thứ tự tăng dần. Ví dụ,\r
-\r
- \r
-\r
- $$\\mathrm{sort}(\\mathrm{rnorm}(10))$$ \r
-\r
- \r
-\r
-sản sinh một thực hiện của  $X_{(1)}, \\ldots, X_{(10)}$ , nơi  $X_{1}, \\ldots, X_{10}$  là độc lập và đồng phân phối  $\\mathcal{N}(0,1)$ .\r
-\r
-Nếu chúng ta muốn vẽ một histogram của các thực hiện của, ví dụ như  $X_{(9)}$ , chúng ta sẽ cần sử dụng replicate:\r
-\r
-order_stats <- replicate(10^4, sort(rnorm(10)))\r
-\r
-Điều này tạo ra một ma trận, order_stats, với 10 hàng. Hàng thứ i của ma trận chứa  $10^4$  thực hiện của  $X_{(i)}$ . Bây giờ chúng ta có thể tạo một histogram của  $X_{(9)}$ , chỉ bằng cách chọn hàng thứ 9 của ma trận:\r
-\r
-x9 <- order_stats[9, ]\r
-hist(x9)\r
-\r
-Chúng ta cũng có thể tính các tóm tắt như mean(x9) và var(x9).`,MA=`Bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.\r
+`,AA=`<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 8.1.1</div>
+    <div class="math-box-title">Thay đổi biến số trong một chiều</div>
+  </div>
+  <div class="math-box-content">
+
+Cho X là một biến ngẫu nhiên liên tục có hàm mật độ xác suất $f_{X}$, và cho $Y = g(X)$, trong đó $g$ khả vi và nghiêm ngặt tăng (hoặc nghiêm ngặt giảm). Khi đó hàm mật độ xác suất của Y được cho bởi
+
+$$f_{Y}(y)=f_{X}(x)\\left|\\frac{d x}{d y}\\right|,$$
+
+trong đó $x = g^{-1}(y)$. Tập xác định của Y là tất cả $g(x)$ với x trong tập xác định của X.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 8.1.1</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử g nghiêm ngặt tăng. Hàm phân phối tích lũy của Y là
+
+$$F_{Y}(y)=P(Y\\leq y)=P(g(X)\\leq y)=P(X\\leq g^{-1}(y))=F_{X}(g^{-1}(y))=F_{X}(x),$$
+
+do đó bằng quy tắc chuỗi, hàm mật độ xác suất của Y là
+
+$$f_{Y}(y)=f_{X}(x)\\frac{dx}{dy}.$$
+
+Chứng minh cho trường hợp $g$ nghiêm ngặt giảm là tương tự. Trong trường hợp này hàm mật độ xác suất kết thúc là $-f_{X}(x)\\frac{dx}{dy}$, điều này không âm vì $\\frac{dx}{dy}<0$ nếu $g$ nghiêm ngặt giảm. Sử dụng $|\\frac{dx}{dy}|$, như trong phát biểu của định lý, bao gồm cả hai trường hợp.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Khi áp dụng công thức thay đổi biến số, chúng ta có thể chọn tính toán $\\frac{dx}{dy}$, hoặc tính toán $\\frac{dy}{dx}$ và lấy nghịch đảo. Theo quy tắc chuỗi, hai cách này cho cùng một kết quả, do đó chúng ta có thể chọn cách nào dễ hơn.
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 8.1.2</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Khi tìm phân phối của Y, hãy đảm bảo:
+
+- Kiểm tra các giả thiết của định lý thay đổi biến số kỹ lưỡng nếu bạn muốn áp dụng nó (nếu không áp dụng được, một chiến lược tốt là bắt đầu với hàm phân phối tích lũy của Y).
+
+- Biểu diễn kết quả cuối cùng cho hàm mật độ xác suất của Y dưới dạng một hàm số của y.
+
+- Chỉ định tập xác định của Y.
+
+  </div>
+</div>
+
+Công thức thay đổi biến số (trong trường hợp g nghiêm ngặt tăng) rất dễ nhớ khi viết dưới dạng
+
+$$f_{Y}(y)d y=f_{X}(x)d x,$$
+
+điều này có một sự đối xứng đẹp mắt. Công thức này cũng hợp lý nếu chúng ta suy nghĩ về đơn vị. Ví dụ, giả sử X là một phép đo bằng inch và Y = 2.54X là chuyển đổi sang xentimét (cm). Khi đó đơn vị của $f_X(x)$ là inch $^{-1}$ và đơn vị của $f_Y(y)$ là cm $^{-1}$, do đó nói điều gì đó như " $f_Y(y) = f_X(x)$" là vô lý. Tuy nhiên, dx được đo bằng inch và dy được đo bằng cm, do đó $f_Y(y)dy$ và $f_X(x)dx$ là các đại lượng không có đơn vị, và việc so sánh chúng là hợp lý. Tốt hơn nữa, $f_{X}(x)dx$ và $f_{Y}(y)dy$ có các diễn giải về xác suất (nhớ lại từ Chương 5 rằng $f_{X}(x)dx$ thực chất là xác suất để X nằm trong một khoảng rất nhỏ có độ dài dx, trung tâm tại x), điều này giúp dễ hình dung trực giác hơn về điều mà công thức thay đổi biến đang nói.
+
+Ví dụ tiếp theo sẽ dẫn đến các PDF của hai biến ngẫu nhiên được định nghĩa là các biến đổi của một biến ngẫu nhiên chuẩn. Trong ví dụ đầu tiên công thức thay đổi biến áp dụng; trong ví dụ thứ hai công thức đó không áp dụng.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.1.3</div>
+    <div class="math-box-title">PDF của Phân phối Log-Normal</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X \\sim \\mathcal{N}(0,1)$, $Y = e^X$. Trong Chương 6 chúng ta đã gọi phân phối của Y là Log-Normal, và chúng ta đã tìm tất cả các momen của nó bằng cách sử dụng MGF của phân phối chuẩn. Bây giờ chúng ta có thể sử dụng công thức thay đổi biến để tìm PDF của Y, vì $g(x) = e^x$ là hàm tăng nghiêm ngặt. Cho $y = e^x$, do đó $x = \\log y$ và $dy/dx = e^x$. Khi đó
+
+$$f_{Y}(y)=f_{X}(x)\\left|\\frac{dx}{dy}\\right|=\\varphi(x)\\frac{1}{e^{x}}=\\varphi(\\log y)\\frac{1}{y},\\quad y>0.$$
+
+Lưu ý rằng sau khi áp dụng công thức thay đổi biến, chúng ta viết tất cả các biểu thức ở vế phải dưới dạng theo y, và chúng ta chỉ định miền giá trị của phân phối. Để xác định miền giá trị, chúng ta chỉ cần quan sát rằng khi x thay đổi từ $-\\infty$ đến $\\infty$, $e^{x}$ thay đổi từ 0 đến $\\infty$.
+
+Chúng ta có thể đạt được kết quả giống nhau bằng cách làm việc từ định nghĩa của hàm phân phối tích lũy, dịch sự kiện $Y \\leq y$ thành sự kiện tương đương liên quan đến X. Với y > 0,
+
+$$F_{Y}(y)=P(Y\\leq y)=P(e^{X}\\leq y)=P(X\\leq\\log y)=\\Phi(\\log y),$$
+
+do đó PDF là lại
+
+$$f_{Y}(y)=\\frac{d}{d y}\\Phi(\\log y)=\\varphi(\\log y)\\frac{1}{y},\\quad y>0.$$
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.1.4</div>
+    <div class="math-box-title">PDF của Phân phối Chi-Square</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X \\sim \\mathcal{N}(0,1)$, $Y = X^2$. Phân phối của Y là một ví dụ về phân phối Chi-Square, được giới thiệu chính thức trong Chương 10. Để tìm PDF của Y, chúng ta không thể áp dụng công thức thay đổi biến nữa vì $g(x) = x^2$ không phải là một song ánh; thay vào đó chúng ta bắt đầu từ hàm phân phối tích lũy.
+
+Bằng cách vẽ đồ thị của $y = x^2$, chúng ta có thể thấy rằng sự kiện $X^2 \\leq y$ tương đương với sự kiện $-\\sqrt{y} \\leq X \\leq \\sqrt{y}$. Khi đó
+
+$$F_{Y}(y)=P(X^{2}\\leq y)=P(-\\sqrt{y}\\leq X\\leq\\sqrt{y})=\\Phi(\\sqrt{y})-\\Phi(-\\sqrt{y})=2\\Phi(\\sqrt{y})-1,$$
+
+vậy
+
+$$f_{Y}(y)=2\\varphi(\\sqrt{y})\\cdot\\frac{1}{2}y^{-1/2}=\\varphi(\\sqrt{y})y^{-1/2},\\quad y>0.$$
+
+  </div>
+</div>
+
+Ví dụ tiếp theo sẽ làm sáng tỏ một sự xuất hiện bất ngờ của một phân phối hoàn toàn không phải là chuẩn.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.1.5</div>
+    <div class="math-box-title">Đèn hải đăng</div>
+  </div>
+  <div class="math-box-content">
+
+Một đèn hải đăng trên bờ đang phát ánh sáng hướng ra biển với một góc ngẫu nhiên $U$ (được đo bằng radian), nơi
+
+$$U\\sim\\mathrm{Unif}\\left(\\frac{-\\pi}{2},\\frac{\\pi}{2}\\right).$$
+
+Xét một đường thẳng song song với bờ và cách bờ 1 dặm, như được minh họa trong Hình 8.1. Một góc bằng 0 có nghĩa là tia sáng vuông góc với bờ, trong khi một góc bằng $\\pi/2$ có nghĩa là tia sáng song song với bờ, phát sáng sang phải từ góc nhìn của hình.
+
+Gọi X là điểm mà ánh sáng chạm vào đường thẳng, nơi gốc của đường thẳng là điểm trên đường thẳng gần nhất với đèn hải đăng. Tìm phân phối của X.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_326_647_1071_940.jpg" alt="Một đèn hải đăng phát sáng với một góc ngẫu nhiên U" style="max-width: 53%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.1:** Một đèn hải đăng phát sáng với một góc ngẫu nhiên U, nhìn từ trên xuống.
+</div>
+
+**Giải:** Xét tam giác vuông trong Hình 8.1, độ dài cạnh đối của U chia cho độ dài cạnh kề của U là $X/1 = X$, do đó
+
+$$X=\\tan(U).$$
+
+(Hình minh họa trường hợp U > 0 và tương ứng X > 0, nhưng quan hệ này cũng đúng khi $U \\leq 0$.) Gọi x là một giá trị có thể của X và u là giá trị tương ứng có thể của U, do đó
+
+$$x=\\tan(u) \\text{ và } u=\\arctan(x).$$
+
+Theo công thức thay đổi biến, áp dụng vì $\\tan$ là một hàm số khả vi, tăng nghiêm ngặt trên $(-\\pi/2, \\pi/2)$,
+
+$$f_{X}(x)=f_{U}(u)\\frac{d u}{d x}=\\frac{1}{\\pi}\\cdot\\frac{1}{1+x^{2}},$$
+
+điều này cho thấy X là Cauchy. Đặc biệt, điều này có nghĩa là $E|X|$ là vô hạn (vì giá trị kỳ vọng của một Cauchy không tồn tại), do đó trung bình X ở vô cùng xa so với gốc của đường thẳng!
+
+Sự kiện rằng X là Cauchy cũng có thể hiểu được trong ánh sáng của tính phổ quát của Uniform. Như được trình bày trong Ví dụ 7.1.25, hàm phân phối tích lũy (CDF) của Cauchy là
+
+$$F(x)=\\frac{1}{\\pi}\\arctan(x)+0.5.$$
+
+Ngược lại là $F^{-1}(v) = \\tan(\\pi(v - 0.5))$, do đó với $V \\sim \\text{Unif}(0,1)$ chúng ta có
+
+$$F^{-1}(V)=\\tan\\left(\\pi\\left(V-0.5\\right)\\right)\\sim Cauchy.$$
+
+Điều này phù hợp với kết quả trước đây của chúng ta vì $\\pi(V - 0.5) \\sim \\mathrm{Unif}(-\\pi/2, \\pi/2)$.
+
+  </div>
+</div>
+
+Chúng ta cũng có thể sử dụng công thức thay đổi biến để tìm hàm mật độ xác suất (PDF) của một biến đổi vị trí-thang.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.1.6</div>
+    <div class="math-box-title">PDF của một biến đổi vị trí-thang</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử X có PDF $f_{X}$, và cho $Y = a + bX$, với $b \\neq 0$. Cho $y = a + bx$, để phản ánh mối quan hệ giữa Y và X. Khi đó $\\frac{dy}{dx} = b$, do đó PDF của Y là
+
+$$f_{Y}(y)=f_{X}(x)\\left|\\frac{dx}{dy}\\right|=f_{X}\\left(\\frac{y-a}{b}\\right)\\frac{1}{|b|}.$$
+
+  </div>
+</div>
+
+Công thức thay đổi biến có thể mở rộng đến $n$ chiều, nơi nó cho chúng ta biết cách sử dụng PDF chung của một vector ngẫu nhiên $\\mathbf{X}$ để tìm PDF chung của vector ngẫu nhiên được biến đổi $\\mathbf{Y}=g(\\mathbf{X})$. Công thức tương tự như phiên bản một chiều, nhưng nó liên quan đến một phiên bản đa chiều của đạo hàm gọi là ma trận Jacobian; xem các phần A.6 và A.7 của phụ lục toán học để biết thêm về các Jacobian.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 8.1.7</div>
+    <div class="math-box-title">Thay đổi biến</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $\\mathbf{X} = (X_1, \\ldots, X_n)$ là một vector ngẫu nhiên liên tục với PDF chung $f_{\\mathbf{X}}$. Cho $g: A_0 \\to B_0$ là một hàm số nghịch đảo được, nơi $A_0$ và $B_0$ là các tập mở của $\\mathbb{R}^n$, $A_0$ chứa miền giá trị của $\\mathbf{X}$, và $B_0$ là miền giá trị của $g$.
+
+Cho $\\mathbf{Y} = g(\\mathbf{X})$, và phản ánh điều này bằng cách cho $\\mathbf{y} = g(\\mathbf{x})$. Vì $g$ là nghịch đảo được, chúng ta cũng có $\\mathbf{X} = g^{-1}(\\mathbf{Y})$ và $\\mathbf{x} = g^{-1}(\\mathbf{y})$.
+
+Giả sử rằng tất cả các đạo hàm riêng $\\frac{\\partial x_{i}}{\\partial y_{j}}$ tồn tại và liên tục, do đó chúng ta có thể tạo ra ma trận Jacobian
+
+$$\\frac{\\partial\\mathbf{x}}{\\partial\\mathbf{y}}=\\left(\\begin{array}{c c c c}\\frac{\\partial x_{1}}{\\partial y_{1}}&\\frac{\\partial x_{1}}{\\partial y_{2}}&\\cdots&\\frac{\\partial x_{1}}{\\partial y_{n}}\\\\ \\vdots&&&\\vdots\\\\ \\frac{\\partial x_{n}}{\\partial y_{1}}&\\frac{\\partial x_{n}}{\\partial y_{2}}&\\cdots&\\frac{\\partial x_{n}}{\\partial y_{n}}\\end{array}\\right).$$
+
+Cũng giả sử rằng định thức của ma trận Jacobian này luôn khác 0. Khi đó PDF chung của Y là
+
+$$f_{\\mathbf{Y}}(\\mathbf{y})=f_{\\mathbf{X}}\\left(\\mathbf{g}^{-\\mathbf{1}}(\\mathbf{y})\\right)\\cdot\\left|\\frac{\\partial\\mathbf{x}}{\\partial\\mathbf{y}}\\right|\\quad\\mathrm{for}\\;\\mathbf{y}\\in B_{0},$$
+
+và 0 khác. (Các thanh ngoặc trong Jacobian nói rằng ta lấy định thức và các thanh ngoặc ngoài nói rằng ta lấy giá trị tuyệt đối.)
+
+  </div>
+</div>
+
+Đó là, để chuyển đổi $f_{\\mathbf{X}}(\\mathbf{x})$ sang $f_{\\mathbf{Y}}(\\mathbf{y})$ ta biểu diễn $\\mathbf{x}$ trong $f_{\\mathbf{X}}(\\mathbf{x})$ theo $\\mathbf{y}$ và sau đó nhân với giá trị tuyệt đối của định thức của Jacobian $\\partial\\mathbf{x}/\\partial\\mathbf{y}$.
+
+Tương tự như trường hợp 1D,
+
+$$\\left|\\frac{\\partial\\mathbf{x}}{\\partial\\mathbf{y}}\\right|=\\left|\\frac{\\partial\\mathbf{y}}{\\partial\\mathbf{x}}\\right|^{-1},$$
+
+nên ta có thể tính toán whichever của hai Jacobian nào dễ hơn, và sau cùng biểu diễn hàm mật độ xác suất chung của Y dưới dạng một hàm số của y.
+
+Chúng ta sẽ không chứng minh công thức thay đổi biến ở đây, nhưng ý tưởng là áp dụng công thức thay đổi biến từ giải tích nhiều biến và sự kiện nếu $A$ là một miền trong $A_0$ và $B = \\{g(\\mathbf{x}): \\mathbf{x} \\in A\\}$ là miền tương ứng trong $B_0$, thì $\\mathbf{X} \\in A$ tương đương với $\\mathbf{Y} \\in B$ - chúng là cùng một sự kiện. Do đó $P(\\mathbf{X} \\in A) = P(\\mathbf{Y} \\in B)$, điều này cho thấy rằng
+
+$$\\int\\limits_{A}f_{\\mathbf{X}}(\\mathbf{x})d\\mathbf{x}=\\int\\limits_{B}f_{\\mathbf{Y}}(\\mathbf{y})d\\mathbf{y}.$$
+
+Công thức thay đổi biến từ giải tích nhiều biến (được xem lại trong phụ lục toán học) có thể sau đó được áp dụng cho tích phân ở vế trái, với phép thay thế $\\mathbf{x} = g^{-1}(\\mathbf{y})$.
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 8.1.8</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Một sự khác biệt quan trọng về mặt khái niệm giữa các phép biến đổi của biến ngẫu nhiên rời rạc và các phép biến đổi của biến ngẫu nhiên liên tục là với biến ngẫu nhiên rời rạc ta không cần Jacobian, trong khi với biến ngẫu nhiên liên tục ta cần Jacobian. Ví dụ, giả sử X là một biến ngẫu nhiên dương và $Y = X^{3}$. Nếu X là rời rạc, thì
+
+$$P(Y=y)=P(X=y^{1/3})$$
+
+chuyển đổi giữa các hàm xác suất rời rạc. Nhưng nếu X là liên tục, ta cần Jacobian (trong một chiều, Jacobian chỉ là đạo hàm) để chuyển đổi giữa các hàm mật độ xác suất:
+
+$$f_{Y}(y)=f_{X}(x)\\frac{dx}{dy}=f_{X}(y^{1/3})\\frac{1}{3y^{2/3}}.$$
+
+Bài tập 23 là một câu chuyện cảnh báo về một người đã không sử dụng Jacobian khi cần thiết.
+
+  </div>
+</div>
+
+Ví dụ tiếp theo hai áp dụng công thức thay đổi biến trong 2D.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.1.9</div>
+    <div class="math-box-title">Box-Muller</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $U \\sim \\text{Unif}(0, 2\\pi)$, và cho $T \\sim \\text{Expo}(1)$ độc lập với U. Định nghĩa
+
+$$X=\\sqrt{2T}\\cos U,\\ Y=\\sqrt{2T}\\sin U.$$
+
+Tìm hàm mật độ xác suất chung của $(X,Y)$. Họ có độc lập không? Phân phối biên của chúng là gì?
+
+**Giải:** Phân phối xác suất mật độ chung của U và T là
+
+$$f_{U,T}(u,t)=\\frac{1}{2\\pi}e^{-t},$$
+
+cho $u \\in (0, 2\\pi)$ và $t > 0$. Xem $(X, Y)$ như một điểm trong mặt phẳng,
+
+$$X^{2}+Y^{2}=2T(\\cos^{2}U+\\sin^{2}U)=2T$$
+
+là khoảng cách bình phương từ gốc tọa độ và U là góc; tức là, $(\\sqrt{2T}, U)$ biểu diễn $(X, Y)$ dưới dạng tọa độ cực.
+
+Vì chúng ta có thể phục hồi $(U,T)$ từ $(X,Y)$, phép biến đổi là khả nghịch. Ma trận Jacobian
+
+$$\\frac{\\partial(x,y)}{\\partial(u,t)}=\\left(\\begin{array}{cc}-\\sqrt{2t}\\sin u&\\frac{1}{\\sqrt{2t}}\\cos u\\\\ \\sqrt{2t}\\cos u&\\frac{1}{\\sqrt{2t}}\\sin u\\end{array}\\right)$$
+
+tồn tại, có các phần tử liên tục và có định thức tuyệt đối
+
+$$\\left|-\\sin^{2}u-\\cos^{2}u\\right|=1$$
+
+(không bao giờ bằng 0). Sau đó, để lại $x = \\sqrt{2t} \\cos u$, $y = \\sqrt{2t} \\sin u$ để phản ánh phép biến đổi từ $(U, T)$ đến $(X, Y)$, chúng ta có
+
+$$\\begin{aligned}f_{X,Y}(x,y)&=f_{U,T}(u,t)\\cdot\\left|\\frac{\\partial(u,t)}{\\partial(x,y)}\\right|\\\\&=\\frac{1}{2\\pi}e^{-t}\\cdot1\\\\&=\\frac{1}{2\\pi}e^{-\\frac{1}{2}(x^{2}+y^{2})}\\\\&=\\frac{1}{\\sqrt{2\\pi}}e^{-x^{2}/2}\\cdot\\frac{1}{\\sqrt{2\\pi}}e^{-y^{2}/2},\\end{aligned}$$
+
+cho tất cả các số thực x và y.
+
+Phân phối xác suất mật độ chung $f_{X,Y}$ phân tích thành một hàm của $x$ nhân với một hàm của $y$, do đó $X$ và $Y$ là độc lập. Hơn nữa, chúng ta nhận ra phân phối xác suất mật độ chung là tích của hai hàm mật độ xác suất chuẩn, do đó $X$ và $Y$ là các biến ngẫu nhiên độc lập và đồng phân phối $\\mathcal{N}(0,1)$! Kết quả này được gọi là phương pháp Box-Muller để tạo ra các biến ngẫu nhiên chuẩn.
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.1.10</div>
+    <div class="math-box-title">Phân phối xác suất mật độ chung của phân phối chuẩn hai chiều</div>
+  </div>
+  <div class="math-box-content">
+
+Trong Chương 7, chúng ta đã thấy một số tính chất của phân phối chuẩn hai chiều và tìm được hàm sinh moment chung. Bây giờ hãy tìm phân phối xác suất mật độ chung của nó.
+
+Giả sử $(Z, W)$ là BVN với $\\mathcal{N}(0,1)$ phân phối biên và $\\operatorname{Corr}(Z,W) = \\rho$. (Nếu chúng ta muốn phân phối xác suất mật độ chung khi các phân phối biên không phải là chuẩn tiêu chuẩn, chúng ta có thể chuẩn hóa từng thành phần riêng lẻ và sử dụng kết quả dưới đây.) Giả sử rằng $-1 < \\rho < 1$ vì nếu không, phân phối sẽ là phân bố suy biến (với Z và W hoàn toàn tương quan).
+
+Như được trình bày trong Ví dụ 7.5.10, chúng ta có thể xây dựng $(Z, W)$ như
+
+$$\\begin{aligned}Z&=X\\\\W&=\\rho X+\\tau Y,\\end{aligned}$$
+
+với $\\tau = \\sqrt{1 - \\rho^2}$ và $X, Y$ i.i.d. $\\mathcal{N}(0,1)$. Chúng ta cũng cần biến đổi ngược. Giải phương trình $Z = X$ để tìm $X$, chúng ta có $X = Z$. Thay giá trị này vào $W = \\rho X + \\tau Y$ và giải phương trình để tìm $Y$, chúng ta có
+
+$$X=Z$$
+
+$$Y=-\\frac{\\rho}{\\tau}Z+\\frac{1}{\\tau}W.$$
+
+Ma trận Jacobian là
+
+$$\\frac{\\partial(x,y)}{\\partial(z,w)}=\\left(\\begin{array}{cc}{{{1}}}&{{{0}}} \\\\{{{-\\frac{\\rho}{\\tau}}}}&{{{\\frac{1}{\\tau}}}}\\end{array}\\right),$$
+
+điều này có định thức tuyệt đối là $1/\\tau$. Do đó theo công thức thay đổi biến,
+
+$$\\begin{aligned}f_{Z,W}(z,w)&=f_{X,Y}(x,y)\\cdot\\left|\\frac{\\partial(x,y)}{\\partial(z,w)}\\right|\\\\&=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2}(x^{2}+y^{2})\\right)\\\\&=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2}(z^{2}+(-\\frac{\\rho}{\\tau}z+\\frac{1}{\\tau}w)^{2})\\right)\\\\&=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2\\tau^{2}}(z^{2}+w^{2}-2\\rho zw)\\right),\\;\\text{for all real}\\; z,w.\\end{aligned}$$
+
+Trong bước cuối cùng chúng ta đã nhân các hạng tử và sử dụng tính chất $\\rho^{2} + \\tau^{2} = 1$.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+`,jA=`<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 8.2.1</div>
+    <div class="math-box-title">Tổng convolution và tích phân convolution</div>
+  </div>
+  <div class="math-box-content">
+
+Một phép convolution là tổng của các biến ngẫu nhiên độc lập. Như chúng ta đã đề cập trước đó, chúng ta thường cộng các biến ngẫu nhiên độc lập vì tổng là một bản tóm tắt hữu ích của một thí nghiệm (trong n thí nghiệm Bernoulli, chúng ta có thể chỉ quan tâm đến tổng số lần thành công), và vì các tổng dẫn đến các giá trị trung bình, cũng rất hữu ích (trong n thí nghiệm Bernoulli, tỷ lệ thành công).
+
+Nhiệm vụ chính trong phần này là xác định phân phối của T = X + Y, trong đó X và Y là các biến ngẫu nhiên độc lập có phân phối đã biết. Trong các chương trước, chúng ta đã thấy cách các câu chuyện và các hàm MGF có thể giúp chúng ta thực hiện điều này.
+
+Ví dụ, chúng ta đã sử dụng câu chuyện để cho thấy rằng tổng của các Binomials độc lập với cùng xác suất thành công là Binomial, và rằng tổng của các Geometrics i.i.d. là Negative Binomial. Chúng ta đã sử dụng MGFs để cho thấy rằng tổng của các Normals độc lập là Normal.
+
+Một phương pháp thứ ba để xác định phân phối của T là bằng cách sử dụng tổng convolution hoặc tích phân. Các công thức được đưa ra trong định lý sau đây. Như chúng ta sẽ thấy, một tổng convolution không hơn gì là luật tổng xác suất, điều kiện hóa theo giá trị của X hoặc Y; một tích phân convolution là tương tự.
+
+Cho X và Y là các biến ngẫu nhiên độc lập và $T = X + Y$ là tổng của chúng. Nếu X và Y là rời rạc, thì PMF của T là
+
+$$\\begin{align*}P(T=t)&=\\sum_{x}P(Y=t-x)P(X=x)\\\\&=\\sum_{y}P(X=t-y)P(Y=y).\\end{align*}$$
+
+Nếu X và Y là liên tục, thì PDF của T là
+
+$$\\begin{aligned}f_{T}(t)&=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)dx\\\\&=\\int_{-\\infty}^{\\infty}f_{X}(t-y)f_{Y}(y)dy.\\end{aligned}$$
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 8.2.1</div>
+  </div>
+  <div class="math-box-content">
+
+Đối với trường hợp rời rạc, chúng ta sử dụng LOTP, điều kiện hóa theo X:
+
+$$\\begin{align*}P(T=t)&=\\sum_{x}P(X+Y=t|X=x)P(X=x)\\\\&=\\sum_{x}P(Y=t-x|X=x)P(X=x)\\\\&=\\sum_{x}P(Y=t-x)P(X=x).\\end{align*}$$
+
+Điều kiện hóa theo Y thay vào, chúng ta nhận được công thức thứ hai cho PMF của T.
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 8.2.2</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Chúng ta sử dụng giả định rằng X và Y là độc lập để đi từ $P(Y = t - x | X = x)$ đến $P(Y = t - x)$ trong bước cuối cùng. Chúng ta chỉ được phép loại bỏ điều kiện X = x nếu phân phối có điều kiện của Y cho X = x giống như phân phối biên của Y, tức là X và Y là độc lập. Một sai lầm phổ biến là giả định rằng sau khi thay x vào X, chúng ta đã "đã sử dụng thông tin" rằng X = x, khi thực tế chúng ta cần giả định độc lập để loại bỏ điều kiện. Ngược lại, chúng ta sẽ phá hủy thông tin mà không có cơ sở.
+
+  </div>
+</div>
+
+Trong trường hợp liên tục, vì giá trị của một PDF tại một điểm không phải là xác suất, chúng ta đầu tiên tìm CDF, sau đó lấy đạo hàm để nhận được PDF. Theo định lý tổng xác suất,
+
+$$\\begin{aligned}F_{T}(t)=P(X+Y\\leq t)&=\\int_{-\\infty}^{\\infty}P(X+Y\\leq t|X=x)f_{X}(x)dx\\\\&=\\int_{-\\infty}^{\\infty}P(Y\\leq t-x)f_{X}(x)dx\\\\&=\\int_{-\\infty}^{\\infty}F_{Y}(t-x)f_{X}(x)dx.\\end{aligned}$$
+
+Lại một lần nữa, chúng ta cần tính độc lập để loại bỏ điều kiện X = x. Để nhận được PDF, chúng ta sau đó lấy đạo hàm theo t, đổi thứ tự tích phân và đạo hàm. Điều này cho ra
+
+$$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)d x.$$
+
+Tính toán dựa trên Y thay vào, chúng ta nhận được công thức thứ hai cho $f_{T}$.
+
+Một cách chứng minh khác sử dụng công thức thay đổi biến trong hai chiều. Điểm duy nhất là công thức thay đổi biến yêu cầu phép biến đổi nghịch đảo từ $\\mathbb{R}^2$ sang $\\mathbb{R}^2$, nhưng $(X,Y) \\mapsto X + Y$ ánh xạ $\\mathbb{R}^2$ sang $\\mathbb{R}$ và không nghịch đảo được. Chúng ta có thể vượt qua điều này bằng cách thêm một thành phần dư thừa vào phép biến đổi, nhằm làm cho nó nghịch đảo được. Như vậy, chúng ta xem xét phép biến đổi nghịch đảo $(X,Y) \\mapsto (X + Y,X)$ (sử dụng $(X,Y) \\mapsto (X + Y,Y)$ cũng hợp lệ như nhau). Sau khi có PDF chung của $X + Y$ và $X$, chúng ta tích phân theo $X$ để nhận được PDF biên của $X + Y$.
+
+Đặt $T = X + Y$, $W = X$, và đặt $t = x + y$, $w = x$. Có vẻ như việc đặt tên mới cho X là "W" là thừa, nhưng việc làm như vậy giúp dễ dàng phân biệt giữa các biến trước và sau phép biến đổi: chúng ta đang biến đổi $(X, Y) \\mapsto (T, W)$. Sau đó
+
+$$\\frac{\\partial(t,w)}{\\partial(x,y)}=\\left(\\begin{array}{cc}{{{1}}}&{{{1}}} \\\\{{{1}}}&{{{0}}}\\end{array}\\right)$$
+
+có định thức tuyệt đối bằng 1, do đó $|\\left|\\frac{\\partial(x,y)}{\\partial(t,w)}\\right|$ cũng bằng 1. Như vậy, PDF chung của T và W là
+
+$$f_{T,W}(t,w)=f_{X,Y}(x,y)=f_{X}(x)f_{Y}(y)=f_{X}(w)f_{Y}(t-w),$$
+
+và PDF biên của T là
+
+$$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{T,W}(t,w)d w=\\int_{-\\infty}^{\\infty}f_{X}(x)f_{Y}(t-x)d x,$$
+
+như kết quả mà chúng ta đã có ở trên.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 8.2.3</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Không khó để nhớ công thức tích phân convolution bằng cách suy luận theo kiểu tương tự từ
+
+$$P(T=t)=\\sum_{x}P(Y=t-x)P(X=x)$$
+
+$$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)d x.$$
+
+Nhưng vẫn cần cẩn trọng. Ví dụ, Bài tập 23 cho thấy một công thức tương tự nhưng trông giống nhau cho PDF của tích của hai biến ngẫu nhiên liên tục độc lập là sai: cần một Jacobian (cho các tích phân convolution, định thức tuyệt đối của Jacobian bằng 1 nên không thể nhận thấy trong công thức tích phân convolution).
+
+  </div>
+</div>
+
+Vì các tích phân convolution chính là luật tổng xác suất, chúng ta đã sử dụng chúng trong các chương trước mà không cần đề cập đến từ "convolution"; xem ví dụ, như chứng minh đầu tiên và cũng là tốn thời gian nhất của Định lý 3.8.9 (tổng của các Binomials độc lập), cũng như chứng minh của Định lý 4.8.1 (tổng của các Poisson độc lập). Trong các ví dụ dưới đây, chúng ta tìm phân phối của tổng các Exponentials và tổng các Uniforms sử dụng tích phân convolution.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.2.4</div>
+    <div class="math-box-title">Convolution của Exponential</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X, Y \\stackrel{i.i.d.}{\\sim} \\operatorname{Expo}(\\lambda)$. Tìm phân phối của $T = X + Y$.
+
+**Giải:** Với t > 0, công thức convolution cho
+
+$$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)d x=\\int_{0}^{t}\\lambda e^{-\\lambda(t-x)}\\lambda e^{-\\lambda x}d x,$$
+
+trong đó chúng ta giới hạn tích phân từ 0 đến t vì chúng ta cần $t - x > 0$ và x > 0 để các PDF bên trong tích phân không bằng 0. Rút gọn, chúng ta có
+
+$$f_{T}(t)=\\lambda^{2}\\int_{0}^{t}e^{-\\lambda t}d x=\\lambda^{2}t e^{-\\lambda t},\\;\\mathrm{for}\\; t>0.$$
+
+Đây được gọi là phân phối Gamma(2, λ). Chúng ta sẽ giới thiệu phân phối Gamma chi tiết trong Phần 8.4.
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.2.5</div>
+    <div class="math-box-title">Convolution của Uniform</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X, Y \\stackrel{i.i.d.}{\\sim}$ Unif(0, 1). Tìm phân phối của $T = X + Y$.
+
+**Giải:** PDF của X (và của Y) là
+
+$$g(x)=\\left\\{\\begin{array}{ll}1,&x\\in(0,1),\\\\0,&\\text{otherwise}.\\end{array}\\right.$$
+
+Công thức convolution cho
+
+$$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)d x=\\int_{-\\infty}^{\\infty}g(t-x)g(x)d x.$$
+
+Hàm số tích phân bằng 1 nếu và chỉ nếu $0 < t - x < 1$ và $0 < x < 1$; đây là một điều kiện hình thang. Tương đương, điều kiện là $\\max(0, t - 1) < x < \\min(t, 1)$.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_308_180_1079_633.jpg" alt="Vùng trong mặt phẳng (t, x) nơi g(t − x)g(x) bằng 1" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.2:** Vùng trong mặt phẳng $(t, x)$ nơi $g(t - x)g(x)$ bằng 1.
+</div>
+
+Từ Hình 8.2, ta thấy rằng với $0 < t \\leq 1$, x bị giới hạn trong khoảng $(0, t)$, và với $1 < t < 2$, x bị giới hạn trong khoảng $(t-1, 1)$. Do đó, hàm mật độ xác suất của T là một hàm tuyến tính từng khúc:
+
+$$f_{T}(t)=\\left\\{\\begin{array}{ll}\\displaystyle\\int_{0}^{t}dx=t&\\text{với}\\;0<t\\leq1,\\\\ \\displaystyle\\int_{t-1}^{1}dx=2-t&\\text{với}\\;1<t<2.\\end{array}\\right.$$
+
+Hình 8.3 vẽ hàm mật độ xác suất của T. Nó có dạng một tam giác với các đỉnh tại 0, 1 và 2, vì vậy nó được gọi là phân phối Tam giác(0, 1, 2).
+
+Về mặt trực quan, điều này có vẻ hợp lý vì T có xu hướng nhận các giá trị gần giữa hơn là gần các cực trị: một giá trị gần 1 có thể được đạt được nếu cả X và Y đều ở mức trung bình, nếu X lớn nhưng Y nhỏ, hoặc nếu Y lớn nhưng X nhỏ. Trong khi đó, một giá trị gần 2 chỉ có thể xảy ra nếu cả X và Y đều lớn. Nhớ lại Ví dụ 3.2.5, hàm phân phối xác suất của tổng hai lần gieo xúc xắc cũng có dạng tam giác. Một lần gieo xúc xắc có phân phối rời rạc đều trên các số nguyên từ 1 đến 6, vì vậy trong bài toán đó chúng ta đang xem xét một phép convolute của hai phân phối rời rạc đều. Điều này hợp lý vì hàm mật độ xác suất mà chúng ta đã thu được ở đây có dạng tương tự.
+
+  </div>
+</div>
+`,MA=`<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_306_174_1083_629.jpg" alt="Phân phối xác suất của T = X + Y, nơi X và Y là i.i.d. Unif(0,1)" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.3:** Phân phối xác suất của $T = X + Y$, nơi X và Y là i.i.d. Unif(0,1).
+</div>
+
+Trong phần này và phần tiếp theo, chúng ta sẽ giới thiệu hai phân phối liên tục, Beta và Gamma, mà chúng có liên quan đến một số phân phối có tên mà chúng ta đã được nghiên cứu và cũng liên quan đến nhau qua một câu chuyện chia sẻ. Đây là một đoạn trích từ chủ đề biến đổi, nhưng chúng ta sẽ cần sử dụng một thay đổi biến để liên kết phân phối Beta và Gamma vào cuối cùng.
+
+Phân phối Beta là một phân phối liên tục trên khoảng $(0,1)$. Nó là một tổng quát hóa của phân phối $\\text{Unif}(0,1)$, cho phép PDF không phải là hằng số trên khoảng $(0,1)$.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 8.3.1</div>
+    <div class="math-box-title">Phân phối Beta</div>
+  </div>
+  <div class="math-box-content">
+
+Một biến ngẫu nhiên X được gọi là có phân phối Beta với tham số a và b, nơi a > 0 và b > 0, nếu PDF của nó là
+
+$$f(x)=\\frac{1}{\\beta(a,b)}x^{a-1}(1-x)^{b-1},\\quad0<x<1,$$
+
+trong đó hằng số $\\beta(a,b)$ được chọn để làm cho PDF tích phân đến 1. Chúng ta viết điều này là $X \\sim \\text{Beta}(a,b)$.
+
+  </div>
+</div>
+
+Khi $a = b = 1$, PDF của Beta(1,1) là hằng số trên (0,1), do đó phân phối Beta(1,1) và Unif(0,1) là giống nhau. Bằng cách thay đổi các giá trị của $a$ và $b$, chúng ta nhận được các PDF với nhiều dạng khác nhau; Hình 8.4 cho thấy bốn ví dụ. Dưới đây là một vài mẫu chung:
+
+- Nếu $a < 1$ và $b < 1$, PDF có dạng U và mở lên. Nếu $a > 1$ và $b > 1$, PDF mở xuống.
+
+- Nếu $a = b$, PDF đối xứng về $1/2$. Nếu $a > b$, PDF thiên về các giá trị lớn hơn $1/2$; nếu $a < b$, PDF thiên về các giá trị nhỏ hơn $1/2$.
+
+Theo định nghĩa, hằng số $\\beta(a,b)$ thỏa mãn
+
+$$\\beta(a,b)=\\int_{0}^{1}x^{a-1}(1-x)^{b-1}d x.$$
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_196_422_685_889.jpg" alt="Phân phối Beta" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_694_421_1184_888.jpg" alt="Phân phối Beta" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/img_in_chart_box_196_923_686_1388.jpg" alt="Phân phối Beta" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_696_928_1183_1384.jpg" alt="Phân phối Beta" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.4:** Phân phối Beta cho các giá trị khác nhau của a và b. Theo chiều kim đồng hồ, bắt đầu từ góc trên bên trái: Beta(0.5, 0.5), Beta(2, 1), Beta(5, 5), Beta(2, 8).
+</div>
+
+Một tích phân có dạng này được gọi là tích phân beta, và chúng ta sẽ cần phải làm một chút giải tích để suy ra một công thức tổng quát cho $\\beta(a,b)$. Nhưng trong trường hợp đặc biệt khi a và b là các số nguyên dương, Thomas Bayes đã tìm ra cách tính tích phân này bằng một chứng minh dựa trên câu chuyện thay vì dùng giải tích!
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.3.2</div>
+    <div class="math-box-title">Câu chuyện của Bayes về sân bi-a</div>
+  </div>
+  <div class="math-box-content">
+
+Hãy chứng minh mà không dùng giải tích rằng với bất kỳ các số nguyên k và n nào với $0 \\leq k \\leq n$,
+
+$$\\int_{0}^{1}\\binom{n}{k}x^{k}(1-x)^{n-k}d x=\\frac{1}{n+1}.$$
+
+**Giải:** Bằng cách kể hai câu chuyện, chúng ta sẽ chứng minh rằng vế trái và vế phải đều bằng $P(X = k)$, với X là một biến ngẫu nhiên mà chúng ta sẽ xây dựng.
+
+**Câu chuyện 1:** Bắt đầu với $n+1$ quả bóng, n quả trắng và 1 quả xám. Đánh ngẫu nhiên mỗi quả bóng lên đoạn đơn vị $[0, 1]$, sao cho vị trí của các quả bóng là các biến ngẫu nhiên độc lập đồng nhất Unif(0, 1). Gọi X là số quả bóng trắng nằm bên trái quả bóng xám; X là một biến ngẫu nhiên rời rạc với các giá trị có thể là 0, 1, $\\ldots$, n. Hình 8.5 minh họa thiết lập thí nghiệm của chúng ta.
+
+Để tính xác suất của sự kiện $X = k$, chúng ta sử dụng LOTP, điều kiện hóa theo vị trí của quả bóng xám, mà chúng ta sẽ gọi là $B$. Điều kiện hóa theo $B = p$, số lượng quả bóng trắng rơi bên trái của $p$ có phân phối $\\mathrm{Bin}(n, p)$, vì chúng ta có thể xem mỗi quả bóng trắng là một phép thử Bernoulli độc lập, nơi thành công được định nghĩa là rơi bên trái của $p$. Gọi $f$ là hàm mật độ xác suất của $B$; $f(p) = 1$ vì $B \\sim \\mathrm{Unif}(0, 1)$. Do đó
+
+$$P(X=k)=\\int_{0}^{1}P(X=k|B=p)f(p)dp=\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}dp.$$
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_247_1101_1143_1349.jpg" alt="Câu chuyện của Bayes về sân bi-a" style="max-width: 64%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.5:** Câu chuyện của Bayes về sân bi-a. Ở đây chúng ta ném n = 6 quả bóng trắng và một quả bóng xám lên đoạn đơn vị, và quan sát X = 2 quả bóng nằm bên trái quả bóng xám.
+</div>
+
+**Câu chuyện 2:** Bắt đầu với $n + 1$ quả bóng, tất cả đều trắng. Ném ngẫu nhiên mỗi quả bóng lên đoạn đơn vị; sau đó chọn một quả bóng ngẫu nhiên và sơn nó thành xám. Lại gọi X là số quả bóng trắng nằm bên trái quả bóng xám. Nhờ tính đối xứng, bất kỳ một trong $n + 1$ quả bóng nào cũng có thể được sơn thành xám với xác suất như nhau, do đó
+
+$$P(X=k)=\\frac{1}{n+1}$$
+
+với $k = 0, 1, \\ldots, n$.
+
+Đây là trọng tâm: X có cùng phân phối trong hai câu chuyện! Nó không quan trọng là chúng ta sơn quả bóng xám trước rồi ném, hay là ném trước rồi mới sơn quả bóng xám. Vì vậy $P(X = k)$ là như nhau trong Câu chuyện 1 và Câu chuyện 2, và
+
+$$\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}dp=\\frac{1}{n+1}$$
+
+cho $k = 0, 1, \\ldots, n$. Dù có $k'$ trong tích phân, giá trị của tích phân không phụ thuộc vào $k$. Thay thế $a - 1$ cho $k$ và $b - 1$ cho $n - k$, điều này cho thấy rằng với các giá trị nguyên dương của $a$ và $b$,
+
+$$\\beta(a,b)=\\frac{1}{(a+b-1)\\binom{a+b-2}{a-1}}=\\frac{(a-1)!(b-1)!}{(a+b-1)!}.$$
+
+  </div>
+</div>
+
+Sau này trong chương này, chúng ta sẽ học $\\beta(a,b)$ là gì với các a và b tổng quát.
+
+Beta là một họ linh hoạt của phân phối trên $(0,1)$, và có nhiều câu chuyện. Một trong những câu chuyện này là rằng một biến ngẫu nhiên Beta thường được sử dụng để đại diện cho một xác suất chưa biết. Đó là, chúng ta có thể sử dụng Beta để đặt xác suất lên các xác suất chưa biết!
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.3.3</div>
+    <div class="math-box-title">Tính liên hợp Beta-Binomial</div>
+  </div>
+  <div class="math-box-content">
+
+Chúng ta có một đồng xu rơi mặt ngửa với xác suất p, nhưng chúng ta không biết p là gì. Mục tiêu của chúng ta là suy luận giá trị của p sau khi quan sát kết quả của n lần tung đồng xu. Càng lớn n là, chúng ta càng có thể ước lượng chính xác hơn p.
+
+Có nhiều cách để thực hiện điều này. Một phương pháp chính là suy luận Bayesian, phương pháp này xem tất cả các đại lượng chưa biết là các biến ngẫu nhiên. Trong tiếp cận Bayesian, chúng ta sẽ xem xác suất chưa biết p là một biến ngẫu nhiên và cấp cho p một phân phối. Điều này được gọi là phân phối tiên nghiệm, và nó phản ánh sự không chắc chắn về giá trị thực của p trước khi quan sát các lần tung đồng xu. Sau khi thực hiện thí nghiệm và thu thập dữ liệu, phân phối tiên nghiệm được cập nhật bằng quy tắc Bayes; điều này cho ra phân phối hậu nghiệm, phản ánh niềm tin mới của chúng ta về p.
+
+Hãy xem điều gì xảy ra nếu phân phối tiên nghiệm của p là một phân phối Beta. Cho $p \\sim \\text{Beta}(a, b)$ với các hằng số a và b đã biết, và cho X là số lần ngửa trong n lần tung đồng xu. Điều kiện biết giá trị thực của p, các lần tung chỉ là các phép thử Bernoulli độc lập với xác suất p thành công, vì vậy
+
+$$X|p\\sim\\mathrm{Bin}(n,p).$$
+
+Lưu ý rằng X không phải là phân phối Binomial theo biên; nó là phân phối Binomial điều kiện, cho p. Phân phối biên của X được gọi là phân phối Beta-Binomial. Để có phân phối hậu nghiệm của p, chúng ta sử dụng quy tắc Bayes (dưới dạng hỗn hợp, vì X là rời rạc và p là liên tục). Cho $f(p)$ là phân phối tiên nghiệm và $f(p|X=k)$ là phân phối hậu nghiệm sau khi quan sát k lần lật mặt,
+
+$$\\begin{align*}f(p|X=k)&=\\frac{P(X=k|p)f(p)}{P(X=k)}\\\\&=\\frac{\\binom{n}{k}p^{k}(1-p)^{n-k}\\cdot\\frac{1}{\\beta(a,b)}p^{a-1}(1-p)^{b-1}}{P(X=k)}.\\end{align*}$$
+
+Mẫu số, tức là PMF biên của X, được cho bởi
+
+$$P(X=k)=\\int_{0}^{1}P(X=k|p)f(p)dp=\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}f(p)dp.$$
+
+Với $a = b = 1$ (tức là prior của $p$ là Unif(0, 1)), chúng ta đã chỉ ra trong câu chuyện Bayes' billiards rằng $P(X = k) = 1/(n+1)$, tức là $X$ là Discrete Uniform trên $\\{0, 1, \\ldots, n\\}$. Với $a$ và $b$ là bất kỳ số nguyên dương nào, chúng ta cũng có thể lại sử dụng câu chuyện Bayes' billiards để tìm $P(X = k)$; thú vị là $X$ sau đó được cho là có phân phối Negative Hypergeometric (câu chuyện và PMF của nó chúng ta đã thấy trong Ví dụ 4.4.7).
+
+Nhưng dường như không dễ để tìm $P(X=k)$ tổng quát cho các giá trị thực $a,b$. Liên quan đến điều này, chúng ta vẫn chưa đánh giá $\\beta(a,b)$ tổng quát. Chúng ta có bị kẹt?
+
+Thực ra, phép tính này đơn giản hơn nhiều so với vẻ ngoài ban đầu. PDF có điều kiện $f(p|X=k)$ là một hàm số của p, điều này có nghĩa là mọi thứ không phụ thuộc vào p chỉ là hằng số. Chúng ta có thể loại bỏ tất cả các hằng số này và tìm PDF đến một hằng số nhân (sau đó hằng số chuẩn hóa là bất cứ điều gì cần thiết để làm cho PDF tích phân bằng 1). Điều này cho ta
+
+$$f(p|X=k)\\propto p^{a+k-1}(1-p)^{b+n-k-1},$$
+
+đây là PDF của $\\mathrm{Beta}(a+k,b+n-k)$, đến một hằng số nhân. Do đó, phân phối hậu nghiệm của p là
+
+$$p|X=k\\sim\\mathrm{Beta}(a+k,b+n-k).$$
+
+Phân phối hậu nghiệm của p sau khi quan sát X = k vẫn là một phân phối Beta! Đây là một mối quan hệ đặc biệt giữa Beta và Binomial được gọi là tính liên hợp: nếu chúng ta có một prior Beta trên p và dữ liệu là Binomial điều kiện theo p, thì khi chuyển từ prior sang posterior, chúng ta không rời khỏi họ các phân phối Beta. Chúng ta nói rằng Beta là prior liên hợp của Binomial.
+
+Ngoài ra, hãy lưu ý công thức rất đơn giản để cập nhật phân phối của p. Chúng ta chỉ cần thêm số lần quan sát thành công, k, vào tham số đầu tiên của phân phối Beta, và số lần quan sát thất bại, n - k, vào tham số thứ hai. Do đó, a và b có một ý nghĩa cụ thể trong ngữ cảnh này, ít nhất khi a và b là các số nguyên dương: hãy xem a - 1 là số lần thành công trước đây và b - 1 là số lần thất bại trước đây trong các thí nghiệm trước (các thí nghiệm trước có thể là thực hoặc tưởng tượng). Thêm vào k lần thành công và n - k lần thất bại từ thí nghiệm hiện tại, chúng ta có $a + k - 1$ thành công và $b + n - k - 1$ thất bại, và prior Beta($a, b$) được cập nhật thành posterior Beta($a + k, b + n - k$).
+
+Như trong phần 2.6, chúng ta có thể cập nhật dần niềm tin của mình khi nhận được thêm bằng chứng: chúng ta bắt đầu với một phân phối prior và cập nhật để nhận được phân phối posterior, cái này trở thành prior mới, cái mà chúng ta cập nhật để nhận được phân phối posterior mới, v.v. Sự đẹp đẽ ở đây là tất cả điều này có thể thực hiện trong gia đình phân phối Beta, với việc cập nhật tham số dễ dàng dựa trên việc đếm số thành công và thất bại quan sát được.
+
+Để cụ thể hơn, Hình 8.6 cho thấy trường hợp nơi prior là Beta(1,1) (được xem như Unif(0,1), như đã nói trước đó), và chúng ta quan sát n = 5 lần tung đồng xu, tất cả đều rơi vào Mặt. Khi đó posterior là Beta(6,1), được vẽ ở nửa phải của Hình 8.6. Lưu ý cách phân phối posterior tích hợp bằng chứng từ các lần tung đồng xu: các giá trị lớn hơn của p có mật độ cao hơn, phù hợp với việc chúng ta quan sát tất cả Mặt.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_197_773_682_1236.jpg" alt="Prior Beta(1,1)" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_699_775_1180_1232.jpg" alt="Posterior Beta(6,1)" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.6:** Beta là prior liên hợp của Binomial. Trái: prior là $\\text{Unif}(0,1)$. Phải: sau khi quan sát 5 Mặt trong 5 lần tung, posterior là $\\text{Beta}(6,1)$.
+</div>
+
+Mô hình này là phiên bản liên tục của Ví dụ 2.3.7, ví dụ đầu tiên của chúng ta về quy tắc Bayes. Trong ví dụ đó, chúng ta cũng có một đồng xu với xác suất Mặt p là không biết, nhưng thông tin prior khiến chúng ta tin rằng p chỉ có thể nhận một trong hai giá trị có thể, 1/2 hoặc 3/4. Chính vì vậy, prior phân phối của chúng ta trên p—mặc dù chúng ta chưa gọi nó như vậy!—là rời rạc. Cụ thể hơn, PMF prior của chúng ta là
+
+$$\\begin{aligned}&P(p=1/2)=1/2,\\\\&P(p=3/4)=1/2.\\end{aligned}$$
+
+Sau khi quan sát ba lần Mặt liên tiếp, chúng ta cập nhật PMF này để nhận được PMF posterior, cái này gán xác suất 0.23 cho $p = \\frac{1}{2}$ và xác suất 0.77 để $p = 3/4$. Cùng một logic này cũng áp dụng cho ví dụ trong chương này, ngoại trừ việc chúng ta nay cho $p$ một phân phối tiên nghiệm liên tục, điều này phù hợp nếu chúng ta tin rằng $p$ có thể nhận bất kỳ giá trị nào giữa 0 và 1.
+
+  </div>
+</div>
+
+Để kết thúc phần này, dưới đây là hai ví dụ minh họa cách tính liên hợp Beta-Binomial và cách Bayes' billiards có thể làm cho một số bài toán dường như phức tạp trở nên dễ dàng hơn.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.3.4</div>
+    <div class="math-box-title">Bayes' serum</div>
+  </div>
+  <div class="math-box-content">
+
+Một loại thuốc mới, Bayes' serum, vừa được phát triển để điều trị căn bệnh conditionitis. Một cuộc thử nghiệm lâm sàng sắp được tiến hành để nghiên cứu hiệu quả của loại thuốc này. Bayes' serum sẽ được áp dụng cho n bệnh nhân mắc conditionitis. Cho p, kết quả của các bệnh nhân là độc lập, với mỗi bệnh nhân có xác suất p bị khỏi bệnh nhờ điều trị. Tuy nhiên p là chưa biết. Để lượng hóa sự không chắc chắn về p, chúng ta mô hình hóa p như một biến ngẫu nhiên, với phân phối tiên nghiệm $p \\sim \\text{Unif}(0, 1)$.
+
+(a) Tìm xác suất chính xác k trong số n bệnh nhân sẽ được khỏi bệnh nhờ điều trị (không điều kiện, không cho p).
+
+(b) Giờ giả sử rằng thuốc điều trị rất hiệu quả trong cuộc thử nghiệm lâm sàng: tất cả n bệnh nhân đều được khỏi bệnh! Với thông tin này, tìm xác suất p lớn hơn 1/2. Đáp án của bạn nên được đơn giản hóa đầy đủ và chỉ được biểu diễn theo n.
+
+**Giải:**
+
+(a) Bằng LOTP theo sau bởi Bayes' billiards hoặc so sánh mẫu với một PDF Beta, xác suất là
+
+$$\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}d p=\\frac{1}{n+1}.$$
+
+(b) Bằng tính liên hợp Beta-Binomial, phân phối hậu nghiệm của p cho dữ liệu là $\\text{Beta}(1+n,1)$, có PDF $(n+1)p^n$ cho 0 < p < 1. Do đó,
+
+$$P\\left(p>\\frac{1}{2}\\right)=\\int_{1/2}^{1}(n+1)p^{n}d p=p^{n+1}\\Big|_{1/2}^{1}=1-\\frac{1}{2^{n+1}}.$$
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.3.5</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Một cầu thủ bóng rổ sẽ thực hiện $N \\sim \\text{Pois}(\\lambda)$ cú ném phạt trong trận đấu ngày mai. Gọi $X_j$ là chỉ số của cô ấy thành công trong cú ném phạt thứ j, và $X = X_1 + \\cdots + X_N$ là tổng số cú ném phạt cô ấy thành công trong trận đấu (vì vậy X = 0 nếu N = 0). Để mô hình hóa sự không chắc chắn về khả năng ném phạt của cô ấy, hãy cho $p \\sim \\text{Beta}(a, b)$. Cho p, cầu thủ có xác suất p thành công trong cú ném phạt và xác suất q = 1 - p để thất bại. Giả sử rằng $X_1, X_2, \\ldots$ là độc lập điều kiện cho p, và rằng N độc lập với p, $X_1, X_2, \\ldots$.
+
+(a) Tìm phân phối có điều kiện của X cho N, p.
+
+(b) Tìm phân phối có điều kiện của X cho p.
+
+(c) Tìm phân phối có điều kiện của X cho N, trong trường hợp a = b = 1.
+
+(d) Tìm phân phối có điều kiện của p cho X, N.
+
+**Giải:**
+
+(a) Theo câu chuyện về Binomial, $X|(N,p) \\sim \\mathrm{Bin}(N,p)$.
+
+(b) Theo câu chuyện trứng và gà, $X|p \\sim \\text{Pois}(\\lambda p)$.
+
+(c) Với $k = 0, 1, \\ldots, n$, theo LOTP và Billiards Bayes chúng ta có
+
+$$P(X=k|N=n)=\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}dp=\\frac{1}{n+1}.$$
+
+Vậy phân phối có điều kiện của X cho N là Uniform rời rạc trên $\\{0,1,\\ldots,N\\}$.
+
+(d) Theo tính liên hợp Beta-Binomial, $p|(X,N) \\sim \\mathrm{Beta}(a + X, b + N - X)$.
+
+  </div>
+</div>
+`,NA=`Phân phối Gamma là một phân phối liên tục trên trục số dương; nó là một mở rộng của phân phối Exponential. Trong khi một biến ngẫu nhiên Exponential biểu diễn thời gian chờ đợi cho lần thành công đầu tiên dưới điều kiện tính bộ nhớ, chúng ta sẽ thấy rằng một biến ngẫu nhiên Gamma biểu diễn tổng thời gian chờ đợi cho nhiều lần thành công.
+
+Trước khi viết xuống PDF, chúng ta trước tiên giới thiệu hàm gamma, một hàm rất nổi tiếng trong toán học mà mở rộng hàm giai thừa vượt qua giới hạn của các số nguyên không âm.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 8.4.1</div>
+    <div class="math-box-title">Hàm gamma</div>
+  </div>
+  <div class="math-box-content">
+
+Hàm gamma $\\Gamma$ được định nghĩa bởi
+
+$$\\Gamma(a)=\\int_{0}^{\\infty}x^{a}e^{-x}\\frac{d x}{x},$$
+
+với các số thực a > 0.
+
+  </div>
+</div>
+
+Chúng ta cũng có thể giản ước một $x$ và viết lại tích phân thành $x^{a-1}e^{-x}$, nhưng hóa ra việc giữ nguyên $\\frac{dx}{x}$ lại thuận tiện hơn vì nó thường được sử dụng trong phép biến đổi dạng $u = cx$, và sau đó chúng ta có sự kiện hữu ích rằng $\\frac{du}{u} = \\frac{dx}{x}$. Dưới đây là hai tính chất quan trọng của hàm gamma.
+
+- $\\Gamma(a+1) = a\\Gamma(a)$ với mọi $a > 0$. Điều này được suy ra từ tích phân từng phần:
+
+$$\\Gamma(a+1)=\\int_{0}^{\\infty}x^{a}e^{-x}d x=-x^{a}e^{-x}\\bigg|_{0}^{\\infty}+a\\int_{0}^{\\infty}x^{a-1}e^{-x}d x=0+a\\Gamma(a).$$
+
+- $\\Gamma(n) = (n-1)!$ nếu n là một số nguyên dương. Điều này có thể được chứng minh bằng quy nạp, bắt đầu với n = 1 và sử dụng quan hệ đệ quy $\\Gamma(a+1) = a\\Gamma(a)$. Do đó, nếu chúng ta đánh giá hàm gamma tại các giá trị nguyên dương, chúng ta sẽ khôi phục lại hàm giai thừa (mặc dù bị dịch chuyển 1 đơn vị).
+
+Bây giờ hãy giả sử rằng trên một cái chốc lát, chúng ta quyết định chia cả hai vế của định nghĩa trên cho $\\Gamma(a)$. Chúng ta có
+
+$$1=\\int_{0}^{\\infty}\\frac{1}{\\Gamma(a)}x^{a}e^{-x}\\frac{d x}{x},$$
+
+do đó hàm dưới dấu tích phân là một PDF hợp lệ được hỗ trợ trên $(0,\\infty)$. Đây là định nghĩa của PDF của phân phối Gamma. Cụ thể, chúng ta nói rằng $X$ có phân phối Gamma với tham số $a$ và $1$, ký hiệu là $X\\sim\\operatorname{Gamma}(a,1)$, nếu PDF của nó là
+
+$$f_{X}(x)=\\frac{1}{\\Gamma(a)}x^{a}e^{-x}\\frac{1}{x},\\quad x>0.$$
+
+Từ phân phối Gamma(a,1), chúng ta thu được phân phối Gamma tổng quát bằng phép biến đổi tỷ lệ: nếu $X \\sim \\text{Gamma}(a,1)$ và $\\lambda > 0$, thì phân phối của $Y = X/\\lambda$ được gọi là phân phối Gamma(a, $\\lambda$). Bằng công thức thay đổi biến với $x = \\lambda y$ và $dx/dy = \\lambda$, PDF của Y là
+
+$$f_{Y}(y)=f_{X}(x)\\left|\\frac{dx}{dy}\\right|=\\frac{1}{\\Gamma(a)}(\\lambda y)^{a}e^{-\\lambda y}\\frac{1}{\\lambda y}\\lambda=\\frac{1}{\\Gamma(a)}(\\lambda y)^{a}e^{-\\lambda y}\\frac{1}{y},\\quad y>0.$$
+
+Điều này được tóm tắt trong định nghĩa sau.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 8.4.2</div>
+    <div class="math-box-title">Phân phối Gamma</div>
+  </div>
+  <div class="math-box-content">
+
+Một biến ngẫu nhiên Y được gọi là có phân phối Gamma với tham số a và $\\lambda$, trong đó a > 0 và $\\lambda > 0$, nếu PDF của nó là
+
+$$f(y)=\\frac{1}{\\Gamma(a)}(\\lambda y)^{a}e^{-\\lambda y}\\frac{1}{y},\\quad y>0.$$
+
+Chúng ta viết $Y \\sim \\text{Gamma}(a, \\lambda)$.
+
+  </div>
+</div>
+
+Lấy $a = 1$, PDF của Gamma $(1,\\lambda)$ là $f(y) = \\lambda e^{-\\lambda y}$ với $y > 0$, do đó phân phối Gamma $(1,\\lambda)$ và phân phối Expo$( \\lambda )$ là giống nhau. Tham số bổ sung $a$ cho phép các PDF Gamma có nhiều dạng hình hơn. Hình 8.7 cho thấy bốn PDF Gamma. Với các giá trị nhỏ của $a$, PDF bị lệch, nhưng khi $a$ tăng, PDF bắt đầu trông giống đối xứng và dạng chuông hơn; chúng ta sẽ học lý do cho điều này trong Chương 10. Tăng $\\lambda$ sẽ làm nén PDF về phía các giá trị nhỏ hơn, điều này có thể thấy bằng cách so sánh các PDF Gamma $(3,1)$ và Gamma $(3,0.5)$.
+
+Hãy tìm kỳ vọng, phương sai và các momen khác của phân phối Gamma, bắt đầu với $X \\sim \\text{Gamma}(a, 1)$. Chúng ta sẽ sử dụng các tính chất của hàm gamma cũng như kỹ thuật làm tích phân bằng nhận dạng mẫu. Với kỳ vọng, chúng ta viết định nghĩa của $E(X)$,
+
+$$E(X)=\\int_{0}^{\\infty}\\frac{1}{\\Gamma(a)}x^{a+1}e^{-x}\\frac{d x}{x},$$
+
+nhưng thay vì cố gắng tích phân bằng phương pháp tích phân từng phần đầy ác liệt, chúng ta nhận ra rằng sau khi lấy ra $1/\\Gamma(a)$, phần còn lại chính là hàm gamma được đánh giá tại $a+1$. Do đó
+
+$$E(X)=\\frac{\\Gamma(a+1)}{\\Gamma(a)}=\\frac{a\\Gamma(a)}{\\Gamma(a)}=a.$$
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_197_423_684_888.jpg" alt="Phân phối Gamma" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_694_424_1184_889.jpg" alt="Phân phối Gamma" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/img_in_chart_box_197_924_685_1388.jpg" alt="Phân phối Gamma" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_694_927_1184_1386.jpg" alt="Phân phối Gamma" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.7:** Phân phối Gamma với các giá trị khác nhau của a và $\\lambda$. Theo chiều kim đồng hồ từ góc trên bên trái: Gamma(3, 1), Gamma(3, 0.5), Gamma(5, 0.5), Gamma(10, 1).
+</div>
+
+Tương tự, đối với phương sai, LOTUS cho chúng ta một biểu thức tích phân cho momen thứ hai,
+
+$$E(X^{2})=\\int_{0}^{\\infty}\\frac{1}{\\Gamma(a)}x^{a+2}e^{-x}\\frac{d x}{x},$$
+
+và chúng ta nhận ra hàm gamma được đánh giá tại $a + 2$. Do đó
+
+$$E(X^{2})=\\frac{\\Gamma(a+2)}{\\Gamma(a)}=\\frac{(a+1)a\\Gamma(a)}{\\Gamma(a)}=(a+1)a$$
+
+và
+
+$$\\mathrm{Var}(X)=(a+1)a-a^{2}=a.$$
+
+Vậy đối với $X \\sim \\text{Gamma}(a, 1)$, $E(X) = \\text{Var}(X) = a$.
+
+Momen thứ c không khó hơn momen thứ hai; chúng ta chỉ cần sử dụng LOTUS và nhận ra định nghĩa của $\\Gamma(a+c)$. Điều này cho
+
+$$E(X^{c})=\\int_{0}^{\\infty}\\frac{1}{\\Gamma(a)}x^{a+c}e^{-x}\\frac{dx}{x}=\\frac{\\Gamma(a+c)}{\\Gamma(a)}$$
+
+cho mọi số thực c sao cho tích phân hội tụ, tức là cho c > -a.
+
+Chúng ta có thể chuyển đổi đến $Y = X/\\lambda \\sim \\text{Gamma}(a, \\lambda)$ để có
+
+$$E(Y)=\\frac{1}{\\lambda}E(X)=\\frac{a}{\\lambda},$$
+
+$$\\mathrm{Var}(Y)=\\frac{1}{\\lambda^{2}}\\mathrm{Var}(X)=\\frac{a}{\\lambda^{2}},$$
+
+$$E(Y^{c})=\\frac{1}{\\lambda^{c}}E(X^{c})=\\frac{1}{\\lambda^{c}}\\cdot\\frac{\\Gamma(a+c)}{\\Gamma(a)},\\quad c>-a.$$
+
+Nhìn lại các đồ thị PDF của Gamma, chúng nhất quán với phát hiện của chúng ta rằng kỳ vọng và phương sai là tăng theo a và giảm theo $\\lambda$.
+
+Đến nay, chúng ta đã học về phân phối Gamma thông qua PDF, điều này cho phép chúng ta nhận ra các mô hình tổng quát từ các đồ thị PDF và suy ra kỳ vọng và phương sai. Tuy nhiên, PDF không cung cấp nhiều cái nhìn về lý do tại sao chúng ta lại sử dụng phân phối Gamma, và cũng không cho chúng ta nhiều cách giải thích cho các tham số a và $\\lambda$. Đối với điều này, chúng ta cần kết nối Gamma với các phân phối đã biết thông qua các câu chuyện. Phần còn lại của mục này dành cho các câu chuyện liên quan đến phân phối Gamma.
+
+Trong trường hợp đặc biệt khi a là số nguyên, chúng ta có thể biểu diễn một $\\Gamma(a, \\lambda)$ biến ngẫu nhiên thành một tổng (tập hợp) của các biến ngẫu nhiên độc lập và đồng phân phối $\\operatorname{Expo}(\\lambda)$.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 8.4.3</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X_{1},\\ldots,X_{n}$ là i.i.d. $\\mathrm{Expo}(\\lambda)$. Khi đó
+
+$$X_{1}+\\cdots+X_{n}\\sim\\mathrm{Gamma}(n,\\lambda).$$
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 8.4.3</div>
+  </div>
+  <div class="math-box-content">
+
+MGF của Expo(λ) là $\\frac{\\lambda}{\\lambda-t}$ cho $t < \\lambda$, do đó MGF của $X_{1} + \\cdots + X_{n}$ là
+
+$$M_{n}(t)=\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{n}$$
+
+cho $t < \\lambda$. Cho $Y \\sim \\text{Gamma}(n, \\lambda)$; chúng ta sẽ chứng minh rằng MGF của $Y$ giống như của $X_1 + \\cdots + X_n$. Theo LOTUS,
+
+$$E(e^{t Y})=\\int_{0}^{\\infty}e^{t y}\\frac{1}{\\Gamma(n)}(\\lambda y)^{n}e^{-\\lambda y}\\frac{d y}{y}.$$
+
+Lại một lần nữa, chúng ta sẽ sử dụng nhận dạng mẫu để tính tích phân. Chúng ta chỉ cần thực hiện các phép biến đổi đại số cho đến khi phần còn lại trong tích phân là một PDF Gamma quen thuộc:
+
+$$\\begin{align*}E(e^{tY})&=\\int_{0}^{\\infty}e^{ty}\\frac{1}{\\Gamma(n)}(\\lambda y)^{n} e^{-\\lambda y}\\frac{dy}{y}\\\\&=\\frac{\\lambda^{n}}{(\\lambda-t)^{n}}\\int_{0}^{\\infty}\\frac{1}{\\Gamma(n)}e^{-(\\lambda-t)y}((\\lambda-t)y)^{n}\\frac{dy}{y}.\\end{align*}$$
+
+Chúng ta đã kéo $\\lambda^n$ ra khỏi tích phân, sau đó nhân với $(\\lambda-t)^n$ bên trong trong khi chia cho nó bên ngoài. Bây giờ biểu thức bên trong tích phân là PDF của $\\Gamma(n,\\lambda-t)$, giả sử $t < \\lambda$. Vì PDFs tích phân bằng 1, chúng ta có
+
+$$E(e^{tY})=\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{n}$$
+
+cho $t < \\lambda$; nếu $t \\geq \\lambda$ tích phân không hội tụ.
+
+Chúng ta đã chứng minh rằng $X_1 + \\cdots + X_n$ và $Y \\sim \\text{Gamma}(n, \\lambda)$ có cùng MGF. Vì MGF xác định phân phối, $X_1 + \\cdots + X_n \\sim \\text{Gamma}(n, \\lambda)$.
+
+Thay thế, chúng ta có thể tính tích phân convolution một cách quy nạp. Chỉ cần xem xét trường hợp $\\lambda = 1$, vì sau khi làm xong trường hợp này, chúng ta có thể thay đổi tỷ lệ các biến ngẫu nhiên để chứng minh kết quả cho mọi $\\lambda$. Cho $T_n = X_1 + \\cdots + X_n$. Chúng ta sẽ chứng minh bằng quy nạp rằng $T_n \\sim \\text{Gamma}(n, 1)$ với mọi $n \\geq 1$. Với $n = 1$, điều này đúng vì PDF của Gamma $(1, 1)$ là $e^{-x}$ (cho x > 0), giống như PDF của Expo $(1)$. Bây giờ giả sử rằng $T_n \\sim \\text{Gamma}(n, 1)$, và chứng minh rằng $T_{n+1} \\sim \\text{Gamma}(n+1, 1)$. PDF của $T_{n+1} = T_n + X_{n+1}$ được cho bởi tích phân convolution
+
+$$\\int_{0}^{\\infty}f_{T_{n}}(x)f_{X_{n+1}}(t-x)dx=\\frac{1}{\\Gamma(n)}\\int_{0}^{t}x^{n-1}e^{-x}e^{-(t-x)}dx=\\frac{e^{-t}}{\\Gamma(n)}\\int_{0}^{t}x^{n-1}dx=\\frac{t^{n}e^{-t}}{\\Gamma(n+1)}$$
+
+cho t > 0, điều này hoàn tất quy nạp.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Do đó, nếu $Y \\sim \\text{Gamma}(a, \\lambda)$ với a là số nguyên, chúng ta có thể biểu diễn Y dưới dạng tổng của a biến ngẫu nhiên độc lập và đồng phân phối $\\text{Expo}(\\lambda)$, $X_1 + \\cdots + X_a$, và tính kỳ vọng và phương sai ngay lập tức:
+
+$$E(Y)=E(X_{1}+\\cdots+X_{a})=aE(X_{1})=\\frac{a}{\\lambda},$$
+
+$$\\mathrm{Var}(Y)=\\mathrm{Var}(X_{1}+\\cdots+X_{a})=a\\mathrm{Var}(X_{1})=\\frac{a}{\\lambda^{2}},$$
+
+trong thỏa thuận với các kết quả chúng ta đã rút ra trước đây cho tổng quát a.
+
+Định lý 8.4.3 cũng cho phép chúng ta nối Gamma distribution với câu chuyện của quá trình Poisson. Chúng tôi đã chỉ ra trong Chương 5 rằng trong một quá trình Poisson với tốc độ $\\lambda$, các khoảng thời gian giữa các lần đến là i.i.d. $\\text{Expo}(\\lambda)$ biến ngẫu nhiên. Nhưng tổng thời gian chờ đợi $T_n$ cho lần đến thứ $n$ là tổng của $n$ khoảng thời gian giữa các lần đến; ví dụ, Hình 8.8 minh họa cách $T_3$ là tổng của 3 khoảng thời gian giữa các lần đến $X_1, X_2, X_3$. Do đó, theo định lý, $T_n \\sim \\text{Gamma}(n, \\lambda)$. Các khoảng thời gian giữa các lần đến trong một quá trình Poisson là các biến ngẫu nhiên Exponential, trong khi các thời gian đến nguyên bản là các biến ngẫu nhiên Gamma.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_303_523_1078_719.jpg" alt="Quá trình Poisson" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.8:** Quá trình Poisson. Các khoảng thời gian giữa các lần đến $X_j$ là i.i.d. $\\mathrm{Expo}(\\lambda)$, trong khi các thời gian đến nguyên bản $T_j$ là $\\mathrm{Gamma}(j, \\lambda)$.
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 8.4.4</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Khác với $X_{j}$, các $T_{j}$ không độc lập, vì chúng bị ràng buộc phải tăng; chúng cũng không phân bố giống nhau.
+
+  </div>
+</div>
+
+Cuối cùng, chúng ta có một cách diễn giải cho các tham số của phân phối Gamma $(a,\\lambda)$. Trong câu chuyện về quá trình Poisson, a là số lần thành công mà chúng ta đang chờ đợi, và $\\lambda$ là tốc độ mà các lần thành công đến; $Y \\sim \\text{Gamma}(a,\\lambda)$ là tổng thời gian chờ đợi cho lần đến thứ a trong một quá trình Poisson với tốc độ $\\lambda$.
+
+Một hệ quả của câu chuyện này là rằng một phép cộng của các Gamma với cùng $\\lambda$ vẫn là Gamma. Bài tập 29 khám phá sự thật này từ nhiều góc độ khác nhau.
+
+Khi chúng tôi giới thiệu phân phối Exponential, chúng tôi xem nó là phiên bản liên tục của phân phối Geometric: Geometric chờ đợi lần thành công đầu tiên trong thời gian rời rạc, và Exponential chờ đợi lần thành công đầu tiên trong thời gian liên tục. Tương tự, chúng ta có thể nói rằng phân phối Gamma là phiên bản liên tục của phân phối Negative Binomial: Negative Binomial là tổng của các thời gian chờ đợi Geometric, và Gamma là tổng của các thời gian chờ đợi Exponential. Trong Bài tập 54 bạn sẽ sử dụng các hàm sinh momen để chứng minh rằng phân phối Gamma có thể được lấy làm giới hạn liên tục của phân phối Negative Binomial.
+
+Một câu chuyện cuối cùng về Gamma là rằng nó chia sẻ cùng mối quan hệ đặc biệt với Poisson mà Beta chia sẻ với Binomial: Gamma là phân phối tiên nghiệm liên hợp của Poisson. Trước đây chúng tôi đã thấy rằng phân phối Beta có thể biểu diễn một xác suất thành công chưa biết vì miền giá trị của nó là $(0, 1)$. Phân phối Gamma, mặt khác, có thể biểu diễn một tốc độ chưa biết trong một quá trình Poisson vì miền giá trị của nó là $(0, \\infty)$.
+
+Để điều tra, chúng ta sẽ quay lại Blotchville, nơi xe buýt đến theo một quy trình Poisson với tốc độ $\\lambda$. Trước đây người ta giả sử rằng $\\lambda = 1/10$, do đó khoảng thời gian giữa các xe buýt là i.i.d. Exponentials với trung bình 10 phút, nhưng bây giờ chúng ta sẽ giả sử Fred không biết tốc độ $\\lambda$ mà xe buýt đến và cần phải xác định nó. Fred sẽ theo cách tiếp cận Bayesian và coi tốc độ chưa biết là một biến ngẫu nhiên.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.4.5</div>
+    <div class="math-box-title">Tính liên hợp Gamma-Poisson</div>
+  </div>
+  <div class="math-box-content">
+
+Tại Blotchville, xe buýt đến một điểm dừng buýt theo quy trình Poisson với tốc độ $\\lambda$ xe buýt mỗi giờ, nơi $\\lambda$ là chưa biết. Dựa trên những cuộc phiêu lưu đáng nhớ của mình tại Blotchville, Fred lượng hóa sự không chắc chắn về $\\lambda$ bằng phân phối tiên nghiệm $\\lambda \\sim \\Gamma(\\gamma, b_0)$, nơi $r_0$ và $b_0$ là các hằng số dương đã biết, với $r_0$ là một số nguyên.
+
+Để hiểu rõ hơn về hệ thống xe buýt, Fred muốn biết thêm về $\\lambda$. Anh là một người rất kiên nhẫn, và quyết định sẽ ngồi tại điểm dừng buýt trong t giờ và đếm số xe buýt đến trong khoảng thời gian này. Gọi Y là số xe buýt trong khoảng thời gian này, và giả sử Fred quan sát được rằng Y = y.
+
+(a) Tìm phân phối chung hỗn hợp của Fred cho Y và $\\lambda$.
+
+(b) Tìm phân phối biên của Fred cho Y.
+
+(c) Tìm phân phối hậu nghiệm của Fred cho $\\lambda$, tức là phân phối điều kiện của $\\lambda$ cho dữ liệu y.
+
+(d) Tìm kỳ vọng hậu nghiệm $E(\\lambda|Y=y)$ và phương sai hậu nghiệm $\\operatorname{Var}(\\lambda|Y=y)$.
+
+**Giải:** Lưu ý sự tương đồng giữa cấu trúc của bài toán này với cấu trúc của phân phối chung hỗn hợp từ Ví dụ 7.1.26. Chúng ta biết rằng $\\lambda \\sim \\text{Gamma}(r_{0},b_{0})$ theo biên, và theo định nghĩa của quy trình Poisson, điều kiện biết tốc độ thật $\\lambda$, số xe buýt trong khoảng thời gian dài $t$ phân phối $\\text{Pois}(\\lambda t)$. Nói cách khác, điều mà chúng ta được cho là
+
+$$\\lambda\\sim Gamma(r_{0},b_{0})$$
+
+$$Y|\\lambda\\sim Pois(\\lambda t).$$
+
+Sau đó chúng ta được yêu cầu lật ngược lại: tìm phân phối biên của Y và phân phối điều kiện của $\\lambda$ cho Y = y, tức là phân phối hậu nghiệm. Đây là đặc trưng của suy luận Bayesian: chúng ta có một phân phối tiên nghiệm cho các tham số chưa biết (trong trường hợp này là phân phối Gamma cho $\\lambda$) và một mô hình cho dữ liệu điều kiện các tham số chưa biết (trong trường hợp này là phân phối Poisson cho Y điều kiện $\\lambda$), và chúng ta sử dụng quy tắc Bayes để nhận được phân phối của các tham số chưa biết điều kiện dữ liệu quan sát. Vậy hãy bắt đầu.
+
+(a) Gọi $f_{0}$ là mật độ xác suất tiên nghiệm của $\\lambda$. Phân phối chung hỗn hợp của Y và $\\lambda$ là
+
+$$f(y,\\lambda)=P(Y=y|\\lambda)f_{0}(\\lambda)=\\frac{e^{-\\lambda t}(\\lambda t)^{y}}{y!}\\frac{(b_{0}\\lambda)^{r_{0}}e^{-b_{0}\\lambda}}{\\lambda\\Gamma(r_{0})},$$
+
+cho $y = 0, 1, 2, \\ldots$ và $\\lambda > 0$. Phân phối chung hỗn hợp được vẽ trong Hình 8.9.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_248_167_1147_1075.jpg" alt="Phân phối hỗn hợp của Y và lambda" style="max-width: 64%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.9:** Phân phối hỗn hợp của Y và $\\lambda$. (a) Khi điều kiện hóa trên một giá trị cụ thể của $\\lambda$, chiều cao tương đối tạo thành một PMF Poisson. (b) Trong hướng ngược lại, điều kiện hóa trên Y = y cho phân phối hậu nghiệm của $\\lambda$.
+</div>
+
+Có một PMF điều kiện của Y cho mỗi giá trị của $\\lambda$ và một PDF điều kiện của $\\lambda$ cho mỗi giá trị của Y.
+
+(b) Để tìm PMF biên của Y, ta tích phân theo $\\lambda$ từ phân phối hỗn hợp; đây cũng là một dạng của LOTP. Điều này cho
+
+$$\\begin{align*}P(Y=y)&=\\int_{0}^{\\infty}P(Y=y|\\lambda)f_{0}(\\lambda)d\\lambda\\\\&=\\int_{0}^\\infty\\frac{e^{-\\lambda t}(\\lambda t)^{y}}{y!}\\frac{(b_{0}\\lambda)^{r_{0}}e^{-b_{0}\\lambda}}{\\Gamma(r_{0})}\\frac{d\\lambda}{\\lambda}.\\end{align*}$$
+
+Hãy làm tích phân bằng cách nhận dạng mẫu, tập trung vào các số hạng liên quan đến $\\lambda$. Chúng ta nhận thấy $\\lambda^{r_0+y}$ và $e^{-(b_0+t)\\lambda}$ ẩn trong tích phân, điều này gợi ý việc so sánh với một PDF $\\Gamma(r_0+y, b_0+t)$. Tách ra tất cả các số hạng không phụ thuộc vào $\\lambda$, sau đó nhân với bất cứ điều gì cần thiết để đạt được PDF mong muốn trong tích phân, nhớ nhân với nghịch đảo ở ngoài:
+
+$$\\begin{align*}P(Y=y)&=\\frac{t^{y}b_{0}^{r_{0}}}{y!\\Gamma(r_{0})}\\int_{0}^{\\infty}e^{-(b_{0}+t)\\lambda}\\lambda^{r_{0}+y}\\frac{d\\lambda}{\\lambda}\\\\&=\\frac{\\Gamma(r_{0}+y)}{y!\\Gamma(r_{0})}\\frac{t^{y}b_{0}^{r_{0}}}{(b_{0}+t)^{r_{0}+y}}\\int_{0}^{\\infty}\\frac{1}{\\Gamma(r_{0}+y)}e^{-(b_{0}+t)\\lambda}((b_{0}+t)\\lambda)^{r_{0}+y}\\frac{d\\lambda}{\\lambda}\\\\&=\\frac{(r_{0}+y-1)!}{(r_{0}-1)!y!}\\left(\\frac{t}{b_{0}+t}\\right)^{y}\\left(\\frac{b_{0}}{b_{0}+t}\\right)^{r_{0}}.\\end{align*}$$
+
+Trong bước cuối cùng, chúng ta đã sử dụng tính chất $\\Gamma(n) = (n - 1)!$, điều này đúng vì $r_0$ là một số nguyên. Đây là $\\mathrm{NBin}(r_0, b_0/(b_0 + t))$ PMF, do đó phân phối biên của Y là Negative Binomial với tham số $r_0$ và $b_0/(b_0 + t)$.
+
+(c) Theo quy tắc Bayes, PDF hậu nghiệm của $\\lambda$ được cho bởi
+
+$$f_{1}(\\lambda|y)=\\frac{P(Y=y|\\lambda)f_{0}(\\lambda)}{P(Y=y)}.$$
+
+Chúng ta đã tìm được $P(Y = y)$ trong phần trước, nhưng vì nó không phụ thuộc vào $\\lambda$, chúng ta có thể coi nó là một phần của hằng số chuẩn hóa. Kết hợp điều này và các nhân tử khác không phụ thuộc vào $\\lambda$ vào hằng số chuẩn hóa,
+
+$$f_{1}(\\lambda|y)\\propto e^{-\\lambda t}\\lambda^{y}\\lambda^{r_{0}}e^{-b_{0}\\lambda}\\frac{1}{\\lambda}=e^{-(b_{0}+t)\\lambda}\\lambda^{r_{0}+y}\\frac{1}{\\lambda},$$
+
+điều này cho thấy phân phối hậu nghiệm của $\\lambda$ là $\\Gamma(\\gamma, y, b_0 + t)$.
+
+Khi chuyển từ phân phối tiên nghiệm đến hậu nghiệm, phân phối của $\\lambda$ vẫn thuộc họ Gamma, do đó Gamma thực sự là phân phối tiên nghiệm liên hợp cho Poisson.
+
+Bây giờ chúng ta đã có PDF hậu nghiệm của $\\lambda$, chúng ta có một cách tiếp cận đẹp hơn để giải (b). Sắp xếp lại quy tắc Bayes, PMF biên của Y là
+
+$$P(Y=y)=\\frac{P(Y=y|\\lambda)f_{0}(\\lambda)}{f_{1}(\\lambda|y)},$$
+
+trong đó chúng ta biết tử số từ phát biểu của bài toán và mẫu số từ phép tính chúng ta vừa làm. Thay các thành phần này vào và đơn giản hóa lại cho kết quả
+
+$$Y\\sim\\mathrm{NBin}(r_{0},b_{0}/(b_{0}+t)).$$
+
+(d) Vì PDF điều kiện là PDF, hoàn toàn hợp lý để tính kỳ vọng và phương sai của $\\lambda$ với respect đến phân phối hậu nghiệm. Kỳ vọng và phương sai của phân phối $\\Gamma(r_{0} + y, b_{0} + t)$ cho chúng ta
+
+$$E(\\lambda|Y=y)=\\frac{r_{0}+y}{b_{0}+t}\\quad\\text{và}\\quad\\operatorname{Var}(\\lambda|Y=y)=\\frac{r_{0}+y}{(b_{0}+t)^{2}}.$$
+
+Ví dụ này cho ta một cách diễn giải khác cho các tham số trong Gamma khi đây đang được sử dụng như một phân phối tiền nghiệm liên hợp. Fred's $\\text{Gamma}(r_0, b_0)$ tiền nghiệm đã được cập nhật thành một $\\text{Gamma}(r_0 + y, b_0 + t)$ hậu nghiệm sau khi quan sát $y$ lần đến trong $t$ giờ. Chúng ta có thể tưởng tượng rằng trong quá khứ, Fred đã quan sát $r_0$ xe buýt đến trong $b_0$ giờ; sau khi có dữ liệu mới, anh ấy đã quan sát $r_0 + y$ xe buýt trong $b_0 + t$ giờ. Vì vậy chúng ta có thể diễn giải $r_0$ như số lần đến trước đây và $b_0$ như tổng thời gian cần thiết cho những lần đến trước đây.
+
+  </div>
+</div>
+`,PA=`Trong phần này, chúng ta sẽ kết nối phân phối Beta và Gamma với một câu chuyện chung. Là một phần thưởng thêm, câu chuyện này sẽ cho chúng ta một biểu thức cho hằng số chuẩn hóa của PDF Beta(a, b) theo các hàm gamma, và nó sẽ cho phép chúng ta dễ dàng tìm kỳ vọng của phân phối Beta(a, b).
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.5.1</div>
+    <div class="math-box-title">Ngân hàng - Bưu điện</div>
+  </div>
+  <div class="math-box-content">
+
+Trong lúc đi làm các việc, bạn cần đi đến ngân hàng, sau đó đến bưu điện. Gọi $X \\sim \\text{Gamma}(a, \\lambda)$ là thời gian bạn phải chờ trong hàng tại ngân hàng, và gọi $Y \\sim \\text{Gamma}(b, \\lambda)$ là thời gian bạn phải chờ trong hàng tại bưu điện (với cùng $\\lambda$ cho cả hai). Giả sử X và Y độc lập. Hỏi phân phối chung của $T = X + Y$ (tổng thời gian chờ tại ngân hàng và bưu điện) và $W = \\frac{X}{X + Y}$ (phần trăm thời gian chờ bạn dành tại ngân hàng là bao nhiêu)?
+
+**Giải:** Chúng ta sẽ thực hiện một thay đổi biến trong hai chiều để tìm PDF chung của T và W. Gọi $t = x + y$, $w = \\frac{x}{x+y}$. Sau đó $x = tw$, $y = t(1 - w)$, và
+
+$$\\frac{\\partial(x,y)}{\\partial(t,w)}=\\left(\\begin{array}{c c}{w}&{t}\\\\ {1-w}&{-t}\\\\ \\end{array}\\right),$$
+
+điều này có định thức tuyệt đối là t. Do đó
+
+$$\\begin{align*}f_{T,W}(t,w)&=f_{X,Y}(x,y)\\cdot\\left|\\frac{\\partial(x,y)}{\\partial(t,w)}\\right|\\\\&=f_{X}(x)f_{Y}(y)\\cdot t\\\\&=\\frac{1}{\\Gamma(a)}(\\lambda x)^{a} e^{-\\lambda x}\\frac{1}{x}\\cdot\\frac{1}{\\Gamma(b)}(\\lambda y)^{b} e^{-\\lambda y}\\frac{1}{y}\\cdot t\\\\&=\\frac{1}{\\Gamma(a)}(\\lambda t w)^{a} e^{-\\lambda t w}\\frac{1}{t w}\\cdot\\frac{1}{\\Gamma(b)}(\\lambda t(1-w))^{b} e^{-\\lambda t(1-w)}\\frac{1}{t(1-w)}\\cdot t.\\end{align*}$$
+
+Hãy nhóm tất cả các số hạng liên quan đến w lại với nhau, và tất cả các số hạng liên quan đến t lại với nhau:
+
+$$\\begin{align*}f_{T,W}(t,w)&=\\frac{1}{\\Gamma(a)\\Gamma(b)}w^{a-1}(1-w)^{b-1}(\\lambda t)^{a+b}e^{-\\lambda t}\\frac{1}{t}\\\\&=\\left(\\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}w^{a-1}(1-w)^{b-1}\\right)\\left(\\frac{1}{\\Gamma(a+b)}(\\lambda t)^{a+b}e^{-\\lambda t}\\frac{1}{t}\\right),\\end{align*}$$
+
+với 0 < w < 1 và t > 0. Dạng của PDF liên hợp, cùng với Định lý 7.1.21, cho chúng ta biết một số điều sau:
+
+1. Vì PDF liên hợp phân tích thành một hàm số của t nhân với một hàm số của w, chúng ta có T và W là độc lập: tổng thời gian chờ đợi là độc lập với phân số thời gian dành cho ngân hàng.
+
+2. Chúng ta nhận ra PDF biên của $T$ và suy ra rằng $T \\sim \\Gamma(\\alpha + b, \\lambda)$.
+
+3. PDF của W là
+
+$$f_{W}(w)=\\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}w^{a-1}(1-w)^{b-1},\\quad0<w<1,$$
+
+theo Định lý 7.1.21 hoặc chỉ bằng cách tích phân theo T từ PDF liên hợp của T và W. PDF này tỉ lệ với $\\operatorname{Beta}(a,b)$ PDF, do đó nó chính là $\\operatorname{Beta}(a,b)$ PDF! Lưu ý rằng như một sản phẩm phụ của phép tính vừa rồi, chúng ta đã tìm thấy hằng số chuẩn hóa của phân phối Beta:
+
+$$\\frac{1}{\\beta(a,b)}=\\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}$$
+
+là hằng số đi trước PDF của Beta(a, b).
+
+  </div>
+</div>
+
+Tóm lại, câu chuyện ngân hàng–bưu điện cho chúng ta biết rằng khi chúng ta cộng các biến ngẫu nhiên Gamma độc lập X và Y với cùng tốc độ $\\lambda$, tổng $X + Y$ có phân phối Gamma, phân số $X/(X + Y)$ có phân phối Beta, và tổng là độc lập với phân số.
+
+Chúng ta có thể sử dụng kết quả này để tìm kỳ vọng của $W \\sim \\text{Beta}(a, b)$ mà không cần chút nào của phép tính vi phân.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.5.2</div>
+    <div class="math-box-title">Kỳ vọng Beta</div>
+  </div>
+  <div class="math-box-content">
+
+Với ký hiệu như trên, lưu ý rằng vì T và W là độc lập, chúng là không tương quan: $E(TW) = E(T)E(W)$. Viết lại theo X và Y, chúng ta có
+
+$$E\\left((X+Y)\\cdot\\frac{X}{X+Y}\\right)=E(X+Y)E\\left(\\frac{X}{X+Y}\\right),$$
+
+$$E(X)=E(X+Y)E\\left(\\frac{X}{X+Y}\\right),$$
+
+$$\\frac{E(X)}{E(X+Y)}=E\\left(\\frac{X}{X+Y}\\right).$$
+
+Thường thì đẳng thức cuối cùng sẽ là một sai lầm khủng khiếp: trước mặt một kỳ vọng như $E(X/(X + Y))$, chúng ta không thường được phép đưa E vào tử số và mẫu số như ý. Trong trường hợp này, tuy nhiên, câu chuyện ngân hàng–bưu điện cho phép ta thực hiện phép đưa E vào tử số và mẫu số, do đó tìm kỳ vọng của W trở nên dễ dàng bằng cách tìm kỳ vọng của X và $X + Y$:
+
+$$E(W)=E\\left(\\frac{X}{X+Y}\\right)=\\frac{E(X)}{E(X+Y)}=\\frac{a/\\lambda}{a/\\lambda+b/\\lambda}=\\frac{a}{a+b}.$$
+
+Một cách tiếp cận khác là tiến hành từ định nghĩa của kỳ vọng:
+
+$$E(W)=\\int_{0}^{1}\\frac{\\Gamma(a+b)}{\\Gamma(a)\\Gamma(b)}w^{a}(1-w)^{b-1}d w.$$
+
+Bằng nhận dạng mẫu, hàm số dưới dấu tích phân là một $\\mathrm{Beta}(a+1,b)$ PDF, lên đến một hằng số chuẩn hóa. Sau khi đạt được sự khớp chính xác với PDF, chúng ta áp dụng các tính chất của hàm gamma:
+
+$$\\begin{aligned}E(W)&=\\frac{\\Gamma(a+b)}{\\Gamma(a)}\\frac{\\Gamma(a+1)}{\\Gamma(a+b+1)}\\int_{0}^{1}\\frac{\\Gamma(a+b+1)}{\\Gamma(a+1)\\Gamma(b)}w^{a}(1-w)^{b-1}dw\\\\&=\\frac{\\Gamma(a+b)}{\\Gamma(a)}\\frac{a\\Gamma(a)}{(a+b)\\Gamma(a+b)}\\\\&=\\frac{a}{a+b}.\\end{aligned}$$
+
+Trong Bài tập 30, bạn sẽ sử dụng cách tiếp cận này để tìm phương sai và các momen khác của phân phối Beta.
+
+  </div>
+</div>
+
+Bây giờ chúng ta biết hằng số chuẩn hóa của Beta, chúng ta cũng có thể nhanh chóng tìm được PMF của phân phối Beta-Binomial.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.5.3</div>
+    <div class="math-box-title">PMF của Beta-Binomial</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X|p \\sim \\text{Bin}(n, p)$, với $p \\sim \\text{Beta}(a, b)$. Như đã đề cập trong Câu chuyện 8.3.3, X có phân phối Beta-Binomial. Tìm phân phối biên của X.
+
+**Giải:** Gọi $f(p)$ là PDF của Beta $(a,b)$. Sau đó
+
+$$\\begin{align*}P(X=k)&=\\int_{0}^{1}P(X=k|p)f(p)dp\\\\&=\\frac{1}{\\beta(a,b)}\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}p^{a-1}(1-p)^{b-1}dp\\\\&=\\frac{\\binom{n}{k}}{\\beta(a,b)}\\int_{0}^{1}p^{a+k-1}(1-p)^{b+n-k-1}dp\\\\&=\\binom{n}{k}\\frac{\\beta(a+k,b+n-k)}{\\beta(a,b)},\\end{align*}$$
+
+với $k = 0, 1, \\ldots, n$.
+
+  </div>
+</div>
+`,FA=`Cuối cùng biến đổi mà chúng ta sẽ xem xét trong chương này là biến đổi đưa $n$ biến ngẫu nhiên $X_{1},\\ldots,X_{n}$ và sắp xếp chúng theo thứ tự, tạo ra $\\min(X_1, \\ldots, X_n), \\ldots, \\max(X_1, \\ldots, X_n)$. Các biến đã được biến đổi được gọi là thống kê thứ tự, và chúng thường hữu ích khi chúng ta quan tâm đến phân phối của các giá trị cực trị, như chúng ta đã gợi ý trước đó.
+
+Ngoài ra, giống như trung bình mẫu $\\bar{X}_{n}$, các thống kê thứ tự đóng vai trò như những tóm tắt hữu ích của một thí nghiệm, vì chúng ta có thể sử dụng chúng để xác định các ngưỡng cho 5% quan sát tồi tệ nhất, 25% tồi tệ nhất, 25% tốt nhất, và cứ như vậy (những ngưỡng này được gọi là phân vị của mẫu).
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 8.6.1</div>
+    <div class="math-box-title">Thống kê thứ tự</div>
+  </div>
+  <div class="math-box-content">
+
+Với các biến ngẫu nhiên $X_{1}, X_{2}, \\ldots, X_{n}$, các thống kê thứ tự là các biến ngẫu nhiên $X_{(1)}, X_{(2)}, \\ldots, X_{(n)}$, nơi
+
+$$X_{(1)}=\\min(X_{1},\\ldots,X_{n}),$$
+
+$$X_{(2)}\\text{ là thứ hai nhỏ nhất của }X_{1},\\ldots,X_{n},$$
+
+$$X_{(n-1)}\\text{ là thứ hai lớn nhất của }X_{1},\\ldots,X_{n},$$
+
+$$X_{(n)}=\\max(X_{1},\\ldots,X_{n}).$$
+
+Chú ý rằng $X_{(1)} \\leq X_{(2)} \\leq \\ldots \\leq X_{(n)}$ theo định nghĩa. Chúng ta gọi $X_{(j)}$ là thống kê thứ tự thứ j. Nếu n là số lẻ, $X_{((n+1)/2)}$ được gọi là trung vị mẫu của $X_{1}, \\ldots, X_{n}$.
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 8.6.2</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Các thống kê thứ tự $X_{(1)}, \\ldots, X_{(n)}$ là các biến ngẫu nhiên, và mỗi $X_{(j)}$ là một hàm số của $X_{1}, \\ldots, X_{n}$. Ngay cả khi các biến ngẫu nhiên ban đầu độc lập, các thống kê thứ tự vẫn phụ thuộc vào nhau: nếu chúng ta biết rằng $X_{(1)} = 100$, thì $X_{(n)}$ được buộc phải lớn hơn hoặc bằng 100.
+
+  </div>
+</div>
+
+Chúng ta sẽ tập trung vào trường hợp mà $X_{1}, \\ldots, X_{n}$ là các biến ngẫu nhiên độc lập và đồng phân phối liên tục. Lý do là vì với các biến ngẫu nhiên rời rạc, có xác suất dương để có các giá trị trùng nhau; với các biến ngẫu nhiên liên tục, xác suất để có giá trị trùng nhau là chính xác 0, điều này làm cho việc tính toán dễ dàng hơn nhiều. Do đó, cho phần còn lại của chương này, hãy giả định rằng $X_{1}, \\ldots, X_{n}$ là độc lập, đồng phân phối và liên tục, với hàm phân phối tích lũy F và hàm mật độ xác suất f. Chúng ta sẽ suy ra hàm phân phối tích lũy và hàm mật độ xác suất riêng lẻ của từng thống kê thứ tự $X_{(j)}$, cũng như hàm mật độ xác suất chung của $(X_{(1)}, \\ldots, X_{(n)})$.
+
+Một vấn đề phức tạp mà chúng ta gặp ngay lập tức là việc biến đổi sang các thống kê thứ tự không khả nghịch: bắt đầu với $\\min(X,Y) = 3$ và $\\max(X,Y) = 5$, chúng ta không thể xác định được liệu các giá trị ban đầu của X và Y có phải là 3 và 5 hay ngược lại. Do đó, công thức thay đổi biến từ $R^n$ sang $R^n$ không áp dụng. Thay vào đó, chúng ta sẽ tiếp cận trực tiếp, sử dụng hình ảnh để hướng dẫn khi cần thiết.
+
+Hãy bắt đầu với hàm phân phối tích lũy của $X_{(n)} = \\max(X_1,... X_n)$. Vì $X_{(n)}$ nhỏ hơn x nếu và chỉ nếu tất cả các $X_{j}$ đều nhỏ hơn x, hàm phân phối tích lũy (CDF) của $X_{(n)}$ là
+
+$$\\begin{aligned}F_{X_{(n)}}(x)&=P(\\max(X_{1},\\cdots,X_{n})\\leq x)\\\\&=P(X_{1}\\leq x,\\cdots,X_{n}\\leq x)\\\\&=P(X_{1}\\leq x)\\cdots P(X_{n}\\leq x)\\\\&=(F(x))^{n},\\end{aligned}$$
+
+trong đó $F$ là CDF của từng $X_i$. Tương tự, $X_{(1)} = \\min(X_1, \\ldots, X_n)$ vượt quá $x$ nếu và chỉ nếu tất cả các $X_j$ vượt quá $x$, do đó CDF của $X_{(1)}$ là
+
+$$\\begin{aligned}F_{X_{(1)}}(x)&=1-P(\\min(X_{1},\\cdots,X_{n})>x)\\\\&=1-P(X_{1}>x,\\cdots,X_{n}>x)\\\\&=1-(1-F(x))^{n}.\\end{aligned}$$
+
+Cùng logic này giúp chúng ta tìm được CDF của $X_{(j)}$. Đối với sự kiện $X_{(j)} \\leq x$ xảy ra, chúng ta cần ít nhất j trong số các $X_i$ rơi vào bên trái của x. Điều này được minh họa trong Hình 8.10.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_320_761_1079_998.jpg" alt="Sự kiện X(j) ≤ x" style="max-width: 54%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.10:** Sự kiện $X_{(j)} \\leq x$ tương đương với sự kiện "ít nhất j $X_{i}$'s rơi vào bên trái của $x$".
+</div>
+
+Vì dường như số lượng $X_i$ ở bên trái của $x$ sẽ quan trọng đối với chúng ta, hãy định nghĩa một biến ngẫu nhiên mới, $N$, để theo dõi điều đó: định nghĩa $N$ là số lượng $X_i$ rơi vào bên trái của $x$. Mỗi $X_i$ rơi vào bên trái của $x$ với xác suất $F(x)$, độc lập. Nếu chúng ta định nghĩa thành công là rơi vào bên trái của $x$, chúng ta có $n$ phép thử Bernoulli độc lập với xác suất $F(x)$ của thành công, do đó $N \\sim \\text{Bin}(n, F(x))$. Khi đó, theo PMF của Binomial,
+
+$$\\begin{align*}P(X_{(j)}\\leq x)&=P(\\text{ít nhất j trong số các } X_{i} \\text{ rơi vào bên trái của } x)\\\\&=P(N\\geq j)\\\\&=\\sum_{k=j}^{n}\\binom{n}{k}F(x)^{k}(1-F(x))^{n-k}.\\end{align*}$$
+
+Chúng ta do đó có kết quả sau đây cho CDF của $X_{(j)}$.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 8.6.3</div>
+    <div class="math-box-title">CDF của thống kê thứ tự</div>
+  </div>
+  <div class="math-box-content">
+
+Gọi $X_{1}, \\ldots, X_{n}$ là các biến ngẫu nhiên độc lập và đồng phân phối (i.i.d.) liên tục với CDF F. Khi đó, CDF của thống kê thứ tự thứ j $X_{(j)}$ là
+
+$$P(X_{(j)}\\leq x)=\\sum_{k=j}^{n}\\binom{n}{k}F(x)^{k}(1-F(x))^{n-k}.$$
+
+  </div>
+</div>
+
+Để có được PDF của $X_{(j)}$, chúng ta có thể đạo hàm CDF theo x, nhưng biểu thức kết quả là xấu (mặc dù có thể đơn giản hóa). Thay vào đó chúng ta sẽ lấy một cách tiếp cận trực tiếp hơn. Xét $f_{X_{(j)}}(x)dx$, xác suất mà thống kê thứ tự thứ j rơi vào một khoảng vô cùng nhỏ có độ dài dx xung quanh x. Cách duy nhất để điều này xảy ra được minh họa trong Hình 8.11. Chúng ta cần một trong số $X_{i}$ rơi vào khoảng vô cùng nhỏ xung quanh x, và chúng ta cần chính xác j-1 trong số $X_{i}$ rơi vào bên trái của x, để lại số còn lại n-j rơi vào bên phải của x.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_230_443_1166_686.jpg" alt="X(j) rơi vào một khoảng nhỏ" style="max-width: 66%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.11:** Để cho $X_{(j)}$ rơi vào một khoảng nhỏ của x, chúng ta yêu cầu rằng một trong số $X_{i}$ rơi vào khoảng nhỏ và chính xác j - 1 rơi vào bên trái của x.
+</div>
+
+Xác suất của sự kiện cực kỳ cụ thể này là bao nhiêu? Hãy chia nhỏ thí nghiệm thành các giai đoạn.
+
+- Trước tiên, chúng ta chọn cái nào trong số $X_{i}$ sẽ rơi vào khoảng vô cùng nhỏ xung quanh x. Có n lựa chọn như vậy, mỗi lựa chọn xảy ra với xác suất $f(x)dx$, nơi f là PDF của $X_{i}$.
+
+- Tiếp theo, chúng ta chọn chính xác $j-1$ trong số các phần còn lại $n-1$ để rơi vào bên trái của $x$. Có $\\binom{n-1}{j-1}$ lựa chọn như vậy, mỗi lựa chọn có xác suất $F(x)^{j-1}(1-F(x))^{n-j}$ theo $\\mathrm{Bin}(n,F(x))$ PMF.
+
+Chúng ta nhân xác suất của hai giai đoạn để có được
+
+$$f_{X_{(j)}}(x)d x=n f(x)d x\\binom{n-1}{j-1}F(x)^{j-1}(1-F(x))^{n-j}.$$
+
+Loại bỏ các dx từ cả hai vế, chúng ta có được PDF mà chúng ta mong muốn.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 8.6.4</div>
+    <div class="math-box-title">PDF của thống kê thứ tự</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X_{1},\\ldots,X_{n}$ là các biến ngẫu nhiên độc lập và đồng phân phối với CDF F và PDF f. Khi đó PDF biên của thống kê thứ tự thứ j $X_{(j)}$ là
+
+$$f_{X_{(j)}}(x)=n\\binom{n-1}{j-1}f(x)F(x)^{j-1}(1-F(x))^{n-j}.$$
+
+  </div>
+</div>
+
+Nhìn chung, các thống kê thứ tự của $X_{1},\\ldots,X_{n}$ sẽ không theo một phân phối có tên, nhưng các thống kê thứ tự của phân phối chuẩn Uniform là một ngoại lệ.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 8.6.5</div>
+    <div class="math-box-title">Thống kê thứ tự của Uniforms</div>
+  </div>
+  <div class="math-box-content">
+
+Hãy $U_1,\\ldots,U_n$ là i.i.d. Unif$(0,1)$. Sau đó cho $0\\leq x\\leq1$, $f(x)=1$ và $F(x)=x$, nên PDF của $U_{(j)}$ là
+
+$$f_{U_{(j)}}(x)=n\\binom{n-1}{j-1}x^{j-1}(1-x)^{n-j}.$$
+
+Đây là PDF của Beta(j, n - j + 1)! Do đó $U_{(j)} \\sim \\text{Beta}(j, n - j + 1)$, và $E(U_{(j)}) = \\frac{j}{n+1}$. Trường hợp đơn giản n = 2 phù hợp với Ví dụ 7.2.2, nơi chúng ta đã sử dụng 2D LOTUS để cho thấy rằng cho i.i.d. $U_1, U_2 \\sim \\text{Unif}(0, 1)$,
+
+$$E(\\max(U_{1},U_{2}))=2/3,\\;E(\\min(U_{1},U_{2}))=1/3.$$
+
+Bây giờ rằng chúng ta biết $\\max(U_1, U_2)$ và $\\min(U_1, U_2)$ tuân theo các phân phối Beta, kỳ vọng của phân phối Beta xác nhận các phát hiện của chúng ta trước đây.
+
+  </div>
+</div>
+`,IA=`## Tóm tắt chương
+
+Trong chương này chúng ta đã thảo luận ba lớp biến đổi rộng rãi:
+
+- biến đổi nghịch đảo $\\mathbf{Y} = g(\\mathbf{X})$ của các vector ngẫu nhiên liên tục, có thể được xử lý bằng công thức thay đổi biến (dưới một số giả định kỹ thuật, đặc biệt là rằng các đạo hàm riêng $\\partial x_i/\\partial y_j$ tồn tại và liên tục);
+
+- convolutions, nơi chúng ta có thể xác định phân phối bằng (theo thứ tự giảm dần của ưu tiên) các câu chuyện, MGFs, hoặc tổng/integral convolution;
+
+- biến đổi của các r.v. liên tục i.i.d. thành các thống kê thứ tự của chúng.
+
+Hình 8.12 minh họa các mối liên hệ giữa vector ngẫu nhiên gốc $(X, Y)$ và vector ngẫu nhiên biến đổi $(Z, W) = g(X, Y)$, nơi g là một biến đổi nghịch đảo thỏa mãn một số giả định kỹ thuật. Công thức thay đổi biến sử dụng các Jacobians để đưa chúng ta từ PDF chung của $(X, Y)$ sang PDF chung của $(Z, W)$.
+
+Hãy $A$ là một miền trong miền hỗ trợ của $(X,Y)$, và $B = \\{g(x,y):(x,y) \\in A\\}$ là miền tương ứng trong miền hỗ trợ của $(Z,W)$. Sau đó $(X,Y) \\in A$ là sự kiện giống như $(Z,W) \\in B$, do đó
+
+$$P((X,Y)\\in A)=P((Z,W)\\in B).$$
+
+Để tìm xác suất này, chúng ta có thể tích phân PDF chung của $(X,Y)$ trên A hoặc tích phân PDF chung của $(Z,W)$ trên B.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_150_156_1247_799.jpg" alt="Công thức thay đổi biến cho phép biến đổi" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 8.12:** Cho $(Z, W) = g(X, Y)$, nơi g là một phép biến đổi khả nghịch thỏa mãn một số giả định kỹ thuật nhất định. Công thức thay đổi biến cho phép chúng ta chuyển đổi giữa các PDF chung của $(X, Y)$ và $(Z, W)$.
+</div>
+
+Trong chương này, cũng như trong nhiều chương khác, chúng ta đã sử dụng rộng rãi quy tắc Bayes và LOTP, đặc biệt là dưới dạng liên tục hoặc hỗn hợp. Và chúng ta thường sử dụng chiến lược tích phân bằng cách nhận diện mẫu. Vì bất kỳ PDF hợp lệ nào cũng phải tích phân bằng 1, và đến nay chúng ta biết rất nhiều PDF hợp lệ, chúng ta thường có thể sử dụng xác suất để giúp chúng ta làm toán tích phân, ngoài ra còn sử dụng toán tích phân để giúp chúng ta làm xác suất!
+
+Hai phân phối mới mà chúng ta đã giới thiệu là Beta và Gamma, vốn chứa đựng nhiều câu chuyện và liên kết với các phân phối khác. Beta là một dạng tổng quát của phân phối Unif(0,1), và nó có các câu chuyện sau đây.
+
+- Thứ tự thống kê của Uniform: Thứ j của n biến ngẫu nhiên độc lập và đồng phân phối Unif(0,1) có phân phối Beta(j, n - j + 1).
+
+- Xác suất chưa biết, tiền xấp xỉ của Binomial: Nếu $p \\sim \\text{Beta}(a, b)$ và $X|p \\sim \\text{Bin}(n, p)$, thì $p|X = k \\sim \\text{Beta}(a + k, b + n - k)$. Phân phối hậu nghiệm của $p$ vẫn nằm trong gia đình phân phối Beta sau khi cập nhật dựa trên dữ liệu Binomial, một tính chất được gọi là tính liên hợp. Các tham số $a$ và $b$ có thể được diễn giải như số lần thành công và thất bại trước đây, lần lượt.
+
+Gamma là một dạng tổng quát của phân phối Exponential, và nó có các câu chuyện sau đây.
+
+- Quá trình Poisson: Trong một quá trình Poisson với tốc độ $\\lambda$, thời gian chờ đợi tổng cộng cho n sự kiện được phân phối $\\Gamma(\\eta, \\lambda)$. Do đó, $\\Gamma(\\eta, \\lambda)$ là phiên bản liên tục của phân phối Negative Binomial.
+
+- Tỷ lệ chưa biết, tiền xấp xỉ của Poisson: Nếu $\\lambda \\sim \\text{Gamma}(r_0, b_0)$ và $Y \\mid \\lambda \\sim \\text{Pois}(\\lambda t)$, thì $\\lambda | Y = y \\sim \\text{Gamma}(r_0 + y, b_0 + t)$. Phân phối hậu nghiệm của $\\lambda$ vẫn nằm trong gia đình phân phối Gamma sau khi cập nhật dựa trên dữ liệu Poisson. Các tham số $r_0$ và $b_0$ có thể được diễn giải như số lần quan sát thành công trước đây và tổng thời gian chờ đợi cho những thành công đó, lần lượt.
+
+Phân phối Beta và Gamma có liên quan với nhau qua câu chuyện ngân hàng–bưu cục, nói rằng nếu $X \\sim \\Gamma(\\alpha, \\lambda)$, $Y \\sim \\Gamma(\\alpha, \\lambda)$ là độc lập, thì $X + Y \\sim \\Gamma(\\alpha, \\lambda)$, $\\frac{X}{X + Y} \\sim \\Gamma(\\alpha, \\lambda)$, với $X + Y$ và $\\frac{X}{X + Y}$ độc lập.
+
+Bản đồ các kết nối, mà chúng ta đã thấy lần cuối trong Chương 5, được cập nhật ở đây để bao gồm phân phối Beta và Gamma. Các phân phối được liệt kê trong ngoặc đơn là các trường hợp đặc biệt của các phân phối không nằm trong ngoặc đơn.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_284_728_1123_1405.jpg" alt="Bản đồ các kết nối giữa các phân phối" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+</div>
+`,LA=`## Phân phối Beta và Gamma trong R
+
+Trong R, các hàm \`dbeta\`, \`pbeta\`, \`rbeta\` dùng để đánh giá PDF, CDF của Beta(a,b) tại x và sinh ra $n$ thực hiện từ phân phối $\\text{Beta}(a,b)$.
+
+- \`dgamma\`, \`pgamma\`, \`rgamma\`: Để đánh giá mật độ xác suất (PDF) hoặc hàm phân phối tích lũy (CDF) của Gamma(a, λ) tại x, chúng ta sử dụng \`dgamma(x, a, lambda)\` hoặc \`pgamma(x, a, lambda)\`. Để sinh ra n thực hiện từ phân phối Gamma(a, λ), chúng ta sử dụng \`rgamma(n, a, lambda)\`.
+
+Ví dụ, chúng ta có thể kiểm tra rằng phân phối Gamma(3,2) có kỳ vọng 3/2 và phương sai 3/4. Để làm điều này, chúng ta sinh ra một số lượng lớn các biến ngẫu nhiên Gamma(3,2) bằng \`rgamma\`, sau đó tính toán kỳ vọng và phương sai của chúng:
+
+\`\`\`r
+y <- rgamma(10^5, 3, 2)
+mean(y)
+var(y)
+\`\`\`
+
+Bạn có nhận được các giá trị gần 1.5 và 0.75 lần lượt không?
+
+## Tích của các phân phối đều
+
+Sử dụng R, chúng ta có thể nhanh chóng kiểm tra rằng với $X, Y \\stackrel{i.i.d.}{\\sim}$ Unif(0,1), phân phối của $T = X + Y$ có dạng tam giác:
+
+\`\`\`r
+x <- runif(10^5)
+y <- runif(10^5)
+hist(x + y)
+\`\`\`
+
+Biểu đồ tần suất trông giống như một bậc thang tăng dần rồi giảm dần, một xấp xỉ rời rạc của tam giác.
+
+## Billiards Bayes
+
+Trong câu chuyện billiards của Bayes, chúng ta có n quả bóng trắng và 1 quả bóng xám, ném chúng lên đoạn thẳng đơn vị hoàn toàn ngẫu nhiên, và đếm số lượng quả bóng trắng nằm bên trái quả bóng xám. Gọi p là vị trí của quả bóng xám và X là số lượng quả bóng trắng nằm bên trái quả bóng xám, chúng ta có
+
+$$p\\sim\\mathrm{Unif}(0,1)$$
+
+$$X|p\\sim\\mathrm{Bin}(n,p).$$
+
+Bằng cách thực hiện thí nghiệm này một số lần lớn, chúng ta có thể kiểm tra các kết quả mà chúng ta đã suy ra trong chương này về hàm xác suất khối biên của X và hàm mật độ xác suất hậu nghiệm của p cho X = x. Chúng ta sẽ gọi số lần mô phỏng là \`nsim\`, để tránh xung đột tên với số lượng quả bóng trắng, n, mà chúng ta đặt bằng 10:
+
+\`\`\`r
+nsim <- 10^5
+n <- 10
+\`\`\`
+
+Chúng ta mô phỏng $10^{5}$ giá trị của p, sau đó mô phỏng $10^{5}$ giá trị từ phân phối có điều kiện của X cho p:
+
+\`\`\`r
+p <- runif(nsim)
+x <- rbinom(nsim, n, p)
+\`\`\`
+
+Chú ý rằng chúng ta đưa toàn bộ vector p vào \`rbinom\`. Điều này có nghĩa là phần tử đầu tiên của x được sinh ra bằng phần tử đầu tiên của p, phần tử thứ hai của x được sinh ra bằng phần tử thứ hai của p, và cứ như vậy. Do đó, điều kiện theo một phần tử cụ thể của p, phần tử tương ứng của x là Binomial, nhưng các phần tử của p tự thân là Uniform, chính xác như mô hình đã chỉ định.
+
+Theo lập luận của Bayes' billiards, phân phối biên của X nên là Discrete Uniform trên các số nguyên từ 0 đến n. Liệu điều này có đúng không? Chúng ta có thể tạo một biểu đồ tần suất của x để kiểm tra! Vì phân phối của X là rời rạc, chúng ta thông báo cho R tạo các khoảng của biểu đồ tần suất tại -0.5, 0.5, 1.5, … để mỗi thanh được đặt ở giữa giá trị nguyên:
+
+\`\`\`r
+hist(x, breaks=seq(-0.5, n+0.5, 1))
+\`\`\`
+
+Thật vậy, tất cả các thanh của biểu đồ tần suất đều gần như bằng nhau về độ cao, phù hợp với phân phối Discrete Uniform.
+
+Bây giờ xét đến phân phối hậu nghiệm của $p$ cho $X = x$. Việc điều kiện hóa rất đơn giản trong R. Để xem xét chỉ các giá trị mô phỏng của $p$ nơi giá trị của $X$ là 3, chúng ta sử dụng các dấu ngoặc vuông, như sau: \`p[x==3]\`. Đặc biệt, chúng ta có thể tạo một biểu đồ tần suất của các giá trị này để xem phân phối hậu nghiệm của $p$ cho $X = 3$ trông như thế nào; hãy thử \`hist(p[x==3])\`.
+
+Theo kết quả của tính liên hợp Beta-Binomial, phân phối hậu nghiệm đúng là $p|X = 3 \\sim \\text{Beta}(4, 8)$. Chúng ta có thể vẽ biểu đồ tần suất của \`p[x == 3]\` bên cạnh biểu đồ tần suất của các giá trị mô phỏng từ phân phối Beta(4, 8) để xác nhận rằng chúng trông giống nhau:
+
+\`\`\`r
+par(mfrow=c(1,2))
+hist(p[x==3])
+hist(rbeta(10^4, 4, 8))
+\`\`\`
+
+Dòng đầu tiên thông báo cho R rằng chúng ta muốn hai biểu đồ đặt cạnh nhau, và hai dòng tiếp theo tạo ra các biểu đồ tần suất.
+
+## Mô phỏng các thống kê thứ tự
+
+Mô phỏng các thống kê thứ tự trong R rất dễ dàng: chúng ta chỉ cần mô phỏng các biến ngẫu nhiên độc lập và đồng phân phối và sử dụng \`sort\` để sắp xếp chúng theo thứ tự tăng dần. Ví dụ,
+
+\`\`\`r
+sort(rnorm(10))
+\`\`\`
+
+sản sinh một thực hiện của $X_{(1)}, \\ldots, X_{(10)}$, nơi $X_{1}, \\ldots, X_{10}$ là độc lập và đồng phân phối $\\mathcal{N}(0,1)$.
+
+Nếu chúng ta muốn vẽ một histogram của các thực hiện của, ví dụ như $X_{(9)}$, chúng ta sẽ cần sử dụng \`replicate\`:
+
+\`\`\`r
+order_stats <- replicate(10^4, sort(rnorm(10)))
+\`\`\`
+
+Điều này tạo ra một ma trận, \`order_stats\`, với 10 hàng. Hàng thứ i của ma trận chứa $10^4$ thực hiện của $X_{(i)}$. Bây giờ chúng ta có thể tạo một histogram của $X_{(9)}$, chỉ bằng cách chọn hàng thứ 9 của ma trận:
+
+\`\`\`r
+x9 <- order_stats[9, ]
+hist(x9)
+\`\`\`
+
+Chúng ta cũng có thể tính các tóm tắt như \`mean(x9)\` và \`var(x9)\`.
+`,RA=`Bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.\r
 \r
 ## Thay đổi biến\r
 \r
@@ -17627,7 +17823,7 @@ trong đó  $a,b,c,d$  là các hằng số sao cho  $ad - bc \\neq 0$ .\r
 \r
 (b) Tìm mật độ xác suất biên của T và W.\r
 \r
-## Phép biến đổi\r
+## Convolution\r
 \r
 20. Cho  $U \\sim \\text{Unif}(0,1)$  và  $X \\sim \\text{Expo}(1)$ , độc lập. Tìm hàm mật độ xác suất (PDF) của  $U + X$ .\r
 \r
@@ -17858,31 +18054,7 @@ Gợi ý: Trước tiên lấy log.\r
 Gợi ý: Bắt đầu bằng việc tìm hàm sinh momen của Geom(p). Sau đó tìm hàm sinh momen của  $\\frac{p}{1-p}X$ , và sử dụng sự kiện rằng nếu các hàm sinh momen của  $Y_n$  hội tụ đến hàm sinh momen của Y, thì các hàm phân phối tích lũy của  $Y_n$  hội tụ đến hàm phân phối tích lũy của Y.\r
 \r
 (b) Giải thích một cách trực quan tại sao kết quả của (a) có nghĩa.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_400_580_546_729.jpg" alt="Image" width="10%" /></div>\r
-\r
-\r
-Taylor & Francis\r
-\r
-Taylor & Francis Group\r
-\r
-http://taylorandfrancis.com\r
-\r
-## Kỳ vọng có điều kiện\r
-\r
-Cho rằng bạn đã đọc các chương trước, bạn đã biết gì là kỳ vọng có điều kiện: kỳ vọng, nhưng sử dụng xác suất có điều kiện. Đây là một khái niệm thiết yếu, vì những lý do tương tự như lý do tại sao chúng ta cần xác suất có điều kiện:\r
-\r
-• Kỳ vọng có điều kiện là một công cụ mạnh mẽ để tính kỳ vọng. Sử dụng các chiến lược như điều kiện hóa theo điều mà chúng ta mong muốn biết và phân tích bước đầu tiên, chúng ta thường có thể phân tách các bài toán kỳ vọng phức tạp thành các phần đơn giản hơn.\r
-\r
-- Kỳ vọng có điều yên là một lượng có ý nghĩa riêng, cho phép chúng ta dự đoán hoặc ước lượng các điều chưa biết dựa trên bằng chứng hiện có. Ví dụ, trong thống kê, chúng ta thường muốn dự đoán một biến phụ thuộc (như điểm thi hoặc thu nhập) dựa trên các biến giải thích (như số lượng bài tập thực hành đã làm hoặc việc tham gia chương trình đào tạo nghề).\r
-\r
-Có hai khái niệm khác nhau nhưng liên kết chặt chẽ về kỳ vọng có điều kiện:\r
-\r
-- Kỳ vọng có điều kiện  $E(Y|A)$  cho một sự kiện: Gọi Y là một biến ngẫu nhiên, và A là một sự kiện. Nếu chúng ta biết rằng A đã xảy ra, kỳ vọng được cập nhật cho Y được ký hiệu là  $E(Y|A)$  và được tính tương tự như  $E(Y)$ , ngoại trừ việc sử dụng xác suất có điều kiện cho A.\r
-\r
-- Kỳ vọng có điều kiện  $E(Y|X)$  cho một biến ngẫu nhiên: một câu hỏi tinh tế hơn là làm thế nào để định nghĩa  $E(Y|X)$ , nơi X và Y đều là biến ngẫu nhiên. Về mặt trực giác,  $E(Y|X)$  là biến ngẫu nhiên tốt nhất để dự đoán Y chỉ dựa trên thông tin có sẵn từ X.\r
-\r
-Trong chương này, chúng ta khám phá các định nghĩa, tính chất, trực giác và ứng dụng của cả hai dạng kỳ vọng có điều kiện này.`,NA=`Nhắc lại rằng kỳ vọng  $E(Y)$  của một biến ngẫu nhiên rời rạc  $Y$  là một trung bình có trọng số của các giá trị có thể xảy ra, nơi các trọng số là các giá trị xác suất khối lượng  $P(Y = y)$ . Sau khi biết rằng một sự kiện  $A$  đã xảy ra, chúng ta muốn sử dụng các trọng số đã được cập nhật để phản ánh thông tin mới này. Định nghĩa của  $E(Y|A)$  đơn giản thay thế xác suất  $P(Y = y)$  bằng xác suất có điều kiện  $P(Y = y|A)$ .\r
+\r`,zA=`Nhắc lại rằng kỳ vọng  $E(Y)$  của một biến ngẫu nhiên rời rạc  $Y$  là một trung bình có trọng số của các giá trị có thể xảy ra, nơi các trọng số là các giá trị xác suất khối lượng  $P(Y = y)$ . Sau khi biết rằng một sự kiện  $A$  đã xảy ra, chúng ta muốn sử dụng các trọng số đã được cập nhật để phản ánh thông tin mới này. Định nghĩa của  $E(Y|A)$  đơn giản thay thế xác suất  $P(Y = y)$  bằng xác suất có điều kiện  $P(Y = y|A)$ .\r
 \r
 Tương tự, nếu Y là liên tục,  $E(Y)$  vẫn là một trung bình có trọng số của các giá trị có thể xảy ra của Y, với tích phân thay cho tổng và giá trị hàm mật độ xác suất (PDF)  $f(y)$  thay cho giá trị hàm xác suất khối (PMF). Nếu chúng ta biết rằng A đã xảy ra, chúng ta cập nhật kỳ vọng của Y bằng cách thay thế  $f(y)$  bằng mật độ xác suất điều kiện  $f(y|A)$ .\r
 \r
@@ -18267,7 +18439,7 @@ Cho  $M = \\max(X, Y)$  và  $L = \\min(X, Y)$ . Nhờ tính chất nhớ, M - L
 \r
  \r
 \r
-và  $E(M|L)=L+\\frac{1}{\\lambda}$ .`,PA=`Kỳ vọng có điều kiện có một số tính chất rất hữu ích.\r
+và  $E(M|L)=L+\\frac{1}{\\lambda}$ .`,BA=`Kỳ vọng có điều kiện có một số tính chất rất hữu ích.\r
 \r
 • Bỏ qua điều gì độc lập: Nếu X và Y độc lập, thì  $E(Y|X) = E(Y)$ .\r
 \r
@@ -18512,7 +18684,7 @@ Do đó,\r
 \r
  \r
 \r
- $$a=E(Y)-b E(X)=E(Y)-\\frac{Cov(X,Y)}{Var(X)}\\cdot E(X).$$`,FA=`Phần này giải thích chi tiết hơn góc nhìn hình học được thể hiện trong Hình 9.6, sử dụng một số khái niệm từ đại số tuyến tính. Xét không gian vector bao gồm tất cả các biến ngẫu nhiên trên một không gian xác suất nhất định, sao cho tất cả các biến ngẫu nhiên đều có phương sai hữu hạn. Mỗi vector hoặc điểm trong không gian là một biến ngẫu nhiên (ở đây chúng ta sử dụng "vector" theo nghĩa của đại số tuyến tính, không phải theo nghĩa của vector ngẫu nhiên từ Chương 7). Định nghĩa tích trong của hai biến ngẫu nhiên U và V là\r
+ $$a=E(Y)-b E(X)=E(Y)-\\frac{Cov(X,Y)}{Var(X)}\\cdot E(X).$$`,VA=`Phần này giải thích chi tiết hơn góc nhìn hình học được thể hiện trong Hình 9.6, sử dụng một số khái niệm từ đại số tuyến tính. Xét không gian vector bao gồm tất cả các biến ngẫu nhiên trên một không gian xác suất nhất định, sao cho tất cả các biến ngẫu nhiên đều có phương sai hữu hạn. Mỗi vector hoặc điểm trong không gian là một biến ngẫu nhiên (ở đây chúng ta sử dụng "vector" theo nghĩa của đại số tuyến tính, không phải theo nghĩa của vector ngẫu nhiên từ Chương 7). Định nghĩa tích trong của hai biến ngẫu nhiên U và V là\r
 \r
  \r
 \r
@@ -18586,7 +18758,7 @@ Tức là,\r
 \r
  \r
 \r
-Như chúng ta sẽ thấy trong phần tiếp theo, danh tính này là một dạng của luật của Eve. Do đó, luật của Eve, nào có thể trông bí ẩn ở lần đầu nhìn thấy, có thể được diễn giải chỉ là định lý Pythagoras cho một "tam giác" nào có các cạnh là các vector  $Y - E(Y|X)$ ,  $E(Y|X)$ , và Y.`,IA=`Một khi chúng ta đã định nghĩa kỳ vọng điều kiện cho một biến ngẫu nhiên, chúng ta có một cách tự nhiên để định nghĩa phương sai điều kiện cho một biến ngẫu nhiên: thay thế tất cả các lần xuất hiện của  $E(\\cdot)$  trong định nghĩa của phương sai không điều kiện bằng  $E(\\cdot|X)$ .\r
+Như chúng ta sẽ thấy trong phần tiếp theo, danh tính này là một dạng của luật của Eve. Do đó, luật của Eve, nào có thể trông bí ẩn ở lần đầu nhìn thấy, có thể được diễn giải chỉ là định lý Pythagoras cho một "tam giác" nào có các cạnh là các vector  $Y - E(Y|X)$ ,  $E(Y|X)$ , và Y.`,HA=`Một khi chúng ta đã định nghĩa kỳ vọng điều kiện cho một biến ngẫu nhiên, chúng ta có một cách tự nhiên để định nghĩa phương sai điều kiện cho một biến ngẫu nhiên: thay thế tất cả các lần xuất hiện của  $E(\\cdot)$  trong định nghĩa của phương sai không điều kiện bằng  $E(\\cdot|X)$ .\r
 \r
 Định nghĩa 9.5.1 (Phương sai điều kiện). Phương sai điều kiện của Y cho X là\r
 \r
@@ -18923,7 +19095,7 @@ Cuối cùng, hãy so sánh kỳ vọng và phương sai của Y dưới mô hì
 \r
 Chú ý rằng  $E(\\tilde{Y}) = E(Y)$ , nhưng  $\\operatorname{Var}(\\tilde{Y}) < \\operatorname{Var}(Y)$ : số hạng bổ sung  $r_0t^2/b_0^2$  từ luật của Eve bị thiếu. Về mặt trực quan, khi chúng ta cố định  $\\lambda$  tại giá trị kỳ vọng của nó, chúng ta đang loại bỏ một cấp độ không chắc chắn trong mô hình, và điều này gây ra sự giảm sút trong phương sai không điều kiện.\r
 \r
-Hình 9.9 chồng chéo các đồ thị của hai hàm khối xác suất, đó là của  $Y \\sim \\text{NBin}(r_0, b_0/(b_0 + t))$  trong màu xám và của  $\\tilde{Y} \\sim \\text{Pois}(r_0 t/b_0)$  trong màu đen. Các giá trị của tham số được chọn tùy ý là  $r_0 = 5$ ,  $b_0 = 1$ ,  $t = 2$ . Hai hàm khối xác suất này có cùng trọng tâm, nhưng hàm khối xác suất của Y rõ ràng hơn là phân tán hơn.`,LA=`Để tính kỳ vọng không điều kiện, chúng ta có thể chia không gian mẫu và sử dụng luật kỳ vọng tổng hợp\r
+Hình 9.9 chồng chéo các đồ thị của hai hàm khối xác suất, đó là của  $Y \\sim \\text{NBin}(r_0, b_0/(b_0 + t))$  trong màu xám và của  $\\tilde{Y} \\sim \\text{Pois}(r_0 t/b_0)$  trong màu đen. Các giá trị của tham số được chọn tùy ý là  $r_0 = 5$ ,  $b_0 = 1$ ,  $t = 2$ . Hai hàm khối xác suất này có cùng trọng tâm, nhưng hàm khối xác suất của Y rõ ràng hơn là phân tán hơn.`,UA=`Để tính kỳ vọng không điều kiện, chúng ta có thể chia không gian mẫu và sử dụng luật kỳ vọng tổng hợp\r
 \r
  \r
 \r
@@ -18967,7 +19139,7 @@ Hình 9.10 minh họa cách số  $E(Y|X=x)$  liên kết với biến ngẫu nh
 \r
 ### HÌNH 9.10\r
 \r
-Chúng ta thường quan sát một biến ngẫu nhiên X và muốn dự đoán một biến ngẫu nhiên khác Y dựa trên thông tin về X. Nếu chúng ta quan sát thấy X = x, thì chúng ta có thể điều kiện hóa trên sự kiện này và sử dụng  $E(Y|X = x)$  làm dự đoán. Kỳ vọng điều kiện  $E(Y|X)$  là biến ngẫu nhiên mà nhận giá trị  $E(Y|X = x)$  khi X = x. Luật của Adam cho phép chúng ta tính kỳ vọng không điều kiện  $E(Y)$  bằng cách bắt đầu từ kỳ vọng điều kiện  $E(Y|X)$ . Tương tự, luật của Eve cho phép chúng ta tính  $\\text{Var}(Y)$  dưới dạng các đại lượng điều kiện hóa trên X.`,RA=`## Mô phỏng phần thưởng bí ẩn\r
+Chúng ta thường quan sát một biến ngẫu nhiên X và muốn dự đoán một biến ngẫu nhiên khác Y dựa trên thông tin về X. Nếu chúng ta quan sát thấy X = x, thì chúng ta có thể điều kiện hóa trên sự kiện này và sử dụng  $E(Y|X = x)$  làm dự đoán. Kỳ vọng điều kiện  $E(Y|X)$  là biến ngẫu nhiên mà nhận giá trị  $E(Y|X = x)$  khi X = x. Luật của Adam cho phép chúng ta tính kỳ vọng không điều kiện  $E(Y)$  bằng cách bắt đầu từ kỳ vọng điều kiện  $E(Y|X)$ . Tương tự, luật của Eve cho phép chúng ta tính  $\\text{Var}(Y)$  dưới dạng các đại lượng điều kiện hóa trên X.`,WA=`## Mô phỏng phần thưởng bí ẩn\r
 \r
 Chúng ta có thể sử dụng mô phỏng để cho thấy rằng trong Ví dụ 9.1.7, ví dụ về việc đặt giá thầu cho một phần thưởng bí ẩn có giá trị không xác định, bất kỳ giá thầu nào cũng sẽ dẫn đến khoản thanh toán âm trung bình. Trước hết chọn một giá thầu b (chúng ta chọn 0.6); sau đó mô phỏng một số lớn các phần thưởng bí ẩn tiềm ẩn và lưu trữ chúng vào v:\r
 \r
@@ -19029,7 +19201,7 @@ Bạn nên tìm thấy rằng b gần bằng 5 và a gần bằng 3. Những gi�
   $\\text{plot}(x,y)$ \r
 abline(a=a,b=b)\r
 \r
-Tham số đầu tiên của abline là hệ số cắt của đường thẳng, và tham số thứ hai là độ dốc.`,zA=`Các bài tập được đánh dấu với ☑ có giải chi tiết tại http://stat110.net.\r
+Tham số đầu tiên của abline là hệ số cắt của đường thẳng, và tham số thứ hai là độ dốc.`,GA=`Các bài tập được đánh dấu với ☑ có giải chi tiết tại http://stat110.net.\r
 \r
 ## Kỳ vọng điều kiện cho một sự kiện\r
 \r
@@ -19611,7 +19783,7 @@ Mô phỏng Monte Carlo là một kỹ thuật cực kỳ mạnh mẽ, và có n
 \r
 một ước lượng tốt—nếu chúng ta có giới hạn của  $[0.2, 0.6]$  cho một xác suất mà chúng ta đang cố gắng tìm, đáp án chính xác có thể nằm bất kỳ đâu trong khoảng đó—nhưng ít nhất chúng ta biết đáp án chính xác được đảm bảo nằm trong giới hạn.\r
 \r
-● Các ước lượng sử dụng định lý giới hạn: Sau này trong chương này, chúng ta sẽ thảo luận hai định lý nổi tiếng nhất trong xác suất: định luật số lớn và định lý giới hạn trung tâm. Cả hai đều cho chúng ta biết điều gì xảy ra với trung bình mẫu khi chúng ta thu thập thêm dữ liệu. Các định lý giới hạn cho phép chúng ta thực hiện các ước lượng mà khả năng cao sẽ hoạt động tốt khi chúng ta có một số lượng lớn dữ liệu. Chúng ta kết thúc chương này bằng cách sử dụng các định lý giới hạn để nghiên cứu một vài phân phối quan trọng có tên trong thống kê.`,BA=`#### 10.1.1 Cauchy-Schwarz: một giới hạn phụ thuộc vào kỳ vọng chung\r
+● Các ước lượng sử dụng định lý giới hạn: Sau này trong chương này, chúng ta sẽ thảo luận hai định lý nổi tiếng nhất trong xác suất: định luật số lớn và định lý giới hạn trung tâm. Cả hai đều cho chúng ta biết điều gì xảy ra với trung bình mẫu khi chúng ta thu thập thêm dữ liệu. Các định lý giới hạn cho phép chúng ta thực hiện các ước lượng mà khả năng cao sẽ hoạt động tốt khi chúng ta có một số lượng lớn dữ liệu. Chúng ta kết thúc chương này bằng cách sử dụng các định lý giới hạn để nghiên cứu một vài phân phối quan trọng có tên trong thống kê.`,KA=`#### 10.1.1 Cauchy-Schwarz: một giới hạn phụ thuộc vào kỳ vọng chung\r
 \r
 Bất đẳng thức Cauchy-Schwarz là một trong những bất đẳng thức nổi tiếng nhất trong toàn bộ toán học. Trong xác suất, nó có dạng như sau.\r
 \r
@@ -19986,7 +20158,7 @@ nơi mà giá trị nhỏ nhất xảy ra và nó có nghĩa là chúng ta chỉ
 \r
  \r
 \r
-Tất cả các cận trên này đều đúng, nhưng bất đẳng thức Chernoff là tốt nhất. Ví dụ này cũng minh họa sự khác biệt giữa một cận và một xấp xỉ, như chúng ta đã giải thích trong phần giới thiệu của chương này. Bất đẳng thức Markov cho chúng ta biết rằng xác suất đuôi  $P(|Z| > 3)$  không vượt quá 0.27, nhưng sẽ là một sai lầm nếu nói rằng  $P(|Z| > 3)$  xấp xỉ bằng 0.27—chúng ta sẽ sai lệch một lượng khoảng 100 lần.`,VA=`Chúng ta chuyển sang hai định lý, định lý số lớn và định lý giới hạn trung tâm, mô tả hành vi của giá trị trung bình mẫu của các biến ngẫu nhiên độc lập và đồng phân phối khi kích thước mẫu tăng lên. Trong suốt phần này và phần tiếp theo, giả sử chúng ta có các  $X_1, X_2, X_3, \\ldots$  độc lập và đồng phân phối với kỳ vọng hữu hạn  $\\mu$  và phương sai hữu hạn  $\\sigma^2$ . Với mọi số nguyên dương  $n$ , đặt\r
+Tất cả các cận trên này đều đúng, nhưng bất đẳng thức Chernoff là tốt nhất. Ví dụ này cũng minh họa sự khác biệt giữa một cận và một xấp xỉ, như chúng ta đã giải thích trong phần giới thiệu của chương này. Bất đẳng thức Markov cho chúng ta biết rằng xác suất đuôi  $P(|Z| > 3)$  không vượt quá 0.27, nhưng sẽ là một sai lầm nếu nói rằng  $P(|Z| > 3)$  xấp xỉ bằng 0.27—chúng ta sẽ sai lệch một lượng khoảng 100 lần.`,qA=`Chúng ta chuyển sang hai định lý, định lý số lớn và định lý giới hạn trung tâm, mô tả hành vi của giá trị trung bình mẫu của các biến ngẫu nhiên độc lập và đồng phân phối khi kích thước mẫu tăng lên. Trong suốt phần này và phần tiếp theo, giả sử chúng ta có các  $X_1, X_2, X_3, \\ldots$  độc lập và đồng phân phối với kỳ vọng hữu hạn  $\\mu$  và phương sai hữu hạn  $\\sigma^2$ . Với mọi số nguyên dương  $n$ , đặt\r
 \r
  \r
 \r
@@ -20105,7 +20277,7 @@ Bây giờ chúng ta có thể hỏi, điều gì xảy ra với  $\\hat{F}_n$  
 \r
 Phân phối tích lũy thực nghiệm sau khi quan sát  $X_{1}=x_{1}, X_{2}=x_{2}, X_{3}=x_{3}, X_{4}=x_{4}$ . Đồ thị nhảy lên 1/4 mỗi lần một trong các  $x_{j}$  được đạt đến.\r
 \r
-Phân phối tích lũy thực nghiệm thường được sử dụng trong thống kê phi tham số, một ngành của thống kê mà cố gắng hiểu một mẫu ngẫu nhiên mà không cần giả định mạnh về họ phân phối từ đó mẫu đó bắt nguồn. Ví dụ, thay vì giả định  $X_{1}, \\ldots, X_{n} \\sim \\mathcal{N}(\\mu, \\sigma^{2})$ , một phương pháp phi tham số sẽ cho phép  $X_{1}, \\ldots, X_{n} \\sim F$  cho một hàm phân phối tích lũy F tùy ý, sau đó sử dụng phân phối tích lũy thực nghiệm như một ước lượng cho F. Luật số lớn là điều đảm bảo cho chúng ta rằng ước lượng này là hợp lệ trong giới hạn khi chúng ta thu thập thêm nhiều mẫu hơn: tại mọi giá trị của x, phân phối tích lũy thực nghiệm hội tụ đến phân phối tích lũy thực sự.`,HA=`Giống như trong phần trước, để  $X_1, X_2, X_3, \\ldots$  là độc lập và đồng phân phối với kỳ vọng  $\\mu$  và phương sai  $\\sigma^2$ . Luật số lớn nói rằng khi  $n \\to \\infty$ ,  $\\bar{X}_n$  hội tụ đến hằng số  $\\mu$  (với xác suất 1). Nhưng phân phối của nó như thế nào dọc đường đi đến trở thành một hằng số? Điều này được giải quyết bởi định lý giới hạn trung tâm (CLT), mà như tên gọi cho thấy, là một định lý giới hạn quan trọng trong thống kê.\r
+Phân phối tích lũy thực nghiệm thường được sử dụng trong thống kê phi tham số, một ngành của thống kê mà cố gắng hiểu một mẫu ngẫu nhiên mà không cần giả định mạnh về họ phân phối từ đó mẫu đó bắt nguồn. Ví dụ, thay vì giả định  $X_{1}, \\ldots, X_{n} \\sim \\mathcal{N}(\\mu, \\sigma^{2})$ , một phương pháp phi tham số sẽ cho phép  $X_{1}, \\ldots, X_{n} \\sim F$  cho một hàm phân phối tích lũy F tùy ý, sau đó sử dụng phân phối tích lũy thực nghiệm như một ước lượng cho F. Luật số lớn là điều đảm bảo cho chúng ta rằng ước lượng này là hợp lệ trong giới hạn khi chúng ta thu thập thêm nhiều mẫu hơn: tại mọi giá trị của x, phân phối tích lũy thực nghiệm hội tụ đến phân phối tích lũy thực sự.`,JA=`Giống như trong phần trước, để  $X_1, X_2, X_3, \\ldots$  là độc lập và đồng phân phối với kỳ vọng  $\\mu$  và phương sai  $\\sigma^2$ . Luật số lớn nói rằng khi  $n \\to \\infty$ ,  $\\bar{X}_n$  hội tụ đến hằng số  $\\mu$  (với xác suất 1). Nhưng phân phối của nó như thế nào dọc đường đi đến trở thành một hằng số? Điều này được giải quyết bởi định lý giới hạn trung tâm (CLT), mà như tên gọi cho thấy, là một định lý giới hạn quan trọng trong thống kê.\r
 \r
 Định lý CLT nói rằng với n lớn, phân phối của  $\\bar{X}_n$  sau khi chuẩn hóa tiến tới phân phối chuẩn chuẩn. Bằng cách chuẩn hóa, chúng ta hiểu là chúng ta trừ  $\\mu$ , kỳ vọng của  $\\bar{X}_n$ , và chia cho  $\\sigma/\\sqrt{n}$ , độ lệch chuẩn của  $\\bar{X}_n$ .\r
 \r
@@ -20489,7 +20661,7 @@ Theo định lý số học mạnh,  $V_n/n \\to E(Z_1^2) = 1$  với xác suấ
 \r
 với mọi  $n$ . Sau đó  $T_n \\sim t_n$  theo định nghĩa, và vì mẫu số hội tụ về 1, ta có  $T_n \\to Z \\sim \\mathcal{N}(0,1)$ . Do đó, phân phối của  $T_n$  tiến tới phân phối của  $Z$ .\r
 \r
-Hình 10.6 vẽ hàm mật độ xác suất (PDF) của Student-t với các giá trị n khác nhau, minh họa tất cả ba tính chất của định lý trên: các PDF đều đối xứng quanh 0, PDF cho n = 1 trông giống như phân phối Cauchy, và khi  $n \\to \\infty$  đuôi phân phối trở nên nhẹ hơn, và PDF tiến tới PDF chuẩn.`,UA=`Các bất đẳng thức và các định lý giới hạn là hai cách khác nhau để xử lý kỳ vọng và xác suất mà chúng ta không muốn tính toán chính xác. Các bất đẳng thức cho phép chúng ta tìm được giới hạn dưới và/hoặc giới hạn trên cho giá trị chưa biết: Cauchy-Schwarz và Jensen cho chúng ta giới hạn cho kỳ vọng, trong khi Markov, Chebyshev và Chernoff cho chúng ta giới hạn cho xác suất đuôi.\r
+Hình 10.6 vẽ hàm mật độ xác suất (PDF) của Student-t với các giá trị n khác nhau, minh họa tất cả ba tính chất của định lý trên: các PDF đều đối xứng quanh 0, PDF cho n = 1 trông giống như phân phối Cauchy, và khi  $n \\to \\infty$  đuôi phân phối trở nên nhẹ hơn, và PDF tiến tới PDF chuẩn.`,YA=`Các bất đẳng thức và các định lý giới hạn là hai cách khác nhau để xử lý kỳ vọng và xác suất mà chúng ta không muốn tính toán chính xác. Các bất đẳng thức cho phép chúng ta tìm được giới hạn dưới và/hoặc giới hạn trên cho giá trị chưa biết: Cauchy-Schwarz và Jensen cho chúng ta giới hạn cho kỳ vọng, trong khi Markov, Chebyshev và Chernoff cho chúng ta giới hạn cho xác suất đuôi.\r
 \r
 <div style="text-align: center;"><img src="imgs/img_in_chart_box_308_166_1083_620.jpg" alt="Hình ảnh" width="55%" /></div>\r
 \r
@@ -20539,7 +20711,7 @@ Giá trị trung bình mẫu  $\\bar{X}_{n}$  của các biến ngẫu nhiên đ
 <div style="text-align: center;"><img src="imgs/img_in_image_box_149_399_1251_1279.jpg" alt="Image" width="78%" /></div>\r
 \r
 \r
-Bây giờ chúng ta thấy rằng tất cả các phân phối được đặt tên đều liên kết với nhau!`,WA=`## Bất đẳng thức Jensen\r
+Bây giờ chúng ta thấy rằng tất cả các phân phối được đặt tên đều liên kết với nhau!`,XA=`## Bất đẳng thức Jensen\r
 \r
 R giúp dễ dàng so sánh kỳ vọng của X và  $g(X)$  cho một lựa chọn cụ thể của g, và điều này cho phép chúng ta kiểm tra một số trường hợp đặc biệt của bất đẳng thức Jensen. Ví dụ, giả sử chúng ta mô phỏng  $10^4$  lần từ phân phối Expo(1):\r
 \r
@@ -20633,7 +20805,7 @@ Bạn có thể sử dụng định lý giới hạn trung tâm để giải th�
 \r
 Mặc dù Chi-Square chỉ là một trường hợp đặc biệt của Gamma, nó vẫn có các hàm riêng dchisq, pchisq, và rchisq trong R: dchisq(x,n) và pchisq(x,n) trả về các giá trị của  $\\chi_n^2$  PDF và CDF tại x, và rchisq(nsim,n) tạo ra nsim biến ngẫu nhiên độc lập đồng nhất (i.i.d.)  $\\chi_n^2$ .\r
 \r
-Phân phối Student-t có các hàm dt, pt, và rt. Để đánh giá PDF hoặc CDF của phân phối  $t_n$  tại x, chúng ta sử dụng dt(x,n) hoặc pt(x,n). Để tạo nsim biến ngẫu nhiên độc lập đồng nhất (i.i.d.) từ phân phối  $t_n$ , chúng ta sử dụng rt(nsim,n). Tất nhiên, dt(x,1) giống như dcauchy(x).`,GA=`Các bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.\r
+Phân phối Student-t có các hàm dt, pt, và rt. Để đánh giá PDF hoặc CDF của phân phối  $t_n$  tại x, chúng ta sử dụng dt(x,n) hoặc pt(x,n). Để tạo nsim biến ngẫu nhiên độc lập đồng nhất (i.i.d.) từ phân phối  $t_n$ , chúng ta sử dụng rt(nsim,n). Tất nhiên, dt(x,1) giống như dcauchy(x).`,ZA=`Các bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.\r
 \r
 ## Các bất đẳng thức\r
 \r
@@ -21120,7 +21292,7 @@ http://taylorandfrancis.com\r
 \r
 Chuỗi Markov đã được giới thiệu lần đầu vào năm 1906 bởi Andrey Markov (của bất đẳng thức Markov), với mục tiêu chứng minh rằng định luật số lớn có thể áp dụng cho các biến ngẫu nhiên không độc lập. Để thấy nguồn gốc của mô hình Markov, hãy bắt đầu bằng cách xem xét một chuỗi các biến ngẫu nhiên độc lập và đồng phân phối  $X_{0}, X_{1}, \\ldots, X_{n}, \\ldots$  nơi mà ta xem n là thời gian. Đây là bối cảnh mà chúng ta đã làm việc trong chương 10, nhưng đối với việc mô hình hóa các hiện tượng thực tế, tính độc lập có thể là một giả định quá hạn chế; điều này có nghĩa là các  $X_{n}$  cung cấp tuyệt đối không thông tin nào về nhau. Tại đầu kia của dải, cho phép tương tác tùy ý giữa các  $X_{n}$  khiến việc tính toán ngay cả những thứ cơ bản cũng trở nên rất khó khăn. Một chuỗi Markov là một chuỗi các biến ngẫu nhiên thể hiện sự phụ thuộc một bước, trong một nghĩa chính xác mà chúng ta sẽ định nghĩa sớm. Do đó chuỗi Markov là một sự cân bằng giữa sự độc lập hoàn toàn và sự phụ thuộc hoàn toàn.\r
 \r
-Từ khi được phát minh, chuỗi Markov đã trở nên cực kỳ quan trọng trong một số lượng lớn lĩnh vực như sinh học, lý thuyết trò chơi, tài chính, học máy, và vật lý thống kê. Chúng cũng được sử dụng rất rộng rãi cho các mô phỏng phân bố phức tạp, thông qua các thuật toán gọi là Markov chain Monte Carlo (MCMC). Trong chương này chúng ta sẽ giới thiệu các chuỗi Markov và các tính chất của chúng, và trong chương tiếp theo chúng ta sẽ xem xét một số ví dụ về các kỹ thuật MCMC.`,KA=`Chuỗi Markov "sống" trong cả không gian và thời gian: tập hợp các giá trị có thể có của  $X_n$  được gọi là không gian trạng thái, và chỉ số  $n$  đại diện cho sự phát triển của quá trình theo thời gian. Không gian trạng thái của một chuỗi Markov có thể là rời rạc hoặc liên tục, và thời gian cũng có thể là rời rạc hoặc liên tục (trong bối cảnh thời gian liên tục, ta sẽ tưởng tượng một quá trình  $X_t$  được xác định cho tất cả các số thực  $t \\geq 0$ ). Trong chương này chúng ta sẽ tập trung toàn bộ vào các chuỗi Markov có trạng thái rời rạc, thời gian rời rạc, với không gian trạng thái hữu hạn. Cụ thể, chúng ta sẽ giả định rằng các  $X_n$  nhận giá trị trong một tập hợp hữu hạn, mà thường ta chọn là  $\\{1, 2, \\ldots, M\\}$  hoặc  $\\{0, 1, \\ldots, M\\}$ .\r
+Từ khi được phát minh, chuỗi Markov đã trở nên cực kỳ quan trọng trong một số lượng lớn lĩnh vực như sinh học, lý thuyết trò chơi, tài chính, học máy, và vật lý thống kê. Chúng cũng được sử dụng rất rộng rãi cho các mô phỏng phân bố phức tạp, thông qua các thuật toán gọi là Markov chain Monte Carlo (MCMC). Trong chương này chúng ta sẽ giới thiệu các chuỗi Markov và các tính chất của chúng, và trong chương tiếp theo chúng ta sẽ xem xét một số ví dụ về các kỹ thuật MCMC.`,QA=`Chuỗi Markov "sống" trong cả không gian và thời gian: tập hợp các giá trị có thể có của  $X_n$  được gọi là không gian trạng thái, và chỉ số  $n$  đại diện cho sự phát triển của quá trình theo thời gian. Không gian trạng thái của một chuỗi Markov có thể là rời rạc hoặc liên tục, và thời gian cũng có thể là rời rạc hoặc liên tục (trong bối cảnh thời gian liên tục, ta sẽ tưởng tượng một quá trình  $X_t$  được xác định cho tất cả các số thực  $t \\geq 0$ ). Trong chương này chúng ta sẽ tập trung toàn bộ vào các chuỗi Markov có trạng thái rời rạc, thời gian rời rạc, với không gian trạng thái hữu hạn. Cụ thể, chúng ta sẽ giả định rằng các  $X_n$  nhận giá trị trong một tập hợp hữu hạn, mà thường ta chọn là  $\\{1, 2, \\ldots, M\\}$  hoặc  $\\{0, 1, \\ldots, M\\}$ .\r
 \r
 Định nghĩa 11.1.1 (Chuỗi Markov). Một chuỗi các biến ngẫu nhiên  $X_0, X_1, X_2, \\ldots$  nhận giá trị trong không gian trạng thái  $\\{1, 2, \\ldots, M\\}$  được gọi là một chuỗi Markov nếu với mọi  $n \\geq 0$ .\r
 \r
@@ -21266,7 +21438,7 @@ Phân bố biên của  $X_{5}$  là\r
 \r
  \r
 \r
-Chúng tôi đã sử dụng máy tính để thực hiện phép nhân ma trận.`,qA=`Trong phần này chúng ta giới thiệu thuật ngữ để mô tả các đặc điểm khác nhau của một chuỗi Markov. Các trạng thái của một chuỗi Markov có thể được phân loại là hồi tiếp hoặc tạm thời, tùy thuộc vào việc chúng có được ghé thăm liên tục trong dài hạn hay cuối cùng bị bỏ lại. Các trạng thái cũng có thể được phân loại theo chu kỳ của chúng, một số nguyên dương tóm tắt khoảng thời gian có thể trôi qua giữa các lần ghé thăm một trạng thái. Những đặc điểm này quan trọng vì chúng xác định hành vi lâu dài của chuỗi Markov, điều mà chúng ta sẽ nghiên cứu trong Phần 11.3.\r
+Chúng tôi đã sử dụng máy tính để thực hiện phép nhân ma trận.`,$A=`Trong phần này chúng ta giới thiệu thuật ngữ để mô tả các đặc điểm khác nhau của một chuỗi Markov. Các trạng thái của một chuỗi Markov có thể được phân loại là hồi tiếp hoặc tạm thời, tùy thuộc vào việc chúng có được ghé thăm liên tục trong dài hạn hay cuối cùng bị bỏ lại. Các trạng thái cũng có thể được phân loại theo chu kỳ của chúng, một số nguyên dương tóm tắt khoảng thời gian có thể trôi qua giữa các lần ghé thăm một trạng thái. Những đặc điểm này quan trọng vì chúng xác định hành vi lâu dài của chuỗi Markov, điều mà chúng ta sẽ nghiên cứu trong Phần 11.3.\r
 \r
 Các khái niệm về tính hồi tiếp và tính tạm thời được minh họa rõ nhất qua một ví dụ cụ thể. Trong chuỗi Markov được hiển thị ở bên trái của Hình 11.2 (đã được giới thiệu trong Ví dụ 11.1.5 trước đây), một hạt di chuyển giữa các trạng thái sẽ tiếp tục dành thời gian trong tất cả 4 trạng thái trong dài hạn, vì có thể chuyển từ bất kỳ trạng thái nào sang bất kỳ trạng thái nào khác. Ngược lại, hãy xem xét chuỗi ở bên phải của Hình 11.2, và giả sử hạt bắt đầu ở trạng thái 1. Trong một thời gian nhất định, chuỗi có thể lưu luyến trong tam giác do các trạng thái 1, 2, và 3 tạo thành, nhưng cuối cùng nó sẽ đạt đến trạng thái 4, và từ đó nó không thể quay trở lại các trạng thái 1, 2, hoặc 3. Nó sẽ sau đó di chuyển giữa các trạng thái 4, 5, và 6 mãi mãi. Các trạng thái 1, 2, và 3 là tạm thời và các trạng thái 4, 5, và 6 là hồi tiếp.\r
 \r
@@ -21344,7 +21516,7 @@ Trong chuỗi cược bạc từ Ví dụ 11.2.6, mỗi trạng thái có chu k�
 \r
 Kiểm tra xem một chuỗi không thể phân tách có là không tuần hoàn hay không thường dễ hơn nhiều so với vẻ ngoài: định lý tiếp theo cho thấy chúng ta chỉ cần tính chu kỳ của một trạng thái, thay vì tìm từng trạng thái để xem chu kỳ của nó có phải là 1 hay không.\r
 \r
-Định lý 11.2.9 (Chu kỳ trong một chuỗi không thể phân tách). Trong một chuỗi Markov không thể phân tách, tất cả các trạng thái đều có cùng chu kỳ.`,JA=`Các khái niệm về tính khả hồi và tính không khả hồi rất quan trọng để hiểu hành vi dài hạn của một chuỗi Markov. Ban đầu, chuỗi có thể dành thời gian trong các trạng thái không khả hồi. Cuối cùng, chuỗi sẽ dành toàn bộ thời gian trong các trạng thái khả hồi. Nhưng tỷ lệ thời gian mà chuỗi dành trong mỗi trạng thái khả hồi là bao nhiêu? Câu hỏi này được trả lời bởi phân bố dừng của chuỗi, cũng được biết đến là phân bố trạng thái ổn định. Chúng ta sẽ học trong phần này rằng đối với chuỗi không thể phân tách và không tuần hoàn\r
+Định lý 11.2.9 (Chu kỳ trong một chuỗi không thể phân tách). Trong một chuỗi Markov không thể phân tách, tất cả các trạng thái đều có cùng chu kỳ.`,ej=`Các khái niệm về tính khả hồi và tính không khả hồi rất quan trọng để hiểu hành vi dài hạn của một chuỗi Markov. Ban đầu, chuỗi có thể dành thời gian trong các trạng thái không khả hồi. Cuối cùng, chuỗi sẽ dành toàn bộ thời gian trong các trạng thái khả hồi. Nhưng tỷ lệ thời gian mà chuỗi dành trong mỗi trạng thái khả hồi là bao nhiêu? Câu hỏi này được trả lời bởi phân bố dừng của chuỗi, cũng được biết đến là phân bố trạng thái ổn định. Chúng ta sẽ học trong phần này rằng đối với chuỗi không thể phân tách và không tuần hoàn\r
 \r
 Chuỗi Markov, phân bố dừng mô tả hành vi lâu dài của chuỗi, bất kể điều kiện ban đầu. Nó sẽ cho chúng ta cả xác suất lâu dài của việc ở trong bất kỳ trạng thái nào, và tỷ lệ phần trăm thời gian mà chuỗi dành trong trạng thái đó.\r
 \r
@@ -21576,7 +21748,7 @@ PageRank có khái niệm đẹp, nhưng việc tính toán nó nghe có vẻ c�
 \r
  \r
 \r
-trong đó việc tính toán thành phần đầu tiên không quá khó vì Q rất thưa (chủ yếu là 0) và việc tính toán thành phần thứ hai dễ dàng vì tJ là một vector của tất cả các 1. Sau đó tG trở thành t mới, và chúng ta có thể tính toán  $tG^{2} = (tG)G$ , v.v., cho đến khi dãy số dường như đã hội tụ (mặc dù khó biết rằng nó đã hội tụ). Điều này cho một xấp xỉ của PageRank, và có một diễn giải trực quan như phân bố của nơi người lướt web ở sau một số bước rất lớn.`,YA=`Chúng ta đã thấy rằng phân bố cố định của một chuỗi Markov là cực kỳ hữu ích để hiểu hành vi lâu dài của nó. Tiếc thay, nói chung có thể rất khó tính toán phân bố cố định khi không gian trạng thái lớn. Chương này giải quyết một trường hợp đặc biệt quan trọng nơi mà việc làm việc với phương trình trị riêng cho các ma trận lớn có thể tránh được.\r
+trong đó việc tính toán thành phần đầu tiên không quá khó vì Q rất thưa (chủ yếu là 0) và việc tính toán thành phần thứ hai dễ dàng vì tJ là một vector của tất cả các 1. Sau đó tG trở thành t mới, và chúng ta có thể tính toán  $tG^{2} = (tG)G$ , v.v., cho đến khi dãy số dường như đã hội tụ (mặc dù khó biết rằng nó đã hội tụ). Điều này cho một xấp xỉ của PageRank, và có một diễn giải trực quan như phân bố của nơi người lướt web ở sau một số bước rất lớn.`,tj=`Chúng ta đã thấy rằng phân bố cố định của một chuỗi Markov là cực kỳ hữu ích để hiểu hành vi lâu dài của nó. Tiếc thay, nói chung có thể rất khó tính toán phân bố cố định khi không gian trạng thái lớn. Chương này giải quyết một trường hợp đặc biệt quan trọng nơi mà việc làm việc với phương trình trị riêng cho các ma trận lớn có thể tránh được.\r
 \r
 Định nghĩa 11.4.1 (Tính nghịch đảo). Cho  $Q = (q_{ij})$  là ma trận chuyển tiếp của một chuỗi Markov. Giả sử tồn tại  $\\mathbf{s} = (s_1, \\ldots, s_M)$  với  $s_i \\geq 0$ ,  $\\sum_i s_i = 1$ , sao cho\r
 \r
@@ -21762,7 +21934,7 @@ May mắn thay, hóa ra một cách diễn giải khác về phân phối dừng
 \r
  \r
 \r
-khi  $n \\rightarrow \\infty$ , với xác suất 1.`,XA=`Một chuỗi Markov là một dãy các biến ngẫu nhiên  $X_{0}, X_{1}, X_{2}, \\ldots$  thỏa mãn tính chất Markov, tức là cho biết hiện tại, quá khứ và tương lai là độc lập điều kiện:\r
+khi  $n \\rightarrow \\infty$ , với xác suất 1.`,nj=`Một chuỗi Markov là một dãy các biến ngẫu nhiên  $X_{0}, X_{1}, X_{2}, \\ldots$  thỏa mãn tính chất Markov, tức là cho biết hiện tại, quá khứ và tương lai là độc lập điều kiện:\r
 \r
  \r
 \r
@@ -21805,7 +21977,7 @@ với  $j > 1$ , nơi  $s_{1}$  được giải ở cuối để đảm bảo  $
 \r
 Cho một ma trận chuyển tiếp Q và một phân bố t trên các trạng thái, chúng ta có thể tạo ra một chuỗi Markov  $X_0, X_1, \\ldots$  bằng cách chọn  $X_0$  theo phân bố t và sau đó chạy chuỗi theo xác suất chuyển tiếp. Một sự kiện quan trọng là  $X_n = i$ , sự kiện mà chuỗi đang ghé thăm trạng thái i vào thời điểm n. Chúng ta có thể tìm hàm mật độ xác suất (PMF) của  $X_n$  theo Q và t, và (dưới điều kiện được thảo luận trong chương) hàm mật độ xác suất sẽ hội tụ đến phân bố dừng s. Nếu thay vào đó chúng ta bắt đầu chuỗi theo s, thì chuỗi sẽ luôn ở trạng thái dừng mãi mãi.\r
 \r
-Hình 11.6 so sánh hai cách chạy một chuỗi Markov với ma trận chuyển tiếp Q: chọn trạng thái ban đầu theo một phân bố tùy ý t trên các trạng thái, hoặc chọn trạng thái ban đầu theo phân bố dừng s. Trong trường hợp đầu tiên, hàm mật độ xác suất chính xác sau n bước có thể được tìm theo Q và t, và hàm mật độ xác suất hội tụ đến s (dưới một số điều kiện rất tổng quát được thảo luận trong chương này). Trong trường hợp thứ hai, chuỗi sẽ luôn ở trạng thái dừng mãi mãi.`,ZA=`## Tính toán ma trận
+Hình 11.6 so sánh hai cách chạy một chuỗi Markov với ma trận chuyển tiếp Q: chọn trạng thái ban đầu theo một phân bố tùy ý t trên các trạng thái, hoặc chọn trạng thái ban đầu theo phân bố dừng s. Trong trường hợp đầu tiên, hàm mật độ xác suất chính xác sau n bước có thể được tìm theo Q và t, và hàm mật độ xác suất hội tụ đến s (dưới một số điều kiện rất tổng quát được thảo luận trong chương này). Trong trường hợp thứ hai, chuỗi sẽ luôn ở trạng thái dừng mãi mãi.`,rj=`## Tính toán ma trận
 
 Hãy thực hiện một số tính toán cho chuỗi Markov 4-trạng thái trong Ví dụ 11.1.5, như một ví dụ về việc làm việc với ma trận chuyển tiếp trong R. Trước hết, chúng ta cần xác định ma trận chuyển tiếp Q. Điều này được thực hiện bằng lệnh matrix: chúng ta nhập các phần tử
 
@@ -21873,7 +22045,7 @@ Sau đó, chúng ta sử dụng lệnh table để tính số lần chuỗi ghé
 
 table(x)/length(x)
 
-Để so sánh, phân phối ổn định thực sự của chuỗi là khoảng  $(0.214, 0.286, 0.214, 0.286)$ . Liệu điều này có gần với kết quả bạn thu được qua mô phỏng không?`,QA=`Các bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.\r
+Để so sánh, phân phối ổn định thực sự của chuỗi là khoảng  $(0.214, 0.286, 0.214, 0.286)$ . Liệu điều này có gần với kết quả bạn thu được qua mô phỏng không?`,ij=`Các bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.\r
 \r
 ## Tính chất Markov\r
 \r
@@ -22252,7 +22424,7 @@ Phân phối mà có tính chất khoa học quan tâm, hằng số chuẩn hóa
 Chương này giới thiệu Markov chain Monte Carlo (MCMC), một bộ sưu tập mạnh mẽ các thuật toán cho phép chúng ta mô phỏng từ các phân phối phức tạp sử dụng chuỗi Markov. Sự phát triển của MCMC đã cách mạng hóa thống kê và tính toán khoa học bằng cách mở rộng đáng kể phạm vi các phân phối có thể mô phỏng, bao gồm cả các phân phối chung trong không gian nhiều chiều. Ý tưởng cơ bản là xây dựng chính bản thân bạn một chuỗi Markov sao cho phân phối quan tâm là phân phối dừng của chuỗi.\r
 Trong chương trước, chúng ta đã xem xét các chuỗi Markov có ma trận chuyển Q được chỉ định, và chúng ta đã cố gắng tìm phân phối dừng s của chuỗi. Trong chương này, chúng ta làm ngược lại: bắt đầu từ một phân phối s mà chúng ta muốn mô phỏng, chúng ta sẽ thiết kế một chuỗi Markov có phân phối dừng là s. Nếu chúng ta chạy chuỗi Markov thiết kế này trong một thời gian rất dài, phân phối của chuỗi sẽ tiến gần đến phân phối mong muốn s của chúng ta.\r
 Nhưng liệu có thể tạo ra một ma trận chuyển Q với phân phối dừng mà chúng ta mong muốn không? Ngay cả khi có thể, việc giải quyết vấn đề này có dễ dàng hơn vấn đề gốc là làm thế nào để mô phỏng các mẫu ngẫu nhiên từ phân phối đó không? Với sự tổng quát đáng kinh ngạc, MCMC cho thấy có thể tạo ra một chuỗi Markov với phân phối dừng mong muốn một cách dễ dàng mô tả, mà không cần biết hằng số chuẩn hóa cho phân phối!\r
-MCMC hiện đang được áp dụng cho một số lượng lớn các bài toán trong các ngành khoa học sinh học, thiên nhiên và vật lý, và nhiều thuật toán MCMC khác nhau đã được phát triển. Tại đây, chúng ta sẽ giới thiệu hai trong số những thuật toán MCMC quan trọng và được sử dụng rộng rãi nhất: thuật toán Metropolis-Hastings và lấy mẫu Gibbs. MCMC là một lĩnh vực to lớn và đang phát triển mạnh mẽ trong tính toán thống kê; xem Brooks, Gelman, Jones, và Meng [2] để biết nhiều hơn về lý thuyết, phương pháp và ứng dụng của nó.`,$A=`Thuật toán Metropolis-Hastings là một công thức tổng quát cho phép chúng ta bắt đầu với bất kỳ chuỗi Markov nào không khả nghịch trên không gian trạng thái quan tâm và sau đó sửa đổi nó thành một chuỗi Markov mới có phân phối dừng mong muốn. Sự sửa đổi này bao gồm việc giới thiệu một số chọn lọc trong chuỗi gốc: các bước được đề xuất theo chuỗi gốc, nhưng đề xuất có thể được chấp nhận hoặc không. Ví dụ, giả sử chuỗi gốc đang ở trạng thái được gọi là "Boston" và sắp chuyển sang "San Francisco". Sau đó, đối với chuỗi mới, chúng ta hoặc chấp nhận đề xuất và đi đến San Francisco, hoặc từ chối đề xuất và tiếp tục ở Boston.\r
+MCMC hiện đang được áp dụng cho một số lượng lớn các bài toán trong các ngành khoa học sinh học, thiên nhiên và vật lý, và nhiều thuật toán MCMC khác nhau đã được phát triển. Tại đây, chúng ta sẽ giới thiệu hai trong số những thuật toán MCMC quan trọng và được sử dụng rộng rãi nhất: thuật toán Metropolis-Hastings và lấy mẫu Gibbs. MCMC là một lĩnh vực to lớn và đang phát triển mạnh mẽ trong tính toán thống kê; xem Brooks, Gelman, Jones, và Meng [2] để biết nhiều hơn về lý thuyết, phương pháp và ứng dụng của nó.`,aj=`Thuật toán Metropolis-Hastings là một công thức tổng quát cho phép chúng ta bắt đầu với bất kỳ chuỗi Markov nào không khả nghịch trên không gian trạng thái quan tâm và sau đó sửa đổi nó thành một chuỗi Markov mới có phân phối dừng mong muốn. Sự sửa đổi này bao gồm việc giới thiệu một số chọn lọc trong chuỗi gốc: các bước được đề xuất theo chuỗi gốc, nhưng đề xuất có thể được chấp nhận hoặc không. Ví dụ, giả sử chuỗi gốc đang ở trạng thái được gọi là "Boston" và sắp chuyển sang "San Francisco". Sau đó, đối với chuỗi mới, chúng ta hoặc chấp nhận đề xuất và đi đến San Francisco, hoặc từ chối đề xuất và tiếp tục ở Boston.\r
 \r
 Bước tiếp theo. Với một lựa chọn cẩn thận của xác suất chấp nhận đề xuất, sự sửa đổi đơn giản này đảm bảo rằng chuỗi mới có phân bố dừng mong muốn.\r
 \r
@@ -22593,7 +22765,7 @@ Chúng tôi đã chạy thuật toán với  $10^4$  lần lặp với các thi�
 \r
 Các bước và không thể di chuyển rất xa từ điểm bắt đầu. Đồ thị đường đi cho  $d=1$  là đúng, thể hiện neither tỷ lệ chấp nhận thấp của chuỗi  $d=100$ , nor sự di chuyển bị giới hạn của chuỗi  $d=0.01$ .\r
 \r
-Trong ví dụ này, phân phối hậu nghiệm của  $\\theta$  có sẵn một cách phân tích, vì vậy chúng tôi đã sử dụng MCMC cho mục đích minh họa, để cho thấy rằng kết quả được thu được bằng MCMC phù hợp với các đối ứng lý thuyết của chúng. Nhưng cùng kỹ thuật này cũng áp dụng trong các bài toán nơi tiền tố không liên hợp và hậu nghiệm không phải là phân phối có tên. ☐`,ej=`Mẫu Gibbs là một thuật toán MCMC để có được các mẫu gần đúng từ một phân phối chung, dựa trên việc lấy mẫu từ các phân phối điều kiện một tại một thời điểm: tại mỗi giai đoạn, một biến được cập nhật (giữ nguyên tất cả các biến khác) bằng cách lấy mẫu từ phân phối điều kiện của biến đó cho tất cả các biến khác. Phương pháp này đặc biệt hữu ích trong các bài toán nơi các phân phối điều kiện dễ làm việc.\r
+Trong ví dụ này, phân phối hậu nghiệm của  $\\theta$  có sẵn một cách phân tích, vì vậy chúng tôi đã sử dụng MCMC cho mục đích minh họa, để cho thấy rằng kết quả được thu được bằng MCMC phù hợp với các đối ứng lý thuyết của chúng. Nhưng cùng kỹ thuật này cũng áp dụng trong các bài toán nơi tiền tố không liên hợp và hậu nghiệm không phải là phân phối có tên. ☐`,oj=`Mẫu Gibbs là một thuật toán MCMC để có được các mẫu gần đúng từ một phân phối chung, dựa trên việc lấy mẫu từ các phân phối điều kiện một tại một thời điểm: tại mỗi giai đoạn, một biến được cập nhật (giữ nguyên tất cả các biến khác) bằng cách lấy mẫu từ phân phối điều kiện của biến đó cho tất cả các biến khác. Phương pháp này đặc biệt hữu ích trong các bài toán nơi các phân phối điều kiện dễ làm việc.\r
 \r
 Đầu tiên chúng ta sẽ đi qua cách mẫu Gibbs hoạt động trong trường hợp song biến, nơi phân phối dừng mong muốn là phân phối PMF chung của các biến ngẫu nhiên rời rạc X và Y. Có nhiều dạng khác nhau của mẫu Gibbs, tùy thuộc vào thứ tự cập nhật được thực hiện. Chúng ta sẽ giới thiệu hai loại chính của mẫu Gibbs: quét có hệ thống, trong đó các cập nhật quét qua các thành phần theo thứ tự xác định, và quét ngẫu nhiên, trong đó một thành phần được chọn ngẫu nhiên để cập nhật tại mỗi giai đoạn.\r
 \r
@@ -22751,11 +22923,11 @@ Về kỳ vọng hậu nghiệm  $E(p|X = x)$  ban đầu được yêu cầu tr
 <div style="text-align: center;">HÌNH 12.5</div>\r
 \r
 \r
-<div style="text-align: center;">Biểu đồ tần suất của  $10^{4}$  mẫu được lấy từ phân phối hậu nghiệm của p và N, nơi  $\\lambda = 10$ , a = 1, b = 1, và chúng ta quan sát X = 7.</div>`,tj=`Kỹ thuật Monte Carlo chuỗi Markov cho phép chúng ta lấy mẫu từ các phân phối phức tạp bằng cách sử dụng chuỗi Markov. MCMC đã được áp dụng trong một phạm vi rất rộng các bài toán trong những năm gần đây. Ý tưởng chính đằng sau các thuật toán MCMC là xây dựng một chuỗi Markov mà phân phối dừng của nó chính là phân phối mà chúng ta muốn lấy mẫu. Sau khi chạy chuỗi Markov trong một thời gian dài, các giá trị mà chuỗi Markov nhận được có thể được sử dụng như các mẫu từ phân phối mong muốn.
+<div style="text-align: center;">Biểu đồ tần suất của  $10^{4}$  mẫu được lấy từ phân phối hậu nghiệm của p và N, nơi  $\\lambda = 10$ , a = 1, b = 1, và chúng ta quan sát X = 7.</div>`,sj=`Kỹ thuật Monte Carlo chuỗi Markov cho phép chúng ta lấy mẫu từ các phân phối phức tạp bằng cách sử dụng chuỗi Markov. MCMC đã được áp dụng trong một phạm vi rất rộng các bài toán trong những năm gần đây. Ý tưởng chính đằng sau các thuật toán MCMC là xây dựng một chuỗi Markov mà phân phối dừng của nó chính là phân phối mà chúng ta muốn lấy mẫu. Sau khi chạy chuỗi Markov trong một thời gian dài, các giá trị mà chuỗi Markov nhận được có thể được sử dụng như các mẫu từ phân phối mong muốn.
 
 Hai thuật toán MCMC được thảo luận trong chương này là Metropolis-Hastings và lấy mẫu Gibbs. Thuật toán Metropolis-Hastings sử dụng bất kỳ chuỗi Markov nào trên không gian trạng thái để tạo ra các đề xuất, sau đó chấp nhận hoặc từ chối các đề xuất này để tạo ra một chuỗi Markov sửa đổi với phân phối dừng mong muốn. Hơn nữa, chuỗi kết quả là có thể đảo ngược. Việc lựa chọn phân phối đề xuất là cực kỳ quan trọng trong thực tế, vì một phân phối đề xuất kém có thể dẫn đến việc hội tụ rất chậm đến phân phối dừng.
 
-Lấy mẫu Gibbs là một phương pháp để lấy mẫu từ phân phối chung đa chiều bằng cách cập nhật từng thành phần của chuỗi Markov đa chiều một tại một thời điểm, dựa trên tất cả các thành phần khác. Điều này có thể được thực hiện thông qua quét hệ thống, nơi tuần tự lặp qua các thành phần theo thứ tự cố định một cách xác định, hoặc quét ngẫu nhiên, nơi chọn ngẫu nhiên thành phần nào để cập nhật tại mỗi giai đoạn.`,nj=`## Metropolis-Hastings\r
+Lấy mẫu Gibbs là một phương pháp để lấy mẫu từ phân phối chung đa chiều bằng cách cập nhật từng thành phần của chuỗi Markov đa chiều một tại một thời điểm, dựa trên tất cả các thành phần khác. Điều này có thể được thực hiện thông qua quét hệ thống, nơi tuần tự lặp qua các thành phần theo thứ tự cố định một cách xác định, hoặc quét ngẫu nhiên, nơi chọn ngẫu nhiên thành phần nào để cập nhật tại mỗi giai đoạn.`,cj=`## Metropolis-Hastings\r
 \r
 Dưới đây là cách triển khai thuật toán Metropolis-Hastings cho Ví dụ 12.1.8, mô hình Normal-Normal. Trước hết, chúng ta chọn giá trị quan sát của Y và quyết định các giá trị cho các hằng số  $\\sigma$ ,  $\\mu$ , và  $\\tau$ :\r
 \r
@@ -22826,7 +22998,7 @@ Lại một lần nữa, chúng ta loại bỏ các mẫu ban đầu:\r
 p <- p[-(1:(niter/2))]\r
 N <- N[-(1:(niter/2))]\r
 \r
-Để xem các mẫu còn lại như thế nào, chúng ta có thể tạo biểu đồ tần suất sử dụng hist(p) và hist(N), đó là cách chúng ta tạo ra Hình 12.5. Chúng ta cũng có thể tính các thống kê tổng hợp như mean(p) hoặc median(p).`,rj=`1. Gọi  $p(x, y)$  là hàm xác suất khối chung của hai biến ngẫu nhiên rời rạc X và Y. Sử dụng ký hiệu ngắn gọn như chúng ta đã sử dụng với mẫu Gibbs, gọi  $p(x)$  và  $p(y)$  là các hàm xác suất khối biên của X và Y, và  $p(x|y)$  và  $p(y|x)$  là các hàm xác suất khối của X cho Y và Y cho X. Giả sử miền giá trị của Y giống với miền giá trị của phân phối điều kiện của Y|X.\r
+Để xem các mẫu còn lại như thế nào, chúng ta có thể tạo biểu đồ tần suất sử dụng hist(p) và hist(N), đó là cách chúng ta tạo ra Hình 12.5. Chúng ta cũng có thể tính các thống kê tổng hợp như mean(p) hoặc median(p).`,lj=`1. Gọi  $p(x, y)$  là hàm xác suất khối chung của hai biến ngẫu nhiên rời rạc X và Y. Sử dụng ký hiệu ngắn gọn như chúng ta đã sử dụng với mẫu Gibbs, gọi  $p(x)$  và  $p(y)$  là các hàm xác suất khối biên của X và Y, và  $p(x|y)$  và  $p(y|x)$  là các hàm xác suất khối của X cho Y và Y cho X. Giả sử miền giá trị của Y giống với miền giá trị của phân phối điều kiện của Y|X.\r
 \r
 (a) Sử dụng danh tính  $p(x)p(y|x) = p(y)p(x|y)$  để tìm một biểu thức cho hàm xác suất khối biên  $p(y)$  theo các hàm xác suất khối điều kiện  $p(x|y)$  và  $p(y|x)$ .\r
 \r
@@ -22869,7 +23041,7 @@ Quá trình Poisson đóng vai trò là một mô hình đơn giản cho các s�
 \r
 Quá trình Poisson cũng hữu ích trong xác suất, bởi vì chúng liên kết nhiều phân phối có tên và cung cấp cho chúng ta các chứng minh thông qua câu chuyện để các kết quả mà có thể khác nhau sẽ tốn thời gian để chứng minh. Điều này dẫn đến một chiến lược mới để giải quyết bài toán, mà chúng ta sẽ minh họa: ngay cả khi một bài toán không đề cập đến quá trình Poisson, đôi khi có những cách để giả định các biến ngẫu nhiên đang đến từ một quá trình Poisson để chúng ta có thể sử dụng các tính chất thuận tiện của quá trình Poisson.\r
 \r
-Trong chương này, chúng ta sẽ ôn lại định nghĩa đã quen thuộc của quá trình Poisson một chiều, suy ra và thảo luận ba tính chất quan trọng của quá trình Poisson một chiều, và sau đó mở rộng các tính chất này cho các quá trình Poisson trong các chiều cao hơn.`,ij=`Trong Mục 5.6, chúng ta đã định nghĩa một quá trình Poisson một chiều và cho thấy rằng các khoảng thời gian giữa các sự kiện là i.i.d. Exponentials. Trong Chương 8 chúng ta đã cho thấy rằng thời gian của sự kiện thứ j (so với một thời điểm bắt đầu cố định) là Gamma. Hãy xem lại các kết quả này, với ký hiệu sẽ giúp chúng ta tổng quát hóa cho các chiều cao hơn.\r
+Trong chương này, chúng ta sẽ ôn lại định nghĩa đã quen thuộc của quá trình Poisson một chiều, suy ra và thảo luận ba tính chất quan trọng của quá trình Poisson một chiều, và sau đó mở rộng các tính chất này cho các quá trình Poisson trong các chiều cao hơn.`,uj=`Trong Mục 5.6, chúng ta đã định nghĩa một quá trình Poisson một chiều và cho thấy rằng các khoảng thời gian giữa các sự kiện là i.i.d. Exponentials. Trong Chương 8 chúng ta đã cho thấy rằng thời gian của sự kiện thứ j (so với một thời điểm bắt đầu cố định) là Gamma. Hãy xem lại các kết quả này, với ký hiệu sẽ giúp chúng ta tổng quát hóa cho các chiều cao hơn.\r
 \r
 Định nghĩa 13.1.1 (Quá trình Poisson một chiều). Một chuỗi các sự kiện trong thời gian liên tục là một quá trình Poisson với tốc độ  $\\lambda$  nếu các điều kiện sau được thỏa mãn:\r
 \r
@@ -22931,7 +23103,7 @@ Hình 13.1 mô tả ba lần thực hiện của các quá trình Poisson với 
 <div style="text-align: center;">HÌNH 13.1</div>\r
 \r
 \r
-Quá trình Poisson mô phỏng trong một chiều, cho  $\\lambda = 1, 2, 5$ . Các sự kiện đến gần như không đều cách nhau, và thực tế chúng đôi khi tập trung lại với nhau,`,aj=`Ba tính chất quan trọng nhất cần hiểu về quá trình Poisson là điều kiện, tổng hợp và mỏng hóa. Những điều này tương ứng với các tính chất mà chúng ta đã thấy trước đây về phân phối Poisson, vì vậy chúng đã nên có tính hợp lý.\r
+Quá trình Poisson mô phỏng trong một chiều, cho  $\\lambda = 1, 2, 5$ . Các sự kiện đến gần như không đều cách nhau, và thực tế chúng đôi khi tập trung lại với nhau,`,dj=`Ba tính chất quan trọng nhất cần hiểu về quá trình Poisson là điều kiện, tổng hợp và mỏng hóa. Những điều này tương ứng với các tính chất mà chúng ta đã thấy trước đây về phân phối Poisson, vì vậy chúng đã nên có tính hợp lý.\r
 \r
 #### 13.2.1 Điều kiện\r
 \r
@@ -23287,7 +23459,7 @@ và  $\\sum_{j=1}^{m} p_{j}/v_{j}$  là kỳ vọng của  $V_{i}^{-1}$  theo đ
 Để kết thúc phần này, dưới đây là một bảng mô tả sự tương ứng giữa các tính chất của quá trình Poisson và các tính chất của phân phối Poisson. Trong cột thứ hai,  $Y_1 \\sim \\text{Pois}(\\lambda_1)$  và  $Y_2 \\sim \\text{Pois}(\\lambda_2)$  là độc lập.\r
 \r
 \r
-<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>quá trình Poisson</td><td style='text-align: center; word-wrap: break-word;'>phân phối Poisson</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>điều kiện</td><td style='text-align: center; word-wrap: break-word;'> $Y_{1}|Y_{1} + Y_{2} = n \\sim \\text{Bin}(n, \\lambda_{1}/(\\lambda_{1} + \\lambda_{2}))$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>tổng hợp</td><td style='text-align: center; word-wrap: break-word;'> $Y_{1} + Y_{2} \\sim \\text{Pois}(\\lambda_{1} + \\lambda_{2})$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>lọc</td><td style='text-align: center; word-wrap: break-word;'>câu chuyện gà và trừng</td></tr></table>`,oj=`Quá trình Poisson trong nhiều chiều được xác định tương tự như quá trình Poisson 1 chiều: chúng ta chỉ thay thế khái niệm độ dài bằng khái niệm diện tích hoặc thể tích. Để cụ thể hơn, chúng ta sẽ nêu định nghĩa quá trình Poisson 2 chiều, sau đó có thể dễ dàng hiểu cách xác định quá trình Poisson trong các chiều cao hơn bằng cách so sánh.\r
+<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>quá trình Poisson</td><td style='text-align: center; word-wrap: break-word;'>phân phối Poisson</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>điều kiện</td><td style='text-align: center; word-wrap: break-word;'> $Y_{1}|Y_{1} + Y_{2} = n \\sim \\text{Bin}(n, \\lambda_{1}/(\\lambda_{1} + \\lambda_{2}))$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>tổng hợp</td><td style='text-align: center; word-wrap: break-word;'> $Y_{1} + Y_{2} \\sim \\text{Pois}(\\lambda_{1} + \\lambda_{2})$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>lọc</td><td style='text-align: center; word-wrap: break-word;'>câu chuyện gà và trừng</td></tr></table>`,fj=`Quá trình Poisson trong nhiều chiều được xác định tương tự như quá trình Poisson 1 chiều: chúng ta chỉ thay thế khái niệm độ dài bằng khái niệm diện tích hoặc thể tích. Để cụ thể hơn, chúng ta sẽ nêu định nghĩa quá trình Poisson 2 chiều, sau đó có thể dễ dàng hiểu cách xác định quá trình Poisson trong các chiều cao hơn bằng cách so sánh.\r
 \r
 Định nghĩa 13.3.1 (Quá trình Poisson 2 chiều). Sự kiện trong mặt phẳng  $R^2$  là một quá trình Poisson 2 chiều với cường độ  $\\lambda$  nếu các điều kiện sau được thỏa mãn:\r
 \r
@@ -23353,7 +23525,7 @@ với r > 0 (và 0 nếu không). Đây là một phân phối Weibull (xem Ví 
 \r
  \r
 \r
-Quá trình Poisson có nhiều mở rộng, một số trong đó được khám phá trong các bài tập. Chúng ta có thể cho phép  $\\lambda$  thay đổi như một hàm số của thời gian hoặc không gian thay vì giữ nguyên; điều này được gọi là quá trình Poisson không đồng nhất. Chúng ta có thể cho phép  $\\lambda$  là một biến ngẫu nhiên; điều này được gọi là quá trình Cox. Cuối cùng, chúng ta có thể cho phép tốc độ tăng thêm  $\\lambda$  sau mỗi lần đến; điều này được gọi là quá trình Yule.`,sj=`Một quá trình Poisson trong một chiều là một chuỗi các sự kiện đến sao cho số lượng sự kiện đến trong bất kỳ khoảng nào đều có phân phối Poisson (với kỳ vọng tỷ lệ thuận với độ dài của khoảng đó) và các khoảng rời nhau có số lượng sự kiện đến độc lập. Một số phép toán mà chúng ta có thể thực hiện với quá trình Poisson bao gồm điều kiện, tổng hợp và mỏng hóa. Điều kiện trên tổng số sự kiện đến trong một khoảng cho phép chúng ta xem các sự kiện đến như là các biến ngẫu nhiên độc lập phân bố đều trên khoảng đó. Tổng hợp và mỏng hóa là bổ sung cho nhau, và chúng cho phép chúng ta chia và hợp nhất các quá trình Poisson khi cần thiết. Tất cả các tính chất này đều có phiên bản tương ứng cho các chiều cao hơn.
+Quá trình Poisson có nhiều mở rộng, một số trong đó được khám phá trong các bài tập. Chúng ta có thể cho phép  $\\lambda$  thay đổi như một hàm số của thời gian hoặc không gian thay vì giữ nguyên; điều này được gọi là quá trình Poisson không đồng nhất. Chúng ta có thể cho phép  $\\lambda$  là một biến ngẫu nhiên; điều này được gọi là quá trình Cox. Cuối cùng, chúng ta có thể cho phép tốc độ tăng thêm  $\\lambda$  sau mỗi lần đến; điều này được gọi là quá trình Yule.`,pj=`Một quá trình Poisson trong một chiều là một chuỗi các sự kiện đến sao cho số lượng sự kiện đến trong bất kỳ khoảng nào đều có phân phối Poisson (với kỳ vọng tỷ lệ thuận với độ dài của khoảng đó) và các khoảng rời nhau có số lượng sự kiện đến độc lập. Một số phép toán mà chúng ta có thể thực hiện với quá trình Poisson bao gồm điều kiện, tổng hợp và mỏng hóa. Điều kiện trên tổng số sự kiện đến trong một khoảng cho phép chúng ta xem các sự kiện đến như là các biến ngẫu nhiên độc lập phân bố đều trên khoảng đó. Tổng hợp và mỏng hóa là bổ sung cho nhau, và chúng cho phép chúng ta chia và hợp nhất các quá trình Poisson khi cần thiết. Tất cả các tính chất này đều có phiên bản tương ứng cho các chiều cao hơn.
 
 Quá trình Poisson kết nối nhiều phân phối đã được chúng ta nghiên cứu trong cuốn sách này:
 
@@ -23369,7 +23541,7 @@ Quá trình Poisson kết nối nhiều phân phối đã được chúng ta ngh
 
 Quá trình Poisson cũng đặc biệt phù hợp với các chứng minh bằng câu chuyện. Một chiến lược giải bài toán mà chúng ta đã sử dụng nhiều lần trong chương này là chèn các biến ngẫu nhiên vào một quá trình Poisson với hy vọng phát hiện ra một chứng minh bằng câu chuyện, ngay cả khi bài toán ban đầu dường như không liên quan đến các quá trình Poisson.
 
-Quá trình Poisson kết hợp hai chủ đề quan trọng của cuốn sách này, các phân phối có tên và câu chuyện, một cách tự nhiên. Chúng ta nghĩ rằng việc kết thúc với một chủ đề kết nối các sợi câu chuyện từ khắp nơi trong cuốn sách là phù hợp.`,cj=`## 1 D Quá trình Poisson\r
+Quá trình Poisson kết hợp hai chủ đề quan trọng của cuốn sách này, các phân phối có tên và câu chuyện, một cách tự nhiên. Chúng ta nghĩ rằng việc kết thúc với một chủ đề kết nối các sợi câu chuyện từ khắp nơi trong cuốn sách là phù hợp.`,mj=`## 1 D Quá trình Poisson\r
 \r
 Trong Chương 5, chúng ta đã thảo luận cách mô phỏng một số lượng xác định các sự kiện đến từ một quá trình Poisson một chiều bằng cách sử dụng sự kiện rằng các khoảng thời gian giữa các sự kiện đến là các biến độc lập và đồng phân phối Exponential. Trong chương này, Câu chuyện 13.2.4 cho chúng ta biết cách mô phỏng một quá trình Poisson trong một khoảng thời gian cụ thể  $(0, L]$ . Chúng ta trước tiên tạo ra số lượng sự kiện đến  $N(L)$ , được phân phối Pois(  $\\lambda L$ ). Điều kiện trên  $N(L) = n$ , thời gian đến\r
 \r
@@ -23420,7 +23592,7 @@ L <- 5\r
 lambda <- 10\r
 n <- rpois(1, lambda * L^2)\r
 x <- runif(n, 0, L)\r
-y <- runif(n, 0, L)`,lj=`1. Các hành khách đến một điểm dừng xe buýt theo một quá trình Poisson với tốc độ  $\\lambda$ . Các lần đến của xe buýt chính xác là  $t$  phút. Hãy chứng minh rằng trung bình, tổng thời gian chờ đợi của các hành khách trên một trong những xe buýt là  $\\frac{1}{2}\\lambda t^2$ .\r
+y <- runif(n, 0, L)`,hj=`1. Các hành khách đến một điểm dừng xe buýt theo một quá trình Poisson với tốc độ  $\\lambda$ . Các lần đến của xe buýt chính xác là  $t$  phút. Hãy chứng minh rằng trung bình, tổng thời gian chờ đợi của các hành khách trên một trong những xe buýt là  $\\frac{1}{2}\\lambda t^2$ .\r
 \r
 2. Các trận động đất xảy ra theo thời gian theo một quá trình Poisson với tốc độ  $\\lambda$ . Trận thứ j động đất có cường độ  $Z_j$ , nơi các  $Z_j$  là độc lập đồng phân phối với kỳ vọng  $\\mu$  và phương sai  $\\sigma^2$ . Hãy tìm kỳ vọng và phương sai của cường độ tổng cộng của tất cả các trận động đất đến thời điểm  $t$ .\r
 \r
@@ -33315,4 +33487,4 @@ suy nghĩ hoài vọng, 68, 310, 418, 423\r
 \r
 WLLN, xem định luật số lớn yếu\r
 \r
-phân phối Zipf, 538`;function uj({pageId:e}){switch(e){case`ch0`:return(0,x.jsxs)(x.Fragment,{children:[(0,x.jsxs)(`div`,{className:`page-header`,children:[(0,x.jsx)(`div`,{className:`page-eyebrow`,children:`Chương 0`}),(0,x.jsx)(`h1`,{className:`page-title`,children:`Mở đầu`})]}),(0,x.jsx)(lk,{content:uk})]});case`ch1`:return(0,x.jsx)(Go,{chapterId:e,children:(0,x.jsx)(lk,{content:fk})});case`ch0-s1`:return(0,x.jsx)($,{pageId:e,content:dk});case`ch0-s2`:return(0,x.jsx)(Uo,{});case`ch1-s1`:return(0,x.jsx)($,{pageId:e,content:pk});case`ch1-s2`:return(0,x.jsx)($,{pageId:e,content:mk});case`ch1-s3`:return(0,x.jsx)($,{pageId:e,content:hk});case`ch1-s4`:return(0,x.jsx)($,{pageId:e,content:gk});case`ch1-s5`:return(0,x.jsx)($,{pageId:e,content:_k});case`ch1-s6`:return(0,x.jsx)($,{pageId:e,content:vk});case`ch1-s7`:return(0,x.jsx)($,{pageId:e,content:yk});case`ch1-s8`:return(0,x.jsx)($,{pageId:e,content:bk});case`ch1-s9`:return(0,x.jsx)($,{pageId:e,content:xk});case`ch2-s1`:return(0,x.jsx)($,{pageId:e,content:Sk});case`ch2-s2`:return(0,x.jsx)($,{pageId:e,content:Ck});case`ch2-s3`:return(0,x.jsx)($,{pageId:e,content:wk});case`ch2-s5`:return(0,x.jsx)($,{pageId:e,content:Tk});case`ch2-s6`:return(0,x.jsx)($,{pageId:e,content:Ek});case`ch2-s7`:return(0,x.jsx)($,{pageId:e,content:Dk});case`ch2-s8`:return(0,x.jsx)($,{pageId:e,content:Ok});case`ch2-s9`:return(0,x.jsx)($,{pageId:e,content:kk});case`ch2-s10`:return(0,x.jsx)($,{pageId:e,content:Ak});case`ch2-s11`:return(0,x.jsx)($,{pageId:e,content:jk});case`ch3-s1`:return(0,x.jsx)($,{pageId:e,content:Mk});case`ch3-s2`:return(0,x.jsx)($,{pageId:e,content:Nk});case`ch3-s4`:return(0,x.jsx)($,{pageId:e,content:Pk});case`ch3-s5`:return(0,x.jsx)($,{pageId:e,content:Fk});case`ch3-s6`:return(0,x.jsx)($,{pageId:e,content:Ik});case`ch3-s7`:return(0,x.jsx)($,{pageId:e,content:Lk});case`ch3-s9`:return(0,x.jsx)($,{pageId:e,content:Rk});case`ch3-s10`:return(0,x.jsx)($,{pageId:e,content:zk});case`ch3-s11`:return(0,x.jsx)($,{pageId:e,content:Bk});case`ch3-s12`:return(0,x.jsx)($,{pageId:e,content:Vk});case`ch4-s1`:return(0,x.jsx)($,{pageId:e,content:Hk});case`ch4-s2`:return(0,x.jsx)($,{pageId:e,content:Uk});case`ch4-s3`:return(0,x.jsx)($,{pageId:e,content:Wk});case`ch4-s5`:return(0,x.jsx)($,{pageId:e,content:Gk});case`ch4-s6`:return(0,x.jsx)($,{pageId:e,content:Kk});case`ch4-s7`:return(0,x.jsx)($,{pageId:e,content:qk});case`ch4-s8`:return(0,x.jsx)($,{pageId:e,content:Jk});case`ch4-s9`:return(0,x.jsx)($,{pageId:e,content:Yk});case`ch4-s10`:return(0,x.jsx)($,{pageId:e,content:Xk});case`ch4-s11`:return(0,x.jsx)($,{pageId:e,content:Zk});case`ch4-s12`:return(0,x.jsx)($,{pageId:e,content:Qk});case`ch5-s1`:return(0,x.jsx)($,{pageId:e,content:$k});case`ch5-s2`:return(0,x.jsx)($,{pageId:e,content:eA});case`ch5-s3`:return(0,x.jsx)($,{pageId:e,content:tA});case`ch5-s4`:return(0,x.jsx)($,{pageId:e,content:nA});case`ch5-s5`:return(0,x.jsx)($,{pageId:e,content:rA});case`ch5-s6`:return(0,x.jsx)($,{pageId:e,content:iA});case`ch5-s8`:return(0,x.jsx)($,{pageId:e,content:aA});case`ch5-s10`:return(0,x.jsx)($,{pageId:e,content:oA});case`ch6-s1`:return(0,x.jsx)($,{pageId:e,content:sA});case`ch6-s2`:return(0,x.jsx)($,{pageId:e,content:cA});case`ch6-s3`:return(0,x.jsx)($,{pageId:e,content:lA});case`ch6-s4`:return(0,x.jsx)($,{pageId:e,content:uA});case`ch6-s5`:return(0,x.jsx)($,{pageId:e,content:dA});case`ch6-s7`:return(0,x.jsx)($,{pageId:e,content:fA});case`ch6-s8`:return(0,x.jsx)($,{pageId:e,content:pA});case`ch6-s9`:return(0,x.jsx)($,{pageId:e,content:mA});case`ch6-s10`:return(0,x.jsx)($,{pageId:e,content:hA});case`ch7-s1`:return(0,x.jsx)($,{pageId:e,content:gA});case`ch7-s2`:return(0,x.jsx)($,{pageId:e,content:_A});case`ch7-s3`:return(0,x.jsx)($,{pageId:e,content:vA});case`ch7-s4`:return(0,x.jsx)($,{pageId:e,content:yA});case`ch7-s5`:return(0,x.jsx)($,{pageId:e,content:bA});case`ch7-s6`:return(0,x.jsx)($,{pageId:e,content:xA});case`ch7-s7`:return(0,x.jsx)($,{pageId:e,content:SA});case`ch7-s8`:return(0,x.jsx)($,{pageId:e,content:CA});case`ch8-s1`:return(0,x.jsx)($,{pageId:e,content:wA});case`ch8-s2`:return(0,x.jsx)($,{pageId:e,content:TA});case`ch8-s3`:return(0,x.jsx)($,{pageId:e,content:EA});case`ch8-s4`:return(0,x.jsx)($,{pageId:e,content:DA});case`ch8-s5`:return(0,x.jsx)($,{pageId:e,content:OA});case`ch8-s6`:return(0,x.jsx)($,{pageId:e,content:kA});case`ch8-s7`:return(0,x.jsx)($,{pageId:e,content:AA});case`ch8-s8`:return(0,x.jsx)($,{pageId:e,content:jA});case`ch8-s9`:return(0,x.jsx)($,{pageId:e,content:MA});case`ch9-s1`:return(0,x.jsx)($,{pageId:e,content:NA});case`ch9-s3`:return(0,x.jsx)($,{pageId:e,content:PA});case`ch9-s4`:return(0,x.jsx)($,{pageId:e,content:FA});case`ch9-s5`:return(0,x.jsx)($,{pageId:e,content:IA});case`ch9-s7`:return(0,x.jsx)($,{pageId:e,content:LA});case`ch9-s8`:return(0,x.jsx)($,{pageId:e,content:RA});case`ch9-s9`:return(0,x.jsx)($,{pageId:e,content:zA});case`ch10-s1`:return(0,x.jsx)($,{pageId:e,content:BA});case`ch10-s2`:return(0,x.jsx)($,{pageId:e,content:VA});case`ch10-s3`:return(0,x.jsx)($,{pageId:e,content:HA});case`ch10-s5`:return(0,x.jsx)($,{pageId:e,content:UA});case`ch10-s6`:return(0,x.jsx)($,{pageId:e,content:WA});case`ch10-s7`:return(0,x.jsx)($,{pageId:e,content:GA});case`ch11-s1`:return(0,x.jsx)($,{pageId:e,content:KA});case`ch11-s2`:return(0,x.jsx)($,{pageId:e,content:qA});case`ch11-s3`:return(0,x.jsx)($,{pageId:e,content:JA});case`ch11-s4`:return(0,x.jsx)($,{pageId:e,content:YA});case`ch11-s5`:return(0,x.jsx)($,{pageId:e,content:XA});case`ch11-s6`:return(0,x.jsx)($,{pageId:e,content:ZA});case`ch11-s7`:return(0,x.jsx)($,{pageId:e,content:QA});case`ch12-s1`:return(0,x.jsx)($,{pageId:e,content:$A});case`ch12-s2`:return(0,x.jsx)($,{pageId:e,content:ej});case`ch12-s3`:return(0,x.jsx)($,{pageId:e,content:tj});case`ch12-s4`:return(0,x.jsx)($,{pageId:e,content:nj});case`ch12-s5`:return(0,x.jsx)($,{pageId:e,content:rj});case`ch13-s1`:return(0,x.jsx)($,{pageId:e,content:ij});case`ch13-s2`:return(0,x.jsx)($,{pageId:e,content:aj});case`ch13-s3`:return(0,x.jsx)($,{pageId:e,content:oj});case`ch13-s4`:return(0,x.jsx)($,{pageId:e,content:sj});case`ch13-s5`:return(0,x.jsx)($,{pageId:e,content:cj});case`ch13-s6`:return(0,x.jsx)($,{pageId:e,content:lj});case`ch5-s4`:return(0,x.jsx)(Wo,{});default:return ge.find(t=>t.id===e)?(0,x.jsx)(Go,{chapterId:e}):(0,x.jsx)(Ko,{pageId:e})}}function $({pageId:e,content:t}){let n=ge.find(t=>t.sections.some(t=>t.id===e))?.sections.find(t=>t.id===e);return(0,x.jsxs)(x.Fragment,{children:[n&&(0,x.jsxs)(`div`,{className:`page-header`,children:[(0,x.jsxs)(`div`,{className:`page-eyebrow`,children:[`Mục `,n.number]}),(0,x.jsx)(`h1`,{className:`page-title`,children:n.title})]}),(0,x.jsx)(lk,{content:t})]})}function dj(){let[e,t]=(0,v.useState)(()=>window.location.hash.slice(1)||`ch0`),[n,r]=(0,v.useState)(!1),[i,a]=(0,v.useState)(``),[o,s]=(0,v.useState)(()=>localStorage.getItem(`theme`)||`dark`);(0,v.useEffect)(()=>{document.documentElement.setAttribute(`data-theme`,o),localStorage.setItem(`theme`,o)},[o]),(0,v.useEffect)(()=>{e&&(window.location.hash=e)},[e]),(0,v.useEffect)(()=>{let e=()=>{let e=window.location.hash.slice(1);e&&t(e)};return window.addEventListener(`hashchange`,e),()=>window.removeEventListener(`hashchange`,e)},[]);let c=(0,v.useCallback)(()=>{s(e=>e===`dark`?`light`:`dark`)},[]),l=(0,v.useCallback)(e=>{t(e),window.scrollTo({top:0,behavior:`smooth`})},[]),{prev:u,next:d}=ye(e);return(0,x.jsxs)(`div`,{className:`app-layout`,children:[(0,x.jsx)(xe,{onToggleSidebar:()=>r(e=>!e),searchQuery:i,onSearchChange:a,theme:o,onToggleTheme:c}),(0,x.jsx)(Se,{currentPage:e,onNavigate:l,isOpen:n,onClose:()=>r(!1)}),(0,x.jsx)(`main`,{className:`main-content`,children:(0,x.jsxs)(`article`,{className:`content-page`,children:[(0,x.jsx)(uj,{pageId:e},e),(0,x.jsxs)(`nav`,{className:`page-nav`,"aria-label":`Điều hướng trang`,children:[u?(0,x.jsxs)(`button`,{className:`nav-btn`,onClick:()=>l(u),children:[(0,x.jsxs)(`span`,{className:`nav-btn-label`,children:[(0,x.jsx)(ue,{size:12,style:{display:`inline`}}),` Trước`]}),(0,x.jsx)(`span`,{className:`nav-btn-title`,children:ve(u)})]}):(0,x.jsx)(`div`,{style:{flex:1}}),d&&(0,x.jsxs)(`button`,{className:`nav-btn next`,onClick:()=>l(d),children:[(0,x.jsxs)(`span`,{className:`nav-btn-label`,children:[`Tiếp theo `,(0,x.jsx)(de,{size:12,style:{display:`inline`}})]}),(0,x.jsx)(`span`,{className:`nav-btn-title`,children:ve(d)})]})]})]})}),(0,x.jsx)(Ce,{pageId:e})]})}(0,y.createRoot)(document.getElementById(`root`)).render((0,x.jsx)(v.StrictMode,{children:(0,x.jsx)(dj,{})}));
+phân phối Zipf, 538`;function gj({pageId:e}){switch(e){case`ch0`:return(0,x.jsxs)(x.Fragment,{children:[(0,x.jsxs)(`div`,{className:`page-header`,children:[(0,x.jsx)(`div`,{className:`page-eyebrow`,children:`Chương 0`}),(0,x.jsx)(`h1`,{className:`page-title`,children:`Mở đầu`})]}),(0,x.jsx)(lk,{content:uk})]});case`ch1`:return(0,x.jsx)(Go,{chapterId:e,children:(0,x.jsx)(lk,{content:pk})});case`ch0-s1`:return(0,x.jsx)($,{pageId:e,content:dk});case`ch0-s2`:return(0,x.jsx)($,{pageId:e,content:fk});case`ch0-s3`:return(0,x.jsx)(Uo,{});case`ch1-s1`:return(0,x.jsx)($,{pageId:e,content:mk});case`ch1-s2`:return(0,x.jsx)($,{pageId:e,content:hk});case`ch1-s3`:return(0,x.jsx)($,{pageId:e,content:gk});case`ch1-s4`:return(0,x.jsx)($,{pageId:e,content:_k});case`ch1-s5`:return(0,x.jsx)($,{pageId:e,content:vk});case`ch1-s6`:return(0,x.jsx)($,{pageId:e,content:yk});case`ch1-s7`:return(0,x.jsx)($,{pageId:e,content:bk});case`ch1-s8`:return(0,x.jsx)($,{pageId:e,content:xk});case`ch1-s9`:return(0,x.jsx)($,{pageId:e,content:Sk});case`ch2-s1`:return(0,x.jsx)($,{pageId:e,content:Ck});case`ch2-s2`:return(0,x.jsx)($,{pageId:e,content:wk});case`ch2-s3`:return(0,x.jsx)($,{pageId:e,content:Tk});case`ch2-s5`:return(0,x.jsx)($,{pageId:e,content:Ek});case`ch2-s6`:return(0,x.jsx)($,{pageId:e,content:Dk});case`ch2-s7`:return(0,x.jsx)($,{pageId:e,content:Ok});case`ch2-s8`:return(0,x.jsx)($,{pageId:e,content:kk});case`ch2-s9`:return(0,x.jsx)($,{pageId:e,content:Ak});case`ch2-s10`:return(0,x.jsx)($,{pageId:e,content:jk});case`ch2-s11`:return(0,x.jsx)($,{pageId:e,content:Mk});case`ch3-s1`:return(0,x.jsx)($,{pageId:e,content:Nk});case`ch3-s2`:return(0,x.jsx)($,{pageId:e,content:Pk});case`ch3-s4`:return(0,x.jsx)($,{pageId:e,content:Fk});case`ch3-s5`:return(0,x.jsx)($,{pageId:e,content:Ik});case`ch3-s6`:return(0,x.jsx)($,{pageId:e,content:Lk});case`ch3-s7`:return(0,x.jsx)($,{pageId:e,content:Rk});case`ch3-s8`:return(0,x.jsx)($,{pageId:e,content:zk});case`ch3-s9`:return(0,x.jsx)($,{pageId:e,content:Bk});case`ch3-s10`:return(0,x.jsx)($,{pageId:e,content:Vk});case`ch3-s11`:return(0,x.jsx)($,{pageId:e,content:Hk});case`ch3-s12`:return(0,x.jsx)($,{pageId:e,content:Uk});case`ch4-s1`:return(0,x.jsx)($,{pageId:e,content:Wk});case`ch4-s2`:return(0,x.jsx)($,{pageId:e,content:Gk});case`ch4-s3`:return(0,x.jsx)($,{pageId:e,content:Kk});case`ch4-s4`:return(0,x.jsx)($,{pageId:e,content:qk});case`ch4-s5`:return(0,x.jsx)($,{pageId:e,content:Jk});case`ch4-s6`:return(0,x.jsx)($,{pageId:e,content:Yk});case`ch4-s7`:return(0,x.jsx)($,{pageId:e,content:Xk});case`ch4-s8`:return(0,x.jsx)($,{pageId:e,content:Zk});case`ch4-s9`:return(0,x.jsx)($,{pageId:e,content:Qk});case`ch4-s10`:return(0,x.jsx)($,{pageId:e,content:$k});case`ch4-s11`:return(0,x.jsx)($,{pageId:e,content:eA});case`ch4-s12`:return(0,x.jsx)($,{pageId:e,content:tA});case`ch5-s1`:return(0,x.jsx)($,{pageId:e,content:nA});case`ch5-s2`:return(0,x.jsx)($,{pageId:e,content:rA});case`ch5-s3`:return(0,x.jsx)($,{pageId:e,content:iA});case`ch5-s4`:return(0,x.jsx)($,{pageId:e,content:aA});case`ch5-s5`:return(0,x.jsx)($,{pageId:e,content:oA});case`ch5-s6`:return(0,x.jsx)($,{pageId:e,content:sA});case`ch5-s7`:return(0,x.jsx)($,{pageId:e,content:cA});case`ch5-s8`:return(0,x.jsx)($,{pageId:e,content:lA});case`ch5-s9`:return(0,x.jsx)($,{pageId:e,content:uA});case`ch5-s10`:return(0,x.jsx)($,{pageId:e,content:dA});case`ch6-s1`:return(0,x.jsx)($,{pageId:e,content:fA});case`ch6-s2`:return(0,x.jsx)($,{pageId:e,content:pA});case`ch6-s3`:return(0,x.jsx)($,{pageId:e,content:mA});case`ch6-s4`:return(0,x.jsx)($,{pageId:e,content:hA});case`ch6-s5`:return(0,x.jsx)($,{pageId:e,content:gA});case`ch6-s6`:return(0,x.jsx)($,{pageId:e,content:_A});case`ch6-s7`:return(0,x.jsx)($,{pageId:e,content:vA});case`ch6-s8`:return(0,x.jsx)($,{pageId:e,content:yA});case`ch6-s9`:return(0,x.jsx)($,{pageId:e,content:bA});case`ch6-s10`:return(0,x.jsx)($,{pageId:e,content:xA});case`ch7-s1`:return(0,x.jsx)($,{pageId:e,content:SA});case`ch7-s2`:return(0,x.jsx)($,{pageId:e,content:CA});case`ch7-s3`:return(0,x.jsx)($,{pageId:e,content:wA});case`ch7-s4`:return(0,x.jsx)($,{pageId:e,content:TA});case`ch7-s5`:return(0,x.jsx)($,{pageId:e,content:EA});case`ch7-s6`:return(0,x.jsx)($,{pageId:e,content:DA});case`ch7-s7`:return(0,x.jsx)($,{pageId:e,content:OA});case`ch7-s8`:return(0,x.jsx)($,{pageId:e,content:kA});case`ch8-s1`:return(0,x.jsx)($,{pageId:e,content:AA});case`ch8-s2`:return(0,x.jsx)($,{pageId:e,content:jA});case`ch8-s3`:return(0,x.jsx)($,{pageId:e,content:MA});case`ch8-s4`:return(0,x.jsx)($,{pageId:e,content:NA});case`ch8-s5`:return(0,x.jsx)($,{pageId:e,content:PA});case`ch8-s6`:return(0,x.jsx)($,{pageId:e,content:FA});case`ch8-s7`:return(0,x.jsx)($,{pageId:e,content:IA});case`ch8-s8`:return(0,x.jsx)($,{pageId:e,content:LA});case`ch8-s9`:return(0,x.jsx)($,{pageId:e,content:RA});case`ch9-s1`:return(0,x.jsx)($,{pageId:e,content:zA});case`ch9-s3`:return(0,x.jsx)($,{pageId:e,content:BA});case`ch9-s4`:return(0,x.jsx)($,{pageId:e,content:VA});case`ch9-s5`:return(0,x.jsx)($,{pageId:e,content:HA});case`ch9-s7`:return(0,x.jsx)($,{pageId:e,content:UA});case`ch9-s8`:return(0,x.jsx)($,{pageId:e,content:WA});case`ch9-s9`:return(0,x.jsx)($,{pageId:e,content:GA});case`ch10-s1`:return(0,x.jsx)($,{pageId:e,content:KA});case`ch10-s2`:return(0,x.jsx)($,{pageId:e,content:qA});case`ch10-s3`:return(0,x.jsx)($,{pageId:e,content:JA});case`ch10-s5`:return(0,x.jsx)($,{pageId:e,content:YA});case`ch10-s6`:return(0,x.jsx)($,{pageId:e,content:XA});case`ch10-s7`:return(0,x.jsx)($,{pageId:e,content:ZA});case`ch11-s1`:return(0,x.jsx)($,{pageId:e,content:QA});case`ch11-s2`:return(0,x.jsx)($,{pageId:e,content:$A});case`ch11-s3`:return(0,x.jsx)($,{pageId:e,content:ej});case`ch11-s4`:return(0,x.jsx)($,{pageId:e,content:tj});case`ch11-s5`:return(0,x.jsx)($,{pageId:e,content:nj});case`ch11-s6`:return(0,x.jsx)($,{pageId:e,content:rj});case`ch11-s7`:return(0,x.jsx)($,{pageId:e,content:ij});case`ch12-s1`:return(0,x.jsx)($,{pageId:e,content:aj});case`ch12-s2`:return(0,x.jsx)($,{pageId:e,content:oj});case`ch12-s3`:return(0,x.jsx)($,{pageId:e,content:sj});case`ch12-s4`:return(0,x.jsx)($,{pageId:e,content:cj});case`ch12-s5`:return(0,x.jsx)($,{pageId:e,content:lj});case`ch13-s1`:return(0,x.jsx)($,{pageId:e,content:uj});case`ch13-s2`:return(0,x.jsx)($,{pageId:e,content:dj});case`ch13-s3`:return(0,x.jsx)($,{pageId:e,content:fj});case`ch13-s4`:return(0,x.jsx)($,{pageId:e,content:pj});case`ch13-s5`:return(0,x.jsx)($,{pageId:e,content:mj});case`ch13-s6`:return(0,x.jsx)($,{pageId:e,content:hj});case`ch5-s4`:return(0,x.jsx)(Wo,{});default:return ge.find(t=>t.id===e)?(0,x.jsx)(Go,{chapterId:e}):(0,x.jsx)(Ko,{pageId:e})}}function $({pageId:e,content:t}){let n=ge.find(t=>t.sections.some(t=>t.id===e))?.sections.find(t=>t.id===e);return(0,x.jsxs)(x.Fragment,{children:[n&&(0,x.jsxs)(`div`,{className:`page-header`,children:[(0,x.jsxs)(`div`,{className:`page-eyebrow`,children:[`Mục `,n.number]}),(0,x.jsx)(`h1`,{className:`page-title`,children:n.title})]}),(0,x.jsx)(lk,{content:t})]})}function _j(){let[e,t]=(0,v.useState)(()=>window.location.hash.slice(1)||`ch0`),[n,r]=(0,v.useState)(!1),[i,a]=(0,v.useState)(``),[o,s]=(0,v.useState)(()=>localStorage.getItem(`theme`)||`dark`);(0,v.useEffect)(()=>{document.documentElement.setAttribute(`data-theme`,o),localStorage.setItem(`theme`,o)},[o]),(0,v.useEffect)(()=>{e&&(window.location.hash=e)},[e]),(0,v.useEffect)(()=>{let e=()=>{let e=window.location.hash.slice(1);e&&t(e)};return window.addEventListener(`hashchange`,e),()=>window.removeEventListener(`hashchange`,e)},[]);let c=(0,v.useCallback)(()=>{s(e=>e===`dark`?`light`:`dark`)},[]),l=(0,v.useCallback)(e=>{t(e),window.scrollTo({top:0,behavior:`smooth`})},[]),{prev:u,next:d}=ye(e);return(0,x.jsxs)(`div`,{className:`app-layout`,children:[(0,x.jsx)(xe,{onToggleSidebar:()=>r(e=>!e),searchQuery:i,onSearchChange:a,theme:o,onToggleTheme:c}),(0,x.jsx)(Se,{currentPage:e,onNavigate:l,isOpen:n,onClose:()=>r(!1)}),(0,x.jsx)(`main`,{className:`main-content`,children:(0,x.jsxs)(`article`,{className:`content-page`,children:[(0,x.jsx)(gj,{pageId:e},e),(0,x.jsxs)(`nav`,{className:`page-nav`,"aria-label":`Điều hướng trang`,children:[u?(0,x.jsxs)(`button`,{className:`nav-btn`,onClick:()=>l(u),children:[(0,x.jsxs)(`span`,{className:`nav-btn-label`,children:[(0,x.jsx)(ue,{size:12,style:{display:`inline`}}),` Trước`]}),(0,x.jsx)(`span`,{className:`nav-btn-title`,children:ve(u)})]}):(0,x.jsx)(`div`,{style:{flex:1}}),d&&(0,x.jsxs)(`button`,{className:`nav-btn next`,onClick:()=>l(d),children:[(0,x.jsxs)(`span`,{className:`nav-btn-label`,children:[`Tiếp theo `,(0,x.jsx)(de,{size:12,style:{display:`inline`}})]}),(0,x.jsx)(`span`,{className:`nav-btn-title`,children:ve(d)})]})]})]})}),(0,x.jsx)(Ce,{pageId:e})]})}(0,y.createRoot)(document.getElementById(`root`)).render((0,x.jsx)(v.StrictMode,{children:(0,x.jsx)(_j,{})}));
