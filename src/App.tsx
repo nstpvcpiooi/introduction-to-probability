@@ -66,12 +66,14 @@ import ch5s5Raw from '@/content/ch5/s5.md?raw';
 import ch5s6Raw from '@/content/ch5/s6.md?raw';
 import ch5s7Raw from '@/content/ch5/s7.md?raw';
 import ch5s8Raw from '@/content/ch5/s8.md?raw';
+import ch5s9Raw from '@/content/ch5/s9.md?raw';
 import ch5s10Raw from '@/content/ch5/s10.md?raw';
 import ch6s1Raw from '@/content/ch6/s1.md?raw';
 import ch6s2Raw from '@/content/ch6/s2.md?raw';
 import ch6s3Raw from '@/content/ch6/s3.md?raw';
 import ch6s4Raw from '@/content/ch6/s4.md?raw';
 import ch6s5Raw from '@/content/ch6/s5.md?raw';
+import ch6s6Raw from '@/content/ch6/s6.md?raw';
 import ch6s7Raw from '@/content/ch6/s7.md?raw';
 import ch6s8Raw from '@/content/ch6/s8.md?raw';
 import ch6s9Raw from '@/content/ch6/s9.md?raw';
@@ -241,6 +243,7 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
     case 'ch5-s7': return <SectionPage pageId={pageId} content={ch5s7Raw} />;
 
     case 'ch5-s8': return <SectionPage pageId={pageId} content={ch5s8Raw} />;
+    case 'ch5-s9': return <SectionPage pageId={pageId} content={ch5s9Raw} />;
 
     case 'ch5-s10': return <SectionPage pageId={pageId} content={ch5s10Raw} />;
 
@@ -253,6 +256,7 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
     case 'ch6-s4': return <SectionPage pageId={pageId} content={ch6s4Raw} />;
 
     case 'ch6-s5': return <SectionPage pageId={pageId} content={ch6s5Raw} />;
+    case 'ch6-s6': return <SectionPage pageId={pageId} content={ch6s6Raw} />;
 
     case 'ch6-s7': return <SectionPage pageId={pageId} content={ch6s7Raw} />;
 

@@ -118,6 +118,7 @@ export const chapters: Chapter[] = [
       { id: "ch5-s6", number: "5.6", title: "Quá trình Poisson" },
       { id: "ch5-s7", number: "5.7", title: "Tính đối xứng của các biến ngẫu nhiên liên tục" },
       { id: "ch5-s8", number: "5.8", title: "Tóm tắt" },
+      { id: "ch5-s9", number: "5.9", title: "R" },
       { id: "ch5-s10", number: "5.10", title: "Bài tập" },
     ],
   },
@@ -130,7 +131,8 @@ export const chapters: Chapter[] = [
       { id: "ch6-s3", number: "6.3", title: "Mô-men mẫu" },
       { id: "ch6-s4", number: "6.4", title: "Hàm sinh mô-men" },
       { id: "ch6-s5", number: "6.5", title: "Tạo mô-men bằng hàm sinh mô-men" },
-      { id: "ch6-s7", number: "6.7", title: "*Hàm sinh xác suất" },
+      { id: "ch6-s6", number: "6.6", title: "Tổng của các biến ngẫu nhiên độc lập qua hàm sinh momen" },
+      { id: "ch6-s7", number: "6.7", title: "Hàm sinh xác suất" },
       { id: "ch6-s8", number: "6.8", title: "Tóm tắt" },
       { id: "ch6-s9", number: "6.9", title: "R" },
       { id: "ch6-s10", number: "6.10", title: "Bài tập" },
@@ -232,7 +234,7 @@ export type PageId = string;
 
 // Map pageId -> content rendered by component
 export const pageOrder: PageId[] = [
-  "ch0", "ch1", "ch1-s1", "ch1-s2", "ch1-s3", "ch1-s4", "ch1-s5", "ch1-s6", "ch1-s7", "ch1-s8", "ch1-s9", "ch2", "ch2-s1", "ch2-s2", "ch2-s3", "ch2-s5", "ch2-s6", "ch2-s7", "ch2-s8", "ch2-s9", "ch2-s10", "ch2-s11", "ch3", "ch3-s1", "ch3-s2", "ch3-s4", "ch3-s5", "ch3-s6", "ch3-s7", "ch3-s8", "ch3-s9", "ch3-s10", "ch3-s11", "ch3-s12", "ch4", "ch4-s1", "ch4-s2", "ch4-s3", "ch4-s4", "ch4-s5", "ch4-s6", "ch4-s7", "ch4-s8", "ch4-s9", "ch4-s10", "ch4-s11", "ch4-s12", "ch5", "ch5-s1", "ch5-s2", "ch5-s3", "ch5-s4", "ch5-s5", "ch5-s6", "ch5-s7", "ch5-s8", "ch5-s10", "ch6", "ch6-s1", "ch6-s2", "ch6-s3", "ch6-s4", "ch6-s5", "ch6-s7", "ch6-s8", "ch6-s9", "ch6-s10", "ch7", "ch7-s1", "ch7-s2", "ch7-s3", "ch7-s4", "ch7-s5", "ch7-s6", "ch7-s7", "ch7-s8", "ch8", "ch8-s1", "ch8-s2", "ch8-s3", "ch8-s4", "ch8-s5", "ch8-s6", "ch8-s7", "ch8-s8", "ch8-s9", "ch9", "ch9-s1", "ch9-s3", "ch9-s4", "ch9-s5", "ch9-s7", "ch9-s8", "ch9-s9", "ch10", "ch10-s1", "ch10-s2", "ch10-s3", "ch10-s5", "ch10-s6", "ch10-s7", "ch11", "ch11-s1", "ch11-s2", "ch11-s3", "ch11-s4", "ch11-s5", "ch11-s6", "ch11-s7", "ch12", "ch12-s1", "ch12-s2", "ch12-s3", "ch12-s4", "ch12-s5", "ch13", "ch13-s1", "ch13-s2", "ch13-s3", "ch13-s4", "ch13-s5", "ch13-s6"
+  "ch0", "ch1", "ch1-s1", "ch1-s2", "ch1-s3", "ch1-s4", "ch1-s5", "ch1-s6", "ch1-s7", "ch1-s8", "ch1-s9", "ch2", "ch2-s1", "ch2-s2", "ch2-s3", "ch2-s5", "ch2-s6", "ch2-s7", "ch2-s8", "ch2-s9", "ch2-s10", "ch2-s11", "ch3", "ch3-s1", "ch3-s2", "ch3-s4", "ch3-s5", "ch3-s6", "ch3-s7", "ch3-s8", "ch3-s9", "ch3-s10", "ch3-s11", "ch3-s12", "ch4", "ch4-s1", "ch4-s2", "ch4-s3", "ch4-s4", "ch4-s5", "ch4-s6", "ch4-s7", "ch4-s8", "ch4-s9", "ch4-s10", "ch4-s11", "ch4-s12", "ch5", "ch5-s1", "ch5-s2", "ch5-s3", "ch5-s4", "ch5-s5", "ch5-s6", "ch5-s7", "ch5-s8", "ch5-s9", "ch5-s10", "ch6", "ch6-s1", "ch6-s2", "ch6-s3", "ch6-s4", "ch6-s5", "ch6-s6", "ch6-s7", "ch6-s8", "ch6-s9", "ch6-s10", "ch7", "ch7-s1", "ch7-s2", "ch7-s3", "ch7-s4", "ch7-s5", "ch7-s6", "ch7-s7", "ch7-s8", "ch8", "ch8-s1", "ch8-s2", "ch8-s3", "ch8-s4", "ch8-s5", "ch8-s6", "ch8-s7", "ch8-s8", "ch8-s9", "ch9", "ch9-s1", "ch9-s3", "ch9-s4", "ch9-s5", "ch9-s7", "ch9-s8", "ch9-s9", "ch10", "ch10-s1", "ch10-s2", "ch10-s3", "ch10-s5", "ch10-s6", "ch10-s7", "ch11", "ch11-s1", "ch11-s2", "ch11-s3", "ch11-s4", "ch11-s5", "ch11-s6", "ch11-s7", "ch12", "ch12-s1", "ch12-s2", "ch12-s3", "ch12-s4", "ch12-s5", "ch13", "ch13-s1", "ch13-s2", "ch13-s3", "ch13-s4", "ch13-s5", "ch13-s6"
 ];
 
 export function getPageTitle(id: PageId): string {
