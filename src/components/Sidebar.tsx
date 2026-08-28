@@ -95,9 +95,9 @@ export function Sidebar({ currentPage, onNavigate, isOpen, onClose }: SidebarPro
                       >
                         <span style={{
                           fontFamily: 'JetBrains Mono, monospace',
-                          fontSize: '0.65rem',
+                          fontSize: '0.75rem',
                           color: 'var(--text-muted)',
-                          minWidth: '2rem',
+                          minWidth: '2.25rem',
                         }}>
                           {sec.number}
                         </span>
