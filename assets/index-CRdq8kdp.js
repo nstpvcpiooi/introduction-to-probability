@@ -6705,7 +6705,7 @@ Khái niệm biến ngẫu nhiên sẽ cho phép chúng ta thực hiện điều
 Phiên bản của "biến ngẫu nhiên là một biến số nhận các giá trị ngẫu nhiên", nhưng một nỗ lực yếu ớt như vậy để định nghĩa thất bại trong việc nói rõ nguồn gốc của sự ngẫu nhiên. Cũng không giúp chúng ta để suy ra các tính chất của biến ngẫu nhiên: chúng ta quen với việc làm việc với phương trình đại số như  $x^{2} + y^{2} = 1$ , nhưng những phép toán toán học hợp lệ là gì nếu x và y là biến ngẫu nhiên? Để làm rõ khái niệm biến ngẫu nhiên, chúng ta định nghĩa nó như một hàm số ánh xạ không gian mẫu đến đường thẳng thực. (Xem phần phụ lục toán học để xem lại một số khái niệm về hàm số.)\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_306_437_1100_1024.jpg" alt="Biến ngẫu nhiên ánh xạ" style="max-width: 56%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/3.1.png" alt="Biến ngẫu nhiên ánh xạ" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 3.1:** Một biến ngẫu nhiên ánh xạ không gian mẫu vào đường thẳng thực. Biến ngẫu nhiên X được minh họa ở đây được xác định trên không gian mẫu có 6 phần tử, và có các giá trị có thể là 0, 1, và 4. Sự ngẫu nhiên phát sinh từ việc chọn một viên đá ngẫu nhiên theo hàm xác suất P cho không gian mẫu.\r
 </div>\r
@@ -6767,7 +6767,7 @@ Tương tự như các chương trước, với một không gian mẫu có số
 được xác định trên cùng một không gian mẫu: những hòn đá hay kết quả là giống nhau, nhưng các số thực được gán cho các kết quả là khác nhau.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_173_262_1229_595.jpg" alt="Hai biến ngẫu nhiên" style="max-width: 75%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/3.2.png" alt="Hai biến ngẫu nhiên" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 3.2:** Hai biến ngẫu nhiên được xác định trên cùng một không gian mẫu.\r
 </div>\r
@@ -6775,60 +6775,60 @@ Tương tự như các chương trước, với một không gian mẫu có số
 \r
 Như chúng ta đã đề cập trước đó, nguồn gốc của sự ngẫu nhiên trong một biến ngẫu nhiên là chính thí nghiệm, trong đó một kết quả mẫu  $s \\in S$  được chọn theo một hàm xác suất  $P$ . Trước khi thực hiện thí nghiệm, kết quả  $s$  chưa được thực hiện, do đó chúng ta không biết giá trị của  $X$ , tuy nhiên chúng ta có thể tính xác suất để  $X$  nhận một giá trị hoặc một khoảng giá trị nhất định. Sau khi thực hiện thí nghiệm và kết quả  $s$  đã được thực hiện, biến ngẫu nhiên sẽ cụ thể hóa thành giá trị số  $X(s)$ .\r
 \r
-Biến ngẫu nhiên cung cấp các tóm tắt số học của thí nghiệm đang xét. Điều này rất hữu ích vì không gian mẫu của một thí nghiệm thường rất phức tạp hoặc đa chiều, và các kết quả  $s \\in S$  có thể là không phải số. Ví dụ, thí nghiệm có thể là thu thập một mẫu ngẫu nhiên các người trong một thành phố và hỏi họ nhiều câu hỏi khác nhau, có thể có câu trả lời là số (ví dụ: tuổi hoặc chiều cao) hoặc không phải số (ví dụ: đảng chính trị hoặc phim yêu thích). Việc biến ngẫu nhiên nhận các giá trị số là một sự đơn giản hóa rất tiện lợi so với việc phải làm việc với toàn bộ độ phức tạp của S ở mọi lúc.`,$L=`Có hai loại chính của biến ngẫu nhiên được sử dụng trong thực hành: biến ngẫu nhiên rời rạc và biến ngẫu nhiên liên tục. Trong chương này và chương tiếp theo, sự tập trung của chúng ta là vào biến ngẫu nhiên rời rạc. Biến ngẫu nhiên liên tục được giới thiệu trong Chương 5.
-
-<div class="math-box definition">
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 3.2.1</div>
-    <div class="math-box-title">Biến ngẫu nhiên rời rạc</div>
-  </div>
-  <div class="math-box-content">
-
-Một biến ngẫu nhiên X được gọi là rời rạc nếu tồn tại một danh sách hữu hạn các giá trị  $a_1, a_2, \\ldots, a_n$  hoặc một danh sách vô hạn các giá trị  $a_1, a_2, \\ldots$  sao cho  $P(X = a_j \\text{ với một số } j) = 1$ . Nếu X là một biến ngẫu nhiên rời rạc, thì
-
-Tập hợp hữu hạn hoặc đếm được các giá trị x sao cho  $P(X = x) > 0$  được gọi là hỗ trợ của X.
-
-  </div>
-</div>
-
-Thường xuyên nhất trong các ứng dụng, hỗ trợ của một biến ngẫu nhiên rời rạc là một tập hợp các số nguyên. Trong khi đó, một biến ngẫu nhiên liên tục có thể nhận bất kỳ giá trị thực nào trong một khoảng (có thể thậm chí là toàn bộ đường thẳng thực); các biến ngẫu nhiên như vậy được định nghĩa chính xác hơn trong Chương 5. Cũng có thể có một biến ngẫu nhiên là sự kết hợp của rời rạc và liên tục, ví dụ như bằng cách tung một đồng xu và sau đó tạo ra một biến ngẫu nhiên rời rạc nếu đồng xu rơi mặt Ngửa và tạo ra một biến ngẫu nhiên liên tục nếu đồng xu rơi mặt Sấp. Tuy nhiên, điểm bắt đầu để hiểu các biến ngẫu nhiên như vậy là hiểu các biến ngẫu nhiên rời rạc và liên tục.
-
-Cho một biến ngẫu nhiên, chúng ta muốn có thể mô tả hành vi của nó bằng ngôn ngữ xác suất. Ví dụ, chúng ta có thể muốn trả lời các câu hỏi về xác suất mà biến ngẫu nhiên sẽ rơi vào một khoảng nhất định: nếu L là số tiền kiếm được trong suốt thời gian làm việc của một sinh viên đại học Mỹ được chọn ngẫu nhiên, xác suất để L vượt quá một triệu đô la là bao nhiêu? Nếu M là số lượng động đất lớn ở California trong năm tới, xác suất để M bằng 0 là bao nhiêu?
-
-Phân phối của một biến ngẫu nhiên cung cấp câu trả lời cho các câu hỏi như vậy; nó xác định các xác suất của tất cả các sự kiện liên quan đến biến ngẫu nhiên, ví dụ như xác suất để nó bằng 3 và xác suất để nó ít nhất là 110. Chúng ta sẽ thấy rằng có nhiều cách tương đương để biểu diễn phân phối của một biến ngẫu nhiên. Đối với một biến ngẫu nhiên rời rạc, cách tự nhiên nhất để làm như vậy là bằng hàm khối lượng xác suất, mà chúng ta sẽ định nghĩa ngay bây giờ.\r
+Biến ngẫu nhiên cung cấp các tóm tắt số học của thí nghiệm đang xét. Điều này rất hữu ích vì không gian mẫu của một thí nghiệm thường rất phức tạp hoặc đa chiều, và các kết quả  $s \\in S$  có thể là không phải số. Ví dụ, thí nghiệm có thể là thu thập một mẫu ngẫu nhiên các người trong một thành phố và hỏi họ nhiều câu hỏi khác nhau, có thể có câu trả lời là số (ví dụ: tuổi hoặc chiều cao) hoặc không phải số (ví dụ: đảng chính trị hoặc phim yêu thích). Việc biến ngẫu nhiên nhận các giá trị số là một sự đơn giản hóa rất tiện lợi so với việc phải làm việc với toàn bộ độ phức tạp của S ở mọi lúc.`,$L=`Có hai loại chính của biến ngẫu nhiên được sử dụng trong thực hành: biến ngẫu nhiên rời rạc và biến ngẫu nhiên liên tục. Trong chương này và chương tiếp theo, sự tập trung của chúng ta là vào biến ngẫu nhiên rời rạc. Biến ngẫu nhiên liên tục được giới thiệu trong Chương 5.\r
 \r
-<div class="math-box definition">
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 3.2.2</div>
-    <div class="math-box-title">Hàm khối lượng xác suất</div>
-  </div>
-  <div class="math-box-content">
-
-Hàm khối lượng xác suất (PMF) của một biến ngẫu nhiên rời rạc X là hàm  $p_X$  được cho bởi  $p_X(x) = P(X = x)$ . Lưu ý rằng đây là dương nếu x thuộc hỗ trợ của X, và 0 nếu không.
-
-  </div>
+<div class="math-box definition">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 3.2.1</div>\r
+    <div class="math-box-title">Biến ngẫu nhiên rời rạc</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Một biến ngẫu nhiên X được gọi là rời rạc nếu tồn tại một danh sách hữu hạn các giá trị  $a_1, a_2, \\ldots, a_n$  hoặc một danh sách vô hạn các giá trị  $a_1, a_2, \\ldots$  sao cho  $P(X = a_j \\text{ với một số } j) = 1$ . Nếu X là một biến ngẫu nhiên rời rạc, thì\r
+\r
+Tập hợp hữu hạn hoặc đếm được các giá trị x sao cho  $P(X = x) > 0$  được gọi là hỗ trợ của X.\r
+\r
+  </div>\r
 </div>\r
 \r
-<div class="math-box remark">
-  <div class="math-box-header">
-    <div class="math-box-number">3.2.3</div>
-  </div>
-  <div class="math-box-content">
-
-Trong việc viết  $P(X = x)$ , chúng ta đang sử dụng X = x để chỉ một sự kiện, bao gồm tất cả các kết quả s mà X gán số x. Sự kiện này cũng được viết là  $\\{X = x\\}$ ; chính thức,  $\\{X = x\\}$  được định nghĩa là  $\\{s \\in S : X(s) = x\\}$ , nhưng viết  $\\{X = x\\}$  ngắn gọn và dễ hiểu hơn. Trở lại Ví dụ 3.1.2, nếu X là số lần Ngửa trong hai lần tung đồng xu công bằng, thì  $\\{X = 1\\}$  bao gồm các kết quả mẫu HT và TH, hai kết quả mà X gán số 1. Vì  $\\{HT, TH\\}$  là một tập con của không gian mẫu, nó là một sự kiện. Do đó, việc nói về  $P(X = 1)$ , hay nói chung là  $P(X = x)$  là hợp lý. Nếu  $\\{X = x\\}$  không phải là một sự kiện, thì không có nghĩa gì khi tính xác suất của nó! Không có nghĩa là viết “ $P(X)$ ”; chúng ta chỉ có thể lấy xác suất của một sự kiện, không phải của một biến ngẫu nhiên.
-
-  </div>
+Thường xuyên nhất trong các ứng dụng, hỗ trợ của một biến ngẫu nhiên rời rạc là một tập hợp các số nguyên. Trong khi đó, một biến ngẫu nhiên liên tục có thể nhận bất kỳ giá trị thực nào trong một khoảng (có thể thậm chí là toàn bộ đường thẳng thực); các biến ngẫu nhiên như vậy được định nghĩa chính xác hơn trong Chương 5. Cũng có thể có một biến ngẫu nhiên là sự kết hợp của rời rạc và liên tục, ví dụ như bằng cách tung một đồng xu và sau đó tạo ra một biến ngẫu nhiên rời rạc nếu đồng xu rơi mặt Ngửa và tạo ra một biến ngẫu nhiên liên tục nếu đồng xu rơi mặt Sấp. Tuy nhiên, điểm bắt đầu để hiểu các biến ngẫu nhiên như vậy là hiểu các biến ngẫu nhiên rời rạc và liên tục.\r
+\r
+Cho một biến ngẫu nhiên, chúng ta muốn có thể mô tả hành vi của nó bằng ngôn ngữ xác suất. Ví dụ, chúng ta có thể muốn trả lời các câu hỏi về xác suất mà biến ngẫu nhiên sẽ rơi vào một khoảng nhất định: nếu L là số tiền kiếm được trong suốt thời gian làm việc của một sinh viên đại học Mỹ được chọn ngẫu nhiên, xác suất để L vượt quá một triệu đô la là bao nhiêu? Nếu M là số lượng động đất lớn ở California trong năm tới, xác suất để M bằng 0 là bao nhiêu?\r
+\r
+Phân phối của một biến ngẫu nhiên cung cấp câu trả lời cho các câu hỏi như vậy; nó xác định các xác suất của tất cả các sự kiện liên quan đến biến ngẫu nhiên, ví dụ như xác suất để nó bằng 3 và xác suất để nó ít nhất là 110. Chúng ta sẽ thấy rằng có nhiều cách tương đương để biểu diễn phân phối của một biến ngẫu nhiên. Đối với một biến ngẫu nhiên rời rạc, cách tự nhiên nhất để làm như vậy là bằng hàm khối lượng xác suất, mà chúng ta sẽ định nghĩa ngay bây giờ.\r
+\r
+<div class="math-box definition">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 3.2.2</div>\r
+    <div class="math-box-title">Hàm khối lượng xác suất</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Hàm khối lượng xác suất (PMF) của một biến ngẫu nhiên rời rạc X là hàm  $p_X$  được cho bởi  $p_X(x) = P(X = x)$ . Lưu ý rằng đây là dương nếu x thuộc hỗ trợ của X, và 0 nếu không.\r
+\r
+  </div>\r
+</div>\r
+\r
+<div class="math-box remark">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">3.2.3</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Trong việc viết  $P(X = x)$ , chúng ta đang sử dụng X = x để chỉ một sự kiện, bao gồm tất cả các kết quả s mà X gán số x. Sự kiện này cũng được viết là  $\\{X = x\\}$ ; chính thức,  $\\{X = x\\}$  được định nghĩa là  $\\{s \\in S : X(s) = x\\}$ , nhưng viết  $\\{X = x\\}$  ngắn gọn và dễ hiểu hơn. Trở lại Ví dụ 3.1.2, nếu X là số lần Ngửa trong hai lần tung đồng xu công bằng, thì  $\\{X = 1\\}$  bao gồm các kết quả mẫu HT và TH, hai kết quả mà X gán số 1. Vì  $\\{HT, TH\\}$  là một tập con của không gian mẫu, nó là một sự kiện. Do đó, việc nói về  $P(X = 1)$ , hay nói chung là  $P(X = x)$  là hợp lý. Nếu  $\\{X = x\\}$  không phải là một sự kiện, thì không có nghĩa gì khi tính xác suất của nó! Không có nghĩa là viết “ $P(X)$ ”; chúng ta chỉ có thể lấy xác suất của một sự kiện, không phải của một biến ngẫu nhiên.\r
+\r
+  </div>\r
 </div>\r
 \r
 Hãy xem một vài ví dụ về PMFs.\r
 \r
-<div class="math-box example">
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 3.2.4</div>
-    <div class="math-box-title">Tiếp tục tung đồng xu</div>
-  </div>
-  <div class="math-box-content">
-
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 3.2.4</div>\r
+    <div class="math-box-title">Tiếp tục tung đồng xu</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
 Trong ví dụ này, chúng ta sẽ tìm PMFs của tất cả các biến ngẫu nhiên trong Ví dụ 3.1.2, ví dụ với hai lần tung đồng xu công bằng. Dưới đây là các biến ngẫu nhiên mà chúng ta đã định nghĩa, cùng với PMFs của chúng:\r
 \r
 • X, số lần Ngửa. Vì X bằng 0 nếu xảy ra TT, bằng 1 nếu xảy ra HT hoặc TH,\r
@@ -6901,18 +6901,13 @@ Lưu ý rằng X và Y có cùng PMF (tức là  $p_{X}$  và  $p_{Y}$  là cùn
 \r
  \r
 \r
-và  $p_{I}(i) = 0$  cho tất cả các giá trị khác của i.
-
-  </div>
+và  $p_{I}(i) = 0$  cho tất cả các giá trị khác của i.\r
+\r
+  </div>\r
 </div>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">\r
-    <img src="imgs/img_in_chart_box_170_1258_511_1585.jpg" alt="PMF của X" style="max-width: 30%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-    <img src="imgs/img_in_chart_box_521_1259_860_1588.jpg" alt="PMF của Y" style="max-width: 30%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-    <img src="imgs/img_in_chart_box_871_1260_1208_1581.jpg" alt="PMF của I" style="max-width: 30%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-  </div>\r
-\r
+  <img src="imgs/3.3.png" alt="PMF của X · PMF của Y · PMF của I" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 3.3:** Từ trái sang phải: PMFs của X, Y, và I, với X là số lượng Heads trong hai lần tung đồng tiền công bằng, Y là số lượng Tails, và I là chỉ số của Heads trong lần tung đầu tiên.\r
 </div>\r
 \r
@@ -6998,7 +6993,7 @@ $$\r
 </div>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_chart_box_299_477_1078_944.jpg" alt="Xác suất khối của tổng" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/3.4.png" alt="Xác suất khối của tổng" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 3.4:** Xác suất khối của tổng hai lần lắc xúc xắc.\r
 </div>\r
@@ -7038,7 +7033,7 @@ Gọi X là một biến ngẫu nhiên rời rạc với tập hỗ trợ  $x_1,
 </div>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_chart_box_308_161_1083_629.jpg" alt="Phân phối xác suất của số lượng trẻ em" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/3.5.png" alt="Phân phối xác suất của số lượng trẻ em" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 3.5:** Phân phối xác suất của số lượng trẻ em trong một hộ gia đình được chọn ngẫu nhiên ở Hoa Kỳ.\r
 </div>\r
@@ -7203,13 +7198,7 @@ Hình 3.6 hiển thị các đồ thị của PMF Binomial cho các giá trị n
 Chúng ta đã sử dụng Câu chuyện 3.3.4 để tìm PMF của Bin  $(n,p)$ . Câu chuyện cũng cho chúng ta một chứng minh đơn giản rằng nếu X là Binomial, thì n - X cũng là Binomial.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">\r
-    <img src="imgs/img_in_chart_box_197_423_686_913.jpg" alt="Hình 3.6a" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-    <img src="imgs/img_in_chart_box_695_426_1184_916.jpg" alt="Hình 3.6b" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-    <img src="imgs/img_in_chart_box_196_926_686_1409.jpg" alt="Hình 3.6c" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-    <img src="imgs/img_in_chart_box_695_935_1184_1407.jpg" alt="Hình 3.6d" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-  </div>\r
-\r
+  <img src="imgs/3.6.png" alt="Hình 3.6a · Hình 3.6b · Hình 3.6c · Hình 3.6d" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 3.6:** Một số hàm phân phối xác suất nhị thức. Ở góc trái dưới, chúng ta vẽ hàm phân phối xác suất nhị thức Bin(100, 0.03) giữa 0 và 10 chỉ, vì xác suất của hơn 10 lần thành công gần bằng 0.\r
 </div>\r
 \r
@@ -7300,7 +7289,7 @@ Xét một cái urn chứa  $w$  viên bi trắng và  $b$  viên bi đen. Chún
 </div>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_458_168_951_394.jpg" alt="Câu chuyện Hypergeometric" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/3.7.png" alt="Câu chuyện Hypergeometric" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 3.7:** Câu chuyện Hypergeometric. Một urn chứa  $w = 6$  quả bóng trắng và  $b = 4$  quả bóng đen. Chúng ta lấy mẫu  $n = 5$  mà không thay thế. Số lượng  $X$  của quả bóng trắng trong mẫu là Hypergeometric; ở đây chúng ta quan sát được  $X = 3$ .\r
 </div>\r
@@ -7566,11 +7555,7 @@ Ví dụ tiếp theo minh họa rằng với các biến ngẫu nhiên rời r�
 Giả sử  $X \\sim \\text{Bin}(4, 1/2)$ . Hình 3.8 cho thấy PMF và CDF của X.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">\r
-    <img src="imgs/img_in_chart_box_197_474_681_942.jpg" alt="PMF" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-    <img src="imgs/img_in_chart_box_698_484_1178_940.jpg" alt="CDF" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
-  </div>\r
-\r
+  <img src="imgs/3.8.png" alt="PMF · CDF" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 3.8:** Bin(4, 1/2) PMF và CDF. Chiều cao của thanh dọc  $P(X = 2)$  trong PMF cũng chính là chiều cao của bước nhảy trong CDF tại 2.\r
 </div>\r
 \r
@@ -7684,13 +7669,13 @@ Cho một biến ngẫu nhiên rời rạc  $X$  với một hàm PMF đã biế
 \r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_201_345_1204_803.jpg" alt="Hàm của biến ngẫu nhiên X" style="max-width: 71%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/3.9.png" alt="Hàm của biến ngẫu nhiên X" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 3.9:** Biến ngẫu nhiên X được xác định trên không gian mẫu có 6 phần tử, và có các giá trị có thể xảy ra là 0, 1, và 4. Hàm số g là hàm số căn bậc hai. Kết hợp X và g cho biến ngẫu nhiên  $g(X) = \\sqrt{X}$ , nào có các giá trị có thể xảy ra là 0, 1, và 2.\r
 </div>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_441_1108_955_1461.jpg" alt="Biến ngẫu nhiên g(X)" style="max-width: 36%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/3.10.png" alt="Biến ngẫu nhiên g(X)" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 3.10:** Vì  $g(X) = \\sqrt{X}$  gán mỗi viên sỏi với một số, nên đó là một biến ngẫu nhiên.\r
 </div>\r
@@ -7871,11 +7856,7 @@ Dưới đây là hai ví dụ về phép thuật đồng cảm:\r
 ● Cho một biến ngẫu nhiên X, đang cố gắng tìm PMF của 2X bằng cách nhân PMF của X với 2. Điều này không hợp lý để nhân một PMF với 2, vì các xác suất sẽ không còn tổng cộng bằng 1. Như chúng ta đã thấy ở trên, nếu X nhận các giá trị  $x_j$  với xác suất  $p_j$ , thì 2X nhận các giá trị  $2x_j$  với xác suất  $p_j$ . Do đó PMF của 2X là một giãn ngang của PMF của X; nó không phải là giãn dọc, như sẽ xảy ra nếu nhân PMF với 2. Hình 3.11 cho thấy PMF của một biến ngẫu nhiên rời rạc X với tập hỗ trợ  $\\{0,1,2,3,4\\}$ , cùng với PMF của 2X, có tập hỗ trợ  $\\{0,2,4,6,8\\}$ . Lưu ý rằng X có thể nhận các giá trị lẻ, nhưng 2X chắc chắn là chẵn.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">\r
-    <img src="imgs/img_in_chart_box_297_725_1079_1190.jpg" alt="PMF của X" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-    <img src="imgs/img_in_chart_box_298_1227_1079_1681.jpg" alt="PMF của 2X" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-\r
+  <img src="imgs/3.11.png" alt="PMF của X · PMF của 2X" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 3.11:** PMF của X (trên) và PMF của 2X (dưới).\r
 </div>\r
 \r
@@ -7888,7 +7869,7 @@ P(Z=X)=P(HHorTT)=1/2.\r
 $$\r
 \r
   </div>\r
-</div>
+</div>\r
 `,iR=`Tương tự như khi chúng ta có khái niệm độc lập của các sự kiện, chúng ta cũng có thể định nghĩa tính độc lập của các biến ngẫu nhiên. Về mặt trực quan, nếu hai biến ngẫu nhiên X và Y độc lập, thì việc biết giá trị của X không cung cấp bất kỳ thông tin nào về giá trị của Y, và ngược lại. Định nghĩa này làm rõ ý tưởng này.\r
 \r
 <div class="math-box definition">\r
@@ -8312,7 +8293,7 @@ Hai biến ngẫu nhiên độc lập nếu việc biết giá trị của một
 Chúng ta đã thấy bốn loại đối tượng cơ bản trong xác suất: phân phối, biến ngẫu nhiên, sự kiện và số. Hình 3.12 cho thấy mối liên hệ giữa bốn đối tượng cơ bản này. Một CDF có thể được sử dụng như một bản thiết kế để tạo ra một biến ngẫu nhiên, và sau đó có nhiều sự kiện mô tả hành vi của biến ngẫu nhiên, như các sự kiện  $X \\leq x$  cho tất cả x. Biết xác suất của các sự kiện này xác định CDF, đưa chúng ta vòng quanh. Đối với một biến ngẫu nhiên rời rạc, chúng ta cũng có thể sử dụng PMF như một bản thiết kế, và chuyển từ phân phối đến biến ngẫu nhiên đến sự kiện và ngược lại.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_148_939_1246_1511.jpg" alt="Bốn đối tượng cơ bản trong xác suất" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/3.12.png" alt="Bốn đối tượng cơ bản trong xác suất" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 3.12:** Bốn đối tượng cơ bản trong xác suất: phân phối (bản thiết kế), biến ngẫu nhiên, sự kiện và số. Từ một CDF  $F$  chúng ta có thể tạo ra một  $r.v$ .  $X$ . Từ  $X$ , chúng ta có thể tạo ra nhiều  $r.v.s$  khác bằng cách lấy hàm của  $X$ . Có nhiều sự kiện mô tả hành vi của  $X$ . Đặc biệt, với bất kỳ hằng số nào  $x$ , các sự kiện  $X \\leq x$  và  $X = x$  là quan trọng. Biết xác suất của các sự kiện này với mọi  $x$  sẽ cho chúng ta CDF và (trong trường hợp rời rạc) PMF, đưa chúng ta vòng quanh.\r
 </div>`,sR=`## Phân phối trong R\r
@@ -9412,7 +9393,7 @@ Giải thích tần suất sẽ xem xét một số lượng lớn các phép th
 3. Giả sử X có 3 giá trị có thể xảy ra khác nhau,  $a_{1}, a_{2}, a_{3}$ , với xác suất tương ứng là  $p_{1}, p_{2}, p_{3}$ . Hãy tưởng tượng chạy một mô phỏng nơi  $n$  lần rút mẫu độc lập\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_355_139_1046_400.jpg" alt="Điểm khối lượng của hai viên sỏi" style="max-width: 49%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/4.1.png" alt="Điểm khối lượng của hai viên sỏi" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 4.1:** Điểm khối lượng của hai viên sỏi, minh họa rằng  $E(X) = p$  cho  $X \\sim \\mathrm{Bern}(p)$ . Ở đây q và p là khối lượng của hai viên sỏi.\r
 </div>\r
@@ -9485,11 +9466,7 @@ Chúng ta thường rút gọn  $E(X)$  thành  $EX$ . Tương tự, chúng ta t
 Việc chú ý đến thứ tự của phép toán là rất quan trọng khi làm việc với kỳ vọng. Như đã nêu ở trên,  $EX^{2}$  là kỳ vọng của biến ngẫu nhiên  $X^{2}$ , chứ không phải bình phương của số EX. Ngoại trừ khi dấu ngoặc đơn rõ ràng chỉ ra ngược lại,\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <div style="display: flex; justify-content: center; gap: 1rem;">\r
-    <img src="imgs/img_in_chart_box_297_141_667_505.jpg" alt="Hàm mật độ xác suất 1" style="max-width: 26%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-    <img src="imgs/img_in_chart_box_725_143_1094_504.jpg" alt="Hàm mật độ xác suất 2" style="max-width: 26%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-\r
+  <img src="imgs/4.2.png" alt="Hàm mật độ xác suất 1 · Hàm mật độ xác suất 2" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 4.2:** Giá trị kỳ vọng không xác định phân phối: các hàm mật độ xác suất khác nhau có thể có cùng điểm cân bằng.\r
 </div>\r
 \r
@@ -9534,11 +9511,7 @@ $$\r
 Sự nhận thức này—that trung bình có thể được tính theo hai cách, chưa nhóm hay đã nhóm—is tất cả những gì cần thiết để chứng minh tính tuyến tính! Nhớ rằng X là một hàm số gán một số thực cho mỗi kết quả s trong không gian mẫu. Biến ngẫu nhiên X có thể gán cùng một giá trị cho nhiều kết quả mẫu. Khi điều này xảy ra, định nghĩa của kỳ vọng nhóm tất cả các kết quả này lại thành một siêu đá, trọng lượng của nó,  $P(X = x)$ , là tổng trọng lượng của các đá thành phần. Quy trình nhóm này được minh họa trong Hình 4.3 cho một biến ngẫu nhiên giả định lấy giá trị trong  $\\{0, 1, 2\\}$ . Do đó, định nghĩa của kỳ vọng tương ứng với cách lấy trung bình đã nhóm.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <div style="display: flex; justify-content: center; gap: 1rem;">\r
-    <img src="imgs/img_in_image_box_314_702_662_944.jpg" alt="Trái: X gán một số cho từng đá trong không gian mẫu" style="max-width: 24%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-    <img src="imgs/img_in_image_box_735_704_1082_941.jpg" alt="Phải: Nhóm các đá theo giá trị mà X gán cho chúng" style="max-width: 24%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-\r
+  <img src="imgs/4.3.png" alt="Trái: X gán một số cho từng đá trong không gian mẫu · Phải: Nhóm các đá theo giá trị mà X gán cho chúng" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 4.3:** Trái: X gán một số cho từng đá trong không gian mẫu. Phải: Nhóm các đá theo giá trị mà X gán cho chúng, 9 đá trở thành 3 siêu đá. Trọng lượng của một siêu đá là tổng trọng lượng của các đá thành phần.\r
 </div>\r
 \r
@@ -9816,11 +9789,7 @@ Có những quy ước khác nhau về định nghĩa phân phối hình học; 
 </div>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <div style="display: flex; justify-content: center; gap: 1rem;">\r
-    <img src="imgs/img_in_chart_box_197_164_681_636.jpg" alt="Geom(0.5) PMF" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-    <img src="imgs/img_in_chart_box_697_180_1178_633.jpg" alt="Geom(0.5) CDF" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-\r
+  <img src="imgs/4.5.png" alt="Geom(0.5) PMF · Geom(0.5) CDF" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 4.5:** Geom(0.5) PMF và CDF.\r
 </div>\r
 \r
@@ -10016,7 +9985,7 @@ $$\r
 trong đó  $N_{1}$  là số đồ chơi cho đến khi bạn gặp loại đồ chơi nào chưa từng thấy trước đó (luôn luôn là 1, vì đồ chơi đầu tiên luôn là loại mới),  $N_{2}$  là số đồ chơi thêm cho đến khi gặp loại đồ chơi nào chưa từng thấy thứ hai, và cứ tiếp tục như vậy. Hình 4.6 minh họa các định nghĩa này với n = 3 loại đồ chơi.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_396_130_1004_311.jpg" alt="Thu gom phiếu mua hàng, n = 3" style="max-width: 43%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/4.6.png" alt="Thu gom phiếu mua hàng, n = 3" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 4.6:** Thu gom phiếu mua hàng, n = 3. Tại đây  $N_{1}$  là thời gian (số lượng món đồ được thu thập) cho đến khi nhận được loại món đồ mới đầu tiên,  $N_{2}$  là thời gian bổ sung cho đến khi nhận được loại món đồ mới thứ hai, và  $N_{3}$  là thời gian bổ sung cho đến khi nhận được loại món đồ mới thứ ba. Tổng số lượng món đồ để có bộ sưu tập đầy đủ là  $N_{1} + N_{2} + N_{3}$ .\r
 </div>\r
@@ -10792,10 +10761,7 @@ Do đó, kỳ vọng và phương sai của một biến ngẫu nhiên Pois(  $\
 Hình 4.7 cho thấy PMF và CDF của phân phối Pois(2) và Pois(5) từ k = 0 đến k = 10. Dường như giá trị trung bình của Pois(2) khoảng 2 và giá trị trung bình của Pois(5) khoảng 5, nhất quán với các phát hiện ở trên. PMF của Pois(2) có dạng lệch, nhưng khi  $\\lambda$  tăng lên, độ lệch giảm và PMF trở nên gần dạng chuông hơn.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_chart_box_197_677_686_1153.jpg" alt="Pois(2) PMF" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  <img src="imgs/img_in_chart_box_696_689_1183_1151.jpg" alt="Pois(2) CDF" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  <img src="imgs/img_in_chart_box_197_1178_686_1655.jpg" alt="Pois(5) PMF" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  <img src="imgs/img_in_chart_box_697_1191_1182_1646.jpg" alt="Pois(5) CDF" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/4.7.png" alt="Pois(2) và Pois(5) PMF và CDF" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 4.7:** Trên: PMF và CDF của Pois(2). Dưới: PMF và CDF của Pois(5).\r
 </div>\r
@@ -11443,7 +11409,7 @@ Xảy ra khi có nhiều lần thử độc lập hoặc phụ thuộc yếu, n�
 Phân phối Poisson, Binomial, và Hypergeometric được liên kết với nhau qua các phép toán điều kiện và lấy giới hạn, như được minh họa trong Hình 4.8. Trong phần còn lại của cuốn sách này, chúng ta sẽ tiếp tục giới thiệu các phân phối có tên mới và thêm chúng vào cây họ học này, cho đến khi mọi thứ đều được liên kết!\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_151_492_1247_1164.jpg" alt="Mối quan hệ giữa Poisson, Binomial, và Hypergeometric" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/4.8.png" alt="Mối quan hệ giữa Poisson, Binomial, và Hypergeometric" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 4.8:** Mối quan hệ giữa Poisson, Binomial, và Hypergeometric.\r
 </div>\r
@@ -11451,7 +11417,7 @@ Phân phối Poisson, Binomial, và Hypergeometric được liên kết với nh
 Hình 4.9 mở rộng hơn nữa hình tương ứng từ chương trước, khám phá thêm mối liên hệ giữa bốn đối tượng cơ bản mà chúng ta đã xem xét: phân phối, biến ngẫu nhiên, sự kiện, và số.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_148_152_1247_779.jpg" alt="Bốn đối tượng cơ bản trong xác suất" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/4.9.png" alt="Bốn đối tượng cơ bản trong xác suất" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 4.9:** Bốn đối tượng cơ bản trong xác suất: phân phối, biến ngẫu nhiên, sự kiện, và số. Từ một biến ngẫu nhiên X, chúng ta có thể tạo ra nhiều biến ngẫu nhiên khác bằng cách lấy hàm của X, và chúng ta có thể sử dụng LOTUS để tìm giá trị kỳ vọng của chúng. Giá trị trung bình, phương sai, và độ lệch chuẩn của X thể hiện trung bình và mức độ phân tán của phân phối của X (đặc biệt, chúng chỉ phụ thuộc vào F, chứ không trực tiếp phụ thuộc vào X bản thân).\r
 </div>`,yR=`## Hình học, Phân bố Nhị thức Âm và Poisson\r
@@ -13487,14 +13453,7 @@ Sử dụng giải tích để tìm giá trị tối ưu của k.
 
 </div>
 </div>
-`,xR=`<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_197_1024_680_1478.jpg" alt="CDF của biến rời rạc" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_699_1013_1179_1478.jpg" alt="CDF của biến liên tục" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-</div>\r
+`,xR=`<img src="imgs/5.1.png" alt="CDF của biến rời rạc · CDF của biến liên tục" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.1:</strong> Biến ngẫu nhiên rời rạc vs. liên tục. Trái: Hàm phân phối tích lũy (CDF) của một biến ngẫu nhiên rời rạc có những bước nhảy tại mỗi điểm trong miền hỗ trợ. Phải: Hàm phân phối tích lũy của một biến ngẫu nhiên liên tục tăng một cách mượt mà.\r
 </div>\r
@@ -13502,9 +13461,9 @@ Sử dụng giải tích để tìm giá trị tối ưu của k.
 Nhớ rằng đối với một biến ngẫu nhiên rời rạc, hàm phân phối tích lũy (CDF) có những bước nhảy tại mỗi điểm trong miền hỗ trợ, và là phẳng ở nơi khác. Trái ngược với đó, đối với một biến ngẫu nhiên liên tục, hàm phân phối tích lũy tăng một cách mượt mà; xem Hình 5.1 để so sánh giữa CDF rời rạc và liên tục.\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.1.1</div>
-    <div class="math-box-title">Biến ngẫu nhiên liên tục</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.1.1</div>\r
+    <div class="math-box-title">Biến ngẫu nhiên liên tục</div>\r
   </div>\r
 <div class="math-box-content">\r
 Một biến ngẫu nhiên có phân phối liên tục nếu CDF khác biệt được. Chúng ta cũng cho phép có các điểm cuối (hoặc hữu hạn các điểm) mà ở đó CDF liên tục nhưng không khác biệt được, miễn là CDF khác biệt được ở mọi nơi khác. Một biến ngẫu nhiên liên tục là biến ngẫu nhiên có phân phối liên tục.\r
@@ -13514,9 +13473,9 @@ Một biến ngẫu nhiên có phân phối liên tục nếu CDF khác biệt �
 Với các biến ngẫu nhiên rời rạc, CDF khó khăn để làm việc vì tính nhảy của nó, và đạo hàm của nó gần như vô dụng vì nó không xác định tại các nhảy và bằng 0 ở nơi khác. Nhưng với các biến ngẫu nhiên liên tục, CDF thường thuận tiện để làm việc, và đạo hàm của nó là một hàm số rất hữu ích, gọi là hàm mật độ xác suất.\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.1.2</div>
-    <div class="math-box-title">Hàm mật độ xác suất</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.1.2</div>\r
+    <div class="math-box-title">Hàm mật độ xác suất</div>\r
   </div>\r
 <div class="math-box-content">\r
 Đối với một biến ngẫu nhiên liên tục X với CDF F, hàm mật độ xác suất (PDF) của X là đạo hàm f của CDF, được cho bởi $f(x) = F'(x)$. Tập hỗ trợ của X, và của phân phối của nó, là tập hợp tất cả các x mà $f(x) > 0$.\r
@@ -13528,9 +13487,9 @@ Một cách quan trọng mà các biến ngẫu nhiên liên tục khác với c
 PDF tương tự như PMF theo nhiều cách, nhưng có một sự khác biệt quan trọng: đối với một PDF f, lượng  $f(x)$  không phải là xác suất, và thực tế có thể có  $f(x) > 1$  cho một số giá trị của x. Để có được một xác suất, chúng ta cần tích phân PDF. Định lý cơ bản của giải tích cho chúng ta biết cách lấy lại CDF từ PDF.\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.1.3</div>
-    <div class="math-box-title">PDF sang CDF</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.1.3</div>\r
+    <div class="math-box-title">PDF sang CDF</div>\r
   </div>\r
 <div class="math-box-content">\r
 Giả sử X là một biến ngẫu nhiên liên tục với PDF f. Khi đó CDF của X được cho bởi\r
@@ -13543,8 +13502,8 @@ $$\r
 </div>\r
 \r
 <div class="math-box proof">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
   </div>\r
 <div class="math-box-content">\r
 Theo định nghĩa của PDF, F là một nguyên hàm của f. Do đó theo định lý cơ bản của giải tích,\r
@@ -13566,9 +13525,9 @@ P(a<X<b)=P(a<X\\leq b)=P(a\\leq X<b)=P(a\\leq X\\leq b).\r
 $$\r
 \r
 <div class="math-box remark">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ghi chú 5.1.4</div>
-    <div class="math-box-title">Bao gồm hay không bao gồm các điểm cuối</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 5.1.4</div>\r
+    <div class="math-box-title">Bao gồm hay không bao gồm các điểm cuối</div>\r
   </div>\r
 <div class="math-box-content">\r
 Chúng ta có thể thoải mái về việc bao gồm hay không bao gồm các điểm cuối như trên đối với các biến ngẫu nhiên liên tục, nhưng chúng ta không nên lơ là về điều này đối với các biến ngẫu nhiên rời rạc.\r
@@ -13594,9 +13553,9 @@ Tóm lại:\r
 Tương tự như một PMF hợp lệ phải không âm và tổng bằng 1, một PDF hợp lệ phải không âm và tích phân bằng 1.\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.1.5</div>
-    <div class="math-box-title">PDF hợp lệ</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.1.5</div>\r
+    <div class="math-box-title">PDF hợp lệ</div>\r
   </div>\r
 <div class="math-box-content">\r
 Hàm mật độ xác suất f của một biến ngẫu nhiên liên tục phải thỏa mãn hai điều kiện sau:\r
@@ -13607,8 +13566,8 @@ Hàm mật độ xác suất f của một biến ngẫu nhiên liên tục ph�
 </div>\r
 \r
 <div class="math-box proof">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
   </div>\r
 <div class="math-box-content">\r
 Điều kiện đầu tiên đúng vì xác suất không âm; nếu $f(x_0)$ âm, thì chúng ta có thể tích phân trên một miền nhỏ xung quanh $x_0$ và nhận được một xác suất âm. Thay thế, lưu ý rằng mật độ xác suất tại $x_0$ là độ dốc của hàm phân phối tích lũy tại $x_0$, do đó $f(x_0) < 0$ sẽ cho thấy rằng hàm phân phối tích lũy đang giảm tại $x_0$, điều này không được phép. Điều kiện thứ hai đúng vì $\\int_{-\\infty}^{\\infty} f(x) dx$ là xác suất của X rơi vào đâu đó trên trục số thực, điều này bằng 1.\r
@@ -13622,9 +13581,9 @@ Ngược lại, bất kỳ hàm nào f nào thỏa mãn các tính chất này l
 Bây giờ hãy xem xét một số ví dụ cụ thể về PDF. Hai phân phối trong các ví dụ sau được gọi là phân phối Logistic và Rayleigh, nhưng chúng ta sẽ không thảo luận về các câu chuyện của chúng ở đây; sự xuất hiện của chúng chủ yếu nhằm mục đích giúp quen thuộc với PDFs.\r
 \r
 <div class="math-box example">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 5.1.6</div>
-    <div class="math-box-title">Logistic</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.1.6</div>\r
+    <div class="math-box-title">Logistic</div>\r
   </div>\r
 <div class="math-box-content">\r
 Phân phối Logistic có hàm phân phối tích lũy\r
@@ -13655,22 +13614,15 @@ $$\r
 \r
 Hình 5.2 cho thấy PDF (trái) và CDF (phải) của Logistic. Trên PDF, xác suất  $P(-2 < X < 2)$  được biểu diễn bằng diện tích bóng tối; trên CDF, nó được biểu diễn bằng chiều cao của dấu ngoặc nhọn. Bạn có thể kiểm tra rằng các tính chất của một PDF và CDF hợp lệ được thỏa mãn.\r
 \r
-<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_197_933_680_1409.jpg" alt="PDF của Logistic" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_697_942_1179_1409.jpg" alt="CDF của Logistic" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-</div>\r
+<img src="imgs/5.2.png" alt="PDF của Logistic · CDF của Logistic" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.2:</strong> PDF và CDF của Logistic. Xác suất $P(-2 < X < 2)$ được chỉ ra bằng diện tích bóng tối dưới PDF và chiều cao của dấu ngoặc nhọn trên CDF.\r
 </div>\r
 \r
 <div class="math-box example">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 5.1.7</div>
-    <div class="math-box-title">Rayleigh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.1.7</div>\r
+    <div class="math-box-title">Rayleigh</div>\r
   </div>\r
 <div class="math-box-content">\r
 Phân phối Rayleigh có CDF\r
@@ -13701,14 +13653,7 @@ $$\r
 \r
 Hàm PDF và CDF của Rayleigh được vẽ trong Hình 5.3. Lại một lần nữa, xác suất được biểu diễn bằng một vùng màu tối trên PDF và một độ cao thẳng đứng trên CDF.\r
 \r
-<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_199_556_683_1024.jpg" alt="PDF của Rayleigh" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_699_562_1179_1021.jpg" alt="CDF của Rayleigh" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-</div>\r
+<img src="imgs/5.3.png" alt="PDF của Rayleigh · CDF của Rayleigh" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.3:</strong> PDF và CDF của Rayleigh. Xác suất $P(X > 2)$ được chỉ ra bằng vùng màu tối dưới PDF và độ cao của dấu ngoặc nhọn trên CDF.\r
 </div>\r
@@ -13732,9 +13677,9 @@ Khoảng cách, thời gian, diện tích, hoặc khối lượng. Việc suy ng
 Giả sử để cụ thể hơn rằng  $X$  là một độ dài, được đo bằng xentimét (cm). Khi đó  $f(x) = dF(x)/dx$  là xác suất cho mỗi cm tại  $x$ , điều này giải thích tại sao  $f(x)$  là mật độ xác suất. Xác suất là một đại lượng vô lượng (một số không có đơn vị vật lý), vì vậy các đơn vị của  $f(x)$  là  $cm^{-1}$ . Do đó, để có thể lấy lại một xác suất, chúng ta cần nhân  $f(x)$  với một độ dài. Khi chúng ta thực hiện một tích phân như  $\\int_{0}^{5} f(x) dx$ , điều này được thực hiện thông qua việc thường bị quên lãng  $dx$ .\r
 \r
 <div class="math-box remark">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Suy nghĩ 5.1.9</div>
-    <div class="math-box-title">Mô phỏng</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Suy nghĩ 5.1.9</div>\r
+    <div class="math-box-title">Mô phỏng</div>\r
   </div>\r
 <div class="math-box-content">\r
 Đối với một cách khác để suy nghĩ về mật độ xác suất (PDF), hãy xem xét cách mô phỏng sau đây dựa trên việc nhìn vào đồ thị của PDF. Để tạo ra X, chọn một điểm ngẫu nhiên đều dưới đường cong PDF; điều này có nghĩa là xác suất của bất kỳ vùng nào dưới đường cong là diện tích của vùng đó. Sau đó để X là tọa độ x của điểm ngẫu nhiên. Điều này được minh họa trong Hình 5.4.\r
@@ -13742,7 +13687,7 @@ Giả sử để cụ thể hơn rằng  $X$  là một độ dài, được đo
 </div>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_253_740_1142_1383.jpg" alt="Một PDF phức tạp" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/5.4.png" alt="Một PDF phức tạp" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.4:</strong> Một PDF phức tạp (không có số nào được hiển thị trên trục dọc vì thang đo là bất kỳ thứ gì cần thiết để làm cho diện tích dưới đường cong bằng 1). Để tạo ra một biến ngẫu nhiên X với PDF này, chọn một điểm ngẫu nhiên đều $(x, y)$ dưới đường cong và để X = x. Phương pháp này hoạt động vì, ví dụ, X sẽ nằm trong khoảng [3, 6] nếu và chỉ nếu điểm ngẫu nhiên $(x, y)$ được chọn nằm trong vùng được gạch chéo.\r
@@ -13754,9 +13699,9 @@ Khi đó X có phân phối mong muốn vì, theo cách xây dựng,  $P(a \\leq
 Định nghĩa của kỳ vọng cho biến ngẫu nhiên liên tục là tương tự như định nghĩa cho biến ngẫu nhiên rời rạc: thay tổng bằng tích phân và thay hàm xác suất rời rạc bằng hàm mật độ xác suất.\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.1.10</div>
-    <div class="math-box-title">Kỳ vọng của một biến ngẫu nhiên liên tục</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.1.10</div>\r
+    <div class="math-box-title">Kỳ vọng của một biến ngẫu nhiên liên tục</div>\r
   </div>\r
 <div class="math-box-content">\r
 Giá trị kỳ vọng (cũng được gọi là kỳ vọng hoặc trung bình) của một biến ngẫu nhiên liên tục X với hàm mật độ xác suất f là\r
@@ -13775,7 +13720,7 @@ Tích phân được thực hiện trên toàn bộ trục số thực, nhưng n
 Với định nghĩa này, giá trị kỳ vọng vẫn giữ nguyên ý nghĩa như một tâm khối. Như được minh họa trong Hình 5.5, sử dụng hàm mật độ xác suất Rayleigh để minh họa, giá trị kỳ vọng là điểm cân bằng của hàm mật độ xác suất, giống như nó từng là điểm cân bằng của hàm xác suất rời rạc trong trường hợp rời rạc.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_446_1049_955_1554.jpg" alt="Giá trị kỳ vọng" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/5.5.png" alt="Giá trị kỳ vọng" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.5:</strong> Giá trị kỳ vọng của một biến ngẫu nhiên liên tục là điểm cân bằng của hàm mật độ xác suất.\r
@@ -13784,9 +13729,9 @@ Với định nghĩa này, giá trị kỳ vọng vẫn giữ nguyên ý nghĩa 
 Tính tuyến tính của kỳ vọng vẫn đúng cho biến ngẫu nhiên liên tục, giống như trường hợp biến ngẫu nhiên rời rạc (chúng ta sẽ chứng minh điều này sau trong Ví dụ 7.2.4). Định lý LOTUS cũng đúng cho biến ngẫu nhiên liên tục, thay tổng bằng tích phân và thay hàm xác suất rời rạc bằng hàm mật độ xác suất:\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.1.11</div>
-    <div class="math-box-title">LOTUS, liên tục</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.1.11</div>\r
+    <div class="math-box-title">LOTUS, liên tục</div>\r
   </div>\r
 <div class="math-box-content">\r
 Nếu X là một biến ngẫu nhiên liên tục với hàm mật độ xác suất f và g là một hàm từ R đến R, thì\r
@@ -13801,9 +13746,9 @@ $$\r
 Chúng ta giờ đã có tất cả các công cụ cần thiết để xử lý các phân phối được đề cập trong chương này, bắt đầu với phân phối đều.`,SR=`Trực giác, một biến ngẫu nhiên đều trên khoảng  $(a,b)$  là một số hoàn toàn ngẫu nhiên giữa a và b. Chúng ta formal hóa khái niệm "hoàn toàn ngẫu nhiên" trên một khoảng bằng cách chỉ định rằng hàm mật độ xác suất nên là hằng số trên khoảng đó.\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.2.1</div>
-    <div class="math-box-title">Phân phối đều</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.2.1</div>\r
+    <div class="math-box-title">Phân phối đều</div>\r
   </div>\r
 <div class="math-box-content">\r
 Một biến ngẫu nhiên liên tục U được gọi là có phân phối đều trên khoảng $(a, b)$ nếu hàm mật độ xác suất của nó là\r
@@ -13829,28 +13774,21 @@ Với một phân phối Unif(a, b) tổng quát, hàm mật độ xác suất l
 Với các phân phối đều, xác suất tỷ lệ với độ dài.\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.2.2</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.2.2</div>\r
   </div>\r
 <div class="math-box-content">\r
 Cho $U \\sim \\text{Unif}(a, b)$, và cho $(c, d)$ là một khoảng con của $(a, b)$, có độ dài $l$ (vậy $l = d - c$). Khi đó xác suất của $U$ nằm trong khoảng $(c, d)$ tỷ lệ với $l$. Ví dụ, một khoảng con dài gấp đôi có xác suất chứa $U$ gấp đôi, và một khoảng con có cùng độ dài có xác suất chứa $U$ giống nhau.\r
 </div>\r
 </div>\r
 \r
-<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_198_177_682_635.jpg" alt="PDF của Unif(0, 1)" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_699_180_1180_634.jpg" alt="CDF của Unif(0, 1)" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-</div>\r
+<img src="imgs/5.6.png" alt="PDF của Unif(0, 1) · CDF của Unif(0, 1)" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.6:</strong> Phân phối xác suất (PDF) và hàm phân phối tích lũy (CDF) của Unif(0, 1).\r
 </div>\r
 <div class="math-box proof">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
   </div>\r
 <div class="math-box-content">\r
 Vì phân phối xác suất của $U$ là hằng số $\\frac{1}{b-a}$ trên khoảng $(a,b)$, diện tích dưới đường PDF từ $c$ đến $d$ là $\\frac{l}{b-a}$, điều này là một hằng số nhân với $l$.\r
@@ -13862,8 +13800,8 @@ Vì phân phối xác suất của $U$ là hằng số $\\frac{1}{b-a}$ trên kh
 Tính chất trên là một tính chất đặc biệt của phân phối đều; đối với bất kỳ phân phối nào khác, đều tồn tại các khoảng có cùng độ dài nhưng có xác suất khác nhau. Ngay cả sau khi điều kiện hóa trên một biến ngẫu nhiên đều  $U$  nằm trong một khoảng con nhất định, ta vẫn có phân phối đều và do đó vẫn có xác suất tỷ lệ với độ dài (trong khoảng con đó); chúng ta sẽ chứng minh điều này dưới đây.\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.2.3</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.2.3</div>\r
   </div>\r
 <div class="math-box-content">\r
 Giả sử $U \\sim \\text{Unif}(a,b)$, và $(c,d)$ là một khoảng con của $(a,b)$. Khi đó, phân phối điều kiện của $U$ cho $U \\in (c,d)$ là $\\text{Unif}(c,d)$.\r
@@ -13871,8 +13809,8 @@ Giả sử $U \\sim \\text{Unif}(a,b)$, và $(c,d)$ là một khoảng con của
 </div>\r
 \r
 <div class="math-box proof">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
   </div>\r
 <div class="math-box-content">\r
 Với $u$ trong $(c,d)$, hàm phân phối tích lũy điều kiện tại $u$ là\r
@@ -13888,8 +13826,8 @@ Hàm phân phối tích lũy điều kiện bằng 0 với $u \\leq c$ và bằn
 </div>\r
 \r
 <div class="math-box example">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 5.2.4</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.2.4</div>\r
   </div>\r
 <div class="math-box-content">\r
 Hãy minh họa các định lý trên cho $U \\sim \\text{Unif}(0,1)$. Trong trường hợp đặc biệt này, độ dài miền xác định là 1, do đó xác suất bằng độ dài: xác suất của $U$ rơi vào khoảng $(0,0.3)$ là 0.3, cũng như xác suất rơi vào khoảng $(0.3,0.6)$, $(0.4,0.7)$, hoặc bất kỳ khoảng nào có độ dài 0.3 nào trong $(0,1)$.\r
@@ -13925,9 +13863,9 @@ $$\r
 Sự chứng minh trên không quá đau đầu, nhưng có một con đường dễ hơn, sử dụng một kỹ thuật thường hữu ích cho phân phối liên tục. Kỹ thuật này được gọi là biến đổi location-scale, và nó dựa trên quan sát rằng dịch chuyển và thay đổi tỷ lệ một biến ngẫu nhiên Uniform sẽ tạo ra một biến ngẫu nhiên Uniform khác. Dịch chuyển được coi là thay đổi vị trí và thay đổi tỷ lệ là thay đổi tỷ lệ, do đó thuật ngữ location-scale. Ví dụ, nếu X là Uniform trên khoảng  $(1,2)$ , thì  $X + 5$  là Uniform trên khoảng  $(6,7)$ ,  $2X$  là Uniform trên khoảng  $(2,4)$ , và  $2X + 5$  là Uniform trên  $(7,9)$ .\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.2.5</div>
-    <div class="math-box-title">Biến đổi location-scale</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.2.5</div>\r
+    <div class="math-box-title">Biến đổi location-scale</div>\r
   </div>\r
 <div class="math-box-content">\r
 Giả sử X là một biến ngẫu nhiên và $Y = \\sigma X + \\mu$, trong đó $\\sigma$ và $\\mu$ là các hằng số với $\\sigma > 0$. Khi đó ta nói rằng Y đã được tạo ra bằng biến đổi location-scale của X. Tại đây $\\mu$ kiểm soát cách thay đổi vị trí và $\\sigma$ kiểm soát cách thay đổi tỷ lệ.\r
@@ -13935,8 +13873,8 @@ Giả sử X là một biến ngẫu nhiên và $Y = \\sigma X + \\mu$, trong đ
 </div>\r
 \r
 <div class="math-box remark">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ghi chú 5.2.6</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 5.2.6</div>\r
   </div>\r
 <div class="math-box-content">\r
 Trong một biến đổi location-scale, bắt đầu với $X \\sim \\text{Unif}(a, b)$ và biến đổi nó thành $Y = cX + d$ với c và d là các hằng số với c > 0, Y là một hàm tuyến tính của X và tính Uniform được bảo toàn: $Y \\sim \\text{Unif}(ca + d, cb + d)$. Nhưng nếu Y được định nghĩa là một biến đổi phi tuyến của X, thì Y nói chung sẽ không phải là Uniform. Ví dụ, với $X \\sim \\text{Unif}(a, b)$ với $0 \\leq a < b$, biến ngẫu nhiên được biến đổi $Y = X^2$ có khoảng hỗ trợ $(a^2, b^2)$ nhưng không phải là Uniform trên khoảng đó. Chương 8 sẽ khám phá các biến đổi của biến ngẫu nhiên một cách chi tiết.\r
@@ -13984,8 +13922,8 @@ $$\r
 Kỹ thuật biến đổi địa điểm-tỷ lệ sẽ hoạt động cho bất kỳ họ phân phối nào mà việc dịch chuyển và tỷ lệ một biến ngẫu nhiên có phân phối trong họ sẽ tạo ra một biến ngẫu nhiên có phân phối trong họ. Kỹ thuật này không áp dụng cho các họ phân phối rời rạc (có khoảng hỗ trợ cố định) vì ví dụ, việc dịch chuyển hoặc tỷ lệ  $X \\sim \\text{Bin}(n, p)$  sẽ thay đổi khoảng hỗ trợ và tạo ra một biến ngẫu nhiên không còn phân phối nhị thức. Một biến ngẫu nhiên nhị thức phải có thể nhận tất cả các giá trị nguyên giữa 0 và một giới hạn trên nào đó, nhưng  $X + 4$  không thể nhận bất kỳ giá trị nào trong  $\\{0, 1, 2, 3\\}$  và 2X chỉ nhận các giá trị chẵn, vì vậy không biến ngẫu nhiên nào trong hai trường hợp này có phân phối nhị thức.\r
 \r
 <div class="math-box remark">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Cảnh giác với phép thuật đồng cảm 5.2.7</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Cảnh giác với phép thuật đồng cảm 5.2.7</div>\r
   </div>\r
 <div class="math-box-content">\r
 Khi sử dụng biến đổi địa điểm-tỷ lệ, việc dịch chuyển và tỷ lệ nên được áp dụng cho các biến ngẫu nhiên, không phải cho PDF của chúng. Việc nhầm lẫn hai điều này là một ví dụ về phép thuật đồng cảm (xem 3.7.7), và sẽ dẫn đến các PDF không hợp lệ. Ví dụ, giả sử $U \\sim \\text{Unif}(0,1)$, do đó PDF $f$ có $f(x) = 1$ trên $(0,1)$ (và $f(x) = 0$ ở nơi khác). Sau đó $3U + 1 \\sim \\text{Unif}(1,4)$, nhưng $3f + 1$ là hàm số bằng 4 trên $(0,1)$ và 1 ở nơi khác, điều này không phải là một PDF hợp lệ vì nó không tích phân được 1.\r
@@ -13995,9 +13933,9 @@ Khi sử dụng biến đổi địa điểm-tỷ lệ, việc dịch chuyển v
 Để giữ cho các chứng minh đơn giản, chúng ta sẽ phát biểu tính phổ biến của Phân phối Đều cho trường hợp mà ta biết hàm ngược của hàm phân phối tích lũy (CDF) tồn tại. Các ý tưởng tương tự có thể được sử dụng để mô phỏng một lần rút ngẫu nhiên từ bất kỳ CDF nào mong muốn như một hàm của một  $\\text{Unif}(0,1)$ .\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.3.1</div>
-    <div class="math-box-title">Tính phổ biến của Phân phối Đều</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.3.1</div>\r
+    <div class="math-box-title">Tính phổ biến của Phân phối Đều</div>\r
   </div>\r
 <div class="math-box-content">\r
 Gọi $F$ là một hàm phân phối tích lũy (CDF) là một hàm liên tục và tăng nghiêm ngặt trên miền hỗ trợ của phân phối. Điều này đảm bảo rằng hàm ngược $F^{-1}$ tồn tại, như một hàm từ $(0,1)$ đến $\\mathbb{R}$. Chúng ta có các kết quả sau.\r
@@ -14012,8 +13950,8 @@ Hãy đảm bảo rằng chúng ta hiểu rõ phần nào của định lý đan
 Phần thứ hai của định lý đi theo hướng ngược lại, bắt đầu từ một biến ngẫu nhiên X có CDF là F và sau đó tạo ra một $\\text{Unif}(0,1)$ biến ngẫu nhiên. Lại một lần nữa, F là một hàm, X là một biến ngẫu nhiên, và một hàm của một biến ngẫu nhiên là một biến ngẫu nhiên, do đó $F(X)$ là một biến ngẫu nhiên. Vì bất kỳ CDF nào cũng nằm giữa 0 và 1 ở mọi nơi, $F(X)$ phải nhận giá trị giữa 0 và 1. Tính phổ biến của Phân phối Đều nói rằng phân phối của $F(X)$ là đều trên $(0,1)$.\r
 \r
 <div class="math-box remark">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ghi chú 5.3.2</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 5.3.2</div>\r
   </div>\r
 <div class="math-box-content">\r
 Phần thứ hai của tính phổ biến của Phân phối Đều liên quan đến việc đưa một biến ngẫu nhiên X vào chính CDF của nó F. Điều này có thể dường như tự tham chiếu một cách kỳ lạ, nhưng nó hợp lý vì F chỉ là một hàm (thỏa mãn các tính chất của một CDF hợp lệ), và một hàm của một biến ngẫu nhiên là một biến ngẫu nhiên. Tuy nhiên, có một sự nhầm lẫn về ký hiệu tiềm năng: $F(x) = P(X \\leq x)$ theo định nghĩa, nhưng nói rằng “$F(X) = P(X \\leq X) = 1$” là sai. Thay vào đó, ta nên trước tiên tìm biểu thức cho CDF dưới dạng một hàm của x, sau đó thay x bằng X để nhận được một biến ngẫu nhiên. Ví dụ, nếu CDF của X là $F(x) = 1 - e^{-x}$ với x > 0, thì $F(X) = 1 - e^{-X}$.\r
@@ -14023,8 +13961,8 @@ Phần thứ hai của tính phổ biến của Phân phối Đều liên quan �
 Hiểu được phát biểu của định lý là phần khó; chứng minh chỉ là vài dòng cho mỗi hướng.\r
 \r
 <div class="math-box proof">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
   </div>\r
 <div class="math-box-content">\r
 1. Gọi $U \\sim \\text{Unif}(0,1)$ và $X = F^{-1}(U)$. Với mọi số thực $x$,\r
@@ -14050,9 +13988,9 @@ Do đó Y có CDF Unif(0,1).\r
 Để có thêm cái nhìn sâu sắc về hàm phân vị  $F^{-1}$  và tính phổ quát của Uniform, hãy xem xét một ví dụ quen thuộc với hàng triệu học sinh: phân vị trên một bài thi.\r
 \r
 <div class="math-box example">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 5.3.3</div>
-    <div class="math-box-title">Phân vị</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.3.3</div>\r
+    <div class="math-box-title">Phân vị</div>\r
   </div>\r
 <div class="math-box-content">\r
 Một số lượng lớn học sinh làm một bài thi, được chấm theo thang điểm từ 0 đến 100. Gọi X là điểm số của một học sinh ngẫu nhiên. Phân phối liên tục dễ xử lý hơn ở đây, nên hãy xấp xỉ phân phối rời rạc của điểm số bằng một phân phối liên tục. Giả sử rằng X liên tục, có một CDF F mà tăng nghiêm ngặt trên $(0, 100)$. Trên thực tế, chỉ có hữu hạn học sinh và chỉ có hữu hạn điểm số có thể, nhưng một phân phối liên tục có thể là một xấp xỉ tốt.\r
@@ -14070,9 +14008,9 @@ Về mặt khác, phân bố của các percentile của sinh viên là đều: 
 Để minh họa tính phổ quát của Uniform, chúng ta sẽ áp dụng nó cho hai phân bố mà chúng ta đã gặp trong phần trước, đó là Logistic và Rayleigh.\r
 \r
 <div class="math-box example">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 5.3.4</div>
-    <div class="math-box-title">Phổ quát với Logistic</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.3.4</div>\r
+    <div class="math-box-title">Phổ quát với Logistic</div>\r
   </div>\r
 <div class="math-box-content">\r
 Hàm phân phối tích lũy (CDF) của Logistic là\r
@@ -14108,7 +14046,7 @@ $$\r
 Chúng ta cũng có thể sử dụng mô phỏng để trực quan hóa cách tính phổ quát của Uniform hoạt động. Để thực hiện điều này, chúng ta đã tạo ra 1 triệu biến ngẫu nhiên Unif(0,1). Sau đó chúng ta biến đổi mỗi giá trị u thành $\\log\\left(\\frac{u}{1-u}\\right)$; nếu tính phổ quát của Uniform là đúng, các số đã biến đổi này nên tuân theo phân bố Logistic.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_340_142_1086_841.jpg" alt="Biểu đồ tần suất Uniform và Logistic" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/5.7.png" alt="Biểu đồ tần suất Uniform và Logistic" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.7:</strong> Trên: Biểu đồ tần suất của $10^6$ mẫu của $U \\sim \\text{Unif}(0,1)$, cùng với PDF của $\\text{Unif}(0,1)$ để so sánh. Dưới: Biểu đồ tần suất của $10^6$ mẫu của $\\log\\left(\\frac{U}{1-U}\\right)$, cùng với PDF Logistic để so sánh.\r
@@ -14122,9 +14060,9 @@ F(X)=\\frac{e^{X}}{1+e^{X}}\\sim \\text{Unif}(0,1).\r
 $$\r
 \r
 <div class="math-box example">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 5.3.5</div>
-    <div class="math-box-title">Tính phổ quát với Rayleigh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.3.5</div>\r
+    <div class="math-box-title">Tính phổ quát với Rayleigh</div>\r
   </div>\r
 <div class="math-box-content">\r
 Hàm phân phối tích lũy (CDF) của Rayleigh là\r
@@ -14146,7 +14084,7 @@ nên nếu $U \\sim \\mathrm{Unif}(0,1)$, thì $F^{-1}(U) = \\sqrt{-2\\log(1-U)}
 Chúng ta lại tạo ra 1 triệu mẫu của  $U \\sim \\text{Unif}(0,1)$  và biến đổi chúng\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_351_136_1085_842.jpg" alt="Biểu đồ tần suất Uniform và Rayleigh" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/5.8.png" alt="Biểu đồ tần suất Uniform và Rayleigh" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.8:</strong> Trên: Biểu đồ tần suất của 1 triệu mẫu từ $U \\sim \\text{Unif}(0, 1)$, với $\\text{Unif}(0, 1)$ PDF để so sánh. Dưới: Biểu đồ tần suất của 1 triệu mẫu từ $\\sqrt{-2 \\log(1 - U)}$, với PDF Rayleigh để so sánh.\r
@@ -14164,7 +14102,7 @@ Giả sử chúng ta muốn sử dụng  $U \\sim \\text{Unif}(0,1)$  để xây
 Bây giờ xác định X là biến ngẫu nhiên nào bằng 0 nếu U rơi vào khoảng  $p_{0}$ , 1 nếu U rơi vào khoảng  $p_{1}$ , 2 nếu U rơi vào khoảng  $p_{2}$ , và cứ như vậy. Sau đó X là một biến ngẫu nhiên rời rạc\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_319_142_1079_330.jpg" alt="Cắt đoạn (0,1) thành các đoạn nhỏ" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/5.9.png" alt="Cắt đoạn (0,1) thành các đoạn nhỏ" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.9:</strong> Cho một PMF, cắt đoạn $(0,1)$ thành các đoạn nhỏ, với độ dài được xác định bởi các giá trị của PMF.\r
@@ -14178,8 +14116,8 @@ Cách làm tương tự sẽ hiệu quả cho một r.v. rời rạc có thể n
 Chúng ta giờ biết cách tạo ra một r.v. với một PMF tùy ý. Điều này đáp ứng lời hứa trong Chương 3 rằng bất kỳ hàm nào có các tính chất được nêu trong Định lý 3.2.7 đều là PMF của một r.v. nào đó.\r
 \r
 <div class="math-box remark">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ghi chú 5.3.6</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 5.3.6</div>\r
   </div>\r
 <div class="math-box-content">\r
 Phía sau của tính phổ quát của Uniform, ngược lại, không hiệu quả với các r.v. rời rạc. Một hàm của một r.v. rời rạc vẫn là rời rạc, do đó nếu X rời rạc, thì $F(X)$ vẫn là rời rạc. Vì vậy, $F(X)$ không có phân phối Uniform. Ví dụ, nếu $X \\sim \\text{Bern}(p)$, thì $F(X)$ chỉ có hai giá trị có thể: $F(0) = 1 - p$ và $F(1) = 1$.\r
@@ -14195,8 +14133,8 @@ Sử dụng ví dụ tương tự phân phối như bản vẽ và r.v. như nh�
 Câu hỏi liên quan đến tính phổ quát của Uniform, LOTUS, và mối quan hệ giữa các hàm phân phối tích lũy và hàm phân vị.\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.3.7</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.3.7</div>\r
   </div>\r
 <div class="math-box-content">\r
 Hàm sống sót của một biến ngẫu nhiên X có hàm phân phối tích lũy F là hàm G được cho bởi $G(x) = 1 - F(x) = P(X > x)$.\r
@@ -14204,9 +14142,9 @@ Hàm sống sót của một biến ngẫu nhiên X có hàm phân phối tích 
 </div>\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.3.8</div>
-    <div class="math-box-title">Kỳ vọng bằng cách tích phân hàm sống sót</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.3.8</div>\r
+    <div class="math-box-title">Kỳ vọng bằng cách tích phân hàm sống sót</div>\r
   </div>\r
 <div class="math-box-content">\r
 Giả sử X là một biến ngẫu nhiên không âm. Kỳ vọng của nó có thể được tìm bằng cách tích phân hàm sống sót của nó:\r
@@ -14220,8 +14158,8 @@ Kết quả này là phiên bản liên tục của Định lý 4.4.8 (lưu ý r
 </div>\r
 \r
 <div class="math-box proof">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
   </div>\r
 <div class="math-box-content">\r
 Với bất kỳ số nào $x \\geq 0$, chúng ta có thể viết\r
@@ -14259,7 +14197,7 @@ Một CDF điển hình của một biến ngẫu nhiên không âm, liên tục
 Nhưng một cách khác để tìm diện tích này là lật đầu và tích phân theo hướng ngang.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_305_140_1094_792.jpg" alt="Diện tích phía trên một CDF" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/5.10.png" alt="Diện tích phía trên một CDF" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.10:</strong> Diện tích phía trên một CDF nhất định và phía dưới đường $p = 1$ được tô màu. Diện tích này có thể được diễn giải theo hai cách: là tích phân của hàm sống còn, hoặc là tích phân của hàm phân vị.\r
@@ -14280,9 +14218,9 @@ $$`,wR=`Phân phối chuẩn là một phân phối liên tục nổi tiếng v�
 Định lý giới hạn trung tâm là một chủ đề cho Chương 10, nhưng trong lúc đó, chúng ta sẽ giới thiệu các tính chất của PDF và CDF chuẩn tắc và suy ra kỳ vọng và phương sai của phân phối chuẩn tắc. Để làm điều này, chúng ta sẽ lại sử dụng chiến lược biến đổi vị trí và tỷ lệ bằng cách bắt đầu với phân phối chuẩn tắc đơn giản nhất, phân phối chuẩn tắc chuẩn, được đặt tại 0 và có phương sai bằng 1. Sau khi suy ra các tính chất của phân phối chuẩn tắc chuẩn, chúng ta sẽ có thể đạt đến bất kỳ phân phối chuẩn tắc nào mà chúng ta muốn bằng cách dịch chuyển và tỷ lệ.\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.4.1</div>
-    <div class="math-box-title">Phân phối chuẩn tắc chuẩn</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.4.1</div>\r
+    <div class="math-box-title">Phân phối chuẩn tắc chuẩn</div>\r
   </div>\r
 <div class="math-box-content">\r
 Một biến ngẫu nhiên liên tục Z được gọi là có phân phối chuẩn tắc chuẩn nếu PDF của nó $\\varphi$ được cho bởi\r
@@ -14304,8 +14242,8 @@ $$\r
 Một số người, khi nhìn thấy hàm  $\\Phi$  lần đầu tiên, bày tỏ sự lo lắng rằng nó được để lại dưới dạng tích phân. Không may là chúng ta không có nhiều lựa chọn trong việc này: thực ra, toán học cho thấy không thể tìm được một biểu thức đóng cho nguyên hàm của  $\\varphi$ , nghĩa là chúng ta không thể biểu diễn  $\\Phi$  dưới dạng tổng hữu hạn của các hàm số quen thuộc hơn như đa thức hoặc hàm mũ. Nhưng dù có biểu thức đóng hay không, nó vẫn là một hàm số xác định: nếu chúng ta đưa vào  $\\Phi$  một giá trị z, nó sẽ trả về diện tích tích lũy dưới PDF từ  $-\\infty$  lên đến z.\r
 \r
 <div class="math-box remark">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ký hiệu 5.4.2</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ký hiệu 5.4.2</div>\r
   </div>\r
 <div class="math-box-content">\r
 Chúng ta có thể biết phân phối chuẩn tắc phải là đặc biệt vì PDF và CDF của phân phối chuẩn tắc chuẩn nhận được các ký tự Hy Lạp riêng. Theo quy ước, chúng ta sử dụng $\\varphi$ cho PDF của phân phối chuẩn tắc chuẩn và $\\Phi$ cho CDF. Chúng ta sẽ thường sử dụng Z để ký hiệu một biến ngẫu nhiên chuẩn tắc chuẩn.\r
@@ -14318,14 +14256,7 @@ Có nhiều tính chất đối xứng quan trọng có thể suy ra từ PDF v�
 \r
 1. Đối xứng của PDF:  $\\varphi$  thỏa mãn  $\\varphi(z) = \\varphi(-z)$ , tức là  $\\varphi$  là một hàm chẵn.\r
 \r
-<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_198_162_682_636.jpg" alt="PDF chuẩn tiêu chuẩn" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_699_166_1178_633.jpg" alt="CDF chuẩn tiêu chuẩn" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-</div>\r
+<img src="imgs/5.11.png" alt="PDF chuẩn tiêu chuẩn · CDF chuẩn tiêu chuẩn" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.11:</strong> Phân phối xác suất chuẩn tiêu chuẩn $\\varphi$ (trái) và hàm phân phối tích lũy $\\Phi$ (phải).\r
 </div>\r
@@ -14402,9 +14333,9 @@ Số hạng đầu tiên của tích phân từng phần bằng 0 vì  $e^{-z^{2
 Phân phối chuẩn tổng quát có hai tham số, được ký hiệu là  $\\mu$  và  $\\sigma^{2}$ , tương ứng với giá trị trung bình và phương sai (vì vậy phân phối chuẩn tiêu chuẩn là trường hợp đặc biệt khi  $\\mu = 0$  và  $\\sigma^{2} = 1$ ). Bắt đầu với một biến ngẫu nhiên chuẩn  $Z \\sim \\mathcal{N}(0, 1)$ , chúng ta có thể nhận được một biến ngẫu nhiên chuẩn với bất kỳ giá trị trung bình và phương sai nào bằng cách thực hiện biến đổi vị trí và tỷ lệ (dịch chuyển và thay đổi tỷ lệ).\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.4.3</div>
-    <div class="math-box-title">Phân phối chuẩn</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.4.3</div>\r
+    <div class="math-box-title">Phân phối chuẩn</div>\r
   </div>\r
 <div class="math-box-content">\r
 Nếu $Z \\sim \\mathcal{N}(0,1)$, thì\r
@@ -14434,9 +14365,9 @@ $$\r
 Chúng ta có thể sử dụng chuẩn hóa để tìm hàm phân phối tích lũy (CDF) và hàm mật độ xác suất (PDF) của X theo hàm CDF và PDF của phân phối chuẩn tiêu chuẩn.\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.4.4</div>
-    <div class="math-box-title">CDF và PDF của phân phối chuẩn</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.4.4</div>\r
+    <div class="math-box-title">CDF và PDF của phân phối chuẩn</div>\r
   </div>\r
 <div class="math-box-content">\r
 Cho $X \\sim \\mathcal{N}(\\mu, \\sigma^2)$. Khi đó CDF của X là\r
@@ -14454,8 +14385,8 @@ $$\r
 </div>\r
 \r
 <div class="math-box proof">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
   </div>\r
 <div class="math-box-content">\r
 Đối với CDF, chúng ta bắt đầu từ định nghĩa $F(x) = P(X \\leq x)$, chuẩn hóa, và sử dụng CDF của phân phối chuẩn tiêu chuẩn:\r
@@ -14483,9 +14414,9 @@ $$\r
 Cuối cùng, ba tiêu chuẩn quan trọng đối với phân phối chuẩn là xác suất của việc rơi vào khoảng một, hai, và ba độ lệch chuẩn so với giá trị trung bình. Quy tắc 68-95-99.7% cho chúng ta biết rằng các xác suất này chính là những con số mà tên gọi gợi ý.\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.4.5</div>
-    <div class="math-box-title">quy tắc 68-95-99.7%</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.4.5</div>\r
+    <div class="math-box-title">quy tắc 68-95-99.7%</div>\r
   </div>\r
 <div class="math-box-content">\r
 Nếu $X \\sim \\mathcal{N}(\\mu, \\sigma^{2})$, thì\r
@@ -14503,9 +14434,9 @@ $$\r
 $$\r
 \r
 <div class="math-box example">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 5.4.6</div>
-    <div class="math-box-title">Thực hành với hàm phân phối tích lũy chuẩn tiêu chuẩn</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.4.6</div>\r
+    <div class="math-box-title">Thực hành với hàm phân phối tích lũy chuẩn tiêu chuẩn</div>\r
   </div>\r
 <div class="math-box-content">\r
 Cho $X \\sim \\mathcal{N}(-1,4)$. Hỏi $P(|X| < 3)$, chính xác (theo $\\Phi$) và xấp xỉ?\r
@@ -14531,9 +14462,9 @@ $$\r
 Như chúng ta sẽ thấy sau này trong cuốn sách, nhiều phân phối quan trọng có thể được thu được thông qua việc biến đổi các biến ngẫu nhiên chuẩn theo cách tự nhiên, ví dụ như bình phương hay mũ hóa. Chương 8 sẽ đi sâu vào các biến đổi, nhưng trong lúc đó có rất nhiều điều chúng ta có thể làm chỉ bằng cách sử dụng LOTUS và các tính chất của hàm phân phối tích lũy.\r
 \r
 <div class="math-box example">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 5.4.7</div>
-    <div class="math-box-title">Phân phối chuẩn được gấp</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.4.7</div>\r
+    <div class="math-box-title">Phân phối chuẩn được gấp</div>\r
   </div>\r
 <div class="math-box-content">\r
 Cho $Y = |Z|$ với $Z \\sim \\mathcal{N}(0, 1)$. Phân phối của Y được gọi là phân phối chuẩn được gấp với tham số $\\mu = 0$ và $\\sigma^2 = 1$. Trong ví dụ này, chúng ta sẽ tìm kỳ vọng, phương sai và phân phối của Y. Tại first sight, Y có thể dường như khó xử lý vì hàm giá trị tuyệt đối không khả vi tại 0 (do có góc nhọn), nhưng Y có một phân phối liên tục hoàn toàn hợp lệ.\r
@@ -14575,9 +14506,9 @@ Vậy hàm mật độ xác suất (PDF) của Y là $2\\varphi(y)$ với $y \\g
 </div>`,TR=`Phân phối Expo là phiên bản liên tục của phân phối Geometric. Nhớ lại rằng một biến ngẫu nhiên Geometric đếm số lần thất bại trước lần thành công đầu tiên trong một chuỗi các lần thử Bernoulli. Câu chuyện của phân phối Expo tương tự, nhưng giờ đây chúng ta đang chờ đợi một lần thành công trong thời gian liên tục, nơi các lần thành công đến với tốc độ  $\\lambda$  lần thành công mỗi đơn vị thời gian. Số lần thành công trung bình trong một khoảng thời gian có độ dài t là  $\\lambda t$ , mặc dù số lần thành công thực tế thay đổi ngẫu nhiên. Một biến ngẫu nhiên Expo đại diện cho thời gian chờ đợi cho lần đến đầu tiên của một lần thành công.\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.5.1</div>
-    <div class="math-box-title">Phân phối Expo</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.5.1</div>\r
+    <div class="math-box-title">Phân phối Expo</div>\r
   </div>\r
 <div class="math-box-content">\r
 Một biến ngẫu nhiên liên tục X được gọi là có phân phối Expo với tham số $\\lambda$, nơi $\\lambda > 0$, nếu hàm mật độ xác suất (PDF) của nó là\r
@@ -14598,14 +14529,7 @@ $$\r
 \r
 Hàm PDF và CDF của Expo(1) được vẽ trong Hình 5.12. Lưu ý sự tương đồng với hàm PMF và CDF của Geometric được minh họa trong Chương 4. Bài tập 43 khám phá ý nghĩa trong đó Geometric hội tụ đến Expo, trong giới hạn mà các lần thử Bernoulli được thực hiện nhanh hơn và nhanh hơn nhưng với xác suất thành công nhỏ hơn và nhỏ hơn.\r
 \r
-<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_197_162_681_635.jpg" alt="Phân phối xác suất Expo(1)" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-  <div style="flex: 1; text-align: center;">\r
-    <img src="imgs/img_in_chart_box_697_164_1179_634.jpg" alt="Hàm phân phối tích lũy Expo(1)" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  </div>\r
-</div>\r
+<img src="imgs/5.12.png" alt="Phân phối xác suất Expo(1) · Hàm phân phối tích lũy Expo(1)" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.12:</strong> Phân phối xác suất và hàm phân phối tích lũy của Expo(1).\r
 </div>\r
@@ -14656,9 +14580,9 @@ vậy kỳ vọng và phương sai của phân phối  $\\text{Expo}(\\lambda)$ 
 Phân phối Exponential có một tính chất đặc biệt gọi là tính chất không nhớ, điều này nói rằng ngay cả khi bạn đã chờ hàng giờ hay ngày mà không thành công, sự thành công không phải là khả năng cao hơn để đến sớm. Trên thực tế, bạn có thể coi như vừa mới bắt đầu chờ 10 giây trước. Định nghĩa formal hóa ý tưởng này.\r
 \r
 <div class="math-box definition">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 5.5.2</div>
-    <div class="math-box-title">Tính chất không nhớ</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 5.5.2</div>\r
+    <div class="math-box-title">Tính chất không nhớ</div>\r
   </div>\r
 <div class="math-box-content">\r
 Một phân phối liên tục được cho là có tính chất không nhớ nếu một biến ngẫu nhiên X từ phân phối này thỏa mãn\r
@@ -14700,8 +14624,8 @@ Rõ ràng, tính chất nhớ lại không phải là mô tả phù hợp cho tu
 Tính chất nhớ lại là một tính chất đặc biệt của phân phối Exponential: không có phân phối liên tục nào khác trên  $(0, \\infty)$  có tính chất nhớ lại! Hãy chứng minh điều này.\r
 \r
 <div class="math-box theorem">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Định lý 5.5.3</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 5.5.3</div>\r
   </div>\r
 <div class="math-box-content">\r
 Nếu X là biến ngẫu nhiên dương liên tục có tính chất nhớ lại, thì X có phân phối Exponential.\r
@@ -14709,8 +14633,8 @@ Nếu X là biến ngẫu nhiên dương liên tục có tính chất nhớ lạ
 </div>\r
 \r
 <div class="math-box proof">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
   </div>\r
 <div class="math-box-content">\r
 Giả sử X là biến ngẫu nhiên dương liên tục có tính chất nhớ lại. Gọi F là hàm phân phối tích lũy của X và G là hàm sống sót của X, được cho bởi $G(x) = 1 - F(x)$. Chúng ta sẽ chứng minh rằng $G(x) = e^{-\\lambda x}$ với một hằng số nào đó $\\lambda$, bằng cách trước tiên chứng minh rằng $G(xt) = G(t)^{x}$ với mọi số thực x > 0. Tính chất nhớ lại nói rằng\r
@@ -14780,9 +14704,9 @@ với mọi số nguyên không âm $j, k$. Nhìn từ sự tương tự giữa 
 Làm quen với tính chất không nhớ, ví dụ sau đây kể về cuộc đời của Fred, người trải nghiệm trực tiếp sự phiền toái của tính chất không nhớ sau khi chuyển đến một thành phố có hệ thống giao thông không nhớ.\r
 \r
 <div class="math-box example">\r
-  <div class="math-box-header">
-    <div class="math-box-number">Ví dụ 5.5.4</div>
-    <div class="math-box-title">Blissville và Blotchville</div>
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 5.5.4</div>\r
+    <div class="math-box-title">Blissville và Blotchville</div>\r
   </div>\r
 <div class="math-box-content">\r
 Fred sống ở Blissville, nơi các xe buýt luôn đến đúng giờ, với khoảng thời gian giữa các chuyến xe liên tiếp cố định là 10 phút. Sau khi mất đồng hồ, anh ta đến điểm dừng xe vào một thời điểm ngẫu nhiên trên một ngày nào đó (giả sử rằng xe buýt chạy 24 giờ một ngày, mỗi ngày, và thời điểm mà Fred đến là độc lập với quy trình đến xe buýt).\r
@@ -14827,7 +14751,7 @@ Trong phần này, chúng ta sẽ tập trung vào quy trình Poisson trên  $(0
 Để cụ thể hơn, giả sử rằng các lần đến là các email đến trong hộp thư theo quy trình Poisson với tốc độ  $\\lambda$ . Có nhiều điều chúng ta có thể muốn biết về quy trình này. Một câu hỏi chúng ta có thể đặt ra là: trong một giờ, có bao nhiêu email sẽ đến? Trả lời đến trực tiếp từ định nghĩa, điều này cho chúng ta biết rằng\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_204_170_1170_308.jpg" alt="Quá trình Poisson" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/5.13.png" alt="Quá trình Poisson" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.13:</strong> Một quá trình Poisson trên $(0,\\infty)$. Mỗi X tương ứng với một sự đến hàng.\r
@@ -15104,14 +15028,14 @@ Một chiến lược mới mà chúng ta đã học cho các phân phối liên
 Chúng ta có thể thêm phân phối Exponential và Geometric vào sơ đồ liên kết giữa các phân phối: Exponential là giới hạn liên tục của Geometric, và Poisson và Exponential được liên kết với nhau qua quá trình Poisson.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_277_140_1137_833.jpg" alt="Liên kết phân phối" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/lien-ket-phan-phoi-5.8.png" alt="Liên kết phân phối" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 \r
 \r
 Và trong bản đồ của chúng ta về bốn đối tượng cơ bản trong xác suất, chúng ta thêm PDF như một bản phác thảo khác cho các biến ngẫu nhiên liên tục.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_149_1002_1248_1634.jpg" alt="Bốn đối tượng cơ bản trong xác suất" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/5.14.png" alt="Bốn đối tượng cơ bản trong xác suất" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 5.14:</strong> Bốn đối tượng cơ bản trong xác suất: phân phối, biến ngẫu nhiên, sự kiện, và số. Đối với một biến ngẫu nhiên liên tục $X$, chúng ta có $P(X = x) = 0$, do đó chúng ta sử dụng PDF như một bản phác thảo thay cho PMF.\r
@@ -16672,7 +16596,7 @@ X. Nếu hàm phân phối tích lũy  $F$  là một hàm liên tục, nghiêm 
 Lưu ý rằng một phân phối có thể có nhiều trung vị và nhiều chế độ. Các trung vị phải xảy ra liên tiếp; các chế độ có thể xảy ra ở bất kỳ đâu trong phân phối. Trong Hình 6.1, chúng ta hiển thị một phân phối được hỗ trợ trên  $[-5, -1] \\cup [1, 5]$  có hai chế độ và vô số trung vị. Hàm mật độ xác suất là 0 giữa -1 và 1, do đó tất cả các giá trị giữa -1 và 1 đều là trung vị của phân phối vì nửa khối lượng rơi ở cả hai bên. Hai chế độ là tại -3 và 3.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_302_538_1080_990.jpg" alt="Một phân phối có hai chế độ" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/6.1.png" alt="Một phân phối có hai chế độ" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.1:</strong> Một phân phối có hai chế độ $(-3 \\text{ và } 3)$ và vô số trung vị (tất cả x trong khoảng $[-1, 1]$).\r
@@ -16775,7 +16699,7 @@ Theo định nghĩa của trung vị, chúng ta có $2P(X \\leq m) - 1 \\geq 0$.
 </div>>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_302_931_1079_1385.jpg" alt="Hai PDF với trung bình 2 và phương sai 12" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/6.2.png" alt="Hai PDF với trung bình 2 và phương sai 12" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.2:</strong> Hai PDF với trung bình 2 và phương sai 12. Đường cong sáng là Normal và đối xứng; đường cong tối thuộc về phân phối Log-Normal và lệch phải.\r
@@ -16788,10 +16712,7 @@ Các giá trị trung bình, trung vị và mốt của nó đều bằng 2. Tro
 \r
 Bây giờ xem Hình 6.3, trong đó cho thấy PMF của một biến ngẫu nhiên Bin(10,0.9) ở bên trái và PMF của 8 cộng với một biến ngẫu nhiên Bin(10,0.1) ở bên phải. Cả hai phân phối này đều có trung bình, trung vị và mốt bằng 9 và phương sai bằng 0.9, nhưng chúng trông hoàn toàn khác nhau. Chúng ta nói rằng PMF ở bên trái là lệch về phía bên trái và PMF ở bên phải là lệch về phía bên phải. Trong chương này, chúng ta sẽ học rằng một thước đo tiêu chuẩn của sự bất đối xứng của một phân phối dựa trên mô men thứ ba.\r
 \r
-<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_197_675_683_1143.jpg" alt="Bên trái" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  <img src="imgs/img_in_chart_box_698_681_1178_1141.jpg" alt="Bên phải" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
+<img src="imgs/6.3.png" alt="Bên trái · Bên phải" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.3:</strong> Bên trái: Bin(10,0.9) là lệch về phía bên trái. Bên phải: Bin(10,0.1), dịch chuyển sang bên phải 8 đơn vị, là lệch về phía bên phải nhưng có cùng trung bình, trung vị, mốt và phương sai với Bin(10,0.9).\r
 </div>\r
@@ -16801,10 +16722,7 @@ Các ví dụ trước đây đã xem xét các phân phối bất đối xứng
 \r
 Trong phần tiếp theo, chúng ta sẽ đi vào chi tiết hơn về cách diễn giải các mô men, đặc biệt là bốn mô men đầu tiên.\r
 \r
-<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_197_179_682_635.jpg" alt="Trái" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  <img src="imgs/img_in_chart_box_698_183_1179_632.jpg" alt="Phải" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
+<img src="imgs/6.4.png" alt="Trái · Phải" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.4:</strong> Trái: $\\mathcal{N}(0,1)$ PDF (sáng) và một PDF được thay đổi $t_{3}$ (tối). Cả hai đều có trung bình 0 và phương sai 1, nhưng cái sau có đỉnh nhọn hơn và đuôi nặng hơn. Phải: phiên bản phóng to của hành vi đuôi bên phải.\r
 </div>`,MR=`<div class="math-box definition">\r
@@ -16836,7 +16754,7 @@ $$\r
 Chúng ta sẽ định nghĩa độ lệch (skewness), một chỉ số số đơn lẻ để tóm tắt sự bất đối xứng, mà như đã gợi ý trước đây, dựa trên momen thứ ba. Trên thực tế, độ lệch được định nghĩa là momen chuẩn hóa thứ ba.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_455_141_940_343.jpg" alt="Giải thích vật lý về các moment" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/6.5.png" alt="Giải thích vật lý về các moment" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.5:</strong> Giải thích vật lý về các moment. Giá trị trung bình (moment đầu tiên) của một biến ngẫu nhiên (r.v.) tương ứng với tâm khối lượng của một tập hợp những viên đá, và phương sai (moment trung tâm thứ hai) tương ứng với momen quán tính quanh tâm khối lượng.\r
@@ -17028,11 +16946,7 @@ Lý do cho việc trừ 3 là vì điều này khiến phân phối chuẩn có 
 \r
 Hình 6.6 cho thấy ba phân phối có tên và liệt kê độ lệch và độ nhọn của mỗi phân phối. Các phân phối Expo(1) và Pois(4) (trái và giữa) đều có độ lệch dương và độ nhọn dương, cho thấy chúng bị lệch về phía bên phải và đuôi của chúng nặng hơn so với phân phối chuẩn. Phân phối Unif(0,1) (phải) có độ lệch bằng 0 và độ nhọn âm: độ lệch bằng 0 vì phân phối đối xứng quanh kỳ vọng của nó, và độ nhọn âm vì nó không có đuôi!\r
 \r
-<div style="display: flex; justify-content: center; gap: 20px; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_171_160_513_486.jpg" alt="Trái" style="max-width: 30%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  <img src="imgs/img_in_chart_box_521_170_860_485.jpg" alt="Giữa" style="max-width: 30%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-  <img src="imgs/img_in_chart_box_872_169_1212_482.jpg" alt="Phải" style="max-width: 30%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
-</div>\r
+<img src="imgs/6.6.png" alt="Trái · Giữa · Phải" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.6:</strong> Độ lệch về phía bên và độ nhọn của một số phân phối có tên. Trái: PDF của Expo(1), độ lệch = 2, độ nhọn = 6. Giữa: PMF của Pois(4), độ lệch = 0.5, độ nhọn = 0.25. Phải: PDF của Unif(0,1), độ lệch = 0, độ nhọn = -1.2.\r
 </div>`,NR=`Trong suy luận thống kê, một vấn đề trung tâm là làm thế nào sử dụng dữ liệu để ước lượng các tham số chưa biết của một phân phối, hoặc các hàm của các tham số chưa biết. Đặc biệt, người ta thường muốn ước lượng trung bình và phương sai của một phân phối. Nếu dữ liệu là các biến ngẫu nhiên độc lập và đồng phân phối  $X_{1}, \\ldots, X_{n}$  nơi mà trung bình  $E(X_{j})$  là chưa biết, thì cách đơn giản nhất để ước lượng trung bình là đơn giản trung bình của các  $X_{j}$ , lấy giá trị trung bình cộng.\r
@@ -17376,7 +17290,7 @@ $$\r
  \r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_chart_box_350_755_1037_1157.jpg" alt="MGF của Bin(2, 1/2)" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/6.7.png" alt="MGF của Bin(2, 1/2)" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.7:</strong> MGF của Bin(2, 1/2), $M(t) = \\left(\\frac{1}{2}e^{t} + \\frac{1}{2}\\right)^{2}$. Độ dốc của MGF tại t = 0 là 1, do đó trung bình của phân phối là 1. Độ cong hoặc đạo hàm cấp hai của MGF tại t = 0 là 3/2, do đó mô men cấp hai của phân phối là 3/2.\r
@@ -18048,7 +17962,7 @@ Chúng ta cũng đã giới thiệu phân phối Log-Normal và Weibull trong ch
 Hình 6.8 bổ sung bản đồ của chúng ta về mối liên hệ giữa các đối tượng cơ bản trong xác suất. Nếu hàm sinh mô men của X tồn tại, thì dãy  $E(X), E(X^{2}), E(X^{3}), \\ldots$  các mô men cung cấp đủ thông tin (ít nhất là về mặt nguyên lý) để xác định phân phối của X.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0;">\r
-  <img src="imgs/img_in_image_box_149_148_1247_827.jpg" alt="Liên hệ giữa các đối tượng cơ bản trong xác suất" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+  <img src="imgs/6.8.png" alt="Liên hệ giữa các đối tượng cơ bản trong xác suất" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 </div>\r
 <div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
   <strong>HÌNH 6.8:</strong> Đối với một biến ngẫu nhiên X, chúng ta có thể nghiên cứu các moment của nó $E(X)$, $E(X^{2})$, $\\ldots$. Những điều này có thể được tính toán bằng LOTUS hoặc bằng MGF (nếu tồn tại). Nếu MGF tồn tại, nó xác định phân phối, đưa chúng ta quay lại vòng tròn và bổ sung thêm cho danh sách các bản vẽ.\r
@@ -18743,7 +18657,7 @@ Hàm phân phối xác suất chung xác định phân phối vì chúng ta có 
 Hình 7.1 cho thấy một sơ đồ về cách mà hàm PMF chung của hai biến ngẫu nhiên rời rạc có thể trông như thế nào. Chiều cao của một thanh dọc tại  $(x, y)$  biểu diễn xác suất  $P(X = x, Y = y)$ . Để hàm PMF chung hợp lệ, tổng chiều cao của các thanh dọc phải bằng 1.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_332_344_1022_817.jpg" alt="PMF chung của các biến ngẫu nhiên rời rạc X và Y" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/7.1.png" alt="PMF chung của các biến ngẫu nhiên rời rạc X và Y" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 7.1:** PMF chung của các biến ngẫu nhiên rời rạc X và Y.\r
 </div>\r
@@ -18771,7 +18685,7 @@ PMF biên của X là PMF của X, xem xét X riêng lẻ thay vì cùng với Y
 Quy trình để thu được PMF biên từ PMF chung được minh họa trong Hình 7.2. Ở đây chúng ta nhìn nhận toàn cảnh của PMF chung để có cái nhìn rõ ràng hơn; mỗi cột của PMF chung tương ứng với một giá trị cố định x và mỗi hàng tương ứng với một giá trị cố định y. Với bất kỳ x nào, xác suất  $P(X = x)$  là tổng chiều cao của các thanh trong cột tương ứng của PMF chung: chúng ta có thể hình dung việc lấy tất cả các thanh trong cột đó và xếp chồng lên nhau để nhận được xác suất biên. Lặp lại điều này cho tất cả các x, chúng ta sẽ đạt được PMF biên, được thể hiện bằng chữ in đậm.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_430_140_949_747.jpg" alt="Phân phối xác suất biên P(X=x)" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/7.2.png" alt="Phân phối xác suất biên P(X=x)" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 7.2:** Nhìn từ trên xuống của phân phối xác suất đồng thời từ Hình 7.1. Phân phối xác suất biên $P(X = x)$ được xác định bằng cách tổng hợp dọc theo phân phối xác suất đồng thời trong hướng y.\r
 </div>\r
@@ -18811,7 +18725,7 @@ Lưu ý rằng PMF có điều kiện (cho x cố định) là một PMF hợp l
 Hình 7.3 minh họa định nghĩa của PMF có điều kiện. Để điều kiện hóa trên sự kiện  $X = x$ , chúng ta trước tiên lấy PMF chung và tập trung vào các thanh dọc nơi  $X$  nhận giá trị  $x$ ; trong hình, những thanh này được hiển thị bằng nét đậm. Tất cả các thanh dọc khác đều không liên quan vì chúng mâu thuẫn với kiến thức rằng sự kiện  $X = x$  đã xảy ra. Vì tổng chiều cao của các thanh đậm là xác suất biên  $P(X = x)$ , chúng ta sau đó chuẩn hóa lại PMF có điều kiện bằng cách chia cho  $P(X = x)$ ; điều này đảm bảo rằng PMF có điều kiện sẽ tổng thành 1. Do đó PMF có điều kiện là PMF, giống như xác suất có điều kiện là xác suất. Lưu ý rằng có một PMF có điều kiện khác nhau của  $Y$  cho mỗi giá trị có thể xảy ra của  $X$ ; Hình 7.3 chỉ nhấn mạnh một trong số những PMF có điều kiện này.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_248_754_1202_1156.jpg" alt="PMF có điều kiện của Y cho X = x" style="max-width: 68%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/7.3.png" alt="PMF có điều kiện của Y cho X = x" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 7.3:** PMF có điều kiện của Y cho X = x. PMF có điều kiện  $P(Y = y | X = x)$  được thu được bằng cách chuẩn hóa lại cột của PMF chung mà tương thích với sự kiện X = x.\r
 </div>\r
@@ -19097,7 +19011,7 @@ Hình 7.4 cho thấy một hình vẽ về cái mà PDF chung của hai biến n
 Khi chúng ta tích phân PDF chung trên một miền A, chúng ta đang tính toán thể tích dưới bề mặt của PDF chung và trên A. Do đó, xác suất được biểu diễn bằng thể tích dưới PDF chung. Tổng thể tích dưới một PDF chung hợp lệ là 1.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_418_143_988_520.jpg" alt="PDF chung của các biến ngẫu nhiên liên tục X và Y" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/7.4.png" alt="PDF chung của các biến ngẫu nhiên liên tục X và Y" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 7.4:** PDF chung của các biến ngẫu nhiên liên tục X và Y.\r
 </div>\r
@@ -19164,7 +19078,7 @@ Các chỉ số mà chúng ta đặt dưới tất cả các $f$ chỉ là để
 Hình 7.5 minh họa định nghĩa của hàm mật độ xác suất có điều kiện. Chúng ta lấy một dải dọc của hàm mật độ xác suất chung tương ứng với giá trị quan sát của  $X$ . Vì diện tích tổng thể dưới dải này là  $f_{X}(x)$ , chúng ta sau đó chia cho  $f_{X}(x)$  để đảm bảo rằng hàm mật độ xác suất có điều kiện sẽ có diện tích bằng 1. Do đó, hàm mật độ xác suất có điều kiện của  $Y$  cho  $X = x$  thỏa mãn các tính chất của một hàm mật độ xác suất hợp lệ, cho bất kỳ  $x$  nào trong miền hỗ trợ của  $X$ .\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_177_628_1235_959.jpg" alt="Hàm mật độ xác suất có điều kiện của Y cho X = x" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/7.5.png" alt="Hàm mật độ xác suất có điều kiện của Y cho X = x" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 7.5:** Hàm mật độ xác suất có điều kiện của Y cho X = x. Hàm mật độ xác suất có điều kiện $f_{Y|X}(y|x)$ được thu được bằng cách chuẩn hóa lại dải của hàm mật độ xác suất chung tại giá trị cố định $x$.\r
 </div>\r
@@ -19487,7 +19401,7 @@ Phân bố biên của X giờ là\r
 Bởi đối xứng,  $f_{Y}(y) = \\frac{2}{\\pi} \\sqrt{1 - y^{2}}$ . Lưu ý rằng các phân bố biên của X và Y không đều trên  $[-1, 1]$ ; thay vào đó, X và Y có xu hướng rơi gần 0 hơn là gần  $\\pm 1$ .\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_454_1200_936_1600.jpg" alt="Nhìn từ trên xuống của PDF chung đều trên hình tròn đơn vị" style="max-width: 40%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/7.6.png" alt="Nhìn từ trên xuống của PDF chung đều trên hình tròn đơn vị" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 7.6:** Nhìn từ trên xuống của hàm mật độ xác suất (PDF) chung đều trên hình tròn đơn vị. Cố định $X = x$, $Y$ bị giới hạn trong khoảng $[-\\sqrt{1-x^{2}}, \\sqrt{1-x^{2}}]$.\r
 </div>\r
@@ -19607,7 +19521,7 @@ Như chúng ta đã đề cập, phân phối của  $T$  được gọi là ph�
 Một điều thú vị về phân phối Cauchy là dù PDF của nó đối xứng về 0, kỳ vọng của nó không tồn tại, vì tích phân  $\\int_{-\\infty}^{\\infty} \\frac{t}{\\pi(1+t^2)} dt$  phân kỳ: lưu ý rằng khi  $t$  lớn,  $\\frac{t}{1+t^2} \\approx \\frac{1}{t}$ , và  $\\int_{1}^{\\infty} \\frac{1}{t} dt = \\infty$ . Việc viết “  $E\\left(\\frac{X}{Y}\\right) = E(X)E\\left(\\frac{1}{Y}\\right) = 0 \\cdot E\\left(\\frac{1}{Y}\\right) = 0$ ” sẽ là một sai lầm, vì  $E\\left(\\frac{1}{Y}\\right)$  cũng không tồn tại.  $\\square$ \r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_chart_box_306_167_1083_624.jpg" alt="Phân phối PDF Cauchy và N(0,1)" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/7.7.png" alt="Phân phối PDF Cauchy và N(0,1)" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 7.7:** Phân phối PDF Cauchy (màu tối) và $\\mathcal{N}(0,1)$ PDF (màu sáng). Phân phối Cauchy có đuôi nặng hơn nhiều so với phân phối chuẩn.\r
 </div>\r
@@ -19643,7 +19557,7 @@ Vì T là một biến ngẫu nhiên liên tục và I là rời rạc, phân ph
 Để  $I = 0$  và một cho  $I = 1$ . Như được nêu trong bài toán, phân phối có điều kiện của  $T$  cho  $I = 0$  là  $\\mathrm{Expo}(\\lambda_0)$  và cho  $I = 1$  là  $\\mathrm{Expo}(\\lambda_1)$ . Phân phối biên của  $I$  là  $\\mathrm{Bern}(p_1)$ .\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_426_315_981_735.jpg" alt="Phân phối chung hỗn hợp của T và I" style="max-width: 50%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/7.8.png" alt="Phân phối chung hỗn hợp của T và I" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 7.8:** Phân phối chung hỗn hợp của T và I.\r
 </div>\r
@@ -19801,286 +19715,286 @@ Cho X và Y là các biến ngẫu nhiên liên tục (phương pháp tương t�
 trong đó chúng ta đã lấy $y$ ra khỏi tích phân bên trong (vì $y$ là hằng số khi tích phân theo $x$) và sau đó nhận ra PDF biên của $Y$. Đối với hạng tử $E(X)$, chúng ta có thể trước tiên đổi thứ tự tích phân, từ $dxdy$ sang $dydx$, và sau đó áp dụng cùng lập luận như đã sử dụng cho hạng tử $E(Y)$.
 
 </div>
-</div>`,UR=`Tương tự như cách mà kỳ vọng và phương sai cung cấp các bản tóm tắt bằng một số của phân phối của một biến ngẫu nhiên đơn lẻ, hiệp phương sai là một bản tóm tắt bằng một số của phân phối chung của hai biến ngẫu nhiên. Một cách nói chung, hiệp phương sai đo lường xu hướng của hai biến ngẫu nhiên đi lên hoặc đi xuống cùng nhau, tương đối với các kỳ vọng của chúng: hiệp phương sai dương giữa X và Y cho thấy khi X tăng, Y cũng có xu hướng tăng, và hiệp phương sai âm cho thấy khi X tăng, Y có xu hướng giảm. Dưới đây là định nghĩa chính xác.
-
-<div class="math-box definition">
-<div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 7.3.1</div>
-    <div class="math-box-title">Hiệp phương sai</div>
-  </div>
-<div class="math-box-content">
-
-Hiệp phương sai giữa hai biến ngẫu nhiên X và Y là
-
-
- $$\\mathrm{Cov}(X,Y)=E((X-EX)(Y-EY)).$$ 
-
-
-Nhân ra và sử dụng tính tuyến tính, ta có một biểu thức tương đương:
-
-
- $$\\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y).$$ 
-
-
-</div>
-</div>
-
-Hãy suy nghĩ về định nghĩa một cách trực quan. Nếu X và Y có xu hướng di chuyển theo cùng một hướng, thì X - EX và Y - EY sẽ có xu hướng đều dương hoặc đều âm, do đó  $(X - EX)(Y - EY)$  sẽ dương trung bình, cho một hiệp phương sai dương. Nếu X và Y có xu hướng di chuyển theo hướng ngược nhau, thì X - EX và Y - EY sẽ có xu hướng có dấu ngược nhau, cho một hiệp phương sai âm.
-
-Nếu X và Y độc lập, thì hiệp phương sai của chúng bằng 0. Chúng ta nói rằng các biến ngẫu nhiên có hiệp phương sai bằng 0 là không tương quan.
-
-<div class="math-box theorem">
-<div class="math-box-header">
-    <div class="math-box-number">Định lý 7.3.2</div>
-  </div>
-<div class="math-box-content">
-
-Nếu X và Y độc lập, thì chúng là không tương quan.
-
-</div>
-</div>
-
-<div class="math-box proof">
-<div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
-</div>
-<div class="math-box-content">
-
-Chúng ta sẽ chứng minh trong trường hợp X và Y là liên tục, với hàm mật độ xác suất $f_{X}$ và $f_{Y}$. Vì X và Y độc lập, hàm mật độ xác suất chung của chúng là tích của các hàm mật độ xác suất biên. Theo định lý 2D LOTUS,
-
-
- $$\\begin{aligned} E(XY)&=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}xyf_{X}(x)f_{Y}(y)dxdy\\\\ &=\\int_{-\\infty}^{\\infty}yf_{Y}(y)\\left(\\int_{-\\infty}^{\\infty}xf_{X}(x)dx\\right)dy\\\\ &=\\int_{-\\infty}^{\\infty}xf_{X}(x)dx\\int_{-\\infty}^{\\infty}yf_{Y}(y)dy\\\\ &=E(X)E(Y). \\end{aligned}$$ 
-
-
-Chứng minh trong trường hợp rời rạc là giống nhau, với hàm xác suất rời rạc thay vì hàm mật độ xác suất.
-
-
-<div class="qed"><span class="qed-mark"></span></div>
-
-</div>
-</div>
-
-Định lý ngược lại của định lý này là sai: chỉ vì $X$ và $Y$ là không tương quan không có nghĩa là chúng độc lập. Ví dụ, giả sử $X \\sim \\mathcal{N}(0,1)$, và giả sử $Y = X^2$. Khi đó $E(XY) = E(X^3) = 0$ vì các momen lẻ của phân phối chuẩn chuẩn hóa bằng 0 do tính đối xứng. Do đó $X$ và $Y$ là không tương quan,
-
-
- $$\\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)=0-0=0,$$ 
-
-
-nhưng chúng chắc chắn không độc lập: Y là một hàm của X, do đó biết X cho chúng ta thông tin hoàn hảo về Y. Hiệp phương sai là một thước đo mối quan hệ tuyến tính, do đó các biến ngẫu nhiên có thể phụ thuộc theo cách phi tuyến và vẫn có hiệp phương sai bằng 0, như ví dụ này cho thấy. Biểu đồ góc phải của Hình 7.9 cho thấy các mẫu từ phân phối chung của X và Y trong ví dụ này. Ba biểu đồ còn lại minh họa sự tương quan dương, tương quan âm và độc lập.
-
-Hiệp phương sai có các tính chất chính sau.
-
-1.  $\\mathrm{Cov}(X,X)=\\mathrm{Var}(X).$ 
-
-2.  $\\mathrm{Cov}(X,Y)=\\mathrm{Cov}(Y,X).$ 
-
-3.  $\\mathrm{Cov}(X,c)=0$  với bất kỳ hằng số nào c.
-
-4.  $\\mathrm{Cov}(aX,Y)=a\\mathrm{Cov}(X,Y)$  với bất kỳ hằng số nào a.
-
-5.  $\\mathrm{Cov}(X+Y,Z)=\\mathrm{Cov}(X,Z)+\\mathrm{Cov}(Y,Z).$ 
-
-6.  $\\mathrm{Cov}(X+Y,Z+W)=\\mathrm{Cov}(X,Z)+\\mathrm{Cov}(X,W)+\\mathrm{Cov}(Y,Z)+\\mathrm{Cov}(Y,W).$ 
-
-7.  $\\mathrm{Var}(X + Y) = \\mathrm{Var}(X) + \\mathrm{Var}(Y) + 2\\mathrm{Cov}(X, Y)$ . Với  $n$  biến ngẫu nhiên  $X_1, \\ldots, X_n$ ,
-
- 
-
- 
- $$\\mathrm{Var}(X_{1}+\\cdots+X_{n})=\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n})+2\\sum_{i<j}\\mathrm{Cov}(X_{i},X_{j}).$$ 
- 
-
-
-
-<div style="text-align: center; margin: 2.5rem 0;">
-  <img src="imgs/img_in_chart_box_194_384_1192_1377.jpg" alt="Phân phối chung dưới các cấu trúc phụ thuộc khác nhau" style="max-width: 80%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-</div>
-<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">
-  <strong>HÌNH 7.9:</strong> Lấy từ phân phối chung của $(X, Y)$ dưới các cấu trúc phụ thuộc khác nhau. Góc trên trái: X và Y có tương quan dương. Góc trên phải: X và Y có tương quan âm. Góc dưới trái: X và Y độc lập, do đó không tương quan. Góc dưới phải: Y là hàm xác định của X, nhưng X và Y không tương quan.
-</div>
-
-Các tính chất đầu tiên năm tính chất tiếp theo dễ dàng suy ra từ định nghĩa và các tính chất cơ bản của kỳ vọng. Tính chất 6 suy ra từ Tính chất 2 và Tính chất 5, bằng cách khai triển
-
-
- $$\\begin{aligned} \\operatorname{Cov}(X+Y,Z+W)&=\\operatorname{Cov}(X,Z+W)+\\operatorname{Cov}(Y,Z+W)\\\\ &=\\operatorname{Cov}(Z+W,X)+\\operatorname{Cov}(Z+W,Y)\\\\ &=\\operatorname{Cov}(Z,X)+\\operatorname{Cov}(W,X)+\\operatorname{Cov}(Z,Y)+\\operatorname{Cov}(W,Y)\\\\ &=\\operatorname{Cov}(X,Z)+\\operatorname{Cov}(X,W)+\\operatorname{Cov}(Y,Z)+\\operatorname{Cov}(Y,W). \\end{aligned}$$ 
-
-
-Tính chất 7 suy ra từ việc viết phương sai của một biến ngẫu nhiên thành covariance của nó với chính nó (theo Tính chất 1) và sau đó sử dụng Tính chất 6 liên tiếp.
-
-Chúng ta đã hoàn thành lời hứa từ Chương 4 rằng đối với các biến ngẫu nhiên độc lập, phương sai của tổng là tổng các phương sai:
-
-
- $$\\mathrm{Var}\\left(\\sum_{j=1}^{n}X_{j}\\right)=\\sum_{j=1}^{n}\\mathrm{Var}(X_{j})\\text{ nếu } X_{1},\\ldots,X_{n}\\text{ là độc lập}.$$ 
-
-
-Theo Định lý 7.3.2, các biến ngẫu nhiên độc lập là không tương quan, do đó trong trường hợp này tất cả các hạng tử covariance sẽ biến mất khỏi biểu thức trong Tính chất 7.
-
-<div class="math-box remark">
-<div class="math-box-header">
-<div class="math-box-number">Ghi chú 7.3.3</div>
-  </div>
-<div class="math-box-content">
-
-Nếu X và Y là độc lập, thì các tính chất của covariance cho
-
-
- $$\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y).$$ 
-
-
-</div>
-</div>
-
-Là một lỗi phổ biến để khẳng định “  $\\operatorname{Var}(X-Y) = \\operatorname{Var}(X) - \\operatorname{Var}(Y)$ ”; đây là một lỗi phân loại vì  $\\operatorname{Var}(X) - \\operatorname{Var}(Y)$  có thể âm. Đối với X và Y tổng quát, chúng ta có
-
-
- $$\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)-2\\mathrm{Cov}(X,Y).$$ 
-
-
-Vì covariance phụ thuộc vào các đơn vị mà X và Y được đo lường—if chúng ta quyết định đo X bằng centimeters thay vì meters, covariance sẽ được nhân với 100—nên dễ dàng hơn để diễn giải một phiên bản không có đơn vị của covariance gọi là correlation.
-
-<div class="math-box definition">
-<div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 7.3.4</div>
-    <div class="math-box-title">Correlation</div>
-  </div>
-<div class="math-box-content">
-
-Correlation giữa các biến ngẫu nhiên X và Y là
-
-
- $$\\mathrm{Corr}(X,Y)=\\frac{\\mathrm{Cov}(X,Y)}{\\sqrt{\\mathrm{Var}(X)\\mathrm{Var}(Y)}}.$$ 
-
-
-</div>
-</div>
-
-(Đây là không xác định trong các trường hợp đặc biệt  $\\operatorname{Var}(X)=0$  hoặc  $\\operatorname{Var}(Y)=0$ .)
-
-Lưu ý rằng việc dịch chuyển và thay đổi tỷ lệ của X và Y không ảnh hưởng đến correlation của chúng. Dịch chuyển không ảnh hưởng đến  $\\text{Cov}(X, Y)$ ,  $\\text{Var}(X)$ , hoặc  $\\text{Var}(Y)$ , do đó correlation không thay đổi. Về mặt tỷ lệ, việc chúng ta chia cho độ lệch chuẩn của X và Y đảm bảo rằng hệ số tỷ lệ sẽ triệt tiêu:
-
-
- $$\\mathrm{Corr}(cX,Y)=\\frac{\\mathrm{Cov}(cX,Y)}{\\sqrt{\\mathrm{Var}(cX)\\mathrm{Var}(Y)}}=\\frac{c\\mathrm{Cov}(X,Y)}{\\sqrt{c^{2}\\mathrm{Var}(X)\\mathrm{Var}(Y)}}=\\mathrm{Corr}(X,Y).$$ 
-
-
-Correlation là tiện lợi để diễn giải vì nó không phụ thuộc vào các đơn vị đo lường và luôn nằm trong khoảng -1 đến 1.
-
-<div class="math-box theorem">
-<div class="math-box-header">
-    <div class="math-box-number">Định lý 7.3.5</div>
-    <div class="math-box-title">Các giới hạn của hệ số tương quan</div>
-  </div>
-<div class="math-box-content">
-
-Với bất kỳ các biến ngẫu nhiên X và Y nào,
-
-
- $$-1\\leq\\mathrm{Corr}(X,Y)\\leq1.$$ 
-
-
-</div>
-</div>
-
-<div class="math-box proof">
-<div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
-</div>
-<div class="math-box-content">
-
-Không mất tính tổng quát, ta có thể giả sử X và Y có phương sai bằng 1, vì việc thay đổi tỷ lệ không thay đổi hệ số tương quan. Gọi $\\rho = \\text{Corr}(X, Y) = \\text{Cov}(X, Y)$. Sử dụng tính chất phương sai không âm, cùng với Tính chất 7 của phương hiệp biến, ta có
-
-
- $$\\mathrm{Var}(X+Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)+2\\mathrm{Cov}(X,Y)=2+2\\rho\\geq0,$$ 
-
-
-
- $$\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)-2\\mathrm{Cov}(X,Y)=2-2\\rho\\geq0.$$ 
-
-
-Vậy, $-1 \\leq \\rho \\leq 1$.
-
-
-<div class="qed"><span class="qed-mark"></span></div>
-
-</div>
-</div>
-
-Dưới đây là một ví dụ về cách tính phương hiệp biến và hệ số tương quan.
-
-<div class="math-box example">
-<div class="math-box-header">
-<div class="math-box-number">Ví dụ 7.3.6</div>
-    <div class="math-box-title">Cực đại và cực tiểu của phân phối mũ</div>
-  </div>
-<div class="math-box-content">
-
-Gọi X và Y là các biến ngẫu nhiên độc lập và đồng phân phối Expo(1). Tìm hệ số tương quan giữa $\\max(X, Y)$ và $\\min(X, Y)$.
-
-**Giải pháp:**
-
-Gọi $M = \\max(X, Y)$ và $L = \\min(X, Y)$. Nhờ tính chất nhớ và các kết quả từ Chương 5, ta biết rằng $L \\sim \\text{Expo}(2)$, $M - L \\sim \\text{Expo}(1)$, và M - L độc lập với L (xem Ví dụ 5.6.5). Do đó,
-
-
- $$\\mathrm{Cov}(M,L)=\\mathrm{Cov}(M-L+L,L)=\\mathrm{Cov}(M-L,L)+\\mathrm{Cov}(L,L)=0+\\mathrm{Var}(L)=\\frac{1}{4},$$ 
-
-
-
- $$\\mathrm{Var}(M)=\\mathrm{Var}(M-L+L)=\\mathrm{Var}(M-L)+\\mathrm{Var}(L)=1+\\frac{1}{4}=\\frac{5}{4},$$ 
-
-
-và
-
-
- $$\\mathrm{Corr}(M,L)=\\frac{\\mathrm{Cov}(M,L)}{\\sqrt{\\mathrm{Var}(M)\\mathrm{Var}(L)}}=\\frac{\\frac{1}{4}}{\\sqrt{\\frac{5}{4}\\cdot\\frac{1}{4}}}=\\frac{1}{\\sqrt{5}}.$$ 
-
-
-</div>
-</div>
-
-<div class="math-box remark">
-<div class="math-box-header">
-    <div class="math-box-number">Ghi chú 7.3.7</div>
-  </div>
-<div class="math-box-content">
-
-Trong ví dụ trên, điều hợp lý là hệ số tương quan dương vì M bị ràng buộc phải lớn hơn hoặc bằng L. Lập luận sau đây sẽ là một sai lầm: “Hoặc M = X, L = Y hoặc M = Y, L = X, do đó hoặc $\\text{Cov}(M, L) = \\text{Cov}(X, Y)$ hoặc $\\text{Cov}(M, L) = \\text{Cov}(Y, X)$. Nhưng $\\text{Cov}(Y, X) = \\text{Cov}(X, Y)$, do đó ta luôn có $\\text{Cov}(M, L) = \\text{Cov}(X, Y) = 0$.” Điều này đúng là cả hai trường hợp M = X, L = Y hoặc M = Y, L = X sẽ xảy ra, nhưng đây là các sự kiện, không phải trường hợp xác định. Lập luận sẽ bị phá vỡ nếu được viết cẩn thận bằng xác suất điều kiện.
-
-</div>
-</div>
-
-Tính chất của phương hiệp biến cũng có thể là công cụ hữu ích để tìm phương sai, đặc biệt khi biến ngẫu nhiên quan tâm là tổng của các biến ngẫu nhiên phụ thuộc. Ví dụ tiếp theo sử dụng tính chất của phương hiệp biến để suy ra phương sai của phân phối Hypergeometric. Nếu bạn đã làm Bài tập 48 từ Chương 4, bạn có thể so sánh hai cách suy ra.
-
-<div class="math-box example">
-<div class="math-box-header">
-    <div class="math-box-number">Ví dụ 7.3.8</div>
-    <div class="math-box-title">Phương sai của phân phối Hypergeometric</div>
-</div>
-<div class="math-box-content">
-
-
- $$\\begin{aligned} \\operatorname{Var}(X)&=\\operatorname{Var}\\left(\\sum_{j=1}^{n}I_{j}\\right)\\\\ &=\\operatorname{Var}(I_{1})+\\cdots+\\operatorname{Var}(I_{n})+2\\sum_{i<j}\\operatorname{Cov}(I_{i},I_{j})\\\\ &=np(1-p)+2\\binom{n}{2}\\operatorname{Cov}(I_{1},I_{2}), \\end{aligned}$$ 
-
-
-vì tất cả  $\\binom{n}{2}$  cặp chỉ báo có cùng hiệp phương sai nhờ tính đối xứng. Bây giờ chúng ta chỉ cần tìm  $\\text{Cov}(I_{1}, I_{2})$ . Theo cầu nối cơ bản,
-
-
- $$\\begin{aligned} \\operatorname{Cov}(I_{1},I_{2})&=E(I_{1}I_{2})-E(I_{1})E(I_{2})\\\\ &=P(\\text{bóng thứ 1 và thứ 2 đều trắng})-P(\\text{bóng thứ 1 trắng})P(\\text{bóng thứ 2 trắng})\\\\ &=\\frac{w}{w+b}\\cdot\\frac{w-1}{w+b-1}-p^{2}. \\end{aligned}$$ 
-
-
-Thay giá trị này vào công thức trên và đơn giản hóa, chúng ta cuối cùng đạt được
-
-
- $$\\mathrm{Var}(X)=\\frac{N-n}{N-1}np(1-p),$$ 
-
-
-trong đó $N = w + b$. Điều này khác với phương sai của phân phối Binomial là $np(1 - p)$ bởi một hệ số $\\frac{N - n}{N - 1}$, được gọi là sự điều chỉnh quần thể hữu hạn. Sự khác biệt này phát sinh từ thực tế là trong câu chuyện Binomial, chúng ta lấy mẫu có hoàn lại, do đó cùng một bóng có thể được rút nhiều lần; trong câu chuyện siêu hình học, chúng ta lấy mẫu không hoàn lại, do đó mỗi bóng chỉ xuất hiện trong mẫu tối đa một lần.
-
-</div>
-</div>
-
-Nếu chúng ta xem N là "kích thước quần thể" của urn, thì khi N tăng rất lớn so với kích thước mẫu n, sẽ trở nên cực kỳ khó để trong việc lấy mẫu có hoàn lại, chúng ta rút cùng một bóng nhiều lần. Do đó, việc lấy mẫu có hoàn lại và không hoàn lại trở nên tương đương trong giới hạn khi  $N \\to \\infty$  với n cố định, và sự điều chỉnh quần thể hữu hạn tiến tới 1.
-
-Trường hợp khác mà việc lấy mẫu có và không hoàn lại là tương đương là trường hợp đơn giản khi chúng ta chỉ rút một bóng từ urn, và thực sự, sự điều chỉnh quần thể hữu hạn cũng bằng 1 khi n = 1.
-
+</div>`,UR=`Tương tự như cách mà kỳ vọng và phương sai cung cấp các bản tóm tắt bằng một số của phân phối của một biến ngẫu nhiên đơn lẻ, hiệp phương sai là một bản tóm tắt bằng một số của phân phối chung của hai biến ngẫu nhiên. Một cách nói chung, hiệp phương sai đo lường xu hướng của hai biến ngẫu nhiên đi lên hoặc đi xuống cùng nhau, tương đối với các kỳ vọng của chúng: hiệp phương sai dương giữa X và Y cho thấy khi X tăng, Y cũng có xu hướng tăng, và hiệp phương sai âm cho thấy khi X tăng, Y có xu hướng giảm. Dưới đây là định nghĩa chính xác.\r
+\r
+<div class="math-box definition">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 7.3.1</div>\r
+    <div class="math-box-title">Hiệp phương sai</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Hiệp phương sai giữa hai biến ngẫu nhiên X và Y là\r
+\r
+\r
+ $$\\mathrm{Cov}(X,Y)=E((X-EX)(Y-EY)).$$ \r
+\r
+\r
+Nhân ra và sử dụng tính tuyến tính, ta có một biểu thức tương đương:\r
+\r
+\r
+ $$\\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y).$$ \r
+\r
+\r
+</div>\r
+</div>\r
+\r
+Hãy suy nghĩ về định nghĩa một cách trực quan. Nếu X và Y có xu hướng di chuyển theo cùng một hướng, thì X - EX và Y - EY sẽ có xu hướng đều dương hoặc đều âm, do đó  $(X - EX)(Y - EY)$  sẽ dương trung bình, cho một hiệp phương sai dương. Nếu X và Y có xu hướng di chuyển theo hướng ngược nhau, thì X - EX và Y - EY sẽ có xu hướng có dấu ngược nhau, cho một hiệp phương sai âm.\r
+\r
+Nếu X và Y độc lập, thì hiệp phương sai của chúng bằng 0. Chúng ta nói rằng các biến ngẫu nhiên có hiệp phương sai bằng 0 là không tương quan.\r
+\r
+<div class="math-box theorem">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định lý 7.3.2</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Nếu X và Y độc lập, thì chúng là không tương quan.\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box proof">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+</div>\r
+<div class="math-box-content">\r
+\r
+Chúng ta sẽ chứng minh trong trường hợp X và Y là liên tục, với hàm mật độ xác suất $f_{X}$ và $f_{Y}$. Vì X và Y độc lập, hàm mật độ xác suất chung của chúng là tích của các hàm mật độ xác suất biên. Theo định lý 2D LOTUS,\r
+\r
+\r
+ $$\\begin{aligned} E(XY)&=\\int_{-\\infty}^{\\infty}\\int_{-\\infty}^{\\infty}xyf_{X}(x)f_{Y}(y)dxdy\\\\ &=\\int_{-\\infty}^{\\infty}yf_{Y}(y)\\left(\\int_{-\\infty}^{\\infty}xf_{X}(x)dx\\right)dy\\\\ &=\\int_{-\\infty}^{\\infty}xf_{X}(x)dx\\int_{-\\infty}^{\\infty}yf_{Y}(y)dy\\\\ &=E(X)E(Y). \\end{aligned}$$ \r
+\r
+\r
+Chứng minh trong trường hợp rời rạc là giống nhau, với hàm xác suất rời rạc thay vì hàm mật độ xác suất.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
+</div>\r
+</div>\r
+\r
+Định lý ngược lại của định lý này là sai: chỉ vì $X$ và $Y$ là không tương quan không có nghĩa là chúng độc lập. Ví dụ, giả sử $X \\sim \\mathcal{N}(0,1)$, và giả sử $Y = X^2$. Khi đó $E(XY) = E(X^3) = 0$ vì các momen lẻ của phân phối chuẩn chuẩn hóa bằng 0 do tính đối xứng. Do đó $X$ và $Y$ là không tương quan,\r
+\r
+\r
+ $$\\mathrm{Cov}(X,Y)=E(XY)-E(X)E(Y)=0-0=0,$$ \r
+\r
+\r
+nhưng chúng chắc chắn không độc lập: Y là một hàm của X, do đó biết X cho chúng ta thông tin hoàn hảo về Y. Hiệp phương sai là một thước đo mối quan hệ tuyến tính, do đó các biến ngẫu nhiên có thể phụ thuộc theo cách phi tuyến và vẫn có hiệp phương sai bằng 0, như ví dụ này cho thấy. Biểu đồ góc phải của Hình 7.9 cho thấy các mẫu từ phân phối chung của X và Y trong ví dụ này. Ba biểu đồ còn lại minh họa sự tương quan dương, tương quan âm và độc lập.\r
+\r
+Hiệp phương sai có các tính chất chính sau.\r
+\r
+1.  $\\mathrm{Cov}(X,X)=\\mathrm{Var}(X).$ \r
+\r
+2.  $\\mathrm{Cov}(X,Y)=\\mathrm{Cov}(Y,X).$ \r
+\r
+3.  $\\mathrm{Cov}(X,c)=0$  với bất kỳ hằng số nào c.\r
+\r
+4.  $\\mathrm{Cov}(aX,Y)=a\\mathrm{Cov}(X,Y)$  với bất kỳ hằng số nào a.\r
+\r
+5.  $\\mathrm{Cov}(X+Y,Z)=\\mathrm{Cov}(X,Z)+\\mathrm{Cov}(Y,Z).$ \r
+\r
+6.  $\\mathrm{Cov}(X+Y,Z+W)=\\mathrm{Cov}(X,Z)+\\mathrm{Cov}(X,W)+\\mathrm{Cov}(Y,Z)+\\mathrm{Cov}(Y,W).$ \r
+\r
+7.  $\\mathrm{Var}(X + Y) = \\mathrm{Var}(X) + \\mathrm{Var}(Y) + 2\\mathrm{Cov}(X, Y)$ . Với  $n$  biến ngẫu nhiên  $X_1, \\ldots, X_n$ ,\r
+\r
+ \r
+\r
+ \r
+ $$\\mathrm{Var}(X_{1}+\\cdots+X_{n})=\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n})+2\\sum_{i<j}\\mathrm{Cov}(X_{i},X_{j}).$$ \r
+ \r
+\r
+\r
+\r
+<div style="text-align: center; margin: 2.5rem 0;">\r
+  <img src="imgs/7.9.png" alt="Phân phối chung dưới các cấu trúc phụ thuộc khác nhau" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
+</div>\r
+<div style="text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2.5rem;">\r
+  <strong>HÌNH 7.9:</strong> Lấy từ phân phối chung của $(X, Y)$ dưới các cấu trúc phụ thuộc khác nhau. Góc trên trái: X và Y có tương quan dương. Góc trên phải: X và Y có tương quan âm. Góc dưới trái: X và Y độc lập, do đó không tương quan. Góc dưới phải: Y là hàm xác định của X, nhưng X và Y không tương quan.\r
+</div>\r
+\r
+Các tính chất đầu tiên năm tính chất tiếp theo dễ dàng suy ra từ định nghĩa và các tính chất cơ bản của kỳ vọng. Tính chất 6 suy ra từ Tính chất 2 và Tính chất 5, bằng cách khai triển\r
+\r
+\r
+ $$\\begin{aligned} \\operatorname{Cov}(X+Y,Z+W)&=\\operatorname{Cov}(X,Z+W)+\\operatorname{Cov}(Y,Z+W)\\\\ &=\\operatorname{Cov}(Z+W,X)+\\operatorname{Cov}(Z+W,Y)\\\\ &=\\operatorname{Cov}(Z,X)+\\operatorname{Cov}(W,X)+\\operatorname{Cov}(Z,Y)+\\operatorname{Cov}(W,Y)\\\\ &=\\operatorname{Cov}(X,Z)+\\operatorname{Cov}(X,W)+\\operatorname{Cov}(Y,Z)+\\operatorname{Cov}(Y,W). \\end{aligned}$$ \r
+\r
+\r
+Tính chất 7 suy ra từ việc viết phương sai của một biến ngẫu nhiên thành covariance của nó với chính nó (theo Tính chất 1) và sau đó sử dụng Tính chất 6 liên tiếp.\r
+\r
+Chúng ta đã hoàn thành lời hứa từ Chương 4 rằng đối với các biến ngẫu nhiên độc lập, phương sai của tổng là tổng các phương sai:\r
+\r
+\r
+ $$\\mathrm{Var}\\left(\\sum_{j=1}^{n}X_{j}\\right)=\\sum_{j=1}^{n}\\mathrm{Var}(X_{j})\\text{ nếu } X_{1},\\ldots,X_{n}\\text{ là độc lập}.$$ \r
+\r
+\r
+Theo Định lý 7.3.2, các biến ngẫu nhiên độc lập là không tương quan, do đó trong trường hợp này tất cả các hạng tử covariance sẽ biến mất khỏi biểu thức trong Tính chất 7.\r
+\r
+<div class="math-box remark">\r
+<div class="math-box-header">\r
+<div class="math-box-number">Ghi chú 7.3.3</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Nếu X và Y là độc lập, thì các tính chất của covariance cho\r
+\r
+\r
+ $$\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y).$$ \r
+\r
+\r
+</div>\r
+</div>\r
+\r
+Là một lỗi phổ biến để khẳng định “  $\\operatorname{Var}(X-Y) = \\operatorname{Var}(X) - \\operatorname{Var}(Y)$ ”; đây là một lỗi phân loại vì  $\\operatorname{Var}(X) - \\operatorname{Var}(Y)$  có thể âm. Đối với X và Y tổng quát, chúng ta có\r
+\r
+\r
+ $$\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)-2\\mathrm{Cov}(X,Y).$$ \r
+\r
+\r
+Vì covariance phụ thuộc vào các đơn vị mà X và Y được đo lường—if chúng ta quyết định đo X bằng centimeters thay vì meters, covariance sẽ được nhân với 100—nên dễ dàng hơn để diễn giải một phiên bản không có đơn vị của covariance gọi là correlation.\r
+\r
+<div class="math-box definition">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 7.3.4</div>\r
+    <div class="math-box-title">Correlation</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Correlation giữa các biến ngẫu nhiên X và Y là\r
+\r
+\r
+ $$\\mathrm{Corr}(X,Y)=\\frac{\\mathrm{Cov}(X,Y)}{\\sqrt{\\mathrm{Var}(X)\\mathrm{Var}(Y)}}.$$ \r
+\r
+\r
+</div>\r
+</div>\r
+\r
+(Đây là không xác định trong các trường hợp đặc biệt  $\\operatorname{Var}(X)=0$  hoặc  $\\operatorname{Var}(Y)=0$ .)\r
+\r
+Lưu ý rằng việc dịch chuyển và thay đổi tỷ lệ của X và Y không ảnh hưởng đến correlation của chúng. Dịch chuyển không ảnh hưởng đến  $\\text{Cov}(X, Y)$ ,  $\\text{Var}(X)$ , hoặc  $\\text{Var}(Y)$ , do đó correlation không thay đổi. Về mặt tỷ lệ, việc chúng ta chia cho độ lệch chuẩn của X và Y đảm bảo rằng hệ số tỷ lệ sẽ triệt tiêu:\r
+\r
+\r
+ $$\\mathrm{Corr}(cX,Y)=\\frac{\\mathrm{Cov}(cX,Y)}{\\sqrt{\\mathrm{Var}(cX)\\mathrm{Var}(Y)}}=\\frac{c\\mathrm{Cov}(X,Y)}{\\sqrt{c^{2}\\mathrm{Var}(X)\\mathrm{Var}(Y)}}=\\mathrm{Corr}(X,Y).$$ \r
+\r
+\r
+Correlation là tiện lợi để diễn giải vì nó không phụ thuộc vào các đơn vị đo lường và luôn nằm trong khoảng -1 đến 1.\r
+\r
+<div class="math-box theorem">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định lý 7.3.5</div>\r
+    <div class="math-box-title">Các giới hạn của hệ số tương quan</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Với bất kỳ các biến ngẫu nhiên X và Y nào,\r
+\r
+\r
+ $$-1\\leq\\mathrm{Corr}(X,Y)\\leq1.$$ \r
+\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box proof">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+</div>\r
+<div class="math-box-content">\r
+\r
+Không mất tính tổng quát, ta có thể giả sử X và Y có phương sai bằng 1, vì việc thay đổi tỷ lệ không thay đổi hệ số tương quan. Gọi $\\rho = \\text{Corr}(X, Y) = \\text{Cov}(X, Y)$. Sử dụng tính chất phương sai không âm, cùng với Tính chất 7 của phương hiệp biến, ta có\r
+\r
+\r
+ $$\\mathrm{Var}(X+Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)+2\\mathrm{Cov}(X,Y)=2+2\\rho\\geq0,$$ \r
+\r
+\r
+\r
+ $$\\mathrm{Var}(X-Y)=\\mathrm{Var}(X)+\\mathrm{Var}(Y)-2\\mathrm{Cov}(X,Y)=2-2\\rho\\geq0.$$ \r
+\r
+\r
+Vậy, $-1 \\leq \\rho \\leq 1$.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
+</div>\r
+</div>\r
+\r
+Dưới đây là một ví dụ về cách tính phương hiệp biến và hệ số tương quan.\r
+\r
+<div class="math-box example">\r
+<div class="math-box-header">\r
+<div class="math-box-number">Ví dụ 7.3.6</div>\r
+    <div class="math-box-title">Cực đại và cực tiểu của phân phối mũ</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Gọi X và Y là các biến ngẫu nhiên độc lập và đồng phân phối Expo(1). Tìm hệ số tương quan giữa $\\max(X, Y)$ và $\\min(X, Y)$.\r
+\r
+**Giải pháp:**\r
+\r
+Gọi $M = \\max(X, Y)$ và $L = \\min(X, Y)$. Nhờ tính chất nhớ và các kết quả từ Chương 5, ta biết rằng $L \\sim \\text{Expo}(2)$, $M - L \\sim \\text{Expo}(1)$, và M - L độc lập với L (xem Ví dụ 5.6.5). Do đó,\r
+\r
+\r
+ $$\\mathrm{Cov}(M,L)=\\mathrm{Cov}(M-L+L,L)=\\mathrm{Cov}(M-L,L)+\\mathrm{Cov}(L,L)=0+\\mathrm{Var}(L)=\\frac{1}{4},$$ \r
+\r
+\r
+\r
+ $$\\mathrm{Var}(M)=\\mathrm{Var}(M-L+L)=\\mathrm{Var}(M-L)+\\mathrm{Var}(L)=1+\\frac{1}{4}=\\frac{5}{4},$$ \r
+\r
+\r
+và\r
+\r
+\r
+ $$\\mathrm{Corr}(M,L)=\\frac{\\mathrm{Cov}(M,L)}{\\sqrt{\\mathrm{Var}(M)\\mathrm{Var}(L)}}=\\frac{\\frac{1}{4}}{\\sqrt{\\frac{5}{4}\\cdot\\frac{1}{4}}}=\\frac{1}{\\sqrt{5}}.$$ \r
+\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box remark">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Ghi chú 7.3.7</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Trong ví dụ trên, điều hợp lý là hệ số tương quan dương vì M bị ràng buộc phải lớn hơn hoặc bằng L. Lập luận sau đây sẽ là một sai lầm: “Hoặc M = X, L = Y hoặc M = Y, L = X, do đó hoặc $\\text{Cov}(M, L) = \\text{Cov}(X, Y)$ hoặc $\\text{Cov}(M, L) = \\text{Cov}(Y, X)$. Nhưng $\\text{Cov}(Y, X) = \\text{Cov}(X, Y)$, do đó ta luôn có $\\text{Cov}(M, L) = \\text{Cov}(X, Y) = 0$.” Điều này đúng là cả hai trường hợp M = X, L = Y hoặc M = Y, L = X sẽ xảy ra, nhưng đây là các sự kiện, không phải trường hợp xác định. Lập luận sẽ bị phá vỡ nếu được viết cẩn thận bằng xác suất điều kiện.\r
+\r
+</div>\r
+</div>\r
+\r
+Tính chất của phương hiệp biến cũng có thể là công cụ hữu ích để tìm phương sai, đặc biệt khi biến ngẫu nhiên quan tâm là tổng của các biến ngẫu nhiên phụ thuộc. Ví dụ tiếp theo sử dụng tính chất của phương hiệp biến để suy ra phương sai của phân phối Hypergeometric. Nếu bạn đã làm Bài tập 48 từ Chương 4, bạn có thể so sánh hai cách suy ra.\r
+\r
+<div class="math-box example">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 7.3.8</div>\r
+    <div class="math-box-title">Phương sai của phân phối Hypergeometric</div>\r
+</div>\r
+<div class="math-box-content">\r
+\r
+\r
+ $$\\begin{aligned} \\operatorname{Var}(X)&=\\operatorname{Var}\\left(\\sum_{j=1}^{n}I_{j}\\right)\\\\ &=\\operatorname{Var}(I_{1})+\\cdots+\\operatorname{Var}(I_{n})+2\\sum_{i<j}\\operatorname{Cov}(I_{i},I_{j})\\\\ &=np(1-p)+2\\binom{n}{2}\\operatorname{Cov}(I_{1},I_{2}), \\end{aligned}$$ \r
+\r
+\r
+vì tất cả  $\\binom{n}{2}$  cặp chỉ báo có cùng hiệp phương sai nhờ tính đối xứng. Bây giờ chúng ta chỉ cần tìm  $\\text{Cov}(I_{1}, I_{2})$ . Theo cầu nối cơ bản,\r
+\r
+\r
+ $$\\begin{aligned} \\operatorname{Cov}(I_{1},I_{2})&=E(I_{1}I_{2})-E(I_{1})E(I_{2})\\\\ &=P(\\text{bóng thứ 1 và thứ 2 đều trắng})-P(\\text{bóng thứ 1 trắng})P(\\text{bóng thứ 2 trắng})\\\\ &=\\frac{w}{w+b}\\cdot\\frac{w-1}{w+b-1}-p^{2}. \\end{aligned}$$ \r
+\r
+\r
+Thay giá trị này vào công thức trên và đơn giản hóa, chúng ta cuối cùng đạt được\r
+\r
+\r
+ $$\\mathrm{Var}(X)=\\frac{N-n}{N-1}np(1-p),$$ \r
+\r
+\r
+trong đó $N = w + b$. Điều này khác với phương sai của phân phối Binomial là $np(1 - p)$ bởi một hệ số $\\frac{N - n}{N - 1}$, được gọi là sự điều chỉnh quần thể hữu hạn. Sự khác biệt này phát sinh từ thực tế là trong câu chuyện Binomial, chúng ta lấy mẫu có hoàn lại, do đó cùng một bóng có thể được rút nhiều lần; trong câu chuyện siêu hình học, chúng ta lấy mẫu không hoàn lại, do đó mỗi bóng chỉ xuất hiện trong mẫu tối đa một lần.\r
+\r
+</div>\r
+</div>\r
+\r
+Nếu chúng ta xem N là "kích thước quần thể" của urn, thì khi N tăng rất lớn so với kích thước mẫu n, sẽ trở nên cực kỳ khó để trong việc lấy mẫu có hoàn lại, chúng ta rút cùng một bóng nhiều lần. Do đó, việc lấy mẫu có hoàn lại và không hoàn lại trở nên tương đương trong giới hạn khi  $N \\to \\infty$  với n cố định, và sự điều chỉnh quần thể hữu hạn tiến tới 1.\r
+\r
+Trường hợp khác mà việc lấy mẫu có và không hoàn lại là tương đương là trường hợp đơn giản khi chúng ta chỉ rút một bóng từ urn, và thực sự, sự điều chỉnh quần thể hữu hạn cũng bằng 1 khi n = 1.\r
+\r
 Các phần cuối cùng trong chương này giới thiệu phân phối Multinomial và phân phối Multivariate Normal. Phân phối Multinomial là phân phối đa biến rời rạc nổi tiếng nhất, và phân phối Multivariate Normal là phân phối đa biến liên tục nổi tiếng nhất.`,WR=`Phân phối Multinomial là sự tổng quát hóa của phân phối Binomial. Trong khi phân phối Binomial đếm số lần thành công trong một số lần thử cố định mà chỉ có thể được phân loại là thành công hoặc thất bại, phân phối Multinomial theo dõi các lần thử mà kết quả có thể rơi vào nhiều loại, ví dụ như xuất sắc, đủ, kém; hoặc đỏ, vàng, xanh, xanh lá, xanh lam.
 
 <div class="math-box definition">
@@ -20369,402 +20283,396 @@ Vậy ước lượng tối đa của $p_{3}$ là $\\hat{p}_{3} = 36/360 = 0.1$.
 với mọi số nguyên không âm $x_1, x_2, x_3$. Do đó, $X_1, X_2, X_3$ là độc lập, với $X_j \\sim \\text{Pois}(\\lambda p_j)$. Kết quả này là một mở rộng của phân phối Multinomial của câu chuyện gà và trừng.
 
 </div>
-</div>`,GR=`Phân phối chuẩn đa biến là một phân phối đa biến liên tục mà mở rộng phân phối chuẩn vào các chiều số cao hơn. Chúng ta sẽ không làm việc với mật độ xác suất chung khá phức tạp của phân phối chuẩn đa biến. Thay vào đó, chúng ta định nghĩa phân phối chuẩn đa biến thông qua mối quan hệ với phân phối chuẩn đơn biến.
-
-<div class="math-box definition">
-<div class="math-box-header">
-    <div class="math-box-number">Định nghĩa 7.5.1</div>
-    <div class="math-box-title">Phân phối chuẩn đa biến</div>
-  </div>
-<div class="math-box-content">
-
-Một vector ngẫu nhiên k-chiều $\\mathbf{X} = (X_1, \\ldots, X_k)$ được gọi là có phân phối chuẩn đa biến (MVN) nếu mọi tổ hợp tuyến tính của các $X_j$ có phân phối chuẩn. Tức là, chúng ta yêu cầu
-
-
- $$t_{1}X_{1}+\\cdots+t_{k}X_{k}$$ 
-
-
-phải có phân phối chuẩn với bất kỳ hằng số nào $t_{1}, \\ldots, t_{k}$. Nếu $t_{1}X_{1} + \\cdots + t_{k}X_{k}$ là một hằng số (ví dụ như khi tất cả $t_{i} = 0$), chúng ta coi rằng nó có phân phối chuẩn, mặc dù là một phân phối chuẩn suy biến với phương sai bằng 0. Một trường hợp đặc biệt quan trọng là k = 2; phân phối này được gọi là phân phối chuẩn hai chiều (BVN).
-
-</div>
-</div>
-
-Nếu $(X_1, \\ldots, X_k)$ là MVN, thì phân phối biên của $X_1$ là chuẩn, vì chúng ta có thể lấy $t_1$ bằng 1 và tất cả các $t_j$ khác bằng 0. Tương tự, phân phối biên của mỗi $X_j$ là chuẩn. Tuy nhiên, điều ngược lại là sai: có thể có các biến ngẫu nhiên chuẩn $X_1, \\ldots, X_k$ sao cho $(X_1, \\ldots, X_k)$ không phải là phân phối chuẩn đa biến.
-
-<div class="math-box example">
-<div class="math-box-header">
-    <div class="math-box-number">Ví dụ 7.5.2</div>
-    <div class="math-box-title">Không phải là ví dụ của MVN</div>
-  </div>
-<div class="math-box-content">
-
-Đây là một ví dụ về hai biến ngẫu nhiên có phân phối biên là chuẩn nhưng phân phối chung không phải là phân phối chuẩn hai chiều. Cho $X \\sim \\mathcal{N}(0,1)$, và cho
-
-
- $$S=\\begin{cases}1&\\text{với xác suất }1/2\\\\ -1&\\text{với xác suất }1/2\\end{cases}$$ 
-
-
-là một dấu ngẫu nhiên độc lập với X. Khi đó Y = SX là một biến ngẫu nhiên chuẩn tiêu chuẩn, do tính đối xứng của phân phối chuẩn (xem Bài tập 30 từ Chương 5). Tuy nhiên, $(X,Y)$ không phải là Bivariate Normal vì $P(X+Y=0)=P(S=-1)=1/2$, điều này cho thấy rằng $X+Y$ không thể là Normal (hoặc, nói cách khác, có bất kỳ phân phối liên tục nào). Vì $X+Y$ là một tổ hợp tuyến tính của $X$ và $Y$ mà không phải là phân phối Normal, nên $(X,Y)$ không phải là Bivariate Normal.
-
-</div>
-</div>
-
-<div class="math-box example">
-<div class="math-box-header">
-    <div class="math-box-number">Ví dụ 7.5.3</div>
-    <div class="math-box-title">MVN thực tế</div>
-  </div>
-<div class="math-box-content">
-
-Với $Z, W \\stackrel{i.i.d.}{\\sim} \\mathcal{N}(0,1)$, $(Z, W)$ là Bivariate Normal vì tổng của các Normal độc lập là Normal. Ngoài ra, $(Z + 2W, 3Z + 5W)$ cũng là Bivariate Normal, vì một tổ hợp tuyến tính tùy ý
-
-
- $$t_{1}(Z+2W)+t_{2}(3Z+5W)$$ 
-
-
-cũng có thể được viết lại thành một tổ hợp tuyến tính của $Z$ và $W$,
-
-
- $$(t_{1}+3t_{2})Z+(2t_{1}+5t_{2})W,$$ 
-
-
-mà là Normal.
-
-</div>
-</div>
-
-Ví dụ trên cho thấy rằng nếu chúng ta bắt đầu với một Multivariate Normal và lấy tổ hợp tuyến tính của các thành phần, chúng ta sẽ tạo ra một Multivariate Normal mới. Hai định lý tiếp theo nói rằng chúng ta cũng có thể tạo ra các MVN mới từ các MVN cũ bằng các phép toán phân tách và nối tiếp.
-
-<div class="math-box theorem">
-<div class="math-box-header">
-    <div class="math-box-number">Định lý 7.5.4</div>
-  </div>
-<div class="math-box-content">
-
-Nếu $(X_{1}, X_{2}, X_{3})$ là Multivariate Normal, thì các thành phần con $(X_{1}, X_{2})$ cũng là Multivariate Normal.
-
-</div>
-</div>
-
-<div class="math-box proof">
-<div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
-</div>
-<div class="math-box-content">
-
-Bất kỳ tổ hợp tuyến tính nào $t_{1}X_{1}+t_{2}X_{2}$ cũng có thể được xem như một tổ hợp tuyến tính của $X_{1}, X_{2}, X_{3}$ với hệ số của $X_{3}$ bằng 0. Do đó $t_{1}X_{1}+t_{2}X_{2}$ là Normal với mọi $t_{1}, t_{2}$, điều này cho thấy $(X_{1}, X_{2})$ là MVN.
-
-
-<div class="qed"><span class="qed-mark"></span></div>
-
-</div>
-</div>
-
-<div class="math-box theorem">
-<div class="math-box-header">
-<div class="math-box-number">Định lý 7.5.5</div>
-  </div>
-<div class="math-box-content">
-
-Nếu $\\mathbf{X} = (X_1, \\ldots, X_n)$ và $\\mathbf{Y} = (Y_1, \\ldots, Y_m)$ là các vector ngẫu nhiên Multivariate Normal với $\\mathbf{X}$ độc lập với $\\mathbf{Y}$, thì vector ngẫu nhiên nối tiếp $\\mathbf{W} = (X_1, \\ldots, X_n, Y_1, \\ldots, Y_m)$ là Multivariate Normal.
-
-</div>
-</div>
-
-<div class="math-box proof">
-<div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
-</div>
-<div class="math-box-content">
-
-Bất kỳ tổ hợp tuyến tính nào $s_1X_1 + \\cdots + s_nX_n + t_1Y_1 + \\cdots + t_mY_m$ là Normal vì $s_1X_1 + \\cdots + s_nX_n$ và $t_1Y_1 + \\cdots + t_mY_m$ là Normal (theo định nghĩa của MVN) và độc lập, do đó tổng của chúng là Normal (như được chỉ ra trong chương 6 bằng các hàm sinh momen).
-
-
-<div class="qed"><span class="qed-mark"></span></div>
-
-</div>
-</div>
-
-Một phân phối Multivariate Normal được xác định hoàn toàn bằng cách biết trung bình của từng thành phần, phương sai của từng thành phần, và hiệp phương sai hoặc tương quan giữa bất kỳ hai thành phần nào. Một cách khác để nói điều này là các tham số của một vector ngẫu nhiên MVN $(X_{1}, \\ldots, X_{k})$ là như sau:
-
-- vector trung bình $(\\mu_1, \\ldots, \\mu_k)$, nơi $E(X_j) = \\mu_j$;
-- ma trận hiệp phương sai, là ma trận $k \\times k$ chứa các hiệp phương sai giữa các thành phần, được sắp xếp sao cho phần tử hàng $i$, cột $j$ là $\\text{Cov}(X_i, X_j)$.
-
-Ví dụ, để xác định đầy đủ một phân phối Bivariate Normal cho $(X, Y)$, chúng ta cần biết năm tham số:
-
-- các tham số trung bình $E(X)$, $E(Y)$;
-- các phương sai $\\mathrm{Var}(X)$, $\\mathrm{Var}(Y)$;
-- hệ số tương quan $\\mathrm{Corr}(X, Y)$.
-
-Chúng ta sẽ trình bày trong Ví dụ 8.1.10 rằng hàm mật độ xác suất chung của một phân phối Bivariate Normal $(X,Y)$ với các phân phối biên $\\mathcal{N}(0,1)$ và hệ số tương quan $\\rho\\in(-1,1)$ là
-
-
- $$f_{X,Y}(x,y)=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2\\tau^{2}}(x^{2}+y^{2}-2\\rho x y)\\right),$$ 
-
-
-với $\\tau = \\sqrt{1 - \\rho^2}$. Hình 7.10 vẽ các hàm mật độ xác suất chung cho hai phân phối Bivariate Normal khác nhau với các phân phối biên $\\mathcal{N}(0,1)$, cùng với các biểu đồ đường mức tương ứng. Ở bên trái, $X$ và $Y$ không tương quan, do đó các đường mức của hàm mật độ xác suất chung là các đường tròn. Ở bên phải, $X$ và $Y$ có hệ số tương quan là 0.75, do đó các đường mức là các elip, phản ánh thực tế rằng $Y$ có xu hướng lớn khi $X$ lớn.
-
-<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 0.75rem;">
-    <img src="imgs/img_in_chart_box_196_420_671_824.jpg" alt="Mật độ xác suất chung không tương quan" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-    <img src="imgs/img_in_chart_box_750_418_1228_824.jpg" alt="Mật độ xác suất chung có tương quan" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-    <img src="imgs/img_in_chart_box_177_942_665_1409.jpg" alt="Đường mức không tương quan" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-    <img src="imgs/img_in_chart_box_729_945_1219_1413.jpg" alt="Đường mức có tương quan" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-  </div>
-
-**HÌNH 7.10:** Phân phối xác suất mật độ chung của hai phân phối chuẩn hai chiều, cùng với các biểu diễn đường cong tương ứng. Ở bên trái, X và Y có phân phối biên độ $\\mathcal{N}(0,1)$ và không có độ tương quan. Ở bên phải, X và Y có phân phối biên độ $\\mathcal{N}(0,1)$ và có độ tương quan bằng 0.75.
-</div>
-
-Tương tự như phân phối của một biến ngẫu nhiên được xác định bởi hàm phân phối tích lũy, hàm xác suất khối rời rạc/hàm mật độ xác suất, hoặc hàm sinh moment, phân phối chung của một vector ngẫu nhiên được xác định bởi hàm phân phối tích lũy chung, hàm xác suất khối chung/hàm mật độ xác suất chung, hoặc hàm sinh moment chung, mà chúng ta sẽ định nghĩa ngay sau đây.
-
-<div class="math-box definition">
-<div class="math-box-header">
-<div class="math-box-number">Định nghĩa 7.5.6</div>
-    <div class="math-box-title">Hàm sinh moment chung</div>
-  </div>
-<div class="math-box-content">
-
-Hàm sinh moment chung (joint MGF) của một vector ngẫu nhiên $\\mathbf{X} = (X_1, \\ldots, X_k)$ là hàm $M$ được xác định bởi
-
-
- $$M(\\mathbf{t})=E(e^{\\mathbf{t}^{\\prime}\\mathbf{X}})=E\\left(e^{t_{1}X_{1}+\\cdots+t_{k}X_{k}}\\right),$$ 
-
-
-với $\\mathbf{t} = (t_1, \\ldots, t_k) \\in \\mathbb{R}^k$. Chúng ta yêu cầu kỳ vọng này phải hữu hạn trong một hình hộp chứa gốc tọa độ trong $\\mathbb{R}^k$; nếu không, chúng ta nói rằng hàm sinh moment chung không tồn tại.
-
-</div>
-</div>
-
-Đối với một vector ngẫu nhiên đa biến chuẩn, hàm sinh moment chung đặc biệt tốt vì số hạng trong lũy thừa, $t_{1}X_{1}+\\cdots+t_{k}X_{k}$, là một biến ngẫu nhiên chuẩn theo định nghĩa. Điều này có nghĩa là chúng ta có thể sử dụng những gì chúng ta biết về hàm sinh moment đơn biến chuẩn để tìm hàm sinh moment chung của phân phối đa biến chuẩn! Nhớ rằng với bất kỳ biến ngẫu nhiên chuẩn nào W,
-
-
- $$E(e^{W})=e^{E(W)+\\frac{1}{2}\\mathrm{Var}(W)}.$$ 
-
-
-Do đó hàm sinh moment chung của một vector ngẫu nhiên đa biến $(X_{1},\\ldots,X_{k})$ là
-
-
- $$E(e^{t_{1}X_{1}+\\cdots+t_{k}X_{k}})=\\exp\\left(t_{1}E(X_{1})+\\cdots+t_{k}E(X_{k})+\\frac{1}{2}\\mathrm{Var}(t_{1}X_{1}+\\cdots+t_{k}X_{k})\\right).$$ 
-
-
-Số hạng phương sai có thể được mở rộng bằng các tính chất của hiệp phương sai.
-
-Chúng ta biết rằng nói chung, tính độc lập là điều kiện mạnh hơn so với tương quan bằng 0; các biến ngẫu nhiên có thể không tương quan nhưng không độc lập. Một tính chất đặc biệt của phân phối đa biến chuẩn là rằng đối với các biến ngẫu nhiên có phân phối chung là MVN, tính độc lập và tương quan bằng 0 là các điều kiện tương đương.
-
-<div class="math-box theorem">
-<div class="math-box-header">
-    <div class="math-box-number">Định lý 7.5.7</div>
-  </div>
-<div class="math-box-content">
-
-Trong một vector ngẫu nhiên đa biến chuẩn, không tương quan kéo theo độc lập. Nghĩa là, nếu $\\mathbf{X} \\sim \\text{MVN}$ có thể được viết dưới dạng $\\mathbf{X} = (\\mathbf{X}_1, \\mathbf{X}_2)$, trong đó $\\mathbf{X}_1$ và $\\mathbf{X}_2$ là các subvectors, và từng thành phần của $\\mathbf{X}_{1}$ không tương quan với từng thành phần của $\\mathbf{X}_{2}$, thì $\\mathbf{X}_{1}$ và $\\mathbf{X}_{2}$ là độc lập. $^{1}$
-
-Đặc biệt, nếu $(X, Y)$ là Bivariate Normal và $\\text{Corr}(X, Y) = 0$, thì X và Y là độc lập.
-
-</div>
-</div>
-
-<div class="math-box proof">
-<div class="math-box-header">
-    <div class="math-box-number">Chứng minh</div>
-</div>
-<div class="math-box-content">
-
-Chúng ta sẽ chứng minh định lý này trong trường hợp Bivariate Normal; chứng minh trong các chiều cao hơn là tương tự. Cho $(X,Y)$ là Bivariate Normal với $E(X)=\\mu_{1}$, $E(Y)=\\mu_{2}$, $\\mathrm{Var}(X)=\\sigma_{1}^{2}$, $\\mathrm{Var}(Y)=\\sigma_{2}^{2}$, và $\\mathrm{Corr}(X,Y)=\\rho$. Hàm sinh moment chung là
-
-
- $$\\begin{aligned} M_{X,Y}(s,t)=E(e^{sX+tY})&=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}\\mathrm{Var}(sX+tY)\\right)\\\\ &=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}(s^{2}\\sigma_{1}^{2}+t^{2}\\sigma_{2}^{2}+2st\\sigma_{1}\\sigma_{2}\\rho)\\right). \\end{aligned}$$ 
-
-
-Nếu $\\rho = 0$, hàm sinh moment chung giảm xuống thành
-
-
- $$M_{X,Y}(s,t)=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}(s^{2}\\sigma_{1}^{2}+t^{2}\\sigma_{2}^{2})\\right).$$ 
-
-
-Nhưng đây cũng là hàm sinh moment chung của $(Z, W)$ nơi $Z \\sim \\mathcal{N}(\\mu_1, \\sigma_1^2)$ và $W \\sim \\mathcal{N}(\\mu_2, \\sigma_2^2)$ và $Z$ độc lập với $W$. Vì hàm sinh moment chung xác định phân phối chung, do đó phải là $(X, Y)$ có cùng phân phối chung như $(Z, W)$. Do đó $X$ và $Y$ là độc lập.
-
-
-<div class="qed"><span class="qed-mark"></span></div>
-
-</div>
-</div>
-
-Định lý này không áp dụng cho Ví dụ 7.5.2. Trong ví dụ đó, như bạn có thể kiểm tra, X và Y không tương quan nhưng không độc lập, nhưng điều này không mâu thuẫn với định lý vì $(X, Y)$ không phải là BVN. Hai ví dụ tiếp theo cho thấy các tình huống mà định lý này áp dụng.
-
-<div class="math-box example">
-<div class="math-box-header">
-<div class="math-box-number">Ví dụ 7.5.8</div>
-    <div class="math-box-title">Độc lập của tổng và hiệu</div>
-  </div>
-<div class="math-box-content">
-
-Cho $X, Y \\stackrel{\\mathrm{i.i.d.}}{\\sim} \\mathcal{N}(0, 1)$. Tìm phân phối chung của $(X + Y, X - Y)$.
-
-**Giải pháp:**
-
-Vì $(X + Y, X - Y)$ là Bivariate Normal và
-
-
- $$\\mathrm{Cov}(X+Y,X-Y)=\\mathrm{Var}(X)-\\mathrm{Cov}(X,Y)+\\mathrm{Cov}(Y,X)-\\mathrm{Var}(Y)=0,$$ 
-
-
-$X + Y$ độc lập với $X - Y$. Hơn nữa, chúng là i.i.d. $\\mathcal{N}(0,2)$. Bằng phương pháp tương tự, ta có thể thấy rằng nếu $X \\sim \\mathcal{N}(\\mu_1, \\sigma^2)$ và $Y \\sim \\mathcal{N}(\\mu_2, \\sigma^2)$ là độc lập (với phương sai giống nhau), thì $X + Y$ độc lập với $X - Y$.
-
-</div>
-</div>
-
-Trong Bài tập 72, bạn sẽ mở rộng ví dụ này cho trường hợp mà X và Y là Bivariate Normal với tương quan tổng quát $\\rho$.
-
-<div class="math-box example">
-<div class="math-box-header">
-    <div class="math-box-number">Ví dụ 7.5.9</div>
-    <div class="math-box-title">Sự độc lập của tổng mẫu và phương sai mẫu</div>
-  </div>
-<div class="math-box-content">
-
-Giả sử rằng $X_{1}, \\ldots, X_{n}$ là i.i.d. $\\mathcal{N}(\\mu, \\sigma^{2})$, với $n \\geq 2$. Định nghĩa
-
-
- $$\\bar{X}_{n}=\\frac{1}{n}(X_{1}+\\cdots+X_{n}),$$ 
-
-
-
- $$S_{n}^{2}=\\frac{1}{n-1}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}.$$ 
-
-
-Như đã được trình bày trong Chương 6, tổng mẫu $\\bar{X}_n$ có kỳ vọng $\\mu$ (trung bình đúng) và phương sai mẫu $S_n^2$ có kỳ vọng $\\sigma^2$ (phương sai đúng). Chứng minh rằng $\\bar{X}_n$ và $S_n^2$ là độc lập bằng cách áp dụng các ý tưởng MVN vào $(\\bar{X}_n, X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$.
-
-**Giải pháp:**
-
-Vector $(\\bar{X}_n, X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$ là MVN vì bất kỳ tổ hợp tuyến tính nào của các thành phần của nó cũng có thể được viết dưới dạng tổ hợp tuyến tính của $X_1, \\ldots, X_n$. Hơn nữa, $E(X_j - \\bar{X}_n) = 0$ nhờ tính tuyến tính. Bây giờ ta tính hiệp phương sai của $\\bar{X}_n$ với $X_j - \\bar{X}_n$:
-
-
- $$\\mathrm{Cov}(\\bar{X}_{n},X_{j}-\\bar{X}_{n})=\\mathrm{Cov}(\\bar{X}_{n},X_{j})-\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n}).$$ 
-
-
-Với $\\mathrm{Cov}(X_{n}, X_{j})$, ta có thể khai triển $X_{n}$, và hầu hết các số hạng sẽ triệt tiêu do tính độc lập:
-
-
- $$\\mathrm{Cov}(\\bar{X}_{n},X_{j})=\\mathrm{Cov}\\left(\\frac{1}{n}X_{1}+\\cdots+\\frac{1}{n}X_{n},X_{j}\\right)=\\mathrm{Cov}\\left(\\frac{1}{n}X_{j},X_{j}\\right)=\\frac{1}{n}\\mathrm{Var}(X_{j})=\\frac{\\sigma^{2}}{n}.$$ 
-
-
-Với $\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n})$, ta sử dụng các tính chất của phương sai:
-
- 
-
-
- $$\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n})=\\mathrm{Var}(\\bar{X}_{n})=\\frac{1}{n^{2}}\\left(\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n})\\right)=\\frac{\\sigma^{2}}{n}.$$ 
-
-
-Do đó $\\operatorname{Cov}(\\bar{X}_n, X_j - \\bar{X}_n) = 0$, điều này có nghĩa là $\\bar{X}_n$ không tương quan với từng thành phần của $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$. Vì không tương quan có nghĩa là độc lập trong một vector MVN, ta có $\\bar{X}_n$ độc lập với vector $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$. Tuy nhiên, $S_n^2$ là một hàm của $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$, do đó $\\bar{X}_n$ cũng độc lập với $S_n^2$.
-
-Có thể chứng minh rằng tính độc lập của tổng mẫu và phương sai mẫu là một đặc điểm độc nhất của Normal! Nếu các $X_j$ tuân theo phân phối nào khác, thì $\\bar{X}_n$ và $S_n^2$ sẽ phụ thuộc vào nhau.
-
-</div>
-</div>
-
-<div class="math-box example">
-<div class="math-box-header">
-    <div class="math-box-number">Ví dụ 7.5.10</div>
-    <div class="math-box-title">Tạo Bivariate Normal</div>
-  </div>
-<div class="math-box-content">
-
-Giả sử rằng ta có thể truy cập các biến ngẫu nhiên độc lập và đồng phân phối $X, Y \\sim \\mathcal{N}(0, 1)$, nhưng muốn tạo một vector ngẫu nhiên Bivariate Normal $(Z, W)$ với $\\text{Corr}(Z, W) = \\rho$ và $Z, W$ có phân phối biên là $\\mathcal{N}(0, 1)$, với mục đích chạy một mô phỏng. Làm thế nào để xây dựng $Z$ và $W$ từ các tổ hợp tuyến tính của $X$ và $Y$?
-
-**Giải pháp:**
-
-Theo định nghĩa của Phân phối chuẩn đa biến, bất kỳ $(Z, W)$ nào có dạng
-
-
- $$\\begin{aligned} Z&=aX+bY\\\\ W&=cX+dY \\end{aligned}$$ 
-
-
-sẽ là Phân phối chuẩn hai biến. Vì vậy, hãy thử tìm các giá trị phù hợp a, b, c, d. Các giá trị trung bình đã là 0. Đặt phương sai bằng 1 sẽ cho
-
-
- $$a^{2}+b^{2}=1,c^{2}+d^{2}=1.$$ 
-
-
-Đặt hiệp phương sai của Z và W bằng $\\rho$ sẽ cho
-
-
- $$a c+b d=\\rho.$$ 
-
-
-Tại đây có nhiều ẩn số hơn phương trình, và chúng ta chỉ cần một nghiệm. Để đơn giản, hãy tìm một nghiệm với b = 0. Khi đó $a^2 = 1$, vì vậy hãy lấy a = 1. Bây giờ $ac + bd = \\rho$ sẽ rút gọn thành $c = \\rho$, và sau đó có thể sử dụng $c^2 + d^2 = 1$ để tìm d phù hợp. Kết hợp tất cả các yếu tố lại, chúng ta có thể tạo ra $(Z, W)$ như sau
-
-
- $$\\begin{aligned} Z&=X\\\\ W&=\\rho X+\\sqrt{1-\\rho^{2}}Y. \\end{aligned}$$ 
-
-
-Lưu ý rằng trong trường hợp cực đoan $\\rho = 1$ (được gọi là tương quan dương hoàn hảo) điều này nói rằng hãy để $W = Z \\sim \\mathcal{N}(0,1)$, trong trường hợp cực đoan $\\rho = -1$ (được gọi là tương quan âm hoàn hảo) nó nói rằng hãy để $W = -Z$ với $Z \\sim \\mathcal{N}(0,1)$, và trong trường hợp đơn giản $\\rho = 0$ nó nói rằng hãy để $(Z, W) = (X, Y)$.
-
-</div>
+</div>`,GR=`Phân phối chuẩn đa biến là một phân phối đa biến liên tục mà mở rộng phân phối chuẩn vào các chiều số cao hơn. Chúng ta sẽ không làm việc với mật độ xác suất chung khá phức tạp của phân phối chuẩn đa biến. Thay vào đó, chúng ta định nghĩa phân phối chuẩn đa biến thông qua mối quan hệ với phân phối chuẩn đơn biến.\r
+\r
+<div class="math-box definition">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 7.5.1</div>\r
+    <div class="math-box-title">Phân phối chuẩn đa biến</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Một vector ngẫu nhiên k-chiều $\\mathbf{X} = (X_1, \\ldots, X_k)$ được gọi là có phân phối chuẩn đa biến (MVN) nếu mọi tổ hợp tuyến tính của các $X_j$ có phân phối chuẩn. Tức là, chúng ta yêu cầu\r
+\r
+\r
+ $$t_{1}X_{1}+\\cdots+t_{k}X_{k}$$ \r
+\r
+\r
+phải có phân phối chuẩn với bất kỳ hằng số nào $t_{1}, \\ldots, t_{k}$. Nếu $t_{1}X_{1} + \\cdots + t_{k}X_{k}$ là một hằng số (ví dụ như khi tất cả $t_{i} = 0$), chúng ta coi rằng nó có phân phối chuẩn, mặc dù là một phân phối chuẩn suy biến với phương sai bằng 0. Một trường hợp đặc biệt quan trọng là k = 2; phân phối này được gọi là phân phối chuẩn hai chiều (BVN).\r
+\r
+</div>\r
+</div>\r
+\r
+Nếu $(X_1, \\ldots, X_k)$ là MVN, thì phân phối biên của $X_1$ là chuẩn, vì chúng ta có thể lấy $t_1$ bằng 1 và tất cả các $t_j$ khác bằng 0. Tương tự, phân phối biên của mỗi $X_j$ là chuẩn. Tuy nhiên, điều ngược lại là sai: có thể có các biến ngẫu nhiên chuẩn $X_1, \\ldots, X_k$ sao cho $(X_1, \\ldots, X_k)$ không phải là phân phối chuẩn đa biến.\r
+\r
+<div class="math-box example">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 7.5.2</div>\r
+    <div class="math-box-title">Không phải là ví dụ của MVN</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Đây là một ví dụ về hai biến ngẫu nhiên có phân phối biên là chuẩn nhưng phân phối chung không phải là phân phối chuẩn hai chiều. Cho $X \\sim \\mathcal{N}(0,1)$, và cho\r
+\r
+\r
+ $$S=\\begin{cases}1&\\text{với xác suất }1/2\\\\ -1&\\text{với xác suất }1/2\\end{cases}$$ \r
+\r
+\r
+là một dấu ngẫu nhiên độc lập với X. Khi đó Y = SX là một biến ngẫu nhiên chuẩn tiêu chuẩn, do tính đối xứng của phân phối chuẩn (xem Bài tập 30 từ Chương 5). Tuy nhiên, $(X,Y)$ không phải là Bivariate Normal vì $P(X+Y=0)=P(S=-1)=1/2$, điều này cho thấy rằng $X+Y$ không thể là Normal (hoặc, nói cách khác, có bất kỳ phân phối liên tục nào). Vì $X+Y$ là một tổ hợp tuyến tính của $X$ và $Y$ mà không phải là phân phối Normal, nên $(X,Y)$ không phải là Bivariate Normal.\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box example">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 7.5.3</div>\r
+    <div class="math-box-title">MVN thực tế</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Với $Z, W \\stackrel{i.i.d.}{\\sim} \\mathcal{N}(0,1)$, $(Z, W)$ là Bivariate Normal vì tổng của các Normal độc lập là Normal. Ngoài ra, $(Z + 2W, 3Z + 5W)$ cũng là Bivariate Normal, vì một tổ hợp tuyến tính tùy ý\r
+\r
+\r
+ $$t_{1}(Z+2W)+t_{2}(3Z+5W)$$ \r
+\r
+\r
+cũng có thể được viết lại thành một tổ hợp tuyến tính của $Z$ và $W$,\r
+\r
+\r
+ $$(t_{1}+3t_{2})Z+(2t_{1}+5t_{2})W,$$ \r
+\r
+\r
+mà là Normal.\r
+\r
+</div>\r
+</div>\r
+\r
+Ví dụ trên cho thấy rằng nếu chúng ta bắt đầu với một Multivariate Normal và lấy tổ hợp tuyến tính của các thành phần, chúng ta sẽ tạo ra một Multivariate Normal mới. Hai định lý tiếp theo nói rằng chúng ta cũng có thể tạo ra các MVN mới từ các MVN cũ bằng các phép toán phân tách và nối tiếp.\r
+\r
+<div class="math-box theorem">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định lý 7.5.4</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Nếu $(X_{1}, X_{2}, X_{3})$ là Multivariate Normal, thì các thành phần con $(X_{1}, X_{2})$ cũng là Multivariate Normal.\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box proof">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+</div>\r
+<div class="math-box-content">\r
+\r
+Bất kỳ tổ hợp tuyến tính nào $t_{1}X_{1}+t_{2}X_{2}$ cũng có thể được xem như một tổ hợp tuyến tính của $X_{1}, X_{2}, X_{3}$ với hệ số của $X_{3}$ bằng 0. Do đó $t_{1}X_{1}+t_{2}X_{2}$ là Normal với mọi $t_{1}, t_{2}$, điều này cho thấy $(X_{1}, X_{2})$ là MVN.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box theorem">\r
+<div class="math-box-header">\r
+<div class="math-box-number">Định lý 7.5.5</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Nếu $\\mathbf{X} = (X_1, \\ldots, X_n)$ và $\\mathbf{Y} = (Y_1, \\ldots, Y_m)$ là các vector ngẫu nhiên Multivariate Normal với $\\mathbf{X}$ độc lập với $\\mathbf{Y}$, thì vector ngẫu nhiên nối tiếp $\\mathbf{W} = (X_1, \\ldots, X_n, Y_1, \\ldots, Y_m)$ là Multivariate Normal.\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box proof">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+</div>\r
+<div class="math-box-content">\r
+\r
+Bất kỳ tổ hợp tuyến tính nào $s_1X_1 + \\cdots + s_nX_n + t_1Y_1 + \\cdots + t_mY_m$ là Normal vì $s_1X_1 + \\cdots + s_nX_n$ và $t_1Y_1 + \\cdots + t_mY_m$ là Normal (theo định nghĩa của MVN) và độc lập, do đó tổng của chúng là Normal (như được chỉ ra trong chương 6 bằng các hàm sinh momen).\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
+</div>\r
+</div>\r
+\r
+Một phân phối Multivariate Normal được xác định hoàn toàn bằng cách biết trung bình của từng thành phần, phương sai của từng thành phần, và hiệp phương sai hoặc tương quan giữa bất kỳ hai thành phần nào. Một cách khác để nói điều này là các tham số của một vector ngẫu nhiên MVN $(X_{1}, \\ldots, X_{k})$ là như sau:\r
+\r
+- vector trung bình $(\\mu_1, \\ldots, \\mu_k)$, nơi $E(X_j) = \\mu_j$;\r
+- ma trận hiệp phương sai, là ma trận $k \\times k$ chứa các hiệp phương sai giữa các thành phần, được sắp xếp sao cho phần tử hàng $i$, cột $j$ là $\\text{Cov}(X_i, X_j)$.\r
+\r
+Ví dụ, để xác định đầy đủ một phân phối Bivariate Normal cho $(X, Y)$, chúng ta cần biết năm tham số:\r
+\r
+- các tham số trung bình $E(X)$, $E(Y)$;\r
+- các phương sai $\\mathrm{Var}(X)$, $\\mathrm{Var}(Y)$;\r
+- hệ số tương quan $\\mathrm{Corr}(X, Y)$.\r
+\r
+Chúng ta sẽ trình bày trong Ví dụ 8.1.10 rằng hàm mật độ xác suất chung của một phân phối Bivariate Normal $(X,Y)$ với các phân phối biên $\\mathcal{N}(0,1)$ và hệ số tương quan $\\rho\\in(-1,1)$ là\r
+\r
+\r
+ $$f_{X,Y}(x,y)=\\frac{1}{2\\pi\\tau}\\exp\\left(-\\frac{1}{2\\tau^{2}}(x^{2}+y^{2}-2\\rho x y)\\right),$$ \r
+\r
+\r
+với $\\tau = \\sqrt{1 - \\rho^2}$. Hình 7.10 vẽ các hàm mật độ xác suất chung cho hai phân phối Bivariate Normal khác nhau với các phân phối biên $\\mathcal{N}(0,1)$, cùng với các biểu đồ đường mức tương ứng. Ở bên trái, $X$ và $Y$ không tương quan, do đó các đường mức của hàm mật độ xác suất chung là các đường tròn. Ở bên phải, $X$ và $Y$ có hệ số tương quan là 0.75, do đó các đường mức là các elip, phản ánh thực tế rằng $Y$ có xu hướng lớn khi $X$ lớn.\r
+\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/7.10.png" alt="Mật độ xác suất chung không tương quan · Mật độ xác suất chung có tương quan · Đường mức không tương quan · Đường mức có tương quan" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+**HÌNH 7.10:** Phân phối xác suất mật độ chung của hai phân phối chuẩn hai chiều, cùng với các biểu diễn đường cong tương ứng. Ở bên trái, X và Y có phân phối biên độ $\\mathcal{N}(0,1)$ và không có độ tương quan. Ở bên phải, X và Y có phân phối biên độ $\\mathcal{N}(0,1)$ và có độ tương quan bằng 0.75.\r
+</div>\r
+\r
+Tương tự như phân phối của một biến ngẫu nhiên được xác định bởi hàm phân phối tích lũy, hàm xác suất khối rời rạc/hàm mật độ xác suất, hoặc hàm sinh moment, phân phối chung của một vector ngẫu nhiên được xác định bởi hàm phân phối tích lũy chung, hàm xác suất khối chung/hàm mật độ xác suất chung, hoặc hàm sinh moment chung, mà chúng ta sẽ định nghĩa ngay sau đây.\r
+\r
+<div class="math-box definition">\r
+<div class="math-box-header">\r
+<div class="math-box-number">Định nghĩa 7.5.6</div>\r
+    <div class="math-box-title">Hàm sinh moment chung</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Hàm sinh moment chung (joint MGF) của một vector ngẫu nhiên $\\mathbf{X} = (X_1, \\ldots, X_k)$ là hàm $M$ được xác định bởi\r
+\r
+\r
+ $$M(\\mathbf{t})=E(e^{\\mathbf{t}^{\\prime}\\mathbf{X}})=E\\left(e^{t_{1}X_{1}+\\cdots+t_{k}X_{k}}\\right),$$ \r
+\r
+\r
+với $\\mathbf{t} = (t_1, \\ldots, t_k) \\in \\mathbb{R}^k$. Chúng ta yêu cầu kỳ vọng này phải hữu hạn trong một hình hộp chứa gốc tọa độ trong $\\mathbb{R}^k$; nếu không, chúng ta nói rằng hàm sinh moment chung không tồn tại.\r
+\r
+</div>\r
+</div>\r
+\r
+Đối với một vector ngẫu nhiên đa biến chuẩn, hàm sinh moment chung đặc biệt tốt vì số hạng trong lũy thừa, $t_{1}X_{1}+\\cdots+t_{k}X_{k}$, là một biến ngẫu nhiên chuẩn theo định nghĩa. Điều này có nghĩa là chúng ta có thể sử dụng những gì chúng ta biết về hàm sinh moment đơn biến chuẩn để tìm hàm sinh moment chung của phân phối đa biến chuẩn! Nhớ rằng với bất kỳ biến ngẫu nhiên chuẩn nào W,\r
+\r
+\r
+ $$E(e^{W})=e^{E(W)+\\frac{1}{2}\\mathrm{Var}(W)}.$$ \r
+\r
+\r
+Do đó hàm sinh moment chung của một vector ngẫu nhiên đa biến $(X_{1},\\ldots,X_{k})$ là\r
+\r
+\r
+ $$E(e^{t_{1}X_{1}+\\cdots+t_{k}X_{k}})=\\exp\\left(t_{1}E(X_{1})+\\cdots+t_{k}E(X_{k})+\\frac{1}{2}\\mathrm{Var}(t_{1}X_{1}+\\cdots+t_{k}X_{k})\\right).$$ \r
+\r
+\r
+Số hạng phương sai có thể được mở rộng bằng các tính chất của hiệp phương sai.\r
+\r
+Chúng ta biết rằng nói chung, tính độc lập là điều kiện mạnh hơn so với tương quan bằng 0; các biến ngẫu nhiên có thể không tương quan nhưng không độc lập. Một tính chất đặc biệt của phân phối đa biến chuẩn là rằng đối với các biến ngẫu nhiên có phân phối chung là MVN, tính độc lập và tương quan bằng 0 là các điều kiện tương đương.\r
+\r
+<div class="math-box theorem">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Định lý 7.5.7</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Trong một vector ngẫu nhiên đa biến chuẩn, không tương quan kéo theo độc lập. Nghĩa là, nếu $\\mathbf{X} \\sim \\text{MVN}$ có thể được viết dưới dạng $\\mathbf{X} = (\\mathbf{X}_1, \\mathbf{X}_2)$, trong đó $\\mathbf{X}_1$ và $\\mathbf{X}_2$ là các subvectors, và từng thành phần của $\\mathbf{X}_{1}$ không tương quan với từng thành phần của $\\mathbf{X}_{2}$, thì $\\mathbf{X}_{1}$ và $\\mathbf{X}_{2}$ là độc lập. $^{1}$\r
+\r
+Đặc biệt, nếu $(X, Y)$ là Bivariate Normal và $\\text{Corr}(X, Y) = 0$, thì X và Y là độc lập.\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box proof">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+</div>\r
+<div class="math-box-content">\r
+\r
+Chúng ta sẽ chứng minh định lý này trong trường hợp Bivariate Normal; chứng minh trong các chiều cao hơn là tương tự. Cho $(X,Y)$ là Bivariate Normal với $E(X)=\\mu_{1}$, $E(Y)=\\mu_{2}$, $\\mathrm{Var}(X)=\\sigma_{1}^{2}$, $\\mathrm{Var}(Y)=\\sigma_{2}^{2}$, và $\\mathrm{Corr}(X,Y)=\\rho$. Hàm sinh moment chung là\r
+\r
+\r
+ $$\\begin{aligned} M_{X,Y}(s,t)=E(e^{sX+tY})&=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}\\mathrm{Var}(sX+tY)\\right)\\\\ &=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}(s^{2}\\sigma_{1}^{2}+t^{2}\\sigma_{2}^{2}+2st\\sigma_{1}\\sigma_{2}\\rho)\\right). \\end{aligned}$$ \r
+\r
+\r
+Nếu $\\rho = 0$, hàm sinh moment chung giảm xuống thành\r
+\r
+\r
+ $$M_{X,Y}(s,t)=\\exp\\left(s\\mu_{1}+t\\mu_{2}+\\frac{1}{2}(s^{2}\\sigma_{1}^{2}+t^{2}\\sigma_{2}^{2})\\right).$$ \r
+\r
+\r
+Nhưng đây cũng là hàm sinh moment chung của $(Z, W)$ nơi $Z \\sim \\mathcal{N}(\\mu_1, \\sigma_1^2)$ và $W \\sim \\mathcal{N}(\\mu_2, \\sigma_2^2)$ và $Z$ độc lập với $W$. Vì hàm sinh moment chung xác định phân phối chung, do đó phải là $(X, Y)$ có cùng phân phối chung như $(Z, W)$. Do đó $X$ và $Y$ là độc lập.\r
+\r
+\r
+<div class="qed"><span class="qed-mark"></span></div>\r
+\r
+</div>\r
+</div>\r
+\r
+Định lý này không áp dụng cho Ví dụ 7.5.2. Trong ví dụ đó, như bạn có thể kiểm tra, X và Y không tương quan nhưng không độc lập, nhưng điều này không mâu thuẫn với định lý vì $(X, Y)$ không phải là BVN. Hai ví dụ tiếp theo cho thấy các tình huống mà định lý này áp dụng.\r
+\r
+<div class="math-box example">\r
+<div class="math-box-header">\r
+<div class="math-box-number">Ví dụ 7.5.8</div>\r
+    <div class="math-box-title">Độc lập của tổng và hiệu</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Cho $X, Y \\stackrel{\\mathrm{i.i.d.}}{\\sim} \\mathcal{N}(0, 1)$. Tìm phân phối chung của $(X + Y, X - Y)$.\r
+\r
+**Giải pháp:**\r
+\r
+Vì $(X + Y, X - Y)$ là Bivariate Normal và\r
+\r
+\r
+ $$\\mathrm{Cov}(X+Y,X-Y)=\\mathrm{Var}(X)-\\mathrm{Cov}(X,Y)+\\mathrm{Cov}(Y,X)-\\mathrm{Var}(Y)=0,$$ \r
+\r
+\r
+$X + Y$ độc lập với $X - Y$. Hơn nữa, chúng là i.i.d. $\\mathcal{N}(0,2)$. Bằng phương pháp tương tự, ta có thể thấy rằng nếu $X \\sim \\mathcal{N}(\\mu_1, \\sigma^2)$ và $Y \\sim \\mathcal{N}(\\mu_2, \\sigma^2)$ là độc lập (với phương sai giống nhau), thì $X + Y$ độc lập với $X - Y$.\r
+\r
+</div>\r
+</div>\r
+\r
+Trong Bài tập 72, bạn sẽ mở rộng ví dụ này cho trường hợp mà X và Y là Bivariate Normal với tương quan tổng quát $\\rho$.\r
+\r
+<div class="math-box example">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 7.5.9</div>\r
+    <div class="math-box-title">Sự độc lập của tổng mẫu và phương sai mẫu</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Giả sử rằng $X_{1}, \\ldots, X_{n}$ là i.i.d. $\\mathcal{N}(\\mu, \\sigma^{2})$, với $n \\geq 2$. Định nghĩa\r
+\r
+\r
+ $$\\bar{X}_{n}=\\frac{1}{n}(X_{1}+\\cdots+X_{n}),$$ \r
+\r
+\r
+\r
+ $$S_{n}^{2}=\\frac{1}{n-1}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}.$$ \r
+\r
+\r
+Như đã được trình bày trong Chương 6, tổng mẫu $\\bar{X}_n$ có kỳ vọng $\\mu$ (trung bình đúng) và phương sai mẫu $S_n^2$ có kỳ vọng $\\sigma^2$ (phương sai đúng). Chứng minh rằng $\\bar{X}_n$ và $S_n^2$ là độc lập bằng cách áp dụng các ý tưởng MVN vào $(\\bar{X}_n, X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$.\r
+\r
+**Giải pháp:**\r
+\r
+Vector $(\\bar{X}_n, X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$ là MVN vì bất kỳ tổ hợp tuyến tính nào của các thành phần của nó cũng có thể được viết dưới dạng tổ hợp tuyến tính của $X_1, \\ldots, X_n$. Hơn nữa, $E(X_j - \\bar{X}_n) = 0$ nhờ tính tuyến tính. Bây giờ ta tính hiệp phương sai của $\\bar{X}_n$ với $X_j - \\bar{X}_n$:\r
+\r
+\r
+ $$\\mathrm{Cov}(\\bar{X}_{n},X_{j}-\\bar{X}_{n})=\\mathrm{Cov}(\\bar{X}_{n},X_{j})-\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n}).$$ \r
+\r
+\r
+Với $\\mathrm{Cov}(X_{n}, X_{j})$, ta có thể khai triển $X_{n}$, và hầu hết các số hạng sẽ triệt tiêu do tính độc lập:\r
+\r
+\r
+ $$\\mathrm{Cov}(\\bar{X}_{n},X_{j})=\\mathrm{Cov}\\left(\\frac{1}{n}X_{1}+\\cdots+\\frac{1}{n}X_{n},X_{j}\\right)=\\mathrm{Cov}\\left(\\frac{1}{n}X_{j},X_{j}\\right)=\\frac{1}{n}\\mathrm{Var}(X_{j})=\\frac{\\sigma^{2}}{n}.$$ \r
+\r
+\r
+Với $\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n})$, ta sử dụng các tính chất của phương sai:\r
+\r
+ \r
+\r
+\r
+ $$\\mathrm{Cov}(\\bar{X}_{n},\\bar{X}_{n})=\\mathrm{Var}(\\bar{X}_{n})=\\frac{1}{n^{2}}\\left(\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n})\\right)=\\frac{\\sigma^{2}}{n}.$$ \r
+\r
+\r
+Do đó $\\operatorname{Cov}(\\bar{X}_n, X_j - \\bar{X}_n) = 0$, điều này có nghĩa là $\\bar{X}_n$ không tương quan với từng thành phần của $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$. Vì không tương quan có nghĩa là độc lập trong một vector MVN, ta có $\\bar{X}_n$ độc lập với vector $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$. Tuy nhiên, $S_n^2$ là một hàm của $(X_1 - \\bar{X}_n, \\ldots, X_n - \\bar{X}_n)$, do đó $\\bar{X}_n$ cũng độc lập với $S_n^2$.\r
+\r
+Có thể chứng minh rằng tính độc lập của tổng mẫu và phương sai mẫu là một đặc điểm độc nhất của Normal! Nếu các $X_j$ tuân theo phân phối nào khác, thì $\\bar{X}_n$ và $S_n^2$ sẽ phụ thuộc vào nhau.\r
+\r
+</div>\r
+</div>\r
+\r
+<div class="math-box example">\r
+<div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 7.5.10</div>\r
+    <div class="math-box-title">Tạo Bivariate Normal</div>\r
+  </div>\r
+<div class="math-box-content">\r
+\r
+Giả sử rằng ta có thể truy cập các biến ngẫu nhiên độc lập và đồng phân phối $X, Y \\sim \\mathcal{N}(0, 1)$, nhưng muốn tạo một vector ngẫu nhiên Bivariate Normal $(Z, W)$ với $\\text{Corr}(Z, W) = \\rho$ và $Z, W$ có phân phối biên là $\\mathcal{N}(0, 1)$, với mục đích chạy một mô phỏng. Làm thế nào để xây dựng $Z$ và $W$ từ các tổ hợp tuyến tính của $X$ và $Y$?\r
+\r
+**Giải pháp:**\r
+\r
+Theo định nghĩa của Phân phối chuẩn đa biến, bất kỳ $(Z, W)$ nào có dạng\r
+\r
+\r
+ $$\\begin{aligned} Z&=aX+bY\\\\ W&=cX+dY \\end{aligned}$$ \r
+\r
+\r
+sẽ là Phân phối chuẩn hai biến. Vì vậy, hãy thử tìm các giá trị phù hợp a, b, c, d. Các giá trị trung bình đã là 0. Đặt phương sai bằng 1 sẽ cho\r
+\r
+\r
+ $$a^{2}+b^{2}=1,c^{2}+d^{2}=1.$$ \r
+\r
+\r
+Đặt hiệp phương sai của Z và W bằng $\\rho$ sẽ cho\r
+\r
+\r
+ $$a c+b d=\\rho.$$ \r
+\r
+\r
+Tại đây có nhiều ẩn số hơn phương trình, và chúng ta chỉ cần một nghiệm. Để đơn giản, hãy tìm một nghiệm với b = 0. Khi đó $a^2 = 1$, vì vậy hãy lấy a = 1. Bây giờ $ac + bd = \\rho$ sẽ rút gọn thành $c = \\rho$, và sau đó có thể sử dụng $c^2 + d^2 = 1$ để tìm d phù hợp. Kết hợp tất cả các yếu tố lại, chúng ta có thể tạo ra $(Z, W)$ như sau\r
+\r
+\r
+ $$\\begin{aligned} Z&=X\\\\ W&=\\rho X+\\sqrt{1-\\rho^{2}}Y. \\end{aligned}$$ \r
+\r
+\r
+Lưu ý rằng trong trường hợp cực đoan $\\rho = 1$ (được gọi là tương quan dương hoàn hảo) điều này nói rằng hãy để $W = Z \\sim \\mathcal{N}(0,1)$, trong trường hợp cực đoan $\\rho = -1$ (được gọi là tương quan âm hoàn hảo) nó nói rằng hãy để $W = -Z$ với $Z \\sim \\mathcal{N}(0,1)$, và trong trường hợp đơn giản $\\rho = 0$ nó nói rằng hãy để $(Z, W) = (X, Y)$.\r
+\r
+</div>\r
 </div>`,KR=`Phân phối chung cho phép chúng ta mô tả hành vi của nhiều biến ngẫu nhiên phát sinh từ cùng một thí nghiệm. Các hàm quan trọng liên quan đến phân phối chung là hàm phân phối tích lũy chung, hàm PMF/PDF chung, PMF/PDF biên, và PMF/PDF điều kiện. Bảng trên trang sau tóm tắt các định nghĩa này cho hai biến ngẫu nhiên rời rạc và hai biến ngẫu nhiên liên tục. Phân phối chung cũng có thể là hỗn hợp của rời rạc và liên tục, trong trường hợp này chúng ta kết hợp và sử dụng PMF và PDF.\r
 \r
 | | Hai biến ngẫu nhiên rời rạc | Hai biến ngẫu nhiên liên tục |\r
 | :--- | :--- | :--- |\r
-| Hàm phân phối tích lũy chung | 
- $$F_{X,Y}(x,y) = P(X \\leq x, Y \\leq y)$$ 
- | 
- $$F_{X,Y}(x,y) = P(X \\leq x, Y \\leq y)$$ 
+| Hàm phân phối tích lũy chung | \r
+ $$F_{X,Y}(x,y) = P(X \\leq x, Y \\leq y)$$ \r
+ | \r
+ $$F_{X,Y}(x,y) = P(X \\leq x, Y \\leq y)$$ \r
  |\r
-| Phân phối xác suất/tích phân chung | 
- $$P(X = x, Y = y)$$ 
- | 
- $$f_{X,Y}(x,y) = \\frac{\\partial^{2}}{\\partial x \\partial y} F_{X,Y}(x,y)$$ 
+| Phân phối xác suất/tích phân chung | \r
+ $$P(X = x, Y = y)$$ \r
+ | \r
+ $$f_{X,Y}(x,y) = \\frac{\\partial^{2}}{\\partial x \\partial y} F_{X,Y}(x,y)$$ \r
  |\r
 | | • Phân phối xác suất chung không âm. | • Phân bố mật độ xác suất chung không âm. |\r
 | | • Phân phối xác suất chung tổng thành 1. | • Phân bố mật độ xác suất chung tích phân thành 1. |\r
-| | • 
- $$P((X,Y) \\in A) = \\sum_{(x,y) \\in A} P(X = x, Y = y).$$ 
- | • 
- $$P((X,Y) \\in A) = \\iint_{A} f_{X,Y}(x,y) \\, dx \\, dy.$$ 
+| | • \r
+ $$P((X,Y) \\in A) = \\sum_{(x,y) \\in A} P(X = x, Y = y).$$ \r
+ | • \r
+ $$P((X,Y) \\in A) = \\iint_{A} f_{X,Y}(x,y) \\, dx \\, dy.$$ \r
  |\r
-| Phân phối xác suất/tích phân biên | 
- $$P(X = x) = \\sum_{y} P(X = x, Y = y)$$ 
- | 
- $$f_{X}(x) = \\int_{-\\infty}^{\\infty} f_{X,Y}(x,y) \\, dy$$ 
+| Phân phối xác suất/tích phân biên | \r
+ $$P(X = x) = \\sum_{y} P(X = x, Y = y)$$ \r
+ | \r
+ $$f_{X}(x) = \\int_{-\\infty}^{\\infty} f_{X,Y}(x,y) \\, dy$$ \r
  |\r
-| | 
- $$= \\sum_{y} P(X = x \\mid Y = y)P(Y = y)$$ 
- | 
- $$= \\int_{-\\infty}^{\\infty} f_{X \\mid Y}(x \\mid y) f_{Y}(y) \\, dy$$ 
+| | \r
+ $$= \\sum_{y} P(X = x \\mid Y = y)P(Y = y)$$ \r
+ | \r
+ $$= \\int_{-\\infty}^{\\infty} f_{X \\mid Y}(x \\mid y) f_{Y}(y) \\, dy$$ \r
  |\r
-| Phân phối xác suất/tích phân điều kiện | 
- $$P(Y = y \\mid X = x) = \\frac{P(X = x, Y = y)}{P(X = x)}$$ 
- | 
- $$f_{Y \\mid X}(y \\mid x) = \\frac{f_{X,Y}(x,y)}{f_{X}(x)}$$ 
+| Phân phối xác suất/tích phân điều kiện | \r
+ $$P(Y = y \\mid X = x) = \\frac{P(X = x, Y = y)}{P(X = x)}$$ \r
+ | \r
+ $$f_{Y \\mid X}(y \\mid x) = \\frac{f_{X,Y}(x,y)}{f_{X}(x)}$$ \r
  |\r
-| | 
- $$= \\frac{P(X = x \\mid Y = y)P(Y = y)}{P(X = x)}$$ 
- | 
- $$= \\frac{f_{X \\mid Y}(x \\mid y)f_{Y}(y)}{f_{X}(x)}$$ 
+| | \r
+ $$= \\frac{P(X = x \\mid Y = y)P(Y = y)}{P(X = x)}$$ \r
+ | \r
+ $$= \\frac{f_{X \\mid Y}(x \\mid y)f_{Y}(y)}{f_{X}(x)}$$ \r
  |\r
-| Sự độc lập | 
- $$P(X \\leq x, Y \\leq y) = P(X \\leq x)P(Y \\leq y)$$ 
- | 
- $$P(X \\leq x, Y \\leq y) = P(X \\leq x)P(Y \\leq y)$$ 
+| Sự độc lập | \r
+ $$P(X \\leq x, Y \\leq y) = P(X \\leq x)P(Y \\leq y)$$ \r
+ | \r
+ $$P(X \\leq x, Y \\leq y) = P(X \\leq x)P(Y \\leq y)$$ \r
  |\r
-| | 
- $$P(X = x, Y = y) = P(X = x)P(Y = y)$$ 
- cho tất cả 
- $$x$$ 
- và 
- $$y$$ 
-. | 
- $$f_{X,Y}(x,y) = f_{X}(x)f_{Y}(y)$$ 
- cho tất cả 
- $$x$$ 
- và 
- $$y$$ 
+| | \r
+ $$P(X = x, Y = y) = P(X = x)P(Y = y)$$ \r
+ cho tất cả \r
+ $$x$$ \r
+ và \r
+ $$y$$ \r
+. | \r
+ $$f_{X,Y}(x,y) = f_{X}(x)f_{Y}(y)$$ \r
+ cho tất cả \r
+ $$x$$ \r
+ và \r
+ $$y$$ \r
 . |\r
-| LOTUS | 
- $$E(g(X,Y)) = \\sum_{y} \\sum_{x} g(x,y)P(X = x, Y = y)$$ 
- | 
- $$E(g(X,Y)) = \\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} g(x,y)f_{X,Y}(x,y) \\, dx \\, dy$$ 
+| LOTUS | \r
+ $$E(g(X,Y)) = \\sum_{y} \\sum_{x} g(x,y)P(X = x, Y = y)$$ \r
+ | \r
+ $$E(g(X,Y)) = \\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} g(x,y)f_{X,Y}(x,y) \\, dx \\, dy$$ \r
  |\r
 \r
 Biến thiên hiệp phương là một số đơn để tóm tắt xu hướng của hai biến ngẫu nhiên để di chuyển theo cùng một hướng. Nếu hai biến ngẫu nhiên độc lập, thì chúng cũng không tương quan, nhưng ngược lại không đúng. Tương quan là một phiên bản được chuẩn hóa, không có đơn vị của biến thiên hiệp phương mà luôn nằm giữa -1 và 1.\r
@@ -20774,7 +20682,7 @@ Hai phân phối đa biến quan trọng có tên là Multinomial và Multivaria
 Phân phối Multivariate Normal là một dạng tổng quát của Normal; một vector ngẫu nhiên được xác định là MVN nếu bất kỳ tổ hợp tuyến tính nào của các thành phần của nó có phân phối Normal. Một tính chất quan trọng của phân phối MVN là trong một vector ngẫu nhiên MVN, không tương quan kéo theo độc lập.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_150_663_1247_1446.jpg" alt="Đối tượng cơ bản của xác suất" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/7.11.png" alt="Đối tượng cơ bản của xác suất" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 7.11:** Đối tượng cơ bản của xác suất cho phân phối đa biến. Một phân phối chung được xác định bởi một hàm phân phối tích lũy chung, hàm PMF/PDF chung, hoặc hàm MGF chung. Một vector ngẫu nhiên $(X, Y)$ tạo ra nhiều lượng chung, biên, và điều kiện hữu ích. Sử dụng 2D LOTUS, chúng ta có thể tìm giá trị kỳ vọng của một hàm của $X$ và $Y$. Tổng các PMF chung hoặc tích phân PDF chung trên tất cả $y$ sẽ cho phân phối biên của $X$, đưa chúng trở lại trường hợp phân phối một chiều.\r
 </div>\r
@@ -23114,7 +23022,7 @@ bằng cách cho chúng các giải thích xác suất.
 
 Một mạng gồm n nút, mỗi cặp nút có thể có hoặc không có một cạnh nối giữa chúng. Ví dụ, một mạng xã hội có thể được mô hình hóa như một nhóm n nút (đại diện cho người), nơi có một cạnh giữa i và j có nghĩa là họ biết nhau. Giả sử mạng là vô hướng và không có các cạnh từ một nút đến chính nó (cho một mạng xã hội, điều này nói rằng nếu i biết j, thì j cũng biết i và rằng, trái ngược với lời khuyên của Socrates, một người không biết chính mình). Một nhóm nút có kích thước k gọi là một clique nếu mọi nút trong nhóm đều có cạnh nối với nhau (tức là trong clique, mọi người biết nhau). Một anticlique có kích thước k là một nhóm nút mà không có cạnh nào giữa chúng (tức là trong anticlique, không ai biết ai). Ví dụ, hình dưới đây cho thấy một mạng có các nút được gán nhãn 1, 2, …, 7, nơi  $\\{1, 2, 3, 4\\}$  là một clique có kích thước 4, và  $\\{3, 5, 7\\}$  là một anticlique có kích thước 3.
 
-<div style="text-align: center;"><img src="imgs/img_in_image_box_436_1390_961_1512.jpg" alt="Image" width="37%" /></div>
+<div style="text-align: center;"><img src="imgs/bai-tap-88-ch7.png" alt="Image" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" /></div>
 
 <ol>
 <li data-label="(a)">
@@ -23318,7 +23226,7 @@ Xét một đường thẳng song song với bờ và cách bờ 1 dặm, như �
 Gọi X là điểm mà ánh sáng chạm vào đường thẳng, nơi gốc của đường thẳng là điểm trên đường thẳng gần nhất với đèn hải đăng. Tìm phân phối của X.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_326_647_1071_940.jpg" alt="Một đèn hải đăng phát sáng với một góc ngẫu nhiên U" style="max-width: 53%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/8.1.png" alt="Một đèn hải đăng phát sáng với một góc ngẫu nhiên U" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 8.1:** Một đèn hải đăng phát sáng với một góc ngẫu nhiên U, nhìn từ trên xuống.
 </div>
@@ -23649,7 +23557,7 @@ $$f_{T}(t)=\\int_{-\\infty}^{\\infty}f_{Y}(t-x)f_{X}(x)d x=\\int_{-\\infty}^{\\i
 Hàm số tích phân bằng 1 nếu và chỉ nếu $0 < t - x < 1$ và $0 < x < 1$; đây là một điều kiện hình thang. Tương đương, điều kiện là $\\max(0, t - 1) < x < \\min(t, 1)$.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_308_180_1079_633.jpg" alt="Vùng trong mặt phẳng (t, x) nơi g(t − x)g(x) bằng 1" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/8.2.png" alt="Vùng trong mặt phẳng (t, x) nơi g(t − x)g(x) bằng 1" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 8.2:** Vùng trong mặt phẳng $(t, x)$ nơi $g(t - x)g(x)$ bằng 1.
 </div>
@@ -23665,7 +23573,7 @@ Về mặt trực quan, điều này có vẻ hợp lý vì T có xu hướng nh
   </div>
 </div>
 `,ZR=`<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_306_174_1083_629.jpg" alt="Phân phối xác suất của T = X + Y, nơi X và Y là i.i.d. Unif(0,1)" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/8.3.png" alt="Phân phối xác suất của T = X + Y, nơi X và Y là i.i.d. Unif(0,1)" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 8.3:** Phân phối xác suất của $T = X + Y$, nơi X và Y là i.i.d. Unif(0,1).
 </div>
@@ -23701,9 +23609,7 @@ Theo định nghĩa, hằng số $\\beta(a,b)$ thỏa mãn
 $$\\beta(a,b)=\\int_{0}^{1}x^{a-1}(1-x)^{b-1}d x.$$
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_196_422_685_889.jpg" alt="Phân phối Beta" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_694_421_1184_888.jpg" alt="Phân phối Beta" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
-  <img src="imgs/img_in_chart_box_196_923_686_1388.jpg" alt="Phân phối Beta" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_696_928_1183_1384.jpg" alt="Phân phối Beta" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
-
+  <img src="imgs/8.4.png" alt="Phân phối Beta" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 8.4:** Phân phối Beta cho các giá trị khác nhau của a và b. Theo chiều kim đồng hồ, bắt đầu từ góc trên bên trái: Beta(0.5, 0.5), Beta(2, 1), Beta(5, 5), Beta(2, 8).
 </div>
 
@@ -23729,7 +23635,7 @@ $$\\int_{0}^{1}\\binom{n}{k}x^{k}(1-x)^{n-k}d x=\\frac{1}{n+1}.$$
 $$P(X=k)=\\int_{0}^{1}P(X=k|B=p)f(p)dp=\\int_{0}^{1}\\binom{n}{k}p^{k}(1-p)^{n-k}dp.$$
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_247_1101_1143_1349.jpg" alt="Câu chuyện của Bayes về sân bi-a" style="max-width: 64%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/8.5.png" alt="Câu chuyện của Bayes về sân bi-a" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 8.5:** Câu chuyện của Bayes về sân bi-a. Ở đây chúng ta ném n = 6 quả bóng trắng và một quả bóng xám lên đoạn đơn vị, và quan sát X = 2 quả bóng nằm bên trái quả bóng xám.
 </div>
@@ -23799,8 +23705,7 @@ Như trong phần 2.6, chúng ta có thể cập nhật dần niềm tin của m
 Để cụ thể hơn, Hình 8.6 cho thấy trường hợp nơi prior là Beta(1,1) (được xem như Unif(0,1), như đã nói trước đó), và chúng ta quan sát n = 5 lần tung đồng xu, tất cả đều rơi vào Mặt. Khi đó posterior là Beta(6,1), được vẽ ở nửa phải của Hình 8.6. Lưu ý cách phân phối posterior tích hợp bằng chứng từ các lần tung đồng xu: các giá trị lớn hơn của p có mật độ cao hơn, phù hợp với việc chúng ta quan sát tất cả Mặt.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_197_773_682_1236.jpg" alt="Prior Beta(1,1)" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_699_775_1180_1232.jpg" alt="Posterior Beta(6,1)" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
-
+  <img src="imgs/8.6.png" alt="Prior Beta(1,1) · Posterior Beta(6,1)" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 8.6:** Beta là prior liên hợp của Binomial. Trái: prior là $\\text{Unif}(0,1)$. Phải: sau khi quan sát 5 Mặt trong 5 lần tung, posterior là $\\text{Beta}(6,1)$.
 </div>
 
@@ -23943,9 +23848,7 @@ nhưng thay vì cố gắng tích phân bằng phương pháp tích phân từng
 $$E(X)=\\frac{\\Gamma(a+1)}{\\Gamma(a)}=\\frac{a\\Gamma(a)}{\\Gamma(a)}=a.$$
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_197_423_684_888.jpg" alt="Phân phối Gamma" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_694_424_1184_889.jpg" alt="Phân phối Gamma" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
-  <img src="imgs/img_in_chart_box_197_924_685_1388.jpg" alt="Phân phối Gamma" style="max-width: 34%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem; margin-bottom: 0.75rem;" /><img src="imgs/img_in_chart_box_694_927_1184_1386.jpg" alt="Phân phối Gamma" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
-
+  <img src="imgs/8.7.png" alt="Phân phối Gamma" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 8.7:** Phân phối Gamma với các giá trị khác nhau của a và $\\lambda$. Theo chiều kim đồng hồ từ góc trên bên trái: Gamma(3, 1), Gamma(3, 0.5), Gamma(5, 0.5), Gamma(10, 1).
 </div>
 
@@ -24046,7 +23949,7 @@ trong thỏa thuận với các kết quả chúng ta đã rút ra trước đâ
 Định lý 8.4.3 cũng cho phép chúng ta nối Gamma distribution với câu chuyện của quá trình Poisson. Chúng tôi đã chỉ ra trong Chương 5 rằng trong một quá trình Poisson với tốc độ $\\lambda$, các khoảng thời gian giữa các lần đến là i.i.d. $\\text{Expo}(\\lambda)$ biến ngẫu nhiên. Nhưng tổng thời gian chờ đợi $T_n$ cho lần đến thứ $n$ là tổng của $n$ khoảng thời gian giữa các lần đến; ví dụ, Hình 8.8 minh họa cách $T_3$ là tổng của 3 khoảng thời gian giữa các lần đến $X_1, X_2, X_3$. Do đó, theo định lý, $T_n \\sim \\text{Gamma}(n, \\lambda)$. Các khoảng thời gian giữa các lần đến trong một quá trình Poisson là các biến ngẫu nhiên Exponential, trong khi các thời gian đến nguyên bản là các biến ngẫu nhiên Gamma.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_303_523_1078_719.jpg" alt="Quá trình Poisson" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/8.8.png" alt="Quá trình Poisson" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 8.8:** Quá trình Poisson. Các khoảng thời gian giữa các lần đến $X_j$ là i.i.d. $\\mathrm{Expo}(\\lambda)$, trong khi các thời gian đến nguyên bản $T_j$ là $\\mathrm{Gamma}(j, \\lambda)$.
 </div>
@@ -24107,7 +24010,7 @@ $$f(y,\\lambda)=P(Y=y|\\lambda)f_{0}(\\lambda)=\\frac{e^{-\\lambda t}(\\lambda t
 cho $y = 0, 1, 2, \\ldots$ và $\\lambda > 0$. Phân phối chung hỗn hợp được vẽ trong Hình 8.9.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_248_167_1147_1075.jpg" alt="Phân phối hỗn hợp của Y và lambda" style="max-width: 64%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/8.9.png" alt="Phân phối hỗn hợp của Y và lambda" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 8.9:** Phân phối hỗn hợp của Y và $\\lambda$. (a) Khi điều kiện hóa trên một giá trị cụ thể của $\\lambda$, chiều cao tương đối tạo thành một PMF Poisson. (b) Trong hướng ngược lại, điều kiện hóa trên Y = y cho phân phối hậu nghiệm của $\\lambda$.
 </div>
@@ -24302,7 +24205,7 @@ $$\\begin{aligned}F_{X_{(1)}}(x)&=1-P(\\min(X_{1},\\cdots,X_{n})>x)\\\\&=1-P(X_{
 Cùng logic này giúp chúng ta tìm được CDF của $X_{(j)}$. Đối với sự kiện $X_{(j)} \\leq x$ xảy ra, chúng ta cần ít nhất j trong số các $X_i$ rơi vào bên trái của x. Điều này được minh họa trong Hình 8.10.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_320_761_1079_998.jpg" alt="Sự kiện X(j) ≤ x" style="max-width: 54%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/8.10.png" alt="Sự kiện X(j) ≤ x" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 8.10:** Sự kiện $X_{(j)} \\leq x$ tương đương với sự kiện "ít nhất j $X_{i}$'s rơi vào bên trái của $x$".
 </div>
@@ -24330,7 +24233,7 @@ $$P(X_{(j)}\\leq x)=\\sum_{k=j}^{n}\\binom{n}{k}F(x)^{k}(1-F(x))^{n-k}.$$
 Để có được PDF của $X_{(j)}$, chúng ta có thể đạo hàm CDF theo x, nhưng biểu thức kết quả là xấu (mặc dù có thể đơn giản hóa). Thay vào đó chúng ta sẽ lấy một cách tiếp cận trực tiếp hơn. Xét $f_{X_{(j)}}(x)dx$, xác suất mà thống kê thứ tự thứ j rơi vào một khoảng vô cùng nhỏ có độ dài dx xung quanh x. Cách duy nhất để điều này xảy ra được minh họa trong Hình 8.11. Chúng ta cần một trong số $X_{i}$ rơi vào khoảng vô cùng nhỏ xung quanh x, và chúng ta cần chính xác j-1 trong số $X_{i}$ rơi vào bên trái của x, để lại số còn lại n-j rơi vào bên phải của x.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_230_443_1166_686.jpg" alt="X(j) rơi vào một khoảng nhỏ" style="max-width: 66%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/8.11.png" alt="X(j) rơi vào một khoảng nhỏ" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 8.11:** Để cho $X_{(j)}$ rơi vào một khoảng nhỏ của x, chúng ta yêu cầu rằng một trong số $X_{i}$ rơi vào khoảng nhỏ và chính xác j - 1 rơi vào bên trái của x.
 </div>
@@ -24401,7 +24304,7 @@ $$P((X,Y)\\in A)=P((Z,W)\\in B).$$
 Để tìm xác suất này, chúng ta có thể tích phân PDF chung của $(X,Y)$ trên A hoặc tích phân PDF chung của $(Z,W)$ trên B.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_150_156_1247_799.jpg" alt="Công thức thay đổi biến cho phép biến đổi" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/8.12.png" alt="Công thức thay đổi biến cho phép biến đổi" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 8.12:** Cho $(Z, W) = g(X, Y)$, nơi g là một phép biến đổi khả nghịch thỏa mãn một số giả định kỹ thuật nhất định. Công thức thay đổi biến cho phép chúng ta chuyển đổi giữa các PDF chung của $(X, Y)$ và $(Z, W)$.
 </div>
@@ -24425,7 +24328,7 @@ Phân phối Beta và Gamma có liên quan với nhau qua câu chuyện ngân h�
 Bản đồ các kết nối, mà chúng ta đã thấy lần cuối trong Chương 5, được cập nhật ở đây để bao gồm phân phối Beta và Gamma. Các phân phối được liệt kê trong ngoặc đơn là các trường hợp đặc biệt của các phân phối không nằm trong ngoặc đơn.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_284_728_1123_1405.jpg" alt="Bản đồ các kết nối giữa các phân phối" style="max-width: 60%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/ban-do-ket-noi-8.7.png" alt="Bản đồ các kết nối giữa các phân phối" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 </div>
 `,nz=`## Phân phối Beta và Gamma trong R
 
@@ -25588,9 +25491,7 @@ Có rất nhiều ví dụ thú vị về việc sử dụng suy nghĩ mơ hồ 
 Một người lạ giới thiệu với bạn hai phong bì giống hệt nhau, được đóng kín, mỗi phong bì chứa một sép giấy với một số tiền dương. Bạn được thông báo rằng một trong hai phong bì chứa đúng hai lần số tiền của phong bì kia. Bạn có thể chọn bất kỳ phong bì nào. Bạn thích phong bì nào: bên trái hay bên phải? (Giả sử kỳ vọng số tiền trong mỗi phong bì là hữu hạn—chắc chắn là một giả định tốt trong thế giới thực!)
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_399_900_659_1052.jpg" alt="X" style="max-width: 18%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem;" />
-  <img src="imgs/img_in_image_box_740_900_1000_1052.jpg" alt="Y" style="max-width: 18%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-
+  <img src="imgs/9.1.png" alt="X · Y" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 9.1:** Hai phong bì, nơi một trong số chúng chứa gấp đôi số tiền của phong bì kia. Hoặc Y = 2X hoặc Y = X/2, với xác suất bằng nhau. Bạn sẽ chọn phong bì nào?
 </div>
 
@@ -25631,7 +25532,7 @@ Bạn có thể chọn đấu giá bất kỳ số tiền nào $b$ (đo bằng t
 **Giải:** Số tiền bạn đặt $b \\geq 0$ phải là một hằng số được xác định trước (không dựa trên V, vì V là chưa biết!).
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_376_146_1011_678.jpg" alt="Minh họa đấu giá cho một giải thưởng chưa biết giá trị" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/9.2.png" alt="Minh họa đấu giá cho một giải thưởng chưa biết giá trị" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 9.2:** Khi đặt giá thầu cho một tài sản chưa biết, hãy cẩn thận với hiện tượng "người chiến thắng bị thiệt", và điều kiện dựa trên thông tin liên quan.
 </div>
@@ -25695,7 +25596,7 @@ Bạn tung một đồng xu công bằng liên tục. Hỏi kỳ vọng số l�
 Việc tìm kỳ vọng thời gian chờ cho $HH$, $E(W_{HH})$, phức tạp hơn. Chúng ta không thể áp dụng cùng lập luận như với $E(W_{HT})$: như đã cho thấy trong Hình 9.4, nếu lần đầu tiên xuất hiện Mặt Sấp được tiếp theo là Ngửa, tiến trình của chúng ta bị phá vỡ và ta phải bắt đầu từ đầu. Nhưng điều này là tiến bộ cho chúng ta trong việc giải quyết bài toán, vì sự kiện rằng hệ thống có thể được reset gợi ý chiến lược của việc phân tích bước đầu tiên.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_499_135_892_371.jpg" alt="Minh họa thời gian chờ đợi cho HH" style="max-width: 28%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/9.3.png" alt="Minh họa thời gian chờ đợi cho HH" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 9.3:** Thời gian chờ đợi cho HH là thời gian chờ đợi cho lần đầu tiên là Đồng, $W_{1}$, cộng thêm thời gian chờ đợi bổ sung cho lần sau là Ngược, $W_{2}$. Tiến bộ tạm thời có thể tồn tại!
 </div>
@@ -25705,7 +25606,7 @@ Hãy điều kiện hóa theo kết quả của lần tung đầu tiên:
 $$E(W_{H H})=E(W_{H H}|first\\ toss\\ H)\\frac{1}{2}+E(W_{H H}|first\\ toss\\ T)\\frac{1}{2}.$$
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_288_675_1098_1042.jpg" alt="Minh họa tiến bộ tạm thời khi chờ HH bị phá hủy" style="max-width: 57%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/9.4.png" alt="Minh họa tiến bộ tạm thời khi chờ HH bị phá hủy" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 9.4:** Khi chờ đợi cho HH, tiến bộ tạm thời có thể dễ dàng bị phá hủy.
 </div>
@@ -25726,11 +25627,8 @@ Khi chúng ta giải quyết vấn đề này, chúng ta thực chất đã nh�
 
 Để hiểu rõ hơn về những gì đang xảy ra, ta có thể xem xét một chuỗi dài các lần tung đồng xu, như trong Hình 9.5. Chúng ta nhanh chóng nhận thấy rằng các lần xuất hiện của HH có thể chồng lên nhau, trong khi các lần xuất hiện của HT phải tách biệt. Ví dụ, $HHHHHH$ có 5 lần xuất hiện của HH, nhưng $HTHTHT$ chỉ có 3 lần xuất hiện của HT. Vì có cùng số lần xuất hiện trung bình của HH và HT, nhưng HH có thể tụ tập lại, thời gian chờ trung bình cho HH phải lớn hơn thời gian chờ trung bình cho HT để bù đắp.
 
-HHTHHTHHHHTHTHTTT HHTHHTTHHHHTHTHTTT
-
-<!-- TODO: missing image reference -->
-
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/9.5.png" alt="Tụ tập của các lần xuất hiện HH và HT" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 9.5:** Tụ tập. (a) Các lần xuất hiện của HH có thể chồng lên nhau. (b) Các lần xuất hiện của HT phải tách biệt.
 </div>
@@ -26079,7 +25977,7 @@ theo Định lý 9.3.2 (ở đây chúng ta "đưa lại những gì đã biết
 </div>
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_418_729_956_1027.jpg" alt="Kỳ vọng có điều kiện như một phép chiếu" style="max-width: 38%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/9.6.png" alt="Kỳ vọng có điều kiện như một phép chiếu" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 9.6:** Kỳ vọng có điều kiện $E(Y|X)$ là phép chiếu của $Y$ lên không gian tất cả các hàm số của $X$, được thể hiện ở đây dưới dạng một mặt phẳng. Sai số $Y - E(Y|X)$ vuông góc với mặt phẳng: nó vuông góc với (không tương quan với) bất kỳ hàm số nào của $X$.
 </div>
@@ -26321,10 +26219,7 @@ Hình 9.7 minh họa luật của Eve trong trường hợp đơn giản khi ta 
 Một cách khác để hiểu luật của Eve là thông qua dự đoán. Nếu chúng ta muốn dự đoán chiều cao của một người dựa trên tuổi của họ, tình huống lý tưởng là nếu mọi người trong một nhóm tuổi có cùng chiều cao, trong khi các nhóm tuổi khác có chiều cao khác nhau. Sau đó, biết tuổi của một người, chúng ta có thể dự đoán chiều cao của họ một cách hoàn hảo. Nói cách khác, tình huống lý tưởng cho dự đoán là không có biến thiên trong nhóm
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_348_140_566_272.jpg" alt="X = 1" style="max-width: 15%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem;" />
-  <img src="imgs/img_in_image_box_591_139_807_269.jpg" alt="X = 2" style="max-width: 15%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem;" />
-  <img src="imgs/img_in_image_box_834_139_1051_269.jpg" alt="X = 3" style="max-width: 15%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-
+  <img src="imgs/9.7.png" alt="X = 1 · X = 2 · X = 3" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 9.7:** Luật của Eve nói rằng phương sai tổng thể là tổng của phương sai trong nhóm và phương sai giữa các nhóm.
 </div>
 
@@ -26420,7 +26315,7 @@ Trong ví dụ tiếp theo, hai mức độ ngẫu nhiên xuất hiện vì thí
 Gọi Q là tỷ lệ người bị bệnh trong thành phố được chọn, và gọi X là số người bị bệnh trong mẫu. Như được minh họa trong Hình 9.8 (trong đó các điểm trắng đại diện cho những người khỏe mạnh và các điểm đen đại diện cho những người bị bệnh), các thành phố khác nhau có thể có sự phổ biến bệnh rất khác nhau. Vì mỗi thành phố có tỷ lệ bệnh riêng, Q là một biến ngẫu nhiên. Giả sử rằng $Q \\sim \\text{Unif}(0,1)$. Cũng giả sử rằng điều kiện trên Q, mỗi cá nhân trong mẫu độc lập có xác suất Q bị bệnh; điều này đúng nếu chúng ta chọn mẫu có hoàn lại từ thành phố được chọn, và gần đúng đúng nếu chúng ta chọn mẫu không hoàn lại nhưng quy mô dân số lớn. Tìm $E(X)$ và $\\text{Var}(X)$.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_399_1048_1002_1413.jpg" alt="Bốn thành phố với tỷ lệ mắc bệnh khác nhau" style="max-width: 43%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/9.8.png" alt="Bốn thành phố với tỷ lệ mắc bệnh khác nhau" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 9.8:** Một quận hình bầu dục nhất định có 4 thành phố. Mỗi thành phố có người khỏe mạnh (được biểu diễn là các điểm trắng) và người bị bệnh (được biểu diễn là các điểm đen). Một thành phố ngẫu nhiên được chọn, sau đó một mẫu ngẫu nhiên gồm n người được chọn từ trong thành phố đó. Có hai thành phần trong sự biến đổi của số người bị bệnh trong mẫu: sự biến đổi do các thành phố khác nhau có tỷ lệ bệnh khác nhau, và sự biến đổi do tính ngẫu nhiên của mẫu trong thành phố được chọn.
 </div>
@@ -26487,7 +26382,7 @@ $$E(Y)=\\sum_{i=1}^{n}E(Y|A_{i})P(A_{i}),$$
 nhưng chúng ta phải cẩn thận không làm mất thông tin trong các bước tiếp theo (như việc quên trong giữa một phép tính dài để điều kiện hóa trên điều gì cần phải điều kiện hóa). Trong các bài toán có cấu trúc đệ quy, chúng ta cũng có thể sử dụng phân tích bước đầu tiên để tính kỳ vọng.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_301_164_1079_631.jpg" alt="So sánh phân phối NBin và Pois" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/9.9.png" alt="So sánh phân phối NBin và Pois" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 9.9:** Phân phối xác suất rời rạc của $Y \\sim \\mathrm{NBin}(r_0, b_0/(b_0 + t))$ trong màu xám và $\\tilde{Y} \\sim \\mathrm{Pois}(r_0 t/b_0)$ trong màu đen, nơi $r_0 = 5$, $b_0 = 1$, $t = 2$.
 </div>
@@ -26507,7 +26402,7 @@ thường giúp chúng ta tính $E(Y)$ và $\\operatorname{Var}(Y)$ trong các b
 Hình 9.10 minh họa cách số $E(Y|X=x)$ liên kết với biến ngẫu nhiên $E(Y|X)$, kỳ vọng của nó là $E(Y)$ theo luật Adam. Ngoài ra, nó còn cho thấy cách các thành phần trong luật Eve được hình thành và kết hợp để tạo ra một phân tích hữu ích của $\\operatorname{Var}(Y)$ dưới dạng các đại lượng điều kiện hóa trên X.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_149_151_1247_982.jpg" alt="Sơ đồ minh họa luật Adam và luật Eve" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/9.10.png" alt="Sơ đồ minh họa luật Adam và luật Eve" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 9.10:** Chúng ta thường quan sát một biến ngẫu nhiên X và muốn dự đoán một biến ngẫu nhiên khác Y dựa trên thông tin về X. Nếu chúng ta quan sát thấy X = x, thì chúng ta có thể điều kiện hóa trên sự kiện này và sử dụng $E(Y|X = x)$ làm dự đoán. Kỳ vọng điều kiện $E(Y|X)$ là biến ngẫu nhiên mà nhận giá trị $E(Y|X = x)$ khi X = x. Luật của Adam cho phép chúng ta tính kỳ vọng không điều kiện $E(Y)$ bằng cách bắt đầu từ kỳ vọng điều kiện $E(Y|X)$. Tương tự, luật của Eve cho phép chúng ta tính $\\text{Var}(Y)$ dưới dạng các đại lượng điều kiện hóa trên X.
 </div>`,lz=`## Mô phỏng phần thưởng bí ẩn
@@ -28176,7 +28071,7 @@ Cuối cùng, giả sử rằng đẳng thức xảy ra trong trường hợp l�
 </div>\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_449_972_945_1344.jpg" alt="Vì g là lồi, các đường tiếp tuyến nằm dưới đường cong" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/10.1.png" alt="Vì g là lồi, các đường tiếp tuyến nằm dưới đường cong" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 10.1:** Vì $g$ là lồi, các đường tiếp tuyến nằm dưới đường cong. Đặc biệt, đường tiếp tuyến tại điểm $(\\mu, g(\\mu))$ nằm dưới đường cong.\r
 </div>\r
@@ -28507,7 +28402,7 @@ Cho $X_1, X_2, \\ldots$ là i.i.d. Bern(1/2). Giải thích các $X_j$ như các
 Là một minh họa, chúng tôi đã mô phỏng sáu chuỗi tung đồng xu công bằng và, cho mỗi chuỗi, tính toán $\\bar{X}_{n}$ như một hàm số của n. Tất nhiên, trong đời thực chúng ta không thể mô phỏng vô số lần tung đồng xu, vì vậy chúng tôi đã dừng lại sau 300 lần tung. Hình 10.2 vẽ $\\bar{X}_{n}$ như một hàm số của n cho mỗi chuỗi.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_309_1121_1084_1578.jpg" alt="Tỷ lệ chạy của Mặt ngửa trong 6 chuỗi tung đồng xu công bằng" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/10.2.png" alt="Tỷ lệ chạy của Mặt ngửa trong 6 chuỗi tung đồng xu công bằng" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 10.2:** Tỷ lệ chạy của Mặt ngửa trong 6 chuỗi tung đồng xu công bằng. Các đường nét đứt tại 0.6 và 0.4 được vẽ để làm tham khảo. Khi số lần tung tăng lên, tỷ lệ Mặt ngửa tiến gần về 1/2.
 </div>
@@ -28545,7 +28440,7 @@ Cho $f$ là một hàm phức tạp mà chúng ta muốn xấp xỉ tích phân 
 Gọi $A$ là hình chữ nhật trong mặt phẳng $(x,y)$ được cho bởi $a\\leq x\\leq b$ và $0\\leq y\\leq c$. Gọi $B$ là miền dưới đường cong $y=f(x)$ (và trên trục $x$) cho $a\\leq x\\leq b$, do đó tích phân mong muốn là diện tích của miền $B$. Chiến lược của chúng ta sẽ là lấy mẫu ngẫu nhiên từ $A$, sau đó tính tỷ lệ các mẫu cũng rơi vào miền $B$. Điều này được minh họa trong Hình 10.3: các điểm trong $B$ được tô đen, và các điểm không trong $B$ được tô trắng.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_418_1145_987_1601.jpg" alt="Tích phân Monte Carlo" style="max-width: 40%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/10.3.png" alt="Tích phân Monte Carlo" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 10.3:** Tích phân Monte Carlo. Để xấp xỉ diện tích dưới $f(x)$ từ $x = a$ đến $x = b$, tạo ra các điểm ngẫu nhiên trong hình chữ nhật $[a, b] \\times [0, c]$, và xấp xỉ diện tích dưới $f(x)$ bằng tỷ lệ các điểm rơi vào dưới đường cong, nhân với diện tích tổng thể của hình chữ nhật.
 </div>
@@ -28587,7 +28482,7 @@ Ví dụ, giả sử $n = 4$ và chúng ta quan sát $X_1 = x_1$, $X_2 = x_2$, $
 Bây giờ chúng ta có thể hỏi, điều gì xảy ra với $\\hat{F}_n$ khi $n \\to \\infty$? Đây là một câu hỏi tự nhiên nếu chúng ta đang sử dụng $\\hat{F}_n$ để ước lượng hàm phân phối thực tế $F$; ước lượng này có tốt không khi tiến đến giới hạn? Định lý số lớn cung cấp câu trả lời: với mọi $x$, $R_n(x)$ là tổng của $n$ biến ngẫu nhiên Bernoulli i.i.d., với xác suất thành công $p = F(x)$. Do đó theo định lý số lớn mạnh, $\\hat{F}_n(x) \\to F(x)$ với xác suất 1 khi $n \\to \\infty$.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_400_138_1001_614.jpg" alt="Phân phối tích lũy thực nghiệm sau khi quan sát bốn giá trị" style="max-width: 42%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/10.4.png" alt="Phân phối tích lũy thực nghiệm sau khi quan sát bốn giá trị" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 10.4:** Phân phối tích lũy thực nghiệm sau khi quan sát $X_{1}=x_{1}, X_{2}=x_{2}, X_{3}=x_{3}, X_{4}=x_{4}$. Đồ thị nhảy lên 1/4 mỗi lần một trong các $x_{j}$ được đạt đến.
 </div>
@@ -28703,7 +28598,7 @@ Thông tin bổ sung này cho phép chúng ta lượng hóa loại độ lệch 
 $$W_{n}\\dot{\\sim}\\mathcal{N}(n\\mu,n\\sigma^{2}).$$
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_162_500_1198_1191.jpg" alt="Định lý giới hạn trung tâm minh họa qua histogram" style="max-width: 74%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/10.5.png" alt="Định lý giới hạn trung tâm minh họa qua histogram" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 10.5:** Định lý giới hạn trung tâm. Biểu đồ tần suất của phân phối của $\\bar{X}_{n}$ cho các phân phối ban đầu khác nhau của các $X_{j}$ (được chỉ ra bởi các hàng) và các giá trị ngày càng tăng của n (được chỉ ra bởi các cột). Mỗi biểu đồ tần suất được xây dựng dựa trên 10.000 giá trị mô phỏng của $\\bar{X}_{n}$. Dù phân phối ban đầu của các $X_{j}$ như thế nào, phân phối của $\\bar{X}_{n}$ sẽ tiến tới phân phối chuẩn khi n tăng lên.
 </div>
@@ -29012,7 +28907,7 @@ Hình 10.6 vẽ hàm mật độ xác suất (PDF) của Student-t với các gi
 `,mz=`Các bất đẳng thức và các định lý giới hạn là hai cách khác nhau để xử lý kỳ vọng và xác suất mà chúng ta không muốn tính toán chính xác. Các bất đẳng thức cho phép chúng ta tìm được giới hạn dưới và/hoặc giới hạn trên cho giá trị chưa biết: Cauchy-Schwarz và Jensen cho chúng ta giới hạn cho kỳ vọng, trong khi Markov, Chebyshev và Chernoff cho chúng ta giới hạn cho xác suất đuôi.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_308_166_1083_620.jpg" alt="Đồ thị mật độ xác suất của phân phối Student-t" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/10.6.png" alt="Đồ thị mật độ xác suất của phân phối Student-t" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 10.6:** Đồ thị mật độ xác suất của phân phối Student-t với (từ sáng đến tối) n = 1, 2, 3, 5, 10 bậc tự do, cũng như mật độ xác suất chuẩn (đen). Khi $n \\to \\infty$, mật độ xác suất của phân phối Student-t tiến đến mật độ xác suất chuẩn.
 </div>
@@ -29034,7 +28929,7 @@ Hình 10.7 minh họa sự tiến triển từ một phân phối đến các bi
 Phân phối Chi-Square và Student-t là hai phân phối có tên quan trọng trong thống kê. Phân phối Chi-Square là một trường hợp đặc biệt của Gamma. Phân phối Student-t có dạng mật độ xác suất dạng chuông với đuôi nặng hơn Normal, và tiến đến phân phối chuẩn chuẩn khi số bậc tự do tăng lên.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_150_508_1247_1165.jpg" alt="Giá trị trung bình mẫu của các biến ngẫu nhiên độc lập và đồng phân phối" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/10.7.png" alt="Giá trị trung bình mẫu của các biến ngẫu nhiên độc lập và đồng phân phối" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 10.7:** Giá trị trung bình mẫu $\\bar{X}_{n}$ của các biến ngẫu nhiên độc lập và đồng phân phối $X_{1}, \\ldots, X_{n}$ là một đại lượng quan trọng trong nhiều bài toán. Bất đẳng thức Chebyshev giới hạn xác suất của giá trị trung bình mẫu nằm xa so với giá trị trung bình thực. Định luật số lớn yếu, được suy ra từ bất đẳng thức Chebyshev, nói rằng với n lớn, xác suất là rất cao rằng giá trị trung bình mẫu sẽ rất gần với giá trị trung bình thực. Định lý giới hạn trung tâm nói rằng với n lớn, phân phối của giá trị trung bình mẫu sẽ xấp xỉ chuẩn.
 </div>
@@ -29042,7 +28937,7 @@ Phân phối Chi-Square và Student-t là hai phân phối có tên quan trọng
 Ở đây, lần cuối cùng, là sơ đồ thể hiện mối quan hệ giữa các phân phối được đặt tên, được cập nhật để bao gồm phân phối Chi-Square (như một trường hợp đặc biệt của Gamma) và phân phối Student-t (với Cauchy như một trường hợp đặc biệt). Chúng ta cũng đã thêm các mũi tên để cho thấy sự hội tụ của các phân phối Poisson, Gamma và Student-t đến tính chuẩn tắc; hai trường hợp đầu tiên là hệ quả của định lý giới hạn trung tâm, và trường hợp thứ ba là hệ quả của định lý số lớn.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_149_399_1251_1279.jpg" alt="Sơ đồ mối quan hệ giữa các phân phối được đặt tên" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/so-do-quan-he-phan-phoi-10.5.png" alt="Sơ đồ mối quan hệ giữa các phân phối được đặt tên" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 </div>
 
 Bây giờ chúng ta thấy rằng tất cả các phân phối được đặt tên đều liên kết với nhau!
@@ -29101,7 +28996,7 @@ nsim <- 10^6
 \`\`\`
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_503_147_887_529.jpg" alt="Ước lượng Monte Carlo của pi" style="max-width: 27%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/10.8.png" alt="Ước lượng Monte Carlo của pi" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 10.8:** Ước lượng Monte Carlo của $\\pi$: Tạo các điểm phân bố đều trên hình vuông 2D $[-1,1]\\times[-1,1]$, có diện tích bằng 4. Tỷ lệ các điểm rơi vào hình tròn đơn vị gần bằng $\\pi/4$.
 </div>
@@ -30520,7 +30415,7 @@ Xét chuỗi Markov 4 trạng thái được minh họa trong Hình 11.1. Khi kh
 $$Q=\\left(\\begin{array}{c c c c}{1/3}&{1/3}&{1/3}&{0}\\\\ {0}&{0}&{1/2}&{1/2}\\\\ {0}&{1}&{0}&{0}\\\\ {1/2}&{0}&{0}&{1/2}\\\\ \\end{array}\\right).$$
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_589_139_845_455.jpg" alt="Một chuỗi Markov 4 trạng thái" style="max-width: 18%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/11.1.png" alt="Một chuỗi Markov 4 trạng thái" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 11.1:** Một chuỗi Markov 4 trạng thái.
 </div>
@@ -30594,7 +30489,7 @@ Các khái niệm về tính hồi quy và tính tạm thời được minh họ
 Tổng quát, các khái niệm này được định nghĩa như sau.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_284_144_1121_585.jpg" alt="Trái: Chuỗi Markov 4-trạng thái với tất cả các trạng thái là hồi quy. Phải: Chuỗi Markov 6-trạng thái với các trạng thái 1, 2 và 3 là tạm thời." style="max-width: 59%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/11.2.png" alt="Trái: Chuỗi Markov 4-trạng thái với tất cả các trạng thái là hồi quy. Phải: Chuỗi Markov 6-trạng thái với các trạng thái 1, 2 và 3 là tạm thời." style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 11.2:** Trái: Chuỗi Markov 4-trạng thái với tất cả các trạng thái là hồi quy. Phải: Chuỗi Markov 6-trạng thái với các trạng thái 1, 2 và 3 là tạm thời.
 </div>
@@ -30736,7 +30631,7 @@ Chu kỳ của một trạng thái $i$ trong một chuỗi Markov là ước chu
 Ví dụ, hãy xem xét lại hai chuỗi Markov từ Hình 11.2, được hiển thị lại trong Hình 11.3. Chúng ta trước hết xem xét chuỗi 6 trạng thái ở bên phải. Bắt đầu từ trạng thái 1, có thể quay lại trạng thái 1 sau 3 bước, 6 bước, 9 bước, v.v., nhưng nó
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_284_149_1121_586.jpg" alt="Trái: một chuỗi Markov không tuần hoàn. Phải: một chuỗi Markov tuần hoàn trong đó các trạng thái 1, 2, và 3 có chu kỳ 3." style="max-width: 59%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/11.3.png" alt="Trái: một chuỗi Markov không tuần hoàn. Phải: một chuỗi Markov tuần hoàn trong đó các trạng thái 1, 2, và 3 có chu kỳ 3." style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 11.3:** Trái: một chuỗi Markov không tuần hoàn. Phải: một chuỗi Markov tuần hoàn trong đó các trạng thái 1, 2, và 3 có chu kỳ 3.
 </div>
@@ -30916,7 +30811,7 @@ Thực chất, điều kiện bổ sung về tính chu kỳ là cần thiết đ
 Hình dưới đây cho thấy một chuỗi Markov chu kỳ nơi mỗi trạng thái có chu kỳ 5.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_547_590_851_825.jpg" alt="Một chuỗi chu kỳ" style="max-width: 21%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/11.4.png" alt="Một chuỗi chu kỳ" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 11.4:** Một chuỗi chu kỳ.
 </div>
@@ -30977,7 +30872,7 @@ Tầm quan trọng của một trang không chỉ được xác định bởi s�
 Xem xét web như một mạng có hướng—đó chính là bản chất của nó. Mỗi trang trên web là một nút, và các liên kết giữa các nút đại diện cho các liên kết giữa các trang. Ví dụ, hãy tưởng tượng rằng để đơn giản, web chỉ có 4 trang, được kết nối như được hiển thị trong hình dưới đây.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_548_414_849_669.jpg" alt="Đó là một web nhỏ sau tất cả" style="max-width: 21%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/11.5.png" alt="Đó là một web nhỏ sau tất cả" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 11.5:** Đó là một web nhỏ sau tất cả.
 </div>
@@ -31251,7 +31146,7 @@ $$s_{j}=\\frac{s_{1}q_{12}q_{23}\\cdots q_{j-1,j}}{q_{j,j-1}q_{j-1,j-2}\\cdots q
 với $j > 1$, nơi $s_{1}$ được giải ở cuối để đảm bảo $s_{1} + \\cdots + s_{M} = 1$.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_151_149_1245_780.jpg" alt="Image" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/11.6.png" alt="Image" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 11.6**
 </div>
@@ -32216,7 +32111,7 @@ Tạo một chuỗi Markov $X_0, X_1, \\ldots$ có phân phối dừng là phân
 **Giải:** Chúng ta có thể sử dụng thuật toán Metropolis-Hastings, sau khi tạo ra một phân bố đề xuất. Có nhiều phân bố đề xuất có thể, nhưng một lựa chọn đơn giản là đi bộ ngẫu nhiên trên $\\{1,2,\\ldots,M\\}$. Từ trạng thái $i$ với $i \\neq 1,i \\neq M$, chuyển đến trạng thái $i-1$ hoặc $i+1$, với xác suất $1/2$ mỗi. Từ trạng thái 1, ở lại đó hoặc chuyển đến trạng thái 2, với xác suất $1/2$ mỗi. Từ trạng thái $M$, ở lại đó hoặc chuyển đến trạng thái $M-1$, với xác suất $1/2$ mỗi. Chuỗi này được hiển thị bên dưới.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_203_562_1200_635.jpg" alt="Chuỗi đề xuất cho phân phối Zipf" style="max-width: 71%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/12.1.png" alt="Chuỗi đề xuất cho phân phối Zipf" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 12.1:** Chuỗi đề xuất cho phân phối Zipf.
 </div>
@@ -32439,14 +32334,13 @@ $$\\mathrm{Var}(\\theta|Y=3)=\\frac{1}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2
 Điểm trung bình sau là gần hơn với dữ liệu quan sát hơn là với điểm trung bình trước, điều này hợp lý vì $\\tau^{2}$ lớn hơn $\\sigma^{2}$, tương ứng với một mức độ không chắc chắn trước tương đối cao. Sử dụng mã được cung cấp trong phần R của chương này, bạn có thể thấy cách phân phối hậu nghiệm thay đổi cho các giá trị khác nhau của y, $\\mu$, $\\sigma^{2}$, và $\\tau^{2}$.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_309_366_1065_799.jpg" alt="Biểu đồ tần suất của mẫu hậu nghiệm của theta" style="max-width: 54%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/12.2.png" alt="Biểu đồ tần suất của mẫu hậu nghiệm của theta" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 12.2:** Biểu đồ tần suất của $10^4$ mẫu được lấy từ phân phối hậu nghiệm của $\\theta$ cho $Y = 3$, được thực hiện bằng phương pháp Metropolis-Hastings với $\\mu = 0$, $\\sigma^2 = 1$, và $\\tau^2 = 4$. Giá trị trung bình mẫu là 2.4 và phương sai mẫu là 0.8, phù hợp với các giá trị lý thuyết.
 </div>
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_170_1080_524_1428.jpg" alt="Đồ thị quỹ đạo cho d = 100" style="max-width: 25%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem; margin-right: 1rem;" /><img src="imgs/img_in_chart_box_522_1082_875_1428.jpg" alt="Đồ thị quỹ đạo cho d = 1" style="max-width: 25%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem; margin-right: 1rem;" /><img src="imgs/img_in_chart_box_875_1083_1224_1426.jpg" alt="Đồ thị quỹ đạo cho d = 0.01" style="max-width: 24%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
-
+  <img src="imgs/12.3.png" alt="Đồ thị quỹ đạo cho d = 100 · Đồ thị quỹ đạo cho d = 1 · Đồ thị quỹ đạo cho d = 0.01" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 12.3:** Đồ thị quỹ đạo của $\\theta_{n}$ theo số lần lặp n, cho $d = 100, 1, 0.01$.
 </div>
 
@@ -32553,7 +32447,7 @@ Hãy nghiên cứu một số ví dụ cụ thể về bộ lọc Gibbs.
 G là một mạng (còn gọi là đồ thị): có n nút, và với mỗi cặp nút khác nhau, có thể có hoặc không có cạnh nối chúng. Chúng ta có một tập hợp k màu, ví dụ, nếu k = 7, tập hợp màu có thể là {đỏ, cam, vàng, xanh lá, xanh, tím, hồng}. Một k-coloring của mạng là một cách gán màu cho mỗi nút, sao cho hai nút được nối bằng cạnh không thể có cùng màu. Ví dụ, một 3-coloring của một mạng được minh họa dưới đây. Việc đánh màu đồ thị là một chủ đề quan trọng trong khoa học máy tính, với nhiều ứng dụng rộng rãi như lên lịch công việc và trò chơi Sudoku.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_444_912_947_1271.jpg" alt="Một 3-coloring của một mạng" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/12.4.png" alt="Một 3-coloring của một mạng" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 12.4:** Một 3-coloring của một mạng.
 </div>
@@ -32670,8 +32564,7 @@ Sau nhiều lần lặp, chúng ta có các mẫu cho cả p và N. Nếu muốn
 Về kỳ vọng hậu nghiệm $E(p|X = x)$ ban đầu được yêu cầu trong bài toán, chúng ta có thể lấy trung bình mẫu của các mẫu p để có một ước lượng tốt. Trong trường hợp này, trung bình mẫu là 0.68. Sử dụng mã cung cấp trong phần R của chương này, bạn có thể thử thay đổi các giá trị của $\\lambda$, a, b, và x để xem các histogram và kỳ vọng hậu nghiệm bị ảnh hưởng như thế nào. Chiến lược chính cho bài toán này là thêm số lượng trứng chưa quan sát N vào mô hình, như vậy chúng ta sẽ có các phân phối điều kiện dễ chịu và có thể sử dụng mẫu Gibbs một cách thuận tiện.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_150_145_679_683.jpg" alt="Biểu đồ tần suất của mẫu hậu nghiệm của p" style="max-width: 37%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem; margin-right: 1rem;" /><img src="imgs/img_in_chart_box_699_145_1216_680.jpg" alt="Biểu đồ tần suất của mẫu hậu nghiệm của N" style="max-width: 36%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
-
+  <img src="imgs/12.5.png" alt="Biểu đồ tần suất của mẫu hậu nghiệm của p · Biểu đồ tần suất của mẫu hậu nghiệm của N" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 **HÌNH 12.5:** Biểu đồ tần suất của $10^{4}$ mẫu được lấy từ phân phối hậu nghiệm của p và N, nơi $\\lambda = 10$, a = 1, b = 1, và chúng ta quan sát X = 7.
 </div>
 
@@ -32891,7 +32784,7 @@ Khi đó chúng ta có thể lấy $T_{1}, \\ldots, T_{n}$ làm thời gian đ�
 Hình 13.1 mô tả ba lần thực hiện của các quá trình Poisson với tốc độ 1, 2 và 5 lần lượt, được vẽ đến thời gian 10. Trong cả ba trường hợp, chúng ta có thể thấy rằng bất chấp khoảng thời gian giữa các lần đến là độc lập và đồng phân phối, các lần đến không đều cách nhau. Thay vào đó, có rất nhiều biến đổi trong khoảng thời gian giữa các lần đến, tạo ra các cụm các lần đến. Hiện tượng này được gọi là Poisson clumping. Nó có thể dường như là một trùng hợp kỳ lạ để quan sát một cụm của vài lần đến gần nhau theo thời gian, nhưng Poisson clumping nói rằng việc có các cụm như vậy là phổ biến với các quá trình Poisson.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_chart_box_152_151_1237_532.jpg" alt="Quá trình Poisson mô phỏng trong một chiều" style="max-width: 77%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/13.1.png" alt="Quá trình Poisson mô phỏng trong một chiều" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 13.1:** Quá trình Poisson mô phỏng trong một chiều, cho $\\lambda = 1, 2, 5$. Các sự kiện đến gần như không đều cách nhau, và thực tế chúng đôi khi tập trung lại với nhau,\r
 </div>`,Az=`Ba tính chất quan trọng nhất cần hiểu về quá trình Poisson là điều kiện, tổng hợp và mỏng hóa. Những điều này tương ứng với các tính chất mà chúng ta đã thấy trước đây về phân phối Poisson, vì vậy chúng đã nên có tính hợp lý.
@@ -32926,7 +32819,7 @@ Hình 13.2 minh họa thiết lập. Mệnh đề là rằng điều kiện trê
 Vì $(0,t_{1}]$ và $(t_{1},t_{2}]$ là rời nhau, $N(t_{1})$ độc lập với $N(t_{2})-N(t_{1})$. Thứ nhất phân phối Pois$(\\lambda t_{1})$, thứ hai phân phối Pois$(\\lambda(t_{2}-t_{1}))$, và tổng của chúng là
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_204_146_1192_309.jpg" alt="Điều kiện trên tổng số sự kiện" style="max-width: 70%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/13.2.png" alt="Điều kiện trên tổng số sự kiện" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 13.2:** Điều kiện. Cho rằng có $n$ lần đến trong khoảng $(0,t_{2}]$, phân phối điều kiện của số lần đến trong khoảng $(0,t_{1}]$ là phân phối Nhị thức với tham số $n$ và $t_{1}/t_{2}$.
 </div>
@@ -33117,7 +33010,7 @@ Có một cách rất tự nhiên để tạo ra một tổng hợp.
 </div>
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_155_576_1240_866.jpg" alt="Tổng hợp của hai quá trình Poisson độc lập" style="max-width: 77%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/13.3.png" alt="Tổng hợp của hai quá trình Poisson độc lập" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 13.3:** Tổng hợp. Tổng hợp của các quá trình Poisson độc lập là một quá trình Poisson, và các tốc độ cộng lại. Hai dòng thời gian trên là các quá trình Poisson độc lập, mỗi cái có tốc độ 0.5. Dòng thời gian dưới là tổng hợp của hai dòng thời gian trên và chính nó là một quá trình Poisson với tốc độ 1.
 </div>
@@ -33207,7 +33100,7 @@ Ngoài ra, $\\min(Y_1, Y_2)$ là thời gian chờ cho lần đến đầu tiên
 Một hệ quả trực tiếp của Câu chuyện 13.2.9 là nếu chúng ta chiếu một quá trình Poisson chồng chéo vào thời gian rời rạc, giữ lại chuỗi các sự kiện loại-1 và loại-2 nhưng không giữ lại thời gian đến, thì chúng ta sẽ được một chuỗi các biến ngẫu nhiên độc lập và đồng phân phối $\\text{Bern}(\\lambda_1/(\\lambda_1+\\lambda_2))$ là $I_1, I_2, \\ldots$, trong đó $I_j$ là chỉ số của sự kiện thứ $j$ là loại-1. Hình 13.4 minh họa ý nghĩa của việc loại bỏ thông tin thời gian liên tục từ quá trình Poisson, và Định lý 13.2.11 phát biểu kết quả một cách chính thức.
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_188_1298_1238_1471.jpg" alt="Chiếu quá trình Poisson chồng chéo vào thời gian rời rạc" style="max-width: 75%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/13.4.png" alt="Chiếu quá trình Poisson chồng chéo vào thời gian rời rạc" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 13.4:** Chiếu vào thời gian rời rạc. Loại bỏ thông tin thời gian liên tục từ một quá trình Poisson chồng chéo tạo ra một chuỗi các chỉ số độc lập và đồng phân phối của các sự kiện loại-1 so với loại-2. Ở đây × đại diện cho các sự kiện loại-1 và ◇ đại diện cho các sự kiện loại-2.
 </div>
@@ -33317,7 +33210,7 @@ Các câu chuyện sinh ra tương đương cho sự chồng chất! Các cấu 
 Do đó, chúng ta có thể chồng chất các quá trình Poisson độc lập để nhận được một quá trình Poisson kết hợp, hoặc chúng ta có thể chia một quá trình Poisson đơn lẻ thành các quá trình Poisson độc lập. Hình 13.5 là minh họa của việc lọc. Chúng ta chỉ cần lật ngược Hình 13.3, điều này phù hợp vì lọc là mặt ngược lại của sự chồng chất!
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_image_box_156_560_1240_833.jpg" alt="Lọc một quá trình Poisson thành hai quá trình độc lập" style="max-width: 77%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/13.5.png" alt="Lọc một quá trình Poisson thành hai quá trình độc lập" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 13.5:** Lọc. Bắt đầu với một quá trình Poisson đơn lẻ, nếu chúng ta cho mỗi sự kiện đến là loại-1 với xác suất p và loại-2 với xác suất 1 - p, chúng ta sẽ nhận được hai quá trình Poisson độc lập với tốc độ $\\lambda p$ và $\\lambda(1 - p)$. Ở đây $\\times$ đại diện cho các sự kiện loại-1 và $\\diamond$ đại diện cho các sự kiện loại-2, và chúng ta lấy p = 0.5.
 </div>
@@ -33420,7 +33313,7 @@ $$\\mathrm{distance}=\\mathrm{velocity}\\cdot\\mathrm{time},$$
 nên một xe vào đường cao tốc tại thời điểm $s$ với vận tốc $v$ sẽ ở vị trí $(t-s)v$
 
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
-  <img src="imgs/img_in_chart_box_305_137_1084_632.jpg" alt="Xe hơi vào một quốc lộ" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+  <img src="imgs/13.6.png" alt="Xe hơi vào một quốc lộ" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
 
 **HÌNH 13.6:** Xe hơi vào một quốc lộ. Thời gian vào của chúng tạo thành một quy trình Poisson và được chỉ ra bởi các dấu × trên trục thời gian. Xe hơi thứ i có vận tốc $V_i$, được biểu diễn bởi độ dốc của đường thẳng bắt đầu từ dấu × thứ i. Chúng ta quan tâm đến $Z_t$, số lượng xe hơi nằm trong khoảng $[a,b]$ tại thời điểm $t$. Ở đây chúng ta quan sát được $Z_t = 3$, được biểu diễn bởi ba ngôi sao.
 </div>
@@ -33470,7 +33363,7 @@ Tương tự như trường hợp 1 chiều, tổng hợp của các quá trình
 Một tính chất của các quá trình Poisson 1 chiều mà chúng ta chưa xác nhận một phiên bản cao hơn là tính đối xứng giữa số lượng và thời gian. Ví dụ tiếp theo, ví dụ cuối cùng trong chương này, sẽ dẫn chúng ta đến một phiên bản không gian: tính đối xứng giữa số lượng và khoảng cách.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_image_box_168_152_1236_515.jpg" alt="Quá trình Poisson 2D mô phỏng trong hình vuông" style="max-width: 76%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/13.7.png" alt="Quá trình Poisson 2D mô phỏng trong hình vuông" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 13.7:** Quá trình Poisson 2D được mô phỏng trong hình vuông $[0,5] \\times [0,5]$, với $\\lambda = 1, 2, 5$.\r
 </div>\r
@@ -33537,7 +33430,7 @@ plot(t,1:n,type=s)\r
 Điều này tạo ra một biểu đồ dạng bậc thang như trong Hình 13.8.\r
 \r
 <div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
-  <img src="imgs/img_in_chart_box_188_691_1199_1270.jpg" alt="Số lần đến trong một quá trình Poisson" style="max-width: 72%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+  <img src="imgs/13.8.png" alt="Số lần đến trong một quá trình Poisson" style="max-width: 90%; display: block; margin: 0 auto 0.75rem auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />\r
 \r
 **HÌNH 13.8:** Số lần đến trong một quá trình Poisson với tốc độ 10 trong khoảng $(0, 5]$.\r
 </div>\r
