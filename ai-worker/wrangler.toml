@@ -7,7 +7,7 @@ compatibility_date = "2025-01-01"
 AI_MODEL = "bee/gemini-3.6-flash"
 # Origin của trang GitHub Pages — chỉ origin này mới được phép gọi worker (CORS).
 # Đổi thành domain thật trước khi deploy, ví dụ "https://<username>.github.io".
-ALLOWED_ORIGIN = "http://localhost:5173"
+ALLOWED_ORIGIN = "https://nstpvcpiooi.github.io"
 
 # Tạo bằng: wrangler kv namespace create RATE_LIMIT_KV
 # rồi dán "id" trả về vào đây. Dùng để đếm số request/IP, chặn lạm dụng.
