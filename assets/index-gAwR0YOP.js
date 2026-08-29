@@ -25468,1153 +25468,1123 @@ Giải thích một cách trực quan tại sao kết quả của (a) có nghĩa
 
 </div>
 </div>
-`,iz=`Nhắc lại rằng kỳ vọng  $E(Y)$  của một biến ngẫu nhiên rời rạc  $Y$  là một trung bình có trọng số của các giá trị có thể xảy ra, nơi các trọng số là các giá trị xác suất khối lượng  $P(Y = y)$ . Sau khi biết rằng một sự kiện  $A$  đã xảy ra, chúng ta muốn sử dụng các trọng số đã được cập nhật để phản ánh thông tin mới này. Định nghĩa của  $E(Y|A)$  đơn giản thay thế xác suất  $P(Y = y)$  bằng xác suất có điều kiện  $P(Y = y|A)$ .\r
-\r
-Tương tự, nếu Y là liên tục,  $E(Y)$  vẫn là một trung bình có trọng số của các giá trị có thể xảy ra của Y, với tích phân thay cho tổng và giá trị hàm mật độ xác suất (PDF)  $f(y)$  thay cho giá trị hàm xác suất khối (PMF). Nếu chúng ta biết rằng A đã xảy ra, chúng ta cập nhật kỳ vọng của Y bằng cách thay thế  $f(y)$  bằng mật độ xác suất điều kiện  $f(y|A)$ .\r
-\r
-Định nghĩa 9.1.1 (Kỳ vọng điều kiện cho một sự kiện). Giả sử A là một sự kiện với xác suất dương. Nếu Y là biến ngẫu nhiên rời rạc, thì kỳ vọng điều kiện của Y cho A là\r
-\r
- \r
-\r
- $$E(Y|A)=\\sum_{y}y P(Y=y|A),$$ \r
-\r
- \r
-\r
-trong đó tổng được thực hiện trên miền giá trị của Y. Nếu Y là biến ngẫu nhiên liên tục với hàm mật độ xác suất f, thì\r
-\r
- \r
-\r
- $$E(Y|A)=\\int_{-\\infty}^{\\infty}y f(y|A)d y,$$ \r
-\r
- \r
-\r
-trong đó mật độ xác suất điều kiện  $f(y|A)$  được định nghĩa là đạo hàm của hàm phân phối tích lũy điều kiện  $F(y|A) = P(Y \\leq y|A)$ , và cũng có thể được tính bằng một phiên bản hỗn hợp của quy tắc Bayes:\r
-\r
- \r
-\r
- $$f(y|A)=\\frac{P(A|Y=y)f(y)}{P(A)}.$$ \r
-\r
- \r
-\r
-Giả thuyết 9.1.2. Để hiểu rõ hơn về  $E(Y|A)$ , hãy xem xét việc xấp xỉ nó bằng mô phỏng (hoặc qua góc nhìn tần suất, dựa trên việc lặp lại cùng một thí nghiệm nhiều lần). Hãy tưởng tượng tạo ra một số lớn  $n$  lần lặp lại của thí nghiệm cho đó Y là một tóm tắt số học. Chúng ta sau đó có các giá trị Y là  $y_1, \\ldots, y_n$ , và có thể xấp xỉ\r
-\r
- \r
-\r
- $$E(Y)\\approx\\frac{1}{n}\\sum_{j=1}^{n}y_{j}.$$ \r
-\r
- \r
-\r
-Để xấp xỉ  $E(Y|A)$ , chúng ta giới hạn chỉ đến các lần lặp lại mà A đã xảy ra, và trung bình chỉ những giá trị Y đó. Điều này có thể được viết thành\r
-\r
- \r
-\r
- $$E(Y|A)\\approx\\frac{\\sum_{j=1}^{n}y_{j}I_{j}}{\\sum_{j=1}^{n}I_{j}},$$ \r
-\r
- \r
-\r
-trong đó  $I_{j}$  là chỉ số của A xảy ra trong lần lặp thứ j. Điều này không xác định nếu A chưa bao giờ xảy ra trong mô phỏng, điều này hợp lý vì lúc đó không có dữ liệu mô phỏng nào về tình huống "A xảy ra". Chúng ta muốn có n đủ lớn để có nhiều lần xảy ra A (nếu A là một sự kiện hiếm, có thể cần các kỹ thuật tinh vi hơn để xấp xỉ  $E(Y|A)$ ).\r
-\r
-Nguyên tắc này đơn giản tuy nhiên:  $E(Y|A)$  là xấp xỉ trung bình của Y trong một số lớn lần lặp lại trong đó A đã xảy ra.\r
-\r
-9.1.3. Sự nhầm lẫn giữa kỳ vọng điều kiện và kỳ vọng không điều kiện là một sai lầm nguy hiểm. Tổng quát hơn, không theo dõi cẩn thận điều mà bạn nên điều kiện và điều mà bạn đang điều kiện là một công thức cho thảm họa.\r
-\r
-Xét một ví dụ về tình huống sinh tử trước đây của sinh vật nguy hiểm, hãy cân nhắc tuổi thọ trung bình.\r
-\r
-Ví dụ 9.1.4 (Tuổi thọ trung bình). Fred có 30 tuổi, và anh nghe nói rằng tuổi thọ trung bình ở quốc gia của anh là 80 tuổi. Anh nên kết luận rằng, trung bình, anh còn sống thêm 50 năm không? Không, có một thông tin quan trọng mà anh phải điều kiện hóa: sự kiện anh đã sống đến tuổi 30. Gọi T là độ tuổi của Fred, chúng ta có tin vui rằng\r
-\r
- \r
-\r
- $$E(T)<E(T|T\\geq30).$$ \r
-\r
- \r
-\r
-Vế trái là tuổi thọ trung bình của Fred khi mới sinh (nó ngầm điều kiện hóa rằng anh được sinh ra), và vế phải là tuổi thọ trung bình của Fred cho điều kiện anh sống đến tuổi 30.\r
-\r
-Một câu hỏi khó hơn là làm thế nào để quyết định một ước lượng phù hợp cho  $E(T)$ . Liệu có phải là 80, trung bình chung cho quốc gia của anh không? Ở hầu hết các quốc gia, phụ nữ có tuổi thọ trung bình cao hơn nam, vì vậy có lý do để điều kiện hóa Fred là một người đàn ông. Nhưng chúng ta nên điều kiện hóa thêm nơi anh sinh ra không? Chúng ta nên điều kiện hóa thông tin về chủng tộc và tài chính của cha mẹ anh, hay thời gian trong ngày anh được sinh ra không? Về mặt trực giác, chúng ta muốn các ước lượng vừa chính xác vừa liên quan đến Fred, nhưng có một sự cân bằng vì nếu chúng ta điều kiện hóa thêm nhiều đặc điểm của Fred, thì sẽ có ít người phù hợp với những đặc điểm đó để sử dụng như dữ liệu cho việc ước lượng tuổi thọ.\r
-\r
-Bây giờ hãy xem xét một số con số cụ thể cho Hoa Kỳ. Một nghiên cứu của Cơ quan An sinh Xã hội ước tính rằng từ năm 1900 đến năm 2000, tuổi thọ trung bình khi mới sinh ở Hoa Kỳ cho nam tăng từ 46 lên 74, và cho nữ tăng từ 49 lên 79. Những cải tiến to lớn! Nhưng phần lớn sự cải tiến là do giảm tỷ lệ tử vong ở trẻ em. Đối với một người 30 tuổi vào năm 1900, số năm còn sống trung bình là 35 cho nam và 36 cho nữ; vào năm 2000, các con số tương ứng là 46 cho nam và 50 cho nữ.\r
-\r
-Có một số vấn đề thống kê tinh tế trong việc thu thập những ước lượng này. Ví dụ, làm thế nào để ước lượng tuổi thọ trung bình cho một người sinh năm 2000 mà không cần phải chờ đến năm 2100? Việc ước lượng phân phối sống sót là một chủ đề rất quan trọng trong thống kê sinh học và khoa học bảo hiểm.\r
-\r
-Luật tổng xác suất cho phép chúng ta có được xác suất không điều kiện bằng cách chia không gian mẫu thành các phần và tính xác suất điều kiện trong mỗi phần. Tư tưởng tương tự cũng hoạt động khi tính kỳ vọng không điều kiện.\r
-\r
-Định lý 9.1.5 (Luật tổng kỳ vọng). Gọi  $A_1, \\ldots, A_n$  là một phân hoạch của không gian mẫu, với  $P(A_i) > 0$  với mọi i, và gọi Y là một biến ngẫu nhiên trên không gian mẫu này. Khi đó\r
-\r
- \r
-\r
- $$E(Y)=\\sum_{i=1}^{n}E(Y|A_{i})P(A_{i}).$$ \r
-\r
- \r
-\r
-Thực ra, vì tất cả các xác suất đều là kỳ vọng theo cầu nối cơ bản, luật\r
-\r
-Định lý xác suất toàn bộ là một trường hợp đặc biệt của định luật kỳ vọng toàn bộ. Để thấy điều này, hãy để  $Y = I_B$  cho một sự kiện  $B$ ; sau đó định lý trên nói rằng\r
-\r
- \r
-\r
- $$P(B)=E(I_{B})=\\sum_{i=1}^{n}E(I_{B}|A_{i})P(A_{i})=\\sum_{i=1}^{n}P(B|A_{i})P(A_{i}),$$ \r
-\r
- \r
-\r
-điều này chính xác là định lý xác suất toàn bộ (LOTP). Định luật kỳ vọng toàn bộ là, ngược lại, một trường hợp đặc biệt của một kết quả quan trọng được gọi là định luật Adam (Định lý 9.3.7), vì vậy chúng ta sẽ không chứng minh nó ngay lúc này.\r
-\r
-Có rất nhiều ví dụ thú vị về việc sử dụng suy nghĩ mơ hồ để phân tách kỳ vọng không điều kiện thành kỳ vọng có điều kiện. Chúng ta bắt đầu với hai câu chuyện cảnh báo về tầm quan trọng của việc điều kiện hóa cẩn thận và không phá hủy thông tin mà không có lý do.\r
-\r
-Ví dụ 9.1.6 (Tâm lý hai túi). Một người lạ giới thiệu với bạn hai phong bì giống hệt nhau, được đóng kín, mỗi phong bì chứa một sép giấy với một số tiền dương. Bạn được thông báo rằng một trong hai phong bì chứa đúng hai lần số tiền của phong bì kia. Bạn có thể chọn bất kỳ phong bì nào. Bạn thích phong bì nào: bên trái hay bên phải? (Giả sử kỳ vọng số tiền trong mỗi phong bì là hữu hạn—chắc chắn là một giả định tốt trong thế giới thực!)\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_399_900_659_1052.jpg" alt="Image" width="18%" /></div>\r
-\r
-\r
-<div style="text-align: center;">X</div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_740_900_1000_1052.jpg" alt="Image" width="18%" /></div>\r
-\r
-\r
-<div style="text-align: center;">Y</div>\r
-\r
-\r
-### HÌNH 9.1\r
-\r
-Hai phong bì, nơi một trong số chúng chứa gấp đôi số tiền của phong bì kia. Hoặc Y = 2X hoặc Y = X/2, với xác suất bằng nhau. Bạn sẽ chọn phong bì nào?\r
-\r
-## Giải pháp:\r
-\r
-Gọi X và Y là số tiền trong phong bì bên trái và bên phải, tương ứng. Nhờ đối xứng, không có lý do nào để ưa thích một phong bì hơn phong bì kia (chúng ta đang giả định không có thông tin tiên nghiệm nào cho thấy người lạ tay trái và người tay trái thường đặt nhiều tiền hơn vào bên trái). Kết luận bằng đối xứng rằng  $E(X) = E(Y)$ , dường như bạn không cần quan tâm đến phong bì nào bạn nhận được.\r
-\r
-Nhưng khi bạn mơ tưởng về điều gì nằm bên trong các phong bì, một lập luận khác đến với bạn: giả sử phong bì bên trái chứa  $100. Sau đó phong bì bên phải chứa$ 50 hoặc  $200. Trung bình của$ 50 và  $200 là$ 125, vì vậy dường như phong bì bên phải tốt hơn. Nhưng không có gì đặc biệt về $100 ở đây; với bất kỳ giá trị x nào cho phong bì bên trái, trung bình của 2x và x/2 lớn hơn x, cho thấy phong bì bên phải tốt hơn. Điều này kỳ lạ, vì không chỉ mâu thuẫn với lập luận đối xứng mà còn cùng lập luận này có thể được áp dụng bắt đầu từ phong bì bên phải, dẫn đến việc chuyển đổi liên tục mãi mãi!\r
-\r
-Hãy thử formalize lập luận này để xem điều gì đang xảy ra. Chúng ta có Y = 2X hoặc Y = X/2, với xác suất bằng nhau. Theo Định lý 9.1.5,\r
-\r
- \r
-\r
- $$E(Y)=E(Y|Y=2X)\\cdot\\frac{1}{2}+E\\big(Y|Y=X/2\\big)\\cdot\\frac{1}{2}.$$ \r
-\r
- \r
-\r
-Một người có thể nghĩ rằng điều này là\r
-\r
- \r
-\r
- $$E(2X)\\cdot\\frac{1}{2}+E\\big(X/2\\big)\\cdot\\frac{1}{2}=\\frac{5}{4}E(X),$$ \r
-\r
- \r
-\r
-đề xuất một lợi nhuận 25% từ việc chuyển từ bên trái sang bên phải. Nhưng có một sai lầm trong phép tính đó:  $E(Y|Y = 2X) = E(2X|Y = 2X)$ , nhưng không có cơ sở để bỏ điều kiện Y = 2X sau khi thay 2X cho Y.\r
-\r
-Để nói rõ hơn, hãy gọi I là biến chỉ số của sự kiện  $Y = 2X$ , do đó  $E(Y|Y = 2X) = E(2X|I = 1)$ . Nếu chúng ta biết rằng X độc lập với I, thì chúng ta có thể bỏ điều kiện I = 1. Nhưng thực ra chúng ta đã chứng minh rằng X và I không thể độc lập: nếu chúng độc lập, chúng ta sẽ có một nghịch lý! Bất ngờ, quan sát X cho thông tin về việc X có phải là giá trị lớn hơn hay nhỏ hơn. Nếu chúng ta biết rằng X rất lớn, chúng ta có thể đoán rằng X lớn hơn Y, nhưng cái gì được coi là rất lớn? Là  $10^{12}$  rất lớn, ngay cả khi nó nhỏ hơn rất nhiều so với  $10^{100}$ ? Hai-envelope nghịch lý nói rằng bất kể phân phối của X là gì, luôn có những cách hợp lý để định nghĩa "rất lớn" tương ứng với phân phối đó.\r
-\r
-Trong Bài tập 8 bạn sẽ xem xét một bài toán liên quan, trong đó số tiền trong hai phong bì là các biến ngẫu nhiên độc lập và giống nhau. Bạn sẽ chứng tỏ rằng nếu bạn được phép xem bên trong một phong bì và sau đó quyết định có đổi hay không, sẽ có một chiến lược cho phép bạn nhận được phong bì tốt hơn hơn 50% số lần! ☐\r
-\r
-Ví dụ tiếp theo minh họa rõ tầm quan trọng của việc điều kiện hóa trên tất cả thông tin. Hiện tượng được tiết lộ ở đây xuất hiện trong nhiều quyết định thực tế về việc mua sắm và đầu tư.\r
-\r
-Ví dụ 9.1.7 (Giải thưởng bí ẩn). Bạn bị một người lạ tiếp cận, người này đưa cho bạn cơ hội đấu giá một hộp bí chứa một giải thưởng bí ẩn! Giá trị của giải thưởng hoàn toàn không biết, ngoại trừ nó ít nhất là bằng 0, và nhiều nhất là một triệu đô la. Do đó, giá trị thực V của giải thưởng được xem là Phân phối đều trên [0,1] (đo bằng triệu đô la).\r
-\r
-Bạn có thể chọn đấu giá bất kỳ số tiền nào  $b$  (đo bằng triệu đô la). Bạn có cơ hội nhận được giải thưởng với giá trị thấp hơn rất nhiều so với giá trị thực, nhưng bạn cũng có thể mất tiền nếu đấu giá quá cao. Cụ thể, nếu  $b < 2V/3$ , thì đơn đặt hàng bị từ chối và không có gì được nhận hoặc mất. Nếu  $b \\geq 2V/3$ , thì đơn đặt hàng được chấp nhận và lợi nhuận ròng của bạn là  $V - b$  (vì bạn trả  $b$  để nhận một giải thưởng có giá trị  $V$ ). Giá trị đấu giá tối ưu  $b$  là gì, để tối đa hóa lợi nhuận kỳ vọng?\r
-\r
-## Giải pháp:\r
-\r
-Số tiền bạn đặt  $b \\geq 0$  phải là một hằng số được xác định trước (không dựa trên V, vì V là\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_376_146_1011_678.jpg" alt="Image" width="45%" /></div>\r
-\r
-\r
-### HÌNH 9.2\r
-\r
-<div style="text-align: center;">Khi đặt giá thầu cho một tài sản chưa biết, hãy cẩn thận với hiện tượng "người chiến thắng bị thiệt", và điều kiện dựa trên thông tin liên quan.</div>\r
-\r
-\r
-chưa biết!). Để tìm kỳ vọng giá thầu W, điều kiện dựa trên việc giá thầu có được chấp nhận hay không. Giá thầu là V - b nếu giá thầu được chấp nhận và 0 nếu giá thầu bị từ chối. Vì vậy\r
-\r
- \r
-\r
- $$\\begin{aligned}E(W)&=E(W|b\\geq2V/3)P(b\\geq2V/3)+E(W|b<2V/3)P(b<2V/3)\\\\&=E(V-b|b\\geq2V/3)P(b\\geq2V/3)+0\\\\&=(E(V|V\\leq3b/2)-b)P(V\\leq3b/2).\\\\ \\end{aligned}$$ \r
-\r
- \r
-\r
-Với  $b \\geq 2/3$ , sự kiện  $V \\leq 3b/2$  có xác suất là 1, do đó vế phải là  $1/2 - b$ , điều này âm. Bây giờ giả sử  $b < 2/3$ . Khi đó  $V \\leq 3b/2$  có xác suất là  $3b/2$ . Cho rằng  $V \\leq 3b/2$ , phân phối có điều kiện của V là đều trên  $[0, 3b/2]$ . Do đó,\r
-\r
- \r
-\r
- $$E(W)=(E(V|V\\leq3b/2)-b)\\\\ P(V\\leq3b/2)=(3b/4-b)\\ $ 3b/2)=-3b^{2}/8.$$ \r
-\r
- \r
-\r
-Biểu thức trên là âm trừ khi b = 0, do đó giá thầu tối ưu là 0: bạn không nên chơi trò này!\r
-\r
-Thay thế, điều kiện dựa trên sự kiện nào xảy ra trong các sự kiện sau:  $A = \\{V < b/2\\}$ ,  $B = \\{b/2 \\leq V \\leq 3b/2\\}$ ,  $C = \\{V > 3b/2\\}$ . Chúng ta có\r
-\r
- \r
-\r
- $$E(W|A)=E(V-b|A)<E(b/2-b|A)=-b/2\\leq0,$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\begin{aligned}E(W|B)&=E\\left(\\frac{b/2+3b/2}{2}-b|B\\right)=0,\\\\&E(W|C)=0,\\end{aligned}$$ \r
-\r
- \r
-\r
-nên chúng ta nên chỉ đặt b = 0 và rời đi.\r
-\r
-Thông điệp của câu chuyện này là hãy điều kiện hóa trên tất cả thông tin. Điều này rất quan trọng trong phép tính trên để sử dụng  $E(V|V \\leq 3b/2)$  thay vì  $E(V) = 1/2$ ; biết rằng đấu thầu được chấp nhận cho ta thông tin về giá trị của phần thưởng bí ẩn, vì vậy ta không nên phá vỡ thông tin này. Vấn đề này liên quan đến hiện tượng gọi là "winner’s curse", nói rằng người thắng cuộc trong một cuộc đấu thầu với thông tin không đầy đủ thường có lợi nhuận thấp hơn so với kỳ vọng (trừ khi họ hiểu xác suất!). Điều này là do trong nhiều tình huống, giá trị kỳ vọng của món đồ mà họ đấu thầu cho biết họ đã giành chiến thắng thấp hơn giá trị kỳ vọng không điều kiện mà họ ban đầu nghĩ đến. Với  $b \\geq 2/3$ , điều kiện hóa trên  $V \\leq 3b/2$  không có tác dụng vì ta biết trước rằng  $V \\leq 1$ , nhưng một lần đặt giá như vậy là vô lý. Với bất kỳ  $b < 2/3$  nào, việc biết rằng đề nghị của bạn được chấp nhận làm giảm kỳ vọng của bạn:\r
-\r
- \r
-\r
- $$E(V|V\\leq3b/2)<E(V).$$ \r
-\r
- \r
-\r
-Ví dụ còn lại sử dụng phân tích bước đầu tiên để tính kỳ vọng không điều kiện. Trước hết, như đã hứa trong Chương 4, chúng ta sẽ suy ra kỳ vọng của phân phối Geometric bằng phân tích bước đầu tiên.\r
-\r
-Ví dụ 9.1.8 (Kỳ vọng của phân phối Geometric). Cho  $X \\sim \\text{Geom}(p)$ . Giải thích X là số lần Ngửa trước lần đầu tiên xuất hiện Mặt Sấp trong một chuỗi ném đồng xu với xác suất p cho Mặt Sấp. Để tính  $E(X)$ , ta điều kiện hóa trên kết quả của lần tung đầu tiên: nếu nó ra Mặt Sấp, thì X là 0 và ta đã hoàn tất; nếu nó ra Ngửa, thì ta đã lãng phí một lần tung và quay về trạng thái ban đầu, nhờ tính chất không nhớ. Do đó,\r
-\r
- \r
-\r
- $$\\begin{aligned}E(X)&=E(X|first\\ toss\\ H)\\cdot p+E(X|first\\ toss\\ T)\\cdot q\\\\&=0\\cdot p+(1+E(X))\\cdot q,\\end{aligned}$$ \r
-\r
- \r
-\r
-điều này cho ta  $E(X) = q/p$ .\r
-\r
-Ví dụ tiếp theo suy ra thời gian kỳ vọng cho một số mẫu phức tạp hơn, sử dụng hai bước điều kiện hóa.\r
-\r
-Ví dụ 9.1.9 (Thời gian đến HT so với HH). Bạn tung một đồng xu công bằng liên tục. Hỏi kỳ vọng số lần tung cho đến khi mẫu HT xuất hiện lần đầu tiên? Và kỳ vọng số lần tung cho đến khi mẫu HH xuất hiện lần đầu tiên?\r
-\r
-## Giải pháp:\r
-\r
-Gọi  $W_{HT}$  là số lần tung cho đến khi HT xuất hiện. Như chúng ta có thể thấy từ Hình 9.3,  $W_{HT}$  là thời gian chờ cho lần đầu tiên xuất hiện Mặt Sấp, mà ta sẽ gọi là  $W_1$ , cộng thêm thời gian chờ thêm cho lần đầu tiên xuất hiện Ngửa sau lần đầu tiên xuất hiện Mặt Sấp, mà ta sẽ gọi là  $W_2$ . Theo câu chuyện về phân phối First Success,  $W_1$  và  $W_2$  là i.i.d. FS(1/2), do đó  $E(W_1) = E(W_2) = 2$  và  $E(W_{HT}) = 4$ .\r
-\r
-Việc tìm kỳ vọng thời gian chờ cho  $HH$ ,  $E(W_{HH})$ , phức tạp hơn. Chúng ta không thể áp dụng cùng lập luận như với  $E(W_{HT})$ : như đã cho thấy trong Hình 9.4, nếu lần đầu tiên xuất hiện Mặt Sấp được tiếp theo là Ngửa, tiến trình của chúng ta bị phá vỡ và ta phải bắt đầu từ đầu. Nhưng điều này là tiến bộ cho chúng ta trong việc giải quyết bài toán, vì sự kiện rằng\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_499_135_892_371.jpg" alt="Image" width="28%" /></div>\r
-\r
-\r
-### HÌNH 9.3\r
-\r
-Thời gian chờ đợi cho HH là thời gian chờ đợi cho lần đầu tiên là Đồng,  $W_{1}$ , cộng thêm thời gian chờ đợi bổ sung cho lần sau là Ngược,  $W_{2}$ . Tiến bộ tạm thời có thể tồn tại!\r
-\r
-Hệ thống có thể được reset gợi ý chiến lược của việc phân tích bước đầu tiên. Hãy điều kiện hóa theo kết quả của lần tung đầu tiên:\r
-\r
- \r
-\r
- $$E(W_{H H})=E(W_{H H}|first\\ toss\\ H)\\frac{1}{2}+E(W_{H H}|first\\ toss\\ T)\\frac{1}{2}.$$ \r
-\r
- \r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_288_675_1098_1042.jpg" alt="Image" width="57%" /></div>\r
-\r
-\r
-### HÌNH 9.4\r
-\r
-<div style="text-align: center;">Khi chờ đợi cho HH, tiến bộ tạm thời có thể dễ dàng bị phá hủy.</div>\r
-\r
-\r
-Với số hạng thứ hai,  $E(W_{HH}|\\text{first toss T}) = 1 + E(W_{HH})$  theo tính chất vô nhớ. Với số hạng đầu tiên, chúng ta tính  $E(W_{HH}|\\text{1st toss H})$  bằng cách điều kiện hóa thêm theo kết quả của lần tung thứ hai. Nếu lần tung thứ hai là Đồng, chúng ta đã đạt được HH trong hai lần tung. Nếu lần tung thứ hai là Ngược, chúng ta đã lãng phí hai lần tung và phải bắt đầu lại từ đầu! Điều này cho ra\r
-\r
- \r
-\r
- $$E(W_{H H}|first\\ toss\\ H)=2\\cdot\\frac{1}{2}+(2+E(W_{H H}))\\cdot\\frac{1}{2}.$$ \r
-\r
- \r
-\r
-Do đó,\r
-\r
- \r
-\r
- $$E(W_{HH})=\\left(2\\cdot\\frac{1}{2}+(2+E(W_{HH}))\\cdot\\frac{1}{2}\\right)\\frac{1}{2}+(1+E(W_{HH}))\\frac{1}{2}.$$ \r
-\r
- \r
-\r
-Giải phương trình cho  $E(W_{HH})$ , chúng ta được  $E(W_{HH}) = 6$ .\r
-\r
-Việc này có thể dường như bất ngờ ở đầu tiên rằng thời gian chờ đợi kỳ vọng cho HH lớn hơn thời gian chờ đợi kỳ vọng cho HT. Làm thế nào để chúng ta hòa giải điều này với thực tế rằng trong hai lần tung đồng tiền, HH và HT đều có xác suất 1/4 xuất hiện? Tại sao không phải thời gian chờ đợi trung bình lại giống nhau bởi tính đối xứng?\r
-\r
-Khi chúng ta giải quyết vấn đề này, chúng ta thực chất đã nhận ra một sự bất đối xứng quan trọng. Khi đang chờ đợi HT, sau khi nhận được lần đầu tiên Mặt ngửa, chúng ta đã đạt được tiến bộ một phần mà không thể bị phá hủy: nếu Mặt ngửa được theo bởi một Mặt ngửa khác, chúng ta sẽ ở trong tình huống giống như trước đó, và nếu Mặt ngửa được theo bởi một Mặt sấp, chúng ta sẽ hoàn thành. Ngược lại, khi đang chờ đợi HH, ngay cả sau khi nhận được lần đầu tiên Mặt ngửa, chúng ta có thể bị quay lại điểm xuất phát nếu Mặt ngửa được theo bởi một Mặt sấp. Điều này gợi ý rằng thời gian chờ trung bình cho HH nên dài hơn. Tính đối xứng cho thấy thời gian chờ trung bình cho HH giống như thời gian chờ trung bình cho TT, và thời gian chờ trung bình cho HT giống như thời gian chờ trung bình cho TH, nhưng không phải điều này cho thấy thời gian chờ trung bình cho HH và HT giống nhau.\r
-\r
-Để hiểu rõ hơn về những gì đang xảy ra, ta có thể xem xét một chuỗi dài các lần tung đồng xu, như trong Hình 9.5. Chúng ta nhanh chóng nhận thấy rằng các lần xuất hiện của HH có thể chồng lên nhau, trong khi các lần xuất hiện của HT phải tách biệt. Ví dụ,  $HHHHHH$  có 5 lần xuất hiện của HH, nhưng  $HTHTHT$  chỉ có 3 lần xuất hiện của HT. Vì có cùng số lần xuất hiện trung bình của HH và HT, nhưng HH có thể tụ tập lại, thời gian chờ trung bình cho HH phải lớn hơn thời gian chờ trung bình cho HT để bù đắp.\r
-\r
-## HHTHHTHHHHTHTHTTT HHTHHTTHHHHTHTHTTT\r
-\r
-### FIGURE 9.5\r
-\r
-Tụ tập. (a) Các lần xuất hiện của HH có thể chồng lên nhau. (b) Các lần xuất hiện của HT phải tách biệt.\r
-\r
-Các vấn đề liên quan cũng xảy ra trong lý thuyết thông tin khi nén một thông điệp, và trong di truyền học khi tìm kiếm các mẫu lặp lại (gọi là motif) trong các chuỗi trình tự DNA. ☐\r
-\r
-Ví dụ cuối cùng trong phần này sử dụng suy nghĩ mơ ước cho cả xác suất và kỳ vọng để nghiên cứu một câu hỏi về một đi bộ ngẫu nhiên.\r
-\r
-Ví dụ 9.1.10 (Đi bộ ngẫu nhiên trên các số nguyên). Một người say bất tử dạo quanh ngẫu nhiên trên các số nguyên. Ông bắt đầu tại gốc tọa độ, và ở mỗi bước ông di chuyển 1 đơn vị sang phải hoặc 1 đơn vị sang trái, với xác suất bằng nhau, độc lập với tất cả các bước trước đó của ông. Cho  $b$  là một googolplex (đây là  $10^g$ , trong đó  $g = 10^{100}$  là một googol).\r
-\r
-(a) Tìm một biểu thức đơn giản cho xác suất rằng người say bất tử đến  $b$  trước khi quay về gốc lần đầu tiên.\r
-\r
-(b) Tìm kỳ vọng số lần mà người say bất tử đến  $b$  trước khi quay về gốc lần đầu tiên.\r
-\r
-Giải:\r
-\r
-(a) Gọi B là sự kiện rằng người say bất tử đến  $b$  trước khi quay về gốc lần đầu tiên và gọi L là sự kiện rằng bước đầu tiên của ông là sang trái.\r
-\r
- $P(B|L) = 0$  vì bất kỳ đường đi nào từ -1 đến b đều phải đi qua 0. Đối với  $P(B|L^c)$ , chúng ta chính xác đang trong tình huống của bài toán gambler's ruin, nơi người chơi A bắt đầu với 1, người chơi B bắt đầu với (b-1), và các vòng chơi công bằng. Áp dụng kết quả đó, chúng ta có\r
-\r
- \r
-\r
- $$P(B)=P(B|L)P(L)+P(B|L^{c})P(L^{c})=\\frac{1}{b}\\cdot\\frac{1}{2}=\\frac{1}{2b}.$$ \r
-\r
- \r
-\r
-(b) Gọi N là số lần ghé thăm b trước khi quay lại gốc lần đầu tiên, và gọi  $p = 1/(2b)$  là xác suất tìm được trong (a). Khi đó\r
-\r
- \r
-\r
- $$E(N)=E(N|N=0)P(N=0)+E(N|N\\geq1)P(N\\geq1)=pE(N|N\\geq1).$$ \r
-\r
- \r
-\r
-Phân phối có điều kiện của  $N$  cho  $N \\geq 1$  là  $\\mathrm{FS}(p)$ : cho rằng người đó đạt được  $b$ , do đối xứng có xác suất  $p$  của quay lại gốc trước khi ghé thăm  $b$  lần nữa (gọi là “thành công”) và xác suất  $1 - p$  của quay lại  $b$  lần nữa trước khi quay lại gốc (gọi là “thất bại”). Lưu ý rằng các lần thử độc lập với nhau vì tình huống giống nhau mỗi lần anh ta ở  $b$ , độc lập với lịch sử trước đó. Do đó  $E(N|N \\geq 1) = 1/p$ , và\r
-\r
- \r
-\r
- $$E(N)=pE(N|N\\geq1)=p\\cdot\\frac{1}{p}=1.$$ \r
-\r
- \r
-\r
-Tuy nhiên, kết quả không phụ thuộc vào giá trị của b, và chứng minh của chúng ta không yêu cầu biết giá trị của p.\r
-\r
-#### 9.2 Kỳ vọng có điều kiện cho một biến ngẫu nhiên\r
-\r
-Trong phần này, chúng ta giới thiệu kỳ vọng có điều kiện cho một biến ngẫu nhiên. Đó là, chúng ta muốn hiểu điều gì có nghĩa là viết  $E(Y|X)$  cho một biến ngẫu nhiên X. Chúng ta sẽ thấy rằng  $E(Y|X)$  là một biến ngẫu nhiên mà, theo một nghĩa nào đó, là dự đoán tốt nhất của Y, giả sử chúng ta biết X.\r
-\r
-Chìa khóa để hiểu  $E(Y|X)$  là trước hết hiểu  $E(Y|X=x)$ . Vì X = x là một sự kiện,  $E(Y|X=x)$  chỉ là kỳ vọng có điều kiện của Y cho sự kiện này, và nó có thể được tính bằng phân phối có điều kiện của Y cho X = x.\r
-\r
-Nếu Y là rời rạc, chúng ta sử dụng PMF có điều kiện  $P(Y = y|X = x)$  thay vì PMF không điều kiện  $P(Y = y)$ :\r
-\r
- \r
-\r
- $$E(Y|X=x)=\\sum_{y}yP(Y=y|X=x).$$ \r
-\r
- \r
-\r
-Tương tự, nếu Y là liên tục, chúng ta sử dụng PDF có điều kiện  $f_{Y|X}(y|x)$  thay vì PDF không điều kiện:\r
-\r
- \r
-\r
- $$E(Y|X=x)=\\int_{-\\infty}^{\\infty}y f_{Y|X}(y|x)dy.$$ \r
-\r
-\r
-\r
-Lưu ý rằng vì chúng ta thực hiện tổng hoặc tích phân theo  $y$ ,  $E(Y|X=x)$  là một hàm số chỉ phụ thuộc vào  $x$ . Chúng ta có thể đặt tên cho hàm số này, ví dụ như  $g$ : để  $g(x)=E(Y|X=x)$ . Chúng ta xác định  $E(Y|X)$  là biến ngẫu nhiên được tạo ra bằng cách xác định dạng của hàm số  $g(x)$ , sau đó thay  $X$  vào thay cho  $x$ .\r
-\r
-Định nghĩa 9.2.1 (Kỳ vọng có điều kiện cho một biến ngẫu nhiên). Cho  $g(x) = E(Y|X = x)$ . Khi đó kỳ vọng có điều kiện của Y cho X, ký hiệu là  $E(Y|X)$ , được xác định là biến ngẫu nhiên  $g(X)$ . Nói cách khác, nếu sau khi thực hiện thí nghiệm X xác định thành  $x$ , thì  $E(Y|X)$  xác định thành  $g(x)$ .\r
-\r
-9.2.2. Ký hiệu trong định nghĩa này đôi khi gây nhầm lẫn. Nó không nói “  $g(x) = E(Y|X = x)$ , do đó  $g(X) = E(Y|X = X)$ , điều này bằng  $E(Y)$  vì X = X luôn đúng”. Thay vào đó, chúng ta nên trước tiên tính hàm số  $g(x)$ , sau đó thay X vào thay cho  $x$ . Ví dụ, nếu  $g(x) = x^2$ , thì  $g(X) = X^2$ . Một sự nhầm lẫn tương tự là 5.3.2, về ý nghĩa của  $F(X)$  trong tính phổ quát của Uniform.\r
-\r
-9.2.3. Theo định nghĩa,  $E(Y|X)$  là một hàm số của X, do đó nó là một biến ngẫu nhiên. (Điều này không có nghĩa là không có ví dụ nào mà  $E(Y|X)$  là một hằng số. Một hằng số là một biến ngẫu nhiên đặc biệt, và một hàm hằng của X. Ví dụ, nếu X và Y độc lập thì  $E(Y|X) = E(Y)$ , điều này là một hằng số.) Do đó, việc tính toán các đại lượng như  $E(E(Y|X))$  và  $\\operatorname{Var}(E(Y|X))$ , tức là kỳ vọng và phương sai của biến ngẫu nhiên  $E(Y|X)$ , là hợp lý. Dễ bị mắc bẫy bởi các lỗi phân loại khi làm việc với kỳ vọng có điều kiện, vì vậy cần lưu ý rằng kỳ vọng có điều kiện dạng  $E(Y|A)$  là các số, trong khi dạng  $E(Y|X)$  là các biến ngẫu nhiên.\r
-\r
-Dưới đây là một số ví dụ nhanh chóng về cách tính kỳ vọng có điều kiện. Trong cả hai ví dụ, chúng ta không cần thực hiện tổng hoặc tích phân để tìm  $E(Y|X=x)$  vì có một cách tiếp cận trực tiếp hơn.\r
-\r
-Ví dụ 9.2.4. Một que dài 1 được gãy tại một điểm X được chọn ngẫu nhiên đều. Cho X = x, sau đó chúng ta chọn một điểm gãy khác Y đều trên khoảng [0, x]. Tìm  $E(Y|X)$ , và kỳ vọng và phương sai của nó.\r
-\r
-Giải pháp:\r
-\r
-Từ mô tả của thí nghiệm,  $X \\sim \\text{Unif}(0,1)$  và  $Y|X = x \\sim \\text{Unif}(0,x)$ . Sau đó  $E(Y|X = x) = x/2$ , do đó bằng cách thay X vào thay cho x, chúng ta có\r
-\r
- \r
-\r
- $$E(Y|X)=X/2.$$ \r
-\r
- \r
-\r
-Kỳ vọng của  $E(Y|X)$  là\r
-\r
- \r
-\r
- $$E(E(Y|X))=E(X/2)=1/4.$$ \r
-\r
- \r
-\r
-(Chúng ta sẽ chứng minh trong phần tiếp theo rằng một tính chất tổng quát của kỳ vọng có điều kiện là  $E(E(Y|X)) = E(Y)$ , do đó cũng suy ra  $E(Y) = 1/4$ .) Phương sai của  $E(Y|X)$  là\r
-\r
- \r
-\r
- $$\\operatorname{Var}(E(Y|X))=\\operatorname{Var}(X/2)=1/48.$$ \r
-\r
-\r
-\r
-Ví dụ 9.2.5. Cho  $X, Y \\stackrel{1.1.d.}{\\sim}$  Expo(  $\\lambda$ ), tìm  $E(\\max(X, Y) | \\min(X, Y))$ .\r
-\r
-Giải pháp:\r
-\r
-Cho  $M = \\max(X, Y)$  và  $L = \\min(X, Y)$ . Nhờ tính chất nhớ, M - L độc lập với L, và  $M - L \\sim \\text{Expo}(\\lambda)$  (xem Ví dụ 7.3.6). Do đó\r
-\r
- \r
-\r
- $$\\begin{aligned}&E(M|L=l)=E(L|L=l)+E(M-L|L=l)=l+E(M-L)=l+\\frac{1}{\\lambda},\\\\ &E(M|L)=L+\\frac{1}{\\lambda}.\\\\ \\end{aligned}$$ \r
-\r
- \r
-\r
-và  $E(M|L)=L+\\frac{1}{\\lambda}$ .`,az=`Kỳ vọng có điều kiện có một số tính chất rất hữu ích.\r
-\r
-• Bỏ qua điều gì độc lập: Nếu X và Y độc lập, thì  $E(Y|X) = E(Y)$ .\r
-\r
-• Lấy ra điều gì đã biết: Với bất kỳ hàm số nào  $h$ ,  $E(h(X)Y|X)=h(X)E(Y|X)$ .\r
-\r
-• Tính tuyến tính:  $E(Y_1 + Y_2 | X) = E(Y_1 | X) + E(Y_2 | X)$ , và  $E(cY | X) = cE(Y | X)$  với c là hằng số (trường hợp này là một trường hợp đặc biệt của việc lấy ra điều gì đã biết).\r
-\r
-● Luật Adam:  $E(E(Y|X)) = E(Y)$ .\r
-\r
-• Giải thích như một phép chiếu: Biến ngẫu nhiên  $Y - E(Y|X)$ , được gọi là phần dư từ việc sử dụng X để dự đoán Y, là không tương quan với  $h(X)$  cho bất kỳ hàm số nào h.\r
-\r
-Hãy thảo luận từng tính chất riêng lẻ.\r
-\r
-Định lý 9.3.1 (Bỏ qua điều gì độc lập). Nếu X và Y độc lập, thì  $E(Y|X) = E(Y)$ .\r
-\r
-Điều này đúng vì tính độc lập cho thấy  $E(Y|X = x) = E(Y)$  với mọi x, do đó  $E(Y|X) = E(Y)$ . Về mặt trực quan, nếu X không cung cấp thông tin nào về Y, thì dự đoán tốt nhất cho Y, ngay cả khi chúng ta biết X, vẫn là kỳ vọng không điều kiện  $E(Y)$ . Tuy nhiên, điều ngược lại là sai: một ví dụ phản chứng được đưa ra trong Ví dụ 9.3.3 dưới đây.\r
-\r
-Định lý 9.3.2 (Lấy ra điều gì đã biết). Với bất kỳ hàm số nào h,\r
-\r
- \r
-\r
- $$E(h(X)Y|X)=h(X)E(Y|X).$$ \r
-\r
- \r
-\r
-Về mặt trực quan, khi chúng ta lấy kỳ vọng có điều kiện theo X, chúng ta đang coi X như một hằng số đã biết. Khi đó bất kỳ hàm nào của X, nói như  $h(X)$ , cũng hành xử như một hằng số trong khi đang điều kiện theo X. Việc lấy ra điều gì đã biết là phiên bản có điều kiện của sự kiện không điều kiện rằng  $E(cY) = cE(Y)$ . Sự khác biệt là  $E(cY) = cE(Y)$  khẳng định hai số bằng nhau, trong khi việc lấy ra điều gì đã biết khẳng định hai biến ngẫu nhiên bằng nhau.\r
-\r
-Ví dụ 9.3.3. Cho  $Z \\sim \\mathcal{N}(0,1)$  và  $Y = Z^2$ . Tìm  $E(Y|Z)$  và  $E(Z|Y)$ .\r
-\r
-Giải: Vì Y là một hàm của Z,  $E(Y|Z) = E(Z^2|Z) = Z^2$  bằng cách lấy ra điều đã biết. Để tìm  $E(Z|Y)$ , nhận thấy rằng điều kiện Y = y, Z bằng  $\\sqrt{y}$  hoặc  $-\\sqrt{y}$  với xác suất bằng nhau nhờ vào tính đối xứng của chuẩn chuẩn, do đó  $E(Z|Y = y) = 0$  và  $E(Z|Y) = 0$ .\r
-\r
-Trong trường hợp này, mặc dù Y cung cấp rất nhiều thông tin về Z, làm thu hẹp các giá trị có thể của Z chỉ còn hai giá trị, Y chỉ cho chúng ta biết về độ lớn của Z mà không phải dấu của nó. Chính vì vậy,  $E(Z|Y) = E(Z)$  dù có sự phụ thuộc giữa Z và Y. Ví dụ này minh họa rằng nghịch đảo của Định lý 9.3.1 là sai. ☐\r
-\r
-Định lý 9.3.4 (Tính tuyến tính).  $E(Y_{1} + Y_{2}|X) = E(Y_{1}|X) + E(Y_{2}|X)$ .\r
-\r
-Kết quả này là phiên bản điều kiện của sự kiện không điều kiện rằng  $E(Y_{1} + Y_{2}) = E(Y_{1}) + E(Y_{2})$ , và là đúng vì xác suất điều kiện là xác suất.\r
-\r
-9.3.5. Viết "  $E(Y|X_1+X_2)=E(Y|X_1)+E(Y|X_2)$ ” là sai; tính tuyến tính áp dụng ở phía bên trái của thanh điều kiện, không phải ở phía bên phải!\r
-\r
-Ví dụ 9.3.6. Cho  $X_1, \\ldots, X_n$  là i.i.d., và  $S_n = X_1 + \\cdots + X_n$ . Tìm  $E(X_1 | S_n)$ . Giải:\r
-\r
-Bằng tính đối xứng,\r
-\r
- \r
-\r
- $$E(X_{1}|S_{n})=E(X_{2}|S_{n})=\\cdots=E(X_{n}|S_{n}),$$ \r
-\r
- \r
-\r
-và bằng tính tuyến tính,\r
-\r
- \r
-\r
- $$E(X_{1}|S_{n})+\\cdots+E(X_{n}|S_{n})=E(S_{n}|S_{n})=S_{n}.$$ \r
-\r
- \r
-\r
-Do đó,\r
-\r
- \r
-\r
- $$E(X_{1}|S_{n})=S_{n}/n=\\bar{X}_{n},$$ \r
-\r
- \r
-\r
-trung bình mẫu của các  $X_j$ 's. Đây là một kết quả trực quan: nếu chúng ta có 2 biến ngẫu nhiên độc lập và đồng phân phối  $X_1, X_2$  và biết rằng  $X_1 + X_2 = 10$ , điều hợp lý là đoán rằng  $X_1$  là 5 (tính đến một nửa tổng). Tương tự, nếu chúng ta có n biến ngẫu nhiên độc lập và đồng phân phối và biết tổng của chúng, dự đoán tốt nhất cho bất kỳ một trong số chúng là trung bình mẫu.\r
-\r
-Định lý tiếp theo liên kết kỳ vọng điều kiện với kỳ vọng không điều kiện. Nó có nhiều tên gọi, bao gồm luật tổng kỳ vọng, luật lặp kỳ vọng (được gọi bằng một acronyms rất tệ cho điều đúng đắn), và tính chất tháp. Chúng ta gọi nó là Adam's law vì nó được sử dụng thường xuyên đến mức xứng đáng có một cái tên ngắn gọn, và vì nó thường được sử dụng cùng với một luật khác mà chúng ta sẽ gặp sau này, có một cái tên bổ sung.\r
-\r
-Định lý 9.3.7 (Adam's law). Với bất kỳ biến ngẫu nhiên nào X và Y,\r
-\r
- \r
-\r
- $$E(E(Y|X))=E(Y).$$ \r
-\r
- \r
-\r
-Chứng minh. Chúng ta trình bày chứng minh trong trường hợp X và Y đều rời rạc (chứng minh cho các trường hợp khác tương tự). Cho  $E(Y|X) = g(X)$ . Chúng ta tiếp tục bằng cách\r
-\r
-Hoa sen, mở rộng định nghĩa của  $g(x)$  để có được tổng kép, và sau đó đổi thứ tự của phép tổng:\r
-\r
- \r
-\r
- $$\\begin{aligned}E(g(X))&=\\sum_{x}g(x)P(X=x)\\\\&=\\sum_{x}\\left(\\sum_{y}yP(Y=y|X=x)\\right)P(X=x)\\\\&=\\sum_{x}\\sum_{y}yP(X=x)P(Y=y|X=x)\\\\&=\\sum_{y}y\\sum_{x}P(X=x,Y=y)\\\\&=\\sum_{y}yP(Y=y)=E(Y).\\end{aligned}$$ \r
-\r
- \r
-\r
-Luật của Adam là một phiên bản ngắn gọn hơn, tổng quát hơn của định lý kỳ vọng tổng hợp (Định lý 9.1.5). Với X rời rạc, các phát biểu\r
-\r
- \r
-\r
- $$E(Y)=\\sum_{x}E(Y|X=x)P(X=x)$$ \r
-\r
- \r
-\r
-và\r
-\r
- \r
-\r
- $$E(Y)=E(E(Y|X))$$ \r
-\r
- \r
-\r
-có cùng ý nghĩa, vì nếu ta để  $E(Y|X=x)=g(x)$ , thì\r
-\r
- \r
-\r
- $$E(E(Y|X))=E(g(X))=\\sum_{x}g(x)P(X=x)=\\sum_{x}E(Y|X=x)P(X=x).$$ \r
-\r
- \r
-\r
-Với luật của Adam, ta có một chiến lược mạnh mẽ để tìm kỳ vọng  $E(Y)$ , bằng cách điều kiện hóa trên một biến ngẫu nhiên X mà ta mong muốn biết. Trước hết lấy  $E(Y|X)$  bằng cách coi X là đã biết, và sau đó lấy kỳ vọng của  $E(Y|X)$ . Chúng ta sẽ thấy nhiều ví dụ về điều này sau này trong chương.\r
-\r
-Tương tự như có các dạng của quy tắc Bayes và LOTP với điều kiện bổ sung, như đã thảo luận trong Chương 2, cũng có một phiên bản của luật của Adam với điều kiện bổ sung.\r
-\r
-Định lý 9.3.8 (Luật của Adam với điều kiện bổ sung). Với bất kỳ biến ngẫu nhiên nào X, Y, Z,\r
-\r
- \r
-\r
- $$E(E(Y|X,Z)|Z)=E(Y|Z).$$ \r
-\r
- \r
-\r
-Phương trình trên là luật của Adam, ngoại trừ có thêm điều kiện bổ sung trên Z ở mọi nơi. Nó đúng vì xác suất có điều kiện là xác suất. Do đó, ta có thể sử dụng luật của Adam để giúp ta tìm cả kỳ vọng không điều kiện và kỳ vọng có điều kiện.\r
-\r
-Sử dụng luật của Adam, ta cũng có thể chứng minh mục cuối cùng trong danh sách tính chất của kỳ vọng có điều kiện.\r
-\r
-Định lý 9.3.9 (Giải thích qua phép chiếu). Với bất kỳ hàm số nào  $h$ , biến ngẫu nhiên  $Y - E(Y|X)$  không tương quan với  $h(X)$ . Tương đương,\r
-\r
- \r
-\r
- $$E((Y-E(Y|X))h(X))=0.$$ \r
-\r
- \r
-\r
-(Điều này tương đương vì  $E(Y - E(Y|X)) = 0$ , theo tính tuyến tính và luật Adam.)\r
-\r
-Chứng minh. Chúng ta có\r
-\r
- \r
-\r
- $$\\begin{aligned}E((Y-E(Y|X))h(X))&=E(h(X)Y)-E(h(X)E(Y|X))\\\\&=E(h(X)Y)-E(E(h(X)Y|X))\\end{aligned}$$ \r
-\r
- \r
-\r
-theo Định lý 9.3.2 (ở đây chúng ta "đưa lại những gì đã biết" vào kỳ vọng bên trong). Theo luật Adam, số hạng thứ hai bằng  $E(h(X)Y)$ .\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_418_729_956_1027.jpg" alt="Image" width="38%" /></div>\r
-\r
-\r
-### HÌNH 9.6\r
-\r
-Kỳ vọng có điều kiện  $E(Y|X)$  là phép chiếu của  $Y$  lên không gian tất cả các hàm số của  $X$ , được thể hiện ở đây dưới dạng một mặt phẳng. Sai số  $Y - E(Y|X)$  vuông góc với mặt phẳng: nó vuông góc với (không tương quan với) bất kỳ hàm số nào của  $X$ .\r
-\r
-Từ góc nhìn hình học, chúng ta có thể hình dung Định lý 9.3.9 như trong Hình 9.6. Theo một nghĩa nào đó (sẽ mô tả dưới đây),  $E(Y|X)$  là hàm số của X gần nhất với Y; chúng ta nói rằng  $E(Y|X)$  là phép chiếu của Y vào không gian tất cả các hàm số của X. Đoạn "đường thẳng" từ Y đến  $E(Y|X)$  trong hình là vuông góc (vuông góc) với "mặt phẳng", vì bất kỳ đường khác nào từ Y đến  $E(Y|X)$  sẽ dài hơn. Tính vuông góc này hóa ra là ý nghĩa hình học của Định lý 9.3.9.\r
-\r
-Chi tiết về góc nhìn này được trình bày trong phần tiếp theo, phần này được đánh dấu sao vì nó yêu cầu hiểu biết về đại số tuyến tính. Tuy nhiên, ngay cả khi không đi sâu vào đại số tuyến tính, hình ảnh phép chiếu vẫn cho ta một số trực quan hữu ích. Như đã đề cập trước đó, ta có thể xem  $E(Y|X)$  như một dự đoán cho Y dựa vào X. Đây là một bài toán cực kỳ phổ biến trong thống kê: dự đoán hoặc ước lượng các quan sát tương lai hoặc tham số chưa biết dựa trên dữ liệu. Ý nghĩa phép chiếu của kỳ vọng có điều kiện cho thấy rằng  $E(Y|X)$  là dự đoán tốt nhất cho Y dựa vào X, theo nghĩa nó là hàm số của X có sai số bình phương trung bình nhỏ nhất (kỳ vọng của bình phương sai khác giữa Y và dự đoán của Y).\r
-\r
-Ví dụ 9.3.10 (Hồi quy tuyến tính). Một phương pháp cực kỳ được sử dụng rộng rãi trong phân tích dữ liệu thống kê là hồi quy tuyến tính. Trong dạng cơ bản nhất, mô hình hồi quy tuyến tính sử dụng một biến giải thích duy nhất X để dự đoán một biến phụ thuộc Y, và nó giả định rằng kỳ vọng có điều kiện của Y là tuyến tính theo X:\r
-\r
- \r
-\r
- $$E(Y|X)=a+bX.$$ \r
-\r
- \r
-\r
-(a) Chứng minh rằng một cách biểu diễn tương đương của điều này là viết\r
-\r
- \r
-\r
- $$Y=a+b X+\\epsilon,$$ \r
-\r
- \r
-\r
-trong đó  $\\epsilon$  là một biến ngẫu nhiên (gọi là sai số) với  $E(\\epsilon|X)=0$ .\r
-\r
-(b) Giải để tìm các hằng số a và b theo  $E(X)$ ,  $E(Y)$ ,  $\\mathrm{Cov}(X,Y)$ , và  $\\mathrm{Var}(X)$ . Giải:\r
-\r
-(a) Cho  $Y = a + bX + \\epsilon$ , với  $E(\\epsilon|X) = 0$ . Khi đó theo tính tuyến tính,\r
-\r
- \r
-\r
- $$E(Y|X)=E(a|X)+E(bX|X)+E(\\epsilon|X)=a+bX.$$ \r
-\r
- \r
-\r
-Ngược lại, giả sử rằng  $E(Y|X) = a + bX$ , và định nghĩa\r
-\r
- \r
-\r
- $$\\epsilon=Y-(a+bX).$$ \r
-\r
- \r
-\r
-Khi đó  $Y = a + bX + \\epsilon$ , với\r
-\r
- \r
-\r
- $$E(\\epsilon|X)=E(Y|X)-E(a+bX|X)=E(Y|X)-(a+bX)=0.$$ \r
-\r
- \r
-\r
-(b) Trước hết, theo luật Adam, lấy kỳ vọng của cả hai vế ta được\r
-\r
- \r
-\r
- $$E(Y)=a+bE(X).$$ \r
-\r
- \r
-\r
-Lưu ý rằng  $\\epsilon$  có kỳ vọng bằng 0 và X và  $\\epsilon$  không tương quan, vì\r
-\r
- \r
-\r
- $$E(\\epsilon)=E(E(\\epsilon|X))=E(0)=0$$ \r
-\r
- \r
-\r
-và\r
-\r
- \r
-\r
- $$E(\\epsilon X)=E(E(\\epsilon X|X))=E(X E(\\epsilon|X))=E(0)=0.$$ \r
-\r
- \r
-\r
-Lấy hiệp phương sai với X của cả hai vế trong  $Y = a + bX + \\epsilon$ , ta có\r
-\r
- \r
-\r
- $$\\mathrm{Cov}(X,Y)=\\mathrm{Cov}(X,a)+b\\mathrm{Cov}(X,X)+\\mathrm{Cov}(X,\\epsilon)=b\\mathrm{Var}(X).$$ \r
-\r
- \r
-\r
-Do đó,\r
-\r
- \r
-\r
- $$b=\\frac{Cov(X,Y)}{Var(X)},$$ \r
-\r
- \r
-\r
- \r
-\r
- $$a=E(Y)-b E(X)=E(Y)-\\frac{Cov(X,Y)}{Var(X)}\\cdot E(X).$$`,oz=`Phần này giải thích chi tiết hơn góc nhìn hình học được thể hiện trong Hình 9.6, sử dụng một số khái niệm từ đại số tuyến tính. Xét không gian vector bao gồm tất cả các biến ngẫu nhiên trên một không gian xác suất nhất định, sao cho tất cả các biến ngẫu nhiên đều có phương sai hữu hạn. Mỗi vector hoặc điểm trong không gian là một biến ngẫu nhiên (ở đây chúng ta sử dụng "vector" theo nghĩa của đại số tuyến tính, không phải theo nghĩa của vector ngẫu nhiên từ Chương 7). Định nghĩa tích trong của hai biến ngẫu nhiên U và V là\r
-\r
- \r
-\r
- $$\\langle U,V\\rangle=E(U V).$$ \r
-\r
- \r
-\r
-(Để định nghĩa này thỏa mãn các tiên đề của tích trong, chúng ta cần quy ước rằng hai biến ngẫu nhiên được coi là giống nhau nếu chúng bằng nhau với xác suất 1.)\r
-\r
-Độ dài bình phương của một biến ngẫu nhiên X là\r
-\r
- \r
-\r
- $$\\left|\\left|X\\right|\\right|^{2}=\\left\\langle X,X\\right\\rangle=E X^{2},$$ \r
-\r
- \r
-\r
-và khoảng cách bình phương giữa hai biến ngẫu nhiên U và V là\r
-\r
- \r
-\r
- $$\\left|\\left|U-V\\right|\\right|^{2}=E(U-V)^{2}.$$ \r
-\r
- \r
-\r
-Các cách diễn giải trở nên đặc biệt đẹp nếu  $E(U) = E(V) = 0$ , vì lúc đó:\r
-\r
-•  $\\|U\\|^2 = \\mathrm{Var}(U)$ , và  $\\|U\\| = \\mathrm{SD}(U)$ .\r
-\r
-•  $\\langle U,V\\rangle = \\mathrm{Cov}(U,V)$ , và cosin của "góc" giữa U và V là  $\\mathrm{Corr}(U,V)$ .\r
-\r
-• U và V vuông góc (tức là  $\\langle U, V \\rangle = 0$ ) nếu và chỉ nếu chúng không tương quan.\r
-\r
-Để diễn giải  $E(Y|X)$  theo hình học, hãy xem không gian của tất cả các biến ngẫu nhiên (có phương sai hữu hạn) có thể biểu diễn dưới dạng hàm của X. Đây là một không gian con của không gian vector. Trong Hình 9.6, không gian con của các biến ngẫu nhiên có dạng  $h(X)$  được biểu diễn bằng một mặt phẳng. Để có được  $E(Y|X)$ , ta chiếu Y lên mặt phẳng đó. Khi đó, phần dư  $Y - E(Y|X)$  vuông góc với  $h(X)$  với mọi hàm  $h$ , và  $E(Y|X)$  là hàm của X dự đoán tốt nhất Y, nơi "tốt nhất" ở đây có nghĩa là sai số bình phương trung bình  $E(Y - g(X))^2$  được tối thiểu hóa bằng cách chọn  $g(X) = E(Y|X)$ .\r
-\r
-Cách diễn giải qua phép chiếu là một cách hữu ích để suy nghĩ về nhiều tính chất của kỳ vọng điều kiện. Ví dụ, nếu  $Y = h(X)$  là một hàm của X, thì Y chính nó đã nằm trong mặt phẳng, do đó nó chính là hình chiếu của nó; điều này giải thích tại sao\r
-\r
- \r
-\r
- $$E(h(X)|X)=h(X).$$ \r
-\r
- \r
-\r
-Chúng ta có thể xem kỳ vọng không điều kiện cũng là một phép chiếu:  $E(Y)$  có thể được xem như  $E(Y|0)$ , hình chiếu của Y lên không gian của tất cả các hằng số (thực ra,  $E(Y)$  là hằng số c làm nhỏ nhất  $E(Y-c)^2$ , như chúng ta đã chứng minh trong Định lý 6.1.4).\r
-\r
-Chúng ta có thể bây giờ cũng cho một cách diễn giải hình học cho luật của Adam:  $E(Y)$  nói rằng chiếu Y trong một bước lên không gian của tất cả các hằng số;  $E(E(Y|X))$  nói rằng làm như vậy trong hai bước, bằng cách đầu tiên chiếu lên mặt phẳng và sau đó chiếu  $E(Y|X)$  lên không gian của tất cả các hằng số, nào là một đường thẳng trong mặt phẳng đó. Luật của Adam nói rằng phương pháp một bước và hai bước cho cùng một kết quả.\r
-\r
-Trong phần tiếp theo chúng ta sẽ giới thiệu luật của Eve, nào có cùng mục đích cho phương sai như luật của Adam cho kỳ vọng. Như một cái nhìn trước và để khám phá thêm cách diễn giải hình học của kỳ vọng điều kiện, hãy xem  $\\operatorname{Var}(Y)$  từ góc độ của phần này. Giả sử rằng  $E(Y) = 0$  (nếu  $E(Y) \\neq 0$ , chúng ta có thể trung tâm Y bằng cách trừ  $E(Y)$ ; việc làm như vậy không ảnh hưởng đến phương sai của Y).\r
-\r
-Chúng ta có thể phân tích  $Y$  thành hai thành phần trực giao, thành phần dư  $Y - E(Y|X)$  và kỳ vọng điều kiện  $E(Y|X)$ :\r
-\r
- \r
-\r
- $$Y=(Y-E(Y|X))+E(Y|X).$$ \r
-\r
- \r
-\r
-Hai thành phần này trực giao vì  $Y - E(Y|X)$  không tương quan với bất kỳ hàm nào của X, và  $E(Y|X)$  là một hàm của X. Do đó theo định lý Pythagoras,\r
-\r
- \r
-\r
- $$||Y||^{2}=||Y-E(Y|X)||^{2}+||E(Y|X)||^{2}.$$ \r
-\r
- \r
-\r
-Tức là,\r
-\r
- \r
-\r
- $$\\operatorname{Var}(Y)=\\operatorname{Var}(Y-E(Y|X))+\\operatorname{Var}(E(Y|X)).$$ \r
-\r
- \r
-\r
-Như chúng ta sẽ thấy trong phần tiếp theo, danh tính này là một dạng của luật của Eve. Do đó, luật của Eve, nào có thể trông bí ẩn ở lần đầu nhìn thấy, có thể được diễn giải chỉ là định lý Pythagoras cho một "tam giác" nào có các cạnh là các vector  $Y - E(Y|X)$ ,  $E(Y|X)$ , và Y.`,sz=`Một khi chúng ta đã định nghĩa kỳ vọng điều kiện cho một biến ngẫu nhiên, chúng ta có một cách tự nhiên để định nghĩa phương sai điều kiện cho một biến ngẫu nhiên: thay thế tất cả các lần xuất hiện của  $E(\\cdot)$  trong định nghĩa của phương sai không điều kiện bằng  $E(\\cdot|X)$ .\r
-\r
-Định nghĩa 9.5.1 (Phương sai điều kiện). Phương sai điều kiện của Y cho X là\r
-\r
- \r
-\r
- $$\\operatorname{Var}(Y|X)=E((Y-E(Y|X))^{2}|X).$$ \r
-\r
- \r
-\r
-Điều này tương đương với\r
-\r
- \r
-\r
- $$\\operatorname{Var}(Y|X)=E(Y^{2}|X)-(E(Y|X))^{2}.$$ \r
-\r
- \r
-\r
-9.5.2. Giống như  $E(Y|X)$ ,  $\\operatorname{Var}(Y|X)$  là một biến ngẫu nhiên, và nó là một hàm của X.\r
-\r
-Vì phương sai có điều kiện được định nghĩa thông qua kỳ vọng có điều kiện, chúng ta có thể sử dụng các kết quả về kỳ vọng có điều kiện để giúp chúng ta tính phương sai có điều kiện. Đây là một ví dụ.\r
-\r
-Ví dụ 9.5.3. Cho  $Z \\sim \\mathcal{N}(0,1)$  và  $Y = Z^2$ . Tìm  $\\text{Var}(Y|Z)$  và  $\\text{Var}(Z|Y)$ .\r
-\r
-## Giải pháp:\r
-\r
-Không cần thực hiện bất kỳ phép tính nào, chúng ta cũng có thể thấy rằng  $\\operatorname{Var}(Y|Z) = 0$ : điều kiện trên Z, Y là một hằng số đã biết, và phương sai của một hằng số là 0. Bằng cùng lập luận này,  $\\operatorname{Var}(h(Z)|Z) = 0$  cho bất kỳ hàm số nào h.\r
-\r
-Để tìm  $\\operatorname{Var}(Z|Y)$ , áp dụng định nghĩa:\r
-\r
- \r
-\r
- $$\\operatorname{Var}(Z|Z^{2})=E(Z^{2}|Z^{2})-(E(Z|Z^{2}))^{2}.$$ \r
-\r
- \r
-\r
-Số hạng đầu tiên bằng  $Z^2$ . Số hạng thứ hai bằng 0 do tính đối xứng, như chúng ta đã tìm thấy trong Ví dụ 9.3.3. Do đó  $\\operatorname{Var}(Z|Z^2) = Z^2$ , mà chúng ta có thể viết lại là  $\\operatorname{Var}(Z|Y) = Y$ .\r
-\r
-Trong ví dụ tiếp theo, chúng ta sẽ thực hành làm việc với kỳ vọng có điều kiện và phương sai có điều kiện trong bối cảnh của Phân phối chuẩn hai chiều.\r
-\r
-Ví dụ 9.5.4 (Kỳ vọng có điều kiện và phương sai có điều kiện trong phân phối chuẩn hai chiều). Cho  $(Z, W)$  là phân phối chuẩn hai chiều, với  $\\text{Corr}(Z, W) = \\rho$  và  $Z, W$  có phân phối biên  $\\mathcal{N}(0, 1)$ . Tìm  $E(W|Z)$  và  $\\text{Var}(W|Z)$ .\r
-\r
-Giải pháp: Chúng ta có thể giả định rằng  $(Z, W)$  đã được xây dựng như trong Ví dụ 7.5.10, vì  $E(W|Z)$  và  $\\operatorname{Var}(W|Z)$  chỉ phụ thuộc vào phân phối chung của  $(Z, W)$ , không phụ thuộc vào phương pháp cụ thể được sử dụng để tạo ra  $(Z, W)$ . Do đó hãy\r
-\r
- \r
-\r
- $$Z=X$$ \r
-\r
- \r
-\r
- \r
-\r
- $$W=\\rho X+\\sqrt{1-\\rho^{2}}Y,$$ \r
-\r
- \r
-\r
-với X, Y độc lập và cùng phân phối  $\\mathcal{N}(0,1)$ . Chúng ta có thể giải bài toán một cách rất gọn gàng, mà không cần phải sử dụng các tích phân phức tạp dựa trên mật độ xác suất chung của phân phối chuẩn hai chiều. Kỳ vọng có điều kiện là\r
-\r
- \r
-\r
- $$E(W|Z)=E(W|X)=\\rho X+\\sqrt{1-\\rho^{2}}E(Y|X)=\\rho X+\\sqrt{1-\\rho^{2}}E(Y)=\\rho Z,$$ \r
-\r
- \r
-\r
-vì X và Y độc lập. Và phương sai có điều kiện là\r
-\r
- \r
-\r
- $$\\mathrm{Var}(W|Z)=\\mathrm{Var}(W|X)=\\mathrm{Var}(\\sqrt{1-\\rho^{2}}Y|X)=(1-\\rho^{2})\\mathrm{Var}(Y)=1-\\rho^{2},$$ \r
-\r
- \r
-\r
-vì  $\\rho X$  đóng vai trò là một hằng số nếu chúng ta biết X, và Y độc lập với X.\r
-\r
-Thật thú vị, lập luận giống nhau với vai trò của Z và W được đổi chỗ cho nhau cho thấy rằng\r
-\r
- \r
-\r
- $$E(Z|W)=\\rho W,\\mathrm{and}\\operatorname{Var}(Z|W)=1-\\rho^{2}.$$ \r
-\r
- \r
-\r
-Một người có thể đã suy đoán rằng nếu chúng ta nên nhân với  $\\rho$  để đi từ một giá trị quan sát của Z đến một giá trị dự đoán của W, thì chúng ta nên chia cho  $\\rho$  để đi từ một giá trị quan sát\r
-\r
-Giá trị của W đến một giá trị dự đoán của Z. Nhưng các kết quả trên nói rằng ta phải nhân với cùng một  $\\rho$ , bất kể việc sử dụng Z để dự đoán W hay ngược lại! Điều này có liên quan chặt chẽ đến sự thật rằng độ tương quan là đối xứng (Corr(Z,W) =  $\\rho = Corr(W,Z)$ ) và đến một khái niệm quan trọng trong thống kê được gọi là hồi quy về trung bình. □\r
-\r
-Chúng ta đã học trong phần trước rằng luật của Adam liên hệ giữa kỳ vọng điều kiện và kỳ vọng không điều kiện. Một kết quả đi kèm với luật của Adam là luật của Eve, liên hệ giữa phương sai điều kiện và phương sai không điều kiện.\r
-\r
-Định lý 9.5.5 (Luật của Eve). Với bất kỳ biến ngẫu nhiên nào X và Y,\r
-\r
- \r
-\r
- $$\\operatorname{Var}(Y)=E(\\operatorname{Var}(Y|X))+\\operatorname{Var}(E(Y|X)).$$ \r
-\r
- \r
-\r
-Thứ tự của  $E'$ s và Var's ở vế phải tạo thành EVVE, do đó luật này được gọi là luật của Eve. Luật của Eve cũng được gọi là luật tổng phương sai hoặc công thức phân rã phương sai.\r
-\r
-Chứng minh. Đặt  $g(X) = E(Y|X)$ . Theo luật của Adam,  $E(g(X)) = E(Y)$ . Sau đó\r
-\r
- \r
-\r
- $$E(\\mathrm{Var}(Y|X))=E(E(Y^{2}|X)-g(X)^{2})=E(Y^{2})-E(g(X)^{2}),$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\mathrm{Var}(E(Y|X))=E(g(X)^{2})-(Eg(X))^{2}=E(g(X)^{2})-(EY)^{2}.$$ \r
-\r
- \r
-\r
-Cộng các phương trình này, ta có luật của Eve.\r
-\r
-Để trực quan hóa luật của Eve, hãy tưởng tượng một quần thể nơi mỗi người có một giá trị của X và một giá trị của Y. Chúng ta có thể chia quần thể này thành các quần thể con, mỗi quần thể tương ứng với một giá trị có thể có của X. Ví dụ, nếu X đại diện cho tuổi và Y đại diện cho chiều cao, chúng ta có thể phân nhóm người dựa trên tuổi. Sau đó có hai nguồn góp phần vào sự biến thiên trong chiều cao của người trong quần thể tổng thể. Thứ nhất, trong mỗi nhóm tuổi, người có chiều cao khác nhau. Lượng biến thiên trung bình trong chiều cao trong mỗi nhóm tuổi là biến thiên trong nhóm,  $E(\\text{Var}(Y|X))$ . Thứ hai, giữa các nhóm tuổi, chiều cao trung bình khác nhau. Phương sai của chiều cao trung bình giữa các nhóm tuổi là biến thiên giữa nhóm,  $\\text{Var}(E(Y|X))$ . Luật của Eve nói rằng để có phương sai tổng của Y, ta chỉ cần cộng các nguồn biến thiên này.\r
-\r
-Hình 9.7 minh họa luật của Eve trong trường hợp đơn giản khi ta có ba nhóm tuổi. Lượng biến thiên trung bình trong mỗi nhóm  $X = 1$ ,  $X = 2$ , và  $X = 3$  là biến thiên trong nhóm,  $E(\\text{Var}(Y|X))$ . Phương sai của các giá trị trung bình nhóm  $E(Y|X = 1)$ ,  $E(Y|X = 2)$ , và  $E(Y|X = 3)$  là biến thiên giữa nhóm,  $\\text{Var}(E(Y|X))$ .\r
-\r
-Một cách khác để hiểu luật của Eve là thông qua dự đoán. Nếu chúng ta muốn dự đoán chiều cao của một người dựa trên tuổi của họ, tình huống lý tưởng là nếu mọi người trong một nhóm tuổi có cùng chiều cao, trong khi các nhóm tuổi khác có chiều cao khác nhau. Sau đó, biết tuổi của một người, chúng ta có thể dự đoán chiều cao của họ một cách hoàn hảo. Nói cách khác, tình huống lý tưởng cho dự đoán là không có biến thiên trong nhóm\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_348_140_566_272.jpg" alt="Image" width="15%" /></div>\r
-\r
-\r
-X = 1\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_591_139_807_269.jpg" alt="Image" width="15%" /></div>\r
-\r
-\r
-  $X = 2$ \r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_834_139_1051_269.jpg" alt="Image" width="15%" /></div>\r
-\r
-\r
-  $X = 3$ \r
-\r
-### HÌNH 9.7\r
-\r
-<div style="text-align: center;">Luật của Eve nói rằng phương sai tổng thể là tổng của phương sai trong nhóm và phương sai giữa các nhóm.</div>\r
-\r
-\r
-Phương sai trong chiều cao, bởi vì phương sai trong nhóm không thể được giải thích bởi sự khác biệt về độ tuổi. Vì lý do này, phương sai trong nhóm cũng được gọi là phương sai không giải thích được, và phương sai giữa các nhóm cũng được gọi là phương sai được giải thích. Luật của Eve nói rằng phương sai tổng thể của Y là tổng của phương sai không giải thích được và phương sai được giải thích.\r
-\r
-Chúng ta cũng có thể viết luật của Eve dưới dạng\r
-\r
- \r
-\r
- $$\\operatorname{Var}(Y)=\\operatorname{Var}(Y-E(Y|X))+\\operatorname{Var}(E(Y|X)),$$ \r
-\r
- \r
-\r
-vì khi cho W là phần dư  $Y - E(Y|X)$ ,\r
-\r
- \r
-\r
- $$\\operatorname{Var}(Y-E(Y|X))=E(W^{2})=E(E(W^{2}|X))=E(\\operatorname{Var}(Y|X)).$$ \r
-\r
- \r
-\r
-Lại một lần nữa, điều này nói rằng chúng ta có thể phân tích phương sai thành phương sai trong nhóm cộng với phương sai giữa các nhóm.\r
-\r
-✆ 9.5.6. Gọi Y là một biến ngẫu nhiên và A là một sự kiện. Không đúng khi nói “Var(Y) = Var(Y|A)P(A) + Var(Y|A^c)P(A^c)”, ngay cả khi nó trông giống với định luật kỳ vọng tổng thể. (Để có một phản ví dụ đơn giản, giả sử Y ~ Bern(1/2) và A là sự kiện Y = 0. Khi đó Var(Y|A) và Var(Y|A^c) đều bằng 0, nhưng Var(Y) = 1/4.)\r
-\r
-Thay vào đó, chúng ta nên sử dụng luật của Eve nếu muốn điều kiện hóa dựa trên việc A có xảy ra hay không: cho I là chỉ số của A,\r
-\r
- \r
-\r
- $$\\operatorname{Var}(Y)=E(\\operatorname{Var}(Y|I))+\\operatorname{Var}(E(Y|I)).$$ \r
-\r
- \r
-\r
-Để thấy biểu thức này liên quan đến “biểu thức sai”, hãy cho\r
-\r
- \r
-\r
- $$p=P(A),q=P(A^{c}),a=E(Y|A),b=E(Y|A^{c}),v=\\operatorname{Var}(Y|A),w=\\operatorname{Var}(Y|A^{c}).$$ \r
-\r
- \r
-\r
-Khi đó  $E(Y|I)$  là a với xác suất  $p$  và  $b$  với xác suất  $q$ , và  $\\mathrm{Var}(Y|I)$  là  $v$  với xác suất  $p$  và  $w$  với xác suất  $q$ . Do đó\r
-\r
- \r
-\r
- $$E(\\mathrm{Var}(Y|I))=vp+wq=\\mathrm{Var}(Y|A)P(A)+\\mathrm{Var}(Y|A^{c})P(A^c),$$ \r
-\r
- \r
-\r
-điều này chính xác là “biểu thức sai”, và  $\\operatorname{Var}(Y)$  bao gồm biểu thức này cùng với số hạng\r
-\r
- \r
-\r
- $$\\operatorname{Var}(E(Y|I))=a^{2}p+b^{2}q-(ap+bq)^{2}.$$ \r
-\r
- \r
-\r
-Việc tính đến cả phương sai trong nhóm và phương sai giữa các nhóm là rất quan trọng.\r
-\r
-Chúng ta kết thúc chương này với một số ví dụ cho thấy cách Adam’s law và Eve’s law cho phép chúng ta tìm giá trị kỳ vọng và phương sai của các biến ngẫu nhiên phức tạp, đặc biệt là trong các tình huống liên quan đến nhiều cấp độ ngẫu nhiên.\r
-\r
-Trong ví dụ đầu tiên của chúng ta, biến ngẫu nhiên quan tâm là tổng ngẫu nhiên: tổng của một số ngẫu nhiên các biến ngẫu nhiên. Do đó có hai cấp độ ngẫu nhiên: đầu tiên, mỗi số hạng trong tổng là một biến ngẫu nhiên; thứ hai, số lượng các số hạng trong tổng cũng là một biến ngẫu nhiên.\r
-\r
-Ví dụ 9.6.1 (Tổng ngẫu nhiên). Một cửa hàng nhận được N khách hàng trong một ngày, nơi N là một biến ngẫu nhiên có kỳ vọng hữu hạn và phương sai hữu hạn. Gọi  $X_j$  là số tiền tiêu dùng bởi khách hàng thứ j tại cửa hàng. Giả sử rằng mỗi  $X_j$  có kỳ vọng  $\\mu$  và phương sai  $\\sigma^2$ , và rằng N và tất cả các  $X_j$  là độc lập với nhau. Tìm kỳ vọng và phương sai của tổng ngẫu nhiên  $X = \\sum_{j=1}^{N} X_j$ , đó là doanh thu tổng cộng của cửa hàng trong một ngày, theo  $\\mu$ ,  $\\sigma^2$ ,  $E(N)$ , và  $\\operatorname{Var}(N)$ .\r
-\r
-## Giải pháp:\r
-\r
-Vì  $X$  là một tổng, điều đầu tiên chúng ta có thể nghĩ là tuyên bố “ $E(X) = N\\mu$  nhờ tính tuyến tính”. Rất tiếc, điều này sẽ là một sai lầm loại, vì  $E(X)$  là một số và  $N\\mu$  là một biến ngẫu nhiên. Chìa khóa là  $X$  không chỉ là một tổng, mà là một tổng ngẫu nhiên; số lượng các số hạng mà chúng ta đang cộng lại cũng là ngẫu nhiên, trong khi tính tuyến tính áp dụng cho các tổng có số lượng cố định các số hạng.\r
-\r
-Tuy nhiên, sai lầm loại này thực ra gợi ý chiến lược đúng: nếu chỉ cần chúng ta được phép xem N là một hằng số, thì tính tuyến tính sẽ áp dụng. Vì vậy, hãy điều kiện hóa theo N. Nhờ tính tuyến tính của kỳ vọng có điều kiện,\r
-\r
- \r
-\r
- $$E(X|N)=E\\left(\\sum_{j=1}^{N}X_{j}|N\\right)=\\sum_{j=1}^{N}E(X_{j}|N)=\\sum_{j=1}^{N}E(X_{j})=N\\mu.$$ \r
-\r
- \r
-\r
-Chúng ta đã sử dụng tính độc lập của các  $X_j$  và  $N$  để khẳng định  $E(X_j|N) = E(X_j)$  với mọi  $j$ . Lưu ý rằng phát biểu “  $E(X|N) = N\\mu$ ” không phải là một sai lầm loại vì cả hai vế của đẳng thức đều là biến ngẫu nhiên là hàm của  $N$ . Cuối cùng, nhờ Adam’s law,\r
-\r
- \r
-\r
- $$E(X)=E(E(X|N))=E(N\\mu)=\\mu E(N).$$ \r
-\r
- \r
-\r
-Đây là một kết quả đẹp: doanh thu trung bình tổng cộng là số tiền trung bình tiêu dùng mỗi khách hàng, nhân với số lượng khách hàng trung bình.\r
-\r
-Đối với  $\\operatorname{Var}(X)$ , chúng ta cũng điều kiện hóa theo N để tìm  $\\operatorname{Var}(X|N)$ :\r
-\r
- \r
-\r
- $$\\mathrm{Var}(X|N)=\\mathrm{Var}\\left(\\sum_{j=1}^{N}X_{j}|N\\right)=\\sum_{j=1}^{N}\\mathrm{Var}(X_{j}|N)=\\sum_{j=1}^{N}\\mathrm{Var}(X_{j})=N\\sigma^{2}.$$ \r
-\r
-\r
-\r
-Luật của Eve thì cho chúng ta biết cách để xác định phương sai không điều kiện của X:\r
-\r
- \r
-\r
- $$\\begin{aligned}\\operatorname{Var}(X)&=E(\\operatorname{Var}(X|N))+\\operatorname{Var}(E(X|N))\\\\&=E(N\\sigma^{2})+\\operatorname{Var}(N\\mu)\\\\&=\\sigma^{2}E(N)+\\mu^{2}\\operatorname{Var}(N).\\end{aligned}$$ \r
-\r
- \r
-\r
-Trong ví dụ tiếp theo, hai mức độ ngẫu nhiên xuất hiện vì thí nghiệm của chúng ta diễn ra trong hai giai đoạn. Chúng ta chọn một thành phố từ một nhóm các thành phố, sau đó chọn một mẫu ngẫu nhiên gồm n người trong thành phố đó. Đây là một ví dụ về mô hình đa mức.\r
-\r
-Ví dụ 9.6.2 (Mẫu ngẫu nhiên từ một thành phố ngẫu nhiên). Để nghiên cứu sự phổ biến của một bệnh trong vài thành phố quan tâm trong một quận nhất định, chúng ta chọn một thành phố ngẫu nhiên, sau đó chọn một mẫu ngẫu nhiên gồm n người từ thành phố đó. Đây là một hình thức kỹ thuật khảo sát được sử dụng rộng rãi gọi là mẫu cụm.\r
-\r
-Gọi Q là tỷ lệ người bị bệnh trong thành phố được chọn, và gọi X là số người bị bệnh trong mẫu. Như được minh họa trong Hình 9.8 (trong đó các điểm trắng đại diện cho những người khỏe mạnh và các điểm đen đại diện cho những người bị bệnh), các thành phố khác nhau có thể có sự phổ biến bệnh rất khác nhau. Vì mỗi thành phố có tỷ lệ bệnh riêng, Q là một biến ngẫu nhiên. Giả sử rằng  $Q \\sim \\text{Unif}(0,1)$ . Cũng giả sử rằng điều kiện trên Q, mỗi cá nhân trong mẫu độc lập có xác suất Q bị bệnh; điều này đúng nếu chúng ta chọn mẫu có hoàn lại từ thành phố được chọn, và gần đúng đúng nếu chúng ta chọn mẫu không hoàn lại nhưng quy mô dân số lớn. Tìm  $E(X)$  và  $\\text{Var}(X)$ .\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_399_1048_1002_1413.jpg" alt="Image" width="43%" /></div>\r
-\r
-\r
-### HÌNH 9.8\r
-\r
-Một quận hình bầu dục nhất định có 4 thành phố. Mỗi thành phố có người khỏe mạnh (được biểu diễn là các điểm trắng) và người bị bệnh (được biểu diễn là các điểm đen). Một thành phố ngẫu nhiên được chọn, sau đó một mẫu ngẫu nhiên gồm n người được chọn từ trong thành phố đó. Có hai thành phần trong sự biến đổi của số người bị bệnh trong mẫu: sự biến đổi do các thành phố khác nhau có tỷ lệ bệnh khác nhau, và sự biến đổi do tính ngẫu nhiên của mẫu trong thành phố được chọn.\r
-\r
-Giải pháp:\r
-\r
-Với các giả định của chúng ta,  $X|Q \\sim \\mathrm{Bin}(n, Q)$ ; ký hiệu này nói rằng điều kiện trên\r
-\r
-Biết được tần suất mắc bệnh trong thành phố được chọn, chúng ta có thể coi Q là hằng số, và mỗi cá thể được lấy mẫu là một phép thử Bernoulli độc lập với xác suất thành công là Q. Sử dụng kỳ vọng và phương sai của phân phối Binomial,  $E(X|Q) = nQ$  và  $\\mathrm{Var}(X|Q) = nQ(1 - Q)$ . Hơn nữa, sử dụng các momen của phân phối Uniform chuẩn,  $E(Q) = 1/2$ ,  $E(Q^2) = 1/3$ , và  $\\mathrm{Var}(Q) = 1/12$ . Bây giờ chúng ta có thể áp dụng luật Adam và luật Eve để tìm kỳ vọng và phương sai không điều kiện của X:\r
-\r
- \r
-\r
- $$E(X)=E(E(X|Q))=E(nQ)=\\frac{n}{2},$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\begin{aligned}\\operatorname{Var}(X)&=E(\\operatorname{Var}(X|Q))+\\operatorname{Var}(E(X|Q))\\\\&=E(nQ(1-Q))+\\operatorname{Var}(nQ)\\\\&=nE(Q)-nE(Q^{2})+n^{2}\\operatorname{Var}(Q)\\\\&=\\frac{n}{6}+\\frac{n^{2}}{12}.\\end{aligned}$$ \r
-\r
- \r
-\r
-Lưu ý rằng cấu trúc của bài toán này giống hệt với câu chuyện trong truyện về Billiards của Bayes. Do đó, chúng ta thực sự biết được phân phối của X, không chỉ là kỳ vọng và phương sai của nó: X là Phân phối Đều rời rạc trên  $\\{0,1,2,\\ldots,n\\}$ . Tuy nhiên, cách tiếp cận Adam và Eve có thể được áp dụng khi Q có một phân phối phức tạp hơn, hoặc với nhiều cấp độ hơn trong mô hình đa cấp, dù có thể hay không có thể xác định được phân phối của X. Ví dụ, chúng ta có thể có người trong thành phố trong quận trong tiểu bang trong quốc gia.\r
-\r
-Cuối cùng nhưng không kém phần quan trọng, chúng ta quay lại Câu chuyện 8.4.5, bài toán Gamma-Poisson từ chương trước.\r
-\r
-Ví dụ 9.6.3 (Gamma-Poisson được xem lại). Nhắc lại rằng Fred đã quyết định tìm hiểu tốc độ quá trình Poisson của xe buýt ở Blotchville bằng cách đứng đợi tại bến xe trong t giờ và đếm số lượng xe buýt Y. Sau đó, anh ấy đã sử dụng dữ liệu để cập nhật phân phối tiên nghiệm của mình  $\\lambda \\sim \\Gamma(\\alpha, b_{0})$ . Như vậy, Fred đang sử dụng mô hình hai cấp\r
-\r
- \r
-\r
- $$\\lambda\\sim Gamma(r_{0},b_{0})$$ \r
-\r
- \r
-\r
- \r
-\r
- $$Y|\\lambda\\sim Pois(\\lambda t).$$ \r
-\r
- \r
-\r
-Chúng ta đã tìm thấy rằng dưới mô hình của Fred, phân phối biên của Y là Phân phối Nhị thức Âm với các tham số  $r = r_{0}$  và  $p = b_{0}/(b_{0} + t)$ . Cụ thể,\r
-\r
- \r
-\r
- $$E(Y)=\\frac{rq}{p}=\\frac{r_{0}t}{b_{0}},$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\mathrm{Var}(Y)=\\frac{rq}{p^{2}}=\\frac{r_{0}t(b_{0}+t)}{b_{0}^{2}}.$$ \r
-\r
- \r
-\r
-Hãy kiểm tra độc lập kết quả này bằng luật Adam và luật Eve. Sử dụng các kết quả về phân phối Poisson, kỳ vọng và phương sai có điều kiện của Y cho  $\\lambda$  là  $E(Y|\\lambda) = \\mathrm{Var}(Y|\\lambda) = \\lambda t$ . Sử dụng các kết quả về phân phối Gamma,\r
-\r
-giá trị kỳ vọng và phương sai của  $\\lambda$  là  $E(\\lambda) = r_0/b_0$  và  $\\mathrm{Var}(\\lambda) = r_0/b_0^2$ . Đối với Adam và Eve, đây là tất cả những gì cần thiết:\r
-\r
- \r
-\r
- $$E(Y)=E(E(Y|\\lambda))=E(\\lambda t)=\\frac{r_{0}t}{b_{0}},$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\begin{aligned}\\operatorname{Var}(Y)&=E(\\operatorname{Var}(Y|\\lambda))+\\operatorname{Var}(E(Y|\\lambda))\\\\&=E(\\lambda t)+\\operatorname{Var}(\\lambda t)\\\\&=\\frac{r_{0}t}{b_{0}}+\\frac{r_{0}t^{2}}{b_{0}^{2}}=\\frac{r_{0}t(b_{0}+t)}{b_{0}^{2}},\\end{aligned}$$ \r
-\r
- \r
-\r
-điều này nhất quán với những câu trả lời trước đây của chúng ta. Sự khác biệt là khi sử dụng Adam và Eve, chúng ta không cần biết rằng Y là phân phối Negative Binomial! Nếu chúng ta đã quá lười biếng để tìm phân phối biên của Y, hoặc nếu chúng ta không may mắn đến mức có một phân phối tên cho Y, Adam và Eve vẫn sẽ đưa ra kỳ vọng và phương sai của Y (mặc dù không phải hàm khối xác suất).\r
-\r
-Cuối cùng, hãy so sánh kỳ vọng và phương sai của Y dưới mô hình hai cấp với kỳ vọng và phương sai mà chúng ta sẽ nhận được nếu Fred chắc chắn về giá trị đúng của  $\\lambda$ . Nói cách khác, giả sử chúng ta thay thế  $\\lambda$  bằng giá trị kỳ vọng của nó,  $E(\\lambda) = r_0/b_0$ , làm cho  $\\lambda$  trở thành một hằng số thay vì một biến ngẫu nhiên. Khi đó, phân phối biên của số lượng xe buýt (mà chúng ta sẽ gọi là  $\\tilde{Y}$  dưới các giả định mới) sẽ chỉ là Poisson với tham số  $r_0t/b_0$ . Khi đó chúng ta sẽ có\r
-\r
- \r
-\r
- $$E(\\tilde{Y})=\\frac{r_{0}t}{b_{0}},$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\mathrm{Var}(\\tilde{Y})=\\frac{r_{0}t}{b_{0}}.$$ \r
-\r
- \r
-\r
-Chú ý rằng  $E(\\tilde{Y}) = E(Y)$ , nhưng  $\\operatorname{Var}(\\tilde{Y}) < \\operatorname{Var}(Y)$ : số hạng bổ sung  $r_0t^2/b_0^2$  từ luật của Eve bị thiếu. Về mặt trực quan, khi chúng ta cố định  $\\lambda$  tại giá trị kỳ vọng của nó, chúng ta đang loại bỏ một cấp độ không chắc chắn trong mô hình, và điều này gây ra sự giảm sút trong phương sai không điều kiện.\r
-\r
-Hình 9.9 chồng chéo các đồ thị của hai hàm khối xác suất, đó là của  $Y \\sim \\text{NBin}(r_0, b_0/(b_0 + t))$  trong màu xám và của  $\\tilde{Y} \\sim \\text{Pois}(r_0 t/b_0)$  trong màu đen. Các giá trị của tham số được chọn tùy ý là  $r_0 = 5$ ,  $b_0 = 1$ ,  $t = 2$ . Hai hàm khối xác suất này có cùng trọng tâm, nhưng hàm khối xác suất của Y rõ ràng hơn là phân tán hơn.`,cz=`Để tính kỳ vọng không điều kiện, chúng ta có thể chia không gian mẫu và sử dụng luật kỳ vọng tổng hợp\r
-\r
- \r
-\r
- $$E(Y)=\\sum_{i=1}^{n}E(Y|A_{i})P(A_{i}),$$ \r
-\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_301_164_1079_631.jpg" alt="Image" width="55%" /></div>\r
-\r
-\r
-### HÌNH 9.9\r
-\r
-Phân phối xác suất rời rạc của  $Y \\sim \\mathrm{NBin}(r_0, b_0/(b_0 + t))$  trong màu xám và  $\\tilde{Y} \\sim \\mathrm{Pois}(r_0 t/b_0)$  trong màu đen, nơi  $r_0 = 5$ ,  $b_0 = 1$ ,  $t = 2$ .\r
-\r
-nhưng chúng ta phải cẩn thận không làm mất thông tin trong các bước tiếp theo (như việc quên trong giữa một phép tính dài để điều kiện hóa trên điều gì cần phải điều kiện hóa). Trong các bài toán có cấu trúc đệ quy, chúng ta cũng có thể sử dụng phân tích bước đầu tiên để tính kỳ vọng.\r
-\r
-Kỳ vọng có điều kiện  $E(Y|X)$  và phương sai có điều kiện  $\\mathrm{Var}(Y|X)$  là các biến ngẫu nhiên mà là hàm số của  $X$ ; chúng được thu được bằng cách coi  $X$  như một hằng số đã biết. Nếu  $X$  và  $Y$  độc lập, thì  $E(Y|X) = E(Y)$  và  $\\mathrm{Var}(Y|X) = \\mathrm{Var}(Y)$ . Kỳ vọng có điều kiện có các tính chất\r
-\r
- \r
-\r
- $$\\begin{aligned}&E(h(X)Y|X)=h(X)E(Y|X)\\\\&E(Y_{1}+Y_{2}|X)=E(Y_{1}|X)+E(Y_{2}|X),\\\\ \\end{aligned}$$ \r
-\r
- \r
-\r
-tương tự như các tính chất  $E(cY) = cE(Y)$  và  $E(Y_1 + Y_2) = E(Y_1) + E(Y_2)$  cho kỳ vọng không điều kiện. Kỳ vọng có điều kiện  $E(Y|X)$  cũng là biến ngẫu nhiên mà làm cho phần dư  $Y - E(Y|X)$  không tương quan với bất kỳ hàm nào của X, điều này có nghĩa là chúng ta có thể diễn giải nó một cách hình học như một phép chiếu.\r
-\r
-Cuối cùng, luật Adam và luật Eve,\r
-\r
- \r
-\r
- $$\\begin{aligned}E(Y)&=E(E(Y|X))\\\\ Var(Y)&=E(Var(Y|X))+Var(E(Y|X)),\\end{aligned}$$ \r
-\r
- \r
-\r
-thường giúp chúng ta tính  $E(Y)$  và  $\\operatorname{Var}(Y)$  trong các bài toán có nhiều dạng hoặc cấp độ ngẫu nhiên khác nhau.\r
-\r
-Hình 9.10 minh họa cách số  $E(Y|X=x)$  liên kết với biến ngẫu nhiên  $E(Y|X)$ , kỳ vọng của nó là  $E(Y)$  theo luật Adam. Ngoài ra, nó còn cho thấy cách các thành phần trong luật Eve được hình thành và kết hợp để tạo ra một phân tích hữu ích của  $\\operatorname{Var}(Y)$  dưới dạng các đại lượng điều kiện hóa trên X.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_149_151_1247_982.jpg" alt="Image" width="78%" /></div>\r
-\r
-\r
-### HÌNH 9.10\r
-\r
-Chúng ta thường quan sát một biến ngẫu nhiên X và muốn dự đoán một biến ngẫu nhiên khác Y dựa trên thông tin về X. Nếu chúng ta quan sát thấy X = x, thì chúng ta có thể điều kiện hóa trên sự kiện này và sử dụng  $E(Y|X = x)$  làm dự đoán. Kỳ vọng điều kiện  $E(Y|X)$  là biến ngẫu nhiên mà nhận giá trị  $E(Y|X = x)$  khi X = x. Luật của Adam cho phép chúng ta tính kỳ vọng không điều kiện  $E(Y)$  bằng cách bắt đầu từ kỳ vọng điều kiện  $E(Y|X)$ . Tương tự, luật của Eve cho phép chúng ta tính  $\\text{Var}(Y)$  dưới dạng các đại lượng điều kiện hóa trên X.`,lz=`## Mô phỏng phần thưởng bí ẩn\r
-\r
-Chúng ta có thể sử dụng mô phỏng để cho thấy rằng trong Ví dụ 9.1.7, ví dụ về việc đặt giá thầu cho một phần thưởng bí ẩn có giá trị không xác định, bất kỳ giá thầu nào cũng sẽ dẫn đến khoản thanh toán âm trung bình. Trước hết chọn một giá thầu b (chúng ta chọn 0.6); sau đó mô phỏng một số lớn các phần thưởng bí ẩn tiềm ẩn và lưu trữ chúng vào v:\r
-\r
- \r
-\r
- $$b<-0.6$$ \r
-\r
-\r
-\r
-nsim <- 10^5\r
-v <- runif(nsim)\r
-\r
-Cược được chấp nhận nếu  $\\mathbf{b} > (2/3)\\mathbf{v}$ . Để có được lợi nhuận trung bình điều kiện trên một cược được chấp nhận, chúng ta sử dụng dấu ngoặc vuông để giữ lại những giá trị của  $\\mathbf{v}$  thỏa mãn điều kiện:\r
-\r
-mean(v[b > (2/3)*v]) - b\r
-\r
-Giá trị này luôn âm bất kể b, như bạn có thể kiểm tra bằng cách thử nghiệm với các giá trị khác nhau của b.\r
-\r
-### Thời gian cho đến HH so với HT\r
-\r
-Để kiểm tra kết quả của Ví dụ 9.1.9, chúng ta có thể bắt đầu bằng cách tạo một chuỗi dài các lần tung đồng xu công bằng. Điều này được thực hiện bằng lệnh sample. Chúng ta sử dụng paste với tham số collapse=" để biến các lần tung này thành một chuỗi đơn lẻ gồm  $H$  và  $T$ :\r
-\r
-paste(sample(c("H", "T"), 100, replace=TRUE), collapse="")\r
-\r
-Một chuỗi có độ dài 100 đủ để đảm bảo gần như chắc chắn rằng cả HH và HT đều xuất hiện ít nhất một lần.\r
-\r
-Để xác định số lần tung trung bình cần thiết để thấy HH và HT, chúng ta cần tạo ra nhiều chuỗi các lần tung đồng xu. Đối với điều này, chúng ta sử dụng người bạn quen thuộc replicate:\r
-\r
-r <- replicate(10^3, paste(sample(c("H", "T"), 100, replace=T), collapse=""))\r
-\r
-Bây giờ r chứa một nghìn chuỗi các lần tung đồng xu, mỗi chuỗi có độ dài 100. Để tìm lần xuất hiện đầu tiên của HH trong mỗi chuỗi này, bạn có thể sử dụng lệnh str_locate từ gói stringr. Sau khi bạn đã cài đặt và tải gói này,\r
-\r
-t <- str_locate(r,"HH")\r
-\r
-tạo ra một bảng hai cột t, trong đó các cột chứa vị trí bắt đầu và kết thúc của lần xuất hiện đầu tiên của HH trong mỗi chuỗi các lần tung đồng xu. (Sử dụng head(t) để hiển thị vài hàng đầu tiên của bảng và hiểu được kết quả của bạn như thế nào.) Điều mà chúng ta muốn là các vị trí kết thúc, được cho bởi cột thứ hai. Cụ thể, chúng ta muốn giá trị trung bình của cột thứ hai, điều này là một ước lượng của thời gian chờ trung bình cho HH:\r
-\r
-mean(t[,2])\r
-\r
-Kết quả của bạn có phải xấp xỉ 6 không? Thử lại với "HT" thay vì "HH", kết quả của bạn có phải xấp xỉ 4 không?\r
-\r
-## Hồi quy tuyến tính\r
-\r
-Trong Ví dụ 9.3.10, chúng ta đã suy ra các công thức cho độ dốc và hệ số cắt của mô hình hồi quy tuyến tính, có thể được sử dụng để dự đoán một biến phụ thuộc bằng một biến giải thích. Hãy thử áp dụng các công thức này vào một tập dữ liệu mô phỏng:\r
-\r
-x <- rnorm(100)\r
-y <- 3 + 5 * x + rnorm(100)\r
-\r
-Vector x chứa 100 giá trị thực hiện của biến ngẫu nhiên  $X \\sim \\mathcal{N}(0,1)$ , và vector y chứa 100 giá trị thực hiện của biến ngẫu nhiên  $Y = a + bX + \\epsilon$  nơi  $\\epsilon \\sim \\mathcal{N}(0,1)$ . Như chúng ta có thể thấy, các giá trị thực của a và b cho tập dữ liệu này là 3 và 5 lần lượt. Chúng ta có thể trực quan hóa dữ liệu dưới dạng một biểu đồ phân tán với  $\\text{plot}(x,y)$ .\r
-\r
-Bây giờ hãy xem xem liệu chúng ta có thể thu được các ước lượng tốt của các giá trị thực a và b, bằng các công thức trong Ví dụ 9.3.10:\r
-\r
-b <- cov(x,y) / var(x)\r
-a <- mean(y) - b * mean(x)\r
-\r
-Ở đây  $\\text{cov}(x,y)$ ,  $\\text{var}(x)$ , và  $\\text{mean}(x)$  cung cấp độ hiệp phương sai mẫu, phương sai mẫu, và trung bình mẫu, ước lượng các đại lượng  $\\text{Cov}(X,Y)$ ,  $\\text{Var}(X)$ , và  $E(X)$  tương ứng. (Chúng ta đã thảo luận chi tiết về trung bình mẫu và phương sai mẫu trong các chương trước. Độ hiệp phương sai mẫu được định nghĩa tương tự và là một cách tự nhiên để ước lượng độ hiệp phương covarance thực.)\r
-\r
-Bạn nên tìm thấy rằng b gần bằng 5 và a gần bằng 3. Những giá trị ước lượng này xác định đường thẳng phù hợp nhất. Lệnh abline cho phép chúng ta vẽ đường thẳng phù hợp nhất lên trên biểu đồ phân tán của chúng ta:\r
-\r
-  $\\text{plot}(x,y)$ \r
-abline(a=a,b=b)\r
-\r
+`,iz=`Nhắc lại rằng kỳ vọng $E(Y)$ của một biến ngẫu nhiên rời rạc $Y$ là một trung bình có trọng số của các giá trị có thể xảy ra, nơi các trọng số là các giá trị xác suất khối lượng $P(Y = y)$. Sau khi biết rằng một sự kiện $A$ đã xảy ra, chúng ta muốn sử dụng các trọng số đã được cập nhật để phản ánh thông tin mới này. Định nghĩa của $E(Y|A)$ đơn giản thay thế xác suất $P(Y = y)$ bằng xác suất có điều kiện $P(Y = y|A)$.
+
+Tương tự, nếu Y là liên tục, $E(Y)$ vẫn là một trung bình có trọng số của các giá trị có thể xảy ra của Y, với tích phân thay cho tổng và giá trị hàm mật độ xác suất (PDF) $f(y)$ thay cho giá trị hàm xác suất khối (PMF). Nếu chúng ta biết rằng A đã xảy ra, chúng ta cập nhật kỳ vọng của Y bằng cách thay thế $f(y)$ bằng mật độ xác suất điều kiện $f(y|A)$.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 9.1.1</div>
+    <div class="math-box-title">Kỳ vọng điều kiện cho một sự kiện</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử A là một sự kiện với xác suất dương. Nếu Y là biến ngẫu nhiên rời rạc, thì kỳ vọng điều kiện của Y cho A là
+
+$$E(Y|A)=\\sum_{y}y P(Y=y|A),$$
+
+trong đó tổng được thực hiện trên miền giá trị của Y. Nếu Y là biến ngẫu nhiên liên tục với hàm mật độ xác suất f, thì
+
+$$E(Y|A)=\\int_{-\\infty}^{\\infty}y f(y|A)d y,$$
+
+trong đó mật độ xác suất điều kiện $f(y|A)$ được định nghĩa là đạo hàm của hàm phân phối tích lũy điều kiện $F(y|A) = P(Y \\leq y|A)$, và cũng có thể được tính bằng một phiên bản hỗn hợp của quy tắc Bayes:
+
+$$f(y|A)=\\frac{P(A|Y=y)f(y)}{P(A)}.$$
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 9.1.2</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Để hiểu rõ hơn về $E(Y|A)$, hãy xem xét việc xấp xỉ nó bằng mô phỏng (hoặc qua góc nhìn tần suất, dựa trên việc lặp lại cùng một thí nghiệm nhiều lần). Hãy tưởng tượng tạo ra một số lớn $n$ lần lặp lại của thí nghiệm cho đó Y là một tóm tắt số học. Chúng ta sau đó có các giá trị Y là $y_1, \\ldots, y_n$, và có thể xấp xỉ
+
+$$E(Y)\\approx\\frac{1}{n}\\sum_{j=1}^{n}y_{j}.$$
+
+Để xấp xỉ $E(Y|A)$, chúng ta giới hạn chỉ đến các lần lặp lại mà A đã xảy ra, và trung bình chỉ những giá trị Y đó. Điều này có thể được viết thành
+
+$$E(Y|A)\\approx\\frac{\\sum_{j=1}^{n}y_{j}I_{j}}{\\sum_{j=1}^{n}I_{j}},$$
+
+trong đó $I_{j}$ là chỉ số của A xảy ra trong lần lặp thứ j. Điều này không xác định nếu A chưa bao giờ xảy ra trong mô phỏng, điều này hợp lý vì lúc đó không có dữ liệu mô phỏng nào về tình huống "A xảy ra". Chúng ta muốn có n đủ lớn để có nhiều lần xảy ra A (nếu A là một sự kiện hiếm, có thể cần các kỹ thuật tinh vi hơn để xấp xỉ $E(Y|A)$).
+
+Nguyên tắc này đơn giản tuy nhiên: $E(Y|A)$ là xấp xỉ trung bình của Y trong một số lớn lần lặp lại trong đó A đã xảy ra.
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 9.1.3</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Sự nhầm lẫn giữa kỳ vọng điều kiện và kỳ vọng không điều kiện là một sai lầm nguy hiểm. Tổng quát hơn, không theo dõi cẩn thận điều mà bạn nên điều kiện và điều mà bạn đang điều kiện là một công thức cho thảm họa.
+
+  </div>
+</div>
+
+Xét một ví dụ về tình huống sinh tử trước đây của sinh vật nguy hiểm, hãy cân nhắc tuổi thọ trung bình.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.1.4</div>
+    <div class="math-box-title">Tuổi thọ trung bình</div>
+  </div>
+  <div class="math-box-content">
+
+Fred có 30 tuổi, và anh nghe nói rằng tuổi thọ trung bình ở quốc gia của anh là 80 tuổi. Anh nên kết luận rằng, trung bình, anh còn sống thêm 50 năm không? Không, có một thông tin quan trọng mà anh phải điều kiện hóa: sự kiện anh đã sống đến tuổi 30. Gọi T là độ tuổi của Fred, chúng ta có tin vui rằng
+
+$$E(T)<E(T|T\\geq30).$$
+
+Vế trái là tuổi thọ trung bình của Fred khi mới sinh (nó ngầm điều kiện hóa rằng anh được sinh ra), và vế phải là tuổi thọ trung bình của Fred cho điều kiện anh sống đến tuổi 30.
+
+Một câu hỏi khó hơn là làm thế nào để quyết định một ước lượng phù hợp cho $E(T)$. Liệu có phải là 80, trung bình chung cho quốc gia của anh không? Ở hầu hết các quốc gia, phụ nữ có tuổi thọ trung bình cao hơn nam, vì vậy có lý do để điều kiện hóa Fred là một người đàn ông. Nhưng chúng ta nên điều kiện hóa thêm nơi anh sinh ra không? Chúng ta nên điều kiện hóa thông tin về chủng tộc và tài chính của cha mẹ anh, hay thời gian trong ngày anh được sinh ra không? Về mặt trực giác, chúng ta muốn các ước lượng vừa chính xác vừa liên quan đến Fred, nhưng có một sự cân bằng vì nếu chúng ta điều kiện hóa thêm nhiều đặc điểm của Fred, thì sẽ có ít người phù hợp với những đặc điểm đó để sử dụng như dữ liệu cho việc ước lượng tuổi thọ.
+
+Bây giờ hãy xem xét một số con số cụ thể cho Hoa Kỳ. Một nghiên cứu của Cơ quan An sinh Xã hội ước tính rằng từ năm 1900 đến năm 2000, tuổi thọ trung bình khi mới sinh ở Hoa Kỳ cho nam tăng từ 46 lên 74, và cho nữ tăng từ 49 lên 79. Những cải tiến to lớn! Nhưng phần lớn sự cải tiến là do giảm tỷ lệ tử vong ở trẻ em. Đối với một người 30 tuổi vào năm 1900, số năm còn sống trung bình là 35 cho nam và 36 cho nữ; vào năm 2000, các con số tương ứng là 46 cho nam và 50 cho nữ.
+
+Có một số vấn đề thống kê tinh tế trong việc thu thập những ước lượng này. Ví dụ, làm thế nào để ước lượng tuổi thọ trung bình cho một người sinh năm 2000 mà không cần phải chờ đến năm 2100? Việc ước lượng phân phối sống sót là một chủ đề rất quan trọng trong thống kê sinh học và khoa học bảo hiểm.
+
+  </div>
+</div>
+
+Luật tổng xác suất cho phép chúng ta có được xác suất không điều kiện bằng cách chia không gian mẫu thành các phần và tính xác suất điều kiện trong mỗi phần. Tư tưởng tương tự cũng hoạt động khi tính kỳ vọng không điều kiện.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 9.1.5</div>
+    <div class="math-box-title">Luật tổng kỳ vọng</div>
+  </div>
+  <div class="math-box-content">
+
+Gọi $A_1, \\ldots, A_n$ là một phân hoạch của không gian mẫu, với $P(A_i) > 0$ với mọi i, và gọi Y là một biến ngẫu nhiên trên không gian mẫu này. Khi đó
+
+$$E(Y)=\\sum_{i=1}^{n}E(Y|A_{i})P(A_{i}).$$
+
+  </div>
+</div>
+
+Thực ra, vì tất cả các xác suất đều là kỳ vọng theo cầu nối cơ bản, luật
+
+Định lý xác suất toàn bộ là một trường hợp đặc biệt của định luật kỳ vọng toàn bộ. Để thấy điều này, hãy để $Y = I_B$ cho một sự kiện $B$; sau đó định lý trên nói rằng
+
+$$P(B)=E(I_{B})=\\sum_{i=1}^{n}E(I_{B}|A_{i})P(A_{i})=\\sum_{i=1}^{n}P(B|A_{i})P(A_{i}),$$
+
+điều này chính xác là định lý xác suất toàn bộ (LOTP). Định luật kỳ vọng toàn bộ là, ngược lại, một trường hợp đặc biệt của một kết quả quan trọng được gọi là định luật Adam (Định lý 9.3.7), vì vậy chúng ta sẽ không chứng minh nó ngay lúc này.
+
+Có rất nhiều ví dụ thú vị về việc sử dụng suy nghĩ mơ hồ để phân tách kỳ vọng không điều kiện thành kỳ vọng có điều kiện. Chúng ta bắt đầu với hai câu chuyện cảnh báo về tầm quan trọng của việc điều kiện hóa cẩn thận và không phá hủy thông tin mà không có lý do.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.1.6</div>
+    <div class="math-box-title">Tâm lý hai túi</div>
+  </div>
+  <div class="math-box-content">
+
+Một người lạ giới thiệu với bạn hai phong bì giống hệt nhau, được đóng kín, mỗi phong bì chứa một sép giấy với một số tiền dương. Bạn được thông báo rằng một trong hai phong bì chứa đúng hai lần số tiền của phong bì kia. Bạn có thể chọn bất kỳ phong bì nào. Bạn thích phong bì nào: bên trái hay bên phải? (Giả sử kỳ vọng số tiền trong mỗi phong bì là hữu hạn—chắc chắn là một giả định tốt trong thế giới thực!)
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_399_900_659_1052.jpg" alt="X" style="max-width: 18%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem;" />
+  <img src="imgs/img_in_image_box_740_900_1000_1052.jpg" alt="Y" style="max-width: 18%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+
+**HÌNH 9.1:** Hai phong bì, nơi một trong số chúng chứa gấp đôi số tiền của phong bì kia. Hoặc Y = 2X hoặc Y = X/2, với xác suất bằng nhau. Bạn sẽ chọn phong bì nào?
+</div>
+
+**Giải:** Gọi X và Y là số tiền trong phong bì bên trái và bên phải, tương ứng. Nhờ đối xứng, không có lý do nào để ưa thích một phong bì hơn phong bì kia (chúng ta đang giả định không có thông tin tiên nghiệm nào cho thấy người lạ tay trái và người tay trái thường đặt nhiều tiền hơn vào bên trái). Kết luận bằng đối xứng rằng $E(X) = E(Y)$, dường như bạn không cần quan tâm đến phong bì nào bạn nhận được.
+
+Nhưng khi bạn mơ tưởng về điều gì nằm bên trong các phong bì, một lập luận khác đến với bạn: giả sử phong bì bên trái chứa $100. Sau đó phong bì bên phải chứa$ 50 hoặc $200. Trung bình của$ 50 và $200 là$ 125, vì vậy dường như phong bì bên phải tốt hơn. Nhưng không có gì đặc biệt về $100 ở đây; với bất kỳ giá trị x nào cho phong bì bên trái, trung bình của 2x và x/2 lớn hơn x, cho thấy phong bì bên phải tốt hơn. Điều này kỳ lạ, vì không chỉ mâu thuẫn với lập luận đối xứng mà còn cùng lập luận này có thể được áp dụng bắt đầu từ phong bì bên phải, dẫn đến việc chuyển đổi liên tục mãi mãi!
+
+Hãy thử formalize lập luận này để xem điều gì đang xảy ra. Chúng ta có Y = 2X hoặc Y = X/2, với xác suất bằng nhau. Theo Định lý 9.1.5,
+
+$$E(Y)=E(Y|Y=2X)\\cdot\\frac{1}{2}+E\\big(Y|Y=X/2\\big)\\cdot\\frac{1}{2}.$$
+
+Một người có thể nghĩ rằng điều này là
+
+$$E(2X)\\cdot\\frac{1}{2}+E\\big(X/2\\big)\\cdot\\frac{1}{2}=\\frac{5}{4}E(X),$$
+
+đề xuất một lợi nhuận 25% từ việc chuyển từ bên trái sang bên phải. Nhưng có một sai lầm trong phép tính đó: $E(Y|Y = 2X) = E(2X|Y = 2X)$, nhưng không có cơ sở để bỏ điều kiện Y = 2X sau khi thay 2X cho Y.
+
+Để nói rõ hơn, hãy gọi I là biến chỉ số của sự kiện $Y = 2X$, do đó $E(Y|Y = 2X) = E(2X|I = 1)$. Nếu chúng ta biết rằng X độc lập với I, thì chúng ta có thể bỏ điều kiện I = 1. Nhưng thực ra chúng ta đã chứng minh rằng X và I không thể độc lập: nếu chúng độc lập, chúng ta sẽ có một nghịch lý! Bất ngờ, quan sát X cho thông tin về việc X có phải là giá trị lớn hơn hay nhỏ hơn. Nếu chúng ta biết rằng X rất lớn, chúng ta có thể đoán rằng X lớn hơn Y, nhưng cái gì được coi là rất lớn? Là $10^{12}$ rất lớn, ngay cả khi nó nhỏ hơn rất nhiều so với $10^{100}$? Hai-envelope nghịch lý nói rằng bất kể phân phối của X là gì, luôn có những cách hợp lý để định nghĩa "rất lớn" tương ứng với phân phối đó.
+
+Trong Bài tập 8 bạn sẽ xem xét một bài toán liên quan, trong đó số tiền trong hai phong bì là các biến ngẫu nhiên độc lập và giống nhau. Bạn sẽ chứng tỏ rằng nếu bạn được phép xem bên trong một phong bì và sau đó quyết định có đổi hay không, sẽ có một chiến lược cho phép bạn nhận được phong bì tốt hơn hơn 50% số lần! ☐
+
+  </div>
+</div>
+
+Ví dụ tiếp theo minh họa rõ tầm quan trọng của việc điều kiện hóa trên tất cả thông tin. Hiện tượng được tiết lộ ở đây xuất hiện trong nhiều quyết định thực tế về việc mua sắm và đầu tư.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.1.7</div>
+    <div class="math-box-title">Giải thưởng bí ẩn</div>
+  </div>
+  <div class="math-box-content">
+
+Bạn bị một người lạ tiếp cận, người này đưa cho bạn cơ hội đấu giá một hộp bí chứa một giải thưởng bí ẩn! Giá trị của giải thưởng hoàn toàn không biết, ngoại trừ nó ít nhất là bằng 0, và nhiều nhất là một triệu đô la. Do đó, giá trị thực V của giải thưởng được xem là Phân phối đều trên [0,1] (đo bằng triệu đô la).
+
+Bạn có thể chọn đấu giá bất kỳ số tiền nào $b$ (đo bằng triệu đô la). Bạn có cơ hội nhận được giải thưởng với giá trị thấp hơn rất nhiều so với giá trị thực, nhưng bạn cũng có thể mất tiền nếu đấu giá quá cao. Cụ thể, nếu $b < 2V/3$, thì đơn đặt hàng bị từ chối và không có gì được nhận hoặc mất. Nếu $b \\geq 2V/3$, thì đơn đặt hàng được chấp nhận và lợi nhuận ròng của bạn là $V - b$ (vì bạn trả $b$ để nhận một giải thưởng có giá trị $V$). Giá trị đấu giá tối ưu $b$ là gì, để tối đa hóa lợi nhuận kỳ vọng?
+
+**Giải:** Số tiền bạn đặt $b \\geq 0$ phải là một hằng số được xác định trước (không dựa trên V, vì V là chưa biết!).
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_376_146_1011_678.jpg" alt="Minh họa đấu giá cho một giải thưởng chưa biết giá trị" style="max-width: 45%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 9.2:** Khi đặt giá thầu cho một tài sản chưa biết, hãy cẩn thận với hiện tượng "người chiến thắng bị thiệt", và điều kiện dựa trên thông tin liên quan.
+</div>
+
+Để tìm kỳ vọng giá thầu W, điều kiện dựa trên việc giá thầu có được chấp nhận hay không. Giá thầu là V - b nếu giá thầu được chấp nhận và 0 nếu giá thầu bị từ chối. Vì vậy
+
+$$\\begin{aligned}E(W)&=E(W|b\\geq2V/3)P(b\\geq2V/3)+E(W|b<2V/3)P(b<2V/3)\\\\&=E(V-b|b\\geq2V/3)P(b\\geq2V/3)+0\\\\&=(E(V|V\\leq3b/2)-b)P(V\\leq3b/2).\\\\ \\end{aligned}$$
+
+Với $b \\geq 2/3$, sự kiện $V \\leq 3b/2$ có xác suất là 1, do đó vế phải là $1/2 - b$, điều này âm. Bây giờ giả sử $b < 2/3$. Khi đó $V \\leq 3b/2$ có xác suất là $3b/2$. Cho rằng $V \\leq 3b/2$, phân phối có điều kiện của V là đều trên $[0, 3b/2]$. Do đó,
+
+$$E(W)=(E(V|V\\leq3b/2)-b)P(V\\leq3b/2)=(3b/4-b)(3b/2)=-3b^{2}/8.$$
+
+Biểu thức trên là âm trừ khi b = 0, do đó giá thầu tối ưu là 0: bạn không nên chơi trò này!
+
+Thay thế, điều kiện dựa trên sự kiện nào xảy ra trong các sự kiện sau: $A = \\{V < b/2\\}$, $B = \\{b/2 \\leq V \\leq 3b/2\\}$, $C = \\{V > 3b/2\\}$. Chúng ta có
+
+$$E(W|A)=E(V-b|A)<E(b/2-b|A)=-b/2\\leq0,$$
+
+$$\\begin{aligned}E(W|B)&=E\\left(\\frac{b/2+3b/2}{2}-b|B\\right)=0,\\\\&E(W|C)=0,\\end{aligned}$$
+
+nên chúng ta nên chỉ đặt b = 0 và rời đi.
+
+Thông điệp của câu chuyện này là hãy điều kiện hóa trên tất cả thông tin. Điều này rất quan trọng trong phép tính trên để sử dụng $E(V|V \\leq 3b/2)$ thay vì $E(V) = 1/2$; biết rằng đấu thầu được chấp nhận cho ta thông tin về giá trị của phần thưởng bí ẩn, vì vậy ta không nên phá vỡ thông tin này. Vấn đề này liên quan đến hiện tượng gọi là "winner’s curse", nói rằng người thắng cuộc trong một cuộc đấu thầu với thông tin không đầy đủ thường có lợi nhuận thấp hơn so với kỳ vọng (trừ khi họ hiểu xác suất!). Điều này là do trong nhiều tình huống, giá trị kỳ vọng của món đồ mà họ đấu thầu cho biết họ đã giành chiến thắng thấp hơn giá trị kỳ vọng không điều kiện mà họ ban đầu nghĩ đến. Với $b \\geq 2/3$, điều kiện hóa trên $V \\leq 3b/2$ không có tác dụng vì ta biết trước rằng $V \\leq 1$, nhưng một lần đặt giá như vậy là vô lý. Với bất kỳ $b < 2/3$ nào, việc biết rằng đề nghị của bạn được chấp nhận làm giảm kỳ vọng của bạn:
+
+$$E(V|V\\leq3b/2)<E(V).$$
+
+  </div>
+</div>
+
+Ví dụ còn lại sử dụng phân tích bước đầu tiên để tính kỳ vọng không điều kiện. Trước hết, như đã hứa trong Chương 4, chúng ta sẽ suy ra kỳ vọng của phân phối Geometric bằng phân tích bước đầu tiên.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.1.8</div>
+    <div class="math-box-title">Kỳ vọng của phân phối Geometric</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X \\sim \\text{Geom}(p)$. Giải thích X là số lần Ngửa trước lần đầu tiên xuất hiện Mặt Sấp trong một chuỗi ném đồng xu với xác suất p cho Mặt Sấp. Để tính $E(X)$, ta điều kiện hóa trên kết quả của lần tung đầu tiên: nếu nó ra Mặt Sấp, thì X là 0 và ta đã hoàn tất; nếu nó ra Ngửa, thì ta đã lãng phí một lần tung và quay về trạng thái ban đầu, nhờ tính chất không nhớ. Do đó,
+
+$$\\begin{aligned}E(X)&=E(X|first\\ toss\\ H)\\cdot p+E(X|first\\ toss\\ T)\\cdot q\\\\&=0\\cdot p+(1+E(X))\\cdot q,\\end{aligned}$$
+
+điều này cho ta $E(X) = q/p$.
+
+  </div>
+</div>
+
+Ví dụ tiếp theo suy ra thời gian kỳ vọng cho một số mẫu phức tạp hơn, sử dụng hai bước điều kiện hóa.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.1.9</div>
+    <div class="math-box-title">Thời gian đến HT so với HH</div>
+  </div>
+  <div class="math-box-content">
+
+Bạn tung một đồng xu công bằng liên tục. Hỏi kỳ vọng số lần tung cho đến khi mẫu HT xuất hiện lần đầu tiên? Và kỳ vọng số lần tung cho đến khi mẫu HH xuất hiện lần đầu tiên?
+
+**Giải:** Gọi $W_{HT}$ là số lần tung cho đến khi HT xuất hiện. Như chúng ta có thể thấy từ Hình 9.3, $W_{HT}$ là thời gian chờ cho lần đầu tiên xuất hiện Mặt Sấp, mà ta sẽ gọi là $W_1$, cộng thêm thời gian chờ thêm cho lần đầu tiên xuất hiện Ngửa sau lần đầu tiên xuất hiện Mặt Sấp, mà ta sẽ gọi là $W_2$. Theo câu chuyện về phân phối First Success, $W_1$ và $W_2$ là i.i.d. FS(1/2), do đó $E(W_1) = E(W_2) = 2$ và $E(W_{HT}) = 4$.
+
+Việc tìm kỳ vọng thời gian chờ cho $HH$, $E(W_{HH})$, phức tạp hơn. Chúng ta không thể áp dụng cùng lập luận như với $E(W_{HT})$: như đã cho thấy trong Hình 9.4, nếu lần đầu tiên xuất hiện Mặt Sấp được tiếp theo là Ngửa, tiến trình của chúng ta bị phá vỡ và ta phải bắt đầu từ đầu. Nhưng điều này là tiến bộ cho chúng ta trong việc giải quyết bài toán, vì sự kiện rằng hệ thống có thể được reset gợi ý chiến lược của việc phân tích bước đầu tiên.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_499_135_892_371.jpg" alt="Minh họa thời gian chờ đợi cho HH" style="max-width: 28%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 9.3:** Thời gian chờ đợi cho HH là thời gian chờ đợi cho lần đầu tiên là Đồng, $W_{1}$, cộng thêm thời gian chờ đợi bổ sung cho lần sau là Ngược, $W_{2}$. Tiến bộ tạm thời có thể tồn tại!
+</div>
+
+Hãy điều kiện hóa theo kết quả của lần tung đầu tiên:
+
+$$E(W_{H H})=E(W_{H H}|first\\ toss\\ H)\\frac{1}{2}+E(W_{H H}|first\\ toss\\ T)\\frac{1}{2}.$$
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_288_675_1098_1042.jpg" alt="Minh họa tiến bộ tạm thời khi chờ HH bị phá hủy" style="max-width: 57%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 9.4:** Khi chờ đợi cho HH, tiến bộ tạm thời có thể dễ dàng bị phá hủy.
+</div>
+
+Với số hạng thứ hai, $E(W_{HH}|\\text{first toss T}) = 1 + E(W_{HH})$ theo tính chất vô nhớ. Với số hạng đầu tiên, chúng ta tính $E(W_{HH}|\\text{1st toss H})$ bằng cách điều kiện hóa thêm theo kết quả của lần tung thứ hai. Nếu lần tung thứ hai là Đồng, chúng ta đã đạt được HH trong hai lần tung. Nếu lần tung thứ hai là Ngược, chúng ta đã lãng phí hai lần tung và phải bắt đầu lại từ đầu! Điều này cho ra
+
+$$E(W_{H H}|first\\ toss\\ H)=2\\cdot\\frac{1}{2}+(2+E(W_{H H}))\\cdot\\frac{1}{2}.$$
+
+Do đó,
+
+$$E(W_{HH})=\\left(2\\cdot\\frac{1}{2}+(2+E(W_{HH}))\\cdot\\frac{1}{2}\\right)\\frac{1}{2}+(1+E(W_{HH}))\\frac{1}{2}.$$
+
+Giải phương trình cho $E(W_{HH})$, chúng ta được $E(W_{HH}) = 6$.
+
+Việc này có thể dường như bất ngờ ở đầu tiên rằng thời gian chờ đợi kỳ vọng cho HH lớn hơn thời gian chờ đợi kỳ vọng cho HT. Làm thế nào để chúng ta hòa giải điều này với thực tế rằng trong hai lần tung đồng tiền, HH và HT đều có xác suất 1/4 xuất hiện? Tại sao không phải thời gian chờ đợi trung bình lại giống nhau bởi tính đối xứng?
+
+Khi chúng ta giải quyết vấn đề này, chúng ta thực chất đã nhận ra một sự bất đối xứng quan trọng. Khi đang chờ đợi HT, sau khi nhận được lần đầu tiên Mặt ngửa, chúng ta đã đạt được tiến bộ một phần mà không thể bị phá hủy: nếu Mặt ngửa được theo bởi một Mặt ngửa khác, chúng ta sẽ ở trong tình huống giống như trước đó, và nếu Mặt ngửa được theo bởi một Mặt sấp, chúng ta sẽ hoàn thành. Ngược lại, khi đang chờ đợi HH, ngay cả sau khi nhận được lần đầu tiên Mặt ngửa, chúng ta có thể bị quay lại điểm xuất phát nếu Mặt ngửa được theo bởi một Mặt sấp. Điều này gợi ý rằng thời gian chờ trung bình cho HH nên dài hơn. Tính đối xứng cho thấy thời gian chờ trung bình cho HH giống như thời gian chờ trung bình cho TT, và thời gian chờ trung bình cho HT giống như thời gian chờ trung bình cho TH, nhưng không phải điều này cho thấy thời gian chờ trung bình cho HH và HT giống nhau.
+
+Để hiểu rõ hơn về những gì đang xảy ra, ta có thể xem xét một chuỗi dài các lần tung đồng xu, như trong Hình 9.5. Chúng ta nhanh chóng nhận thấy rằng các lần xuất hiện của HH có thể chồng lên nhau, trong khi các lần xuất hiện của HT phải tách biệt. Ví dụ, $HHHHHH$ có 5 lần xuất hiện của HH, nhưng $HTHTHT$ chỉ có 3 lần xuất hiện của HT. Vì có cùng số lần xuất hiện trung bình của HH và HT, nhưng HH có thể tụ tập lại, thời gian chờ trung bình cho HH phải lớn hơn thời gian chờ trung bình cho HT để bù đắp.
+
+HHTHHTHHHHTHTHTTT HHTHHTTHHHHTHTHTTT
+
+<!-- TODO: missing image reference -->
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+
+**HÌNH 9.5:** Tụ tập. (a) Các lần xuất hiện của HH có thể chồng lên nhau. (b) Các lần xuất hiện của HT phải tách biệt.
+</div>
+
+Các vấn đề liên quan cũng xảy ra trong lý thuyết thông tin khi nén một thông điệp, và trong di truyền học khi tìm kiếm các mẫu lặp lại (gọi là motif) trong các chuỗi trình tự DNA. ☐
+
+  </div>
+</div>
+
+Ví dụ cuối cùng trong phần này sử dụng suy nghĩ mơ ước cho cả xác suất và kỳ vọng để nghiên cứu một câu hỏi về một đi bộ ngẫu nhiên.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.1.10</div>
+    <div class="math-box-title">Đi bộ ngẫu nhiên trên các số nguyên</div>
+  </div>
+  <div class="math-box-content">
+
+Một người say bất tử dạo quanh ngẫu nhiên trên các số nguyên. Ông bắt đầu tại gốc tọa độ, và ở mỗi bước ông di chuyển 1 đơn vị sang phải hoặc 1 đơn vị sang trái, với xác suất bằng nhau, độc lập với tất cả các bước trước đó của ông. Cho $b$ là một googolplex (đây là $10^g$, trong đó $g = 10^{100}$ là một googol).
+
+(a) Tìm một biểu thức đơn giản cho xác suất rằng người say bất tử đến $b$ trước khi quay về gốc lần đầu tiên.
+
+(b) Tìm kỳ vọng số lần mà người say bất tử đến $b$ trước khi quay về gốc lần đầu tiên.
+
+**Giải:** (a) Gọi B là sự kiện rằng người say bất tử đến $b$ trước khi quay về gốc lần đầu tiên và gọi L là sự kiện rằng bước đầu tiên của ông là sang trái.
+
+$P(B|L) = 0$ vì bất kỳ đường đi nào từ -1 đến b đều phải đi qua 0. Đối với $P(B|L^c)$, chúng ta chính xác đang trong tình huống của bài toán gambler's ruin, nơi người chơi A bắt đầu với 1, người chơi B bắt đầu với (b-1), và các vòng chơi công bằng. Áp dụng kết quả đó, chúng ta có
+
+$$P(B)=P(B|L)P(L)+P(B|L^{c})P(L^{c})=\\frac{1}{b}\\cdot\\frac{1}{2}=\\frac{1}{2b}.$$
+
+(b) Gọi N là số lần ghé thăm b trước khi quay lại gốc lần đầu tiên, và gọi $p = 1/(2b)$ là xác suất tìm được trong (a). Khi đó
+
+$$E(N)=E(N|N=0)P(N=0)+E(N|N\\geq1)P(N\\geq1)=pE(N|N\\geq1).$$
+
+Phân phối có điều kiện của $N$ cho $N \\geq 1$ là $\\mathrm{FS}(p)$: cho rằng người đó đạt được $b$, do đối xứng có xác suất $p$ của quay lại gốc trước khi ghé thăm $b$ lần nữa (gọi là “thành công”) và xác suất $1 - p$ của quay lại $b$ lần nữa trước khi quay lại gốc (gọi là “thất bại”). Lưu ý rằng các lần thử độc lập với nhau vì tình huống giống nhau mỗi lần anh ta ở $b$, độc lập với lịch sử trước đó. Do đó $E(N|N \\geq 1) = 1/p$, và
+
+$$E(N)=pE(N|N\\geq1)=p\\cdot\\frac{1}{p}=1.$$
+
+Tuy nhiên, kết quả không phụ thuộc vào giá trị của b, và chứng minh của chúng ta không yêu cầu biết giá trị của p.
+
+  </div>
+</div>
+
+## 9.2 Kỳ vọng có điều kiện cho một biến ngẫu nhiên
+
+Trong phần này, chúng ta giới thiệu kỳ vọng có điều kiện cho một biến ngẫu nhiên. Đó là, chúng ta muốn hiểu điều gì có nghĩa là viết $E(Y|X)$ cho một biến ngẫu nhiên X. Chúng ta sẽ thấy rằng $E(Y|X)$ là một biến ngẫu nhiên mà, theo một nghĩa nào đó, là dự đoán tốt nhất của Y, giả sử chúng ta biết X.
+
+Chìa khóa để hiểu $E(Y|X)$ là trước hết hiểu $E(Y|X=x)$. Vì X = x là một sự kiện, $E(Y|X=x)$ chỉ là kỳ vọng có điều kiện của Y cho sự kiện này, và nó có thể được tính bằng phân phối có điều kiện của Y cho X = x.
+
+Nếu Y là rời rạc, chúng ta sử dụng PMF có điều kiện $P(Y = y|X = x)$ thay vì PMF không điều kiện $P(Y = y)$:
+
+$$E(Y|X=x)=\\sum_{y}yP(Y=y|X=x).$$
+
+Tương tự, nếu Y là liên tục, chúng ta sử dụng PDF có điều kiện $f_{Y|X}(y|x)$ thay vì PDF không điều kiện:
+
+$$E(Y|X=x)=\\int_{-\\infty}^{\\infty}y f_{Y|X}(y|x)dy.$$
+
+Lưu ý rằng vì chúng ta thực hiện tổng hoặc tích phân theo $y$, $E(Y|X=x)$ là một hàm số chỉ phụ thuộc vào $x$. Chúng ta có thể đặt tên cho hàm số này, ví dụ như $g$: để $g(x)=E(Y|X=x)$. Chúng ta xác định $E(Y|X)$ là biến ngẫu nhiên được tạo ra bằng cách xác định dạng của hàm số $g(x)$, sau đó thay $X$ vào thay cho $x$.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 9.2.1</div>
+    <div class="math-box-title">Kỳ vọng có điều kiện cho một biến ngẫu nhiên</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $g(x) = E(Y|X = x)$. Khi đó kỳ vọng có điều kiện của Y cho X, ký hiệu là $E(Y|X)$, được xác định là biến ngẫu nhiên $g(X)$. Nói cách khác, nếu sau khi thực hiện thí nghiệm X xác định thành $x$, thì $E(Y|X)$ xác định thành $g(x)$.
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 9.2.2</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Ký hiệu trong định nghĩa này đôi khi gây nhầm lẫn. Nó không nói “ $g(x) = E(Y|X = x)$, do đó $g(X) = E(Y|X = X)$, điều này bằng $E(Y)$ vì X = X luôn đúng”. Thay vào đó, chúng ta nên trước tiên tính hàm số $g(x)$, sau đó thay X vào thay cho $x$. Ví dụ, nếu $g(x) = x^2$, thì $g(X) = X^2$. Một sự nhầm lẫn tương tự là 5.3.2, về ý nghĩa của $F(X)$ trong tính phổ quát của Uniform.
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 9.2.3</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Theo định nghĩa, $E(Y|X)$ là một hàm số của X, do đó nó là một biến ngẫu nhiên. (Điều này không có nghĩa là không có ví dụ nào mà $E(Y|X)$ là một hằng số. Một hằng số là một biến ngẫu nhiên đặc biệt, và một hàm hằng của X. Ví dụ, nếu X và Y độc lập thì $E(Y|X) = E(Y)$, điều này là một hằng số.) Do đó, việc tính toán các đại lượng như $E(E(Y|X))$ và $\\operatorname{Var}(E(Y|X))$, tức là kỳ vọng và phương sai của biến ngẫu nhiên $E(Y|X)$, là hợp lý. Dễ bị mắc bẫy bởi các lỗi phân loại khi làm việc với kỳ vọng có điều kiện, vì vậy cần lưu ý rằng kỳ vọng có điều kiện dạng $E(Y|A)$ là các số, trong khi dạng $E(Y|X)$ là các biến ngẫu nhiên.
+
+  </div>
+</div>
+
+Dưới đây là một số ví dụ nhanh chóng về cách tính kỳ vọng có điều kiện. Trong cả hai ví dụ, chúng ta không cần thực hiện tổng hoặc tích phân để tìm $E(Y|X=x)$ vì có một cách tiếp cận trực tiếp hơn.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.2.4</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Một que dài 1 được gãy tại một điểm X được chọn ngẫu nhiên đều. Cho X = x, sau đó chúng ta chọn một điểm gãy khác Y đều trên khoảng [0, x]. Tìm $E(Y|X)$, và kỳ vọng và phương sai của nó.
+
+**Giải:** Từ mô tả của thí nghiệm, $X \\sim \\text{Unif}(0,1)$ và $Y|X = x \\sim \\text{Unif}(0,x)$. Sau đó $E(Y|X = x) = x/2$, do đó bằng cách thay X vào thay cho x, chúng ta có
+
+$$E(Y|X)=X/2.$$
+
+Kỳ vọng của $E(Y|X)$ là
+
+$$E(E(Y|X))=E(X/2)=1/4.$$
+
+(Chúng ta sẽ chứng minh trong phần tiếp theo rằng một tính chất tổng quát của kỳ vọng có điều kiện là $E(E(Y|X)) = E(Y)$, do đó cũng suy ra $E(Y) = 1/4$.) Phương sai của $E(Y|X)$ là
+
+$$\\operatorname{Var}(E(Y|X))=\\operatorname{Var}(X/2)=1/48.$$
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.2.5</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X, Y \\stackrel{1.1.d.}{\\sim}$ Expo($\\lambda$), tìm $E(\\max(X, Y) | \\min(X, Y))$.
+
+**Giải:** Cho $M = \\max(X, Y)$ và $L = \\min(X, Y)$. Nhờ tính chất nhớ, M - L độc lập với L, và $M - L \\sim \\text{Expo}(\\lambda)$ (xem Ví dụ 7.3.6). Do đó
+
+$$\\begin{aligned}&E(M|L=l)=E(L|L=l)+E(M-L|L=l)=l+E(M-L)=l+\\frac{1}{\\lambda},\\\\ &E(M|L)=L+\\frac{1}{\\lambda}.\\\\ \\end{aligned}$$
+
+và $E(M|L)=L+\\frac{1}{\\lambda}$.
+
+  </div>
+</div>`,az=`Kỳ vọng có điều kiện có một số tính chất rất hữu ích.
+
+- Bỏ qua điều gì độc lập: Nếu X và Y độc lập, thì $E(Y|X) = E(Y)$.
+- Lấy ra điều gì đã biết: Với bất kỳ hàm số nào $h$, $E(h(X)Y|X)=h(X)E(Y|X)$.
+- Tính tuyến tính: $E(Y_1 + Y_2 | X) = E(Y_1 | X) + E(Y_2 | X)$, và $E(cY | X) = cE(Y | X)$ với c là hằng số (trường hợp này là một trường hợp đặc biệt của việc lấy ra điều gì đã biết).
+- Luật Adam: $E(E(Y|X)) = E(Y)$.
+- Giải thích như một phép chiếu: Biến ngẫu nhiên $Y - E(Y|X)$, được gọi là phần dư từ việc sử dụng X để dự đoán Y, là không tương quan với $h(X)$ cho bất kỳ hàm số nào h.
+
+Hãy thảo luận từng tính chất riêng lẻ.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 9.3.1</div>
+    <div class="math-box-title">Bỏ qua điều gì độc lập</div>
+  </div>
+  <div class="math-box-content">
+
+Nếu X và Y độc lập, thì $E(Y|X) = E(Y)$.
+
+Điều này đúng vì tính độc lập cho thấy $E(Y|X = x) = E(Y)$ với mọi x, do đó $E(Y|X) = E(Y)$. Về mặt trực quan, nếu X không cung cấp thông tin nào về Y, thì dự đoán tốt nhất cho Y, ngay cả khi chúng ta biết X, vẫn là kỳ vọng không điều kiện $E(Y)$. Tuy nhiên, điều ngược lại là sai: một ví dụ phản chứng được đưa ra trong Ví dụ 9.3.3 dưới đây.
+
+  </div>
+</div>
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 9.3.2</div>
+    <div class="math-box-title">Lấy ra điều gì đã biết</div>
+  </div>
+  <div class="math-box-content">
+
+Với bất kỳ hàm số nào h,
+
+$$E(h(X)Y|X)=h(X)E(Y|X).$$
+
+Về mặt trực quan, khi chúng ta lấy kỳ vọng có điều kiện theo X, chúng ta đang coi X như một hằng số đã biết. Khi đó bất kỳ hàm nào của X, nói như $h(X)$, cũng hành xử như một hằng số trong khi đang điều kiện theo X. Việc lấy ra điều gì đã biết là phiên bản có điều kiện của sự kiện không điều kiện rằng $E(cY) = cE(Y)$. Sự khác biệt là $E(cY) = cE(Y)$ khẳng định hai số bằng nhau, trong khi việc lấy ra điều gì đã biết khẳng định hai biến ngẫu nhiên bằng nhau.
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.3.3</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Cho $Z \\sim \\mathcal{N}(0,1)$ và $Y = Z^2$. Tìm $E(Y|Z)$ và $E(Z|Y)$.
+
+**Giải:** Vì Y là một hàm của Z, $E(Y|Z) = E(Z^2|Z) = Z^2$ bằng cách lấy ra điều đã biết. Để tìm $E(Z|Y)$, nhận thấy rằng điều kiện Y = y, Z bằng $\\sqrt{y}$ hoặc $-\\sqrt{y}$ với xác suất bằng nhau nhờ vào tính đối xứng của chuẩn chuẩn, do đó $E(Z|Y = y) = 0$ và $E(Z|Y) = 0$.
+
+Trong trường hợp này, mặc dù Y cung cấp rất nhiều thông tin về Z, làm thu hẹp các giá trị có thể của Z chỉ còn hai giá trị, Y chỉ cho chúng ta biết về độ lớn của Z mà không phải dấu của nó. Chính vì vậy, $E(Z|Y) = E(Z)$ dù có sự phụ thuộc giữa Z và Y. Ví dụ này minh họa rằng nghịch đảo của Định lý 9.3.1 là sai. ☐
+
+  </div>
+</div>
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 9.3.4</div>
+    <div class="math-box-title">Tính tuyến tính</div>
+  </div>
+  <div class="math-box-content">
+
+$E(Y_{1} + Y_{2}|X) = E(Y_{1}|X) + E(Y_{2}|X)$.
+
+Kết quả này là phiên bản điều kiện của sự kiện không điều kiện rằng $E(Y_{1} + Y_{2}) = E(Y_{1}) + E(Y_{2})$, và là đúng vì xác suất điều kiện là xác suất.
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 9.3.5</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Viết " $E(Y|X_1+X_2)=E(Y|X_1)+E(Y|X_2)$ ” là sai; tính tuyến tính áp dụng ở phía bên trái của thanh điều kiện, không phải ở phía bên phải!
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.3.6</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X_1, \\ldots, X_n$ là i.i.d., và $S_n = X_1 + \\cdots + X_n$. Tìm $E(X_1 | S_n)$.
+
+**Giải:** Bằng tính đối xứng,
+
+$$E(X_{1}|S_{n})=E(X_{2}|S_{n})=\\cdots=E(X_{n}|S_{n}),$$
+
+và bằng tính tuyến tính,
+
+$$E(X_{1}|S_{n})+\\cdots+E(X_{n}|S_{n})=E(S_{n}|S_{n})=S_{n}.$$
+
+Do đó,
+
+$$E(X_{1}|S_{n})=S_{n}/n=\\bar{X}_{n},$$
+
+trung bình mẫu của các $X_j$ 's. Đây là một kết quả trực quan: nếu chúng ta có 2 biến ngẫu nhiên độc lập và đồng phân phối $X_1, X_2$ và biết rằng $X_1 + X_2 = 10$, điều hợp lý là đoán rằng $X_1$ là 5 (tính đến một nửa tổng). Tương tự, nếu chúng ta có n biến ngẫu nhiên độc lập và đồng phân phối và biết tổng của chúng, dự đoán tốt nhất cho bất kỳ một trong số chúng là trung bình mẫu.
+
+  </div>
+</div>
+
+Định lý tiếp theo liên kết kỳ vọng điều kiện với kỳ vọng không điều kiện. Nó có nhiều tên gọi, bao gồm luật tổng kỳ vọng, luật lặp kỳ vọng (được gọi bằng một acronyms rất tệ cho điều đúng đắn), và tính chất tháp. Chúng ta gọi nó là Adam's law vì nó được sử dụng thường xuyên đến mức xứng đáng có một cái tên ngắn gọn, và vì nó thường được sử dụng cùng với một luật khác mà chúng ta sẽ gặp sau này, có một cái tên bổ sung.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 9.3.7</div>
+    <div class="math-box-title">Adam's law</div>
+  </div>
+  <div class="math-box-content">
+
+Với bất kỳ biến ngẫu nhiên nào X và Y,
+
+$$E(E(Y|X))=E(Y).$$
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 9.3.7</div>
+  </div>
+  <div class="math-box-content">
+
+Chúng ta trình bày chứng minh trong trường hợp X và Y đều rời rạc (chứng minh cho các trường hợp khác tương tự). Cho $E(Y|X) = g(X)$. Chúng ta tiếp tục bằng cách
+
+LOTUS, mở rộng định nghĩa của $g(x)$ để có được tổng kép, và sau đó đổi thứ tự của phép tổng:
+
+$$\\begin{aligned}E(g(X))&=\\sum_{x}g(x)P(X=x)\\\\&=\\sum_{x}\\left(\\sum_{y}yP(Y=y|X=x)\\right)P(X=x)\\\\&=\\sum_{x}\\sum_{y}yP(X=x)P(Y=y|X=x)\\\\&=\\sum_{y}y\\sum_{x}P(X=x,Y=y)\\\\&=\\sum_{y}yP(Y=y)=E(Y).\\end{aligned}$$
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Luật của Adam là một phiên bản ngắn gọn hơn, tổng quát hơn của định lý kỳ vọng tổng hợp (Định lý 9.1.5). Với X rời rạc, các phát biểu
+
+$$E(Y)=\\sum_{x}E(Y|X=x)P(X=x)$$
+
+và
+
+$$E(Y)=E(E(Y|X))$$
+
+có cùng ý nghĩa, vì nếu ta để $E(Y|X=x)=g(x)$, thì
+
+$$E(E(Y|X))=E(g(X))=\\sum_{x}g(x)P(X=x)=\\sum_{x}E(Y|X=x)P(X=x).$$
+
+Với luật của Adam, ta có một chiến lược mạnh mẽ để tìm kỳ vọng $E(Y)$, bằng cách điều kiện hóa trên một biến ngẫu nhiên X mà ta mong muốn biết. Trước hết lấy $E(Y|X)$ bằng cách coi X là đã biết, và sau đó lấy kỳ vọng của $E(Y|X)$. Chúng ta sẽ thấy nhiều ví dụ về điều này sau này trong chương.
+
+Tương tự như có các dạng của quy tắc Bayes và LOTP với điều kiện bổ sung, như đã thảo luận trong Chương 2, cũng có một phiên bản của luật của Adam với điều kiện bổ sung.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 9.3.8</div>
+    <div class="math-box-title">Luật của Adam với điều kiện bổ sung</div>
+  </div>
+  <div class="math-box-content">
+
+Với bất kỳ biến ngẫu nhiên nào X, Y, Z,
+
+$$E(E(Y|X,Z)|Z)=E(Y|Z).$$
+
+Phương trình trên là luật của Adam, ngoại trừ có thêm điều kiện bổ sung trên Z ở mọi nơi. Nó đúng vì xác suất có điều kiện là xác suất. Do đó, ta có thể sử dụng luật của Adam để giúp ta tìm cả kỳ vọng không điều kiện và kỳ vọng có điều kiện.
+
+  </div>
+</div>
+
+Sử dụng luật của Adam, ta cũng có thể chứng minh mục cuối cùng trong danh sách tính chất của kỳ vọng có điều kiện.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 9.3.9</div>
+    <div class="math-box-title">Giải thích qua phép chiếu</div>
+  </div>
+  <div class="math-box-content">
+
+Với bất kỳ hàm số nào $h$, biến ngẫu nhiên $Y - E(Y|X)$ không tương quan với $h(X)$. Tương đương,
+
+$$E((Y-E(Y|X))h(X))=0.$$
+
+(Điều này tương đương vì $E(Y - E(Y|X)) = 0$, theo tính tuyến tính và luật Adam.)
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 9.3.9</div>
+  </div>
+  <div class="math-box-content">
+
+Chúng ta có
+
+$$\\begin{aligned}E((Y-E(Y|X))h(X))&=E(h(X)Y)-E(h(X)E(Y|X))\\\\&=E(h(X)Y)-E(E(h(X)Y|X))\\end{aligned}$$
+
+theo Định lý 9.3.2 (ở đây chúng ta "đưa lại những gì đã biết" vào kỳ vọng bên trong). Theo luật Adam, số hạng thứ hai bằng $E(h(X)Y)$.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_418_729_956_1027.jpg" alt="Kỳ vọng có điều kiện như một phép chiếu" style="max-width: 38%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 9.6:** Kỳ vọng có điều kiện $E(Y|X)$ là phép chiếu của $Y$ lên không gian tất cả các hàm số của $X$, được thể hiện ở đây dưới dạng một mặt phẳng. Sai số $Y - E(Y|X)$ vuông góc với mặt phẳng: nó vuông góc với (không tương quan với) bất kỳ hàm số nào của $X$.
+</div>
+
+Từ góc nhìn hình học, chúng ta có thể hình dung Định lý 9.3.9 như trong Hình 9.6. Theo một nghĩa nào đó (sẽ mô tả dưới đây), $E(Y|X)$ là hàm số của X gần nhất với Y; chúng ta nói rằng $E(Y|X)$ là phép chiếu của Y vào không gian tất cả các hàm số của X. Đoạn "đường thẳng" từ Y đến $E(Y|X)$ trong hình là vuông góc (vuông góc) với "mặt phẳng", vì bất kỳ đường khác nào từ Y đến $E(Y|X)$ sẽ dài hơn. Tính vuông góc này hóa ra là ý nghĩa hình học của Định lý 9.3.9.
+
+Chi tiết về góc nhìn này được trình bày trong phần tiếp theo, phần này được đánh dấu sao vì nó yêu cầu hiểu biết về đại số tuyến tính. Tuy nhiên, ngay cả khi không đi sâu vào đại số tuyến tính, hình ảnh phép chiếu vẫn cho ta một số trực quan hữu ích. Như đã đề cập trước đó, ta có thể xem $E(Y|X)$ như một dự đoán cho Y dựa vào X. Đây là một bài toán cực kỳ phổ biến trong thống kê: dự đoán hoặc ước lượng các quan sát tương lai hoặc tham số chưa biết dựa trên dữ liệu. Ý nghĩa phép chiếu của kỳ vọng có điều kiện cho thấy rằng $E(Y|X)$ là dự đoán tốt nhất cho Y dựa vào X, theo nghĩa nó là hàm số của X có sai số bình phương trung bình nhỏ nhất (kỳ vọng của bình phương sai khác giữa Y và dự đoán của Y).
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.3.10</div>
+    <div class="math-box-title">Hồi quy tuyến tính</div>
+  </div>
+  <div class="math-box-content">
+
+Một phương pháp cực kỳ được sử dụng rộng rãi trong phân tích dữ liệu thống kê là hồi quy tuyến tính. Trong dạng cơ bản nhất, mô hình hồi quy tuyến tính sử dụng một biến giải thích duy nhất X để dự đoán một biến phụ thuộc Y, và nó giả định rằng kỳ vọng có điều kiện của Y là tuyến tính theo X:
+
+$$E(Y|X)=a+bX.$$
+
+(a) Chứng minh rằng một cách biểu diễn tương đương của điều này là viết
+
+$$Y=a+b X+\\epsilon,$$
+
+trong đó $\\epsilon$ là một biến ngẫu nhiên (gọi là sai số) với $E(\\epsilon|X)=0$.
+
+(b) Giải để tìm các hằng số a và b theo $E(X)$, $E(Y)$, $\\mathrm{Cov}(X,Y)$, và $\\mathrm{Var}(X)$.
+
+**Giải:** (a) Cho $Y = a + bX + \\epsilon$, với $E(\\epsilon|X) = 0$. Khi đó theo tính tuyến tính,
+
+$$E(Y|X)=E(a|X)+E(bX|X)+E(\\epsilon|X)=a+bX.$$
+
+Ngược lại, giả sử rằng $E(Y|X) = a + bX$, và định nghĩa
+
+$$\\epsilon=Y-(a+bX).$$
+
+Khi đó $Y = a + bX + \\epsilon$, với
+
+$$E(\\epsilon|X)=E(Y|X)-E(a+bX|X)=E(Y|X)-(a+bX)=0.$$
+
+(b) Trước hết, theo luật Adam, lấy kỳ vọng của cả hai vế ta được
+
+$$E(Y)=a+bE(X).$$
+
+Lưu ý rằng $\\epsilon$ có kỳ vọng bằng 0 và X và $\\epsilon$ không tương quan, vì
+
+$$E(\\epsilon)=E(E(\\epsilon|X))=E(0)=0$$
+
+và
+
+$$E(\\epsilon X)=E(E(\\epsilon X|X))=E(X E(\\epsilon|X))=E(0)=0.$$
+
+Lấy hiệp phương sai với X của cả hai vế trong $Y = a + bX + \\epsilon$, ta có
+
+$$\\mathrm{Cov}(X,Y)=\\mathrm{Cov}(X,a)+b\\mathrm{Cov}(X,X)+\\mathrm{Cov}(X,\\epsilon)=b\\mathrm{Var}(X).$$
+
+Do đó,
+
+$$b=\\frac{Cov(X,Y)}{Var(X)},$$
+
+$$a=E(Y)-b E(X)=E(Y)-\\frac{Cov(X,Y)}{Var(X)}\\cdot E(X).$$
+
+  </div>
+</div>`,oz=`Phần này giải thích chi tiết hơn góc nhìn hình học được thể hiện trong Hình 9.6, sử dụng một số khái niệm từ đại số tuyến tính. Xét không gian vector bao gồm tất cả các biến ngẫu nhiên trên một không gian xác suất nhất định, sao cho tất cả các biến ngẫu nhiên đều có phương sai hữu hạn. Mỗi vector hoặc điểm trong không gian là một biến ngẫu nhiên (ở đây chúng ta sử dụng "vector" theo nghĩa của đại số tuyến tính, không phải theo nghĩa của vector ngẫu nhiên từ Chương 7). Định nghĩa tích trong của hai biến ngẫu nhiên U và V là
+
+$$\\langle U,V\\rangle=E(U V).$$
+
+(Để định nghĩa này thỏa mãn các tiên đề của tích trong, chúng ta cần quy ước rằng hai biến ngẫu nhiên được coi là giống nhau nếu chúng bằng nhau với xác suất 1.)
+
+Độ dài bình phương của một biến ngẫu nhiên X là
+
+$$\\left|\\left|X\\right|\\right|^{2}=\\left\\langle X,X\\right\\rangle=E X^{2},$$
+
+và khoảng cách bình phương giữa hai biến ngẫu nhiên U và V là
+
+$$\\left|\\left|U-V\\right|\\right|^{2}=E(U-V)^{2}.$$
+
+Các cách diễn giải trở nên đặc biệt đẹp nếu $E(U) = E(V) = 0$, vì lúc đó:
+
+- $\\|U\\|^2 = \\mathrm{Var}(U)$, và $\\|U\\| = \\mathrm{SD}(U)$.
+- $\\langle U,V\\rangle = \\mathrm{Cov}(U,V)$, và cosin của "góc" giữa U và V là $\\mathrm{Corr}(U,V)$.
+- U và V vuông góc (tức là $\\langle U, V \\rangle = 0$) nếu và chỉ nếu chúng không tương quan.
+
+Để diễn giải $E(Y|X)$ theo hình học, hãy xem không gian của tất cả các biến ngẫu nhiên (có phương sai hữu hạn) có thể biểu diễn dưới dạng hàm của X. Đây là một không gian con của không gian vector. Trong Hình 9.6, không gian con của các biến ngẫu nhiên có dạng $h(X)$ được biểu diễn bằng một mặt phẳng. Để có được $E(Y|X)$, ta chiếu Y lên mặt phẳng đó. Khi đó, phần dư $Y - E(Y|X)$ vuông góc với $h(X)$ với mọi hàm $h$, và $E(Y|X)$ là hàm của X dự đoán tốt nhất Y, nơi "tốt nhất" ở đây có nghĩa là sai số bình phương trung bình $E(Y - g(X))^2$ được tối thiểu hóa bằng cách chọn $g(X) = E(Y|X)$.
+
+Cách diễn giải qua phép chiếu là một cách hữu ích để suy nghĩ về nhiều tính chất của kỳ vọng điều kiện. Ví dụ, nếu $Y = h(X)$ là một hàm của X, thì Y chính nó đã nằm trong mặt phẳng, do đó nó chính là hình chiếu của nó; điều này giải thích tại sao
+
+$$E(h(X)|X)=h(X).$$
+
+Chúng ta có thể xem kỳ vọng không điều kiện cũng là một phép chiếu: $E(Y)$ có thể được xem như $E(Y|0)$, hình chiếu của Y lên không gian của tất cả các hằng số (thực ra, $E(Y)$ là hằng số c làm nhỏ nhất $E(Y-c)^2$, như chúng ta đã chứng minh trong Định lý 6.1.4).
+
+Chúng ta có thể bây giờ cũng cho một cách diễn giải hình học cho luật của Adam: $E(Y)$ nói rằng chiếu Y trong một bước lên không gian của tất cả các hằng số; $E(E(Y|X))$ nói rằng làm như vậy trong hai bước, bằng cách đầu tiên chiếu lên mặt phẳng và sau đó chiếu $E(Y|X)$ lên không gian của tất cả các hằng số, nào là một đường thẳng trong mặt phẳng đó. Luật của Adam nói rằng phương pháp một bước và hai bước cho cùng một kết quả.
+
+Trong phần tiếp theo chúng ta sẽ giới thiệu luật của Eve, nào có cùng mục đích cho phương sai như luật của Adam cho kỳ vọng. Như một cái nhìn trước và để khám phá thêm cách diễn giải hình học của kỳ vọng điều kiện, hãy xem $\\operatorname{Var}(Y)$ từ góc độ của phần này. Giả sử rằng $E(Y) = 0$ (nếu $E(Y) \\neq 0$, chúng ta có thể trung tâm Y bằng cách trừ $E(Y)$; việc làm như vậy không ảnh hưởng đến phương sai của Y).
+
+Chúng ta có thể phân tích $Y$ thành hai thành phần trực giao, thành phần dư $Y - E(Y|X)$ và kỳ vọng điều kiện $E(Y|X)$:
+
+$$Y=(Y-E(Y|X))+E(Y|X).$$
+
+Hai thành phần này trực giao vì $Y - E(Y|X)$ không tương quan với bất kỳ hàm nào của X, và $E(Y|X)$ là một hàm của X. Do đó theo định lý Pythagoras,
+
+$$||Y||^{2}=||Y-E(Y|X)||^{2}+||E(Y|X)||^{2}.$$
+
+Tức là,
+
+$$\\operatorname{Var}(Y)=\\operatorname{Var}(Y-E(Y|X))+\\operatorname{Var}(E(Y|X)).$$
+
+Như chúng ta sẽ thấy trong phần tiếp theo, danh tính này là một dạng của luật của Eve. Do đó, luật của Eve, nào có thể trông bí ẩn ở lần đầu nhìn thấy, có thể được diễn giải chỉ là định lý Pythagoras cho một "tam giác" nào có các cạnh là các vector $Y - E(Y|X)$, $E(Y|X)$, và Y.`,sz=`Một khi chúng ta đã định nghĩa kỳ vọng điều kiện cho một biến ngẫu nhiên, chúng ta có một cách tự nhiên để định nghĩa phương sai điều kiện cho một biến ngẫu nhiên: thay thế tất cả các lần xuất hiện của $E(\\cdot)$ trong định nghĩa của phương sai không điều kiện bằng $E(\\cdot|X)$.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 9.5.1</div>
+    <div class="math-box-title">Phương sai điều kiện</div>
+  </div>
+  <div class="math-box-content">
+
+Phương sai điều kiện của Y cho X là
+
+$$\\operatorname{Var}(Y|X)=E((Y-E(Y|X))^{2}|X).$$
+
+Điều này tương đương với
+
+$$\\operatorname{Var}(Y|X)=E(Y^{2}|X)-(E(Y|X))^{2}.$$
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 9.5.2</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Giống như $E(Y|X)$, $\\operatorname{Var}(Y|X)$ là một biến ngẫu nhiên, và nó là một hàm của X.
+
+  </div>
+</div>
+
+Vì phương sai có điều kiện được định nghĩa thông qua kỳ vọng có điều kiện, chúng ta có thể sử dụng các kết quả về kỳ vọng có điều kiện để giúp chúng ta tính phương sai có điều kiện. Đây là một ví dụ.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.5.3</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Cho $Z \\sim \\mathcal{N}(0,1)$ và $Y = Z^2$. Tìm $\\text{Var}(Y|Z)$ và $\\text{Var}(Z|Y)$.
+
+**Giải:** Không cần thực hiện bất kỳ phép tính nào, chúng ta cũng có thể thấy rằng $\\operatorname{Var}(Y|Z) = 0$: điều kiện trên Z, Y là một hằng số đã biết, và phương sai của một hằng số là 0. Bằng cùng lập luận này, $\\operatorname{Var}(h(Z)|Z) = 0$ cho bất kỳ hàm số nào h.
+
+Để tìm $\\operatorname{Var}(Z|Y)$, áp dụng định nghĩa:
+
+$$\\operatorname{Var}(Z|Z^{2})=E(Z^{2}|Z^{2})-(E(Z|Z^{2}))^{2}.$$
+
+Số hạng đầu tiên bằng $Z^2$. Số hạng thứ hai bằng 0 do tính đối xứng, như chúng ta đã tìm thấy trong Ví dụ 9.3.3. Do đó $\\operatorname{Var}(Z|Z^2) = Z^2$, mà chúng ta có thể viết lại là $\\operatorname{Var}(Z|Y) = Y$.
+
+  </div>
+</div>
+
+Trong ví dụ tiếp theo, chúng ta sẽ thực hành làm việc với kỳ vọng có điều kiện và phương sai có điều kiện trong bối cảnh của Phân phối chuẩn hai chiều.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.5.4</div>
+    <div class="math-box-title">Kỳ vọng có điều kiện và phương sai có điều kiện trong phân phối chuẩn hai chiều</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $(Z, W)$ là phân phối chuẩn hai chiều, với $\\text{Corr}(Z, W) = \\rho$ và $Z, W$ có phân phối biên $\\mathcal{N}(0, 1)$. Tìm $E(W|Z)$ và $\\text{Var}(W|Z)$.
+
+**Giải:** Chúng ta có thể giả định rằng $(Z, W)$ đã được xây dựng như trong Ví dụ 7.5.10, vì $E(W|Z)$ và $\\operatorname{Var}(W|Z)$ chỉ phụ thuộc vào phân phối chung của $(Z, W)$, không phụ thuộc vào phương pháp cụ thể được sử dụng để tạo ra $(Z, W)$. Do đó hãy
+
+$$Z=X$$
+
+$$W=\\rho X+\\sqrt{1-\\rho^{2}}Y,$$
+
+với X, Y độc lập và cùng phân phối $\\mathcal{N}(0,1)$. Chúng ta có thể giải bài toán một cách rất gọn gàng, mà không cần phải sử dụng các tích phân phức tạp dựa trên mật độ xác suất chung của phân phối chuẩn hai chiều. Kỳ vọng có điều kiện là
+
+$$E(W|Z)=E(W|X)=\\rho X+\\sqrt{1-\\rho^{2}}E(Y|X)=\\rho X+\\sqrt{1-\\rho^{2}}E(Y)=\\rho Z,$$
+
+vì X và Y độc lập. Và phương sai có điều kiện là
+
+$$\\mathrm{Var}(W|Z)=\\mathrm{Var}(W|X)=\\mathrm{Var}(\\sqrt{1-\\rho^{2}}Y|X)=(1-\\rho^{2})\\mathrm{Var}(Y)=1-\\rho^{2},$$
+
+vì $\\rho X$ đóng vai trò là một hằng số nếu chúng ta biết X, và Y độc lập với X.
+
+Thật thú vị, lập luận giống nhau với vai trò của Z và W được đổi chỗ cho nhau cho thấy rằng
+
+$$E(Z|W)=\\rho W,\\mathrm{and}\\operatorname{Var}(Z|W)=1-\\rho^{2}.$$
+
+Một người có thể đã suy đoán rằng nếu chúng ta nên nhân với $\\rho$ để đi từ một giá trị quan sát của Z đến một giá trị dự đoán của W, thì chúng ta nên chia cho $\\rho$ để đi từ một giá trị quan sát của W đến một giá trị dự đoán của Z. Nhưng các kết quả trên nói rằng ta phải nhân với cùng một $\\rho$, bất kể việc sử dụng Z để dự đoán W hay ngược lại! Điều này có liên quan chặt chẽ đến sự thật rằng độ tương quan là đối xứng (Corr(Z,W) = $\\rho = Corr(W,Z)$) và đến một khái niệm quan trọng trong thống kê được gọi là hồi quy về trung bình. □
+
+  </div>
+</div>
+
+Chúng ta đã học trong phần trước rằng luật của Adam liên hệ giữa kỳ vọng điều kiện và kỳ vọng không điều kiện. Một kết quả đi kèm với luật của Adam là luật của Eve, liên hệ giữa phương sai điều kiện và phương sai không điều kiện.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 9.5.5</div>
+    <div class="math-box-title">Luật của Eve</div>
+  </div>
+  <div class="math-box-content">
+
+Với bất kỳ biến ngẫu nhiên nào X và Y,
+
+$$\\operatorname{Var}(Y)=E(\\operatorname{Var}(Y|X))+\\operatorname{Var}(E(Y|X)).$$
+
+Thứ tự của $E'$ s và Var's ở vế phải tạo thành EVVE, do đó luật này được gọi là luật của Eve. Luật của Eve cũng được gọi là luật tổng phương sai hoặc công thức phân rã phương sai.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 9.5.5</div>
+  </div>
+  <div class="math-box-content">
+
+Đặt $g(X) = E(Y|X)$. Theo luật của Adam, $E(g(X)) = E(Y)$. Sau đó
+
+$$E(\\mathrm{Var}(Y|X))=E(E(Y^{2}|X)-g(X)^{2})=E(Y^{2})-E(g(X)^{2}),$$
+
+$$\\mathrm{Var}(E(Y|X))=E(g(X)^{2})-(Eg(X))^{2}=E(g(X)^{2})-(EY)^{2}.$$
+
+Cộng các phương trình này, ta có luật của Eve.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Để trực quan hóa luật của Eve, hãy tưởng tượng một quần thể nơi mỗi người có một giá trị của X và một giá trị của Y. Chúng ta có thể chia quần thể này thành các quần thể con, mỗi quần thể tương ứng với một giá trị có thể có của X. Ví dụ, nếu X đại diện cho tuổi và Y đại diện cho chiều cao, chúng ta có thể phân nhóm người dựa trên tuổi. Sau đó có hai nguồn góp phần vào sự biến thiên trong chiều cao của người trong quần thể tổng thể. Thứ nhất, trong mỗi nhóm tuổi, người có chiều cao khác nhau. Lượng biến thiên trung bình trong chiều cao trong mỗi nhóm tuổi là biến thiên trong nhóm, $E(\\text{Var}(Y|X))$. Thứ hai, giữa các nhóm tuổi, chiều cao trung bình khác nhau. Phương sai của chiều cao trung bình giữa các nhóm tuổi là biến thiên giữa nhóm, $\\text{Var}(E(Y|X))$. Luật của Eve nói rằng để có phương sai tổng của Y, ta chỉ cần cộng các nguồn biến thiên này.
+
+Hình 9.7 minh họa luật của Eve trong trường hợp đơn giản khi ta có ba nhóm tuổi. Lượng biến thiên trung bình trong mỗi nhóm $X = 1$, $X = 2$, và $X = 3$ là biến thiên trong nhóm, $E(\\text{Var}(Y|X))$. Phương sai của các giá trị trung bình nhóm $E(Y|X = 1)$, $E(Y|X = 2)$, và $E(Y|X = 3)$ là biến thiên giữa nhóm, $\\text{Var}(E(Y|X))$.
+
+Một cách khác để hiểu luật của Eve là thông qua dự đoán. Nếu chúng ta muốn dự đoán chiều cao của một người dựa trên tuổi của họ, tình huống lý tưởng là nếu mọi người trong một nhóm tuổi có cùng chiều cao, trong khi các nhóm tuổi khác có chiều cao khác nhau. Sau đó, biết tuổi của một người, chúng ta có thể dự đoán chiều cao của họ một cách hoàn hảo. Nói cách khác, tình huống lý tưởng cho dự đoán là không có biến thiên trong nhóm
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_348_140_566_272.jpg" alt="X = 1" style="max-width: 15%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem;" />
+  <img src="imgs/img_in_image_box_591_139_807_269.jpg" alt="X = 2" style="max-width: 15%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-right: 1rem;" />
+  <img src="imgs/img_in_image_box_834_139_1051_269.jpg" alt="X = 3" style="max-width: 15%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+
+**HÌNH 9.7:** Luật của Eve nói rằng phương sai tổng thể là tổng của phương sai trong nhóm và phương sai giữa các nhóm.
+</div>
+
+về chiều cao, bởi vì phương sai trong nhóm không thể được giải thích bởi sự khác biệt về độ tuổi. Vì lý do này, phương sai trong nhóm cũng được gọi là phương sai không giải thích được, và phương sai giữa các nhóm cũng được gọi là phương sai được giải thích. Luật của Eve nói rằng phương sai tổng thể của Y là tổng của phương sai không giải thích được và phương sai được giải thích.
+
+Chúng ta cũng có thể viết luật của Eve dưới dạng
+
+$$\\operatorname{Var}(Y)=\\operatorname{Var}(Y-E(Y|X))+\\operatorname{Var}(E(Y|X)),$$
+
+vì khi cho W là phần dư $Y - E(Y|X)$,
+
+$$\\operatorname{Var}(Y-E(Y|X))=E(W^{2})=E(E(W^{2}|X))=E(\\operatorname{Var}(Y|X)).$$
+
+Lại một lần nữa, điều này nói rằng chúng ta có thể phân tích phương sai thành phương sai trong nhóm cộng với phương sai giữa các nhóm.
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 9.5.6</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Gọi Y là một biến ngẫu nhiên và A là một sự kiện. Không đúng khi nói “Var(Y) = Var(Y|A)P(A) + Var(Y|A^c)P(A^c)”, ngay cả khi nó trông giống với định luật kỳ vọng tổng thể. (Để có một phản ví dụ đơn giản, giả sử Y ~ Bern(1/2) và A là sự kiện Y = 0. Khi đó Var(Y|A) và Var(Y|A^c) đều bằng 0, nhưng Var(Y) = 1/4.)
+
+Thay vào đó, chúng ta nên sử dụng luật của Eve nếu muốn điều kiện hóa dựa trên việc A có xảy ra hay không: cho I là chỉ số của A,
+
+$$\\operatorname{Var}(Y)=E(\\operatorname{Var}(Y|I))+\\operatorname{Var}(E(Y|I)).$$
+
+Để thấy biểu thức này liên quan đến “biểu thức sai”, hãy cho
+
+$$p=P(A),q=P(A^{c}),a=E(Y|A),b=E(Y|A^{c}),v=\\operatorname{Var}(Y|A),w=\\operatorname{Var}(Y|A^{c}).$$
+
+Khi đó $E(Y|I)$ là a với xác suất $p$ và $b$ với xác suất $q$, và $\\mathrm{Var}(Y|I)$ là $v$ với xác suất $p$ và $w$ với xác suất $q$. Do đó
+
+$$E(\\mathrm{Var}(Y|I))=vp+wq=\\mathrm{Var}(Y|A)P(A)+\\mathrm{Var}(Y|A^{c})P(A^c),$$
+
+điều này chính xác là “biểu thức sai”, và $\\operatorname{Var}(Y)$ bao gồm biểu thức này cùng với số hạng
+
+$$\\operatorname{Var}(E(Y|I))=a^{2}p+b^{2}q-(ap+bq)^{2}.$$
+
+Việc tính đến cả phương sai trong nhóm và phương sai giữa các nhóm là rất quan trọng.
+
+  </div>
+</div>
+
+Chúng ta kết thúc chương này với một số ví dụ cho thấy cách Adam’s law và Eve’s law cho phép chúng ta tìm giá trị kỳ vọng và phương sai của các biến ngẫu nhiên phức tạp, đặc biệt là trong các tình huống liên quan đến nhiều cấp độ ngẫu nhiên.
+
+Trong ví dụ đầu tiên của chúng ta, biến ngẫu nhiên quan tâm là tổng ngẫu nhiên: tổng của một số ngẫu nhiên các biến ngẫu nhiên. Do đó có hai cấp độ ngẫu nhiên: đầu tiên, mỗi số hạng trong tổng là một biến ngẫu nhiên; thứ hai, số lượng các số hạng trong tổng cũng là một biến ngẫu nhiên.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.6.1</div>
+    <div class="math-box-title">Tổng ngẫu nhiên</div>
+  </div>
+  <div class="math-box-content">
+
+Một cửa hàng nhận được N khách hàng trong một ngày, nơi N là một biến ngẫu nhiên có kỳ vọng hữu hạn và phương sai hữu hạn. Gọi $X_j$ là số tiền tiêu dùng bởi khách hàng thứ j tại cửa hàng. Giả sử rằng mỗi $X_j$ có kỳ vọng $\\mu$ và phương sai $\\sigma^2$, và rằng N và tất cả các $X_j$ là độc lập với nhau. Tìm kỳ vọng và phương sai của tổng ngẫu nhiên $X = \\sum_{j=1}^{N} X_j$, đó là doanh thu tổng cộng của cửa hàng trong một ngày, theo $\\mu$, $\\sigma^2$, $E(N)$, và $\\operatorname{Var}(N)$.
+
+**Giải:** Vì $X$ là một tổng, điều đầu tiên chúng ta có thể nghĩ là tuyên bố “ $E(X) = N\\mu$ nhờ tính tuyến tính”. Rất tiếc, điều này sẽ là một sai lầm loại, vì $E(X)$ là một số và $N\\mu$ là một biến ngẫu nhiên. Chìa khóa là $X$ không chỉ là một tổng, mà là một tổng ngẫu nhiên; số lượng các số hạng mà chúng ta đang cộng lại cũng là ngẫu nhiên, trong khi tính tuyến tính áp dụng cho các tổng có số lượng cố định các số hạng.
+
+Tuy nhiên, sai lầm loại này thực ra gợi ý chiến lược đúng: nếu chỉ cần chúng ta được phép xem N là một hằng số, thì tính tuyến tính sẽ áp dụng. Vì vậy, hãy điều kiện hóa theo N. Nhờ tính tuyến tính của kỳ vọng có điều kiện,
+
+$$E(X|N)=E\\left(\\sum_{j=1}^{N}X_{j}|N\\right)=\\sum_{j=1}^{N}E(X_{j}|N)=\\sum_{j=1}^{N}E(X_{j})=N\\mu.$$
+
+Chúng ta đã sử dụng tính độc lập của các $X_j$ và $N$ để khẳng định $E(X_j|N) = E(X_j)$ với mọi $j$. Lưu ý rằng phát biểu “ $E(X|N) = N\\mu$ ” không phải là một sai lầm loại vì cả hai vế của đẳng thức đều là biến ngẫu nhiên là hàm của $N$. Cuối cùng, nhờ Adam’s law,
+
+$$E(X)=E(E(X|N))=E(N\\mu)=\\mu E(N).$$
+
+Đây là một kết quả đẹp: doanh thu trung bình tổng cộng là số tiền trung bình tiêu dùng mỗi khách hàng, nhân với số lượng khách hàng trung bình.
+
+Đối với $\\operatorname{Var}(X)$, chúng ta cũng điều kiện hóa theo N để tìm $\\operatorname{Var}(X|N)$:
+
+$$\\mathrm{Var}(X|N)=\\mathrm{Var}\\left(\\sum_{j=1}^{N}X_{j}|N\\right)=\\sum_{j=1}^{N}\\mathrm{Var}(X_{j}|N)=\\sum_{j=1}^{N}\\mathrm{Var}(X_{j})=N\\sigma^{2}.$$
+
+Luật của Eve thì cho chúng ta biết cách để xác định phương sai không điều kiện của X:
+
+$$\\begin{aligned}\\operatorname{Var}(X)&=E(\\operatorname{Var}(X|N))+\\operatorname{Var}(E(X|N))\\\\&=E(N\\sigma^{2})+\\operatorname{Var}(N\\mu)\\\\&=\\sigma^{2}E(N)+\\mu^{2}\\operatorname{Var}(N).\\end{aligned}$$
+
+  </div>
+</div>
+
+Trong ví dụ tiếp theo, hai mức độ ngẫu nhiên xuất hiện vì thí nghiệm của chúng ta diễn ra trong hai giai đoạn. Chúng ta chọn một thành phố từ một nhóm các thành phố, sau đó chọn một mẫu ngẫu nhiên gồm n người trong thành phố đó. Đây là một ví dụ về mô hình đa mức.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.6.2</div>
+    <div class="math-box-title">Mẫu ngẫu nhiên từ một thành phố ngẫu nhiên</div>
+  </div>
+  <div class="math-box-content">
+
+Để nghiên cứu sự phổ biến của một bệnh trong vài thành phố quan tâm trong một quận nhất định, chúng ta chọn một thành phố ngẫu nhiên, sau đó chọn một mẫu ngẫu nhiên gồm n người từ thành phố đó. Đây là một hình thức kỹ thuật khảo sát được sử dụng rộng rãi gọi là mẫu cụm.
+
+Gọi Q là tỷ lệ người bị bệnh trong thành phố được chọn, và gọi X là số người bị bệnh trong mẫu. Như được minh họa trong Hình 9.8 (trong đó các điểm trắng đại diện cho những người khỏe mạnh và các điểm đen đại diện cho những người bị bệnh), các thành phố khác nhau có thể có sự phổ biến bệnh rất khác nhau. Vì mỗi thành phố có tỷ lệ bệnh riêng, Q là một biến ngẫu nhiên. Giả sử rằng $Q \\sim \\text{Unif}(0,1)$. Cũng giả sử rằng điều kiện trên Q, mỗi cá nhân trong mẫu độc lập có xác suất Q bị bệnh; điều này đúng nếu chúng ta chọn mẫu có hoàn lại từ thành phố được chọn, và gần đúng đúng nếu chúng ta chọn mẫu không hoàn lại nhưng quy mô dân số lớn. Tìm $E(X)$ và $\\text{Var}(X)$.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_399_1048_1002_1413.jpg" alt="Bốn thành phố với tỷ lệ mắc bệnh khác nhau" style="max-width: 43%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 9.8:** Một quận hình bầu dục nhất định có 4 thành phố. Mỗi thành phố có người khỏe mạnh (được biểu diễn là các điểm trắng) và người bị bệnh (được biểu diễn là các điểm đen). Một thành phố ngẫu nhiên được chọn, sau đó một mẫu ngẫu nhiên gồm n người được chọn từ trong thành phố đó. Có hai thành phần trong sự biến đổi của số người bị bệnh trong mẫu: sự biến đổi do các thành phố khác nhau có tỷ lệ bệnh khác nhau, và sự biến đổi do tính ngẫu nhiên của mẫu trong thành phố được chọn.
+</div>
+
+**Giải:** Với các giả định của chúng ta, $X|Q \\sim \\mathrm{Bin}(n, Q)$; ký hiệu này nói rằng điều kiện trên Q
+
+tức là biết được tần suất mắc bệnh trong thành phố được chọn, chúng ta có thể coi Q là hằng số, và mỗi cá thể được lấy mẫu là một phép thử Bernoulli độc lập với xác suất thành công là Q. Sử dụng kỳ vọng và phương sai của phân phối Binomial, $E(X|Q) = nQ$ và $\\mathrm{Var}(X|Q) = nQ(1 - Q)$. Hơn nữa, sử dụng các momen của phân phối Uniform chuẩn, $E(Q) = 1/2$, $E(Q^2) = 1/3$, và $\\mathrm{Var}(Q) = 1/12$. Bây giờ chúng ta có thể áp dụng luật Adam và luật Eve để tìm kỳ vọng và phương sai không điều kiện của X:
+
+$$E(X)=E(E(X|Q))=E(nQ)=\\frac{n}{2},$$
+
+$$\\begin{aligned}\\operatorname{Var}(X)&=E(\\operatorname{Var}(X|Q))+\\operatorname{Var}(E(X|Q))\\\\&=E(nQ(1-Q))+\\operatorname{Var}(nQ)\\\\&=nE(Q)-nE(Q^{2})+n^{2}\\operatorname{Var}(Q)\\\\&=\\frac{n}{6}+\\frac{n^{2}}{12}.\\end{aligned}$$
+
+Lưu ý rằng cấu trúc của bài toán này giống hệt với câu chuyện trong truyện về Billiards của Bayes. Do đó, chúng ta thực sự biết được phân phối của X, không chỉ là kỳ vọng và phương sai của nó: X là Phân phối Đều rời rạc trên $\\{0,1,2,\\ldots,n\\}$. Tuy nhiên, cách tiếp cận Adam và Eve có thể được áp dụng khi Q có một phân phối phức tạp hơn, hoặc với nhiều cấp độ hơn trong mô hình đa cấp, dù có thể hay không có thể xác định được phân phối của X. Ví dụ, chúng ta có thể có người trong thành phố trong quận trong tiểu bang trong quốc gia.
+
+  </div>
+</div>
+
+Cuối cùng nhưng không kém phần quan trọng, chúng ta quay lại Câu chuyện 8.4.5, bài toán Gamma-Poisson từ chương trước.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 9.6.3</div>
+    <div class="math-box-title">Gamma-Poisson được xem lại</div>
+  </div>
+  <div class="math-box-content">
+
+Nhắc lại rằng Fred đã quyết định tìm hiểu tốc độ quá trình Poisson của xe buýt ở Blotchville bằng cách đứng đợi tại bến xe trong t giờ và đếm số lượng xe buýt Y. Sau đó, anh ấy đã sử dụng dữ liệu để cập nhật phân phối tiên nghiệm của mình $\\lambda \\sim \\Gamma(\\alpha, b_{0})$. Như vậy, Fred đang sử dụng mô hình hai cấp
+
+$$\\lambda\\sim Gamma(r_{0},b_{0})$$
+
+$$Y|\\lambda\\sim Pois(\\lambda t).$$
+
+Chúng ta đã tìm thấy rằng dưới mô hình của Fred, phân phối biên của Y là Phân phối Nhị thức Âm với các tham số $r = r_{0}$ và $p = b_{0}/(b_{0} + t)$. Cụ thể,
+
+$$E(Y)=\\frac{rq}{p}=\\frac{r_{0}t}{b_{0}},$$
+
+$$\\mathrm{Var}(Y)=\\frac{rq}{p^{2}}=\\frac{r_{0}t(b_{0}+t)}{b_{0}^{2}}.$$
+
+Hãy kiểm tra độc lập kết quả này bằng luật Adam và luật Eve. Sử dụng các kết quả về phân phối Poisson, kỳ vọng và phương sai có điều kiện của Y cho $\\lambda$ là $E(Y|\\lambda) = \\mathrm{Var}(Y|\\lambda) = \\lambda t$. Sử dụng các kết quả về phân phối Gamma,
+
+giá trị kỳ vọng và phương sai của $\\lambda$ là $E(\\lambda) = r_0/b_0$ và $\\mathrm{Var}(\\lambda) = r_0/b_0^2$. Đối với Adam và Eve, đây là tất cả những gì cần thiết:
+
+$$E(Y)=E(E(Y|\\lambda))=E(\\lambda t)=\\frac{r_{0}t}{b_{0}},$$
+
+$$\\begin{aligned}\\operatorname{Var}(Y)&=E(\\operatorname{Var}(Y|\\lambda))+\\operatorname{Var}(E(Y|\\lambda))\\\\&=E(\\lambda t)+\\operatorname{Var}(\\lambda t)\\\\&=\\frac{r_{0}t}{b_{0}}+\\frac{r_{0}t^{2}}{b_{0}^{2}}=\\frac{r_{0}t(b_{0}+t)}{b_{0}^{2}},\\end{aligned}$$
+
+điều này nhất quán với những câu trả lời trước đây của chúng ta. Sự khác biệt là khi sử dụng Adam và Eve, chúng ta không cần biết rằng Y là phân phối Negative Binomial! Nếu chúng ta đã quá lười biếng để tìm phân phối biên của Y, hoặc nếu chúng ta không may mắn đến mức có một phân phối tên cho Y, Adam và Eve vẫn sẽ đưa ra kỳ vọng và phương sai của Y (mặc dù không phải hàm khối xác suất).
+
+Cuối cùng, hãy so sánh kỳ vọng và phương sai của Y dưới mô hình hai cấp với kỳ vọng và phương sai mà chúng ta sẽ nhận được nếu Fred chắc chắn về giá trị đúng của $\\lambda$. Nói cách khác, giả sử chúng ta thay thế $\\lambda$ bằng giá trị kỳ vọng của nó, $E(\\lambda) = r_0/b_0$, làm cho $\\lambda$ trở thành một hằng số thay vì một biến ngẫu nhiên. Khi đó, phân phối biên của số lượng xe buýt (mà chúng ta sẽ gọi là $\\tilde{Y}$ dưới các giả định mới) sẽ chỉ là Poisson với tham số $r_0t/b_0$. Khi đó chúng ta sẽ có
+
+$$E(\\tilde{Y})=\\frac{r_{0}t}{b_{0}},$$
+
+$$\\mathrm{Var}(\\tilde{Y})=\\frac{r_{0}t}{b_{0}}.$$
+
+Chú ý rằng $E(\\tilde{Y}) = E(Y)$, nhưng $\\operatorname{Var}(\\tilde{Y}) < \\operatorname{Var}(Y)$: số hạng bổ sung $r_0t^2/b_0^2$ từ luật của Eve bị thiếu. Về mặt trực quan, khi chúng ta cố định $\\lambda$ tại giá trị kỳ vọng của nó, chúng ta đang loại bỏ một cấp độ không chắc chắn trong mô hình, và điều này gây ra sự giảm sút trong phương sai không điều kiện.
+
+Hình 9.9 chồng chéo các đồ thị của hai hàm khối xác suất, đó là của $Y \\sim \\text{NBin}(r_0, b_0/(b_0 + t))$ trong màu xám và của $\\tilde{Y} \\sim \\text{Pois}(r_0 t/b_0)$ trong màu đen. Các giá trị của tham số được chọn tùy ý là $r_0 = 5$, $b_0 = 1$, $t = 2$. Hai hàm khối xác suất này có cùng trọng tâm, nhưng hàm khối xác suất của Y rõ ràng hơn là phân tán hơn.
+
+  </div>
+</div>`,cz=`Để tính kỳ vọng không điều kiện, chúng ta có thể chia không gian mẫu và sử dụng luật kỳ vọng tổng hợp
+
+$$E(Y)=\\sum_{i=1}^{n}E(Y|A_{i})P(A_{i}),$$
+
+nhưng chúng ta phải cẩn thận không làm mất thông tin trong các bước tiếp theo (như việc quên trong giữa một phép tính dài để điều kiện hóa trên điều gì cần phải điều kiện hóa). Trong các bài toán có cấu trúc đệ quy, chúng ta cũng có thể sử dụng phân tích bước đầu tiên để tính kỳ vọng.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_301_164_1079_631.jpg" alt="So sánh phân phối NBin và Pois" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 9.9:** Phân phối xác suất rời rạc của $Y \\sim \\mathrm{NBin}(r_0, b_0/(b_0 + t))$ trong màu xám và $\\tilde{Y} \\sim \\mathrm{Pois}(r_0 t/b_0)$ trong màu đen, nơi $r_0 = 5$, $b_0 = 1$, $t = 2$.
+</div>
+
+Kỳ vọng có điều kiện $E(Y|X)$ và phương sai có điều kiện $\\mathrm{Var}(Y|X)$ là các biến ngẫu nhiên mà là hàm số của $X$; chúng được thu được bằng cách coi $X$ như một hằng số đã biết. Nếu $X$ và $Y$ độc lập, thì $E(Y|X) = E(Y)$ và $\\mathrm{Var}(Y|X) = \\mathrm{Var}(Y)$. Kỳ vọng có điều kiện có các tính chất
+
+$$\\begin{aligned}&E(h(X)Y|X)=h(X)E(Y|X)\\\\&E(Y_{1}+Y_{2}|X)=E(Y_{1}|X)+E(Y_{2}|X),\\\\ \\end{aligned}$$
+
+tương tự như các tính chất $E(cY) = cE(Y)$ và $E(Y_1 + Y_2) = E(Y_1) + E(Y_2)$ cho kỳ vọng không điều kiện. Kỳ vọng có điều kiện $E(Y|X)$ cũng là biến ngẫu nhiên mà làm cho phần dư $Y - E(Y|X)$ không tương quan với bất kỳ hàm nào của X, điều này có nghĩa là chúng ta có thể diễn giải nó một cách hình học như một phép chiếu.
+
+Cuối cùng, luật Adam và luật Eve,
+
+$$\\begin{aligned}E(Y)&=E(E(Y|X))\\\\ Var(Y)&=E(Var(Y|X))+Var(E(Y|X)),\\end{aligned}$$
+
+thường giúp chúng ta tính $E(Y)$ và $\\operatorname{Var}(Y)$ trong các bài toán có nhiều dạng hoặc cấp độ ngẫu nhiên khác nhau.
+
+Hình 9.10 minh họa cách số $E(Y|X=x)$ liên kết với biến ngẫu nhiên $E(Y|X)$, kỳ vọng của nó là $E(Y)$ theo luật Adam. Ngoài ra, nó còn cho thấy cách các thành phần trong luật Eve được hình thành và kết hợp để tạo ra một phân tích hữu ích của $\\operatorname{Var}(Y)$ dưới dạng các đại lượng điều kiện hóa trên X.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_149_151_1247_982.jpg" alt="Sơ đồ minh họa luật Adam và luật Eve" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 9.10:** Chúng ta thường quan sát một biến ngẫu nhiên X và muốn dự đoán một biến ngẫu nhiên khác Y dựa trên thông tin về X. Nếu chúng ta quan sát thấy X = x, thì chúng ta có thể điều kiện hóa trên sự kiện này và sử dụng $E(Y|X = x)$ làm dự đoán. Kỳ vọng điều kiện $E(Y|X)$ là biến ngẫu nhiên mà nhận giá trị $E(Y|X = x)$ khi X = x. Luật của Adam cho phép chúng ta tính kỳ vọng không điều kiện $E(Y)$ bằng cách bắt đầu từ kỳ vọng điều kiện $E(Y|X)$. Tương tự, luật của Eve cho phép chúng ta tính $\\text{Var}(Y)$ dưới dạng các đại lượng điều kiện hóa trên X.
+</div>`,lz=`## Mô phỏng phần thưởng bí ẩn
+
+Chúng ta có thể sử dụng mô phỏng để cho thấy rằng trong Ví dụ 9.1.7, ví dụ về việc đặt giá thầu cho một phần thưởng bí ẩn có giá trị không xác định, bất kỳ giá thầu nào cũng sẽ dẫn đến khoản thanh toán âm trung bình. Trước hết chọn một giá thầu b (chúng ta chọn 0.6); sau đó mô phỏng một số lớn các phần thưởng bí ẩn tiềm ẩn và lưu trữ chúng vào v:
+
+\`\`\`r
+b<-0.6
+nsim <- 10^5
+v <- runif(nsim)
+\`\`\`
+
+Cược được chấp nhận nếu $\\mathbf{b} > (2/3)\\mathbf{v}$. Để có được lợi nhuận trung bình điều kiện trên một cược được chấp nhận, chúng ta sử dụng dấu ngoặc vuông để giữ lại những giá trị của $\\mathbf{v}$ thỏa mãn điều kiện:
+
+\`\`\`r
+mean(v[b > (2/3)*v]) - b
+\`\`\`
+
+Giá trị này luôn âm bất kể b, như bạn có thể kiểm tra bằng cách thử nghiệm với các giá trị khác nhau của b.
+
+## Thời gian cho đến HH so với HT
+
+Để kiểm tra kết quả của Ví dụ 9.1.9, chúng ta có thể bắt đầu bằng cách tạo một chuỗi dài các lần tung đồng xu công bằng. Điều này được thực hiện bằng lệnh sample. Chúng ta sử dụng paste với tham số collapse=" để biến các lần tung này thành một chuỗi đơn lẻ gồm $H$ và $T$:
+
+\`\`\`r
+paste(sample(c("H", "T"), 100, replace=TRUE), collapse="")
+\`\`\`
+
+Một chuỗi có độ dài 100 đủ để đảm bảo gần như chắc chắn rằng cả HH và HT đều xuất hiện ít nhất một lần.
+
+Để xác định số lần tung trung bình cần thiết để thấy HH và HT, chúng ta cần tạo ra nhiều chuỗi các lần tung đồng xu. Đối với điều này, chúng ta sử dụng người bạn quen thuộc replicate:
+
+\`\`\`r
+r <- replicate(10^3, paste(sample(c("H", "T"), 100, replace=T), collapse=""))
+\`\`\`
+
+Bây giờ r chứa một nghìn chuỗi các lần tung đồng xu, mỗi chuỗi có độ dài 100. Để tìm lần xuất hiện đầu tiên của HH trong mỗi chuỗi này, bạn có thể sử dụng lệnh str_locate từ gói stringr. Sau khi bạn đã cài đặt và tải gói này,
+
+\`\`\`r
+t <- str_locate(r,"HH")
+\`\`\`
+
+tạo ra một bảng hai cột t, trong đó các cột chứa vị trí bắt đầu và kết thúc của lần xuất hiện đầu tiên của HH trong mỗi chuỗi các lần tung đồng xu. (Sử dụng head(t) để hiển thị vài hàng đầu tiên của bảng và hiểu được kết quả của bạn như thế nào.) Điều mà chúng ta muốn là các vị trí kết thúc, được cho bởi cột thứ hai. Cụ thể, chúng ta muốn giá trị trung bình của cột thứ hai, điều này là một ước lượng của thời gian chờ trung bình cho HH:
+
+\`\`\`r
+mean(t[,2])
+\`\`\`
+
+Kết quả của bạn có phải xấp xỉ 6 không? Thử lại với "HT" thay vì "HH", kết quả của bạn có phải xấp xỉ 4 không?
+
+## Hồi quy tuyến tính
+
+Trong Ví dụ 9.3.10, chúng ta đã suy ra các công thức cho độ dốc và hệ số cắt của mô hình hồi quy tuyến tính, có thể được sử dụng để dự đoán một biến phụ thuộc bằng một biến giải thích. Hãy thử áp dụng các công thức này vào một tập dữ liệu mô phỏng:
+
+\`\`\`r
+x <- rnorm(100)
+y <- 3 + 5 * x + rnorm(100)
+\`\`\`
+
+Vector x chứa 100 giá trị thực hiện của biến ngẫu nhiên $X \\sim \\mathcal{N}(0,1)$, và vector y chứa 100 giá trị thực hiện của biến ngẫu nhiên $Y = a + bX + \\epsilon$ nơi $\\epsilon \\sim \\mathcal{N}(0,1)$. Như chúng ta có thể thấy, các giá trị thực của a và b cho tập dữ liệu này là 3 và 5 lần lượt. Chúng ta có thể trực quan hóa dữ liệu dưới dạng một biểu đồ phân tán với \`plot(x,y)\`.
+
+Bây giờ hãy xem xem liệu chúng ta có thể thu được các ước lượng tốt của các giá trị thực a và b, bằng các công thức trong Ví dụ 9.3.10:
+
+\`\`\`r
+b <- cov(x,y) / var(x)
+a <- mean(y) - b * mean(x)
+\`\`\`
+
+Ở đây \`cov(x,y)\`, \`var(x)\`, và \`mean(x)\` cung cấp độ hiệp phương sai mẫu, phương sai mẫu, và trung bình mẫu, ước lượng các đại lượng $\\text{Cov}(X,Y)$, $\\text{Var}(X)$, và $E(X)$ tương ứng. (Chúng ta đã thảo luận chi tiết về trung bình mẫu và phương sai mẫu trong các chương trước. Độ hiệp phương sai mẫu được định nghĩa tương tự và là một cách tự nhiên để ước lượng độ hiệp phương covarance thực.)
+
+Bạn nên tìm thấy rằng b gần bằng 5 và a gần bằng 3. Những giá trị ước lượng này xác định đường thẳng phù hợp nhất. Lệnh abline cho phép chúng ta vẽ đường thẳng phù hợp nhất lên trên biểu đồ phân tán của chúng ta:
+
+\`\`\`r
+plot(x,y)
+abline(a=a,b=b)
+\`\`\`
+
 Tham số đầu tiên của abline là hệ số cắt của đường thẳng, và tham số thứ hai là độ dốc.`,uz=`Các bài tập được đánh dấu với ☑ có giải chi tiết tại http://stat110.net.
 
 ## Kỳ vọng điều kiện cho một sự kiện
@@ -28041,368 +28011,422 @@ Tìm  $E(X)$  và  $\\operatorname{Var}(X)$  theo  $n$  và  $s$ , với  $s = n
 
 </div>
 </div>
-`,dz=`#### 10.1.1 Cauchy-Schwarz: một giới hạn phụ thuộc vào kỳ vọng chung\r
+`,dz=`### 10.1.1 Cauchy-Schwarz: một giới hạn phụ thuộc vào kỳ vọng chung\r
 \r
 Bất đẳng thức Cauchy-Schwarz là một trong những bất đẳng thức nổi tiếng nhất trong toàn bộ toán học. Trong xác suất, nó có dạng như sau.\r
 \r
-Định lý 10.1.1 (Cauchy-Schwarz). Với mọi biến ngẫu nhiên X và Y có phương sai hữu hạn,\r
+<div class="math-box theorem">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 10.1.1</div>\r
+    <div class="math-box-title">Cauchy-Schwarz</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- \r
+Với mọi biến ngẫu nhiên X và Y có phương sai hữu hạn,\r
 \r
- $$|E(X Y)|\\leq\\sqrt{E(X^{2})E(Y^{2})}.$$ \r
+$$|E(X Y)|\\leq\\sqrt{E(X^{2})E(Y^{2})}.$$\r
 \r
- \r
+  </div>\r
+</div>\r
 \r
-Chứng minh. Với mọi t,\r
+<div class="math-box proof">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+    <div class="math-box-title">Định lý 10.1.1</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- \r
+Với mọi t,\r
 \r
- $$0\\leq E(Y-tX)^{2}=E(Y^{2})-2tE(XY)+t^{2}E(X^{2}).$$ \r
+$$0\\leq E(Y-tX)^{2}=E(Y^{2})-2tE(XY)+t^{2}E(X^{2}).$$\r
 \r
- \r
+Nguồn gốc của t ở đâu? 'Ý tưởng là giới thiệu t để chúng ta có vô số bất đẳng thức, mỗi giá trị của t tương ứng với một bất đẳng thức, sau đó chúng ta có thể sử dụng giải tích để tìm giá trị của t cho chúng ta bất đẳng thức tốt nhất. Đạo hàm vế phải theo t và đặt bằng 0, chúng ta nhận được rằng $t = E(XY)/E(X^{2})$ làm cho vế phải nhỏ nhất, dẫn đến giới hạn chặt chẽ nhất. Thay giá trị này của t vào, chúng ta có bất đẳng thức Cauchy-Schwarz.\r
 \r
-Nguồn gốc của t ở đâu? 'Ý tưởng là giới thiệu t để chúng ta có vô số bất đẳng thức, mỗi giá trị của t tương ứng với một bất đẳng thức, sau đó chúng ta có thể sử dụng giải tích để tìm giá trị của t cho chúng ta bất đẳng thức tốt nhất. Đạo hàm vế phải theo t và đặt bằng 0, chúng ta nhận được rằng  $t = E(XY)/E(X^{2})$  làm cho vế phải nhỏ nhất, dẫn đến giới hạn chặt chẽ nhất. Thay giá trị này của t vào, chúng ta có bất đẳng thức Cauchy-Schwarz.\r
+<div class="qed"><span class="qed-mark"></span></div>\r
 \r
-Nếu X và Y không tương quan, thì  $E(XY) = E(X)E(Y)$ , điều này chỉ phụ thuộc vào kỳ vọng riêng  $E(X)$  và  $E(Y)$ . Tuy nhiên nói chung, tính toán  $E(XY)$  chính xác đòi hỏi biết phân phối chung của X và Y (và có thể làm việc với nó). Bất đẳng thức Cauchy-Schwarz cho phép chúng ta giới hạn  $E(XY)$  theo các momen bậc hai riêng  $E(X^2)$  và  $E(Y^2)$ .\r
+  </div>\r
+</div>\r
+\r
+Nếu X và Y không tương quan, thì $E(XY) = E(X)E(Y)$, điều này chỉ phụ thuộc vào kỳ vọng riêng $E(X)$ và $E(Y)$. Tuy nhiên nói chung, tính toán $E(XY)$ chính xác đòi hỏi biết phân phối chung của X và Y (và có thể làm việc với nó). Bất đẳng thức Cauchy-Schwarz cho phép chúng ta giới hạn $E(XY)$ theo các momen bậc hai riêng $E(X^2)$ và $E(Y^2)$.\r
 \r
 Nếu X và Y có kỳ vọng bằng 0, thì bất đẳng thức Cauchy-Schwarz đã có một diễn giải thống kê rất quen thuộc: nó nói rằng độ tương quan của chúng nằm giữa -1 và 1.\r
 \r
-Ví dụ 10.1.2. Giả sử  $E(X) = E(Y) = 0$ . Khi đó\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 10.1.2</div>\r
+    <div class="math-box-title"></div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- \r
+Giả sử $E(X) = E(Y) = 0$. Khi đó\r
 \r
- $$E(XY)=Cov(X,Y),E(X^{2})=Var(X),E(Y^{2})=Var(Y),$$ \r
+$$E(XY)=Cov(X,Y),E(X^{2})=Var(X),E(Y^{2})=Var(Y),$$\r
 \r
+Vậy bất đẳng thức Cauchy-Schwarz giảm xuống thành phát biểu $|\\text{Corr}(X,Y)| \\leq 1$. Tất nhiên, chúng ta đã biết điều này từ Định lý 7.3.5. Bây giờ hãy xem điều gì xảy ra nếu chúng ta bỏ qua giả định rằng các kỳ vọng là 0. Áp dụng Cauchy-Schwarz vào các biến ngẫu nhiên đã được tâm $X - E(X)$ và $Y - E(Y)$, chúng ta lại có $|\\text{Corr}(X,Y)| \\leq 1$.\r
 \r
+  </div>\r
+</div>\r
 \r
-Vậy bất đẳng thức Cauchy-Schwarz giảm xuống thành phát biểu  $|\\text{Corr}(X,Y)| \\leq 1$ . Tất nhiên, chúng ta đã biết điều này từ Định lý 7.3.5. Bây giờ hãy xem điều gì xảy ra nếu chúng ta bỏ qua giả định rằng các kỳ vọng là 0. Áp dụng Cauchy-Schwarz vào các biến ngẫu nhiên đã được tâm  $X - E(X)$  và  $Y - E(Y)$ , chúng ta lại có  $|\\text{Corr}(X,Y)| \\leq 1$ .\r
+Bất đẳng thức Cauchy-Schwarz có thể thường được áp dụng theo những cách sáng tạo. Ví dụ, nếu chúng ta viết $X = X \\cdot 1$, thì Cauchy-Schwarz cho $|E(X \\cdot 1)| \\leq \\sqrt{E(X^2)E(1^2)}$, điều này giảm xuống thành $E(X^2) \\geq (EX)^2$. Điều này cho một chứng minh nhanh chóng rằng phương sai không âm. Như một ví dụ khác, chúng ta sẽ nhận được một giới trên cho xác suất của một biến ngẫu nhiên không âm bằng 0.\r
 \r
-Bất đẳng thức Cauchy-Schwarz có thể thường được áp dụng theo những cách sáng tạo. Ví dụ, nếu chúng ta viết  $X = X \\cdot 1$ , thì Cauchy-Schwarz cho  $|E(X \\cdot 1)| \\leq \\sqrt{E(X^2)E(1^2)}$ , điều này giảm xuống thành  $E(X^2) \\geq (EX)^2$ . Điều này cho một chứng minh nhanh chóng rằng phương sai không âm. Như một ví dụ khác, chúng ta sẽ nhận được một giới trên cho xác suất của một biến ngẫu nhiên không âm bằng 0.\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 10.1.3</div>\r
+    <div class="math-box-title">Phương pháp momen thứ hai</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-Ví dụ 10.1.3 (Phương pháp momen thứ hai). Gọi X là một biến ngẫu nhiên không âm, và giả sử rằng chúng ta muốn một giới trên cho  $P(X = 0)$ . Ví dụ, X có thể là số câu hỏi mà Fred làm sai trên một bài kiểm tra (khi đó  $P(X = 0)$  là xác suất Fred đạt điểm tuyệt đối), hoặc X có thể là số cặp người tại một bữa tiệc có cùng ngày sinh (khi đó  $P(X = 0)$  là xác suất không có ai trùng ngày sinh). Lưu ý rằng\r
+Gọi X là một biến ngẫu nhiên không âm, và giả sử rằng chúng ta muốn một giới trên cho $P(X = 0)$. Ví dụ, X có thể là số câu hỏi mà Fred làm sai trên một bài kiểm tra (khi đó $P(X = 0)$ là xác suất Fred đạt điểm tuyệt đối), hoặc X có thể là số cặp người tại một bữa tiệc có cùng ngày sinh (khi đó $P(X = 0)$ là xác suất không có ai trùng ngày sinh). Lưu ý rằng\r
 \r
- \r
+$$X=X I(X>0),$$\r
 \r
- $$X=X I(X>0),$$ \r
+trong đó $I(X > 0)$ là chỉ số của X > 0. Điều này đúng vì nếu X = 0 thì cả hai vế đều bằng 0, trong khi nếu X > 0 thì cả hai vế đều bằng X. Bằng Cauchy-Schwarz,\r
 \r
- \r
-\r
-trong đó  $I(X > 0)$  là chỉ số của X > 0. Điều này đúng vì nếu X = 0 thì cả hai vế đều bằng 0, trong khi nếu X > 0 thì cả hai vế đều bằng X. Bằng Cauchy-Schwarz,\r
-\r
- \r
-\r
- $$E(X)=E(XI(X>0))\\leq\\sqrt{E(X^{2})E(I(X>0))}.$$ \r
-\r
- \r
+$$E(X)=E(XI(X>0))\\leq\\sqrt{E(X^{2})E(I(X>0))}.$$\r
 \r
 Sắp xếp lại đẳng thức này và sử dụng cầu nối cơ bản, chúng ta có\r
 \r
- \r
-\r
- $$P(X>0)\\geq\\frac{(EX)^{2}}{E(X^{2})},$$ \r
-\r
- \r
+$$P(X>0)\\geq\\frac{(EX)^{2}}{E(X^{2})},$$\r
 \r
 hoặc tương đương,\r
 \r
- \r
-\r
- $$P(X=0)\\leq\\frac{Var(X)}{E(X^{2})}.$$ \r
-\r
- \r
+$$P(X=0)\\leq\\frac{Var(X)}{E(X^{2})}.$$\r
 \r
 Việc áp dụng giới hạn này đôi khi được gọi là phương pháp momen thứ hai. Ví dụ, hãy áp dụng giới hạn này trong trường hợp\r
 \r
- \r
+$$X=I_{1}+\\cdots+I_{n},$$\r
 \r
- $$X=I_{1}+\\cdots+I_{n},$$ \r
+trong đó các $I_{j}$ là các biến chỉ số không tương quan. Gọi $p_{j}=E(I_{j})$. Khi đó\r
 \r
- \r
+$$\\mathrm{Var}(X)=\\sum_{j=1}^{n}\\mathrm{Var}(I_{j})=\\sum_{j=1}^{n}(p_{j}-p_{j}^{2})=\\sum_{j=1}^{n}p_{j}-\\sum_{j=1}^{n}p_{j}^{2}=\\mu-c,$$\r
 \r
-trong đó các  $I_{j}$  là các biến chỉ số không tương quan. Gọi  $p_{j}=E(I_{j})$ . Khi đó\r
+trong đó $\\mu = E(X)$, $c = \\sum_{j=1}^{n} p_{j}^{2}$. Cũng như vậy, $E(X^{2}) = \\mathrm{Var}(X) + (EX)^{2} = \\mu^{2} + \\mu - c$. Do đó\r
 \r
- \r
-\r
- $$\\mathrm{Var}(X)=\\sum_{j=1}^{n}\\mathrm{Var}(I_{j})=\\sum_{j=1}^{n}(p_{j}-p_{j}^{2})=\\sum_{j=1}^{n}p_{j}-\\sum_{j=1}^{n}p_{j}^{2}=\\mu-c,$$ \r
-\r
- \r
-\r
-trong đó  $\\mu = E(X)$ ,  $c = \\sum_{j=1}^{n} p_{j}^{2}$ . Cũng như vậy,  $E(X^{2}) = \\mathrm{Var}(X) + (EX)^{2} = \\mu^{2} + \\mu - c$ . Do đó\r
-\r
- \r
-\r
- $$P(X=0)\\leq\\frac{\\operatorname{Var}(X)}{E(X^{2})}=\\frac{\\mu-c}{\\mu^{2}+\\mu-c}\\leq\\frac{1}{\\mu+1},$$ \r
-\r
- \r
+$$P(X=0)\\leq\\frac{\\operatorname{Var}(X)}{E(X^{2})}=\\frac{\\mu-c}{\\mu^{2}+\\mu-c}\\leq\\frac{1}{\\mu+1},$$\r
 \r
 trong đó bất đẳng thức cuối cùng dễ dàng kiểm tra bằng cách nhân chéo. Một cách tổng quát, nó\r
 \r
 Sai để nói "nếu X có một giá trị trung bình cao, thì nó có ít khả năng bằng 0", vì có thể là X thường xuyên bằng 0 nhưng có ít khả năng bằng một giá trị cực lớn. Nhưng trong bối cảnh hiện tại của chúng ta, chúng ta có một cách đơn giản, lượng hóa để nói rằng X có một giá trị trung bình cao thì có nghĩa là X ít khả năng bằng 0.\r
 \r
-Ví dụ, giả sử có 14 người trong một phòng. Xác suất để có hai người có cùng ngày sinh hoặc ngày sinh cách nhau một ngày là bao nhiêu? Điều này khó giải chính xác hơn bài toán sinh nhật, vì vậy trong Ví dụ 4.7.6 chúng ta đã sử dụng một phương pháp xấp xỉ Poisson. Nhưng chúng ta có thể muốn một đảm bảo từ một giới hạn thay vì lo lắng về việc phương pháp xấp xỉ Poisson có đủ tốt hay không. Gọi X là số cặp "ngày sinh gần nhau". Sử dụng biến ngẫu nhiên chỉ báo, chúng ta có  $E(X) = \\binom{14}{2} \\frac{3}{365}$ . Vì vậy\r
+Ví dụ, giả sử có 14 người trong một phòng. Xác suất để có hai người có cùng ngày sinh hoặc ngày sinh cách nhau một ngày là bao nhiêu? Điều này khó giải chính xác hơn bài toán sinh nhật, vì vậy trong Ví dụ 4.7.6 chúng ta đã sử dụng một phương pháp xấp xỉ Poisson. Nhưng chúng ta có thể muốn một đảm bảo từ một giới hạn thay vì lo lắng về việc phương pháp xấp xỉ Poisson có đủ tốt hay không. Gọi X là số cặp "ngày sinh gần nhau". Sử dụng biến ngẫu nhiên chỉ báo, chúng ta có $E(X) = \\binom{14}{2} \\frac{3}{365}$. Vì vậy\r
 \r
- \r
+$$P(X=0)\\leq\\frac{1}{E(X)+1}<0.573.$$\r
 \r
- $$P(X=0)\\leq\\frac{1}{E(X)+1}<0.573.$$ \r
+Kết quả đúng cho $P(X = 0)$ được xác định là 0.46 (đến hai chữ số thập phân), điều này phù hợp với giới hạn.\r
 \r
- \r
-\r
-Kết quả đúng cho  $P(X = 0)$  được xác định là 0.46 (đến hai chữ số thập phân), điều này phù hợp với giới hạn.\r
+  </div>\r
+</div>\r
 \r
 Cauchy-Schwarz cũng cho phép chúng ta suy ra sự tồn tại của một hàm sinh momen chung từ sự tồn tại của các hàm sinh momen riêng; đây là một ví dụ khác về lợi ích của việc có thể giới hạn một đại lượng phân phối chung bằng các đại lượng phân phối riêng.\r
 \r
-Ví dụ 10.1.4 (Sự tồn tại của hàm sinh momen chung). Gọi  $X_1$  và  $X_2$  là các biến ngẫu nhiên phân phối chung, không nhất thiết độc lập hoặc đồng phân phối. Chứng minh rằng nếu  $X_1$  và  $X_2$  đều có hàm sinh momen riêng, thì vector ngẫu nhiên  $(X_1, X_2)$  có một hàm sinh momen chung.\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 10.1.4</div>\r
+    <div class="math-box-title">Sự tồn tại của hàm sinh momen chung</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-Giải pháp:\r
+Gọi $X_1$ và $X_2$ là các biến ngẫu nhiên phân phối chung, không nhất thiết độc lập hoặc đồng phân phối. Chứng minh rằng nếu $X_1$ và $X_2$ đều có hàm sinh momen riêng, thì vector ngẫu nhiên $(X_1, X_2)$ có một hàm sinh momen chung.\r
 \r
-Nhớ lại từ Chương 7 rằng hàm sinh momen chung được định nghĩa là  $M(s,t) = E(e^{sX_1} + tX_2)$ , và tồn tại nếu kỳ vọng hữu hạn trong một hình chữ nhật xung quanh gốc tọa độ. Các hàm sinh momen riêng là  $E(e^{sX_1})$  và  $E(e^{tX_2})$ ; mỗi cái đều cần phải hữu hạn trong một khoảng xung quanh gốc tọa độ.\r
+**Giải pháp:** Nhớ lại từ Chương 7 rằng hàm sinh momen chung được định nghĩa là $M(s,t) = E(e^{sX_1} + tX_2)$, và tồn tại nếu kỳ vọng hữu hạn trong một hình chữ nhật xung quanh gốc tọa độ. Các hàm sinh momen riêng là $E(e^{sX_1})$ và $E(e^{tX_2})$; mỗi cái đều cần phải hữu hạn trong một khoảng xung quanh gốc tọa độ.\r
 \r
-Giả sử các hàm sinh momen của  $X_{1}$  và  $X_{2}$  hữu hạn trên  $(-a, a)$ . Chọn s và t trong  $(-a/2, a/2)$ . Theo Cauchy-Schwarz,\r
+Giả sử các hàm sinh momen của $X_{1}$ và $X_{2}$ hữu hạn trên $(-a, a)$. Chọn s và t trong $(-a/2, a/2)$. Theo Cauchy-Schwarz,\r
 \r
- \r
+$$E(e^{s X_{1}+t X_{2}})\\leq\\sqrt{E(e^{2s X_{1}})E(e^{2t X_{2}}).}$$\r
 \r
- $$E(e^{s X_{1}+t X_{2}})\\leq\\sqrt{E(e^{2s X_{1}})E(e^{2t X_{2}}).}$$ \r
+Vế phải là hữu hạn theo giả thiết, do đó $E(e^{sX_1+tX_2})$ là hữu hạn trong hình chữ nhật $\\{(s,t):s,t\\in(-a/2,a/2)\\}$. Vì vậy hàm sinh momen chung của $(X_1,X_2)$ tồn tại.\r
 \r
- \r
+  </div>\r
+</div>\r
 \r
-Vế phải là hữu hạn theo giả thiết, do đó  $E(e^{sX_1+tX_2})$  là hữu hạn trong hình chữ nhật  $\\{(s,t):s,t\\in(-a/2,a/2)\\}$ . Vì vậy hàm sinh momen chung của  $(X_1,X_2)$  tồn tại.\r
+### 10.1.2 Jensen: một bất đẳng thức cho tính lồi\r
 \r
-#### 10.1.2 Jensen: một bất đẳng thức cho tính lồi\r
+Trong Ghi chú 4.3.13, chúng ta đã thảo luận rằng với các hàm số phi tuyến $g$, $E(g(X))$ có thể rất khác với $g(E(X))$. Nếu $g$ là một hàm lồi hoặc hàm lõm, bất đẳng thức Jensen sẽ cho chúng ta biết rõ $E(g(X))$ và $g(E(X))$ nào lớn hơn. Xem phần phụ lục toán học để biết thông tin về các hàm lồi và lõm. Thường thì chúng ta có thể lấy đạo hàm cấp hai để kiểm tra tính lồi hoặc lõm: giả sử rằng $g''$ tồn tại, $g$ là lồi tương đương với $g''(x) \\geq 0$ ở mọi nơi trong miền xác định, và $g$ là lõm tương đương với $g''(x) \\leq 0$ ở mọi nơi trong miền xác định.\r
 \r
-Trong  $\\otimes$  4.3.13, chúng ta đã thảo luận rằng với các hàm số phi tuyến  $g$ ,  $E(g(X))$  có thể rất khác với  $g(E(X))$ . Nếu  $g$  là một hàm lồi hoặc hàm lõm, bất đẳng thức Jensen sẽ cho chúng ta biết rõ  $E(g(X))$  và  $g(E(X))$  nào lớn hơn. Xem phần phụ lục toán học để biết thông tin về các hàm lồi và lõm. Thường thì chúng ta có thể lấy đạo hàm cấp hai để kiểm tra tính lồi hoặc lõm: giả sử rằng  $g''$  tồn tại,  $g$  là lồi tương đương với  $g''(x) \\geq 0$  ở mọi nơi trong miền xác định, và  $g$  là lõm tương đương với  $g''(x) \\leq 0$  ở mọi nơi trong miền xác định.\r
+<div class="math-box theorem">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 10.1.5</div>\r
+    <div class="math-box-title">Jensen</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-Định lý 10.1.5 (Jensen). Cho X là một biến ngẫu nhiên. Nếu g là một hàm lồi, thì  $E(g(X)) \\geq g(E(X))$ . Nếu g là một hàm lõm, thì  $E(g(X)) \\leq g(E(X))$ . Trong cả hai trường hợp, chỉ có cách duy nhất để đẳng thức xảy ra là nếu tồn tại các hằng số a và b sao cho  $g(X) = a + bX$  với xác suất 1.\r
+Cho X là một biến ngẫu nhiên. Nếu g là một hàm lồi, thì $E(g(X)) \\geq g(E(X))$. Nếu g là một hàm lõm, thì $E(g(X)) \\leq g(E(X))$. Trong cả hai trường hợp, chỉ có cách duy nhất để đẳng thức xảy ra là nếu tồn tại các hằng số a và b sao cho $g(X) = a + bX$ với xác suất 1.\r
 \r
-Chứng minh. Nếu  $g$  là lồi, thì mọi đường thẳng tiếp tuyến với  $g$  nằm dưới  $g$  (xem Hình 10.1). Đặc biệt, cho  $\\mu = E(X)$ , và xem xét đường tiếp tuyến tại điểm  $(\\mu, g(\\mu))$ . (Nếu  $g$  khả vi tại  $\\mu$  thì đường tiếp tuyến là duy nhất; ngược lại, chọn bất kỳ đường tiếp tuyến nào tại  $\\mu$ .) Gọi đường tiếp tuyến này là  $a + bx$ , ta có  $g(x) \\geq a + bx$  cho mọi  $x$  theo tính lồi, do đó  $g(X) \\geq a + bX$ . Lấy kỳ vọng của cả hai vế,\r
+  </div>\r
+</div>\r
 \r
- \r
+<div class="math-box proof">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+    <div class="math-box-title">Định lý 10.1.5</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- $$E(g(X))\\geq E(a+bX)=a+bE(X)=a+b\\mu=g(\\mu)=g(E(X)),$$ \r
+Nếu $g$ là lồi, thì mọi đường thẳng tiếp tuyến với $g$ nằm dưới $g$ (xem Hình 10.1). Đặc biệt, cho $\\mu = E(X)$, và xem xét đường tiếp tuyến tại điểm $(\\mu, g(\\mu))$. (Nếu $g$ khả vi tại $\\mu$ thì đường tiếp tuyến là duy nhất; ngược lại, chọn bất kỳ đường tiếp tuyến nào tại $\\mu$.) Gọi đường tiếp tuyến này là $a + bx$, ta có $g(x) \\geq a + bx$ cho mọi $x$ theo tính lồi, do đó $g(X) \\geq a + bX$. Lấy kỳ vọng của cả hai vế,\r
 \r
- \r
+$$E(g(X))\\geq E(a+bX)=a+bE(X)=a+b\\mu=g(\\mu)=g(E(X)),$$\r
 \r
-như mong muốn. Nếu  $g$  là lõm, thì  $h = -g$  là lồi, do đó chúng ta có thể áp dụng điều vừa chứng minh cho  $h$  để thấy rằng bất đẳng thức cho  $g$  sẽ ngược lại so với trường hợp lồi.\r
+như mong muốn. Nếu $g$ là lõm, thì $h = -g$ là lồi, do đó chúng ta có thể áp dụng điều vừa chứng minh cho $h$ để thấy rằng bất đẳng thức cho $g$ sẽ ngược lại so với trường hợp lồi.\r
 \r
-Cuối cùng, giả sử rằng đẳng thức xảy ra trong trường hợp lồi. Cho  $Y = g(X) - a - bX$ . Khi đó Y là một biến ngẫu nhiên không âm với  $E(Y) = 0$ , do đó  $P(Y = 0) = 1$  (một cơ hội nhỏ không bằng 0 của Y > 0 sẽ làm cho  $E(Y) > 0$ ). Do đó đẳng thức xảy ra nếu và chỉ nếu  $P(g(X) = a + bX) = 1$ . Trong trường hợp lõm, chúng ta có thể sử dụng cùng lập luận với  $Y = a + bX - g(X)$ .\r
+Cuối cùng, giả sử rằng đẳng thức xảy ra trong trường hợp lồi. Cho $Y = g(X) - a - bX$. Khi đó Y là một biến ngẫu nhiên không âm với $E(Y) = 0$, do đó $P(Y = 0) = 1$ (một cơ hội nhỏ không bằng 0 của Y > 0 sẽ làm cho $E(Y) > 0$). Do đó đẳng thức xảy ra nếu và chỉ nếu $P(g(X) = a + bX) = 1$. Trong trường hợp lõm, chúng ta có thể sử dụng cùng lập luận với $Y = a + bX - g(X)$.\r
 \r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_449_972_945_1344.jpg" alt="Image" width="35%" /></div>\r
+<div class="qed"><span class="qed-mark"></span></div>\r
 \r
+  </div>\r
+</div>\r
 \r
-### HÌNH 10.1\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_449_972_945_1344.jpg" alt="Vì g là lồi, các đường tiếp tuyến nằm dưới đường cong" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
 \r
-Vì  $g$  là lồi, các đường tiếp tuyến nằm dưới đường cong. Đặc biệt, đường tiếp tuyến tại điểm  $(\\mu, g(\\mu))$  nằm dưới đường cong.\r
+**HÌNH 10.1:** Vì $g$ là lồi, các đường tiếp tuyến nằm dưới đường cong. Đặc biệt, đường tiếp tuyến tại điểm $(\\mu, g(\\mu))$ nằm dưới đường cong.\r
+</div>\r
 \r
 Hãy kiểm tra bất đẳng thức Jensen trong một vài trường hợp đơn giản đã biết.\r
 \r
-• Vì  $g(x) = x^{2}$  là lồi (đạo hàm cấp hai là 2), bất đẳng thức Jensen nói rằng  $E(X^{2}) \\geq (EX)^{2}$ , điều này chúng ta đã biết là đúng vì phương sai không âm (hoặc bằng bất đẳng thức Cauchy-Schwarz).\r
-\r
-- Trong悖论 St. Petersburg từ Chương 4, chúng ta đã tìm thấy rằng  $E(2^N) > 2^{EN}$ , nơi  $N \\sim \\text{FS}(1/2)$ . Bất đẳng thức Jensen cũng khẳng định điều này vì  $g(x) = 2^x$  là lồi (để tìm  $g''(x)$ , viết  $2^x = e^{x \\log 2}$ ). Hơn nữa, nó cho chúng ta biết rằng hướng của bất đẳng thức\r
+- Vì $g(x) = x^{2}$ là lồi (đạo hàm cấp hai là 2), bất đẳng thức Jensen nói rằng $E(X^{2}) \\geq (EX)^{2}$, điều này chúng ta đã biết là đúng vì phương sai không âm (hoặc bằng bất đẳng thức Cauchy-Schwarz).\r
+- Trong nghịch lý St. Petersburg từ Chương 4, chúng ta đã tìm thấy rằng $E(2^N) > 2^{EN}$, nơi $N \\sim \\text{FS}(1/2)$. Bất đẳng thức Jensen cũng khẳng định điều này vì $g(x) = 2^x$ là lồi (để tìm $g''(x)$, viết $2^x = e^{x \\log 2}$). Hơn nữa, nó cho chúng ta biết rằng hướng của bất đẳng thức\r
 \r
 Sẽ giống nhau bất kể phân phối N là gì! Bất đẳng thức sẽ nghiêm ngặt trừ khi N là hằng số (với xác suất 1).\r
 \r
 Nếu chúng ta bao giờ quên hướng của bất đẳng thức Jensen, những trường hợp đơn giản này giúp chúng ta dễ dàng phục hồi lại hướng đúng. Dưới đây là một vài ví dụ nhanh hơn về bất đẳng thức Jensen:\r
 \r
-•  $E|X| \\geq |EX|$ ,\r
-\r
-•  $E(1/X) \\geq 1/(EX)$ , với các biến ngẫu nhiên dương X,\r
-\r
-•  $E(\\log(X)) \\leq \\log(EX)$ , với các biến ngẫu nhiên dương X.\r
+- $E|X| \\geq |EX|$,\r
+- $E(1/X) \\geq 1/(EX)$, với các biến ngẫu nhiên dương X,\r
+- $E(\\log(X)) \\leq \\log(EX)$, với các biến ngẫu nhiên dương X.\r
 \r
 Là một ví dụ khác, chúng ta có thể sử dụng bất đẳng thức Jensen để xem hướng của độ lệch nếu chúng ta ước lượng một độ lệch chuẩn chưa biết bằng độ lệch chuẩn mẫu của một tập dữ liệu.\r
 \r
-Ví dụ 10.1.6 (Độ lệch của độ lệch chuẩn mẫu). Gọi  $X_1, \\ldots, X_n$  là các biến ngẫu nhiên độc lập và đồng phân bố với phương sai  $\\sigma^2$ . Nhớ lại từ Định lý 6.3.4 rằng phương sai mẫu  $S_n^2$  là không thiên lệch khi ước lượng  $\\sigma^2$ . Tức là,  $E(S_n^2) = \\sigma^2$ . Tuy nhiên, chúng ta thường quan tâm hơn đến việc ước lượng độ lệch chuẩn  $\\sigma$ . Một ước lượng tự nhiên cho  $\\sigma$  là độ lệch chuẩn mẫu,  $S_n$ .\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 10.1.6</div>\r
+    <div class="math-box-title">Độ lệch của độ lệch chuẩn mẫu</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-Bất đẳng thức Jensen cho chúng ta biết rằng  $S_{n}$  là thiên lệch khi ước lượng  $\\sigma$ . Hơn nữa, nó cho chúng ta biết hướng của bất đẳng thức:\r
+Gọi $X_1, \\ldots, X_n$ là các biến ngẫu nhiên độc lập và đồng phân bố với phương sai $\\sigma^2$. Nhớ lại từ Định lý 6.3.4 rằng phương sai mẫu $S_n^2$ là không thiên lệch khi ước lượng $\\sigma^2$. Tức là, $E(S_n^2) = \\sigma^2$. Tuy nhiên, chúng ta thường quan tâm hơn đến việc ước lượng độ lệch chuẩn $\\sigma$. Một ước lượng tự nhiên cho $\\sigma$ là độ lệch chuẩn mẫu, $S_n$.\r
 \r
- \r
+Bất đẳng thức Jensen cho chúng ta biết rằng $S_{n}$ là thiên lệch khi ước lượng $\\sigma$. Hơn nữa, nó cho chúng ta biết hướng của bất đẳng thức:\r
 \r
- $$E(S_{n})=E(\\sqrt{S_{n}^{2}})\\leq\\sqrt{E(S_{n}^{2})}=\\sigma,$$ \r
-\r
- \r
+$$E(S_{n})=E(\\sqrt{S_{n}^{2}})\\leq\\sqrt{E(S_{n}^{2})}=\\sigma,$$\r
 \r
 vì vậy độ lệch chuẩn mẫu có xu hướng ước lượng thấp hơn độ lệch chuẩn thực. Mức độ thiên lệch phụ thuộc vào phân phối (do đó không có cách nào chung để khắc phục thiên lệch, trái ngược với thực tế rằng việc định nghĩa phương sai mẫu với n - 1 ở mẫu số làm nó không thiên lệch cho mọi phân phối). May mắn thay, thiên lệch thường nhỏ nếu quy mô mẫu là hợp lý.\r
 \r
+  </div>\r
+</div>\r
+\r
 Một lĩnh vực trong đó bất đẳng thức Jensen quan trọng là lý thuyết thông tin, ngành nghiên cứu cách lượng hóa thông tin. Các nguyên lý của lý thuyết thông tin đã trở thành thiết yếu cho truyền thông và nén dữ liệu (ví dụ, cho MP3 và điện thoại di động). Dưới đây là một vài ví dụ về ứng dụng của bất đẳng thức Jensen.\r
 \r
-Ví dụ 10.1.7 (Entropy). Sự ngạc nhiên khi biết một sự kiện với xác suất p xảy ra được định nghĩa là  $\\log_2(1/p)$ , được đo bằng đơn vị gọi là bit. Sự kiện với xác suất thấp có sự ngạc nhiên cao, trong khi một sự kiện với xác suất 1 có sự ngạc nhiên bằng 0. Logarit được sử dụng để đảm bảo rằng nếu chúng ta quan sát hai sự kiện độc lập A và B, tổng sự ngạc nhiên sẽ bằng sự ngạc nhiên khi quan sát  $A \\cap B$ . Logarit cơ số 2 để đảm bảo rằng nếu chúng ta biết một sự kiện với xác suất 1/2 xảy ra, sự ngạc nhiên sẽ là 1, điều này tương ứng với việc nhận được 1 bit thông tin.\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 10.1.7</div>\r
+    <div class="math-box-title">Entropy</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-Gọi X là một biến ngẫu nhiên rời rạc có các giá trị có thể xảy ra khác nhau là  $a_{1}, a_{2}, \\ldots, a_{n}$ , với xác suất tương ứng là  $p_{1}, p_{2}, \\ldots, p_{n}$  (do đó  $p_{1} + p_{2} + \\cdots + p_{n} = 1$ ). Entropy của X là\r
+Sự ngạc nhiên khi biết một sự kiện với xác suất p xảy ra được định nghĩa là $\\log_2(1/p)$, được đo bằng đơn vị gọi là bit. Sự kiện với xác suất thấp có sự ngạc nhiên cao, trong khi một sự kiện với xác suất 1 có sự ngạc nhiên bằng 0. Logarit được sử dụng để đảm bảo rằng nếu chúng ta quan sát hai sự kiện độc lập A và B, tổng sự ngạc nhiên sẽ bằng sự ngạc nhiên khi quan sát $A \\cap B$. Logarit cơ số 2 để đảm bảo rằng nếu chúng ta biết một sự kiện với xác suất 1/2 xảy ra, sự ngạc nhiên sẽ là 1, điều này tương ứng với việc nhận được 1 bit thông tin.\r
+\r
+Gọi X là một biến ngẫu nhiên rời rạc có các giá trị có thể xảy ra khác nhau là $a_{1}, a_{2}, \\ldots, a_{n}$, với xác suất tương ứng là $p_{1}, p_{2}, \\ldots, p_{n}$ (do đó $p_{1} + p_{2} + \\cdots + p_{n} = 1$). Entropy của X là\r
 \r
 được định nghĩa là trung bình của sự bất ngờ khi biết giá trị của X:\r
 \r
- \r
+$$H(X)=\\sum_{j=1}^{n}p_{j}\\log_{2}(1/p_{j}).$$\r
 \r
- $$H(X)=\\sum_{j=1}^{n}p_{j}\\log_{2}(1/p_{j}).$$ \r
+Lưu ý rằng entropy của X chỉ phụ thuộc vào các xác suất $p_{j}$, không phụ thuộc vào các giá trị $a_{j}$. Vì vậy, ví dụ, $H(X^{3}) = H(X)$, vì $X^{3}$ có các giá trị có thể xảy ra khác nhau $a_{1}^{3}, a_{2}^{3}, \\ldots, a_{n}^{3}$, với xác suất $p_{1}, p_{2}, \\ldots, p_{n}$—cùng một danh sách các $p_j$ như cho X.\r
 \r
- \r
+Sử dụng bất đẳng thức Jensen, chứng minh rằng entropy tối đa có thể cho X là khi phân phối của nó đều trên $a_1, a_2, \\ldots, a_n$, tức là $p_j = 1/n$ với mọi j. Điều này hợp lý về mặt trực quan, vì việc biết giá trị của X truyền đi thông tin trung bình nhiều nhất khi X có khả năng xảy ra đều cho mọi giá trị của nó, và ít thông tin nhất nếu X là hằng số.\r
 \r
-Lưu ý rằng entropy của X chỉ phụ thuộc vào các xác suất  $p_{j}$ , không phụ thuộc vào các giá trị  $a_{j}$ . Vì vậy, ví dụ,  $H(X^{3}) = H(X)$ , vì  $X^{3}$  có các giá trị có thể xảy ra khác nhau  $a_{1}^{3}, a_{2}^{3}, \\ldots, a_{n}^{3}$ , với xác suất  $p_{1}, p_{2}, \\ldots, p_{n}$ —cùng một danh sách các  $p_j$  như cho X.\r
+**Giải pháp:** Cho $X \\sim \\mathrm{DUnif}(a_1, \\ldots, a_n)$, vì vậy\r
 \r
-Sử dụng bất đẳng thức Jensen, chứng minh rằng entropy tối đa có thể cho X là khi phân phối của nó đều trên  $a_1, a_2, \\ldots, a_n$ , tức là  $p_j = 1/n$  với mọi j. Điều này hợp lý về mặt trực quan, vì việc biết giá trị của X truyền đi thông tin trung bình nhiều nhất khi X có khả năng xảy ra đều cho mọi giá trị của nó, và ít thông tin nhất nếu X là hằng số.\r
+$$H(X)=\\sum_{j=1}^{n}\\frac{1}{n}\\log_{2}(n)=\\log_{2}(n).$$\r
 \r
-## Giải pháp:\r
+Cho Y là một biến ngẫu nhiên (r.v.) nhận các giá trị $1/p_1, \\ldots, 1/p_n$ với xác suất tương ứng là $p_1, \\ldots, p_n$ (với sự điều chỉnh tự nhiên nếu các $1/p_j$ có một số giá trị lặp lại, ví dụ, nếu $1/p_1 = 1/p_2$ nhưng không có các giá trị khác là như vậy, thì nó nhận xác suất là $p_1 + p_2 = 2p_1$). Khi đó $H(Y) = E(\\log_2(Y))$ theo LOTUS, và $E(Y) = n$. Vì vậy theo bất đẳng thức Jensen,\r
 \r
-Cho  $X \\sim \\mathrm{DUnif}(a_1, \\ldots, a_n)$ , vì vậy\r
+$$H(Y)=E(\\log_{2}(Y))\\leq\\log_{2}(E(Y))=\\log_{2}(n)=H(X).$$\r
 \r
- \r
+Vì entropy của một r.v. chỉ phụ thuộc vào các xác suất $p_j$ và không phụ thuộc vào các giá trị cụ thể mà r.v. nhận, entropy của Y không thay đổi nếu ta thay đổi tập giá trị từ $1/p_1, \\ldots, 1/p_n$ sang $a_1, \\ldots, a_n$. Do đó X, với phân phối đều trên $a_1, \\ldots, a_n$, có entropy ít nhất bằng entropy của bất kỳ r.v. nào khác với tập giá trị $a_1, \\ldots, a_n$.\r
 \r
- $$H(X)=\\sum_{j=1}^{n}\\frac{1}{n}\\log_{2}(n)=\\log_{2}(n).$$ \r
+  </div>\r
+</div>\r
 \r
- \r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 10.1.8</div>\r
+    <div class="math-box-title">Kullback-Leibler divergence</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-Cho Y là một biến ngẫu nhiên (r.v.) nhận các giá trị  $1/p_1, \\ldots, 1/p_n$  với xác suất tương ứng là  $p_1, \\ldots, p_n$  (với sự điều chỉnh tự nhiên nếu các  $1/p_j$  có một số giá trị lặp lại, ví dụ, nếu  $1/p_1 = 1/p_2$  nhưng không có các giá trị khác là như vậy, thì nó nhận xác suất là  $p_1 + p_2 = 2p_1$ ). Khi đó  $H(Y) = E(\\log_2(Y))$  theo LOTUS, và  $E(Y) = n$ . Vì vậy theo bất đẳng thức Jensen,\r
+Cho $\\mathbf{p} = (p_1, \\ldots, p_n)$ và $\\mathbf{r} = (r_1, \\ldots, r_n)$ là các vector xác suất (tức là mỗi vector không âm và tổng bằng 1). Hãy xem mỗi vector như một PMF có thể cho một biến ngẫu nhiên có tập giá trị gồm n giá trị khác nhau. Kullback-Leibler divergence giữa $\\mathbf{p}$ và $\\mathbf{r}$ được định nghĩa là\r
 \r
- \r
+$$D(\\mathbf{p},\\mathbf{r})=\\sum_{j=1}^{n}p_{j}\\log_{2}(1/r_{j})-\\sum_{j=1}^{n}p_{j}\\log_{2}(1/p_{j}).$$\r
 \r
- $$H(Y)=E(\\log_{2}(Y))\\leq\\log_{2}(E(Y))=\\log_{2}(n)=H(X).$$ \r
+Đây là sự khác biệt giữa trung bình của sự bất ngờ mà chúng ta sẽ trải nghiệm khi thực tế các xác suất là $\\mathbf{p}$ nhưng chúng ta đang làm việc với $\\mathbf{r}$ (ví dụ, nếu $\\mathbf{p}$ là chưa biết và $\\mathbf{r}$ là dự đoán hiện tại cho $\\mathbf{p}$), và trung bình của sự bất ngờ khi chúng ta làm việc với $\\mathbf{p}$. Chứng minh rằng Kullback-Leibler divergence là không âm.\r
 \r
- \r
+**Giải pháp:** Sử dụng tính chất của logarit, chúng ta có\r
 \r
-Vì entropy của một r.v. chỉ phụ thuộc vào các xác suất  $p_j$  và không phụ thuộc vào các giá trị cụ thể mà r.v. nhận, entropy của Y không thay đổi nếu ta thay đổi tập giá trị từ  $1/p_1, \\ldots, 1/p_n$  sang  $a_1, \\ldots, a_n$ . Do đó X, với phân phối đều trên  $a_1, \\ldots, a_n$ , có entropy ít nhất bằng entropy của bất kỳ r.v. nào khác với tập giá trị  $a_1, \\ldots, a_n$ .\r
+$$D(\\mathbf{p},\\mathbf{r})=-\\sum_{j=1}^{n}p_{j}\\log_{2}\\left(\\frac{r_{j}}{p_{j}}\\right).$$\r
 \r
-Ví dụ 10.1.8 (Kullback-Leibler divergence). Cho  $\\mathbf{p} = (p_1, \\ldots, p_n)$  và  $\\mathbf{r} = (r_1, \\ldots, r_n)$  là các vector xác suất (tức là mỗi vector không âm và tổng bằng 1). Hãy xem mỗi vector như một PMF có thể cho một biến ngẫu nhiên có tập giá trị gồm n giá trị khác nhau. Kullback-Leibler divergence giữa  $\\mathbf{p}$  và  $\\mathbf{r}$  được định nghĩa là\r
+Hãy để Y là một biến ngẫu nhiên nhận các giá trị $r_j/p_j$ với xác suất $p_j$, do đó $D(\\mathbf{p}, \\mathbf{r}) = -E(\\log_2(Y))$ theo định lý LOTUS. Sau đó theo bất đẳng thức Jensen,\r
 \r
- \r
+$$D(\\mathbf{p},\\mathbf{r})=-E(\\log_{2}(Y))\\geq-\\log_{2}(E(Y))=-\\log_{2}(1)=0,$$\r
 \r
- $$D(\\mathbf{p},\\mathbf{r})=\\sum_{j=1}^{n}p_{j}\\log_{2}(1/r_{j})-\\sum_{j=1}^{n}p_{j}\\log_{2}(1/p_{j}).$$ \r
+với dấu bằng nếu và chỉ nếu $\\mathbf{p} = \\mathbf{r}$. Kết quả này cho chúng ta biết rằng chúng ta sẽ ngạc nhiên hơn trung bình khi làm việc với các xác suất sai khác khi làm việc với các xác suất đúng.\r
 \r
- \r
+  </div>\r
+</div>\r
 \r
-Đây là sự khác biệt giữa trung bình của sự bất ngờ mà chúng ta sẽ trải nghiệm khi thực tế các xác suất là  $\\mathbf{p}$  nhưng chúng ta đang làm việc với  $\\mathbf{r}$  (ví dụ, nếu  $\\mathbf{p}$  là chưa biết và  $\\mathbf{r}$  là dự đoán hiện tại cho  $\\mathbf{p}$ ), và trung bình của sự bất ngờ khi chúng ta làm việc với  $\\mathbf{p}$ . Chứng minh rằng Kullback-Leibler divergence là không âm.\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 10.1.9</div>\r
+    <div class="math-box-title">Đánh giá xác suất log</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-Giải pháp:\r
+Hãy tưởng tượng rằng trong một bài kiểm tra trắc nghiệm, thay vì chọn chỉ một trong các lựa chọn đáp án, bạn được yêu cầu gán một xác suất đúng cho mỗi lựa chọn. Điểm của bạn trên một câu hỏi cụ thể là logarit của xác suất mà bạn gán cho đáp án đúng. Điểm tối đa cho một câu hỏi cụ thể là 0, và điểm tối thiểu là $-\\infty$, đạt được nếu bạn gán xác suất 0 cho đáp án đúng. $^{1}$\r
 \r
-Sử dụng tính chất của logarit, chúng ta có\r
+Giả sử xác suất cá nhân của bạn về tính đúng của mỗi trong số n lựa chọn đáp án là $p_{1}, \\ldots, p_{n}$, trong đó các $p_{j}$ là dương và tổng bằng 1. Hãy chứng minh rằng kỳ vọng điểm của bạn trên một câu hỏi được tối đa hóa nếu bạn báo cáo các xác suất đúng $p_{j}$, chứ không phải bất kỳ xác suất nào khác. Nói cách khác, dưới hệ thống đánh giá xác suất log, bạn không có động cơ để nói dối về niềm tin của mình và giả vờ tự tin hơn hoặc ít tự tin hơn so với thực tế (giả sử rằng mục tiêu của bạn là tối đa hóa kỳ vọng điểm của bạn).\r
 \r
- \r
+**Giải pháp:** Ví dụ này là đồng dạng với ví dụ trước! Kỳ vọng điểm của bạn trên một câu hỏi là $\\sum_{j=1}^{n} p_j \\log p_j$ nếu bạn báo cáo các xác suất đúng $\\mathbf{p}$, và $\\sum_{j=1}^{n} p_j \\log r_j$ nếu bạn báo cáo các xác suất sai $\\mathbf{r}$. Sự khác biệt giữa hai cái này chính là khoảng cách Kullback-Leibler giữa $\\mathbf{p}$ và $\\mathbf{r}$. Điều này luôn luôn không âm, như chúng ta đã chứng minh trong ví dụ trước. Do đó kỳ vọng điểm của bạn được tối đa hóa khi bạn báo cáo các xác suất đúng của mình.\r
 \r
- $$D(\\mathbf{p},\\mathbf{r})=-\\sum_{j=1}^{n}p_{j}\\log_{2}\\left(\\frac{r_{j}}{p_{j}}\\right).$$ \r
+  </div>\r
+</div>\r
 \r
- \r
-\r
-Hãy để Y là một biến ngẫu nhiên nhận các giá trị  $r_j/p_j$  với xác suất  $p_j$ , do đó  $D(\\mathbf{p}, \\mathbf{r}) = -E(\\log_2(Y))$  theo định lý LOTUS. Sau đó theo bất đẳng thức Jensen,\r
-\r
- \r
-\r
- $$D(\\mathbf{p},\\mathbf{r})=-E(\\log_{2}(Y))\\geq-\\log_{2}(E(Y))=-\\log_{2}(1)=0,$$ \r
-\r
- \r
-\r
-với dấu bằng nếu và chỉ nếu  $\\mathbf{p} = \\mathbf{r}$ . Kết quả này cho chúng ta biết rằng chúng ta sẽ ngạc nhiên hơn trung bình khi làm việc với các xác suất sai khác khi làm việc với các xác suất đúng.\r
-\r
-Ví dụ 10.1.9 (Đánh giá xác suất log). Hãy tưởng tượng rằng trong một bài kiểm tra trắc nghiệm, thay vì chọn chỉ một trong các lựa chọn đáp án, bạn được yêu cầu gán một xác suất đúng cho mỗi lựa chọn. Điểm của bạn trên một câu hỏi cụ thể là logarit của xác suất mà bạn gán cho đáp án đúng. Điểm tối đa cho một câu hỏi cụ thể là 0, và điểm tối thiểu là  $-\\infty$ , đạt được nếu bạn gán xác suất 0 cho đáp án đúng.  $^{1}$ \r
-\r
-Giả sử xác suất cá nhân của bạn về tính đúng của mỗi trong số n lựa chọn đáp án là  $p_{1}, \\ldots, p_{n}$ , trong đó các  $p_{j}$  là dương và tổng bằng 1. Hãy chứng minh rằng kỳ vọng điểm của bạn trên một câu hỏi được tối đa hóa nếu bạn báo cáo các xác suất đúng  $p_{j}$ , chứ không phải bất kỳ xác suất nào khác. Nói cách khác, dưới hệ thống đánh giá xác suất log, bạn không có động cơ để nói dối về niềm tin của mình và giả vờ tự tin hơn hoặc ít tự tin hơn so với thực tế (giả sử rằng mục tiêu của bạn là tối đa hóa kỳ vọng điểm của bạn).\r
-\r
-## Giải pháp:\r
-\r
-Ví dụ này là đồng dạng với ví dụ trước! Kỳ vọng điểm của bạn trên một câu hỏi là  $\\sum_{j=1}^{n} p_j \\log p_j$  nếu bạn báo cáo các xác suất đúng  $\\mathbf{p}$ , và  $\\sum_{j=1}^{n} p_j \\log r_j$  nếu bạn báo cáo các xác suất sai  $\\mathbf{r}$ . Sự khác biệt giữa hai cái này chính là khoảng cách Kullback-Leibler giữa  $\\mathbf{p}$  và  $\\mathbf{r}$ . Điều này luôn luôn không âm, như chúng ta đã chứng minh trong ví dụ trước. Do đó kỳ vọng điểm của bạn được tối đa hóa khi bạn báo cáo các xác suất đúng của mình.\r
-\r
-#### 10.1.3 Markov, Chebyshev, Chernoff: các giới hạn xác suất đuôi\r
+### 10.1.3 Markov, Chebyshev, Chernoff: các giới hạn xác suất đuôi\r
 \r
 Các bất đẳng thức trong phần này cung cấp các giới hạn về xác suất của một biến ngẫu nhiên nhận một giá trị "cực đoan" trong đuôi bên phải hoặc bên trái của một phân phối.\r
 \r
-Định lý 10.1.10 (Markov). Với bất kỳ r.v. X và hằng số a > 0,\r
+<div class="math-box theorem">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 10.1.10</div>\r
+    <div class="math-box-title">Markov</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- \r
+Với bất kỳ r.v. X và hằng số a > 0,\r
 \r
- $$P(|X|\\geq a)\\leq\\frac{E|X|}{a}.$$ \r
+$$P(|X|\\geq a)\\leq\\frac{E|X|}{a}.$$\r
 \r
- \r
+  </div>\r
+</div>\r
 \r
-Chứng minh. Đặt  $Y = \\frac{|X|}{a}$ . Chúng ta cần chứng minh rằng  $P(Y \\geq 1) \\leq E(Y)$ . Lưu ý rằng\r
+<div class="math-box proof">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+    <div class="math-box-title">Định lý 10.1.10</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- \r
+Đặt $Y = \\frac{|X|}{a}$. Chúng ta cần chứng minh rằng $P(Y \\geq 1) \\leq E(Y)$. Lưu ý rằng\r
 \r
- $$I(Y\\geq1)\\leq Y,$$ \r
+$$I(Y\\geq1)\\leq Y,$$\r
 \r
- \r
+vì nếu $I(Y \\geq 1) = 0$ thì bất đẳng thức giảm xuống thành $Y \\geq 0$, và nếu $I(Y \\geq 1) = 1$ thì $Y \\geq 1$ (vì chỉ số nói như vậy). Lấy kỳ vọng của cả hai vế, chúng ta có bất đẳng thức Markov.\r
 \r
-vì nếu  $I(Y \\geq 1) = 0$  thì bất đẳng thức giảm xuống thành  $Y \\geq 0$ , và nếu  $I(Y \\geq 1) = 1$  thì  $Y \\geq 1$  (vì chỉ số nói như vậy). Lấy kỳ vọng của cả hai vế, chúng ta có bất đẳng thức Markov.\r
+<div class="qed"><span class="qed-mark"></span></div>\r
 \r
-Để hiểu một cách trực quan, hãy để  $X$  là thu nhập của một cá nhân được chọn ngẫu nhiên từ một quần thể. Đặt  $a = 2E(X)$ , bất đẳng thức Markov nói rằng  $P(X \\geq 2E(X)) \\leq 1/2$ , tức là không thể có hơn một nửa dân số có thu nhập ít nhất là hai lần trung bình thu nhập. Điều này rõ ràng là đúng, vì nếu hơn một nửa dân số có thu nhập ít nhất là hai lần trung bình thu nhập, thì trung bình thu nhập sẽ cao hơn! Tương tự,  $P(X \\geq 3E(X)) \\leq 1/3$ : bạn không thể có hơn 1/3 dân số có thu nhập ít nhất là ba lần trung bình thu nhập, vì những người này đã khiến trung bình thu nhập cao hơn so với hiện tại.\r
+  </div>\r
+</div>\r
+\r
+Để hiểu một cách trực quan, hãy để $X$ là thu nhập của một cá nhân được chọn ngẫu nhiên từ một quần thể. Đặt $a = 2E(X)$, bất đẳng thức Markov nói rằng $P(X \\geq 2E(X)) \\leq 1/2$, tức là không thể có hơn một nửa dân số có thu nhập ít nhất là hai lần trung bình thu nhập. Điều này rõ ràng là đúng, vì nếu hơn một nửa dân số có thu nhập ít nhất là hai lần trung bình thu nhập, thì trung bình thu nhập sẽ cao hơn! Tương tự, $P(X \\geq 3E(X)) \\leq 1/3$: bạn không thể có hơn 1/3 dân số có thu nhập ít nhất là ba lần trung bình thu nhập, vì những người này đã khiến trung bình thu nhập cao hơn so với hiện tại.\r
 \r
 Bất đẳng thức Markov là một giới hạn rất thô vì nó yêu cầu hoàn toàn không giả định nào về X. Vế phải của bất đẳng thức có thể lớn hơn 1, thậm chí vô cùng; điều này không hữu ích lắm khi cố gắng giới hạn một số mà chúng ta biết nằm giữa 0 và 1. Đáng ngạc nhiên, hai bất đẳng thức sau đây, có thể được suy ra từ bất đẳng thức Markov với rất ít công sức bổ sung, thường cho chúng ta các giới hạn tốt hơn nhiều so với Markov.\r
 \r
-Định lý 10.1.11 (Chebyshev). Cho X có trung bình  $\\mu$  và phương sai  $\\sigma^{2}$ . Khi đó với bất kỳ a > 0,\r
+<div class="math-box theorem">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 10.1.11</div>\r
+    <div class="math-box-title">Chebyshev</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- \r
+Cho X có trung bình $\\mu$ và phương sai $\\sigma^{2}$. Khi đó với bất kỳ a > 0,\r
 \r
- $$P(|X-\\mu|\\geq a)\\leq\\frac{\\sigma^{2}}{a^{2}}.$$ \r
+$$P(|X-\\mu|\\geq a)\\leq\\frac{\\sigma^{2}}{a^{2}}.$$\r
 \r
- \r
+  </div>\r
+</div>\r
 \r
-Chứng minh. Theo bất đẳng thức Markov,\r
+<div class="math-box proof">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+    <div class="math-box-title">Định lý 10.1.11</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- \r
+Theo bất đẳng thức Markov,\r
 \r
- $$P(|X-\\mu|\\geq a)=P((X-\\mu)^{2}\\geq a^{2})\\leq\\frac{E(X-\\mu)^{2}}{a^{2}}=\\frac{\\sigma^{2}}{a^{2}}.$$ \r
+$$P(|X-\\mu|\\geq a)=P((X-\\mu)^{2}\\geq a^{2})\\leq\\frac{E(X-\\mu)^{2}}{a^{2}}=\\frac{\\sigma^{2}}{a^{2}}.$$\r
 \r
- \r
+<div class="qed"><span class="qed-mark"></span></div>\r
 \r
-Thay  $c\\sigma$  vào a, với c > 0, chúng ta có dạng tương đương của bất đẳng thức Chebyshev:\r
+  </div>\r
+</div>\r
 \r
- \r
+Thay $c\\sigma$ vào a, với c > 0, chúng ta có dạng tương đương của bất đẳng thức Chebyshev:\r
 \r
- $$P(|X-\\mu|\\geq c\\sigma)\\leq\\frac{1}{c^{2}}.$$ \r
-\r
- \r
+$$P(|X-\\mu|\\geq c\\sigma)\\leq\\frac{1}{c^{2}}.$$\r
 \r
 Điều này cho chúng ta một giới hạn trên cho xác suất của một r.v. cách trung bình của nó nhiều hơn c độ lệch chuẩn, ví dụ, không thể có hơn 25% khả năng để nằm cách trung bình 2 hoặc nhiều độ lệch chuẩn.\r
 \r
-Ý tưởng để chứng minh Chebyshev từ Markov là để bình phương  $|X - \\mu|$  và sau đó\r
+Ý tưởng để chứng minh Chebyshev từ Markov là để bình phương $|X - \\mu|$ và sau đó\r
 \r
 Áp dụng Markov. Tương tự, thường xuyên có thể hữu ích để thực hiện các phép biến đổi khác trước khi áp dụng Markov. Bất đẳng thức Chernoff, được sử dụng rộng rãi trong kỹ thuật, sử dụng ý tưởng này với một hàm số mũ.\r
 \r
-Định lý 10.1.12 (Chernoff). Với bất kỳ biến ngẫu nhiên X nào và các hằng số a > 0 và t > 0,\r
+<div class="math-box theorem">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định lý 10.1.12</div>\r
+    <div class="math-box-title">Chernoff</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- \r
+Với bất kỳ biến ngẫu nhiên X nào và các hằng số a > 0 và t > 0,\r
 \r
- $$P(X\\geq a)\\leq\\frac{E(e^{t X})}{e^{t a}}.$$ \r
+$$P(X\\geq a)\\leq\\frac{E(e^{t X})}{e^{t a}}.$$\r
 \r
- \r
+  </div>\r
+</div>\r
 \r
-Chứng minh. Phép biến đổi  $g$  với  $g(x) = e^{tx}$  là khả nghịch và tăng nghiêm ngặt. Do đó, theo bất đẳng thức Markov, ta có\r
+<div class="math-box proof">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Chứng minh</div>\r
+    <div class="math-box-title">Định lý 10.1.12</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
- \r
+Phép biến đổi $g$ với $g(x) = e^{tx}$ là khả nghịch và tăng nghiêm ngặt. Do đó, theo bất đẳng thức Markov, ta có\r
 \r
- $$P(X\\geq a)=P(e^{t X}\\geq e^{t a})\\leq\\frac{E(e^{t X})}{e^{t a}}.$$ \r
+$$P(X\\geq a)=P(e^{t X}\\geq e^{t a})\\leq\\frac{E(e^{t X})}{e^{t a}}.$$\r
 \r
- \r
+<div class="qed"><span class="qed-mark"></span></div>\r
 \r
-Ban đầu có thể không rõ Chernoff’s bound mang lại điều gì mà Markov’s inequality không mang lại, nhưng nó có hai đặc điểm rất tốt:\r
+  </div>\r
+</div>\r
+\r
+Ban đầu có thể không rõ Chernoff's bound mang lại điều gì mà Markov's inequality không mang lại, nhưng nó có hai đặc điểm rất tốt:\r
 \r
 1. Vế phải có thể được tối ưu hóa theo t để cho cận trên chặt nhất, như trong chứng minh của Cauchy-Schwarz.\r
-\r
 2. Nếu hàm sinh momen của X tồn tại, thì tử số trong cận là hàm sinh momen, và một số tính chất hữu ích của hàm sinh momen có thể được áp dụng.\r
 \r
 Hãy so sánh ba cận đã thảo luận bằng cách áp dụng chúng vào một ví dụ đơn giản nơi xác suất thực sự được biết.\r
 \r
-Ví dụ 10.1.13 (Các cận cho xác suất đuôi chuẩn). Cho  $Z \\sim \\mathcal{N}(0,1)$ . Theo quy tắc 68-95-99.7%, ta biết rằng  $P(|Z| > 3)$  gần bằng 0.003; giá trị chính xác là  $2 \\cdot \\Phi(-3)$ . Hãy xem các cận trên được thu được từ bất đẳng thức Markov, Chebyshev, và Chernoff.\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 10.1.13</div>\r
+    <div class="math-box-title">Các cận cho xác suất đuôi chuẩn</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-- Markov: Trong Chương 5, chúng ta đã tìm ra rằng  $E|Z| = \\sqrt{2/\\pi}$ . Sau đó\r
+Cho $Z \\sim \\mathcal{N}(0,1)$. Theo quy tắc 68-95-99.7%, ta biết rằng $P(|Z| > 3)$ gần bằng 0.003; giá trị chính xác là $2 \\cdot \\Phi(-3)$. Hãy xem các cận trên được thu được từ bất đẳng thức Markov, Chebyshev, và Chernoff.\r
 \r
- \r
+- Markov: Trong Chương 5, chúng ta đã tìm ra rằng $E|Z| = \\sqrt{2/\\pi}$. Sau đó\r
 \r
- $$P(|Z|>3)\\leq\\frac{E|Z|}{3}=\\frac{1}{3}\\cdot\\sqrt{\\frac{2}{\\pi}}\\approx0.27.$$ \r
+$$P(|Z|>3)\\leq\\frac{E|Z|}{3}=\\frac{1}{3}\\cdot\\sqrt{\\frac{2}{\\pi}}\\approx0.27.$$\r
 \r
- \r
+- Chebyshev:\r
 \r
-• Chebyshev:\r
+$$P(|Z|>3)\\leq\\frac{1}{9}\\approx0.11.$$\r
 \r
- \r
+- Chernoff (sau khi sử dụng tính đối xứng của chuẩn):\r
 \r
- $$P(|Z|>3)\\leq\\frac{1}{9}\\approx0.11.$$ \r
-\r
- \r
-\r
-● Chernoff (sau khi sử dụng tính đối xứng của chuẩn):\r
-\r
- \r
-\r
- $$P(|Z|>3)=2P(Z>3)\\leq2e^{-3t}E(e^{t Z})=2e^{-3t}\\cdot e^{t^{2}/2},$$ \r
-\r
- \r
+$$P(|Z|>3)=2P(Z>3)\\leq2e^{-3t}E(e^{t Z})=2e^{-3t}\\cdot e^{t^{2}/2},$$\r
 \r
 sử dụng hàm sinh momen của phân phối chuẩn tiêu chuẩn.\r
 \r
@@ -28410,660 +28434,730 @@ Vế phải được tối thiểu tại t = 3, như đã tìm thấy bằng cá
 \r
 nơi mà giá trị nhỏ nhất xảy ra và nó có nghĩa là chúng ta chỉ cần tối ưu hóa một đa thức bậc hai). Thay t = 3, chúng ta có\r
 \r
- \r
-\r
- $$P(|Z|>3)\\leq2e^{-9/2}\\approx0.022.$$ \r
-\r
- \r
-\r
-Tất cả các cận trên này đều đúng, nhưng bất đẳng thức Chernoff là tốt nhất. Ví dụ này cũng minh họa sự khác biệt giữa một cận và một xấp xỉ, như chúng ta đã giải thích trong phần giới thiệu của chương này. Bất đẳng thức Markov cho chúng ta biết rằng xác suất đuôi  $P(|Z| > 3)$  không vượt quá 0.27, nhưng sẽ là một sai lầm nếu nói rằng  $P(|Z| > 3)$  xấp xỉ bằng 0.27—chúng ta sẽ sai lệch một lượng khoảng 100 lần.`,fz=`Chúng ta chuyển sang hai định lý, định lý số lớn và định lý giới hạn trung tâm, mô tả hành vi của giá trị trung bình mẫu của các biến ngẫu nhiên độc lập và đồng phân phối khi kích thước mẫu tăng lên. Trong suốt phần này và phần tiếp theo, giả sử chúng ta có các  $X_1, X_2, X_3, \\ldots$  độc lập và đồng phân phối với kỳ vọng hữu hạn  $\\mu$  và phương sai hữu hạn  $\\sigma^2$ . Với mọi số nguyên dương  $n$ , đặt\r
-\r
- \r
-\r
- $$\\bar{X}_{n}=\\frac{X_{1}+\\cdots+X_{n}}{n}$$ \r
-\r
- \r
-\r
-là giá trị trung bình mẫu của  $X_{1}$  đến  $X_{n}$ . Giá trị trung bình mẫu chính nó là một biến ngẫu nhiên, với kỳ vọng  $\\mu$  và phương sai  $\\sigma^{2}/n$ :\r
-\r
- \r
-\r
- $$E(\\bar{X}_{n})=\\frac{1}{n}E(X_{1}+\\cdots+X_{n})=\\frac{1}{n}(E(X_{1})+\\cdots+E(X_{n}))=\\mu,$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\mathrm{Var}(\\bar{X}_{n})=\\frac{1}{n^{2}}\\mathrm{Var}(X_{1}+\\cdots+X_{n})=\\frac{1}{n^{2}}(\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n}))=\\frac{\\sigma^{2}}{n}.$$ \r
-\r
- \r
-\r
-Định lý số lớn (LLN) nói rằng khi n tăng, giá trị trung bình mẫu  $\\bar{X}_{n}$  hội tụ đến giá trị trung bình thực  $\\mu$  (theo một nghĩa sẽ được giải thích dưới đây). Định lý LLN có hai phiên bản, "mạnh" (SLLN) và "yếu" (WLLN), sử dụng định nghĩa hơi khác nhau về ý nghĩa của việc một dãy biến ngẫu nhiên hội tụ đến một số. Chúng ta sẽ nêu cả hai phiên bản và chứng minh phiên bản thứ hai bằng bất đẳng thức Chebyshev.\r
-\r
-Định lý 10.2.1 (Định lý số lớn mạnh). Giá trị trung bình mẫu  $\\bar{X}_n$  hội tụ đến giá trị trung bình thực  $\\mu$  theo từng điểm, với xác suất 1. Nhắc lại rằng các biến ngẫu nhiên là các hàm từ không gian mẫu  $S$  đến  $\\mathbb{R}$ , dạng hội tụ này nói rằng  $\\bar{X}_n(s) \\to \\mu$  với mỗi điểm  $s \\in S$ , ngoại trừ rằng sự hội tụ có thể thất bại trên một tập hợp  $B_0$  các ngoại lệ, miễn là  $P(B_0) = 0$ . Tóm lại,  $P(\\bar{X}_n \\to \\mu) = 1$ .\r
-\r
-Định lý 10.2.2 (Định lý số lớn yếu). Với mọi  $\\epsilon > 0$ ,  $P(|\\bar{X}_{n} - \\mu| > \\epsilon) \\to 0$  khi  $n \\to \\infty$ . (Dạng hội tụ này được gọi là hội tụ theo xác suất.)\r
-\r
-Bằng chứng. Chọn  $\\epsilon > 0$ . Theo bất đẳng thức Chebyshev,\r
-\r
- \r
-\r
- $$P(|\\bar{X}_{n}-\\mu|>\\epsilon)\\leq\\frac{\\sigma^{2}}{n\\epsilon^{2}}.$$ \r
-\r
- \r
-\r
-Khi  $n \\to \\infty$ , vế phải tiến tới 0, và do đó vế trái cũng phải tiến tới 0.\r
-\r
-Định lý số lớn là thiết yếu cho các mô phỏng, thống kê và khoa học. Xét việc tạo ra "dữ liệu" từ một số lượng lớn các lần lặp độc lập của một thí nghiệm, được thực hiện bằng mô phỏng máy tính hoặc trong thế giới thực. Mỗi lần chúng ta sử dụng giá trị trung bình trong các lần lặp của một lượng để xấp xỉ giá trị trung bình lý thuyết, chúng ta đang ngầm dựa vào định lý số lớn.\r
-\r
-Ví dụ 10.2.3 (Tỷ lệ chạy của Mặt ngửa). Cho  $X_1, X_2, \\ldots$  là i.i.d. Bern(1/2). Giải thích các  $X_j$  như các chỉ số của Mặt ngửa trong một chuỗi tung đồng xu công bằng,  $\\bar{X}_n$  là tỷ lệ Mặt ngửa sau  $n$  lần tung. Định lý số lớn mạnh nói rằng với xác suất 1, khi dãy các biến ngẫu nhiên  $\\bar{X}_1, \\bar{X}_2, \\bar{X}_3, \\ldots$  kết tinh thành một dãy các số, dãy các số này sẽ hội tụ về 1/2. Về mặt toán học, có những kết quả kỳ lạ như  $HHHHHH\\ldots$  và  $HHHHHHHHHT\\ldots$ , nhưng tổng thể chúng có xác suất xảy ra bằng 0. Định lý số lớn yếu nói rằng với bất kỳ  $\\epsilon > 0$ , xác suất của  $\\bar{X}_n$  cách 1/2 hơn  $\\epsilon$  có thể làm nhỏ như chúng ta muốn bằng cách cho  $n$  tăng lên.\r
-\r
-Là một minh họa, chúng tôi đã mô phỏng sáu chuỗi tung đồng xu công bằng và, cho mỗi chuỗi, tính toán  $\\bar{X}_{n}$  như một hàm số của n. Tất nhiên, trong đời thực chúng ta không thể mô phỏng vô số lần tung đồng xu, vì vậy chúng tôi đã dừng lại sau 300 lần tung. Hình 10.2 vẽ  $\\bar{X}_{n}$  như một hàm số của n cho mỗi chuỗi.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_309_1121_1084_1578.jpg" alt="Image" width="55%" /></div>\r
-\r
-\r
-### HÌNH 10.2\r
-\r
-Tỷ lệ chạy của Mặt ngửa trong 6 chuỗi tung đồng xu công bằng. Các đường nét đứt tại 0.6 và 0.4 được vẽ để làm tham khảo. Khi số lần tung tăng lên, tỷ lệ Mặt ngửa tiến gần về 1/2.\r
-\r
-Ở đầu tiên, chúng ta có thể thấy rằng có khá nhiều sự biến động trong tỷ lệ chạy\r
-\r
-Tỷ lệ của Mặt ngửa. Khi số lần tung đồng xu tăng lên, tuy nhiên,  $\\operatorname{Var}(\\bar{X}_n)$  ngày càng nhỏ đi, và  $\\bar{X}_n$  tiến tới 1/2.\r
-\r
-10.2.4 (Định lý số lớn không mâu thuẫn với việc đồng xu không có trí nhớ). Trong ví dụ trên, định lý số lớn phát biểu rằng tỷ lệ của Mặt ngửa hội tụ tới 1/2, nhưng điều này không có nghĩa là sau một chuỗi dài các Mặt ngửa, đồng xu "cần" một Mặt Sấp để cân bằng. Thay vào đó, sự hội tụ xảy ra thông qua việc bị nhấn chìm: các lần tung trước đó bị nhấn chìm bởi vô số lần tung còn lại.\r
-\r
-Một chuỗi các biến ngẫu nhiên độc lập và đồng phân bố Bernoulli là ví dụ đơn giản nhất của định lý số lớn, nhưng trường hợp đơn giản này là cơ sở cho các phương pháp rất hữu ích trong thống kê, như các ví dụ sau đây minh họa.\r
-\r
-Ví dụ 10.2.5 (Tích phân Monte Carlo). Cho  $f$  là một hàm phức tạp mà chúng ta muốn xấp xỉ tích phân  $\\int_{a}^{b} f(x) dx$ . Giả sử rằng  $0 \\leq f(x) \\leq c$  nên chúng ta biết tích phân là hữu hạn. Trên bề mặt, bài toán này không liên quan đến xác suất, vì  $\\int_{a}^{b} f(x) dx$  chỉ là một số. Nhưng ở nơi không có sự ngẫu nhiên, chúng ta có thể tự tạo ra! Kỹ thuật tích phân Monte Carlo sử dụng mẫu ngẫu nhiên để có được các xấp xỉ của tích phân xác định khi các phương pháp tích phân chính xác không khả thi.\r
-\r
-Gọi  $A$  là hình chữ nhật trong mặt phẳng  $(x,y)$  được cho bởi  $a\\leq x\\leq b$  và  $0\\leq y\\leq c$ . Gọi  $B$  là miền dưới đường cong  $y=f(x)$  (và trên trục  $x$ ) cho  $a\\leq x\\leq b$ , do đó tích phân mong muốn là diện tích của miền  $B$ . Chiến lược của chúng ta sẽ là lấy mẫu ngẫu nhiên từ  $A$ , sau đó tính tỷ lệ các mẫu cũng rơi vào miền  $B$ . Điều này được minh họa trong Hình 10.3: các điểm trong  $B$  được tô đen, và các điểm không trong  $B$  được tô trắng.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_418_1145_987_1601.jpg" alt="Image" width="40%" /></div>\r
-\r
-\r
-### HÌNH 10.3\r
-\r
-<div style="text-align: center;">Tích phân Monte Carlo. Để xấp xỉ diện tích dưới  $f(x)$  từ  $x = a$  đến  $x = b$ , tạo ra các điểm ngẫu nhiên trong hình chữ nhật  $[a, b] \\times [0, c]$ , và xấp xỉ diện tích dưới  $f(x)$  bằng tỷ lệ các điểm rơi vào dưới đường cong, nhân với diện tích tổng thể của hình chữ nhật.</div>\r
-\r
-Để thấy tại sao điều này hoạt động, giả sử chúng ta chọn các điểm i.i.d.  $(X_1, Y_1)$ ,  $(X_2, Y_2)$ ,...,  $(X_n, Y_n)$  đều trong hình chữ nhật  $A$ . Định nghĩa các biến ngẫu nhiên chỉ báo  $I_1, \\ldots, I_n$  bằng cách cho  $I_j = 1$  nếu  $(X_j, Y_j)$  nằm trong  $B$  và  $I_j = 0$  nếu không. Khi đó các  $I_j$  là các biến ngẫu nhiên Bernoulli với xác suất thành công chính xác là tỉ số diện tích của  $B$  so với diện tích của  $A$ . Cho  $p = E(I_j)$ ,\r
-\r
- \r
-\r
- $$p=E(I_{j})=P(I_{j}=1)=\\frac{\\int_{a}^{b}f(x)dx}{c(b-a)}.$$ \r
-\r
- \r
-\r
-Chúng ta có thể ước lượng  $p$  bằng  $\\frac{1}{n}\\sum_{j=1}^{n}I_{j}$ , và sau đó ước lượng tích phân mong muốn bằng\r
-\r
- \r
-\r
- $$\\int_{a}^{b}f(x)dx\\approx c(b-a)\\frac{1}{n}\\sum_{j=1}^{n}I_{j}.$$ \r
-\r
- \r
-\r
-Vì các  $I_{j}$  là i.i.d. với kỳ vọng  $p$ , theo định lý số lớn, ước lượng này hội tụ đến giá trị đúng của tích phân với xác suất 1 khi số lượng điểm tiến đến vô cùng.\r
-\r
-Ví dụ 10.2.6 (Tính hội tụ của hàm phân phối thực nghiệm). Cho  $X_1, \\ldots, X_n$  là các biến ngẫu nhiên i.i.d. với hàm phân phối tích lũy  $F$ . Với mỗi số  $x$ , cho  $R_n(x)$  đếm số lượng trong số  $X_1, \\ldots, X_n$  nhỏ hơn hoặc bằng  $x$ ; tức là,\r
-\r
- \r
-\r
- $$R_{n}(x)=\\sum_{j=1}^{n}I(X_{j}\\leq x).$$ \r
-\r
- \r
-\r
-Vì các chỉ báo  $I(X_j \\leq x)$  là i.i.d. với xác suất thành công  $F(x)$ , chúng ta biết  $R_n(x)$  là phân phối nhị thức với tham số  $n$  và  $F(x)$ .\r
-\r
-Hàm phân phối thực nghiệm của  $X_{1},\\ldots,X_{n}$  được định nghĩa là\r
-\r
- \r
-\r
- $$\\hat{F}_{n}(x)=\\frac{R_{n}(x)}{n},$$ \r
-\r
- \r
-\r
-xem như một hàm số của  $x$ . Trước khi quan sát  $X_{1},\\ldots,X_{n},\\hat{F}_{n}(x)$  là một biến ngẫu nhiên cho mỗi  $x$ . Sau khi quan sát  $X_{1},\\ldots,X_{n},\\hat{F}_{n}(x)$  sẽ trở thành một giá trị cụ thể tại mỗi  $x$ , do đó  $\\hat{F}_{n}$  sẽ trở thành một hàm phân phối cụ thể, có thể được sử dụng để ước lượng hàm phân phối thực tế  $F$  nếu hàm này chưa biết.\r
-\r
-Ví dụ, giả sử  $n = 4$  và chúng ta quan sát  $X_1 = x_1$ ,  $X_2 = x_2$ ,  $X_3 = x_3$ ,  $X_4 = x_4$ . Khi đó đồ thị của  $\\frac{R_4(x)}{4}$  bắt đầu từ 0 và sau đó nhảy lên 1/4 mỗi khi một trong các  $x_j$  được đạt tới. Nói cách khác,  $\\frac{R_4(x)}{4}$  là hàm phân phối của một biến ngẫu nhiên rời rạc nhận các giá trị  $x_1, \\ldots, x_4$ , mỗi giá trị với xác suất 1/4. Điều này được minh họa trong Hình 10.4.\r
-\r
-Bây giờ chúng ta có thể hỏi, điều gì xảy ra với  $\\hat{F}_n$  khi  $n \\to \\infty$ ? Đây là một câu hỏi tự nhiên nếu chúng ta đang sử dụng  $\\hat{F}_n$  để ước lượng hàm phân phối thực tế  $F$ ; ước lượng này có tốt không khi tiến đến giới hạn? Định lý số lớn cung cấp câu trả lời: với mọi  $x$ ,  $R_n(x)$  là tổng của  $n$  biến ngẫu nhiên Bernoulli i.i.d., với xác suất thành công  $p = F(x)$ . Do đó theo định lý số lớn mạnh,  $\\hat{F}_n(x) \\to F(x)$  với xác suất 1 khi  $n \\to \\infty$ .\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_400_138_1001_614.jpg" alt="Image" width="42%" /></div>\r
-\r
-\r
-### HÌNH 10.4\r
-\r
-Phân phối tích lũy thực nghiệm sau khi quan sát  $X_{1}=x_{1}, X_{2}=x_{2}, X_{3}=x_{3}, X_{4}=x_{4}$ . Đồ thị nhảy lên 1/4 mỗi lần một trong các  $x_{j}$  được đạt đến.\r
-\r
-Phân phối tích lũy thực nghiệm thường được sử dụng trong thống kê phi tham số, một ngành của thống kê mà cố gắng hiểu một mẫu ngẫu nhiên mà không cần giả định mạnh về họ phân phối từ đó mẫu đó bắt nguồn. Ví dụ, thay vì giả định  $X_{1}, \\ldots, X_{n} \\sim \\mathcal{N}(\\mu, \\sigma^{2})$ , một phương pháp phi tham số sẽ cho phép  $X_{1}, \\ldots, X_{n} \\sim F$  cho một hàm phân phối tích lũy F tùy ý, sau đó sử dụng phân phối tích lũy thực nghiệm như một ước lượng cho F. Luật số lớn là điều đảm bảo cho chúng ta rằng ước lượng này là hợp lệ trong giới hạn khi chúng ta thu thập thêm nhiều mẫu hơn: tại mọi giá trị của x, phân phối tích lũy thực nghiệm hội tụ đến phân phối tích lũy thực sự.`,pz=`Giống như trong phần trước, để  $X_1, X_2, X_3, \\ldots$  là độc lập và đồng phân phối với kỳ vọng  $\\mu$  và phương sai  $\\sigma^2$ . Luật số lớn nói rằng khi  $n \\to \\infty$ ,  $\\bar{X}_n$  hội tụ đến hằng số  $\\mu$  (với xác suất 1). Nhưng phân phối của nó như thế nào dọc đường đi đến trở thành một hằng số? Điều này được giải quyết bởi định lý giới hạn trung tâm (CLT), mà như tên gọi cho thấy, là một định lý giới hạn quan trọng trong thống kê.\r
-\r
-Định lý CLT nói rằng với n lớn, phân phối của  $\\bar{X}_n$  sau khi chuẩn hóa tiến tới phân phối chuẩn chuẩn. Bằng cách chuẩn hóa, chúng ta hiểu là chúng ta trừ  $\\mu$ , kỳ vọng của  $\\bar{X}_n$ , và chia cho  $\\sigma/\\sqrt{n}$ , độ lệch chuẩn của  $\\bar{X}_n$ .\r
-\r
-Định lý 10.3.1 (Định lý giới hạn trung tâm). Khi  $n \\to \\infty$ ,\r
-\r
- \r
-\r
- $$\\sqrt{n}\\left(\\frac{\\bar{X}_{n}-\\mu}{\\sigma}\\right)\\rightarrow\\mathcal{N}(0,1) \\text{ theo phân phối}.$$ \r
-\r
-\r
-\r
-Bằng từ, điều này có nghĩa là hàm phân phối tích lũy (CDF) của vế trái hội tụ đến  $\\Phi$ , hàm phân phối tích lũy của phân phối chuẩn chuẩn hóa.\r
-\r
-Chứng minh. Chúng ta sẽ chứng minh định lý giới hạn trung tâm (CLT) giả sử rằng hàm sinh momen (MGF) của  $X_j$  tồn tại, mặc dù định lý này đúng trong nhiều trường hợp rộng hơn. Gọi  $M(t) = E(e^{tX_j})$ , và mà không mất tính tổng quát, ta có thể giả sử  $\\mu = 0$ ,  $\\sigma^2 = 1$  (vì chúng ta cuối cùng sẽ chuẩn hóa  $\\bar{X}_n$  cho định lý, ta có thể chuẩn hóa các  $X_j$  ngay từ đầu). Khi đó  $M(0) = 1$ ,  $M'(0) = \\mu = 0$ , và  $M''(0) = \\sigma^2 = 1$ .\r
-\r
-Chúng ta muốn chứng minh rằng hàm sinh momen của  $\\sqrt{n}\\bar{X}_n = (X_1 + \\cdots + X_n)/\\sqrt{n}$  hội tụ đến hàm sinh momen của phân phối  $\\mathcal{N}(0,1)$ , tức là  $e^{t^2/2}$ . Đây là một chiến lược hợp lệ vì của một định lý nói rằng nếu  $Z_1, Z_2, \\ldots$  là các biến ngẫu nhiên (r.v.) có các hàm sinh momen hội tụ đến hàm sinh momen của một r.v. liên tục Z, thì hàm phân phối tích lũy (CDF) của  $Z_n$  hội tụ đến CDF của Z. (Chúng ta bỏ qua chứng minh của kết quả này vì nó yêu cầu một phân tích phức tạp. Tuy nhiên, nó ít nhất cũng có vẻ hợp lý, xét thấy rằng hàm sinh momen của một r.v. xác định phân phối của nó.)\r
-\r
-Bằng các tính chất của hàm sinh momen,\r
-\r
- \r
-\r
- $$\\begin{align*}E(e^{t(X_{1}+\\cdots+X_{n})/\\sqrt{n}})&=E(e^{tX_{1}/\\sqrt{n}})E(e^{tX_{2}/\\sqrt{n}})\\cdots E(e^{tX_{n}/\\sqrt{n}})\\\\&=\\left(M\\left(\\frac{t}{\\sqrt{n}}\\right)\\right)^{n}.\\end{align*}$$ \r
-\r
- \r
-\r
-Khi  $n \\to \\infty$ , chúng ta nhận được dạng không xác định  $1^\\infty$ , vì vậy thay vào đó ta nên lấy giới hạn của logarit,  $n \\log M(\\frac{t}{\\sqrt{n}})$ , và sau đó mũ hóa ở cuối. Điều này cho ta\r
-\r
- \r
-\r
- $$\\begin{aligned}\\lim_{n\\rightarrow\\infty}n\\log M\\left(\\frac{t}{\\sqrt{n}}\\right)&=\\lim_{y\\rightarrow0}\\frac{\\log M(yt)}{y^{2}}\\quad& where y=1/\\sqrt{n}\\\\&=\\lim_{y\\rightarrow0}\\frac{tM^{\\prime}(yt)}{2yM(yt)}\\quad&by L^{\\prime}Hopital^{\\prime}s rule\\\\&=\\frac{t}{2}\\lim_{y\\rightarrow0}\\frac{M^{\\prime}(yt)}{y}\\quad&since M(yt)\\rightarrow1\\\\&=\\frac{t^{2}}{2}\\lim_{y\\rightarrow0}M^{\\prime \\prime}(yt)\\quad&by L^{\\prime}Hopital^{\\prime}s rule\\\\&=\\frac{t^{2}}{2}.\\end{aligned}$$ \r
-\r
- \r
-\r
-Do đó  $\\left(M\\left(\\frac{t}{\\sqrt{n}}\\right)\\right)^n$ , hàm sinh momen của  $\\sqrt{n}\\bar{X}_n$ , tiến đến  $e^{t^2/2}$ , hàm sinh momen của  $\\mathcal{N}(0,1)$ .\r
-\r
-Định lý giới hạn trung tâm là một kết quả tiệm cận, cho chúng ta biết về phân phối giới hạn của  $\\bar{X}_n$  khi  $n \\to \\infty$ , nhưng nó cũng gợi ý một phương pháp xấp xỉ cho phân phối của  $\\bar{X}_n$  khi n lớn nhưng hữu hạn.\r
-\r
-Xấp xỉ 10.3.2 (Định lý giới hạn trung tâm, dạng xấp xỉ). Với n lớn, phân phối của  $\\bar{X}_{n}$  gần似  $\\mathcal{N}(\\mu,\\sigma^{2}/n)$ .\r
-\r
-Bằng chứng. Thay đổi mũi tên trong CLT thành  $\\sim$ , một ký hiệu phân phối xấp xỉ:\r
-\r
- \r
-\r
- $$\\sqrt{n}\\left(\\frac{\\bar{X}_{n}-\\mu}{\\sigma}\\right)\\dot{\\sim}\\mathcal{N}(0,1).$$ \r
-\r
- \r
-\r
-Sau đó bằng một biến đổi vị trí-kích thước,\r
-\r
- \r
-\r
- $$\\bar{X}_{n}\\dot{\\sim}\\mathcal{N}(\\mu,\\sigma^{2}/n).$$ \r
-\r
- \r
-\r
-Tất nhiên, chúng ta đã biết từ các tính chất của kỳ vọng và phương sai rằng  $\\bar{X}_{n}$  có kỳ vọng là  $\\mu$  và phương sai là  $\\sigma^{2}/n$ ; định lý giới hạn trung tâm cho chúng ta thêm thông tin rằng  $\\bar{X}_{n}$  xấp xỉ phân phối chuẩn với kỳ vọng và phương sai nói trên.\r
-\r
-Hãy dành một chút thời gian để ngưỡng mộ sự tổng quát của kết quả này. Phân phối của từng  $X_j$  có thể là bất kỳ thứ gì trong thế giới, miễn là kỳ vọng và phương sai là hữu hạn. Chúng ta có thể có một phân phối rời rạc như Binomial, một phân phối giới hạn như Beta, một phân phối lệch như Log-Normal, hoặc một phân phối có nhiều đỉnh và thung lũng. Dù sao, hành động trung bình hóa sẽ khiến tính chuẩn xuất hiện. Trong Hình 10.5 chúng ta hiển thị các histogram của phân phối của  $\\bar{X}_n$  cho 4 phân phối ban đầu khác nhau và cho  $n = 1, 5, 30, 100$ . Khi  $n$  tăng lên, phân phối của  $\\bar{X}_n$  bắt đầu trông như phân phối chuẩn, bất kể phân phối của các  $X_j$ .\r
-\r
-Điều này không có nghĩa là phân phối của  $X_j$  là vô hại, tuy nhiên. Nếu các  $X_j$  có phân phối lệch hoặc đa đỉnh, chúng ta có thể cần  $n$  rất lớn trước khi xấp xỉ chuẩn trở nên chính xác; ở cực ngược lại, nếu các  $X_j$  là các biến ngẫu nhiên độc lập và đồng phân phối chuẩn, phân phối của  $\\bar{X}_{n}$  chính xác là  $\\mathcal{N}(\\mu,\\sigma^{2}/n)$  cho mọi  $n$ . Vì không có dữ liệu vô hạn trong thế giới thực, chất lượng của xấp xỉ chuẩn cho  $n$  hữu hạn là một yếu tố quan trọng cần xem xét.\r
-\r
-Ví dụ 10.3.3 (Tỷ lệ chạy của Mặt, được xem lại). Như trong Ví dụ 10.2.3, hãy cho  $X_1, X_2, \\ldots$  là i.i.d.  $\\text{Bern}(1/2)$ . Trước đây, chúng ta đã sử dụng định luật số lớn để kết luận rằng  $\\bar{X}_n \\to 1/2$  khi  $n \\to \\infty$ . Bây giờ, bằng định lý giới hạn trung tâm, chúng ta có thể nói thêm:  $E(\\bar{X}_n) = 1/2$  và  $\\text{Var}(\\bar{X}_n) = 1/(4n)$ , vì vậy với  $n$  lớn,\r
-\r
- \r
-\r
- $$\\bar{X}_{n}\\dot{\\sim}\\mathcal{N}\\left(\\frac{1}{2},\\frac{1}{4n}\\right).$$ \r
-\r
- \r
-\r
-Thông tin bổ sung này cho phép chúng ta lượng hóa loại độ lệch nào từ giá trị trung bình là điển hình cho một  $n$  nhất định. Ví dụ, khi  $n = 100$ ,  $\\mathrm{SD}(\\bar{X}_n) = 1/20 = 0.05$ , vì vậy nếu xấp xỉ chuẩn là chính xác, thì theo quy tắc 68-95-99.7%, có 95% khả năng  $\\bar{X}_n$  sẽ nằm trong khoảng [0.40, 0.60].\r
-\r
-Định lý giới hạn trung tâm nói rằng mẫu trung bình  $\\bar{X}_n$  xấp xỉ phân phối chuẩn, nhưng vì tổng  $W_n = X_1 + \\cdots + X_n = n\\bar{X}_n$  chỉ là một phiên bản được thay đổi tỷ lệ của  $\\bar{X}_n$ , định lý giới hạn trung tâm cũng cho thấy  $W_n$  xấp xỉ phân phối chuẩn. Nếu các  $X_j$  có kỳ vọng là  $\\mu$  và phương sai là  $\\sigma^2$ ,  $W_n$  có kỳ vọng là  $n\\mu$  và phương sai là  $n\\sigma^2$ . Định lý giới hạn trung tâm sau đó phát biểu rằng với  $n$  lớn,\r
-\r
- \r
-\r
- $$W_{n}\\dot{\\sim}\\mathcal{N}(n\\mu,n\\sigma^{2}).$$ \r
-\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_162_500_1198_1191.jpg" alt="Image" width="74%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 10.5</div>\r
-\r
-\r
-<div style="text-align: center;">Định lý giới hạn trung tâm. Biểu đồ tần suất của phân phối của  $\\bar{X}_{n}$  cho các phân phối ban đầu khác nhau của các  $X_{j}$  (được chỉ ra bởi các hàng) và các giá trị ngày càng tăng của n (được chỉ ra bởi các cột). Mỗi biểu đồ tần suất được xây dựng dựa trên 10.000 giá trị mô phỏng của  $\\bar{X}_{n}$ . Dù phân phối ban đầu của các  $X_{j}$  như thế nào, phân phối của  $\\bar{X}_{n}$  sẽ tiến tới phân phối chuẩn khi n tăng lên.</div>\r
-\r
-Đây là hoàn toàn tương đương với xấp xỉ cho  $\\bar{X}_{n}$ , nhưng nó có thể hữu ích để viết dưới dạng này vì nhiều phân phối có tên mà chúng ta đã nghiên cứu có thể được coi là tổng của các r.v.s độc lập và đồng phân phối. Dưới đây là ba ví dụ nhanh chóng.\r
-\r
-Ví dụ 10.3.4 (Hội tụ của Poisson đến Normal). Cho  $Y \\sim \\text{Pois}(n)$ . Theo Định lý 4.8.1, chúng ta có thể coi Y là tổng của  $n$  r.v.s độc lập và đồng phân phối Pois(1). Do đó, với n lớn,\r
-\r
- \r
-\r
- $$Y\\dot{\\sim}\\mathcal{N}(n,n).$$ \r
-\r
- \r
-\r
-Ví dụ 10.3.5 (Hội tụ của Gamma đến Normal). Cho  $Y \\sim \\Gamma(\\alpha, \\lambda)$ . Theo Định lý 8.4.3, chúng ta có thể coi Y là tổng của n r.v.s độc lập và đồng phân phối  $\\operatorname{Expo}(\\lambda)$ . Do đó, với n lớn,\r
-\r
- \r
-\r
- $$Y\\dot{\\sim}\\mathcal{N}\\left(\\frac{n}{\\lambda},\\frac{n}{\\lambda^{2}}\\right).$$ \r
-\r
- \r
-\r
-Ví dụ 10.3.6 (Hội tụ của Binomial đến Normal). Cho  $Y \\sim \\text{Bin}(n, p)$ . Theo Định lý 3.8.8, chúng ta có thể coi Y là tổng của n r.v.s độc lập và đồng phân phối  $\\text{Bern}(p)$ . Do đó, với n lớn,\r
-\r
- \r
-\r
- $$Y\\dot{\\sim}\\mathcal{N}\\left(n p,n p(1-p)\\right).$$ \r
-\r
- \r
-\r
-Đây có lẽ là xấp xỉ Normal được sử dụng phổ biến nhất trong thống kê. Để tính đến tính rời rạc của Y, chúng ta viết xác suất  $P(Y = k)$  (mà dưới xấp xỉ Normal sẽ chính xác bằng 0) dưới dạng  $P(k - 1/2 < Y < k + 1/2)$  (vậy mà nó trở thành một khoảng có độ rộng không bằng 0) và áp dụng xấp xỉ Normal cho cái sau. Điều này được gọi là phép chỉnh tiếp tục, và nó cho phép xấp xỉ sau đây cho hàm PMF của Y:\r
-\r
- \r
-\r
- $$P(Y=k)=P(k-1/2<Y<k+1/2)\\approx\\Phi\\left(\\frac{k+1/2-np}{\\sqrt{np(1-p)}}\\right)-\\Phi\\left(\\frac{k-1/2-np}{\\sqrt{np(1-p)}}\\right).$$ \r
-\r
- \r
-\r
-Xấp xỉ Normal cho phân phối Binomial là bổ sung cho xấp xỉ Poisson được thảo luận trong Chương 4. Xấp xỉ Poisson hoạt động tốt nhất khi p nhỏ, trong khi xấp xỉ Normal hoạt động tốt nhất khi n lớn và p xung quanh 1/2, vậy mà phân phối của Y đối xứng hoặc gần đối xứng.\r
-\r
-Chúng ta sẽ kết thúc với một ví dụ sử dụng cả định lý số lớn và định lý giới hạn trung tâm.\r
-\r
-Ví dụ 10.3.7 (Chứng khoán biến động). Mỗi ngày, một chứng khoán biến động tăng 70% hoặc giảm 50% giá, với xác suất bằng nhau và các ngày độc lập. Gọi  $Y_n$  là giá cổ phiếu sau n ngày, bắt đầu từ giá trị ban đầu  $Y_0 = 100$ .\r
-\r
-(a) Giải thích tại sao  $\\log Y_{n}$  gần似 Normal khi n lớn, và nêu các tham số của nó.\r
-\r
-(b) Điều gì xảy ra với  $E(Y_n)$  khi  $n \\to \\infty$ ?\r
-\r
-(c) Sử dụng định lý số lớn để tìm xem điều gì xảy ra với  $Y_n$  khi  $n \\to \\infty$ .\r
-\r
-Giải pháp:\r
-\r
-(a) Chúng ta có thể viết  $Y_n = Y_0(0.5)^{n - U_n}(1.7)^{U_n}$  nơi  $U_n \\sim \\mathrm{Bin}(n, \\frac{1}{2})$  là số lần cổ phiếu tăng trong n ngày đầu tiên. Điều này cho\r
-\r
- \r
-\r
- $$\\log Y_{n}=\\log Y_{0}-n\\log2+U_{n}\\log3.4,$$ \r
-\r
-\r
-\r
-Đó là một biến đổi vị trí-tỷ lệ của  $U_{n}$ . Theo định lý giới hạn trung tâm,  $U_{n}$  xấp xỉ  $\\mathcal{N}\\left(\\frac{n}{2}, \\frac{n}{4}\\right)$  khi  $n$  lớn, do đó  $\\log Y_{n}$  xấp xỉ phân phối chuẩn với kỳ vọng\r
-\r
- \r
-\r
- $$E(\\log Y_{n})=\\log100-n\\log2+(\\log3.4)\\cdot E(U_{n})\\approx\\log100-0.081n$$ \r
-\r
- \r
-\r
-và phương sai\r
-\r
- \r
-\r
- $$\\operatorname{Var}(\\log Y_{n})=(\\log3.4)^{2}\\cdot\\operatorname{Var}(U_{n})\\approx0.374n.$$ \r
-\r
- \r
-\r
-(b) Chúng ta có  $E(Y_{1}) = (170 + 50)/2 = 110$ . Tương tự,\r
-\r
- \r
-\r
- $$E(Y_{n+1}|Y_{n})=\\frac{1}{2}(1.7Y_{n})+\\frac{1}{2}(0.5Y_{n})=1.1Y_{n},$$ \r
-\r
- \r
-\r
-DO VẬY\r
-\r
- \r
-\r
- $$E(Y_{n+1})=E(E(Y_{n+1}|Y_{n}))=1.1E(Y_{n}).$$ \r
-\r
- \r
-\r
-Do đó  $E(Y_n) = 1.1^n E(Y_0) = 100 \\cdot 1.1^n$ , điều này tiến tới  $\\infty$  khi  $n \\to \\infty$ .\r
-\r
-(c) Giống như trong (a), để  $U_n \\sim \\text{Bin}(n, \\frac{1}{2})$  là số lần cổ phiếu tăng trong n ngày đầu tiên. Lưu ý rằng mặc dù  $E(Y_n) \\to \\infty$ , nếu cổ phiếu tăng 70% một ngày và sau đó giảm 50% ngày hôm sau, thì tổng thể nó đã giảm 15% vì  $1.7 \\cdot 0.5 = 0.85$ . Do đó sau nhiều ngày,  $Y_n$  sẽ rất nhỏ nếu khoảng một nửa thời gian cổ phiếu tăng 70% và khoảng một nửa thời gian cổ phiếu giảm 50%—và định luật số lớn đảm bảo rằng điều này sẽ xảy ra! Viết  $Y_n$  theo  $U_n/n$  để áp dụng định luật số lớn, chúng ta có\r
-\r
- \r
-\r
- $$Y_{n}=Y_{0}(0.5)^{n-U_{n}}(1.7)^{U_{n}}=Y_{0}\\left(\\frac{(3.4)^{U_{n}/n}}{2}\\right)^{n}.$$ \r
-\r
- \r
-\r
-Vì  $U_n/n \\to 0.5$  với xác suất 1,  $(3.4)^{U_n/n} \\to \\sqrt{3.4} < 2$  với xác suất 1, do đó  $Y_n \\to 0$  với xác suất 1.\r
-\r
-Ngược lại,  $E(Y_n) \\to \\infty$  nhưng  $Y_n \\to 0$  với xác suất 1. Để hiểu thêm kết quả này, hãy xem xét ví dụ cực đoan nơi một người cược bắt đầu với 100 và mỗi ngày hoặc nhân đôi tiền của họ hoặc mất hết số tiền, với xác suất bằng nhau. Khi đó kỳ vọng của người cược tăng gấp đôi mỗi ngày, điều này nghe có vẻ tốt cho đến khi ta nhận ra rằng cuối cùng sẽ có một ngày mà người cược phá sản. Số tiền thực tế của người cược tiến tới 0 với xác suất 1, trong khi giá trị kỳ vọng tiến tới vô cùng do xác suất nhỏ để có được một lượng tiền cực kỳ lớn, giống như trong nghịch lý St. Petersburg.\r
-\r
-10.3.8 (Phân phối Cauchy đáng ghét). Định lý giới hạn trung tâm yêu cầu rằng kỳ vọng và phương sai của  $X_j$  phải hữu hạn, và chứng minh của định luật số lớn yếu dựa trên cùng các điều kiện này. Phân phối Cauchy được giới thiệu trong Ví dụ 7.1.25 không có kỳ vọng hay phương sai, do đó phân phối Cauchy không tuân theo định luật số lớn hay định lý giới hạn trung tâm. Có thể chứng minh rằng trung bình mẫu của  $n$  phân phối Cauchy vẫn là Cauchy, bất kể  $n$  lớn đến đâu. Do đó, trung bình mẫu không bao giờ tiến tới phân phối chuẩn, trái ngược với hành vi được quan sát trong định lý giới hạn trung tâm. Ngoài ra, không tồn tại kỳ vọng thực sự cho  $\\bar{X}_n$  để hội tụ, do đó định luật số lớn không áp dụng nữa.\r
-\r
-Chúng ta sẽ kết thúc chương này bằng cách giới thiệu hai phân phối liên tục cuối cùng trong cuốn sách này, cả hai đều có mối liên hệ chặt chẽ với phân phối Normal.\r
-\r
-Định nghĩa 10.4.1 (Phân phối Chi-Square). Gọi  $V = Z_1^2 + \\cdots + Z_n^2$  nơi  $Z_1, Z_2, \\ldots, Z_n$  là i.i.d.  $\\mathcal{N}(0,1)$ . Khi đó V được cho là có phân phối Chi-Square với n bậc tự do. Chúng ta viết điều này là  $V \\sim \\chi_n^2$ .\r
-\r
-Như đã thấy, phân phối  $\\chi_{n}^{2}$  là một trường hợp đặc biệt của Gamma.\r
-\r
-Định lý 10.4.2. Phân phối  $\\chi_{n}^{2}$  là Gamma  $\\left(\\frac{n}{2},\\frac{1}{2}\\right)$ .\r
-\r
-Chứng minh. Trước tiên, chúng ta xác minh rằng PDF của  $Z_{1}^{2} \\sim \\chi_{1}^{2}$  bằng với PDF của Gamma  $(\\frac{1}{2}, \\frac{1}{2})$ : với x > 0,\r
-\r
- \r
-\r
- $$F(x)=P(Z_{1}^{2}\\leq x)=P(-\\sqrt{x}\\leq Z_{1}\\leq\\sqrt{x})=\\Phi(\\sqrt{x})-\\Phi(-\\sqrt{x})=2\\Phi(\\sqrt{x})-1,$$ \r
-\r
- \r
-\r
-DO đó\r
-\r
- \r
-\r
- $$f(x)=\\frac{d}{dx}F(x)=2\\varphi(\\sqrt{x})\\frac{1}{2}x^{-1/2}=\\frac{1}{\\sqrt{2\\pi x}}e^{-x/2},$$ \r
-\r
- \r
-\r
-điều này chính là PDF của Gamma  $\\left(\\frac{1}{2},\\frac{1}{2}\\right)$ . Sau đó, vì  $V = Z_{1}^{2} + \\cdots + Z_{n}^{2} \\sim \\chi_{n}^{2}$  là tổng của  $n$  biến ngẫu nhiên Gamma độc lập  $\\left(\\frac{1}{2},\\frac{1}{2}\\right)$ , chúng ta có  $V \\sim \\Gamma(\\frac{n}{2},\\frac{1}{2})$ .\r
-\r
-Từ kiến thức về kỳ vọng và phương sai của phân phối Gamma, chúng ta có  $E(V) = n$  và  $\\operatorname{Var}(V) = 2n$ . Chúng ta cũng có thể thu được kỳ vọng và phương sai bằng cách sử dụng việc V là tổng của các biến bình phương chuẩn độc lập, cùng với các momen chuẩn được đưa ra trong chương 6:\r
-\r
- \r
-\r
- $$\\begin{align*}E(V)&=nE(Z_{1}^{2})=n,\\\\\\operatorname{Var}(V)&=n\\operatorname{Var}(Z_{1}^{2})=n\\left(E(Z_{1}^{4})-(EZ_{1}^{2})^{2}\\right)=n(3-1)=2n.\\end{align*}$$ \r
-\r
- \r
-\r
-Để tìm hàm sinh moment của phân phối Chi-Square, chỉ cần thay n/2 và 1/2 vào hàm sinh moment tổng quát của Gamma(a,  $\\lambda$ ), mà chúng ta đã tìm thấy trong Định lý 8.4.3 là  $\\left(\\frac{\\lambda}{\\lambda-t}\\right)^a$  cho  $t < \\lambda$ . Điều này cho ra\r
-\r
- \r
-\r
- $$M_{V}(t)=\\left(\\frac{1}{1-2t}\\right)^{n/2},\\quad t<1/2.$$ \r
-\r
- \r
-\r
-Phân phối Chi-Square quan trọng trong thống kê vì nó liên quan đến phân phối của phương sai mẫu, có thể được sử dụng để ước lượng phương sai thực của một phân phối. Khi các biến ngẫu nhiên của chúng ta là i.i.d. chuẩn, phân phối của phương sai mẫu sau khi được quy chuẩn thích hợp là Chi-Square.\r
-\r
-Ví dụ 10.4.3 (Phân phối của phương sai mẫu). Với các  $X_{1}, \\ldots, X_{n} \\sim \\mathcal{N}(\\mu, \\sigma^{2})$ , phương sai mẫu là biến ngẫu nhiên.\r
-\r
- \r
-\r
- $$S_{n}^{2}=\\frac{1}{n-1}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}.$$ \r
-\r
- \r
-\r
-Chứng minh rằng\r
-\r
- \r
-\r
- $$\\frac{(n-1)S_{n}^{2}}{\\sigma^{2}}\\sim\\chi_{n-1}^{2}.$$ \r
-\r
- \r
-\r
-Giải pháp:\r
-\r
-Đầu tiên hãy chứng minh rằng  $\\sum_{j=1}^{n}(Z_j - \\bar{Z}_n)^2 \\sim \\chi_{n-1}^2$  cho các biến ngẫu nhiên chuẩn hóa  $Z_1, \\ldots, Z_n$ ; điều này phù hợp với kết quả tổng quát hơn mà chúng ta được yêu cầu chứng minh và cũng là một bước ngoặt hữu ích. Hãy bắt đầu với danh tính hữu ích sau đây, đây là trường hợp đặc biệt của danh tính từ chứng minh định lý 6.3.4:\r
-\r
- \r
-\r
- $$\\sum_{j=1}^{n}Z_{j}^{2}=\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}+n\\bar{Z}_{n}^{2}.$$ \r
-\r
- \r
-\r
-Bây giờ lấy hàm sinh momen của cả hai vế. Theo Ví dụ 7.5.9,  $\\sum_{j=1}^{n}(Z_j - \\bar{Z}_n)^2$  và  $n\\bar{Z}_n^2$  độc lập, do đó hàm sinh momen của tổng của chúng là tích của các hàm sinh momen riêng lẻ. Ngoài ra,\r
-\r
- \r
-\r
- $$\\sum_{j=1}^{n}Z_{j}^{2}\\sim\\chi_{n}^{2}\\mathrm{~a n d~}n\\bar{Z}_{n}^{2}\\sim\\chi_{1}^{2},$$ \r
-\r
- \r
-\r
-VẬY\r
-\r
- \r
-\r
- $$\\left(\\frac{1}{1-2t}\\right)^{n/2}=\\left(\\mathrm{M G F~o f~}\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}\\right)\\cdot\\left(\\frac{1}{1-2t}\\right)^{1/2}.$$ \r
-\r
- \r
-\r
-Điều này cho thấy\r
-\r
- \r
-\r
- $$\\left(\\mathrm{M G F~o f~}\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}\\right)=\\left(\\frac{1}{1-2t}\\right)^{(n-1)/2},$$ \r
-\r
- \r
-\r
-điều này là hàm sinh momen của  $\\chi_{n-1}^{2}$ . Vì hàm sinh momen xác định phân phối, chúng ta có\r
-\r
- \r
-\r
- $$\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}\\sim\\chi_{n-1}^{2}.$$ \r
-\r
- \r
-\r
-Với tổng quát  $X_1, \\ldots, X_n$ , sử dụng biến đổi vị trí và tỷ lệ để viết  $X_j = \\mu + \\sigma Z_j$  và  $\\bar{X}_n = \\mu + \\sigma \\bar{Z}_n$ . Khi chúng ta biểu diễn  $\\sum_{j=1}^n (X_j - \\bar{X}_n)^2$  theo  $Z_j$ , hằng số  $\\mu$  bị triệt tiêu và  $\\sigma$  ra khỏi bình phương:\r
-\r
- \r
-\r
- $$\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}=\\sum_{j=1}^{n}(\\mu+\\sigma Z_{j}-(\\mu+\\sigma\\bar{Z}_{n}))^{2}=\\sigma^{2}\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}.$$ \r
-\r
-\r
-\r
-Tóm lại,\r
-\r
- \r
-\r
- $$\\frac{(n-1)S_{n}^{2}}{\\sigma^{2}}=\\frac{1}{\\sigma^{2}}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}=\\frac{1}{\\sigma^{2}}\\cdot\\sigma^{2}\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}\\sim\\chi_{n-1}^{2},$$ \r
-\r
- \r
-\r
-đây là điều chúng ta muốn. Điều này cũng cho thấy rằng  $E(S_n^2) = \\sigma^2$ , điều này phù hợp với điều chúng ta đã chứng minh trong Định lý 6.3.4: phương sai mẫu là không thiên lệch khi ước lượng phương sai thật.\r
-\r
-Phân phối Student-t được định nghĩa bằng cách biểu diễn nó thông qua một biến ngẫu nhiên chuẩn và một  $\\chi_{n}^{2}$  biến ngẫu nhiên.\r
-\r
-Định nghĩa 10.4.4 (Phân phối Student-t). Cho\r
-\r
- \r
-\r
- $$T=\\frac{Z}{\\sqrt{V/n}},$$ \r
-\r
- \r
-\r
-trong đó  $Z \\sim \\mathcal{N}(0,1)$ ,  $V \\sim \\chi_{n}^{2}$ , và Z độc lập với V. Khi đó T được gọi là có phân phối Student-t với n bậc tự do. Chúng ta viết điều này là  $T \\sim t_{n}$ . Thường thì "phân phối Student-t" được rút gọn thành "phân phối t".\r
-\r
-Phân phối Student-t được giới thiệu vào năm 1908 bởi William Gosset, một người làm rượu tại công ty Guinness, trong khi làm việc về kiểm soát chất lượng cho bia. Ông bị yêu cầu bởi công ty phải công bố tác phẩm của mình dưới một tên giả, và ông đã chọn tên "Student". Phân phối t là nền tảng cho các thủ tục kiểm định giả thuyết được gọi là kiểm định t, điều này cực kỳ được sử dụng rộng rãi trong thực tiễn (chúng ta không giới thiệu chi tiết về kiểm định t ở đây vì chúng tốt hơn nên để dành cho một khóa học về suy luận thống kê).\r
-\r
-Hàm mật độ xác suất (PDF) của phân phối Student-t với n bậc tự do trông giống như của phân phối chuẩn, ngoại trừ có đuôi nặng hơn (rất nặng nếu n nhỏ, và không nặng lắm nếu n lớn). Công thức cho PDF là\r
-\r
- \r
-\r
- $$f_{T}(t)=\\frac{\\Gamma\\big((n+1)/2\\big)}{\\sqrt{n\\pi}\\Gamma(n/2)}(1+t^{2}/n)^{-(n+1)/2},$$ \r
-\r
- \r
-\r
-nhưng chúng ta sẽ không chứng minh vì quá trình chứng minh rất phức tạp và bất kỳ nhiều tính chất quan trọng nào của phân phối Student-t cũng dễ hiểu hơn bằng cách suy nghĩ về cách chúng ta định nghĩa nó thông qua một phân phối chuẩn và một  $\\chi_{n}^{2}$  biến ngẫu nhiên, thay vì thực hiện các phép tính tẻ nhạt với PDF. Dưới đây là một số tính chất của chúng.\r
-\r
-Định lý 10.4.5 (Tính chất của phân phối Student-t). Phân phối Student-t  $t_{n}$  có các tính chất sau.\r
-\r
-1. Đối xứng: Nếu  $T \\sim t_n$ , thì  $-T \\sim t_n$  cũng vậy.\r
-\r
-2. Cauchy là trường hợp đặc biệt: Phân phối  $t_{1}$  giống như phân phối Cauchy, được giới thiệu trong Ví dụ 7.1.25.\r
-\r
-3. Hội tụ về Normal: Khi  $n \\to \\infty$ , phân phối  $t_n$  tiến về phân phối chuẩn chuẩn.\r
-\r
-Bằng chứng. Trong bằng chứng của mỗi tính chất, chúng ta tham khảo Định nghĩa 10.4.4.\r
-\r
-### 1. Biểu diễn\r
-\r
- \r
-\r
- $$T=\\frac{Z}{\\sqrt{V/n}},$$ \r
-\r
- \r
-\r
-trong đó  $Z \\sim \\mathcal{N}(0,1)$ ,  $V \\sim \\chi_{n}^{2}$ , và Z độc lập với V. Sau đó\r
-\r
- \r
-\r
- $$-T=\\frac{-Z}{\\sqrt{V/n}},$$ \r
-\r
- \r
-\r
-trong đó  $-Z \\sim \\mathcal{N}(0,1)$ , do đó  $-T \\sim t_n$ .\r
-\r
-2. Nhớ rằng phân phối Cauchy được định nghĩa là phân phối của X/Y trong đó X và Y là i.i.d.  $\\mathcal{N}(0,1)$ . Theo định nghĩa,  $T \\sim t_{1}$  có thể được biểu diễn là  $T = Z/\\sqrt{V}$ , trong đó  $\\sqrt{V} = \\sqrt{Z_{1}^{2}} = |Z_{1}|$  với  $Z_{1}$  độc lập với Z. Tuy nhiên nhờ tính đối xứng,  $Z/|Z_{1}|$  có cùng phân phối với  $Z/Z_{1}$ , và  $Z/Z_{1}$  là Cauchy. Do đó, phân phối  $t_{1}$  và phân phối Cauchy là như nhau.\r
-\r
-3. Điều này được suy ra từ định lý số học mạnh. Xét một dãy các biến ngẫu nhiên chuẩn độc lập đồng bố  $Z_{1}, Z_{2}, \\ldots,$  và đặt\r
-\r
- \r
-\r
- $$V_{n}=Z_{1}^{2}+\\cdots+Z_{n}^{2}.$$ \r
-\r
- \r
-\r
-Theo định lý số học mạnh,  $V_n/n \\to E(Z_1^2) = 1$  với xác suất 1. Bây giờ đặt  $Z \\sim \\mathcal{N}(0,1)$  độc lập với tất cả các  $Z_j$ , và đặt\r
-\r
- \r
-\r
- $$T_{n}=\\frac{Z}{\\sqrt{V_{n}/n}}$$ \r
-\r
- \r
-\r
-với mọi  $n$ . Sau đó  $T_n \\sim t_n$  theo định nghĩa, và vì mẫu số hội tụ về 1, ta có  $T_n \\to Z \\sim \\mathcal{N}(0,1)$ . Do đó, phân phối của  $T_n$  tiến tới phân phối của  $Z$ .\r
-\r
-Hình 10.6 vẽ hàm mật độ xác suất (PDF) của Student-t với các giá trị n khác nhau, minh họa tất cả ba tính chất của định lý trên: các PDF đều đối xứng quanh 0, PDF cho n = 1 trông giống như phân phối Cauchy, và khi  $n \\to \\infty$  đuôi phân phối trở nên nhẹ hơn, và PDF tiến tới PDF chuẩn.`,mz=`Các bất đẳng thức và các định lý giới hạn là hai cách khác nhau để xử lý kỳ vọng và xác suất mà chúng ta không muốn tính toán chính xác. Các bất đẳng thức cho phép chúng ta tìm được giới hạn dưới và/hoặc giới hạn trên cho giá trị chưa biết: Cauchy-Schwarz và Jensen cho chúng ta giới hạn cho kỳ vọng, trong khi Markov, Chebyshev và Chernoff cho chúng ta giới hạn cho xác suất đuôi.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_308_166_1083_620.jpg" alt="Hình ảnh" width="55%" /></div>\r
-\r
-\r
-### HÌNH 10.6\r
-\r
-<div style="text-align: center;">Đồ thị mật độ xác suất của phân phối Student-t với (từ sáng đến tối) n = 1, 2, 3, 5, 10 bậc tự do, cũng như mật độ xác suất chuẩn (đen). Khi  $n \\to \\infty$ , mật độ xác suất của phân phối Student-t tiến đến mật độ xác suất chuẩn.</div>\r
-\r
-\r
-Hai định lý giới hạn, định luật số lớn và định lý giới hạn trung tâm, mô tả hành vi của giá trị trung bình mẫu  $\\bar{X}_n$  của các biến ngẫu nhiên độc lập và đồng phân phối  $X_1, X_2, \\ldots$  với kỳ vọng  $\\mu$  và phương sai  $\\sigma^2$ . Định luật số lớn hầu chắc chắn nói rằng khi  $n \\to \\infty$ , giá trị trung bình mẫu  $\\bar{X}_n$  hội tụ đến giá trị kỳ vọng thực  $\\mu$  với xác suất 1. Định lý giới hạn trung tâm nói rằng phân phối của  $\\bar{X}_n$ , sau khi chuẩn hóa, hội tụ đến phân phối chuẩn chuẩn:\r
-\r
- \r
-\r
- $$\\sqrt{n}\\left(\\frac{\\bar{X}_{n}-\\mu}{\\sigma}\\right)\\rightarrow\\mathcal{N}(0,1).$$ \r
-\r
- \r
-\r
-Điều này có thể được dịch thành một phép xấp xỉ cho phân phối của  $\\bar{X}_{n}$ :\r
-\r
- \r
-\r
- $$\\bar{X}_{n}\\dot{\\sim}\\mathcal{N}(\\mu,\\sigma^{2}/n).$$ \r
-\r
- \r
-\r
-Tương đương, chúng ta có thể nói rằng phân phối của tổng  $S_{n}=X_{1}+\\cdots+X_{n}=n\\bar{X}_{n}$ , sau khi chuẩn hóa, hội tụ đến phân phối chuẩn chuẩn:\r
-\r
- \r
-\r
- $$\\frac{S_{n}-n\\mu}{\\sigma\\sqrt{n}}\\rightarrow\\mathcal{N}(0,1).$$ \r
-\r
- \r
-\r
-Hình 10.7 minh họa sự tiến triển từ một phân phối đến các biến ngẫu nhiên độc lập và đồng phân phối với phân phối đó, từ đó có thể tạo ra giá trị trung bình mẫu và nghiên cứu như một biến ngẫu nhiên riêng biệt. Bất đẳng thức Chebyshev, định luật số lớn và định lý giới hạn trung tâm đều cung cấp thông tin quan trọng về hành vi của giá trị trung bình mẫu.\r
-\r
-Phân phối Chi-Square và Student-t là hai phân phối có tên quan trọng trong thống kê. Phân phối Chi-Square là một trường hợp đặc biệt của Gamma. Phân phối Student-t có dạng mật độ xác suất dạng chuông với đuôi nặng hơn Normal, và tiến đến phân phối chuẩn chuẩn khi số bậc tự do tăng lên.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_150_508_1247_1165.jpg" alt="Image" width="78%" /></div>\r
-\r
-\r
-### HÌNH 10.7\r
-\r
-Giá trị trung bình mẫu  $\\bar{X}_{n}$  của các biến ngẫu nhiên độc lập và đồng phân phối  $X_{1}, \\ldots, X_{n}$  là một đại lượng quan trọng trong nhiều bài toán. Bất đẳng thức Chebyshev giới hạn xác suất của giá trị trung bình mẫu nằm xa so với giá trị trung bình thực. Định luật số lớn yếu, được suy ra từ bất đẳng thức Chebyshev, nói rằng với n lớn, xác suất là rất cao rằng giá trị trung bình mẫu sẽ rất gần với giá trị trung bình thực. Định lý giới hạn trung tâm nói rằng với n lớn, phân phối của giá trị trung bình mẫu sẽ gần似 chuẩn.\r
-\r
-Ở đây, lần cuối cùng, là sơ đồ thể hiện mối quan hệ giữa các phân phối được đặt tên, được cập nhật để bao gồm phân phối Chi-Square (như một trường hợp đặc biệt của Gamma) và phân phối Student-t (với Cauchy như một trường hợp đặc biệt). Chúng ta cũng đã thêm các mũi tên để cho thấy sự hội tụ của các phân phối Poisson, Gamma và Student-t đến tính chuẩn tắc; hai trường hợp đầu tiên là hệ quả của định lý giới hạn trung tâm, và trường hợp thứ ba là hệ quả của định lý số lớn.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_149_399_1251_1279.jpg" alt="Image" width="78%" /></div>\r
-\r
-\r
-Bây giờ chúng ta thấy rằng tất cả các phân phối được đặt tên đều liên kết với nhau!`,hz=`## Bất đẳng thức Jensen\r
-\r
-R giúp dễ dàng so sánh kỳ vọng của X và  $g(X)$  cho một lựa chọn cụ thể của g, và điều này cho phép chúng ta kiểm tra một số trường hợp đặc biệt của bất đẳng thức Jensen. Ví dụ, giả sử chúng ta mô phỏng  $10^4$  lần từ phân phối Expo(1):\r
-\r
-\r
-\r
- $$\\mathrm{~x~}<-~\\mathrm{rexpon}(10^{~4~})$$ \r
-\r
- \r
-\r
-Theo bất đẳng thức Jensen,  $E(\\log X) \\leq \\log EX$ . Cái trước có thể được xấp xỉ bằng  $\\text{mean}(\\log(x))$  và cái sau có thể được xấp xỉ bằng  $\\log(\\text{mean}(x))$ , do đó hãy tính cả hai:\r
-\r
-mean(log(x))\r
-\r
-  $\\log(\\text{mean}(x))$ \r
-\r
-Với phân phối Expo(1), chúng ta tìm thấy rằng mean(log(x)) xấp xỉ bằng -0.6 (giá trị thật khoảng -0.577), trong khi log(mean(x)) xấp xỉ bằng 0 (giá trị thật là 0). Điều này thực sự cho thấy  $E(\\log X) \\leq \\log EX$ . Chúng ta cũng có thể so sánh mean(  $x^3$ ) với mean(  $x)^3$ , hoặc mean(sqrt(x)) với sqrt(mean(x))—các khả năng là vô tận.\r
-\r
-## Visualization của luật số lớn\r
-\r
-Để vẽ tỷ lệ chạy của Heads trong một chuỗi các lần tung đồng xu độc lập công bằng, trước tiên chúng ta tạo ra các lần tung đồng xu:\r
-\r
-nsim <- 300\r
-p <- 1/2\r
-x <- rbinom(nsim,1,p)\r
-\r
-Sau đó chúng ta tính  $\\bar{X}_{n}$  cho mỗi giá trị của n và lưu trữ kết quả vào xbar:\r
-\r
-xbar <- cumsum(x) / (1:nsim)\r
-\r
-Dòng mã trên thực hiện phép chia từng phần tử của hai vector  $\\text{cumsum}(x)$  và 1:nsim. Cuối cùng, chúng ta vẽ xbar so với số lần tung đồng xu:\r
-\r
-plot(1:nsim,xbar,type="l",ylim=c(0,1))\r
-\r
-Bạn nên thấy rằng các giá trị của xbar tiến đến p, theo luật số lớn.\r
-\r
-## Ước lượng Monte Carlo của  $\\pi$ \r
-\r
-Một ví dụ nổi tiếng của tích phân Monte Carlo là ước lượng Monte Carlo của  $\\pi$ . Vòng tròn đơn vị  $\\{(x,y): x^2 + y^2 \\leq 1\\}$  được khắc trong hình vuông  $[-1,1] \\times [-1,1]$ , có diện tích 4. Nếu chúng ta tạo ra một số lượng lớn các điểm phân bố đều trên hình vuông, tỷ lệ các điểm rơi vào trong vòng tròn sẽ xấp xỉ bằng tỷ lệ diện tích của vòng tròn so với diện tích của hình vuông, tức là  $\\pi/4$ . Do đó, để ước lượng  $\\pi$ , chúng ta có thể lấy tỷ lệ các điểm trong vòng tròn và nhân với 4.\r
-\r
-Trong R, để tạo ra các điểm phân bố đều trên hình vuông 2D, chúng ta có thể tạo ra tọa độ x và y độc lập như  $\\text{Unif}(-1,1)$  biến ngẫu nhiên, sử dụng kết quả của Ví dụ 7.1.23:\r
-\r
- \r
-\r
- $$\\mathrm{n s i m}\\mathrm{<-~}10\\mathrm{~6~}$$ \r
-\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_503_147_887_529.jpg" alt="Image" width="27%" /></div>\r
-\r
-\r
-### HÌNH 10.8\r
-\r
-Ước lượng Monte Carlo của  $\\pi$ : Tạo các điểm phân bố đều trên hình vuông 2D  $[-1,1]\\times[-1,1]$ , có diện tích bằng 4. Tỷ lệ các điểm rơi vào hình tròn đơn vị gần bằng  $\\pi/4$ .\r
-\r
-x <- runif(nsim,-1,1)\r
-y <- runif(nsim,-1,1)\r
-\r
-Để đếm số điểm trong hình tròn, chúng ta nhập  $\\text{sum}(x^2 + y^2 < 1)$ . Vector  $x^2 + y^2 < 1$  là một vector chỉ báo, trong đó phần tử thứ  $i$  bằng 1 nếu điểm thứ  $i$  rơi vào trong hình tròn và 0 nếu không, do đó tổng các phần tử là số điểm trong hình tròn. Để lấy ước lượng của  $\\pi$ , chúng ta biến tổng thành tỷ lệ và nhân với 4:\r
-\r
-  $4*\\text{sum}(x^2 + y^2 < 1)/\\text{nsim}$ \r
-\r
-Bạn ước lượng gần đúng giá trị thực của  $\\pi$  bao nhiêu?\r
-\r
-## Biểu diễn trực quan của định lý giới hạn trung tâm\r
-\r
-Một cách để trực quan hóa định lý giới hạn trung tâm cho một phân phối quan tâm là vẽ phân phối của  $\\bar{X}_n$  với các giá trị khác nhau của  $n$ , như trong Hình 10.5. Để làm điều này, trước tiên chúng ta phải tạo ra các biến ngẫu nhiên độc lập và đồng phân phối  $X_1, \\ldots, X_n$  nhiều lần từ phân phối quan tâm. Ví dụ, giả sử phân phối quan tâm của chúng ta là  $\\text{Unif}(0,1)$ , và chúng ta quan tâm đến phân phối của  $\\bar{X}_{12}$ , tức là chúng ta đặt  $n = 12$ . Trong đoạn mã sau, chúng ta tạo ra một ma trận các biến ngẫu nhiên chuẩn đều. Ma trận có 12 cột, tương ứng với  $X_1$  đến  $X_{12}$ . Mỗi hàng của ma trận là một lần thực hiện khác nhau của  $X_1$  đến  $X_{12}$ .\r
-\r
-nsim <- 10^4\r
-n <- 12\r
-x <- matrix(runif(n*nsim), nrow=nsim, ncol=n)\r
-\r
-Bây giờ, để có được các thực hiện của  $\\bar{X}_{12}$ , chúng ta chỉ cần lấy trung bình của từng hàng của ma trận x; chúng ta có thể thực hiện điều này bằng hàm rowMeans:\r
-\r
-xbar <- rowMeans(x)\r
-\r
-Cuối cùng, chúng ta tạo một biểu đồ tần suất:\r
-\r
-hist(xbar)\r
-\r
-Bạn nên thấy một biểu đồ tần suất trông gần đúng như phân phối chuẩn. Vì phân phối Unif(0,1) là đối xứng, định lý giới hạn trung tâm (CLT) hoạt động nhanh chóng và gần đúng chuẩn cho  $\\bar{X}_{n}$  hoạt động tốt, ngay cả khi n = 12. Thay đổi runif thành  $\\text{rexp}$ , chúng ta thấy rằng khi  $X_{j} \\sim \\text{Expo}(1)$ , phân phối của  $\\bar{X}_{n}$  vẫn còn lệch khi n = 12, do đó cần một giá trị lớn hơn của n trước khi gần đúng chuẩn trở nên hợp lý.\r
-\r
-Một hình ảnh hóa đẹp nữa của CLT có thể tìm thấy trong gói animation. Pkg này có một animation tích hợp của một máy quincunx hoặc máy hạt đậu, được phát minh bởi nhà thống kê và di truyền học Francis Galton để minh họa phân phối chuẩn. Sau khi cài đặt gói, hãy thử:\r
-\r
-library(animation)\r
-\r
-quincunx()\r
-\r
-Bạn có thể sử dụng định lý giới hạn trung tâm để giải thích tại sao biểu đồ tần suất do máy quincunx tạo ra nên trông gần đúng như phân phối chuẩn?\r
-\r
-## Phân phối Chi-Square và Student-t\r
-\r
-Mặc dù Chi-Square chỉ là một trường hợp đặc biệt của Gamma, nó vẫn có các hàm riêng dchisq, pchisq, và rchisq trong R: dchisq(x,n) và pchisq(x,n) trả về các giá trị của  $\\chi_n^2$  PDF và CDF tại x, và rchisq(nsim,n) tạo ra nsim biến ngẫu nhiên độc lập đồng nhất (i.i.d.)  $\\chi_n^2$ .\r
-\r
-Phân phối Student-t có các hàm dt, pt, và rt. Để đánh giá PDF hoặc CDF của phân phối  $t_n$  tại x, chúng ta sử dụng dt(x,n) hoặc pt(x,n). Để tạo nsim biến ngẫu nhiên độc lập đồng nhất (i.i.d.) từ phân phối  $t_n$ , chúng ta sử dụng rt(nsim,n). Tất nhiên, dt(x,1) giống như dcauchy(x).`,gz=`Các bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.
+$$P(|Z|>3)\\leq2e^{-9/2}\\approx0.022.$$\r
+\r
+Tất cả các cận trên này đều đúng, nhưng bất đẳng thức Chernoff là tốt nhất. Ví dụ này cũng minh họa sự khác biệt giữa một cận và một xấp xỉ, như chúng ta đã giải thích trong phần giới thiệu của chương này. Bất đẳng thức Markov cho chúng ta biết rằng xác suất đuôi $P(|Z| > 3)$ không vượt quá 0.27, nhưng sẽ là một sai lầm nếu nói rằng $P(|Z| > 3)$ xấp xỉ bằng 0.27—chúng ta sẽ sai lệch một lượng khoảng 100 lần.\r
+\r
+  </div>\r
+</div>`,fz=`Chúng ta chuyển sang hai định lý, định lý số lớn và định lý giới hạn trung tâm, mô tả hành vi của giá trị trung bình mẫu của các biến ngẫu nhiên độc lập và đồng phân phối khi kích thước mẫu tăng lên. Trong suốt phần này và phần tiếp theo, giả sử chúng ta có các $X_1, X_2, X_3, \\ldots$ độc lập và đồng phân phối với kỳ vọng hữu hạn $\\mu$ và phương sai hữu hạn $\\sigma^2$. Với mọi số nguyên dương $n$, đặt
+
+$$\\bar{X}_{n}=\\frac{X_{1}+\\cdots+X_{n}}{n}$$
+
+là giá trị trung bình mẫu của $X_{1}$ đến $X_{n}$. Giá trị trung bình mẫu chính nó là một biến ngẫu nhiên, với kỳ vọng $\\mu$ và phương sai $\\sigma^{2}/n$:
+
+$$E(\\bar{X}_{n})=\\frac{1}{n}E(X_{1}+\\cdots+X_{n})=\\frac{1}{n}(E(X_{1})+\\cdots+E(X_{n}))=\\mu,$$
+
+$$\\mathrm{Var}(\\bar{X}_{n})=\\frac{1}{n^{2}}\\mathrm{Var}(X_{1}+\\cdots+X_{n})=\\frac{1}{n^{2}}(\\mathrm{Var}(X_{1})+\\cdots+\\mathrm{Var}(X_{n}))=\\frac{\\sigma^{2}}{n}.$$
+
+Định lý số lớn (LLN) nói rằng khi n tăng, giá trị trung bình mẫu $\\bar{X}_{n}$ hội tụ đến giá trị trung bình thực $\\mu$ (theo một nghĩa sẽ được giải thích dưới đây). Định lý LLN có hai phiên bản, "mạnh" (SLLN) và "yếu" (WLLN), sử dụng định nghĩa hơi khác nhau về ý nghĩa của việc một dãy biến ngẫu nhiên hội tụ đến một số. Chúng ta sẽ nêu cả hai phiên bản và chứng minh phiên bản thứ hai bằng bất đẳng thức Chebyshev.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 10.2.1</div>
+    <div class="math-box-title">Định lý số lớn mạnh</div>
+  </div>
+  <div class="math-box-content">
+
+Giá trị trung bình mẫu $\\bar{X}_n$ hội tụ đến giá trị trung bình thực $\\mu$ theo từng điểm, với xác suất 1. Nhắc lại rằng các biến ngẫu nhiên là các hàm từ không gian mẫu $S$ đến $\\mathbb{R}$, dạng hội tụ này nói rằng $\\bar{X}_n(s) \\to \\mu$ với mỗi điểm $s \\in S$, ngoại trừ rằng sự hội tụ có thể thất bại trên một tập hợp $B_0$ các ngoại lệ, miễn là $P(B_0) = 0$. Tóm lại, $P(\\bar{X}_n \\to \\mu) = 1$.
+
+  </div>
+</div>
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 10.2.2</div>
+    <div class="math-box-title">Định lý số lớn yếu</div>
+  </div>
+  <div class="math-box-content">
+
+Với mọi $\\epsilon > 0$, $P(|\\bar{X}_{n} - \\mu| > \\epsilon) \\to 0$ khi $n \\to \\infty$. (Dạng hội tụ này được gọi là hội tụ theo xác suất.)
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 10.2.2</div>
+  </div>
+  <div class="math-box-content">
+
+Chọn $\\epsilon > 0$. Theo bất đẳng thức Chebyshev,
+
+$$P(|\\bar{X}_{n}-\\mu|>\\epsilon)\\leq\\frac{\\sigma^{2}}{n\\epsilon^{2}}.$$
+
+Khi $n \\to \\infty$, vế phải tiến tới 0, và do đó vế trái cũng phải tiến tới 0.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Định lý số lớn là thiết yếu cho các mô phỏng, thống kê và khoa học. Xét việc tạo ra "dữ liệu" từ một số lượng lớn các lần lặp độc lập của một thí nghiệm, được thực hiện bằng mô phỏng máy tính hoặc trong thế giới thực. Mỗi lần chúng ta sử dụng giá trị trung bình trong các lần lặp của một lượng để xấp xỉ giá trị trung bình lý thuyết, chúng ta đang ngầm dựa vào định lý số lớn.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 10.2.3</div>
+    <div class="math-box-title">Tỷ lệ chạy của Mặt ngửa</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X_1, X_2, \\ldots$ là i.i.d. Bern(1/2). Giải thích các $X_j$ như các chỉ số của Mặt ngửa trong một chuỗi tung đồng xu công bằng, $\\bar{X}_n$ là tỷ lệ Mặt ngửa sau $n$ lần tung. Định lý số lớn mạnh nói rằng với xác suất 1, khi dãy các biến ngẫu nhiên $\\bar{X}_1, \\bar{X}_2, \\bar{X}_3, \\ldots$ kết tinh thành một dãy các số, dãy các số này sẽ hội tụ về 1/2. Về mặt toán học, có những kết quả kỳ lạ như $HHHHHH\\ldots$ và $HHHHHHHHHT\\ldots$, nhưng tổng thể chúng có xác suất xảy ra bằng 0. Định lý số lớn yếu nói rằng với bất kỳ $\\epsilon > 0$, xác suất của $\\bar{X}_n$ cách 1/2 hơn $\\epsilon$ có thể làm nhỏ như chúng ta muốn bằng cách cho $n$ tăng lên.
+
+Là một minh họa, chúng tôi đã mô phỏng sáu chuỗi tung đồng xu công bằng và, cho mỗi chuỗi, tính toán $\\bar{X}_{n}$ như một hàm số của n. Tất nhiên, trong đời thực chúng ta không thể mô phỏng vô số lần tung đồng xu, vì vậy chúng tôi đã dừng lại sau 300 lần tung. Hình 10.2 vẽ $\\bar{X}_{n}$ như một hàm số của n cho mỗi chuỗi.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_309_1121_1084_1578.jpg" alt="Tỷ lệ chạy của Mặt ngửa trong 6 chuỗi tung đồng xu công bằng" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 10.2:** Tỷ lệ chạy của Mặt ngửa trong 6 chuỗi tung đồng xu công bằng. Các đường nét đứt tại 0.6 và 0.4 được vẽ để làm tham khảo. Khi số lần tung tăng lên, tỷ lệ Mặt ngửa tiến gần về 1/2.
+</div>
+
+Ở đầu tiên, chúng ta có thể thấy rằng có khá nhiều sự biến động trong tỷ lệ chạy
+
+Tỷ lệ của Mặt ngửa. Khi số lần tung đồng xu tăng lên, tuy nhiên, $\\operatorname{Var}(\\bar{X}_n)$ ngày càng nhỏ đi, và $\\bar{X}_n$ tiến tới 1/2.
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 10.2.4</div>
+    <div class="math-box-title">Định lý số lớn không mâu thuẫn với việc đồng xu không có trí nhớ</div>
+  </div>
+  <div class="math-box-content">
+
+Trong ví dụ trên, định lý số lớn phát biểu rằng tỷ lệ của Mặt ngửa hội tụ tới 1/2, nhưng điều này không có nghĩa là sau một chuỗi dài các Mặt ngửa, đồng xu "cần" một Mặt Sấp để cân bằng. Thay vào đó, sự hội tụ xảy ra thông qua việc bị nhấn chìm: các lần tung trước đó bị nhấn chìm bởi vô số lần tung còn lại.
+
+  </div>
+</div>
+
+Một chuỗi các biến ngẫu nhiên độc lập và đồng phân bố Bernoulli là ví dụ đơn giản nhất của định lý số lớn, nhưng trường hợp đơn giản này là cơ sở cho các phương pháp rất hữu ích trong thống kê, như các ví dụ sau đây minh họa.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 10.2.5</div>
+    <div class="math-box-title">Tích phân Monte Carlo</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $f$ là một hàm phức tạp mà chúng ta muốn xấp xỉ tích phân $\\int_{a}^{b} f(x) dx$. Giả sử rằng $0 \\leq f(x) \\leq c$ nên chúng ta biết tích phân là hữu hạn. Trên bề mặt, bài toán này không liên quan đến xác suất, vì $\\int_{a}^{b} f(x) dx$ chỉ là một số. Nhưng ở nơi không có sự ngẫu nhiên, chúng ta có thể tự tạo ra! Kỹ thuật tích phân Monte Carlo sử dụng mẫu ngẫu nhiên để có được các xấp xỉ của tích phân xác định khi các phương pháp tích phân chính xác không khả thi.
+
+Gọi $A$ là hình chữ nhật trong mặt phẳng $(x,y)$ được cho bởi $a\\leq x\\leq b$ và $0\\leq y\\leq c$. Gọi $B$ là miền dưới đường cong $y=f(x)$ (và trên trục $x$) cho $a\\leq x\\leq b$, do đó tích phân mong muốn là diện tích của miền $B$. Chiến lược của chúng ta sẽ là lấy mẫu ngẫu nhiên từ $A$, sau đó tính tỷ lệ các mẫu cũng rơi vào miền $B$. Điều này được minh họa trong Hình 10.3: các điểm trong $B$ được tô đen, và các điểm không trong $B$ được tô trắng.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_418_1145_987_1601.jpg" alt="Tích phân Monte Carlo" style="max-width: 40%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 10.3:** Tích phân Monte Carlo. Để xấp xỉ diện tích dưới $f(x)$ từ $x = a$ đến $x = b$, tạo ra các điểm ngẫu nhiên trong hình chữ nhật $[a, b] \\times [0, c]$, và xấp xỉ diện tích dưới $f(x)$ bằng tỷ lệ các điểm rơi vào dưới đường cong, nhân với diện tích tổng thể của hình chữ nhật.
+</div>
+
+Để thấy tại sao điều này hoạt động, giả sử chúng ta chọn các điểm i.i.d. $(X_1, Y_1)$, $(X_2, Y_2)$,..., $(X_n, Y_n)$ đều trong hình chữ nhật $A$. Định nghĩa các biến ngẫu nhiên chỉ báo $I_1, \\ldots, I_n$ bằng cách cho $I_j = 1$ nếu $(X_j, Y_j)$ nằm trong $B$ và $I_j = 0$ nếu không. Khi đó các $I_j$ là các biến ngẫu nhiên Bernoulli với xác suất thành công chính xác là tỉ số diện tích của $B$ so với diện tích của $A$. Cho $p = E(I_j)$,
+
+$$p=E(I_{j})=P(I_{j}=1)=\\frac{\\int_{a}^{b}f(x)dx}{c(b-a)}.$$
+
+Chúng ta có thể ước lượng $p$ bằng $\\frac{1}{n}\\sum_{j=1}^{n}I_{j}$, và sau đó ước lượng tích phân mong muốn bằng
+
+$$\\int_{a}^{b}f(x)dx\\approx c(b-a)\\frac{1}{n}\\sum_{j=1}^{n}I_{j}.$$
+
+Vì các $I_{j}$ là i.i.d. với kỳ vọng $p$, theo định lý số lớn, ước lượng này hội tụ đến giá trị đúng của tích phân với xác suất 1 khi số lượng điểm tiến đến vô cùng.
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 10.2.6</div>
+    <div class="math-box-title">Tính hội tụ của hàm phân phối thực nghiệm</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X_1, \\ldots, X_n$ là các biến ngẫu nhiên i.i.d. với hàm phân phối tích lũy $F$. Với mỗi số $x$, cho $R_n(x)$ đếm số lượng trong số $X_1, \\ldots, X_n$ nhỏ hơn hoặc bằng $x$; tức là,
+
+$$R_{n}(x)=\\sum_{j=1}^{n}I(X_{j}\\leq x).$$
+
+Vì các chỉ báo $I(X_j \\leq x)$ là i.i.d. với xác suất thành công $F(x)$, chúng ta biết $R_n(x)$ là phân phối nhị thức với tham số $n$ và $F(x)$.
+
+Hàm phân phối thực nghiệm của $X_{1},\\ldots,X_{n}$ được định nghĩa là
+
+$$\\hat{F}_{n}(x)=\\frac{R_{n}(x)}{n},$$
+
+xem như một hàm số của $x$. Trước khi quan sát $X_{1},\\ldots,X_{n},\\hat{F}_{n}(x)$ là một biến ngẫu nhiên cho mỗi $x$. Sau khi quan sát $X_{1},\\ldots,X_{n},\\hat{F}_{n}(x)$ sẽ trở thành một giá trị cụ thể tại mỗi $x$, do đó $\\hat{F}_{n}$ sẽ trở thành một hàm phân phối cụ thể, có thể được sử dụng để ước lượng hàm phân phối thực tế $F$ nếu hàm này chưa biết.
+
+Ví dụ, giả sử $n = 4$ và chúng ta quan sát $X_1 = x_1$, $X_2 = x_2$, $X_3 = x_3$, $X_4 = x_4$. Khi đó đồ thị của $\\frac{R_4(x)}{4}$ bắt đầu từ 0 và sau đó nhảy lên 1/4 mỗi khi một trong các $x_j$ được đạt tới. Nói cách khác, $\\frac{R_4(x)}{4}$ là hàm phân phối của một biến ngẫu nhiên rời rạc nhận các giá trị $x_1, \\ldots, x_4$, mỗi giá trị với xác suất 1/4. Điều này được minh họa trong Hình 10.4.
+
+Bây giờ chúng ta có thể hỏi, điều gì xảy ra với $\\hat{F}_n$ khi $n \\to \\infty$? Đây là một câu hỏi tự nhiên nếu chúng ta đang sử dụng $\\hat{F}_n$ để ước lượng hàm phân phối thực tế $F$; ước lượng này có tốt không khi tiến đến giới hạn? Định lý số lớn cung cấp câu trả lời: với mọi $x$, $R_n(x)$ là tổng của $n$ biến ngẫu nhiên Bernoulli i.i.d., với xác suất thành công $p = F(x)$. Do đó theo định lý số lớn mạnh, $\\hat{F}_n(x) \\to F(x)$ với xác suất 1 khi $n \\to \\infty$.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_400_138_1001_614.jpg" alt="Phân phối tích lũy thực nghiệm sau khi quan sát bốn giá trị" style="max-width: 42%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 10.4:** Phân phối tích lũy thực nghiệm sau khi quan sát $X_{1}=x_{1}, X_{2}=x_{2}, X_{3}=x_{3}, X_{4}=x_{4}$. Đồ thị nhảy lên 1/4 mỗi lần một trong các $x_{j}$ được đạt đến.
+</div>
+
+Phân phối tích lũy thực nghiệm thường được sử dụng trong thống kê phi tham số, một ngành của thống kê mà cố gắng hiểu một mẫu ngẫu nhiên mà không cần giả định mạnh về họ phân phối từ đó mẫu đó bắt nguồn. Ví dụ, thay vì giả định $X_{1}, \\ldots, X_{n} \\sim \\mathcal{N}(\\mu, \\sigma^{2})$, một phương pháp phi tham số sẽ cho phép $X_{1}, \\ldots, X_{n} \\sim F$ cho một hàm phân phối tích lũy F tùy ý, sau đó sử dụng phân phối tích lũy thực nghiệm như một ước lượng cho F. Luật số lớn là điều đảm bảo cho chúng ta rằng ước lượng này là hợp lệ trong giới hạn khi chúng ta thu thập thêm nhiều mẫu hơn: tại mọi giá trị của x, phân phối tích lũy thực nghiệm hội tụ đến phân phối tích lũy thực sự.
+
+  </div>
+</div>
+`,pz=`Giống như trong phần trước, để $X_1, X_2, X_3, \\ldots$ là độc lập và đồng phân phối với kỳ vọng $\\mu$ và phương sai $\\sigma^2$. Luật số lớn nói rằng khi $n \\to \\infty$, $\\bar{X}_n$ hội tụ đến hằng số $\\mu$ (với xác suất 1). Nhưng phân phối của nó như thế nào dọc đường đi đến trở thành một hằng số? Điều này được giải quyết bởi định lý giới hạn trung tâm (CLT), mà như tên gọi cho thấy, là một định lý giới hạn quan trọng trong thống kê.
+
+Định lý CLT nói rằng với n lớn, phân phối của $\\bar{X}_n$ sau khi chuẩn hóa tiến tới phân phối chuẩn chuẩn. Bằng cách chuẩn hóa, chúng ta hiểu là chúng ta trừ $\\mu$, kỳ vọng của $\\bar{X}_n$, và chia cho $\\sigma/\\sqrt{n}$, độ lệch chuẩn của $\\bar{X}_n$.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 10.3.1</div>
+    <div class="math-box-title">Định lý giới hạn trung tâm</div>
+  </div>
+  <div class="math-box-content">
+
+Khi $n \\to \\infty$,
+
+$$\\sqrt{n}\\left(\\frac{\\bar{X}_{n}-\\mu}{\\sigma}\\right)\\rightarrow\\mathcal{N}(0,1) \\text{ theo phân phối}.$$
+
+Bằng từ, điều này có nghĩa là hàm phân phối tích lũy (CDF) của vế trái hội tụ đến $\\Phi$, hàm phân phối tích lũy của phân phối chuẩn chuẩn hóa.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 10.3.1</div>
+  </div>
+  <div class="math-box-content">
+
+Chúng ta sẽ chứng minh định lý giới hạn trung tâm (CLT) giả sử rằng hàm sinh momen (MGF) của $X_j$ tồn tại, mặc dù định lý này đúng trong nhiều trường hợp rộng hơn. Gọi $M(t) = E(e^{tX_j})$, và mà không mất tính tổng quát, ta có thể giả sử $\\mu = 0$, $\\sigma^2 = 1$ (vì chúng ta cuối cùng sẽ chuẩn hóa $\\bar{X}_n$ cho định lý, ta có thể chuẩn hóa các $X_j$ ngay từ đầu). Khi đó $M(0) = 1$, $M'(0) = \\mu = 0$, và $M''(0) = \\sigma^2 = 1$.
+
+Chúng ta muốn chứng minh rằng hàm sinh momen của $\\sqrt{n}\\bar{X}_n = (X_1 + \\cdots + X_n)/\\sqrt{n}$ hội tụ đến hàm sinh momen của phân phối $\\mathcal{N}(0,1)$, tức là $e^{t^2/2}$. Đây là một chiến lược hợp lệ vì của một định lý nói rằng nếu $Z_1, Z_2, \\ldots$ là các biến ngẫu nhiên (r.v.) có các hàm sinh momen hội tụ đến hàm sinh momen của một r.v. liên tục Z, thì hàm phân phối tích lũy (CDF) của $Z_n$ hội tụ đến CDF của Z. (Chúng ta bỏ qua chứng minh của kết quả này vì nó yêu cầu một phân tích phức tạp. Tuy nhiên, nó ít nhất cũng có vẻ hợp lý, xét thấy rằng hàm sinh momen của một r.v. xác định phân phối của nó.)
+
+Bằng các tính chất của hàm sinh momen,
+
+$$\\begin{align*}E(e^{t(X_{1}+\\cdots+X_{n})/\\sqrt{n}})&=E(e^{tX_{1}/\\sqrt{n}})E(e^{tX_{2}/\\sqrt{n}})\\cdots E(e^{tX_{n}/\\sqrt{n}})\\\\&=\\left(M\\left(\\frac{t}{\\sqrt{n}}\\right)\\right)^{n}.\\end{align*}$$
+
+Khi $n \\to \\infty$, chúng ta nhận được dạng không xác định $1^\\infty$, vì vậy thay vào đó ta nên lấy giới hạn của logarit, $n \\log M(\\frac{t}{\\sqrt{n}})$, và sau đó mũ hóa ở cuối. Điều này cho ta
+
+$$\\begin{aligned}\\lim_{n\\rightarrow\\infty}n\\log M\\left(\\frac{t}{\\sqrt{n}}\\right)&=\\lim_{y\\rightarrow0}\\frac{\\log M(yt)}{y^{2}}\\quad& where y=1/\\sqrt{n}\\\\&=\\lim_{y\\rightarrow0}\\frac{tM^{\\prime}(yt)}{2yM(yt)}\\quad&by L^{\\prime}Hopital^{\\prime}s rule\\\\&=\\frac{t}{2}\\lim_{y\\rightarrow0}\\frac{M^{\\prime}(yt)}{y}\\quad&since M(yt)\\rightarrow1\\\\&=\\frac{t^{2}}{2}\\lim_{y\\rightarrow0}M^{\\prime \\prime}(yt)\\quad&by L^{\\prime}Hopital^{\\prime}s rule\\\\&=\\frac{t^{2}}{2}.\\end{aligned}$$
+
+Do đó $\\left(M\\left(\\frac{t}{\\sqrt{n}}\\right)\\right)^n$, hàm sinh momen của $\\sqrt{n}\\bar{X}_n$, tiến đến $e^{t^2/2}$, hàm sinh momen của $\\mathcal{N}(0,1)$.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Định lý giới hạn trung tâm là một kết quả tiệm cận, cho chúng ta biết về phân phối giới hạn của $\\bar{X}_n$ khi $n \\to \\infty$, nhưng nó cũng gợi ý một phương pháp xấp xỉ cho phân phối của $\\bar{X}_n$ khi n lớn nhưng hữu hạn.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Xấp xỉ 10.3.2</div>
+    <div class="math-box-title">Định lý giới hạn trung tâm, dạng xấp xỉ</div>
+  </div>
+  <div class="math-box-content">
+
+Với n lớn, phân phối của $\\bar{X}_{n}$ xấp xỉ $\\mathcal{N}(\\mu,\\sigma^{2}/n)$.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Xấp xỉ 10.3.2</div>
+  </div>
+  <div class="math-box-content">
+
+Thay đổi mũi tên trong CLT thành $\\sim$, một ký hiệu phân phối xấp xỉ:
+
+$$\\sqrt{n}\\left(\\frac{\\bar{X}_{n}-\\mu}{\\sigma}\\right)\\dot{\\sim}\\mathcal{N}(0,1).$$
+
+Sau đó bằng một biến đổi vị trí-kích thước,
+
+$$\\bar{X}_{n}\\dot{\\sim}\\mathcal{N}(\\mu,\\sigma^{2}/n).$$
+
+Tất nhiên, chúng ta đã biết từ các tính chất của kỳ vọng và phương sai rằng $\\bar{X}_{n}$ có kỳ vọng là $\\mu$ và phương sai là $\\sigma^{2}/n$; định lý giới hạn trung tâm cho chúng ta thêm thông tin rằng $\\bar{X}_{n}$ xấp xỉ phân phối chuẩn với kỳ vọng và phương sai nói trên.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Hãy dành một chút thời gian để ngưỡng mộ sự tổng quát của kết quả này. Phân phối của từng $X_j$ có thể là bất kỳ thứ gì trong thế giới, miễn là kỳ vọng và phương sai là hữu hạn. Chúng ta có thể có một phân phối rời rạc như Binomial, một phân phối giới hạn như Beta, một phân phối lệch như Log-Normal, hoặc một phân phối có nhiều đỉnh và thung lũng. Dù sao, hành động trung bình hóa sẽ khiến tính chuẩn xuất hiện. Trong Hình 10.5 chúng ta hiển thị các histogram của phân phối của $\\bar{X}_n$ cho 4 phân phối ban đầu khác nhau và cho $n = 1, 5, 30, 100$. Khi $n$ tăng lên, phân phối của $\\bar{X}_n$ bắt đầu trông như phân phối chuẩn, bất kể phân phối của các $X_j$.
+
+Điều này không có nghĩa là phân phối của $X_j$ là vô hại, tuy nhiên. Nếu các $X_j$ có phân phối lệch hoặc đa đỉnh, chúng ta có thể cần $n$ rất lớn trước khi xấp xỉ chuẩn trở nên chính xác; ở cực ngược lại, nếu các $X_j$ là các biến ngẫu nhiên độc lập và đồng phân phối chuẩn, phân phối của $\\bar{X}_{n}$ chính xác là $\\mathcal{N}(\\mu,\\sigma^{2}/n)$ cho mọi $n$. Vì không có dữ liệu vô hạn trong thế giới thực, chất lượng của xấp xỉ chuẩn cho $n$ hữu hạn là một yếu tố quan trọng cần xem xét.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 10.3.3</div>
+    <div class="math-box-title">Tỷ lệ chạy của Mặt, được xem lại</div>
+  </div>
+  <div class="math-box-content">
+
+Như trong Ví dụ 10.2.3, hãy cho $X_1, X_2, \\ldots$ là i.i.d. $\\text{Bern}(1/2)$. Trước đây, chúng ta đã sử dụng định luật số lớn để kết luận rằng $\\bar{X}_n \\to 1/2$ khi $n \\to \\infty$. Bây giờ, bằng định lý giới hạn trung tâm, chúng ta có thể nói thêm: $E(\\bar{X}_n) = 1/2$ và $\\text{Var}(\\bar{X}_n) = 1/(4n)$, vì vậy với $n$ lớn,
+
+$$\\bar{X}_{n}\\dot{\\sim}\\mathcal{N}\\left(\\frac{1}{2},\\frac{1}{4n}\\right).$$
+
+Thông tin bổ sung này cho phép chúng ta lượng hóa loại độ lệch nào từ giá trị trung bình là điển hình cho một $n$ nhất định. Ví dụ, khi $n = 100$, $\\mathrm{SD}(\\bar{X}_n) = 1/20 = 0.05$, vì vậy nếu xấp xỉ chuẩn là chính xác, thì theo quy tắc 68-95-99.7%, có 95% khả năng $\\bar{X}_n$ sẽ nằm trong khoảng [0.40, 0.60].
+
+  </div>
+</div>
+
+Định lý giới hạn trung tâm nói rằng mẫu trung bình $\\bar{X}_n$ xấp xỉ phân phối chuẩn, nhưng vì tổng $W_n = X_1 + \\cdots + X_n = n\\bar{X}_n$ chỉ là một phiên bản được thay đổi tỷ lệ của $\\bar{X}_n$, định lý giới hạn trung tâm cũng cho thấy $W_n$ xấp xỉ phân phối chuẩn. Nếu các $X_j$ có kỳ vọng là $\\mu$ và phương sai là $\\sigma^2$, $W_n$ có kỳ vọng là $n\\mu$ và phương sai là $n\\sigma^2$. Định lý giới hạn trung tâm sau đó phát biểu rằng với $n$ lớn,
+
+$$W_{n}\\dot{\\sim}\\mathcal{N}(n\\mu,n\\sigma^{2}).$$
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_162_500_1198_1191.jpg" alt="Định lý giới hạn trung tâm minh họa qua histogram" style="max-width: 74%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 10.5:** Định lý giới hạn trung tâm. Biểu đồ tần suất của phân phối của $\\bar{X}_{n}$ cho các phân phối ban đầu khác nhau của các $X_{j}$ (được chỉ ra bởi các hàng) và các giá trị ngày càng tăng của n (được chỉ ra bởi các cột). Mỗi biểu đồ tần suất được xây dựng dựa trên 10.000 giá trị mô phỏng của $\\bar{X}_{n}$. Dù phân phối ban đầu của các $X_{j}$ như thế nào, phân phối của $\\bar{X}_{n}$ sẽ tiến tới phân phối chuẩn khi n tăng lên.
+</div>
+
+Đây là hoàn toàn tương đương với xấp xỉ cho $\\bar{X}_{n}$, nhưng nó có thể hữu ích để viết dưới dạng này vì nhiều phân phối có tên mà chúng ta đã nghiên cứu có thể được coi là tổng của các r.v.s độc lập và đồng phân phối. Dưới đây là ba ví dụ nhanh chóng.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 10.3.4</div>
+    <div class="math-box-title">Hội tụ của Poisson đến Normal</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $Y \\sim \\text{Pois}(n)$. Theo Định lý 4.8.1, chúng ta có thể coi Y là tổng của $n$ r.v.s độc lập và đồng phân phối Pois(1). Do đó, với n lớn,
+
+$$Y\\dot{\\sim}\\mathcal{N}(n,n).$$
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 10.3.5</div>
+    <div class="math-box-title">Hội tụ của Gamma đến Normal</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $Y \\sim \\Gamma(\\alpha, \\lambda)$. Theo Định lý 8.4.3, chúng ta có thể coi Y là tổng của n r.v.s độc lập và đồng phân phối $\\operatorname{Expo}(\\lambda)$. Do đó, với n lớn,
+
+$$Y\\dot{\\sim}\\mathcal{N}\\left(\\frac{n}{\\lambda},\\frac{n}{\\lambda^{2}}\\right).$$
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 10.3.6</div>
+    <div class="math-box-title">Hội tụ của Binomial đến Normal</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $Y \\sim \\text{Bin}(n, p)$. Theo Định lý 3.8.8, chúng ta có thể coi Y là tổng của n r.v.s độc lập và đồng phân phối $\\text{Bern}(p)$. Do đó, với n lớn,
+
+$$Y\\dot{\\sim}\\mathcal{N}\\left(n p,n p(1-p)\\right).$$
+
+Đây có lẽ là xấp xỉ Normal được sử dụng phổ biến nhất trong thống kê. Để tính đến tính rời rạc của Y, chúng ta viết xác suất $P(Y = k)$ (mà dưới xấp xỉ Normal sẽ chính xác bằng 0) dưới dạng $P(k - 1/2 < Y < k + 1/2)$ (vậy mà nó trở thành một khoảng có độ rộng không bằng 0) và áp dụng xấp xỉ Normal cho cái sau. Điều này được gọi là phép chỉnh tiếp tục, và nó cho phép xấp xỉ sau đây cho hàm PMF của Y:
+
+$$P(Y=k)=P(k-1/2<Y<k+1/2)\\approx\\Phi\\left(\\frac{k+1/2-np}{\\sqrt{np(1-p)}}\\right)-\\Phi\\left(\\frac{k-1/2-np}{\\sqrt{np(1-p)}}\\right).$$
+
+Xấp xỉ Normal cho phân phối Binomial là bổ sung cho xấp xỉ Poisson được thảo luận trong Chương 4. Xấp xỉ Poisson hoạt động tốt nhất khi p nhỏ, trong khi xấp xỉ Normal hoạt động tốt nhất khi n lớn và p xung quanh 1/2, vậy mà phân phối của Y đối xứng hoặc gần đối xứng.
+
+  </div>
+</div>
+
+Chúng ta sẽ kết thúc với một ví dụ sử dụng cả định lý số lớn và định lý giới hạn trung tâm.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 10.3.7</div>
+    <div class="math-box-title">Chứng khoán biến động</div>
+  </div>
+  <div class="math-box-content">
+
+Mỗi ngày, một chứng khoán biến động tăng 70% hoặc giảm 50% giá, với xác suất bằng nhau và các ngày độc lập. Gọi $Y_n$ là giá cổ phiếu sau n ngày, bắt đầu từ giá trị ban đầu $Y_0 = 100$.
+
+(a) Giải thích tại sao $\\log Y_{n}$ xấp xỉ Normal khi n lớn, và nêu các tham số của nó.
+
+(b) Điều gì xảy ra với $E(Y_n)$ khi $n \\to \\infty$?
+
+(c) Sử dụng định lý số lớn để tìm xem điều gì xảy ra với $Y_n$ khi $n \\to \\infty$.
+
+**Giải pháp:**
+
+(a) Chúng ta có thể viết $Y_n = Y_0(0.5)^{n - U_n}(1.7)^{U_n}$ nơi $U_n \\sim \\mathrm{Bin}(n, \\frac{1}{2})$ là số lần cổ phiếu tăng trong n ngày đầu tiên. Điều này cho
+
+$$\\log Y_{n}=\\log Y_{0}-n\\log2+U_{n}\\log3.4,$$
+
+Đó là một biến đổi vị trí-tỷ lệ của $U_{n}$. Theo định lý giới hạn trung tâm, $U_{n}$ xấp xỉ $\\mathcal{N}\\left(\\frac{n}{2}, \\frac{n}{4}\\right)$ khi $n$ lớn, do đó $\\log Y_{n}$ xấp xỉ phân phối chuẩn với kỳ vọng
+
+$$E(\\log Y_{n})=\\log100-n\\log2+(\\log3.4)\\cdot E(U_{n})\\approx\\log100-0.081n$$
+
+và phương sai
+
+$$\\operatorname{Var}(\\log Y_{n})=(\\log3.4)^{2}\\cdot\\operatorname{Var}(U_{n})\\approx0.374n.$$
+
+(b) Chúng ta có $E(Y_{1}) = (170 + 50)/2 = 110$. Tương tự,
+
+$$E(Y_{n+1}|Y_{n})=\\frac{1}{2}(1.7Y_{n})+\\frac{1}{2}(0.5Y_{n})=1.1Y_{n},$$
+
+Do vậy
+
+$$E(Y_{n+1})=E(E(Y_{n+1}|Y_{n}))=1.1E(Y_{n}).$$
+
+Do đó $E(Y_n) = 1.1^n E(Y_0) = 100 \\cdot 1.1^n$, điều này tiến tới $\\infty$ khi $n \\to \\infty$.
+
+(c) Giống như trong (a), để $U_n \\sim \\text{Bin}(n, \\frac{1}{2})$ là số lần cổ phiếu tăng trong n ngày đầu tiên. Lưu ý rằng mặc dù $E(Y_n) \\to \\infty$, nếu cổ phiếu tăng 70% một ngày và sau đó giảm 50% ngày hôm sau, thì tổng thể nó đã giảm 15% vì $1.7 \\cdot 0.5 = 0.85$. Do đó sau nhiều ngày, $Y_n$ sẽ rất nhỏ nếu khoảng một nửa thời gian cổ phiếu tăng 70% và khoảng một nửa thời gian cổ phiếu giảm 50%—và định luật số lớn đảm bảo rằng điều này sẽ xảy ra! Viết $Y_n$ theo $U_n/n$ để áp dụng định luật số lớn, chúng ta có
+
+$$Y_{n}=Y_{0}(0.5)^{n-U_{n}}(1.7)^{U_{n}}=Y_{0}\\left(\\frac{(3.4)^{U_{n}/n}}{2}\\right)^{n}.$$
+
+Vì $U_n/n \\to 0.5$ với xác suất 1, $(3.4)^{U_n/n} \\to \\sqrt{3.4} < 2$ với xác suất 1, do đó $Y_n \\to 0$ với xác suất 1.
+
+Ngược lại, $E(Y_n) \\to \\infty$ nhưng $Y_n \\to 0$ với xác suất 1. Để hiểu thêm kết quả này, hãy xem xét ví dụ cực đoan nơi một người cược bắt đầu với 100 và mỗi ngày hoặc nhân đôi tiền của họ hoặc mất hết số tiền, với xác suất bằng nhau. Khi đó kỳ vọng của người cược tăng gấp đôi mỗi ngày, điều này nghe có vẻ tốt cho đến khi ta nhận ra rằng cuối cùng sẽ có một ngày mà người cược phá sản. Số tiền thực tế của người cược tiến tới 0 với xác suất 1, trong khi giá trị kỳ vọng tiến tới vô cùng do xác suất nhỏ để có được một lượng tiền cực kỳ lớn, giống như trong nghịch lý St. Petersburg.
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 10.3.8</div>
+    <div class="math-box-title">Phân phối Cauchy đáng ghét</div>
+  </div>
+  <div class="math-box-content">
+
+Định lý giới hạn trung tâm yêu cầu rằng kỳ vọng và phương sai của $X_j$ phải hữu hạn, và chứng minh của định luật số lớn yếu dựa trên cùng các điều kiện này. Phân phối Cauchy được giới thiệu trong Ví dụ 7.1.25 không có kỳ vọng hay phương sai, do đó phân phối Cauchy không tuân theo định luật số lớn hay định lý giới hạn trung tâm. Có thể chứng minh rằng trung bình mẫu của $n$ phân phối Cauchy vẫn là Cauchy, bất kể $n$ lớn đến đâu. Do đó, trung bình mẫu không bao giờ tiến tới phân phối chuẩn, trái ngược với hành vi được quan sát trong định lý giới hạn trung tâm. Ngoài ra, không tồn tại kỳ vọng thực sự cho $\\bar{X}_n$ để hội tụ, do đó định luật số lớn không áp dụng nữa.
+
+  </div>
+</div>
+
+Chúng ta sẽ kết thúc chương này bằng cách giới thiệu hai phân phối liên tục cuối cùng trong cuốn sách này, cả hai đều có mối liên hệ chặt chẽ với phân phối Normal.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 10.4.1</div>
+    <div class="math-box-title">Phân phối Chi-Square</div>
+  </div>
+  <div class="math-box-content">
+
+Gọi $V = Z_1^2 + \\cdots + Z_n^2$ nơi $Z_1, Z_2, \\ldots, Z_n$ là i.i.d. $\\mathcal{N}(0,1)$. Khi đó V được cho là có phân phối Chi-Square với n bậc tự do. Chúng ta viết điều này là $V \\sim \\chi_n^2$.
+
+  </div>
+</div>
+
+Như đã thấy, phân phối $\\chi_{n}^{2}$ là một trường hợp đặc biệt của Gamma.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 10.4.2</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Phân phối $\\chi_{n}^{2}$ là Gamma $\\left(\\frac{n}{2},\\frac{1}{2}\\right)$.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 10.4.2</div>
+  </div>
+  <div class="math-box-content">
+
+Trước tiên, chúng ta xác minh rằng PDF của $Z_{1}^{2} \\sim \\chi_{1}^{2}$ bằng với PDF của Gamma $(\\frac{1}{2}, \\frac{1}{2})$: với x > 0,
+
+$$F(x)=P(Z_{1}^{2}\\leq x)=P(-\\sqrt{x}\\leq Z_{1}\\leq\\sqrt{x})=\\Phi(\\sqrt{x})-\\Phi(-\\sqrt{x})=2\\Phi(\\sqrt{x})-1,$$
+
+Do đó
+
+$$f(x)=\\frac{d}{dx}F(x)=2\\varphi(\\sqrt{x})\\frac{1}{2}x^{-1/2}=\\frac{1}{\\sqrt{2\\pi x}}e^{-x/2},$$
+
+điều này chính là PDF của Gamma $\\left(\\frac{1}{2},\\frac{1}{2}\\right)$. Sau đó, vì $V = Z_{1}^{2} + \\cdots + Z_{n}^{2} \\sim \\chi_{n}^{2}$ là tổng của $n$ biến ngẫu nhiên Gamma độc lập $\\left(\\frac{1}{2},\\frac{1}{2}\\right)$, chúng ta có $V \\sim \\Gamma(\\frac{n}{2},\\frac{1}{2})$.
+
+Từ kiến thức về kỳ vọng và phương sai của phân phối Gamma, chúng ta có $E(V) = n$ và $\\operatorname{Var}(V) = 2n$. Chúng ta cũng có thể thu được kỳ vọng và phương sai bằng cách sử dụng việc V là tổng của các biến bình phương chuẩn độc lập, cùng với các momen chuẩn được đưa ra trong chương 6:
+
+$$\\begin{align*}E(V)&=nE(Z_{1}^{2})=n,\\\\\\operatorname{Var}(V)&=n\\operatorname{Var}(Z_{1}^{2})=n\\left(E(Z_{1}^{4})-(EZ_{1}^{2})^{2}\\right)=n(3-1)=2n.\\end{align*}$$
+
+Để tìm hàm sinh moment của phân phối Chi-Square, chỉ cần thay n/2 và 1/2 vào hàm sinh moment tổng quát của Gamma(a, $\\lambda$), mà chúng ta đã tìm thấy trong Định lý 8.4.3 là $\\left(\\frac{\\lambda}{\\lambda-t}\\right)^a$ cho $t < \\lambda$. Điều này cho ra
+
+$$M_{V}(t)=\\left(\\frac{1}{1-2t}\\right)^{n/2},\\quad t<1/2.$$
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Phân phối Chi-Square quan trọng trong thống kê vì nó liên quan đến phân phối của phương sai mẫu, có thể được sử dụng để ước lượng phương sai thực của một phân phối. Khi các biến ngẫu nhiên của chúng ta là i.i.d. chuẩn, phân phối của phương sai mẫu sau khi được quy chuẩn thích hợp là Chi-Square.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 10.4.3</div>
+    <div class="math-box-title">Phân phối của phương sai mẫu</div>
+  </div>
+  <div class="math-box-content">
+
+Với các $X_{1}, \\ldots, X_{n} \\sim \\mathcal{N}(\\mu, \\sigma^{2})$, phương sai mẫu là biến ngẫu nhiên.
+
+$$S_{n}^{2}=\\frac{1}{n-1}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}.$$
+
+Chứng minh rằng
+
+$$\\frac{(n-1)S_{n}^{2}}{\\sigma^{2}}\\sim\\chi_{n-1}^{2}.$$
+
+**Giải pháp:** Đầu tiên hãy chứng minh rằng $\\sum_{j=1}^{n}(Z_j - \\bar{Z}_n)^2 \\sim \\chi_{n-1}^2$ cho các biến ngẫu nhiên chuẩn hóa $Z_1, \\ldots, Z_n$; điều này phù hợp với kết quả tổng quát hơn mà chúng ta được yêu cầu chứng minh và cũng là một bước ngoặt hữu ích. Hãy bắt đầu với danh tính hữu ích sau đây, đây là trường hợp đặc biệt của danh tính từ chứng minh định lý 6.3.4:
+
+$$\\sum_{j=1}^{n}Z_{j}^{2}=\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}+n\\bar{Z}_{n}^{2}.$$
+
+Bây giờ lấy hàm sinh momen của cả hai vế. Theo Ví dụ 7.5.9, $\\sum_{j=1}^{n}(Z_j - \\bar{Z}_n)^2$ và $n\\bar{Z}_n^2$ độc lập, do đó hàm sinh momen của tổng của chúng là tích của các hàm sinh momen riêng lẻ. Ngoài ra,
+
+$$\\sum_{j=1}^{n}Z_{j}^{2}\\sim\\chi_{n}^{2}\\quad\\text{và}\\quad n\\bar{Z}_{n}^{2}\\sim\\chi_{1}^{2},$$
+
+vậy
+
+$$\\left(\\frac{1}{1-2t}\\right)^{n/2}=\\left(\\text{hàm sinh momen của }\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}\\right)\\cdot\\left(\\frac{1}{1-2t}\\right)^{1/2}.$$
+
+Điều này cho thấy
+
+$$\\left(\\text{hàm sinh momen của }\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}\\right)=\\left(\\frac{1}{1-2t}\\right)^{(n-1)/2},$$
+
+điều này là hàm sinh momen của $\\chi_{n-1}^{2}$. Vì hàm sinh momen xác định phân phối, chúng ta có
+
+$$\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}\\sim\\chi_{n-1}^{2}.$$
+
+Với tổng quát $X_1, \\ldots, X_n$, sử dụng biến đổi vị trí và tỷ lệ để viết $X_j = \\mu + \\sigma Z_j$ và $\\bar{X}_n = \\mu + \\sigma \\bar{Z}_n$. Khi chúng ta biểu diễn $\\sum_{j=1}^n (X_j - \\bar{X}_n)^2$ theo $Z_j$, hằng số $\\mu$ bị triệt tiêu và $\\sigma$ ra khỏi bình phương:
+
+$$\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}=\\sum_{j=1}^{n}(\\mu+\\sigma Z_{j}-(\\mu+\\sigma\\bar{Z}_{n}))^{2}=\\sigma^{2}\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}.$$
+
+Tóm lại,
+
+$$\\frac{(n-1)S_{n}^{2}}{\\sigma^{2}}=\\frac{1}{\\sigma^{2}}\\sum_{j=1}^{n}(X_{j}-\\bar{X}_{n})^{2}=\\frac{1}{\\sigma^{2}}\\cdot\\sigma^{2}\\sum_{j=1}^{n}(Z_{j}-\\bar{Z}_{n})^{2}\\sim\\chi_{n-1}^{2},$$
+
+đây là điều chúng ta muốn. Điều này cũng cho thấy rằng $E(S_n^2) = \\sigma^2$, điều này phù hợp với điều chúng ta đã chứng minh trong Định lý 6.3.4: phương sai mẫu là không thiên lệch khi ước lượng phương sai thật.
+
+  </div>
+</div>
+
+Phân phối Student-t được định nghĩa bằng cách biểu diễn nó thông qua một biến ngẫu nhiên chuẩn và một $\\chi_{n}^{2}$ biến ngẫu nhiên.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 10.4.4</div>
+    <div class="math-box-title">Phân phối Student-t</div>
+  </div>
+  <div class="math-box-content">
+
+Cho
+
+$$T=\\frac{Z}{\\sqrt{V/n}},$$
+
+trong đó $Z \\sim \\mathcal{N}(0,1)$, $V \\sim \\chi_{n}^{2}$, và Z độc lập với V. Khi đó T được gọi là có phân phối Student-t với n bậc tự do. Chúng ta viết điều này là $T \\sim t_{n}$. Thường thì "phân phối Student-t" được rút gọn thành "phân phối t".
+
+  </div>
+</div>
+
+Phân phối Student-t được giới thiệu vào năm 1908 bởi William Gosset, một người làm rượu tại công ty Guinness, trong khi làm việc về kiểm soát chất lượng cho bia. Ông bị yêu cầu bởi công ty phải công bố tác phẩm của mình dưới một tên giả, và ông đã chọn tên "Student". Phân phối t là nền tảng cho các thủ tục kiểm định giả thuyết được gọi là kiểm định t, điều này cực kỳ được sử dụng rộng rãi trong thực tiễn (chúng ta không giới thiệu chi tiết về kiểm định t ở đây vì chúng tốt hơn nên để dành cho một khóa học về suy luận thống kê).
+
+Hàm mật độ xác suất (PDF) của phân phối Student-t với n bậc tự do trông giống như của phân phối chuẩn, ngoại trừ có đuôi nặng hơn (rất nặng nếu n nhỏ, và không nặng lắm nếu n lớn). Công thức cho PDF là
+
+$$f_{T}(t)=\\frac{\\Gamma\\big((n+1)/2\\big)}{\\sqrt{n\\pi}\\Gamma(n/2)}(1+t^{2}/n)^{-(n+1)/2},$$
+
+nhưng chúng ta sẽ không chứng minh vì quá trình chứng minh rất phức tạp và bất kỳ nhiều tính chất quan trọng nào của phân phối Student-t cũng dễ hiểu hơn bằng cách suy nghĩ về cách chúng ta định nghĩa nó thông qua một phân phối chuẩn và một $\\chi_{n}^{2}$ biến ngẫu nhiên, thay vì thực hiện các phép tính tẻ nhạt với PDF. Dưới đây là một số tính chất của chúng.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 10.4.5</div>
+    <div class="math-box-title">Tính chất của phân phối Student-t</div>
+  </div>
+  <div class="math-box-content">
+
+Phân phối Student-t $t_{n}$ có các tính chất sau.
+
+1. Đối xứng: Nếu $T \\sim t_n$, thì $-T \\sim t_n$ cũng vậy.
+2. Cauchy là trường hợp đặc biệt: Phân phối $t_{1}$ giống như phân phối Cauchy, được giới thiệu trong Ví dụ 7.1.25.
+3. Hội tụ về Normal: Khi $n \\to \\infty$, phân phối $t_n$ tiến về phân phối chuẩn chuẩn.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 10.4.5</div>
+  </div>
+  <div class="math-box-content">
+
+Trong bằng chứng của mỗi tính chất, chúng ta tham khảo Định nghĩa 10.4.4.
+
+1. Biểu diễn
+
+$$T=\\frac{Z}{\\sqrt{V/n}},$$
+
+trong đó $Z \\sim \\mathcal{N}(0,1)$, $V \\sim \\chi_{n}^{2}$, và Z độc lập với V. Sau đó
+
+$$-T=\\frac{-Z}{\\sqrt{V/n}},$$
+
+trong đó $-Z \\sim \\mathcal{N}(0,1)$, do đó $-T \\sim t_n$.
+
+2. Nhớ rằng phân phối Cauchy được định nghĩa là phân phối của X/Y trong đó X và Y là i.i.d. $\\mathcal{N}(0,1)$. Theo định nghĩa, $T \\sim t_{1}$ có thể được biểu diễn là $T = Z/\\sqrt{V}$, trong đó $\\sqrt{V} = \\sqrt{Z_{1}^{2}} = |Z_{1}|$ với $Z_{1}$ độc lập với Z. Tuy nhiên nhờ tính đối xứng, $Z/|Z_{1}|$ có cùng phân phối với $Z/Z_{1}$, và $Z/Z_{1}$ là Cauchy. Do đó, phân phối $t_{1}$ và phân phối Cauchy là như nhau.
+
+3. Điều này được suy ra từ định lý số học mạnh. Xét một dãy các biến ngẫu nhiên chuẩn độc lập đồng bố $Z_{1}, Z_{2}, \\ldots,$ và đặt
+
+$$V_{n}=Z_{1}^{2}+\\cdots+Z_{n}^{2}.$$
+
+Theo định lý số học mạnh, $V_n/n \\to E(Z_1^2) = 1$ với xác suất 1. Bây giờ đặt $Z \\sim \\mathcal{N}(0,1)$ độc lập với tất cả các $Z_j$, và đặt
+
+$$T_{n}=\\frac{Z}{\\sqrt{V_{n}/n}}$$
+
+với mọi $n$. Sau đó $T_n \\sim t_n$ theo định nghĩa, và vì mẫu số hội tụ về 1, ta có $T_n \\to Z \\sim \\mathcal{N}(0,1)$. Do đó, phân phối của $T_n$ tiến tới phân phối của $Z$.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Hình 10.6 vẽ hàm mật độ xác suất (PDF) của Student-t với các giá trị n khác nhau, minh họa tất cả ba tính chất của định lý trên: các PDF đều đối xứng quanh 0, PDF cho n = 1 trông giống như phân phối Cauchy, và khi $n \\to \\infty$ đuôi phân phối trở nên nhẹ hơn, và PDF tiến tới PDF chuẩn.
+`,mz=`Các bất đẳng thức và các định lý giới hạn là hai cách khác nhau để xử lý kỳ vọng và xác suất mà chúng ta không muốn tính toán chính xác. Các bất đẳng thức cho phép chúng ta tìm được giới hạn dưới và/hoặc giới hạn trên cho giá trị chưa biết: Cauchy-Schwarz và Jensen cho chúng ta giới hạn cho kỳ vọng, trong khi Markov, Chebyshev và Chernoff cho chúng ta giới hạn cho xác suất đuôi.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_308_166_1083_620.jpg" alt="Đồ thị mật độ xác suất của phân phối Student-t" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 10.6:** Đồ thị mật độ xác suất của phân phối Student-t với (từ sáng đến tối) n = 1, 2, 3, 5, 10 bậc tự do, cũng như mật độ xác suất chuẩn (đen). Khi $n \\to \\infty$, mật độ xác suất của phân phối Student-t tiến đến mật độ xác suất chuẩn.
+</div>
+
+Hai định lý giới hạn, định luật số lớn và định lý giới hạn trung tâm, mô tả hành vi của giá trị trung bình mẫu $\\bar{X}_n$ của các biến ngẫu nhiên độc lập và đồng phân phối $X_1, X_2, \\ldots$ với kỳ vọng $\\mu$ và phương sai $\\sigma^2$. Định luật số lớn hầu chắc chắn nói rằng khi $n \\to \\infty$, giá trị trung bình mẫu $\\bar{X}_n$ hội tụ đến giá trị kỳ vọng thực $\\mu$ với xác suất 1. Định lý giới hạn trung tâm nói rằng phân phối của $\\bar{X}_n$, sau khi chuẩn hóa, hội tụ đến phân phối chuẩn chuẩn:
+
+$$\\sqrt{n}\\left(\\frac{\\bar{X}_{n}-\\mu}{\\sigma}\\right)\\rightarrow\\mathcal{N}(0,1).$$
+
+Điều này có thể được dịch thành một phép xấp xỉ cho phân phối của $\\bar{X}_{n}$:
+
+$$\\bar{X}_{n}\\dot{\\sim}\\mathcal{N}(\\mu,\\sigma^{2}/n).$$
+
+Tương đương, chúng ta có thể nói rằng phân phối của tổng $S_{n}=X_{1}+\\cdots+X_{n}=n\\bar{X}_{n}$, sau khi chuẩn hóa, hội tụ đến phân phối chuẩn chuẩn:
+
+$$\\frac{S_{n}-n\\mu}{\\sigma\\sqrt{n}}\\rightarrow\\mathcal{N}(0,1).$$
+
+Hình 10.7 minh họa sự tiến triển từ một phân phối đến các biến ngẫu nhiên độc lập và đồng phân phối với phân phối đó, từ đó có thể tạo ra giá trị trung bình mẫu và nghiên cứu như một biến ngẫu nhiên riêng biệt. Bất đẳng thức Chebyshev, định luật số lớn và định lý giới hạn trung tâm đều cung cấp thông tin quan trọng về hành vi của giá trị trung bình mẫu.
+
+Phân phối Chi-Square và Student-t là hai phân phối có tên quan trọng trong thống kê. Phân phối Chi-Square là một trường hợp đặc biệt của Gamma. Phân phối Student-t có dạng mật độ xác suất dạng chuông với đuôi nặng hơn Normal, và tiến đến phân phối chuẩn chuẩn khi số bậc tự do tăng lên.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_150_508_1247_1165.jpg" alt="Giá trị trung bình mẫu của các biến ngẫu nhiên độc lập và đồng phân phối" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 10.7:** Giá trị trung bình mẫu $\\bar{X}_{n}$ của các biến ngẫu nhiên độc lập và đồng phân phối $X_{1}, \\ldots, X_{n}$ là một đại lượng quan trọng trong nhiều bài toán. Bất đẳng thức Chebyshev giới hạn xác suất của giá trị trung bình mẫu nằm xa so với giá trị trung bình thực. Định luật số lớn yếu, được suy ra từ bất đẳng thức Chebyshev, nói rằng với n lớn, xác suất là rất cao rằng giá trị trung bình mẫu sẽ rất gần với giá trị trung bình thực. Định lý giới hạn trung tâm nói rằng với n lớn, phân phối của giá trị trung bình mẫu sẽ xấp xỉ chuẩn.
+</div>
+
+Ở đây, lần cuối cùng, là sơ đồ thể hiện mối quan hệ giữa các phân phối được đặt tên, được cập nhật để bao gồm phân phối Chi-Square (như một trường hợp đặc biệt của Gamma) và phân phối Student-t (với Cauchy như một trường hợp đặc biệt). Chúng ta cũng đã thêm các mũi tên để cho thấy sự hội tụ của các phân phối Poisson, Gamma và Student-t đến tính chuẩn tắc; hai trường hợp đầu tiên là hệ quả của định lý giới hạn trung tâm, và trường hợp thứ ba là hệ quả của định lý số lớn.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_149_399_1251_1279.jpg" alt="Sơ đồ mối quan hệ giữa các phân phối được đặt tên" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+</div>
+
+Bây giờ chúng ta thấy rằng tất cả các phân phối được đặt tên đều liên kết với nhau!
+`,hz=`## Bất đẳng thức Jensen
+
+R giúp dễ dàng so sánh kỳ vọng của X và $g(X)$ cho một lựa chọn cụ thể của g, và điều này cho phép chúng ta kiểm tra một số trường hợp đặc biệt của bất đẳng thức Jensen. Ví dụ, giả sử chúng ta mô phỏng $10^4$ lần từ phân phối Expo(1):
+
+\`\`\`r
+x <- rexp(10^4)
+\`\`\`
+
+Theo bất đẳng thức Jensen, $E(\\log X) \\leq \\log EX$. Cái trước có thể được xấp xỉ bằng $\\text{mean}(\\log(x))$ và cái sau có thể được xấp xỉ bằng $\\log(\\text{mean}(x))$, do đó hãy tính cả hai:
+
+\`\`\`r
+mean(log(x))
+\`\`\`
+
+\`\`\`r
+log(mean(x))
+\`\`\`
+
+Với phân phối Expo(1), chúng ta tìm thấy rằng mean(log(x)) xấp xỉ bằng -0.6 (giá trị thật khoảng -0.577), trong khi log(mean(x)) xấp xỉ bằng 0 (giá trị thật là 0). Điều này thực sự cho thấy $E(\\log X) \\leq \\log EX$. Chúng ta cũng có thể so sánh mean($x^3$) với mean($x)^3$, hoặc mean(sqrt(x)) với sqrt(mean(x))—các khả năng là vô tận.
+
+## Visualization của luật số lớn
+
+Để vẽ tỷ lệ chạy của Heads trong một chuỗi các lần tung đồng xu độc lập công bằng, trước tiên chúng ta tạo ra các lần tung đồng xu:
+
+\`\`\`r
+nsim <- 300
+p <- 1/2
+x <- rbinom(nsim,1,p)
+\`\`\`
+
+Sau đó chúng ta tính $\\bar{X}_{n}$ cho mỗi giá trị của n và lưu trữ kết quả vào xbar:
+
+\`\`\`r
+xbar <- cumsum(x) / (1:nsim)
+\`\`\`
+
+Dòng mã trên thực hiện phép chia từng phần tử của hai vector $\\text{cumsum}(x)$ và 1:nsim. Cuối cùng, chúng ta vẽ xbar so với số lần tung đồng xu:
+
+\`\`\`r
+plot(1:nsim,xbar,type="l",ylim=c(0,1))
+\`\`\`
+
+Bạn nên thấy rằng các giá trị của xbar tiến đến p, theo luật số lớn.
+
+## Ước lượng Monte Carlo của $\\pi$
+
+Một ví dụ nổi tiếng của tích phân Monte Carlo là ước lượng Monte Carlo của $\\pi$. Vòng tròn đơn vị $\\{(x,y): x^2 + y^2 \\leq 1\\}$ được khắc trong hình vuông $[-1,1] \\times [-1,1]$, có diện tích 4. Nếu chúng ta tạo ra một số lượng lớn các điểm phân bố đều trên hình vuông, tỷ lệ các điểm rơi vào trong vòng tròn sẽ xấp xỉ bằng tỷ lệ diện tích của vòng tròn so với diện tích của hình vuông, tức là $\\pi/4$. Do đó, để ước lượng $\\pi$, chúng ta có thể lấy tỷ lệ các điểm trong vòng tròn và nhân với 4.
+
+Trong R, để tạo ra các điểm phân bố đều trên hình vuông 2D, chúng ta có thể tạo ra tọa độ x và y độc lập như $\\text{Unif}(-1,1)$ biến ngẫu nhiên, sử dụng kết quả của Ví dụ 7.1.23:
+
+\`\`\`r
+nsim <- 10^6
+\`\`\`
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_503_147_887_529.jpg" alt="Ước lượng Monte Carlo của pi" style="max-width: 27%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 10.8:** Ước lượng Monte Carlo của $\\pi$: Tạo các điểm phân bố đều trên hình vuông 2D $[-1,1]\\times[-1,1]$, có diện tích bằng 4. Tỷ lệ các điểm rơi vào hình tròn đơn vị gần bằng $\\pi/4$.
+</div>
+
+\`\`\`r
+x <- runif(nsim,-1,1)
+y <- runif(nsim,-1,1)
+\`\`\`
+
+Để đếm số điểm trong hình tròn, chúng ta nhập $\\text{sum}(x^2 + y^2 < 1)$. Vector $x^2 + y^2 < 1$ là một vector chỉ báo, trong đó phần tử thứ $i$ bằng 1 nếu điểm thứ $i$ rơi vào trong hình tròn và 0 nếu không, do đó tổng các phần tử là số điểm trong hình tròn. Để lấy ước lượng của $\\pi$, chúng ta biến tổng thành tỷ lệ và nhân với 4:
+
+\`\`\`r
+4*sum(x^2 + y^2 < 1)/nsim
+\`\`\`
+
+Bạn ước lượng gần đúng giá trị thực của $\\pi$ bao nhiêu?
+
+## Biểu diễn trực quan của định lý giới hạn trung tâm
+
+Một cách để trực quan hóa định lý giới hạn trung tâm cho một phân phối quan tâm là vẽ phân phối của $\\bar{X}_n$ với các giá trị khác nhau của $n$, như trong Hình 10.5. Để làm điều này, trước tiên chúng ta phải tạo ra các biến ngẫu nhiên độc lập và đồng phân phối $X_1, \\ldots, X_n$ nhiều lần từ phân phối quan tâm. Ví dụ, giả sử phân phối quan tâm của chúng ta là $\\text{Unif}(0,1)$, và chúng ta quan tâm đến phân phối của $\\bar{X}_{12}$, tức là chúng ta đặt $n = 12$. Trong đoạn mã sau, chúng ta tạo ra một ma trận các biến ngẫu nhiên chuẩn đều. Ma trận có 12 cột, tương ứng với $X_1$ đến $X_{12}$. Mỗi hàng của ma trận là một lần thực hiện khác nhau của $X_1$ đến $X_{12}$.
+
+\`\`\`r
+nsim <- 10^4
+n <- 12
+x <- matrix(runif(n*nsim), nrow=nsim, ncol=n)
+\`\`\`
+
+Bây giờ, để có được các thực hiện của $\\bar{X}_{12}$, chúng ta chỉ cần lấy trung bình của từng hàng của ma trận x; chúng ta có thể thực hiện điều này bằng hàm rowMeans:
+
+\`\`\`r
+xbar <- rowMeans(x)
+\`\`\`
+
+Cuối cùng, chúng ta tạo một biểu đồ tần suất:
+
+\`\`\`r
+hist(xbar)
+\`\`\`
+
+Bạn nên thấy một biểu đồ tần suất trông gần đúng như phân phối chuẩn. Vì phân phối Unif(0,1) là đối xứng, định lý giới hạn trung tâm (CLT) hoạt động nhanh chóng và gần đúng chuẩn cho $\\bar{X}_{n}$ hoạt động tốt, ngay cả khi n = 12. Thay đổi runif thành $\\text{rexp}$, chúng ta thấy rằng khi $X_{j} \\sim \\text{Expo}(1)$, phân phối của $\\bar{X}_{n}$ vẫn còn lệch khi n = 12, do đó cần một giá trị lớn hơn của n trước khi gần đúng chuẩn trở nên hợp lý.
+
+Một hình ảnh hóa đẹp nữa của CLT có thể tìm thấy trong gói animation. Pkg này có một animation tích hợp của một máy quincunx hoặc máy hạt đậu, được phát minh bởi nhà thống kê và di truyền học Francis Galton để minh họa phân phối chuẩn. Sau khi cài đặt gói, hãy thử:
+
+\`\`\`r
+library(animation)
+quincunx()
+\`\`\`
+
+Bạn có thể sử dụng định lý giới hạn trung tâm để giải thích tại sao biểu đồ tần suất do máy quincunx tạo ra nên trông gần đúng như phân phối chuẩn?
+
+## Phân phối Chi-Square và Student-t
+
+Mặc dù Chi-Square chỉ là một trường hợp đặc biệt của Gamma, nó vẫn có các hàm riêng dchisq, pchisq, và rchisq trong R: dchisq(x,n) và pchisq(x,n) trả về các giá trị của $\\chi_n^2$ PDF và CDF tại x, và rchisq(nsim,n) tạo ra nsim biến ngẫu nhiên độc lập đồng nhất (i.i.d.) $\\chi_n^2$.
+
+Phân phối Student-t có các hàm dt, pt, và rt. Để đánh giá PDF hoặc CDF của phân phối $t_n$ tại x, chúng ta sử dụng dt(x,n) hoặc pt(x,n). Để tạo nsim biến ngẫu nhiên độc lập đồng nhất (i.i.d.) từ phân phối $t_n$, chúng ta sử dụng rt(nsim,n). Tất nhiên, dt(x,1) giống như dcauchy(x).
+`,gz=`Các bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.
 
 ## Các bất đẳng thức
 
@@ -30314,722 +30408,934 @@ Gọi  $\\bar{X}_n = (X_1 + \\cdots + X_n)/n$ . Tìm phân phối chính xác c�
 
 </div>
 </div>
-`,_z=`Chuỗi Markov "sống" trong cả không gian và thời gian: tập hợp các giá trị có thể có của  $X_n$  được gọi là không gian trạng thái, và chỉ số  $n$  đại diện cho sự phát triển của quá trình theo thời gian. Không gian trạng thái của một chuỗi Markov có thể là rời rạc hoặc liên tục, và thời gian cũng có thể là rời rạc hoặc liên tục (trong bối cảnh thời gian liên tục, ta sẽ tưởng tượng một quá trình  $X_t$  được xác định cho tất cả các số thực  $t \\geq 0$ ). Trong chương này chúng ta sẽ tập trung toàn bộ vào các chuỗi Markov có trạng thái rời rạc, thời gian rời rạc, với không gian trạng thái hữu hạn. Cụ thể, chúng ta sẽ giả định rằng các  $X_n$  nhận giá trị trong một tập hợp hữu hạn, mà thường ta chọn là  $\\{1, 2, \\ldots, M\\}$  hoặc  $\\{0, 1, \\ldots, M\\}$ .\r
-\r
-Định nghĩa 11.1.1 (Chuỗi Markov). Một chuỗi các biến ngẫu nhiên  $X_0, X_1, X_2, \\ldots$  nhận giá trị trong không gian trạng thái  $\\{1, 2, \\ldots, M\\}$  được gọi là một chuỗi Markov nếu với mọi  $n \\geq 0$ .\r
-\r
- \r
-\r
- $$P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\\ldots,X_{0}=i_{0})=P(X_{n+1}=j|X_{n}=i).$$ \r
-\r
-\r
-\r
-Số lượng  $P(X_{n+1} = j|X_n = i)$  được gọi là xác suất chuyển tiếp từ trạng thái i sang trạng thái j. Trong cuốn sách này, khi đề cập đến một chuỗi Markov, chúng ta sẽ ngầm giả định rằng nó là đồng nhất theo thời gian, điều này có nghĩa là xác suất chuyển tiếp  $P(X_{n+1} = j|X_n = i)$  là như nhau đối với mọi thời điểm n. Nhưng cần lưu ý, vì tài liệu không nhất quán về việc gọi là “chuỗi Markov đồng nhất theo thời gian” hay chỉ đơn giản là “chuỗi Markov”.\r
-\r
-Điều kiện trên được gọi là tính chất Markov, và nó nói rằng cho toàn bộ lịch sử quá khứ  $X_{0}, X_{1}, X_{2}, \\ldots, X_{n}$ , chỉ có số hạng gần nhất nhất,  $X_{n}$ , quan trọng đối với việc dự đoán  $X_{n+1}$ . Nếu chúng ta xem thời điểm n là hiện tại, các thời điểm trước n là quá khứ, và các thời điểm sau n là tương lai, tính chất Markov nói rằng cho hiện tại, quá khứ và tương lai là độc lập điều kiện. Tính chất Markov giúp đơn giản hóa rất nhiều các phép tính xác suất điều kiện: thay vì phải điều kiện trên toàn bộ quá khứ, chúng ta chỉ cần điều kiện trên giá trị gần nhất nhất.\r
-\r
-Để mô tả động lực học của một chuỗi Markov, chúng ta cần biết các xác suất di chuyển từ bất kỳ trạng thái nào sang bất kỳ trạng thái nào khác, tức là các xác suất  $P(X_{n+1} = j|X_n = i)$  ở vế phải của tính chất Markov. Thông tin này có thể được mã hóa trong một ma trận, gọi là ma trận chuyển tiếp, trong đó  $(i, j)$  là xác suất di chuyển từ trạng thái  $i$  sang trạng thái  $j$  trong một bước của chuỗi.\r
-\r
-Định nghĩa 11.1.2 (Ma trận chuyển tiếp). Gọi  $X_0, X_1, X_2, \\ldots$  là một chuỗi Markov với không gian trạng thái  $\\{1, 2, \\ldots, M\\}$ , và gọi  $q_{ij} = P(X_{n+1} = j | X_n = i)$  là xác suất chuyển tiếp từ trạng thái i sang trạng thái j. Ma trận  $M \\times M$  $Q = (q_{ij})$  được gọi là ma trận chuyển tiếp của chuỗi.\r
-\r
-Lưu ý rằng Q là một ma trận không âm trong đó mỗi hàng tổng bằng 1. Điều này là vì, bắt đầu từ bất kỳ trạng thái i nào, các sự kiện “chuyển sang 1”, “chuyển sang 2”, …, “chuyển sang M” là rời nhau, và hợp của chúng có xác suất bằng 1 vì chuỗi phải chuyển sang đâu đó.\r
-\r
-Ví dụ 11.1.3 (Chuỗi Markov mưa-nắng). Giả sử rằng mỗi ngày, thời tiết có thể là mưa hoặc nắng. Nếu hôm nay là mưa, thì ngày mai sẽ mưa với xác suất 1/3 và nắng với xác suất 2/3. Nếu hôm nay là nắng, thì ngày mai sẽ mưa với xác suất 1/2 và nắng với xác suất 1/2. Gọi  $X_n$  là thời tiết vào ngày  $n$ ,  $X_0$ ,  $X_1$ ,  $X_2$ ,... là một chuỗi Markov trên không gian trạng thái  $\\{R, S\\}$ , trong đó  $R$  biểu thị mưa và  $S$  biểu thị nắng. Chúng ta biết rằng tính chất Markov được thỏa mãn vì, từ mô tả của quá trình, chỉ có thời tiết hôm nay quan trọng đối với việc dự đoán ngày mai.\r
-\r
-Ma trận chuyển tiếp của chuỗi là\r
-\r
- \r
-\r
- $$\\begin{array}{ccc}{{{R}}}&{{{S}}} \\\\{{{\\hline R\\left(\\begin{array}{cc}1/3}}}&{{{2/3}}} \\\\{{{1/2}}}&{{{1/2}}}\\end{array}\\right).\\\\ \\end{array}$$ \r
-\r
- \r
-\r
-Dòng đầu tiên nói rằng bắt đầu từ trạng thái R, chúng ta chuyển sang trạng thái R với xác suất 1/3 và chuyển sang trạng thái S với xác suất 2/3. Dòng thứ hai nói\r
-\r
-Từ trạng thái S, chúng ta có 1/2 cơ hội chuyển sang trạng thái R và 1/2 cơ hội ở lại trạng thái S. Chúng ta cũng có thể sử dụng\r
-\r
- \r
-\r
- $$\\begin{array}{ccc}{{{S}}}&{{{R}}} \\\\{{{\\hline S}}} \\\\{{{R}}} \\\\{{{2/3}}}&{{{1/3}}} \\\\\\end{array}$$ \r
-\r
- \r
-\r
-thay vì ma trận chuyển tiếp như trên. Tổng quát, nếu không có thứ tự rõ ràng nào của các trạng thái trong một chuỗi Markov (như với các trạng thái R và S), chúng ta chỉ cần xác định một thứ tự của các trạng thái và sử dụng nó một cách nhất quán.\r
-\r
-Các xác suất chuyển tiếp của một chuỗi Markov cũng có thể được biểu diễn bằng một sơ đồ. Mỗi trạng thái được biểu diễn bằng một hình tròn, và các mũi tên chỉ ra các chuyển tiếp có thể xảy ra trong một bước; chúng ta có thể tưởng tượng một hạt di chuyển từ trạng thái này sang trạng thái khác, ngẫu nhiên chọn mũi tên nào để theo. Bên cạnh các mũi tên, chúng ta ghi các xác suất chuyển tiếp tương ứng.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_411_816_987_972.jpg" alt="Image" width="41%" /></div>\r
-\r
-\r
-Giả sử thời tiết ngày mai phụ thuộc vào thời tiết hôm nay và thời tiết ngày qua? Ví dụ, giả sử thời tiết hành xử như trên, ngoại trừ nếu có hai ngày liên tiếp mưa, thì ngày mai sẽ chắc chắn nắng, và nếu có hai ngày liên tiếp nắng, thì ngày mai sẽ chắc chắn mưa. Dưới những động lực thời tiết mới này, các  $X_{n}$  không còn là một chuỗi Markov nữa, vì tính chất Markov bị vi phạm: điều kiện dựa vào thời tiết hôm nay, thời tiết ngày qua vẫn có thể cung cấp thông tin hữu ích để dự đoán thời tiết ngày mai.\r
-\r
-Tuy nhiên, bằng cách mở rộng không gian trạng thái, chúng ta có thể tạo ra một chuỗi Markov mới: để  $Y_n = (X_{n-1}, X_n)$  cho  $n \\geq 1$ . Khi đó  $Y_1, Y_2, \\ldots$  là một chuỗi Markov trên không gian trạng thái  $\\{(R, R), (R, S), (S, R), (S, S)\\}$ . Bạn có thể kiểm tra rằng ma trận chuyển tiếp mới là\r
-\r
- \r
-\r
- $$\\begin{array}{c}{{{\\left(R,R\\right)\\quad\\left(R,S\\right)\\quad\\left(S,R\\right)\\quad\\left(S,S\\right)}}} \\\\{{{\\left(R,R\\right)\\left(\\begin{array}{c c c c}0}}}&{{{1}}}&{{{0}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{1/2}}}&{{{1/2}}} \\\\{{{1/3}}}&{{{2/3}}}&{{{0}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{1}}}&{{{0}}}\\end{array}\\right)\\\\ \\left(S,S\\right)\\end{array}$$ \r
-\r
- \r
-\r
-và biểu diễn đồ họa tương ứng được cho trong hình sau.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_463_147_937_512.jpg" alt="Image" width="33%" /></div>\r
-\r
-\r
-Tương tự, chúng ta có thể xử lý các phụ thuộc bậc ba hoặc bậc bốn trong thời tiết bằng cách mở rộng không gian trạng thái thêm nữa để đảm bảo tính chất Markov.\r
-\r
-Khi chúng ta đã có ma trận chuyển tiếp Q của một chuỗi Markov, chúng ta có thể tính toán các xác suất chuyển tiếp cho các khoảng thời gian dài hơn.\r
-\r
-Định nghĩa 11.1.4 (xác suất chuyển tiếp n bước). Xác suất chuyển tiếp n bước từ i đến j là xác suất của việc ở j đúng sau n bước kể từ khi ở i. Chúng ta ký hiệu điều này bằng  $q_{ij}^{(n)}$ :\r
-\r
- \r
-\r
- $$q_{i j}^{(n)}=P(X_{n}=j|X_{0}=i).$$ \r
-\r
- \r
-\r
-Chú ý rằng\r
-\r
- \r
-\r
- $$q_{ij}^{(2)}=\\sum_{k}q_{ik}q_{kj}$$ \r
-\r
- \r
-\r
-vì để di chuyển từ i đến j trong hai bước, chuỗi phải đi từ i đến một trạng thái trung gian nào đó k, sau đó từ k đến j; các lần chuyển tiếp này độc lập với nhau do tính chất Markov. Vì vế phải là phần tử  $(i,j)$  của  $Q^{2}$  theo định nghĩa phép nhân ma trận, chúng ta kết luận rằng ma trận  $Q^{2}$  cho các xác suất chuyển tiếp hai bước. Bằng quy nạp, lũy thừa bậc n của ma trận chuyển tiếp cho các xác suất chuyển tiếp n bước:\r
-\r
- \r
-\r
- $$q_{i j}^{(n)}\\mathrm{~i s~t h e~}(i,j)\\mathrm{~e n t r y~o f~}Q^{n}.$$ \r
-\r
- \r
-\r
-Ví dụ 11.1.5 (ma trận chuyển tiếp của chuỗi Markov 4 trạng thái). Xét chuỗi Markov 4 trạng thái được minh họa trong Hình 11.1. Khi không có xác suất nào được ghi trên các mũi tên, như trong trường hợp này, điều đó có nghĩa là tất cả các mũi tên xuất phát từ một trạng thái nhất định đều có xác suất bằng nhau. Ví dụ, có 3 mũi tên xuất phát từ trạng thái 1, do đó các lần chuyển tiếp  $1 \\rightarrow 3$ ,  $1 \\rightarrow 2$ , và  $1 \\rightarrow 1$  đều có xác suất 1/3. Do đó ma trận chuyển tiếp của chuỗi là\r
-\r
- \r
-\r
- $$Q=\\left(\\begin{array}{c c c c}{1/3}&{1/3}&{1/3}&{0}\\\\ {0}&{0}&{1/2}&{1/2}\\\\ {0}&{1}&{0}&{0}\\\\ {1/2}&{0}&{0}&{1/2}\\\\ \\end{array}\\right).$$ \r
-\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_589_139_845_455.jpg" alt="Image" width="18%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 11.1 Một chuỗi Markov 4 trạng thái.</div>\r
-\r
-\r
-Để tính xác suất chuỗi ở trạng thái 3 sau 5 bước, bắt đầu từ trạng thái 1, chúng ta sẽ xem xét phần tử  $(1,3)$  của  $Q^{5}$ . Tại đây, sử dụng máy tính để tìm  $Q^{5}$ ,\r
-\r
- \r
-\r
- $$Q^{5}=\\begin{pmatrix}853/3888&509/1944&52/243&395/1296\\\\173/864&85/432&31/108&91/288\\\\37/144&29/72&1/9&11/48\\\\499/2592&395/1296&71/324&245/864\\\\\\end{pmatrix},$$ \r
-\r
- \r
-\r
-  $\\sin q_{13}^{(5)} = 52/243.$ \r
-\r
-Sử dụng ngôn ngữ của Chương 7, ma trận chuyển tiếp Q mã hóa phân phối điều kiện của  $X_1$  cho trạng thái ban đầu của chuỗi. Cụ thể, hàng thứ i của Q là phân phối xác suất điều kiện của  $X_1$  cho  $X_0 = i$ , được hiển thị dưới dạng vector hàng. Tương tự, hàng thứ i của  $Q^n$  là phân phối xác suất điều kiện của  $X_n$  cho  $X_0 = i$ .\r
-\r
-Để tìm phân phối biên của  $X_{0}, X_{1}, \\ldots$ , chúng ta cần chỉ định không chỉ ma trận chuyển tiếp, mà cả điều kiện ban đầu của chuỗi. Trạng thái ban đầu  $X_{0}$  có thể được chỉ định một cách xác định, hoặc ngẫu nhiên theo một phân phối nào đó. Gọi  $(t_{1}, t_{2}, \\ldots, t_{M})$  là phân phối xác suất của  $X_{0}$  dưới dạng vector, tức là  $t_{i} = P(X_{0} = i)$ . Sau đó, phân phối biên của chuỗi tại bất kỳ thời điểm nào có thể được tính từ ma trận chuyển tiếp, trung bình hóa qua tất cả các trạng thái bằng định lý LOTP.\r
-\r
-Định lý 11.1.6 (Phân phối biên của  $X_n$ ). Định nghĩa  $\\mathbf{t} = (t_1, t_2, \\ldots, t_M)$  bởi  $t_i = P(X_0 = i)$ , và xem  $\\mathbf{t}$  dưới dạng vector hàng. Khi đó, phân phối biên của  $X_n$  được cho bởi vector  $\\mathbf{t}Q^n$ . Nghĩa là, thành phần thứ j của  $\\mathbf{t}Q^n$  là  $P(X_n = j)$ .\r
-\r
-Chứng minh. Theo định lý xác suất toàn phần, điều kiện hóa trên  $X_{0}$ , xác suất chuỗi ở trạng thái j sau n bước là\r
-\r
- \r
-\r
- $$P(X_{n}=j)=\\sum_{i=1}^{M}P(X_{0}=i)P(X_{n}=j|X_{0}=i)=\\sum_{i=1}^{M}t_{i}q_{ij}^{(n)},$$ \r
-\r
- \r
-\r
-đây là thành phần thứ j của tQn theo định nghĩa của phép nhân ma trận.\r
-\r
-Ví dụ 11.1.7 (Phân bố biên của chuỗi Markov 4 trạng thái). Lại xem xét chuỗi Markov 4 trạng thái như trong Hình 11.1. Giả sử rằng điều kiện ban đầu là  $\\mathbf{t} = (1/4, 1/4, 1/4, 1/4)$ , có nghĩa là chuỗi có xác suất bằng nhau để bắt đầu ở mỗi trong bốn trạng thái. Gọi  $X_n$  là vị trí của chuỗi tại thời điểm  $n$ . Khi đó phân bố biên của  $X_1$  là\r
-\r
- \r
-\r
- $$\\begin{aligned}\\mathbf{t}Q&=\\left(\\begin{array}{llll}{{{1/4}}}&{{{1/4}}}&{{{1/4}}}&{{{1/4}}}\\end{array}\\right)\\left(\\begin{array}{cccc}{{{1/3}}}&{{{1/3}}}&{{{1/3}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{1/2}}}&{{{1/2}}} \\\\{{{0}}}&{{{1}}}&{{{0}}}&{{{0}}} \\\\{{{1/2}}}&{{{0}}}&{{{0}}}&{{{1/2}}}\\end{array}\\right)\\\\&=\\left(\\begin{array}{llll}{{{5/24}}}&{{{1/3}}}&{{{5/24}}}&{{{1/4}}}\\end{array}\\right).\\end{aligned}$$ \r
-\r
- \r
-\r
-Phân bố biên của  $X_{5}$  là\r
-\r
- \r
-\r
- $$\\begin{aligned}\\mathbf{t}Q^{5}&=\\left(\\begin{array}{lllll}1/4&1/4&1/4&1/4\\\\\\end{array}\\right)\\begin{pmatrix}853/3888&509/1944&52/243&395/1296\\\\173/864&85/432&31/108&91/288\\\\37/144&29/72&1/9&11/48\\\\499/2592&395/1296&71/324&245/864\\\\\\end{pmatrix}\\\\&=\\left(\\begin{array}{lllll}3379/15552&2267/7776&101/486&1469/5184\\\\\\end{array}\\right).\\end{aligned}$$ \r
-\r
- \r
-\r
-Chúng tôi đã sử dụng máy tính để thực hiện phép nhân ma trận.`,vz=`Trong phần này chúng ta giới thiệu thuật ngữ để mô tả các đặc điểm khác nhau của một chuỗi Markov. Các trạng thái của một chuỗi Markov có thể được phân loại là hồi tiếp hoặc tạm thời, tùy thuộc vào việc chúng có được ghé thăm liên tục trong dài hạn hay cuối cùng bị bỏ lại. Các trạng thái cũng có thể được phân loại theo chu kỳ của chúng, một số nguyên dương tóm tắt khoảng thời gian có thể trôi qua giữa các lần ghé thăm một trạng thái. Những đặc điểm này quan trọng vì chúng xác định hành vi lâu dài của chuỗi Markov, điều mà chúng ta sẽ nghiên cứu trong Phần 11.3.\r
-\r
-Các khái niệm về tính hồi tiếp và tính tạm thời được minh họa rõ nhất qua một ví dụ cụ thể. Trong chuỗi Markov được hiển thị ở bên trái của Hình 11.2 (đã được giới thiệu trong Ví dụ 11.1.5 trước đây), một hạt di chuyển giữa các trạng thái sẽ tiếp tục dành thời gian trong tất cả 4 trạng thái trong dài hạn, vì có thể chuyển từ bất kỳ trạng thái nào sang bất kỳ trạng thái nào khác. Ngược lại, hãy xem xét chuỗi ở bên phải của Hình 11.2, và giả sử hạt bắt đầu ở trạng thái 1. Trong một thời gian nhất định, chuỗi có thể lưu luyến trong tam giác do các trạng thái 1, 2, và 3 tạo thành, nhưng cuối cùng nó sẽ đạt đến trạng thái 4, và từ đó nó không thể quay trở lại các trạng thái 1, 2, hoặc 3. Nó sẽ sau đó di chuyển giữa các trạng thái 4, 5, và 6 mãi mãi. Các trạng thái 1, 2, và 3 là tạm thời và các trạng thái 4, 5, và 6 là hồi tiếp.\r
-\r
-Tổng quát, các khái niệm này được định nghĩa như sau.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_284_144_1121_585.jpg" alt="Image" width="59%" /></div>\r
-\r
-\r
-### HÌNH 11.2\r
-\r
-<div style="text-align: center;">Trái: Chuỗi Markov 4-trạng thái với tất cả các trạng thái là hồi quy. Phải: Chuỗi Markov 6-trạng thái với các trạng thái 1, 2 và 3 là tạm thời.</div>\r
-\r
-\r
-Định nghĩa 11.2.1 (Trạng thái hồi quy và tạm thời). Trạng thái i của một chuỗi Markov được gọi là hồi quy nếu bắt đầu từ i, xác suất để chuỗi sẽ quay lại i trong tương lai là 1. Ngược lại, trạng thái được gọi là tạm thời, điều này có nghĩa là nếu chuỗi bắt đầu từ i, có xác suất dương để chuỗi không quay lại i.\r
-\r
-Thực ra, mặc dù định nghĩa của trạng thái tạm thời chỉ yêu cầu có xác suất dương để không quay lại trạng thái đó, chúng ta có thể nói điều gì đó mạnh hơn: chỉ cần có xác suất dương để rời khỏi i mãi mãi, chuỗi sẽ quay lại rời khỏi i mãi mãi. Hơn nữa, chúng ta có thể tìm được phân phối của số lần quay lại trạng thái đó.\r
-\r
-Định lý 11.2.2 (Số lần quay lại trạng thái tạm thời tuân theo phân phối Geometric). Giả sử i là một trạng thái tạm thời của một chuỗi Markov. Giả sử xác suất để không quay lại i, bắt đầu từ i, là một số dương p > 0. Khi đó, bắt đầu từ i, số lần chuỗi quay lại i trước khi rời khỏi mãi mãi tuân theo  $\\text{Geom}(p)$ .\r
-\r
-Chứng minh được thực hiện bằng cách kể câu chuyện của phân phối Geometric: mỗi lần chuỗi ở i, chúng ta có một phép thử Bernoulli, trong đó kết quả là "thất bại" nếu chuỗi cuối cùng quay lại i và "thành công" nếu chuỗi rời khỏi i mãi mãi; các phép thử này độc lập do tính chất Markov. Số lần quay lại trạng thái i là số lần thất bại trước lần thành công đầu tiên, điều này phù hợp với câu chuyện của phân phối Geometric. Và do biến ngẫu nhiên Geometric luôn nhận giá trị hữu hạn, định lý này cho thấy rằng sau một số lần ghé thăm hữu hạn, chuỗi sẽ rời khỏi trạng thái i mãi mãi.\r
-\r
-Nếu số trạng thái không quá lớn, một cách để phân loại các trạng thái là hồi quy hay tạm thời là vẽ một biểu đồ của chuỗi Markov và sử dụng cùng loại lập luận mà chúng ta đã sử dụng khi phân tích các chuỗi trong Hình 11.2. Một trường hợp đặc biệt mà chúng ta có thể kết luận ngay lập tức tất cả các trạng thái là hồi quy là khi chuỗi là bất khả quy, điều này có nghĩa là có thể di chuyển từ bất kỳ trạng thái nào sang bất kỳ trạng thái nào khác.\r
-\r
-Định nghĩa 11.2.3 (Chuỗi không rút gọn và rút gọn). Một chuỗi Markov với ma trận chuyển Q được gọi là không rút gọn nếu với bất kỳ hai trạng thái i và j nào, cũng có thể đi từ i đến j trong một số bước hữu hạn (với xác suất dương). Nói cách khác, với bất kỳ hai trạng thái i,j nào, tồn tại một số nguyên dương n sao cho phần tử  $(i,j)$  của  $Q^{n}$  là dương. Một chuỗi Markov không phải là không rút gọn được gọi là rút gọn.\r
-\r
-Định lý 11.2.4 (Không rút gọn kéo theo tất cả trạng thái là hồi返). Trong một chuỗi Markov không rút gọn với không gian trạng thái hữu hạn, tất cả các trạng thái đều hồi返.\r
-\r
-Chứng minh. Rõ ràng là ít nhất một trạng thái phải hồi返; nếu tất cả các trạng thái đều là tạm thời, thì chuỗi sẽ cuối cùng rời bỏ tất cả các trạng thái mãi mãi và không còn nơi nào để đến! Vì vậy giả sử mà không mất tính tổng quát rằng trạng thái 1 là hồi返, và xem xét bất kỳ trạng thái nào khác i. Ta biết rằng  $q_{1i}^{(n)}$  là dương với một số n nào đó, theo định nghĩa của tính không rút gọn. Do đó, mỗi lần chuỗi ở trạng thái 1, có xác suất dương rằng sau n bước nữa nó sẽ ở trạng thái i.\r
-\r
-Vì chuỗi ghé thăm trạng thái 1 vô hạn lần, ta biết rằng chuỗi sẽ cuối cùng đến trạng thái i từ trạng thái 1; hãy xem mỗi lần ghé thăm trạng thái 1 như một lần thử, trong đó "thành công" được định nghĩa là đến trạng thái i trong tối đa n bước. Từ trạng thái i, chuỗi sẽ quay lại trạng thái 1 vì trạng thái 1 là hồi返, và bằng cùng lập luận như vậy, nó sẽ cuối cùng đến trạng thái i lần nữa. Bằng quy nạp, chuỗi sẽ ghé thăm trạng thái i vô hạn lần. Vì i là tùy ý, ta kết luận rằng tất cả các trạng thái đều hồi返.\r
-\r
-Định lý ngược lại của định lý là sai; có thể tồn tại một chuỗi Markov rút gọn mà tất cả các trạng thái đều hồi返. Một ví dụ được cho bởi chuỗi Markov dưới đây, gồm hai "đảo" các trạng thái.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_373_1133_1034_1422.jpg" alt="Image" width="47%" /></div>\r
-\r
-\r
-<div style="text-align: center;">11.2.5. Lưu ý rằng tính hồi返 hay tạm thời là tính chất của từng trạng thái trong một chuỗi Markov, trong khi tính không rút gọn hay rút gọn là tính chất của cả chuỗi.</div>\r
-\r
-\r
-Dưới đây là hai bài toán quen thuộc từ các chương trước, được nhìn nhận qua lăng kính của chuỗi Markov. Với mỗi bài toán, ta sẽ xác định các trạng thái hồi返 và tạm thời.\r
-\r
-Ví dụ 11.2.6 (Gambler’s ruin như một chuỗi Markov). Trong bài toán Gambler’s ruin (Ví dụ 2.7.3), hai người chơi A và B bắt đầu với i và N - i đô la tương ứng, tiến hành một chuỗi cược với số tiền 1. Trong mỗi vòng, người chơi A có xác suất p để thắng và xác suất q = 1 - p để thua. Gọi  $X_n$  là số tiền của người chơi A tại thời điểm n. Khi đó  $X_0, X_1, \\ldots$  là một chuỗi Markov trên không gian trạng thái  $\\{0, 1, \\ldots, N\\}$ . Bằng\r
-\r
-thiết kế,  $X_{0} = i$ . Khi chuỗi Markov đạt đến 0 hoặc N, biểu thị cho sự phá sản của người chơi A hoặc B, chuỗi sẽ ở trong trạng thái đó mãi mãi. Một sơ đồ của chuỗi được hiển thị bên dưới.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_188_292_1215_401.jpg" alt="Image" width="73%" /></div>\r
-\r
-\r
-Chúng ta đã chứng minh trong Chương 2 rằng xác suất để A hoặc B phá sản là 1, do đó, với bất kỳ trạng thái ban đầu i nào khác 0 hoặc N, chuỗi Markov sẽ cuối cùng bị hấp thụ vào trạng thái 0 hoặc N, không bao giờ quay lại i. Do đó, đối với chuỗi Markov này, trạng thái 0 và N là trạng thái hồi tiếp, và tất cả các trạng thái khác là trạng thái tạm thời. Chuỗi là có thể giảm được vì từ trạng thái 0 chỉ có thể chuyển đến trạng thái 0, và từ trạng thái N chỉ có thể chuyển đến trạng thái N.\r
-\r
-Ví dụ 11.2.7 (Thu gom phiếu quà tặng như một chuỗi Markov). Trong bài toán thu gom phiếu quà tặng (Ví dụ 4.3.12), có  $C$  loại phiếu quà tặng (hoặc đồ chơi), chúng ta thu thập một cách ngẫu nhiên, lấy mẫu có thể thay thế từ  $C$  loại phiếu quà tặng mỗi lần. Gọi  $X_n$  là số loại phiếu quà tặng khác nhau trong bộ sưu tập sau  $n$  lần thử. Khi đó  $X_0, X_1, \\ldots$  là một chuỗi Markov trên không gian trạng thái  $\\{0, 1, \\ldots, C\\}$ . Theo thiết kế,  $X_0 = 0$ . Chuỗi này được minh họa bên dưới.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_234_952_1163_1138.jpg" alt="Image" width="66%" /></div>\r
-\r
-\r
-Ngoại trừ trạng thái C, chúng ta không bao giờ quay lại một trạng thái sau khi rời khỏi nó; số loại phiếu quà tặng trong bộ sưu tập chỉ có thể tăng theo thời gian. Do đó tất cả các trạng thái đều là trạng thái tạm thời ngoại trừ C, là trạng thái hồi tiếp. Chuỗi là có thể giảm được vì, ví dụ, không thể chuyển từ trạng thái 2 về trạng thái 1.\r
-\r
-Một cách khác để phân loại các trạng thái là theo chu kỳ của chúng. Chu kỳ của một trạng thái tóm tắt khoảng thời gian có thể trôi qua giữa các lần ghé thăm trạng thái đó.\r
-\r
-Định nghĩa 11.2.8 (Chu kỳ của một trạng thái, chuỗi tuần hoàn và không tuần hoàn). Chu kỳ của một trạng thái  $i$  trong một chuỗi Markov là ước chung lớn nhất (gcd) của các số bước có thể xảy ra để quay lại  $i$  khi bắt đầu từ  $i$ . Nói cách khác, chu kỳ của  $i$  là ước chung lớn nhất của các số  $n$  sao cho phần tử  $(i,i)$  của  $Q^n$  là dương. (Chu kỳ của  $i$  là  $\\infty$  nếu không thể quay lại  $i$  sau khi bắt đầu từ  $i$ .) Một trạng thái được gọi là không tuần hoàn nếu chu kỳ của nó bằng 1, và tuần hoàn nếu không. Chuỗi được gọi là không tuần hoàn nếu tất cả các trạng thái của nó đều không tuần hoàn, và tuần hoàn nếu không.\r
-\r
-Ví dụ, hãy xem xét lại hai chuỗi Markov từ Hình 11.2, được hiển thị lại trong Hình 11.3. Chúng ta trước hết xem xét chuỗi 6 trạng thái ở bên phải. Bắt đầu từ trạng thái 1, có thể quay lại trạng thái 1 sau 3 bước, 6 bước, 9 bước, v.v., nhưng nó\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_284_149_1121_586.jpg" alt="Image" width="59%" /></div>\r
-\r
-\r
-### HÌNH 11.3\r
-\r
-<div style="text-align: center;">Trái: một chuỗi Markov không tuần hoàn. Phải: một chuỗi Markov tuần hoàn trong đó các trạng thái 1, 2, và 3 có chu kỳ 3.</div>\r
-\r
-\r
-không thể quay trở lại trạng thái 1 sau bất kỳ số bước nào không phải là bội số của 3. Do đó, trạng thái 1 có chu kỳ 3. Tương tự, các trạng thái 2 và 3 cũng có chu kỳ 3. Về mặt khác, các trạng thái 4, 5, và 6 có chu kỳ 1, nhưng chuỗi là tuần hoàn vì ít nhất một trạng thái không có chu kỳ 1. Ngược lại, trong chuỗi ở bên trái tất cả các trạng thái đều không tuần hoàn, do đó chuỗi đó là không tuần hoàn.\r
-\r
-Trong chuỗi cược bạc từ Ví dụ 11.2.6, mỗi trạng thái có chu kỳ 2 ngoại trừ 0 và N, có chu kỳ 1. Trong chuỗi thu thập phiếu, mỗi trạng thái có chu kỳ 1 ngoại trừ trạng thái 0, có chu kỳ  $\\infty$  vì không thể quay trở lại trạng thái 0. Do đó, cả hai chuỗi này đều không là không tuần hoàn.\r
-\r
-Kiểm tra xem một chuỗi không thể phân tách có là không tuần hoàn hay không thường dễ hơn nhiều so với vẻ ngoài: định lý tiếp theo cho thấy chúng ta chỉ cần tính chu kỳ của một trạng thái, thay vì tìm từng trạng thái để xem chu kỳ của nó có phải là 1 hay không.\r
-\r
-Định lý 11.2.9 (Chu kỳ trong một chuỗi không thể phân tách). Trong một chuỗi Markov không thể phân tách, tất cả các trạng thái đều có cùng chu kỳ.`,yz=`Các khái niệm về tính khả hồi và tính không khả hồi rất quan trọng để hiểu hành vi dài hạn của một chuỗi Markov. Ban đầu, chuỗi có thể dành thời gian trong các trạng thái không khả hồi. Cuối cùng, chuỗi sẽ dành toàn bộ thời gian trong các trạng thái khả hồi. Nhưng tỷ lệ thời gian mà chuỗi dành trong mỗi trạng thái khả hồi là bao nhiêu? Câu hỏi này được trả lời bởi phân bố dừng của chuỗi, cũng được biết đến là phân bố trạng thái ổn định. Chúng ta sẽ học trong phần này rằng đối với chuỗi không thể phân tách và không tuần hoàn\r
-\r
-Chuỗi Markov, phân bố dừng mô tả hành vi lâu dài của chuỗi, bất kể điều kiện ban đầu. Nó sẽ cho chúng ta cả xác suất lâu dài của việc ở trong bất kỳ trạng thái nào, và tỷ lệ phần trăm thời gian mà chuỗi dành trong trạng thái đó.\r
-\r
-Định nghĩa 11.3.1 (Phân bố dừng). Một vector hàng  $\\mathbf{s} = (s_1, \\ldots, s_M)$  sao cho  $s_i \\geq 0$  và  $\\sum_i s_i = 1$  là một phân bố dừng cho một chuỗi Markov với ma trận chuyển Q nếu\r
-\r
- \r
-\r
- $$\\sum_{i}s_{i}q_{ij}=s_{j}$$ \r
-\r
- \r
-\r
-với mọi j. Hệ thống phương trình tuyến tính này có thể được viết dưới dạng một phương trình ma trận:\r
-\r
- \r
-\r
- $$\\mathbf{s}Q=\\mathbf{s}.$$ \r
-\r
- \r
-\r
-Nhớ lại rằng nếu  $\\mathbf{s}$  là phân bố của  $X_0$ , thì  $\\mathbf{s}Q$  là phân bố biên của  $X_1$ . Như vậy phương trình  $\\mathbf{s}Q = \\mathbf{s}$  có nghĩa là nếu  $X_0$  có phân bố  $\\mathbf{s}$ , thì  $X_1$  cũng có phân bố  $\\mathbf{s}$ . Nhưng sau đó  $X_2$  cũng có phân bố  $\\mathbf{s}$ , cũng như  $X_3$ , v.v. Tức là một chuỗi Markov với phân bố ban đầu là phân bố dừng  $\\mathbf{s}$  sẽ ở trong phân bố dừng mãi mãi.\r
-\r
-Một cách để hiểu phân bố dừng của một chuỗi Markov một cách trực quan là tưởng tượng một số lượng lớn hạt, mỗi hạt độc lập chuyển từ trạng thái này sang trạng thái khác theo xác suất chuyển. Sau một thời gian dài, hệ thống hạt sẽ tiến tới một trạng thái cân bằng nơi, tại mỗi kỳ, số hạt rời khỏi một trạng thái sẽ được cân bằng bởi số hạt đi vào trạng thái đó, và điều này sẽ đúng với tất cả các trạng thái. Tại trạng thái cân bằng này, hệ thống nhìn chung sẽ biểu hiện là dừng, và tỷ lệ phần trăm các hạt trong mỗi trạng thái sẽ được cho bởi phân bố dừng. Chúng ta sẽ khám phá góc nhìn này về phân bố dừng sau Định nghĩa 11.4.1.\r
-\r
-11.3.2 (Phân bố dừng là biên, không phải điều kiện). Khi một chuỗi Markov ở trong phân bố dừng, phân bố xác suất không điều kiện của  $X_n$  bằng s cho tất cả n, nhưng phân bố xác suất điều kiện của  $X_n$  cho  $X_{n-1} = i$  vẫn được mã hóa bởi hàng thứ i của ma trận chuyển Q.\r
-\r
-Nếu một chuỗi Markov bắt đầu ở phân bố dừng, thì tất cả các  $X_n$  đều có phân bố giống nhau (vì chúng có cùng phân bố biên  $\\mathbf{s}$ ), nhưng chúng không nhất thiết độc lập, vì phân bố điều kiện của  $X_n$  cho  $X_{n-1} = i$  thường khác với phân bố biên của  $X_n$ .\r
-\r
-11.3.3 (Phép thuật đồng cảm). Nếu một chuỗi Markov bắt đầu ở phân bố dừng, thì các phân bố biên của  $X_n$  đều bằng nhau. Điều này không có nghĩa là các  $X_n$  chính nó đều bằng nhau; nhầm lẫn các biến ngẫu nhiên  $X_n$  với phân bố của chúng là một ví dụ về phép thuật đồng cảm.\r
-\r
-Với những chuỗi Markov rất nhỏ, chúng ta có thể tìm phân bố dừng bằng tay, sử dụng định nghĩa. Ví dụ sau minh họa điều này cho một chuỗi hai trạng thái.\r
-\r
-Ví dụ 11.3.4 (Phân bố dừng cho một chuỗi hai trạng thái). Hãy\r
-\r
- \r
-\r
- $$Q=\\begin{pmatrix}1/3&2/3\\\\ 1/2&1/2\\end{pmatrix}.$$ \r
-\r
- \r
-\r
-Phân bố dừng có dạng  $\\mathbf{s} = (s, 1 - s)$ , và chúng ta phải giải để tìm s trong\r
-\r
- \r
-\r
- $$\\begin{pmatrix}s&1-s\\end{pmatrix}\\begin{pmatrix}1/3&2/3\\\\ 1/2&1/2\\end{pmatrix}=\\begin{pmatrix}s&1-s\\end{pmatrix},$$ \r
-\r
- \r
-\r
-điều này tương đương với\r
-\r
- \r
-\r
- $$\\frac{1}{3}s+\\frac{1}{2}(1-s)=s,$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\frac{2}{3}s+\\frac{1}{2}(1-s)=1-s.$$ \r
-\r
- \r
-\r
-Nghiệm duy nhất của các phương trình này là  $s = 3/7$ , do đó  $(3/7, 4/7)$  là phân bố dừng duy nhất của chuỗi Markov này.\r
-\r
-Tổng quát hơn, giả sử rằng  $q_{12} = a$  và  $q_{21} = b$ , với 0 < a < 1 và 0 < b < 1. Khi đó ma trận chuyển tiếp là\r
-\r
- \r
-\r
- $$Q=\\begin{pmatrix}{{{1-a}}}&{{{a}}} \\\\{{{b}}}&{{{1-b}}}\\end{pmatrix}.$$ \r
-\r
- \r
-\r
-Viết  $\\mathbf{s} = (s_1, s_2)$ , phương trình  $\\mathbf{s}Q = \\mathbf{s}$  trở thành hệ phương trình tuyến tính\r
-\r
- \r
-\r
- $$(1-a)s_{1}+b s_{2}=s_{1},$$ \r
-\r
- \r
-\r
- \r
-\r
- $$a s_{1}+(1-b)s_{2}=s_{2}$$ \r
-\r
- \r
-\r
-Cả hai phương trình trong hệ này đều đơn giản hóa thành\r
-\r
- \r
-\r
- $$a s_{1}=b s_{2}.$$ \r
-\r
- \r
-\r
-Thay  $s_{2}=1-s_{1}$ , suy ra nghiệm duy nhất của hệ này là\r
-\r
- \r
-\r
- $$\\mathbf{s}=\\left(\\frac{b}{a+b},\\frac{a}{a+b}\\right).$$ \r
-\r
- \r
-\r
-Tóm lại,  $\\mathbf{s} \\propto (b, a)$ , tức là  $\\mathbf{s}$  là một hằng số nhân với  $(b, a)$ . Hằng số là bất kỳ giá trị nào cần để làm tổng các thành phần của  $\\mathbf{s}$  bằng 1. Như một kiểm tra, lưu ý rằng với Q đã cho trước với các số cụ thể, kết quả này nói rằng phân bố dừng nên tỷ lệ với  $(b, a) = (1/2, 2/3)$ , điều này, nhân với 6 để loại bỏ mẫu số, tương đương với tỷ lệ với  $(3, 4)$ . Phân bố dừng mà chúng ta đã giải trước đây là  $(3/7, 4/7)$ , điều này đúng là tỷ lệ với  $(3, 4)$ .\r
-\r
-Trong thuật ngữ đại số tuyến tính, phương trình  $\\mathbf{s}Q = \\mathbf{s}$  nói rằng  $\\mathbf{s}$  là một vector riêng trái của Q với giá trị riêng 1 (xem mục A.3 của phụ lục toán học). Để có dạng vector riêng thông thường (một vector riêng phải), lấy chuyển vị:  $Q' \\mathbf{s}' = \\mathbf{s}'$ , trong đó ký hiệu ' chỉ lấy chuyển vị.\r
-\r
-#### 11.3.1 Sự tồn tại và tính duy nhất\r
-\r
-Có tồn tại phân bố dừng luôn, và nó có duy nhất không? Thực ra, đối với không gian trạng thái hữu hạn, phân bố dừng luôn tồn tại. Hơn nữa, trong chuỗi Markov không thể phân rã, phân bố dừng là duy nhất.\r
-\r
-Định lý 11.3.5 (Sự tồn tại và tính duy nhất của phân bố dừng). Đối với bất kỳ chuỗi Markov không thể phân rã nào, tồn tại duy nhất một phân bố dừng. Trong phân bố này, mọi trạng thái đều có xác suất dương.\r
-\r
-Định lý này là hệ quả của một kết quả trong đại số tuyến tính gọi là định lý Perron-Frobenius, được trình bày trong phần phụ lục toán học ở mục A.3.\r
-\r
-Chuỗi 4 trạng thái ở phía trái của Hình 11.3 là không thể phân rã: theo nghĩa của hình vẽ, có thể di chuyển từ bất kỳ nơi nào đến bất kỳ nơi nào theo các mũi tên; theo nghĩa của ma trận chuyển Q, tất cả các phần tử của  $Q^{5}$  đều dương. Do đó, theo Định lý 11.3.5, chuỗi này có một phân bố dừng duy nhất.\r
-\r
-Ngược lại, chuỗi phá sản người cược từ Ví dụ 11.2.6 là có thể phân rã, do đó định lý không áp dụng. Thực ra, chuỗi này có vô số phân bố dừng. Trong dài hạn, chuỗi sẽ hoặc kết thúc ở trạng thái 0 (và ở đó mãi mãi) hoặc kết thúc ở trạng thái N (và ở đó mãi mãi). Điều này cho thấy, và dễ kiểm tra, rằng các phân bố đơn giản  $\\mathbf{s} = (1, 0, \\ldots, 0)$  và  $\\mathbf{t} = (0, 0, \\ldots, 1)$  đều là các phân bố dừng. Do đó, bất kỳ tổ hợp trọng số nào  $p\\mathbf{s} + (1 - p)\\mathbf{t}$ , với  $0 \\leq p \\leq 1$ , cũng là một phân bố dừng, vì nó tổng thành 1 và\r
-\r
- \r
-\r
- $$(p\\mathbf{s}+(1-p)\\mathbf{t})Q=p\\mathbf{s}Q+(1-p)\\mathbf{t}Q=p\\mathbf{s}+(1-p)\\mathbf{t},$$ \r
-\r
- \r
-\r
-trong đó, như thường lệ, Q là ma trận chuyển.\r
-\r
-#### 11.3.2 Sự hội tụ\r
-\r
-Chúng ta đã nói một cách phi chính thức rằng phân bố dừng mô tả hành vi dài hạn của chuỗi, theo nghĩa rằng nếu chúng ta chạy chuỗi trong một thời gian dài, phân bố biên của  $X_n$  sẽ hội tụ đến phân bố dừng s. Định lý tiếp theo nói rằng điều này đúng nếu chuỗi vừa không thể phân rã vừa không tuần hoàn. Khi đó, bất kể điều kiện ban đầu của chuỗi, phân bố xác suất của  $X_n$  sẽ hội tụ đến phân bố dừng khi  $n \\to \\infty$ . Điều này liên quan khái niệm tính dừng đến hành vi dài hạn của một chuỗi Markov. Chứng minh được bỏ qua.\r
-\r
-Định lý 11.3.6 (Sự hội tụ đến phân bố dừng). Gọi  $X_0, X_1, \\ldots$  là một chuỗi Markov không thể phân rã, không tuần hoàn với phân bố dừng s và ma trận chuyển Q. Khi đó  $P(X_n = i)$  hội tụ đến  $s_i$  khi  $n \\to \\infty$ . Theo nghĩa của ma trận chuyển,  $Q^n$  hội tụ đến một ma trận trong đó mỗi hàng là s.\r
-\r
-Do đó, sau một số bước lớn, xác suất chuỗi ở trạng thái i gần bằng xác suất dừng  $s_{i}$ , bất kể điều kiện ban đầu của chuỗi. Điều này làm cho các chuỗi không thể phân rã, không tuần hoàn đặc biệt dễ làm việc. Tính không thể phân rã\r
-\r
-có nghĩa là với mỗi  $(i,j)$  có một lũy thừa nào đó  $Q^{m}$  mà ở vị trí  $(i,j)$  là dương, nhưng nếu ta cũng giả sử tính aperiodicity thì kết quả là ta có thể tìm được một giá trị m mà phù hợp với tất cả  $i,j$ . Chính xác hơn, một chuỗi là irreducible và aperiodic nếu và chỉ nếu một lũy thừa nào đó  $Q^{m}$  là dương ở tất cả các vị trí.\r
-\r
-Thực chất, điều kiện bổ sung về tính chu kỳ là cần thiết để loại bỏ các chuỗi chỉ đi vòng quanh, như chuỗi trong ví dụ dưới đây, hoặc các chuỗi nơi, ví dụ, một số trạng thái chỉ có thể tiếp cận sau một số bước chẵn trong khi các trạng thái khác chỉ có thể tiếp cận sau một số bước lẻ.\r
-\r
-Ví dụ 11.3.7 (Chuỗi chu kỳ). Hình dưới đây cho thấy một chuỗi Markov chu kỳ nơi mỗi trạng thái có chu kỳ 5.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_547_590_851_825.jpg" alt="Image" width="21%" /></div>\r
-\r
-\r
-### HÌNH 11.4\r
-\r
-Một chuỗi chu kỳ.\r
-\r
-Ma trận chuyển của chuỗi là\r
-\r
- \r
-\r
- $$\\boldsymbol{Q}=\\begin{pmatrix}{{{0}}}&{{{1}}}&{{{0}}}&{{{0}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{1}}}&{{{0}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{0}}}&{{{1}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{0}}}&{{{0}}}&{{{1}}} \\\\{{{1}}}&{{{0}}}&{{{0}}}&{{{0}}}&{{{0}}}\\end{pmatrix}.$$ \r
-\r
- \r
-\r
-Nó có thể kiểm tra mà không khó khăn rằng  $\\mathbf{s} = (1/5, 1/5, 1/5, 1/5, 1/5)$  là một phân bố dừng của chuỗi này, và theo Định lý 11.3.5,  $\\mathbf{s}$  là duy nhất. Tuy nhiên, giả sử chuỗi bắt đầu tại  $X_0 = 1$ . Khi đó, hàm phân phối xác suất (PMF) của  $X_n$  gán xác suất 1 cho trạng thái  $(n \\mod 5) + 1$  và 0 cho tất cả các trạng thái khác.  $^1$  Đặc biệt, nó không hội tụ đến  $\\mathbf{s}$  khi  $n \\to \\infty$ . Cũng không có  $Q^n$  hội tụ đến một ma trận mà mỗi hàng đều là  $\\mathbf{s}$ : các chuyển tiếp của chuỗi là xác định, do đó  $Q^n$  luôn bao gồm các số 0 và 1.\r
-\r
-Cuối cùng, phân bố dừng cho chúng ta biết thời gian trung bình giữa các lần ghé thăm bất kỳ trạng thái nào cụ thể nào.\r
-\r
-Định lý 11.3.8 (Thời gian kỳ vọng để trở lại). Cho  $X_0, X_1, \\ldots$  là một chuỗi Markov irreducible với phân bố dừng s. Gọi  $r_i$  là thời gian kỳ vọng để chuỗi trở lại i, cho trước rằng nó bắt đầu tại i. Khi đó  $s_i = 1/r_i$ .\r
-\r
-Dưới đây là cách các định lý áp dụng cho chuỗi hai trạng thái trong Ví dụ 11.3.4.\r
-\r
-Ví dụ 11.3.9 (Hành vi dài hạn của một chuỗi hai trạng thái). Trong dài hạn, chuỗi trong Ví dụ 11.3.4 sẽ dành 3/7 thời gian của nó trong trạng thái 1 và 4/7 thời gian trong trạng thái 2. Bắt đầu từ trạng thái 1, nó sẽ mất một trung bình 7/3 bước để quay lại trạng thái 1. Các lũy thừa của ma trận chuyển tiếp hội tụ đến một ma trận nơi mỗi hàng là phân phối dừng:\r
-\r
- \r
-\r
- $$\\begin{pmatrix}1/3&2/3\\\\1/2&1/2\\end{pmatrix}^{n}\\rightarrow\\begin{pmatrix}3/7&4/7\\\\3/7&4/7\\end{pmatrix}\\mathrm{as}n\\rightarrow\\infty.$$ \r
-\r
- \r
-\r
-#### 11.3.3 Google PageRank\r
-\r
-Chúng ta tiếp theo xem xét một ví dụ lớn hơn rất nhiều về phân phối dừng, cho một chuỗi Markov trên không gian trạng thái có hàng tỷ nút liên kết với nhau: World Wide Web. Ví dụ tiếp theo giải thích cách các nhà sáng lập Google mô hình hóa việc lướt web như một chuỗi Markov, và sau đó sử dụng phân phối dừng của nó để xếp hạng mức độ liên quan của các trang web. Trong nhiều năm, Google mô tả phương pháp kết quả, được biết đến như PageRank, là “tim trái tim của phần mềm của chúng tôi”.\r
-\r
-Giả sử bạn quan tâm đến một chủ đề nhất định, ví dụ như cờ vua, vì vậy bạn sử dụng một công cụ tìm kiếm để tìm các trang web hữu ích chứa thông tin về cờ vua. Có hàng triệu trang web đề cập đến từ "cờ vua", vì vậy một vấn đề quan trọng mà một công cụ tìm kiếm cần giải quyết là thứ tự nào để hiển thị các kết quả tìm kiếm. Điều đó sẽ là thảm họa nếu phải lướt qua hàng ngàn trang web rác mà đề cập đến "cờ vua" trước khi tìm thấy nội dung hữu ích.\r
-\r
-Trong những ngày đầu của web, nhiều phương pháp khác nhau được sử dụng để giải quyết vấn đề xếp hạng này. Ví dụ, một số công cụ tìm kiếm thuê người để quyết định thủ công các trang nào hữu ích nhất, giống như một người quản lý bảo tàng. Nhưng ngoài việc chủ quan và tốn kém, điều này nhanh chóng trở nên không khả thi khi web phát triển. Một số khác tập trung vào số lần từ tìm kiếm được đề cập trên trang web. Nhưng một trang web đề cập đến "cờ vua" liên tục có thể dễ dàng ít hữu ích hơn một trang tham khảo ngắn gọn hoặc một trang về cờ vua mà không lặp lại từ đó liên tục. Hơn nữa, phương pháp này rất dễ bị lạm dụng: một trang spam có thể tăng thứ hạng của nó chỉ bằng cách bao gồm một danh sách dài các từ được lặp lại liên tục.\r
-\r
-Cả hai phương pháp trên đều bỏ qua cấu trúc của web: các trang nào liên kết đến các trang nào khác? Việc xem xét cấu trúc liên kết đã dẫn đến sự cải thiện lớn trong các công cụ tìm kiếm. Là một thử nghiệm đầu tiên, có thể xếp hạng một trang dựa vào số lượng trang khác liên kết đến nó. Tức là, nếu Trang A liên kết đến Trang B, chúng ta xem đây là một phiếu bầu cho B, và chúng ta xếp hạng các trang dựa vào số phiếu bầu mà chúng có.\r
-\r
-Nhưng điều này lại dễ bị lạm dụng: một trang spam có thể tăng thứ hạng của nó bằng cách tạo ra hàng ngàn trang spam khác liên kết đến nó. Và mặc dù có vẻ dân chủ khi mỗi trang có quyền bỏ phiếu bằng nhau, một liên kết từ một trang đáng tin cậy có ý nghĩa hơn một liên kết từ một trang không cung cấp thông tin. Google PageRank, được giới thiệu vào năm 1998 bởi Sergey Brin và người có tên rất phù hợp là Larry Page, xếp hạng\r
-\r
-Tầm quan trọng của một trang không chỉ được xác định bởi số lượng trang liên kết đến nó, mà còn bởi tầm quan trọng của những trang đó.\r
-\r
-Xem xét web như một mạng có hướng—đó chính là bản chất của nó. Mỗi trang trên web là một nút, và các liên kết giữa các nút đại diện cho các liên kết giữa các trang. Ví dụ, hãy tưởng tượng rằng để đơn giản, web chỉ có 4 trang, được kết nối như được hiển thị trong hình dưới đây.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_548_414_849_669.jpg" alt="Image" width="21%" /></div>\r
-\r
-\r
-### HÌNH 11.5\r
-\r
-Đó là một web nhỏ sau tất cả.\r
-\r
-Hãy tưởng tượng có một người đang lướt web ngẫu nhiên, bắt đầu từ một trang và sau đó ngẫu nhiên nhấn vào các liên kết để di chuyển từ trang này sang trang khác (với xác suất bằng nhau cho tất cả các liên kết trên trang hiện tại). Ý tưởng của PageRank là để đo lường tầm quan trọng của một trang bằng phần thời gian dài hạn mà người dùng dành ở trang đó.\r
-\r
-Tất nhiên, một số trang có thể không có bất kỳ liên kết nào đi ra, ví dụ như trang 4 ở trên. Khi người lướt web gặp phải một trang như vậy, thay vì nản lòng họ mở một cửa sổ trình duyệt mới và ghé thăm một trang ngẫu nhiên. Do đó, một trang không có liên kết được chuyển đổi thành một trang có liên kết đến tất cả các trang, bao gồm chính nó. Với ví dụ trên, ma trận chuyển tiếp kết quả là\r
-\r
- \r
-\r
- $$Q=\\begin{pmatrix}{{{0}}}&{{{1/2}}}&{{{0}}}&{{{1/2}}} \\\\{{{1/2}}}&{{{0}}}&{{{1/2}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{0}}}&{{{1}}} \\\\{{{1/4}}}&{{{1/4}}}&{{{1/4}}}&{{{1/4}}}\\end{pmatrix}.$$ \r
-\r
- \r
-\r
-Tổng quát, để M là số lượng trang trên web, để Q là ma trận chuyển tiếp M x M của chuỗi được mô tả ở trên, và để s là phân bố dừng (giả sử nó tồn tại và duy nhất). Hãy xem  $s_{j}$  như một thước đo cho tầm quan trọng của trang j. Về mặt trực giác, phương trình\r
-\r
- \r
-\r
- $$s_{j}=\\sum_{i}s_{i}q_{ij}$$ \r
-\r
- \r
-\r
-nói rằng điểm số của trang  $j$  nên dựa không chỉ vào số lượng trang khác liên kết đến nó, mà còn vào các điểm số của chúng. Hơn nữa, "quyền biểu quyết" của một trang sẽ bị pha loãng nếu nó có nhiều liên kết đi ra: nó có giá trị hơn nếu trang  $i$  chỉ có một liên kết đến trang  $j$  (vì vậy  $q_{ij}=1$ ) hơn là nếu trang  $i$  có hàng ngàn liên kết, trong đó có một liên kết đến trang  $j$ .\r
-\r
-Không rõ rằng một phân bố cố định duy nhất tồn tại cho chuỗi này, vì nó có thể không phải là không thể phân rã và không tuần hoàn. Ngay cả khi nó là không thể phân rã và không tuần hoàn, việc hội tụ đến phân bố cố định có thể rất chậm vì mạng lưới quá khổng lồ. Để giải quyết những vấn đề này, giả sử rằng trước mỗi bước di chuyển, người lướt web tung một đồng xu với xác suất  $\\alpha$  của mặt ngửa. Nếu mặt ngửa, người lướt web sẽ nhấp vào một liên kết ngẫu nhiên từ trang hiện tại; nếu mặt sấp, người lướt web sẽ được truyền đến một trang ngẫu nhiên đều. Chuỗi kết quả có ma trận chuyển tiếp của Google\r
-\r
- \r
-\r
- $$G=\\alpha Q+(1-\\alpha)\\frac{J}{M},$$ \r
-\r
- \r
-\r
-trong đó J là ma trận M x M của tất cả các 1. Lưu ý rằng tổng hàng của G bằng 1 và tất cả các phần tử đều dương, vì vậy G là một ma trận chuyển tiếp hợp lệ cho một chuỗi Markov không thể phân rã, không tuần hoàn. Điều này có nghĩa là tồn tại một phân bố cố định duy nhất s, được gọi là PageRank, và chuỗi sẽ hội tụ đến nó! Việc chọn  $\\alpha$  là một yếu tố quan trọng; việc chọn  $\\alpha$  gần 1 hợp lý để tôn trọng cấu trúc của mạng lưới càng nhiều càng tốt, nhưng có một sự đánh đổi vì thực ra giá trị nhỏ hơn của  $\\alpha$  làm cho chuỗi hội tụ nhanh hơn nhiều. Như một sự thỏa hiệp, đề xuất ban đầu của Brin và Page là  $\\alpha = 0.85$ .\r
-\r
-PageRank có khái niệm đẹp, nhưng việc tính toán nó nghe có vẻ cực kỳ khó khăn, xem xét rằng  $\\mathbf{s}G = \\mathbf{s}$  có thể là một hệ phương trình 100 tỷ phương trình với 100 tỷ ẩn số. Thay vì xem xét đây là một bài toán đại số khổng lồ, chúng ta có thể sử dụng cách diễn giải chuỗi Markov: với bất kỳ phân bố ban đầu nào  $\\mathbf{t}, \\mathbf{t}G^n \\to \\mathbf{s}$  khi  $n \\to \\infty$ . Và  $\\mathbf{t}G$  dễ tính toán hơn so với vẻ ngoài ban đầu:\r
-\r
- \r
-\r
- $$\\mathbf{t}G=\\alpha(\\mathbf{t}Q)+\\frac{1-\\alpha}{M}(\\mathbf{t}J),$$ \r
-\r
- \r
-\r
-trong đó việc tính toán thành phần đầu tiên không quá khó vì Q rất thưa (chủ yếu là 0) và việc tính toán thành phần thứ hai dễ dàng vì tJ là một vector của tất cả các 1. Sau đó tG trở thành t mới, và chúng ta có thể tính toán  $tG^{2} = (tG)G$ , v.v., cho đến khi dãy số dường như đã hội tụ (mặc dù khó biết rằng nó đã hội tụ). Điều này cho một xấp xỉ của PageRank, và có một diễn giải trực quan như phân bố của nơi người lướt web ở sau một số bước rất lớn.`,bz=`Chúng ta đã thấy rằng phân bố cố định của một chuỗi Markov là cực kỳ hữu ích để hiểu hành vi lâu dài của nó. Tiếc thay, nói chung có thể rất khó tính toán phân bố cố định khi không gian trạng thái lớn. Chương này giải quyết một trường hợp đặc biệt quan trọng nơi mà việc làm việc với phương trình trị riêng cho các ma trận lớn có thể tránh được.\r
-\r
-Định nghĩa 11.4.1 (Tính nghịch đảo). Cho  $Q = (q_{ij})$  là ma trận chuyển tiếp của một chuỗi Markov. Giả sử tồn tại  $\\mathbf{s} = (s_1, \\ldots, s_M)$  với  $s_i \\geq 0$ ,  $\\sum_i s_i = 1$ , sao cho\r
-\r
- \r
-\r
- $$s_{i}q_{ij}=s_{j}q_{ji}$$ \r
-\r
- \r
-\r
-với mọi trạng thái i và j. Phương trình này được gọi là điều kiện nghịch đảo hoặc điều kiện cân bằng chi tiết, và chúng ta nói rằng chuỗi là nghịch đảo với respect đến s nếu nó thỏa mãn.\r
-\r
-Thuật ngữ "nghịch đảo" bắt nguồn từ việc một chuỗi nghịch đảo, khi bắt đầu theo phân bố dừng, hành xử giống nhau bất kể thời gian chạy theo hướng tiến hay lùi. Nếu bạn ghi lại một video của một chuỗi nghịch đảo, bắt đầu theo phân bố dừng, và sau đó cho xem video đó cho một người bạn, cả khi xem theo cách bình thường hay đảo ngược thời gian, người bạn sẽ không thể xác định được từ việc xem video đó thời gian đang chạy theo hướng nào.\r
-\r
-Như đã thảo luận sau Định nghĩa 11.3.1, chúng ta có thể hiểu phân bố dừng của một chuỗi Markov một cách trực quan thông qua một hệ thống gồm một số lượng lớn hạt di chuyển độc lập theo xác suất chuyển tiếp. Trong dài hạn, tỷ lệ các hạt trong bất kỳ trạng thái j nào là xác suất dừng của trạng thái j, và dòng chảy của các hạt ra khỏi trạng thái j được cân bằng bởi dòng chảy của các hạt vào trạng thái j. Để hiểu rõ hơn, cho n là số lượng hạt và s là một vector xác suất sao cho  $s_{j}$  là tỷ lệ hiện tại các hạt tại trạng thái j. Theo định nghĩa, s là phân bố dừng của chuỗi nếu và chỉ nếu\r
-\r
- \r
-\r
- $$s_{j}=\\sum_{i}s_{i}q_{i j}=s_{j}q_{j j}+\\sum_{i:i\\neq j}s_{i}q_{i j},$$ \r
-\r
- \r
-\r
-với mọi trạng thái j. Phương trình này có thể được viết lại thành\r
-\r
- \r
-\r
- $$n s_{j}(1-q_{j j})=\\sum_{i:i\\neq j}n s_{i}q_{i j}.$$ \r
-\r
- \r
-\r
-Vế trái là số lượng hạt gần đúng sẽ rời khỏi trạng thái j ở bước tiếp theo, vì có  $ns_j$  hạt tại trạng thái j, mỗi hạt sẽ ở lại trạng thái j với xác suất  $q_{jj}$  và rời đi với xác suất  $1 - q_{jj}$ . Vế phải là số lượng hạt gần đúng sẽ vào trạng thái j ở bước tiếp theo, vì với mỗi  $i \\neq j$ , có  $ns_i$  hạt tại trạng thái i, mỗi hạt sẽ vào trạng thái j với xác suất  $q_{ij}$ . Do đó, có sự cân bằng giữa các hạt rời khỏi trạng thái j và các hạt vào trạng thái j.\r
-\r
-Điều kiện nghịch đảo đặt ra một dạng cân bằng nghiêm ngặt hơn, trong đó với mỗi cặp trạng thái  $i,j$  với  $i\\neq j$ , dòng chảy của các hạt từ trạng thái  $i$  đến trạng thái  $j$  được cân bằng bởi dòng chảy của các hạt từ trạng thái  $j$  đến trạng thái  $i$ . Để hiểu điều này, viết phương trình nghịch đảo cho trạng thái  $i$  và  $j$  như sau\r
-\r
- \r
-\r
- $$n s_{i}q_{i j}=n s_{j}q_{j i}.$$ \r
-\r
- \r
-\r
-Vế trái là số lượng hạt gần đúng sẽ di chuyển từ trạng thái i đến trạng thái j ở bước tiếp theo, vì có  $ns_{i}$  hạt tại trạng thái i, mỗi hạt sẽ\r
-\r
-Có xác suất  $q_{ij}$  để chuyển sang trạng thái j. Tương tự, vế phải là số lượng gần đúng các hạt sẽ chuyển từ trạng thái i sang trạng thái j ở bước tiếp theo. Do đó tính thuận nghịch nói rằng có sự cân bằng giữa các hạt chuyển từ trạng thái i sang trạng thái j, và các hạt chuyển từ trạng thái j sang trạng thái i.\r
-\r
-Cho một ma trận chuyển, nếu ta có thể tìm được một vector xác suất s thỏa mãn điều kiện thuận nghịch, thì s tự động là một phân bố dừng. Điều này không nên gây ngạc nhiên, trong ánh sáng của cuộc thảo luận trên.\r
-\r
-Định lý 11.4.2 (Thuận nghịch kéo theo dừng). Giả sử rằng  $Q = (q_{ij})$  là ma trận chuyển của một chuỗi Markov mà thuận nghịch với một vector không âm  $\\mathbf{s} = (s_1, \\ldots, s_M)$  mà các thành phần tổng cộng bằng 1. Khi đó  $\\mathbf{s}$  là một phân bố dừng của chuỗi.\r
-\r
-Chứng minh. Ta có\r
-\r
- \r
-\r
- $$\\sum_{i}s_{i}q_{ij}=\\sum_{i}s_{j}q_{ji}=s_{j}\\sum_{i}q_{ji}=s_{j},$$ \r
-\r
- \r
-\r
-trong đó đẳng thức cuối cùng là vì tổng hàng của Q bằng 1. Do đó s là dừng.\r
-\r
-Đây là một kết quả mạnh mẽ vì thường thì dễ kiểm tra điều kiện thuận nghịch hơn là giải toàn bộ hệ phương trình  $\\mathbf{s}Q = \\mathbf{s}$ . Tuy nhiên, nói chung chúng ta có thể không biết trước được liệu có thể tìm được  $\\mathbf{s}$  thỏa mãn điều kiện thuận nghịch hay không, và ngay cả khi có thể, có thể mất nhiều công sức để tìm một  $\\mathbf{s}$  phù hợp. Trong phần còn lại của mục này, chúng ta sẽ xem xét ba loại chuỗi Markov mà trong đó có thể tìm được một  $\\mathbf{s}$  thỏa mãn điều kiện thuận nghịch. Những chuỗi Markov như vậy được gọi là thuận nghịch.\r
-\r
-Đầu tiên, nếu  $Q$  là một ma trận đối xứng, thì phân bố dừng là đều trên không gian trạng thái:  $\\mathbf{s} = (1/M, 1/M, \\ldots, 1/M)$ . Rất dễ thấy rằng nếu  $q_{ij} = q_{ji}$ , thì điều kiện thuận nghịch  $s_{i}q_{ij} = s_{j}q_{ji}$  được thỏa mãn khi  $s_i = s_j$  với mọi  $i$  và  $j$ .\r
-\r
-Đây là một trường hợp đặc biệt của một sự kiện tổng quát hơn, được nêu dưới đây: nếu mỗi cột của Q tổng bằng 1, thì phân bố dừng là đều trên không gian trạng thái.\r
-\r
-Định lý 11.4.3. Nếu mỗi cột của ma trận chuyển Q tổng bằng 1, thì phân bố đều trên tất cả các trạng thái,  $(1/M, 1/M, \\ldots, 1/M)$ , là một phân bố dừng. (Một ma trận không âm mà tổng hàng và tổng cột đều bằng 1 được gọi là ma trận kép ngẫu nhiên.)\r
-\r
-Chứng minh. Giả sử mỗi cột tổng bằng 1, thì vector hàng  $\\mathbf{v} = (1, 1, \\ldots, 1)$  thỏa mãn  $\\mathbf{v}Q = \\mathbf{v}$ . Từ đó suy ra  $(1/M, 1/M, \\ldots, 1/M)$  là dừng.\r
-\r
-Thứ hai, nếu chuỗi Markov là một bước ngẫu nhiên trên một mạng không hướng, thì có một công thức đơn giản cho phân bố dừng.\r
-\r
-Ví dụ 11.4.4 (Đi bộ ngẫu nhiên trên một mạng không hướng). Một mạng là một tập hợp các nút được nối với nhau bằng các cạnh; mạng được gọi là không hướng nếu các cạnh có thể được đi qua theo cả hai chiều, nghĩa là không có đường một chiều. Giả sử một người du ngoạn đi ngẫu nhiên qua các cạnh của một mạng không hướng. Từ một nút i, người du ngoạn chọn ngẫu nhiên bất kỳ một cạnh nào tại i, với xác suất bằng nhau, và sau đó đi qua cạnh được chọn. Ví dụ, trong mạng được hiển thị dưới đây, từ nút 3 người du ngoạn đi đến nút 1 hoặc nút 2, với xác suất 1/2 cho mỗi trường hợp.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_553_444_836_849.jpg" alt="Image" width="20%" /></div>\r
-\r
-\r
-Bậc của một nút là số cạnh được gắn với nó, và dãy bậc của một mạng với các nút 1, 2,..., n là vector  $(d_1, \\ldots, d_n)$  liệt kê tất cả các bậc, nơi  $d_j$  là bậc của nút j. Một cạnh từ một nút đến chính nó được cho phép (loại cạnh này được gọi là một vòng tự thân), và được tính là 1 trong số các bậc của nút đó.\r
-\r
-Ví dụ, mạng ở trên có dãy bậc  $\\mathbf{d} = (4, 3, 2, 3, 2)$ . Lưu ý rằng\r
-\r
- \r
-\r
- $$d_{i}q_{ij}=d_{j}q_{ji}$$ \r
-\r
- \r
-\r
-với mọi  $i,j$ , vì  $q_{ij}$  là  $1/d_i$  nếu  $\\{i,j\\}$  là một cạnh và  $0$  ngược lại, với  $i \\neq j$ . Do đó, theo Định lý 11.4.2, phân bố dừng là tỷ lệ với dãy bậc. Về mặt trực quan, các nút có bậc cao nhất là các nút được kết nối tốt nhất, vì vậy điều này hợp lý khi chuỗi dành nhiều thời gian hơn trong các trạng thái này trong dài hạn. Trong ví dụ ở trên, điều này nói rằng\r
-\r
- \r
-\r
- $$\\mathbf{s}=\\left(\\frac{4}{14},\\frac{3}{14},\\frac{2}{14},\\frac{3}{14},\\frac{2}{14}\\right)$$ \r
-\r
- \r
-\r
-là phân bố dừng cho đi bộ ngẫu nhiên.\r
-\r
-Bài tập 20 khám phá đi bộ ngẫu nhiên trên một mạng không hướng có trọng số; mỗi cạnh có một trọng số được gán cho nó, và người du ngoạn chọn nơi đi từ i với xác suất tỷ lệ với trọng số trên các cạnh có sẵn. Hóa ra, đây là một chuỗi Markov đảo ngược. Một cách bất ngờ hơn, mọi chuỗi Markov đảo ngược có thể được biểu diễn như đi bộ ngẫu nhiên trên một mạng không hướng có trọng số!\r
-\r
-Dưới đây là một ví dụ cụ thể về một bước ngẫu nhiên trên một mạng lưới không hướng.\r
-\r
-Ví dụ 11.4.5 (Ngựa trên bàn cờ cờ vua). Xét một ngựa di chuyển ngẫu nhiên quanh một bàn cờ  $4 \\times 4$ .\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_484_296_903_704.jpg" alt="Image" width="29%" /></div>\r
-\r
-\r
-Các 16 ô vuông được gán nhãn theo lưới, ví dụ, ngựa đang ở ô vuông B3, và ô vuông ở góc trên bên trái là A4. Mỗi bước di chuyển của ngựa là một bước nhảy hình chữ L: ngựa di chuyển hai ô theo phương ngang sau đó một ô theo phương dọc, hoặc ngược lại. Ví dụ, từ B3 ngựa có thể di chuyển đến A1, C1, D2, hoặc D4; từ A4 nó có thể di chuyển đến B2 hoặc C3. Lưu ý rằng từ một ô vuông sáng, ngựa luôn di chuyển đến một ô vuông tối và ngược lại.\r
-\r
-Giả sử rằng tại mỗi bước, ngựa di chuyển ngẫu nhiên, với mọi khả năng đều có cùng xác suất. Điều này tạo ra một chuỗi Markov nơi các trạng thái là các 16 ô vuông. Tính phân bố dừng của chuỗi này.\r
-\r
-## Giải pháp:\r
-\r
-Chỉ có ba loại ô vuông trên bàn cờ: 4 ô vuông ở giữa, 4 ô vuông góc (như A4), và 8 ô vuông cạnh (như B4; loại trừ các ô vuông góc khỏi được coi là ô vuông cạnh). Chúng ta có thể xem bàn cờ như một mạng lưới không hướng nơi hai ô vuông được nối với nhau bằng một cạnh nếu chúng có thể di chuyển đến nhau bằng một bước nhảy của ngựa. Sau đó một ô vuông ở giữa có bậc 4, một ô vuông góc có bậc 2, và một ô vuông cạnh có bậc 3, do đó xác suất dừng của chúng lần lượt là 4a, 2a, 3a với một hằng số a nào đó.\r
-\r
-Để tìm  $a$ , đếm số lượng ô vuông của từng loại để có  $4a \\cdot 4 + 2a \\cdot 4 + 3a \\cdot 8 = 1$ , cho kết quả  $a = 1/48$ . Do đó, mỗi ô vuông ở giữa có xác suất dừng là  $4/48 = 1/12$ , mỗi ô vuông góc có xác suất dừng là  $2/48 = 1/24$ , và mỗi ô vuông cạnh có xác suất dừng là  $3/48 = 1/16$ .\r
-\r
-Ba và cuối cùng, nếu trong mỗi kỳ hạn một chuỗi Markov chỉ có thể di chuyển một bước sang trái, một bước sang phải, hoặc ở lại chỗ cũ, thì nó được gọi là một chuỗi sinh-tử. Tất cả các chuỗi sinh-tử đều là thuận nghịch.\r
-\r
-Ví dụ 11.4.6 (chuỗi sinh-chết). Một chuỗi sinh-chết trên các trạng thái  $\\{1,2,\\ldots,M\\}$  là một chuỗi Markov với ma trận chuyển  $Q=(q_{ij})$  sao cho  $q_{ij}>0$  nếu  $|i-j|=1$  và  $q_{ij}=0$  nếu  $|i-j|\\geq2$ . Điều này nói rằng việc chuyển sang trái một bước là có thể và chuyển sang phải một bước là có thể (trừ tại các ranh giới) nhưng không thể nhảy xa hơn một bước trong một lần. Tên gọi này bắt nguồn từ các ứng dụng trong việc mô hình hóa sự tăng trưởng hoặc giảm sút của một quần thể, nơi việc chuyển sang phải được xem là một sinh và việc chuyển sang trái được xem là một chết trong quần thể.\r
-\r
-Ví dụ, chuỗi được hiển thị bên dưới là một chuỗi sinh-chết nếu các chuyển tiếp được gán nhãn có xác suất dương, trừ các vòng từ một trạng thái đến chính nó, được cho phép có xác suất bằng 0.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_236_651_1243_800.jpg" alt="Image" width="72%" /></div>\r
-\r
-\r
-Chúng ta sẽ chứng minh rằng bất kỳ chuỗi sinh-chết nào cũng là hồi tiếp, và xây dựng phân phối dừng. Hãy để  $s_{1}$  là một số dương, sẽ được xác định sau. Vì chúng ta muốn  $s_{1}q_{12} = s_{2}q_{21}$ , hãy\r
-\r
- \r
-\r
- $$s_{2}=s_{1}q_{12}/q_{21}.$$ \r
-\r
- \r
-\r
-Sau đó vì chúng ta muốn  $s_{2}q_{23} = s_{3}q_{32}$ , hãy\r
-\r
- \r
-\r
- $$s_{3}=s_{2}q_{23}/q_{32}=s_{1}q_{12}q_{23}/(q_{32}q_{21}).$$ \r
-\r
- \r
-\r
-Tiếp tục như vậy, hãy\r
-\r
- \r
-\r
- $$s_{j}=\\frac{s_{1}q_{12}q_{23}\\cdots q_{j-1,j}}{q_{j,j-1}q_{j-1,j-2}\\cdots q_{21}},$$ \r
-\r
- \r
-\r
-với tất cả các trạng thái  $j$  có  $2 \\leq j \\leq M$ . Chọn  $s_1$  để tổng các  $s_j$  bằng 1. Khi đó chuỗi là hồi tiếp với respect đến  $\\mathbf{s}$ , vì  $q_{ij} = q_{ji} = 0$  nếu  $|i - j| \\geq 2$  và do cách xây dựng,  $s_{i}q_{ij} = s_{j}q_{ji}$  nếu  $|i - j| = 1$ . Do đó,  $\\mathbf{s}$  là phân phối dừng.\r
-\r
-Chuỗi Ehrenfest là một chuỗi sinh-chết có thể được sử dụng như một mô hình đơn giản cho sự khuếch tán của các phân tử khí. Phân phối dừng kết quả là một phân phối nhị thức.\r
-\r
-Ví dụ 11.4.7 (Ehrenfest). Có hai bình chứa tổng cộng  $M$  hạt phân biệt. Các chuyển tiếp được thực hiện bằng cách chọn một hạt ngẫu nhiên và chuyển nó từ bình hiện tại sang bình kia. Ban đầu, tất cả các hạt đều ở trong bình thứ hai. Gọi  $X_n$  là số hạt trong bình thứ nhất tại thời điểm  $n$ , nên  $X_0 = 0$  và chuyển tiếp từ  $X_n$  đến  $X_{n+1}$  được thực hiện như mô tả ở trên. Đây là một chuỗi Markov tuần hoàn với không gian trạng thái  $\\{0, 1, \\ldots, M\\}$ .\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_442_181_957_493.jpg" alt="Image" width="36%" /></div>\r
-\r
-\r
-Như được minh họa ở trên, chiếc hộp đầu tiên có  $X_n$  hạt và chiếc hộp thứ hai có  $M - X_n$  hạt. Chúng ta sẽ sử dụng điều kiện khả nghịch để chứng minh rằng  $\\mathbf{s} = (s_0, s_1, \\ldots, s_M)$  với\r
-\r
- \r
-\r
- $$s_{i}=\\binom{M}{i}\\left(\\frac{1}{2}\\right)^{M}$$ \r
-\r
- \r
-\r
-là phân phối dừng. Lưu ý rằng đây là  $\\mathrm{Bin}(M,1/2)$  PMF.\r
-\r
-Để  $s_i$  như đã nói, và kiểm tra rằng  $s_{i}q_{ij} = s_{j}q_{ji}$ . Nếu  $j = i + 1$  (với  $i < M$ ), thì\r
-\r
- \r
-\r
- $$\\begin{aligned}&s_{i}q_{ij}=\\binom{M}{i}\\left(\\frac{1}{2}\\right)^{M}\\frac{M-i}{M}=\\frac{M!}{(M-i)!i!}\\left(\\frac{1}{2}\\right)^{M}\\frac{M-i}{M}=\\binom{M-1}{i}\\left(\\frac{1}{2}\\right)^{M},\\\\ &\\\\ &s_{j}q_{ji}=\\binom{M}{j}\\left(\\frac{1}{2}\\right)^{M}\\frac{j}{M}=\\frac{M!}{(M-j)!j!}\\left(\\frac{1}{2}\\right)^{M}\\frac{j}{M}=\\binom{M-1}{j-1}\\left(\\frac{1}{2}\\right)^{M}=s_{i}q_{ij}.\\\\ \\end{aligned}$$ \r
-\r
- \r
-\r
-Bằng một phép tính tương tự, nếu  $j = i - 1$  (với  $i > 0$ ), thì  $s_{i}q_{ij} = s_{j}q_{ji}$ . Với tất cả các giá trị khác của  $i$  và  $j$ ,  $q_{ij} = q_{ji} = 0$ . Do đó,  $\\mathbf{s}$  là dừng.\r
-\r
-Phân phối nhị thức là một dự đoán tự nhiên cho phân phối dừng vì sau khi chạy chuỗi Markov trong một khoảng thời gian dài, mỗi hạt có khả năng gần như bằng nhau để ở trong cả hai hộp. Tuy nhiên, PMF không hội tụ về phân phối nhị thức vì chuỗi có chu kỳ 2, với  $X_n$  được đảm bảo là chẵn khi n chẵn, và lẻ khi n lẻ.\r
-\r
-May mắn thay, hóa ra một cách diễn giải khác về phân phối dừng vẫn còn hiệu lực ở đây:  $s_{i}$  là tỷ lệ thời gian dài hạn mà chuỗi dành cho trạng thái i. Cụ thể hơn, để  $I_{k}$  là chỉ số của chuỗi ở trạng thái i tại thời điểm k, có thể chứng minh rằng\r
-\r
- \r
-\r
- $$\\frac{1}{n}\\sum_{k=0}^{n-1}I_{k}\\rightarrow s_{i}$$ \r
-\r
- \r
-\r
-khi  $n \\rightarrow \\infty$ , với xác suất 1.`,xz=`Một chuỗi Markov là một dãy các biến ngẫu nhiên  $X_{0}, X_{1}, X_{2}, \\ldots$  thỏa mãn tính chất Markov, tức là cho biết hiện tại, quá khứ và tương lai là độc lập điều kiện:\r
-\r
- \r
-\r
- $$P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\\ldots,X_{0}=i_{0})=P(X_{n+1}=j|X_{n}=i)=q_{ij}.$$ \r
-\r
- \r
-\r
-Ma trận chuyển tiếp  $Q = (q_{ij})$  cho biết xác suất chuyển từ một trạng thái sang trạng thái khác trong một bước. Hàng thứ i của ma trận chuyển tiếp là phân phối xác suất có điều kiện của  $X_{n+1}$  cho  $X_n = i$ . Lũy thừa thứ n của ma trận chuyển tiếp cho xác suất chuyển tiếp n bước. Nếu ta chỉ định điều kiện ban đầu  $s_i = P(X_0 = i)$  và đặt  $\\mathbf{s} = (s_1, \\ldots, s_M)$ , thì phân phối xác suất biên của  $X_n$  là  $\\mathbf{s}Q^n$ .\r
-\r
-Các trạng thái của một chuỗi Markov có thể được phân loại là hồi tiếp hoặc không hồi tiếp: hồi tiếp nếu chuỗi sẽ quay lại trạng thái đó nhiều lần, và không hồi tiếp nếu nó sẽ rời đi mãi mãi. Các trạng thái cũng có thể được phân loại theo chu kỳ của chúng; chu kỳ của trạng thái i là ước chung lớn nhất của số bước có thể lấy để quay lại i, bắt đầu từ i. Một chuỗi được gọi là không phân rã nếu có thể chuyển từ bất kỳ trạng thái nào sang bất kỳ trạng thái nào trong một số bước hữu hạn, và chuỗi được gọi là chu kỳ nếu mỗi trạng thái có chu kỳ 1.\r
-\r
-Một phân phối dừng cho một chuỗi Markov hữu hạn là một phân phối xác suất s sao cho  $\\mathbf{s}Q = \\mathbf{s}$ . Dưới nhiều điều kiện khác nhau, phân phối dừng của một chuỗi Markov hữu hạn tồn tại và duy nhất, và phân phối xác suất của  $X_n$  hội tụ đến  $\\mathbf{s}$  khi  $n \\to \\infty$ . Nếu trạng thái i có xác suất dừng  $s_i$ , thì thời gian kỳ vọng để chuỗi quay lại i, bắt đầu từ i, là  $r_i = 1/s_i$ .\r
-\r
-Nếu một phân phối xác suất s thỏa mãn điều kiện đảo ngược  $s_{i}q_{ij} = s_{j}q_{ji}$  với mọi i và j, điều này đảm bảo rằng s là một phân phối dừng của chuỗi Markov có ma trận chuyển tiếp  $Q = (q_{ij})$ . Các chuỗi Markov mà tồn tại s thỏa mãn điều kiện đảo ngược được gọi là đảo ngược. Chúng ta đã thảo luận ba loại chuỗi đảo ngược:\r
-\r
-1. Nếu ma trận chuyển tiếp là đối xứng, thì phân phối dừng là đều trên tất cả các trạng thái.\r
-\r
-2. Nếu chuỗi là một bước đi ngẫu nhiên trên một mạng không hướng, thì phân phối dừng tỷ lệ với dãy bậc, tức là\r
-\r
- \r
-\r
- $$s_{j}=\\frac{d_{j}}{\\sum_{i}d_{i}}.$$ \r
-\r
- \r
-\r
-3. Nếu chuỗi là một chuỗi sinh-cho, thì phân phối dừng thỏa mãn\r
-\r
- \r
-\r
- $$s_{j}=\\frac{s_{1}q_{12}q_{23}\\cdots q_{j-1,j}}{q_{j,j-1}q_{j-1,j-2}\\cdots q_{21}}$$ \r
-\r
- \r
-\r
-với  $j > 1$ , nơi  $s_{1}$  được giải ở cuối để đảm bảo  $s_{1} + \\cdots + s_{M} = 1$ .\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_151_149_1245_780.jpg" alt="Image" width="78%" /></div>\r
-\r
-\r
-### HÌNH 11.6\r
-\r
-Cho một ma trận chuyển tiếp Q và một phân bố t trên các trạng thái, chúng ta có thể tạo ra một chuỗi Markov  $X_0, X_1, \\ldots$  bằng cách chọn  $X_0$  theo phân bố t và sau đó chạy chuỗi theo xác suất chuyển tiếp. Một sự kiện quan trọng là  $X_n = i$ , sự kiện mà chuỗi đang ghé thăm trạng thái i vào thời điểm n. Chúng ta có thể tìm hàm mật độ xác suất (PMF) của  $X_n$  theo Q và t, và (dưới điều kiện được thảo luận trong chương) hàm mật độ xác suất sẽ hội tụ đến phân bố dừng s. Nếu thay vào đó chúng ta bắt đầu chuỗi theo s, thì chuỗi sẽ luôn ở trạng thái dừng mãi mãi.\r
-\r
-Hình 11.6 so sánh hai cách chạy một chuỗi Markov với ma trận chuyển tiếp Q: chọn trạng thái ban đầu theo một phân bố tùy ý t trên các trạng thái, hoặc chọn trạng thái ban đầu theo phân bố dừng s. Trong trường hợp đầu tiên, hàm mật độ xác suất chính xác sau n bước có thể được tìm theo Q và t, và hàm mật độ xác suất hội tụ đến s (dưới một số điều kiện rất tổng quát được thảo luận trong chương này). Trong trường hợp thứ hai, chuỗi sẽ luôn ở trạng thái dừng mãi mãi.`,Sz=`## Tính toán ma trận
+`,_z=`Chuỗi Markov "sống" trong cả không gian và thời gian: tập hợp các giá trị có thể có của $X_n$ được gọi là không gian trạng thái, và chỉ số $n$ đại diện cho sự phát triển của quá trình theo thời gian. Không gian trạng thái của một chuỗi Markov có thể là rời rạc hoặc liên tục, và thời gian cũng có thể là rời rạc hoặc liên tục (trong bối cảnh thời gian liên tục, ta sẽ tưởng tượng một quá trình $X_t$ được xác định cho tất cả các số thực $t \\geq 0$). Trong chương này chúng ta sẽ tập trung toàn bộ vào các chuỗi Markov có trạng thái rời rạc, thời gian rời rạc, với không gian trạng thái hữu hạn. Cụ thể, chúng ta sẽ giả định rằng các $X_n$ nhận giá trị trong một tập hợp hữu hạn, mà thường ta chọn là $\\{1, 2, \\ldots, M\\}$ hoặc $\\{0, 1, \\ldots, M\\}$.
 
-Hãy thực hiện một số tính toán cho chuỗi Markov 4-trạng thái trong Ví dụ 11.1.5, như một ví dụ về việc làm việc với ma trận chuyển tiếp trong R. Trước hết, chúng ta cần xác định ma trận chuyển tiếp Q. Điều này được thực hiện bằng lệnh matrix: chúng ta nhập các phần tử
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 11.1.1</div>
+    <div class="math-box-title">Chuỗi Markov</div>
+  </div>
+  <div class="math-box-content">
 
-Của ma trận, hàng bằng hàng, như một vector dài, và sau đó chúng ta nói với R số hàng và cột trong ma trận (nrow và ncol), cũng như việc chúng ta đã nhập các phần tử theo hàng (byrow=TRUE):
+Một chuỗi các biến ngẫu nhiên $X_0, X_1, X_2, \\ldots$ nhận giá trị trong không gian trạng thái $\\{1, 2, \\ldots, M\\}$ được gọi là một chuỗi Markov nếu với mọi $n \\geq 0$.
 
+$$P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\\ldots,X_{0}=i_{0})=P(X_{n+1}=j|X_{n}=i).$$
+
+  </div>
+</div>
+
+Số lượng $P(X_{n+1} = j|X_n = i)$ được gọi là xác suất chuyển tiếp từ trạng thái i sang trạng thái j. Trong cuốn sách này, khi đề cập đến một chuỗi Markov, chúng ta sẽ ngầm giả định rằng nó là đồng nhất theo thời gian, điều này có nghĩa là xác suất chuyển tiếp $P(X_{n+1} = j|X_n = i)$ là như nhau đối với mọi thời điểm n. Nhưng cần lưu ý, vì tài liệu không nhất quán về việc gọi là "chuỗi Markov đồng nhất theo thời gian" hay chỉ đơn giản là "chuỗi Markov".
+
+Điều kiện trên được gọi là tính chất Markov, và nó nói rằng cho toàn bộ lịch sử quá khứ $X_{0}, X_{1}, X_{2}, \\ldots, X_{n}$, chỉ có số hạng gần nhất nhất, $X_{n}$, quan trọng đối với việc dự đoán $X_{n+1}$. Nếu chúng ta xem thời điểm n là hiện tại, các thời điểm trước n là quá khứ, và các thời điểm sau n là tương lai, tính chất Markov nói rằng cho hiện tại, quá khứ và tương lai là độc lập điều kiện. Tính chất Markov giúp đơn giản hóa rất nhiều các phép tính xác suất điều kiện: thay vì phải điều kiện trên toàn bộ quá khứ, chúng ta chỉ cần điều kiện trên giá trị gần nhất nhất.
+
+Để mô tả động lực học của một chuỗi Markov, chúng ta cần biết các xác suất di chuyển từ bất kỳ trạng thái nào sang bất kỳ trạng thái nào khác, tức là các xác suất $P(X_{n+1} = j|X_n = i)$ ở vế phải của tính chất Markov. Thông tin này có thể được mã hóa trong một ma trận, gọi là ma trận chuyển tiếp, trong đó $(i, j)$ là xác suất di chuyển từ trạng thái $i$ sang trạng thái $j$ trong một bước của chuỗi.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 11.1.2</div>
+    <div class="math-box-title">Ma trận chuyển tiếp</div>
+  </div>
+  <div class="math-box-content">
+
+Gọi $X_0, X_1, X_2, \\ldots$ là một chuỗi Markov với không gian trạng thái $\\{1, 2, \\ldots, M\\}$, và gọi $q_{ij} = P(X_{n+1} = j | X_n = i)$ là xác suất chuyển tiếp từ trạng thái i sang trạng thái j. Ma trận $M \\times M$ $Q = (q_{ij})$ được gọi là ma trận chuyển tiếp của chuỗi.
+
+  </div>
+</div>
+
+Lưu ý rằng Q là một ma trận không âm trong đó mỗi hàng tổng bằng 1. Điều này là vì, bắt đầu từ bất kỳ trạng thái i nào, các sự kiện "chuyển sang 1", "chuyển sang 2", …, "chuyển sang M" là rời nhau, và hợp của chúng có xác suất bằng 1 vì chuỗi phải chuyển sang đâu đó.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.1.3</div>
+    <div class="math-box-title">Chuỗi Markov mưa-nắng</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử rằng mỗi ngày, thời tiết có thể là mưa hoặc nắng. Nếu hôm nay là mưa, thì ngày mai sẽ mưa với xác suất 1/3 và nắng với xác suất 2/3. Nếu hôm nay là nắng, thì ngày mai sẽ mưa với xác suất 1/2 và nắng với xác suất 1/2. Gọi $X_n$ là thời tiết vào ngày $n$, $X_0$, $X_1$, $X_2$,... là một chuỗi Markov trên không gian trạng thái $\\{R, S\\}$, trong đó $R$ biểu thị mưa và $S$ biểu thị nắng. Chúng ta biết rằng tính chất Markov được thỏa mãn vì, từ mô tả của quá trình, chỉ có thời tiết hôm nay quan trọng đối với việc dự đoán ngày mai.
+
+Ma trận chuyển tiếp của chuỗi là
+
+$$\\begin{array}{ccc}{{{R}}}&{{{S}}} \\\\{{{\\hline R\\left(\\begin{array}{cc}1/3}}}&{{{2/3}}} \\\\{{{1/2}}}&{{{1/2}}}\\end{array}\\right).\\\\ \\end{array}$$
+
+Dòng đầu tiên nói rằng bắt đầu từ trạng thái R, chúng ta chuyển sang trạng thái R với xác suất 1/3 và chuyển sang trạng thái S với xác suất 2/3. Dòng thứ hai nói
+
+Từ trạng thái S, chúng ta có 1/2 cơ hội chuyển sang trạng thái R và 1/2 cơ hội ở lại trạng thái S. Chúng ta cũng có thể sử dụng
+
+$$\\begin{array}{ccc}{{{S}}}&{{{R}}} \\\\{{{\\hline S}}} \\\\{{{R}}} \\\\{{{2/3}}}&{{{1/3}}} \\\\\\end{array}$$
+
+thay vì ma trận chuyển tiếp như trên. Tổng quát, nếu không có thứ tự rõ ràng nào của các trạng thái trong một chuỗi Markov (như với các trạng thái R và S), chúng ta chỉ cần xác định một thứ tự của các trạng thái và sử dụng nó một cách nhất quán.
+
+Các xác suất chuyển tiếp của một chuỗi Markov cũng có thể được biểu diễn bằng một sơ đồ. Mỗi trạng thái được biểu diễn bằng một hình tròn, và các mũi tên chỉ ra các chuyển tiếp có thể xảy ra trong một bước; chúng ta có thể tưởng tượng một hạt di chuyển từ trạng thái này sang trạng thái khác, ngẫu nhiên chọn mũi tên nào để theo. Bên cạnh các mũi tên, chúng ta ghi các xác suất chuyển tiếp tương ứng.
+
+<div style="text-align: center;"><img src="imgs/img_in_image_box_411_816_987_972.jpg" alt="Image" width="41%" /></div>
+
+Giả sử thời tiết ngày mai phụ thuộc vào thời tiết hôm nay và thời tiết ngày qua? Ví dụ, giả sử thời tiết hành xử như trên, ngoại trừ nếu có hai ngày liên tiếp mưa, thì ngày mai sẽ chắc chắn nắng, và nếu có hai ngày liên tiếp nắng, thì ngày mai sẽ chắc chắn mưa. Dưới những động lực thời tiết mới này, các $X_{n}$ không còn là một chuỗi Markov nữa, vì tính chất Markov bị vi phạm: điều kiện dựa vào thời tiết hôm nay, thời tiết ngày qua vẫn có thể cung cấp thông tin hữu ích để dự đoán thời tiết ngày mai.
+
+Tuy nhiên, bằng cách mở rộng không gian trạng thái, chúng ta có thể tạo ra một chuỗi Markov mới: để $Y_n = (X_{n-1}, X_n)$ cho $n \\geq 1$. Khi đó $Y_1, Y_2, \\ldots$ là một chuỗi Markov trên không gian trạng thái $\\{(R, R), (R, S), (S, R), (S, S)\\}$. Bạn có thể kiểm tra rằng ma trận chuyển tiếp mới là
+
+$$\\begin{array}{c}{{{\\left(R,R\\right)\\quad\\left(R,S\\right)\\quad\\left(S,R\\right)\\quad\\left(S,S\\right)}}} \\\\{{{\\left(R,R\\right)\\left(\\begin{array}{c c c c}0}}}&{{{1}}}&{{{0}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{1/2}}}&{{{1/2}}} \\\\{{{1/3}}}&{{{2/3}}}&{{{0}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{1}}}&{{{0}}}\\end{array}\\right)\\\\ \\left(S,S\\right)\\end{array}$$
+
+và biểu diễn đồ họa tương ứng được cho trong hình sau.
+
+<div style="text-align: center;"><img src="imgs/img_in_image_box_463_147_937_512.jpg" alt="Image" width="33%" /></div>
+
+Tương tự, chúng ta có thể xử lý các phụ thuộc bậc ba hoặc bậc bốn trong thời tiết bằng cách mở rộng không gian trạng thái thêm nữa để đảm bảo tính chất Markov.
+
+  </div>
+</div>
+
+Khi chúng ta đã có ma trận chuyển tiếp Q của một chuỗi Markov, chúng ta có thể tính toán các xác suất chuyển tiếp cho các khoảng thời gian dài hơn.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 11.1.4</div>
+    <div class="math-box-title">xác suất chuyển tiếp n bước</div>
+  </div>
+  <div class="math-box-content">
+
+Xác suất chuyển tiếp n bước từ i đến j là xác suất của việc ở j đúng sau n bước kể từ khi ở i. Chúng ta ký hiệu điều này bằng $q_{ij}^{(n)}$:
+
+$$q_{i j}^{(n)}=P(X_{n}=j|X_{0}=i).$$
+
+  </div>
+</div>
+
+Chú ý rằng
+
+$$q_{ij}^{(2)}=\\sum_{k}q_{ik}q_{kj}$$
+
+vì để di chuyển từ i đến j trong hai bước, chuỗi phải đi từ i đến một trạng thái trung gian nào đó k, sau đó từ k đến j; các lần chuyển tiếp này độc lập với nhau do tính chất Markov. Vì vế phải là phần tử $(i,j)$ của $Q^{2}$ theo định nghĩa phép nhân ma trận, chúng ta kết luận rằng ma trận $Q^{2}$ cho các xác suất chuyển tiếp hai bước. Bằng quy nạp, lũy thừa bậc n của ma trận chuyển tiếp cho các xác suất chuyển tiếp n bước:
+
+$$q_{ij}^{(n)}\\text{ là phần tử }(i,j)\\text{ của }Q^{n}.$$
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.1.5</div>
+    <div class="math-box-title">ma trận chuyển tiếp của chuỗi Markov 4 trạng thái</div>
+  </div>
+  <div class="math-box-content">
+
+Xét chuỗi Markov 4 trạng thái được minh họa trong Hình 11.1. Khi không có xác suất nào được ghi trên các mũi tên, như trong trường hợp này, điều đó có nghĩa là tất cả các mũi tên xuất phát từ một trạng thái nhất định đều có xác suất bằng nhau. Ví dụ, có 3 mũi tên xuất phát từ trạng thái 1, do đó các lần chuyển tiếp $1 \\rightarrow 3$, $1 \\rightarrow 2$, và $1 \\rightarrow 1$ đều có xác suất 1/3. Do đó ma trận chuyển tiếp của chuỗi là
+
+$$Q=\\left(\\begin{array}{c c c c}{1/3}&{1/3}&{1/3}&{0}\\\\ {0}&{0}&{1/2}&{1/2}\\\\ {0}&{1}&{0}&{0}\\\\ {1/2}&{0}&{0}&{1/2}\\\\ \\end{array}\\right).$$
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_589_139_845_455.jpg" alt="Một chuỗi Markov 4 trạng thái" style="max-width: 18%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 11.1:** Một chuỗi Markov 4 trạng thái.
+</div>
+
+Để tính xác suất chuỗi ở trạng thái 3 sau 5 bước, bắt đầu từ trạng thái 1, chúng ta sẽ xem xét phần tử $(1,3)$ của $Q^{5}$. Tại đây, sử dụng máy tính để tìm $Q^{5}$,
+
+$$Q^{5}=\\begin{pmatrix}853/3888&509/1944&52/243&395/1296\\\\173/864&85/432&31/108&91/288\\\\37/144&29/72&1/9&11/48\\\\499/2592&395/1296&71/324&245/864\\\\\\end{pmatrix},$$
+
+$\\sin q_{13}^{(5)} = 52/243.$
+
+  </div>
+</div>
+
+Sử dụng ngôn ngữ của Chương 7, ma trận chuyển tiếp Q mã hóa phân phối điều kiện của $X_1$ cho trạng thái ban đầu của chuỗi. Cụ thể, hàng thứ i của Q là phân phối xác suất điều kiện của $X_1$ cho $X_0 = i$, được hiển thị dưới dạng vector hàng. Tương tự, hàng thứ i của $Q^n$ là phân phối xác suất điều kiện của $X_n$ cho $X_0 = i$.
+
+Để tìm phân phối biên của $X_{0}, X_{1}, \\ldots$, chúng ta cần chỉ định không chỉ ma trận chuyển tiếp, mà cả điều kiện ban đầu của chuỗi. Trạng thái ban đầu $X_{0}$ có thể được chỉ định một cách xác định, hoặc ngẫu nhiên theo một phân phối nào đó. Gọi $(t_{1}, t_{2}, \\ldots, t_{M})$ là phân phối xác suất của $X_{0}$ dưới dạng vector, tức là $t_{i} = P(X_{0} = i)$. Sau đó, phân phối biên của chuỗi tại bất kỳ thời điểm nào có thể được tính từ ma trận chuyển tiếp, trung bình hóa qua tất cả các trạng thái bằng định lý LOTP.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Mệnh đề 11.1.6</div>
+    <div class="math-box-title">Phân phối biên của $X_n$</div>
+  </div>
+  <div class="math-box-content">
+
+Định nghĩa $\\mathbf{t} = (t_1, t_2, \\ldots, t_M)$ bởi $t_i = P(X_0 = i)$, và xem $\\mathbf{t}$ dưới dạng vector hàng. Khi đó, phân phối biên của $X_n$ được cho bởi vector $\\mathbf{t}Q^n$. Nghĩa là, thành phần thứ j của $\\mathbf{t}Q^n$ là $P(X_n = j)$.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Mệnh đề 11.1.6</div>
+  </div>
+  <div class="math-box-content">
+
+Theo định lý xác suất toàn phần, điều kiện hóa trên $X_{0}$, xác suất chuỗi ở trạng thái j sau n bước là
+
+$$P(X_{n}=j)=\\sum_{i=1}^{M}P(X_{0}=i)P(X_{n}=j|X_{0}=i)=\\sum_{i=1}^{M}t_{i}q_{ij}^{(n)},$$
+
+đây là thành phần thứ j của tQn theo định nghĩa của phép nhân ma trận.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.1.7</div>
+    <div class="math-box-title">Phân bố biên của chuỗi Markov 4 trạng thái</div>
+  </div>
+  <div class="math-box-content">
+
+Lại xem xét chuỗi Markov 4 trạng thái như trong Hình 11.1. Giả sử rằng điều kiện ban đầu là $\\mathbf{t} = (1/4, 1/4, 1/4, 1/4)$, có nghĩa là chuỗi có xác suất bằng nhau để bắt đầu ở mỗi trong bốn trạng thái. Gọi $X_n$ là vị trí của chuỗi tại thời điểm $n$. Khi đó phân bố biên của $X_1$ là
+
+$$\\begin{aligned}\\mathbf{t}Q&=\\left(\\begin{array}{llll}{{{1/4}}}&{{{1/4}}}&{{{1/4}}}&{{{1/4}}}\\end{array}\\right)\\left(\\begin{array}{cccc}{{{1/3}}}&{{{1/3}}}&{{{1/3}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{1/2}}}&{{{1/2}}} \\\\{{{0}}}&{{{1}}}&{{{0}}}&{{{0}}} \\\\{{{1/2}}}&{{{0}}}&{{{0}}}&{{{1/2}}}\\end{array}\\right)\\\\&=\\left(\\begin{array}{llll}{{{5/24}}}&{{{1/3}}}&{{{5/24}}}&{{{1/4}}}\\end{array}\\right).\\end{aligned}$$
+
+Phân bố biên của $X_{5}$ là
+
+$$\\begin{aligned}\\mathbf{t}Q^{5}&=\\left(\\begin{array}{lllll}1/4&1/4&1/4&1/4\\\\\\end{array}\\right)\\begin{pmatrix}853/3888&509/1944&52/243&395/1296\\\\173/864&85/432&31/108&91/288\\\\37/144&29/72&1/9&11/48\\\\499/2592&395/1296&71/324&245/864\\\\\\end{pmatrix}\\\\&=\\left(\\begin{array}{lllll}3379/15552&2267/7776&101/486&1469/5184\\\\\\end{array}\\right).\\end{aligned}$$
+
+Chúng tôi đã sử dụng máy tính để thực hiện phép nhân ma trận.
+
+  </div>
+</div>
+`,vz=`Trong phần này chúng ta giới thiệu thuật ngữ để mô tả các đặc điểm khác nhau của một chuỗi Markov. Các trạng thái của một chuỗi Markov có thể được phân loại là hồi quy hoặc tạm thời, tùy thuộc vào việc chúng có được ghé thăm liên tục trong dài hạn hay cuối cùng bị bỏ lại. Các trạng thái cũng có thể được phân loại theo chu kỳ của chúng, một số nguyên dương tóm tắt khoảng thời gian có thể trôi qua giữa các lần ghé thăm một trạng thái. Những đặc điểm này quan trọng vì chúng xác định hành vi lâu dài của chuỗi Markov, điều mà chúng ta sẽ nghiên cứu trong Phần 11.3.
+
+Các khái niệm về tính hồi quy và tính tạm thời được minh họa rõ nhất qua một ví dụ cụ thể. Trong chuỗi Markov được hiển thị ở bên trái của Hình 11.2 (đã được giới thiệu trong Ví dụ 11.1.5 trước đây), một hạt di chuyển giữa các trạng thái sẽ tiếp tục dành thời gian trong tất cả 4 trạng thái trong dài hạn, vì có thể chuyển từ bất kỳ trạng thái nào sang bất kỳ trạng thái nào khác. Ngược lại, hãy xem xét chuỗi ở bên phải của Hình 11.2, và giả sử hạt bắt đầu ở trạng thái 1. Trong một thời gian nhất định, chuỗi có thể lưu luyến trong tam giác do các trạng thái 1, 2, và 3 tạo thành, nhưng cuối cùng nó sẽ đạt đến trạng thái 4, và từ đó nó không thể quay trở lại các trạng thái 1, 2, hoặc 3. Nó sẽ sau đó di chuyển giữa các trạng thái 4, 5, và 6 mãi mãi. Các trạng thái 1, 2, và 3 là tạm thời và các trạng thái 4, 5, và 6 là hồi quy.
+
+Tổng quát, các khái niệm này được định nghĩa như sau.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_284_144_1121_585.jpg" alt="Trái: Chuỗi Markov 4-trạng thái với tất cả các trạng thái là hồi quy. Phải: Chuỗi Markov 6-trạng thái với các trạng thái 1, 2 và 3 là tạm thời." style="max-width: 59%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 11.2:** Trái: Chuỗi Markov 4-trạng thái với tất cả các trạng thái là hồi quy. Phải: Chuỗi Markov 6-trạng thái với các trạng thái 1, 2 và 3 là tạm thời.
+</div>
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 11.2.1</div>
+    <div class="math-box-title">Trạng thái hồi quy và tạm thời</div>
+  </div>
+  <div class="math-box-content">
+
+Trạng thái i của một chuỗi Markov được gọi là hồi quy nếu bắt đầu từ i, xác suất để chuỗi sẽ quay lại i trong tương lai là 1. Ngược lại, trạng thái được gọi là tạm thời, điều này có nghĩa là nếu chuỗi bắt đầu từ i, có xác suất dương để chuỗi không quay lại i.
+
+  </div>
+</div>
+
+Thực ra, mặc dù định nghĩa của trạng thái tạm thời chỉ yêu cầu có xác suất dương để không quay lại trạng thái đó, chúng ta có thể nói điều gì đó mạnh hơn: chỉ cần có xác suất dương để rời khỏi i mãi mãi, chuỗi sẽ quay lại rời khỏi i mãi mãi. Hơn nữa, chúng ta có thể tìm được phân phối của số lần quay lại trạng thái đó.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Mệnh đề 11.2.2</div>
+    <div class="math-box-title">Số lần quay lại trạng thái tạm thời tuân theo phân phối Geometric</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử i là một trạng thái tạm thời của một chuỗi Markov. Giả sử xác suất để không quay lại i, bắt đầu từ i, là một số dương p > 0. Khi đó, bắt đầu từ i, số lần chuỗi quay lại i trước khi rời khỏi mãi mãi tuân theo $\\text{Geom}(p)$.
+
+  </div>
+</div>
+
+Chứng minh được thực hiện bằng cách kể câu chuyện của phân phối Geometric: mỗi lần chuỗi ở i, chúng ta có một phép thử Bernoulli, trong đó kết quả là "thất bại" nếu chuỗi cuối cùng quay lại i và "thành công" nếu chuỗi rời khỏi i mãi mãi; các phép thử này độc lập do tính chất Markov. Số lần quay lại trạng thái i là số lần thất bại trước lần thành công đầu tiên, điều này phù hợp với câu chuyện của phân phối Geometric. Và do biến ngẫu nhiên Geometric luôn nhận giá trị hữu hạn, định lý này cho thấy rằng sau một số lần ghé thăm hữu hạn, chuỗi sẽ rời khỏi trạng thái i mãi mãi.
+
+Nếu số trạng thái không quá lớn, một cách để phân loại các trạng thái là hồi quy hay tạm thời là vẽ một biểu đồ của chuỗi Markov và sử dụng cùng loại lập luận mà chúng ta đã sử dụng khi phân tích các chuỗi trong Hình 11.2. Một trường hợp đặc biệt mà chúng ta có thể kết luận ngay lập tức tất cả các trạng thái là hồi quy là khi chuỗi là bất khả quy, điều này có nghĩa là có thể di chuyển từ bất kỳ trạng thái nào sang bất kỳ trạng thái nào khác.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 11.2.3</div>
+    <div class="math-box-title">Chuỗi không rút gọn và rút gọn</div>
+  </div>
+  <div class="math-box-content">
+
+Một chuỗi Markov với ma trận chuyển Q được gọi là không rút gọn nếu với bất kỳ hai trạng thái i và j nào, cũng có thể đi từ i đến j trong một số bước hữu hạn (với xác suất dương). Nói cách khác, với bất kỳ hai trạng thái i,j nào, tồn tại một số nguyên dương n sao cho phần tử $(i,j)$ của $Q^{n}$ là dương. Một chuỗi Markov không phải là không rút gọn được gọi là rút gọn.
+
+  </div>
+</div>
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Mệnh đề 11.2.4</div>
+    <div class="math-box-title">Không rút gọn kéo theo tất cả trạng thái là hồi quy</div>
+  </div>
+  <div class="math-box-content">
+
+Trong một chuỗi Markov không rút gọn với không gian trạng thái hữu hạn, tất cả các trạng thái đều hồi quy.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Mệnh đề 11.2.4</div>
+  </div>
+  <div class="math-box-content">
+
+Rõ ràng là ít nhất một trạng thái phải hồi quy; nếu tất cả các trạng thái đều là tạm thời, thì chuỗi sẽ cuối cùng rời bỏ tất cả các trạng thái mãi mãi và không còn nơi nào để đến! Vì vậy giả sử mà không mất tính tổng quát rằng trạng thái 1 là hồi quy, và xem xét bất kỳ trạng thái nào khác i. Ta biết rằng $q_{1i}^{(n)}$ là dương với một số n nào đó, theo định nghĩa của tính không rút gọn. Do đó, mỗi lần chuỗi ở trạng thái 1, có xác suất dương rằng sau n bước nữa nó sẽ ở trạng thái i.
+
+Vì chuỗi ghé thăm trạng thái 1 vô hạn lần, ta biết rằng chuỗi sẽ cuối cùng đến trạng thái i từ trạng thái 1; hãy xem mỗi lần ghé thăm trạng thái 1 như một lần thử, trong đó "thành công" được định nghĩa là đến trạng thái i trong tối đa n bước. Từ trạng thái i, chuỗi sẽ quay lại trạng thái 1 vì trạng thái 1 là hồi quy, và bằng cùng lập luận như vậy, nó sẽ cuối cùng đến trạng thái i lần nữa. Bằng quy nạp, chuỗi sẽ ghé thăm trạng thái i vô hạn lần. Vì i là tùy ý, ta kết luận rằng tất cả các trạng thái đều hồi quy.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Định lý ngược lại của định lý là sai; có thể tồn tại một chuỗi Markov rút gọn mà tất cả các trạng thái đều hồi quy. Một ví dụ được cho bởi chuỗi Markov dưới đây, gồm hai "đảo" các trạng thái.
+
+<div style="text-align: center;"><img src="imgs/img_in_image_box_373_1133_1034_1422.jpg" alt="Image" width="47%" /></div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 11.2.5</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Lưu ý rằng tính hồi quy hay tạm thời là tính chất của từng trạng thái trong một chuỗi Markov, trong khi tính không rút gọn hay rút gọn là tính chất của cả chuỗi.
+
+  </div>
+</div>
+
+Dưới đây là hai bài toán quen thuộc từ các chương trước, được nhìn nhận qua lăng kính của chuỗi Markov. Với mỗi bài toán, ta sẽ xác định các trạng thái hồi quy và tạm thời.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.2.6</div>
+    <div class="math-box-title">Gambler’s ruin như một chuỗi Markov</div>
+  </div>
+  <div class="math-box-content">
+
+Trong bài toán Gambler’s ruin (Ví dụ 2.7.3), hai người chơi A và B bắt đầu với i và N - i đô la tương ứng, tiến hành một chuỗi cược với số tiền 1. Trong mỗi vòng, người chơi A có xác suất p để thắng và xác suất q = 1 - p để thua. Gọi $X_n$ là số tiền của người chơi A tại thời điểm n. Khi đó $X_0, X_1, \\ldots$ là một chuỗi Markov trên không gian trạng thái $\\{0, 1, \\ldots, N\\}$. Bằng thiết kế, $X_{0} = i$. Khi chuỗi Markov đạt đến 0 hoặc N, biểu thị cho sự phá sản của người chơi A hoặc B, chuỗi sẽ ở trong trạng thái đó mãi mãi. Một sơ đồ của chuỗi được hiển thị bên dưới.
+
+<div style="text-align: center;"><img src="imgs/img_in_image_box_188_292_1215_401.jpg" alt="Image" width="73%" /></div>
+
+Chúng ta đã chứng minh trong Chương 2 rằng xác suất để A hoặc B phá sản là 1, do đó, với bất kỳ trạng thái ban đầu i nào khác 0 hoặc N, chuỗi Markov sẽ cuối cùng bị hấp thụ vào trạng thái 0 hoặc N, không bao giờ quay lại i. Do đó, đối với chuỗi Markov này, trạng thái 0 và N là trạng thái hồi quy, và tất cả các trạng thái khác là trạng thái tạm thời. Chuỗi là có thể giảm được vì từ trạng thái 0 chỉ có thể chuyển đến trạng thái 0, và từ trạng thái N chỉ có thể chuyển đến trạng thái N.
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.2.7</div>
+    <div class="math-box-title">Thu gom phiếu quà tặng như một chuỗi Markov</div>
+  </div>
+  <div class="math-box-content">
+
+Trong bài toán thu gom phiếu quà tặng (Ví dụ 4.3.12), có $C$ loại phiếu quà tặng (hoặc đồ chơi), chúng ta thu thập một cách ngẫu nhiên, lấy mẫu có thể thay thế từ $C$ loại phiếu quà tặng mỗi lần. Gọi $X_n$ là số loại phiếu quà tặng khác nhau trong bộ sưu tập sau $n$ lần thử. Khi đó $X_0, X_1, \\ldots$ là một chuỗi Markov trên không gian trạng thái $\\{0, 1, \\ldots, C\\}$. Theo thiết kế, $X_0 = 0$. Chuỗi này được minh họa bên dưới.
+
+<div style="text-align: center;"><img src="imgs/img_in_image_box_234_952_1163_1138.jpg" alt="Image" width="66%" /></div>
+
+Ngoại trừ trạng thái C, chúng ta không bao giờ quay lại một trạng thái sau khi rời khỏi nó; số loại phiếu quà tặng trong bộ sưu tập chỉ có thể tăng theo thời gian. Do đó tất cả các trạng thái đều là trạng thái tạm thời ngoại trừ C, là trạng thái hồi quy. Chuỗi là có thể giảm được vì, ví dụ, không thể chuyển từ trạng thái 2 về trạng thái 1.
+
+  </div>
+</div>
+
+Một cách khác để phân loại các trạng thái là theo chu kỳ của chúng. Chu kỳ của một trạng thái tóm tắt khoảng thời gian có thể trôi qua giữa các lần ghé thăm trạng thái đó.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 11.2.8</div>
+    <div class="math-box-title">Chu kỳ của một trạng thái, chuỗi tuần hoàn và không tuần hoàn</div>
+  </div>
+  <div class="math-box-content">
+
+Chu kỳ của một trạng thái $i$ trong một chuỗi Markov là ước chung lớn nhất (gcd) của các số bước có thể xảy ra để quay lại $i$ khi bắt đầu từ $i$. Nói cách khác, chu kỳ của $i$ là ước chung lớn nhất của các số $n$ sao cho phần tử $(i,i)$ của $Q^n$ là dương. (Chu kỳ của $i$ là $\\infty$ nếu không thể quay lại $i$ sau khi bắt đầu từ $i$.) Một trạng thái được gọi là không tuần hoàn nếu chu kỳ của nó bằng 1, và tuần hoàn nếu không. Chuỗi được gọi là không tuần hoàn nếu tất cả các trạng thái của nó đều không tuần hoàn, và tuần hoàn nếu không.
+
+  </div>
+</div>
+
+Ví dụ, hãy xem xét lại hai chuỗi Markov từ Hình 11.2, được hiển thị lại trong Hình 11.3. Chúng ta trước hết xem xét chuỗi 6 trạng thái ở bên phải. Bắt đầu từ trạng thái 1, có thể quay lại trạng thái 1 sau 3 bước, 6 bước, 9 bước, v.v., nhưng nó
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_284_149_1121_586.jpg" alt="Trái: một chuỗi Markov không tuần hoàn. Phải: một chuỗi Markov tuần hoàn trong đó các trạng thái 1, 2, và 3 có chu kỳ 3." style="max-width: 59%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 11.3:** Trái: một chuỗi Markov không tuần hoàn. Phải: một chuỗi Markov tuần hoàn trong đó các trạng thái 1, 2, và 3 có chu kỳ 3.
+</div>
+
+không thể quay trở lại trạng thái 1 sau bất kỳ số bước nào không phải là bội số của 3. Do đó, trạng thái 1 có chu kỳ 3. Tương tự, các trạng thái 2 và 3 cũng có chu kỳ 3. Về mặt khác, các trạng thái 4, 5, và 6 có chu kỳ 1, nhưng chuỗi là tuần hoàn vì ít nhất một trạng thái không có chu kỳ 1. Ngược lại, trong chuỗi ở bên trái tất cả các trạng thái đều không tuần hoàn, do đó chuỗi đó là không tuần hoàn.
+
+Trong chuỗi cược bạc từ Ví dụ 11.2.6, mỗi trạng thái có chu kỳ 2 ngoại trừ 0 và N, có chu kỳ 1. Trong chuỗi thu thập phiếu, mỗi trạng thái có chu kỳ 1 ngoại trừ trạng thái 0, có chu kỳ $\\infty$ vì không thể quay trở lại trạng thái 0. Do đó, cả hai chuỗi này đều không là không tuần hoàn.
+
+Kiểm tra xem một chuỗi không thể phân tách có là không tuần hoàn hay không thường dễ hơn nhiều so với vẻ ngoài: định lý tiếp theo cho thấy chúng ta chỉ cần tính chu kỳ của một trạng thái, thay vì tìm từng trạng thái để xem chu kỳ của nó có phải là 1 hay không.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Mệnh đề 11.2.9</div>
+    <div class="math-box-title">Chu kỳ trong một chuỗi không thể phân tách</div>
+  </div>
+  <div class="math-box-content">
+
+Trong một chuỗi Markov không thể phân tách, tất cả các trạng thái đều có cùng chu kỳ.
+
+  </div>
+</div>
+`,yz=`Các khái niệm về tính khả hồi và tính không khả hồi rất quan trọng để hiểu hành vi dài hạn của một chuỗi Markov. Ban đầu, chuỗi có thể dành thời gian trong các trạng thái không khả hồi. Cuối cùng, chuỗi sẽ dành toàn bộ thời gian trong các trạng thái khả hồi. Nhưng tỷ lệ thời gian mà chuỗi dành trong mỗi trạng thái khả hồi là bao nhiêu? Câu hỏi này được trả lời bởi phân bố dừng của chuỗi, cũng được biết đến là phân bố trạng thái ổn định. Chúng ta sẽ học trong phần này rằng đối với chuỗi không thể phân tách và không tuần hoàn
+
+Chuỗi Markov, phân bố dừng mô tả hành vi lâu dài của chuỗi, bất kể điều kiện ban đầu. Nó sẽ cho chúng ta cả xác suất lâu dài của việc ở trong bất kỳ trạng thái nào, và tỷ lệ phần trăm thời gian mà chuỗi dành trong trạng thái đó.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 11.3.1</div>
+    <div class="math-box-title">Phân bố dừng</div>
+  </div>
+  <div class="math-box-content">
+
+Một vector hàng $\\mathbf{s} = (s_1, \\ldots, s_M)$ sao cho $s_i \\geq 0$ và $\\sum_i s_i = 1$ là một phân bố dừng cho một chuỗi Markov với ma trận chuyển Q nếu
+
+$$\\sum_{i}s_{i}q_{ij}=s_{j}$$
+
+với mọi j. Hệ thống phương trình tuyến tính này có thể được viết dưới dạng một phương trình ma trận:
+
+$$\\mathbf{s}Q=\\mathbf{s}.$$
+
+  </div>
+</div>
+
+Nhớ lại rằng nếu $\\mathbf{s}$ là phân bố của $X_0$, thì $\\mathbf{s}Q$ là phân bố biên của $X_1$. Như vậy phương trình $\\mathbf{s}Q = \\mathbf{s}$ có nghĩa là nếu $X_0$ có phân bố $\\mathbf{s}$, thì $X_1$ cũng có phân bố $\\mathbf{s}$. Nhưng sau đó $X_2$ cũng có phân bố $\\mathbf{s}$, cũng như $X_3$, v.v. Tức là một chuỗi Markov với phân bố ban đầu là phân bố dừng $\\mathbf{s}$ sẽ ở trong phân bố dừng mãi mãi.
+
+Một cách để hiểu phân bố dừng của một chuỗi Markov một cách trực quan là tưởng tượng một số lượng lớn hạt, mỗi hạt độc lập chuyển từ trạng thái này sang trạng thái khác theo xác suất chuyển. Sau một thời gian dài, hệ thống hạt sẽ tiến tới một trạng thái cân bằng nơi, tại mỗi kỳ, số hạt rời khỏi một trạng thái sẽ được cân bằng bởi số hạt đi vào trạng thái đó, và điều này sẽ đúng với tất cả các trạng thái. Tại trạng thái cân bằng này, hệ thống nhìn chung sẽ biểu hiện là dừng, và tỷ lệ phần trăm các hạt trong mỗi trạng thái sẽ được cho bởi phân bố dừng. Chúng ta sẽ khám phá góc nhìn này về phân bố dừng sau Định nghĩa 11.4.1.
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 11.3.2</div>
+    <div class="math-box-title">Phân bố dừng là biên, không phải điều kiện</div>
+  </div>
+  <div class="math-box-content">
+
+Khi một chuỗi Markov ở trong phân bố dừng, phân bố xác suất không điều kiện của $X_n$ bằng s cho tất cả n, nhưng phân bố xác suất điều kiện của $X_n$ cho $X_{n-1} = i$ vẫn được mã hóa bởi hàng thứ i của ma trận chuyển Q.
+
+  </div>
+</div>
+
+Nếu một chuỗi Markov bắt đầu ở phân bố dừng, thì tất cả các $X_n$ đều có phân bố giống nhau (vì chúng có cùng phân bố biên $\\mathbf{s}$), nhưng chúng không nhất thiết độc lập, vì phân bố điều kiện của $X_n$ cho $X_{n-1} = i$ thường khác với phân bố biên của $X_n$.
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 11.3.3</div>
+    <div class="math-box-title">Phép thuật đồng cảm</div>
+  </div>
+  <div class="math-box-content">
+
+Nếu một chuỗi Markov bắt đầu ở phân bố dừng, thì các phân bố biên của $X_n$ đều bằng nhau. Điều này không có nghĩa là các $X_n$ chính nó đều bằng nhau; nhầm lẫn các biến ngẫu nhiên $X_n$ với phân bố của chúng là một ví dụ về phép thuật đồng cảm.
+
+  </div>
+</div>
+
+Với những chuỗi Markov rất nhỏ, chúng ta có thể tìm phân bố dừng bằng tay, sử dụng định nghĩa. Ví dụ sau minh họa điều này cho một chuỗi hai trạng thái.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.3.4</div>
+    <div class="math-box-title">Phân bố dừng cho một chuỗi hai trạng thái</div>
+  </div>
+  <div class="math-box-content">
+
+Hãy
+
+$$Q=\\begin{pmatrix}1/3&2/3\\\\ 1/2&1/2\\end{pmatrix}.$$
+
+Phân bố dừng có dạng $\\mathbf{s} = (s, 1 - s)$, và chúng ta phải giải để tìm s trong
+
+$$\\begin{pmatrix}s&1-s\\end{pmatrix}\\begin{pmatrix}1/3&2/3\\\\ 1/2&1/2\\end{pmatrix}=\\begin{pmatrix}s&1-s\\end{pmatrix},$$
+
+điều này tương đương với
+
+$$\\frac{1}{3}s+\\frac{1}{2}(1-s)=s,$$
+
+$$\\frac{2}{3}s+\\frac{1}{2}(1-s)=1-s.$$
+
+Nghiệm duy nhất của các phương trình này là $s = 3/7$, do đó $(3/7, 4/7)$ là phân bố dừng duy nhất của chuỗi Markov này.
+
+Tổng quát hơn, giả sử rằng $q_{12} = a$ và $q_{21} = b$, với 0 < a < 1 và 0 < b < 1. Khi đó ma trận chuyển tiếp là
+
+$$Q=\\begin{pmatrix}{{{1-a}}}&{{{a}}} \\\\{{{b}}}&{{{1-b}}}\\end{pmatrix}.$$
+
+Viết $\\mathbf{s} = (s_1, s_2)$, phương trình $\\mathbf{s}Q = \\mathbf{s}$ trở thành hệ phương trình tuyến tính
+
+$$(1-a)s_{1}+b s_{2}=s_{1},$$
+
+$$a s_{1}+(1-b)s_{2}=s_{2}$$
+
+Cả hai phương trình trong hệ này đều đơn giản hóa thành
+
+$$a s_{1}=b s_{2}.$$
+
+Thay $s_{2}=1-s_{1}$, suy ra nghiệm duy nhất của hệ này là
+
+$$\\mathbf{s}=\\left(\\frac{b}{a+b},\\frac{a}{a+b}\\right).$$
+
+Tóm lại, $\\mathbf{s} \\propto (b, a)$, tức là $\\mathbf{s}$ là một hằng số nhân với $(b, a)$. Hằng số là bất kỳ giá trị nào cần để làm tổng các thành phần của $\\mathbf{s}$ bằng 1. Như một kiểm tra, lưu ý rằng với Q đã cho trước với các số cụ thể, kết quả này nói rằng phân bố dừng nên tỷ lệ với $(b, a) = (1/2, 2/3)$, điều này, nhân với 6 để loại bỏ mẫu số, tương đương với tỷ lệ với $(3, 4)$. Phân bố dừng mà chúng ta đã giải trước đây là $(3/7, 4/7)$, điều này đúng là tỷ lệ với $(3, 4)$.
+
+Trong thuật ngữ đại số tuyến tính, phương trình $\\mathbf{s}Q = \\mathbf{s}$ nói rằng $\\mathbf{s}$ là một vector riêng trái của Q với giá trị riêng 1 (xem mục A.3 của phụ lục toán học). Để có dạng vector riêng thông thường (một vector riêng phải), lấy chuyển vị: $Q' \\mathbf{s}' = \\mathbf{s}'$, trong đó ký hiệu ' chỉ lấy chuyển vị.
+
+  </div>
+</div>
+
+### 11.3.1 Sự tồn tại và tính duy nhất
+
+Có tồn tại phân bố dừng luôn, và nó có duy nhất không? Thực ra, đối với không gian trạng thái hữu hạn, phân bố dừng luôn tồn tại. Hơn nữa, trong chuỗi Markov không thể phân rã, phân bố dừng là duy nhất.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 11.3.5</div>
+    <div class="math-box-title">Sự tồn tại và tính duy nhất của phân bố dừng</div>
+  </div>
+  <div class="math-box-content">
+
+Đối với bất kỳ chuỗi Markov không thể phân rã nào, tồn tại duy nhất một phân bố dừng. Trong phân bố này, mọi trạng thái đều có xác suất dương.
+
+  </div>
+</div>
+
+Định lý này là hệ quả của một kết quả trong đại số tuyến tính gọi là định lý Perron-Frobenius, được trình bày trong phần phụ lục toán học ở mục A.3.
+
+Chuỗi 4 trạng thái ở phía trái của Hình 11.3 là không thể phân rã: theo nghĩa của hình vẽ, có thể di chuyển từ bất kỳ nơi nào đến bất kỳ nơi nào theo các mũi tên; theo nghĩa của ma trận chuyển Q, tất cả các phần tử của $Q^{5}$ đều dương. Do đó, theo Định lý 11.3.5, chuỗi này có một phân bố dừng duy nhất.
+
+Ngược lại, chuỗi phá sản người cược từ Ví dụ 11.2.6 là có thể phân rã, do đó định lý không áp dụng. Thực ra, chuỗi này có vô số phân bố dừng. Trong dài hạn, chuỗi sẽ hoặc kết thúc ở trạng thái 0 (và ở đó mãi mãi) hoặc kết thúc ở trạng thái N (và ở đó mãi mãi). Điều này cho thấy, và dễ kiểm tra, rằng các phân bố đơn giản $\\mathbf{s} = (1, 0, \\ldots, 0)$ và $\\mathbf{t} = (0, 0, \\ldots, 1)$ đều là các phân bố dừng. Do đó, bất kỳ tổ hợp trọng số nào $p\\mathbf{s} + (1 - p)\\mathbf{t}$, với $0 \\leq p \\leq 1$, cũng là một phân bố dừng, vì nó tổng thành 1 và
+
+$$(p\\mathbf{s}+(1-p)\\mathbf{t})Q=p\\mathbf{s}Q+(1-p)\\mathbf{t}Q=p\\mathbf{s}+(1-p)\\mathbf{t},$$
+
+trong đó, như thường lệ, Q là ma trận chuyển.
+
+### 11.3.2 Sự hội tụ
+
+Chúng ta đã nói một cách phi chính thức rằng phân bố dừng mô tả hành vi dài hạn của chuỗi, theo nghĩa rằng nếu chúng ta chạy chuỗi trong một thời gian dài, phân bố biên của $X_n$ sẽ hội tụ đến phân bố dừng s. Định lý tiếp theo nói rằng điều này đúng nếu chuỗi vừa không thể phân rã vừa không tuần hoàn. Khi đó, bất kể điều kiện ban đầu của chuỗi, phân bố xác suất của $X_n$ sẽ hội tụ đến phân bố dừng khi $n \\to \\infty$. Điều này liên quan khái niệm tính dừng đến hành vi dài hạn của một chuỗi Markov. Chứng minh được bỏ qua.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 11.3.6</div>
+    <div class="math-box-title">Sự hội tụ đến phân bố dừng</div>
+  </div>
+  <div class="math-box-content">
+
+Gọi $X_0, X_1, \\ldots$ là một chuỗi Markov không thể phân rã, không tuần hoàn với phân bố dừng s và ma trận chuyển Q. Khi đó $P(X_n = i)$ hội tụ đến $s_i$ khi $n \\to \\infty$. Theo nghĩa của ma trận chuyển, $Q^n$ hội tụ đến một ma trận trong đó mỗi hàng là s.
+
+  </div>
+</div>
+
+Do đó, sau một số bước lớn, xác suất chuỗi ở trạng thái i gần bằng xác suất dừng $s_{i}$, bất kể điều kiện ban đầu của chuỗi. Điều này làm cho các chuỗi không thể phân rã, không tuần hoàn đặc biệt dễ làm việc. Tính không thể phân rã có nghĩa là với mỗi $(i,j)$ có một lũy thừa nào đó $Q^{m}$ mà ở vị trí $(i,j)$ là dương, nhưng nếu ta cũng giả sử tính không tuần hoàn thì kết quả là ta có thể tìm được một giá trị m mà phù hợp với tất cả $i,j$. Chính xác hơn, một chuỗi là không thể phân rã và không tuần hoàn nếu và chỉ nếu một lũy thừa nào đó $Q^{m}$ là dương ở tất cả các vị trí.
+
+Thực chất, điều kiện bổ sung về tính chu kỳ là cần thiết để loại bỏ các chuỗi chỉ đi vòng quanh, như chuỗi trong ví dụ dưới đây, hoặc các chuỗi nơi, ví dụ, một số trạng thái chỉ có thể tiếp cận sau một số bước chẵn trong khi các trạng thái khác chỉ có thể tiếp cận sau một số bước lẻ.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.3.7</div>
+    <div class="math-box-title">Chuỗi chu kỳ</div>
+  </div>
+  <div class="math-box-content">
+
+Hình dưới đây cho thấy một chuỗi Markov chu kỳ nơi mỗi trạng thái có chu kỳ 5.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_547_590_851_825.jpg" alt="Một chuỗi chu kỳ" style="max-width: 21%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 11.4:** Một chuỗi chu kỳ.
+</div>
+
+Ma trận chuyển của chuỗi là
+
+$$\\boldsymbol{Q}=\\begin{pmatrix}{{{0}}}&{{{1}}}&{{{0}}}&{{{0}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{1}}}&{{{0}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{0}}}&{{{1}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{0}}}&{{{0}}}&{{{1}}} \\\\{{{1}}}&{{{0}}}&{{{0}}}&{{{0}}}&{{{0}}}\\end{pmatrix}.$$
+
+Nó có thể kiểm tra mà không khó khăn rằng $\\mathbf{s} = (1/5, 1/5, 1/5, 1/5, 1/5)$ là một phân bố dừng của chuỗi này, và theo Định lý 11.3.5, $\\mathbf{s}$ là duy nhất. Tuy nhiên, giả sử chuỗi bắt đầu tại $X_0 = 1$. Khi đó, hàm phân phối xác suất (PMF) của $X_n$ gán xác suất 1 cho trạng thái $(n \\mod 5) + 1$ và 0 cho tất cả các trạng thái khác. $^1$ Đặc biệt, nó không hội tụ đến $\\mathbf{s}$ khi $n \\to \\infty$. Cũng không có $Q^n$ hội tụ đến một ma trận mà mỗi hàng đều là $\\mathbf{s}$: các chuyển tiếp của chuỗi là xác định, do đó $Q^n$ luôn bao gồm các số 0 và 1.
+
+  </div>
+</div>
+
+Cuối cùng, phân bố dừng cho chúng ta biết thời gian trung bình giữa các lần ghé thăm bất kỳ trạng thái nào cụ thể nào.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 11.3.8</div>
+    <div class="math-box-title">Thời gian kỳ vọng để trở lại</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X_0, X_1, \\ldots$ là một chuỗi Markov không thể phân rã với phân bố dừng s. Gọi $r_i$ là thời gian kỳ vọng để chuỗi trở lại i, cho trước rằng nó bắt đầu tại i. Khi đó $s_i = 1/r_i$.
+
+  </div>
+</div>
+
+Dưới đây là cách các định lý áp dụng cho chuỗi hai trạng thái trong Ví dụ 11.3.4.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.3.9</div>
+    <div class="math-box-title">Hành vi dài hạn của một chuỗi hai trạng thái</div>
+  </div>
+  <div class="math-box-content">
+
+Trong dài hạn, chuỗi trong Ví dụ 11.3.4 sẽ dành 3/7 thời gian của nó trong trạng thái 1 và 4/7 thời gian trong trạng thái 2. Bắt đầu từ trạng thái 1, nó sẽ mất một trung bình 7/3 bước để quay lại trạng thái 1. Các lũy thừa của ma trận chuyển tiếp hội tụ đến một ma trận nơi mỗi hàng là phân phối dừng:
+
+$$\\begin{pmatrix}1/3&2/3\\\\1/2&1/2\\end{pmatrix}^{n}\\rightarrow\\begin{pmatrix}3/7&4/7\\\\3/7&4/7\\end{pmatrix}\\mathrm{as}n\\rightarrow\\infty.$$
+
+  </div>
+</div>
+
+### 11.3.3 Google PageRank
+
+Chúng ta tiếp theo xem xét một ví dụ lớn hơn rất nhiều về phân phối dừng, cho một chuỗi Markov trên không gian trạng thái có hàng tỷ nút liên kết với nhau: World Wide Web. Ví dụ tiếp theo giải thích cách các nhà sáng lập Google mô hình hóa việc lướt web như một chuỗi Markov, và sau đó sử dụng phân phối dừng của nó để xếp hạng mức độ liên quan của các trang web. Trong nhiều năm, Google mô tả phương pháp kết quả, được biết đến như PageRank, là "tim trái tim của phần mềm của chúng tôi".
+
+Giả sử bạn quan tâm đến một chủ đề nhất định, ví dụ như cờ vua, vì vậy bạn sử dụng một công cụ tìm kiếm để tìm các trang web hữu ích chứa thông tin về cờ vua. Có hàng triệu trang web đề cập đến từ "cờ vua", vì vậy một vấn đề quan trọng mà một công cụ tìm kiếm cần giải quyết là thứ tự nào để hiển thị các kết quả tìm kiếm. Điều đó sẽ là thảm họa nếu phải lướt qua hàng ngàn trang web rác mà đề cập đến "cờ vua" trước khi tìm thấy nội dung hữu ích.
+
+Trong những ngày đầu của web, nhiều phương pháp khác nhau được sử dụng để giải quyết vấn đề xếp hạng này. Ví dụ, một số công cụ tìm kiếm thuê người để quyết định thủ công các trang nào hữu ích nhất, giống như một người quản lý bảo tàng. Nhưng ngoài việc chủ quan và tốn kém, điều này nhanh chóng trở nên không khả thi khi web phát triển. Một số khác tập trung vào số lần từ tìm kiếm được đề cập trên trang web. Nhưng một trang web đề cập đến "cờ vua" liên tục có thể dễ dàng ít hữu ích hơn một trang tham khảo ngắn gọn hoặc một trang về cờ vua mà không lặp lại từ đó liên tục. Hơn nữa, phương pháp này rất dễ bị lạm dụng: một trang spam có thể tăng thứ hạng của nó chỉ bằng cách bao gồm một danh sách dài các từ được lặp lại liên tục.
+
+Cả hai phương pháp trên đều bỏ qua cấu trúc của web: các trang nào liên kết đến các trang nào khác? Việc xem xét cấu trúc liên kết đã dẫn đến sự cải thiện lớn trong các công cụ tìm kiếm. Là một thử nghiệm đầu tiên, có thể xếp hạng một trang dựa vào số lượng trang khác liên kết đến nó. Tức là, nếu Trang A liên kết đến Trang B, chúng ta xem đây là một phiếu bầu cho B, và chúng ta xếp hạng các trang dựa vào số phiếu bầu mà chúng có.
+
+Nhưng điều này lại dễ bị lạm dụng: một trang spam có thể tăng thứ hạng của nó bằng cách tạo ra hàng ngàn trang spam khác liên kết đến nó. Và mặc dù có vẻ dân chủ khi mỗi trang có quyền bỏ phiếu bằng nhau, một liên kết từ một trang đáng tin cậy có ý nghĩa hơn một liên kết từ một trang không cung cấp thông tin. Google PageRank, được giới thiệu vào năm 1998 bởi Sergey Brin và người có tên rất phù hợp là Larry Page, xếp hạng
+
+Tầm quan trọng của một trang không chỉ được xác định bởi số lượng trang liên kết đến nó, mà còn bởi tầm quan trọng của những trang đó.
+
+Xem xét web như một mạng có hướng—đó chính là bản chất của nó. Mỗi trang trên web là một nút, và các liên kết giữa các nút đại diện cho các liên kết giữa các trang. Ví dụ, hãy tưởng tượng rằng để đơn giản, web chỉ có 4 trang, được kết nối như được hiển thị trong hình dưới đây.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_548_414_849_669.jpg" alt="Đó là một web nhỏ sau tất cả" style="max-width: 21%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 11.5:** Đó là một web nhỏ sau tất cả.
+</div>
+
+Hãy tưởng tượng có một người đang lướt web ngẫu nhiên, bắt đầu từ một trang và sau đó ngẫu nhiên nhấn vào các liên kết để di chuyển từ trang này sang trang khác (với xác suất bằng nhau cho tất cả các liên kết trên trang hiện tại). Ý tưởng của PageRank là để đo lường tầm quan trọng của một trang bằng phần thời gian dài hạn mà người dùng dành ở trang đó.
+
+Tất nhiên, một số trang có thể không có bất kỳ liên kết nào đi ra, ví dụ như trang 4 ở trên. Khi người lướt web gặp phải một trang như vậy, thay vì nản lòng họ mở một cửa sổ trình duyệt mới và ghé thăm một trang ngẫu nhiên. Do đó, một trang không có liên kết được chuyển đổi thành một trang có liên kết đến tất cả các trang, bao gồm chính nó. Với ví dụ trên, ma trận chuyển tiếp kết quả là
+
+$$Q=\\begin{pmatrix}{{{0}}}&{{{1/2}}}&{{{0}}}&{{{1/2}}} \\\\{{{1/2}}}&{{{0}}}&{{{1/2}}}&{{{0}}} \\\\{{{0}}}&{{{0}}}&{{{0}}}&{{{1}}} \\\\{{{1/4}}}&{{{1/4}}}&{{{1/4}}}&{{{1/4}}}\\end{pmatrix}.$$
+
+Tổng quát, để M là số lượng trang trên web, để Q là ma trận chuyển tiếp M x M của chuỗi được mô tả ở trên, và để s là phân bố dừng (giả sử nó tồn tại và duy nhất). Hãy xem $s_{j}$ như một thước đo cho tầm quan trọng của trang j. Về mặt trực giác, phương trình
+
+$$s_{j}=\\sum_{i}s_{i}q_{ij}$$
+
+nói rằng điểm số của trang $j$ nên dựa không chỉ vào số lượng trang khác liên kết đến nó, mà còn vào các điểm số của chúng. Hơn nữa, "quyền biểu quyết" của một trang sẽ bị pha loãng nếu nó có nhiều liên kết đi ra: nó có giá trị hơn nếu trang $i$ chỉ có một liên kết đến trang $j$ (vì vậy $q_{ij}=1$) hơn là nếu trang $i$ có hàng ngàn liên kết, trong đó có một liên kết đến trang $j$.
+
+Không rõ rằng một phân bố cố định duy nhất tồn tại cho chuỗi này, vì nó có thể không phải là không thể phân rã và không tuần hoàn. Ngay cả khi nó là không thể phân rã và không tuần hoàn, việc hội tụ đến phân bố cố định có thể rất chậm vì mạng lưới quá khổng lồ. Để giải quyết những vấn đề này, giả sử rằng trước mỗi bước di chuyển, người lướt web tung một đồng xu với xác suất $\\alpha$ của mặt ngửa. Nếu mặt ngửa, người lướt web sẽ nhấp vào một liên kết ngẫu nhiên từ trang hiện tại; nếu mặt sấp, người lướt web sẽ được truyền đến một trang ngẫu nhiên đều. Chuỗi kết quả có ma trận chuyển tiếp của Google
+
+$$G=\\alpha Q+(1-\\alpha)\\frac{J}{M},$$
+
+trong đó J là ma trận M x M của tất cả các 1. Lưu ý rằng tổng hàng của G bằng 1 và tất cả các phần tử đều dương, vì vậy G là một ma trận chuyển tiếp hợp lệ cho một chuỗi Markov không thể phân rã, không tuần hoàn. Điều này có nghĩa là tồn tại một phân bố cố định duy nhất s, được gọi là PageRank, và chuỗi sẽ hội tụ đến nó! Việc chọn $\\alpha$ là một yếu tố quan trọng; việc chọn $\\alpha$ gần 1 hợp lý để tôn trọng cấu trúc của mạng lưới càng nhiều càng tốt, nhưng có một sự đánh đổi vì thực ra giá trị nhỏ hơn của $\\alpha$ làm cho chuỗi hội tụ nhanh hơn nhiều. Như một sự thỏa hiệp, đề xuất ban đầu của Brin và Page là $\\alpha = 0.85$.
+
+PageRank có khái niệm đẹp, nhưng việc tính toán nó nghe có vẻ cực kỳ khó khăn, xem xét rằng $\\mathbf{s}G = \\mathbf{s}$ có thể là một hệ phương trình 100 tỷ phương trình với 100 tỷ ẩn số. Thay vì xem xét đây là một bài toán đại số khổng lồ, chúng ta có thể sử dụng cách diễn giải chuỗi Markov: với bất kỳ phân bố ban đầu nào $\\mathbf{t}, \\mathbf{t}G^n \\to \\mathbf{s}$ khi $n \\to \\infty$. Và $\\mathbf{t}G$ dễ tính toán hơn so với vẻ ngoài ban đầu:
+
+$$\\mathbf{t}G=\\alpha(\\mathbf{t}Q)+\\frac{1-\\alpha}{M}(\\mathbf{t}J),$$
+
+trong đó việc tính toán thành phần đầu tiên không quá khó vì Q rất thưa (chủ yếu là 0) và việc tính toán thành phần thứ hai dễ dàng vì tJ là một vector của tất cả các 1. Sau đó tG trở thành t mới, và chúng ta có thể tính toán $tG^{2} = (tG)G$, v.v., cho đến khi dãy số dường như đã hội tụ (mặc dù khó biết rằng nó đã hội tụ). Điều này cho một xấp xỉ của PageRank, và có một diễn giải trực quan như phân bố của nơi người lướt web ở sau một số bước rất lớn.
+`,bz=`Chúng ta đã thấy rằng phân bố cố định của một chuỗi Markov là cực kỳ hữu ích để hiểu hành vi lâu dài của nó. Tiếc thay, nói chung có thể rất khó tính toán phân bố cố định khi không gian trạng thái lớn. Chương này giải quyết một trường hợp đặc biệt quan trọng nơi mà việc làm việc với phương trình trị riêng cho các ma trận lớn có thể tránh được.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Định nghĩa 11.4.1</div>
+    <div class="math-box-title">Tính thuận nghịch</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $Q = (q_{ij})$ là ma trận chuyển tiếp của một chuỗi Markov. Giả sử tồn tại $\\mathbf{s} = (s_1, \\ldots, s_M)$ với $s_i \\geq 0$, $\\sum_i s_i = 1$, sao cho
+
+$$s_{i}q_{ij}=s_{j}q_{ji}$$
+
+với mọi trạng thái i và j. Phương trình này được gọi là điều kiện thuận nghịch hoặc điều kiện cân bằng chi tiết, và chúng ta nói rằng chuỗi là thuận nghịch đối với s nếu nó thỏa mãn.
+
+  </div>
+</div>
+
+Thuật ngữ "thuận nghịch" bắt nguồn từ việc một chuỗi thuận nghịch, khi bắt đầu theo phân bố dừng, hành xử giống nhau bất kể thời gian chạy theo hướng tiến hay lùi. Nếu bạn ghi lại một video của một chuỗi thuận nghịch, bắt đầu theo phân bố dừng, và sau đó cho xem video đó cho một người bạn, cả khi xem theo cách bình thường hay đảo ngược thời gian, người bạn sẽ không thể xác định được từ việc xem video đó thời gian đang chạy theo hướng nào.
+
+Như đã thảo luận sau Định nghĩa 11.3.1, chúng ta có thể hiểu phân bố dừng của một chuỗi Markov một cách trực quan thông qua một hệ thống gồm một số lượng lớn hạt di chuyển độc lập theo xác suất chuyển tiếp. Trong dài hạn, tỷ lệ các hạt trong bất kỳ trạng thái j nào là xác suất dừng của trạng thái j, và dòng chảy của các hạt ra khỏi trạng thái j được cân bằng bởi dòng chảy của các hạt vào trạng thái j. Để hiểu rõ hơn, cho n là số lượng hạt và s là một vector xác suất sao cho $s_{j}$ là tỷ lệ hiện tại các hạt tại trạng thái j. Theo định nghĩa, s là phân bố dừng của chuỗi nếu và chỉ nếu
+
+$$s_{j}=\\sum_{i}s_{i}q_{i j}=s_{j}q_{j j}+\\sum_{i:i\\neq j}s_{i}q_{i j},$$
+
+với mọi trạng thái j. Phương trình này có thể được viết lại thành
+
+$$n s_{j}(1-q_{j j})=\\sum_{i:i\\neq j}n s_{i}q_{i j}.$$
+
+Vế trái là số lượng hạt gần đúng sẽ rời khỏi trạng thái j ở bước tiếp theo, vì có $ns_j$ hạt tại trạng thái j, mỗi hạt sẽ ở lại trạng thái j với xác suất $q_{jj}$ và rời đi với xác suất $1 - q_{jj}$. Vế phải là số lượng hạt gần đúng sẽ vào trạng thái j ở bước tiếp theo, vì với mỗi $i \\neq j$, có $ns_i$ hạt tại trạng thái i, mỗi hạt sẽ vào trạng thái j với xác suất $q_{ij}$. Do đó, có sự cân bằng giữa các hạt rời khỏi trạng thái j và các hạt vào trạng thái j.
+
+Điều kiện thuận nghịch đặt ra một dạng cân bằng nghiêm ngặt hơn, trong đó với mỗi cặp trạng thái $i,j$ với $i\\neq j$, dòng chảy của các hạt từ trạng thái $i$ đến trạng thái $j$ được cân bằng bởi dòng chảy của các hạt từ trạng thái $j$ đến trạng thái $i$. Để hiểu điều này, viết phương trình thuận nghịch cho trạng thái $i$ và $j$ như sau
+
+$$n s_{i}q_{i j}=n s_{j}q_{j i}.$$
+
+Vế trái là số lượng hạt gần đúng sẽ di chuyển từ trạng thái i đến trạng thái j ở bước tiếp theo, vì có $ns_{i}$ hạt tại trạng thái i, mỗi hạt sẽ có xác suất $q_{ij}$ để chuyển sang trạng thái j. Tương tự, vế phải là số lượng gần đúng các hạt sẽ chuyển từ trạng thái i sang trạng thái j ở bước tiếp theo. Do đó tính thuận nghịch nói rằng có sự cân bằng giữa các hạt chuyển từ trạng thái i sang trạng thái j, và các hạt chuyển từ trạng thái j sang trạng thái i.
+
+Cho một ma trận chuyển, nếu ta có thể tìm được một vector xác suất s thỏa mãn điều kiện thuận nghịch, thì s tự động là một phân bố dừng. Điều này không nên gây ngạc nhiên, trong ánh sáng của cuộc thảo luận trên.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Mệnh đề 11.4.2</div>
+    <div class="math-box-title">Thuận nghịch kéo theo dừng</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử rằng $Q = (q_{ij})$ là ma trận chuyển của một chuỗi Markov mà thuận nghịch với một vector không âm $\\mathbf{s} = (s_1, \\ldots, s_M)$ mà các thành phần tổng cộng bằng 1. Khi đó $\\mathbf{s}$ là một phân bố dừng của chuỗi.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Mệnh đề 11.4.2</div>
+  </div>
+  <div class="math-box-content">
+
+Ta có
+
+$$\\sum_{i}s_{i}q_{ij}=\\sum_{i}s_{j}q_{ji}=s_{j}\\sum_{i}q_{ji}=s_{j},$$
+
+trong đó đẳng thức cuối cùng là vì tổng hàng của Q bằng 1. Do đó s là dừng.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Đây là một kết quả mạnh mẽ vì thường thì dễ kiểm tra điều kiện thuận nghịch hơn là giải toàn bộ hệ phương trình $\\mathbf{s}Q = \\mathbf{s}$. Tuy nhiên, nói chung chúng ta có thể không biết trước được liệu có thể tìm được $\\mathbf{s}$ thỏa mãn điều kiện thuận nghịch hay không, và ngay cả khi có thể, có thể mất nhiều công sức để tìm một $\\mathbf{s}$ phù hợp. Trong phần còn lại của mục này, chúng ta sẽ xem xét ba loại chuỗi Markov mà trong đó có thể tìm được một $\\mathbf{s}$ thỏa mãn điều kiện thuận nghịch. Những chuỗi Markov như vậy được gọi là thuận nghịch.
+
+Đầu tiên, nếu $Q$ là một ma trận đối xứng, thì phân bố dừng là đều trên không gian trạng thái: $\\mathbf{s} = (1/M, 1/M, \\ldots, 1/M)$. Rất dễ thấy rằng nếu $q_{ij} = q_{ji}$, thì điều kiện thuận nghịch $s_{i}q_{ij} = s_{j}q_{ji}$ được thỏa mãn khi $s_i = s_j$ với mọi $i$ và $j$.
+
+Đây là một trường hợp đặc biệt của một sự kiện tổng quát hơn, được nêu dưới đây: nếu mỗi cột của Q tổng bằng 1, thì phân bố dừng là đều trên không gian trạng thái.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Mệnh đề 11.4.3</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Nếu mỗi cột của ma trận chuyển Q tổng bằng 1, thì phân bố đều trên tất cả các trạng thái, $(1/M, 1/M, \\ldots, 1/M)$, là một phân bố dừng. (Một ma trận không âm mà tổng hàng và tổng cột đều bằng 1 được gọi là ma trận kép ngẫu nhiên.)
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Mệnh đề 11.4.3</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử mỗi cột tổng bằng 1, thì vector hàng $\\mathbf{v} = (1, 1, \\ldots, 1)$ thỏa mãn $\\mathbf{v}Q = \\mathbf{v}$. Từ đó suy ra $(1/M, 1/M, \\ldots, 1/M)$ là dừng.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Thứ hai, nếu chuỗi Markov là một bước ngẫu nhiên trên một mạng không hướng, thì có một công thức đơn giản cho phân bố dừng.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.4.4</div>
+    <div class="math-box-title">Đi bộ ngẫu nhiên trên một mạng không hướng</div>
+  </div>
+  <div class="math-box-content">
+
+Một mạng là một tập hợp các nút được nối với nhau bằng các cạnh; mạng được gọi là không hướng nếu các cạnh có thể được đi qua theo cả hai chiều, nghĩa là không có đường một chiều. Giả sử một người du ngoạn đi ngẫu nhiên qua các cạnh của một mạng không hướng. Từ một nút i, người du ngoạn chọn ngẫu nhiên bất kỳ một cạnh nào tại i, với xác suất bằng nhau, và sau đó đi qua cạnh được chọn. Ví dụ, trong mạng được hiển thị dưới đây, từ nút 3 người du ngoạn đi đến nút 1 hoặc nút 2, với xác suất 1/2 cho mỗi trường hợp.
+
+<div style="text-align: center;"><img src="imgs/img_in_image_box_553_444_836_849.jpg" alt="Image" width="20%" /></div>
+
+Bậc của một nút là số cạnh được gắn với nó, và dãy bậc của một mạng với các nút 1, 2,..., n là vector $(d_1, \\ldots, d_n)$ liệt kê tất cả các bậc, nơi $d_j$ là bậc của nút j. Một cạnh từ một nút đến chính nó được cho phép (loại cạnh này được gọi là một vòng tự thân), và được tính là 1 trong số các bậc của nút đó.
+
+Ví dụ, mạng ở trên có dãy bậc $\\mathbf{d} = (4, 3, 2, 3, 2)$. Lưu ý rằng
+
+$$d_{i}q_{ij}=d_{j}q_{ji}$$
+
+với mọi $i,j$, vì $q_{ij}$ là $1/d_i$ nếu $\\{i,j\\}$ là một cạnh và $0$ ngược lại, với $i \\neq j$. Do đó, theo Mệnh đề 11.4.2, phân bố dừng là tỷ lệ với dãy bậc. Về mặt trực quan, các nút có bậc cao nhất là các nút được kết nối tốt nhất, vì vậy điều này hợp lý khi chuỗi dành nhiều thời gian hơn trong các trạng thái này trong dài hạn. Trong ví dụ ở trên, điều này nói rằng
+
+$$\\mathbf{s}=\\left(\\frac{4}{14},\\frac{3}{14},\\frac{2}{14},\\frac{3}{14},\\frac{2}{14}\\right)$$
+
+là phân bố dừng cho đi bộ ngẫu nhiên.
+
+  </div>
+</div>
+
+Bài tập 20 khám phá đi bộ ngẫu nhiên trên một mạng không hướng có trọng số; mỗi cạnh có một trọng số được gán cho nó, và người du ngoạn chọn nơi đi từ i với xác suất tỷ lệ với trọng số trên các cạnh có sẵn. Hóa ra, đây là một chuỗi Markov đảo ngược. Một cách bất ngờ hơn, mọi chuỗi Markov đảo ngược có thể được biểu diễn như đi bộ ngẫu nhiên trên một mạng không hướng có trọng số!
+
+Dưới đây là một ví dụ cụ thể về một bước ngẫu nhiên trên một mạng lưới không hướng.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.4.5</div>
+    <div class="math-box-title">Ngựa trên bàn cờ cờ vua</div>
+  </div>
+  <div class="math-box-content">
+
+Xét một ngựa di chuyển ngẫu nhiên quanh một bàn cờ $4 \\times 4$.
+
+<div style="text-align: center;"><img src="imgs/img_in_chart_box_484_296_903_704.jpg" alt="Image" width="29%" /></div>
+
+Các 16 ô vuông được gán nhãn theo lưới, ví dụ, ngựa đang ở ô vuông B3, và ô vuông ở góc trên bên trái là A4. Mỗi bước di chuyển của ngựa là một bước nhảy hình chữ L: ngựa di chuyển hai ô theo phương ngang sau đó một ô theo phương dọc, hoặc ngược lại. Ví dụ, từ B3 ngựa có thể di chuyển đến A1, C1, D2, hoặc D4; từ A4 nó có thể di chuyển đến B2 hoặc C3. Lưu ý rằng từ một ô vuông sáng, ngựa luôn di chuyển đến một ô vuông tối và ngược lại.
+
+Giả sử rằng tại mỗi bước, ngựa di chuyển ngẫu nhiên, với mọi khả năng đều có cùng xác suất. Điều này tạo ra một chuỗi Markov nơi các trạng thái là các 16 ô vuông. Tính phân bố dừng của chuỗi này.
+
+**Giải:** Chỉ có ba loại ô vuông trên bàn cờ: 4 ô vuông ở giữa, 4 ô vuông góc (như A4), và 8 ô vuông cạnh (như B4; loại trừ các ô vuông góc khỏi được coi là ô vuông cạnh). Chúng ta có thể xem bàn cờ như một mạng lưới không hướng nơi hai ô vuông được nối với nhau bằng một cạnh nếu chúng có thể di chuyển đến nhau bằng một bước nhảy của ngựa. Sau đó một ô vuông ở giữa có bậc 4, một ô vuông góc có bậc 2, và một ô vuông cạnh có bậc 3, do đó xác suất dừng của chúng lần lượt là 4a, 2a, 3a với một hằng số a nào đó.
+
+Để tìm $a$, đếm số lượng ô vuông của từng loại để có $4a \\cdot 4 + 2a \\cdot 4 + 3a \\cdot 8 = 1$, cho kết quả $a = 1/48$. Do đó, mỗi ô vuông ở giữa có xác suất dừng là $4/48 = 1/12$, mỗi ô vuông góc có xác suất dừng là $2/48 = 1/24$, và mỗi ô vuông cạnh có xác suất dừng là $3/48 = 1/16$.
+
+  </div>
+</div>
+
+Ba và cuối cùng, nếu trong mỗi kỳ hạn một chuỗi Markov chỉ có thể di chuyển một bước sang trái, một bước sang phải, hoặc ở lại chỗ cũ, thì nó được gọi là một chuỗi sinh-chết. Tất cả các chuỗi sinh-chết đều là thuận nghịch.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.4.6</div>
+    <div class="math-box-title">chuỗi sinh-chết</div>
+  </div>
+  <div class="math-box-content">
+
+Một chuỗi sinh-chết trên các trạng thái $\\{1,2,\\ldots,M\\}$ là một chuỗi Markov với ma trận chuyển $Q=(q_{ij})$ sao cho $q_{ij}>0$ nếu $|i-j|=1$ và $q_{ij}=0$ nếu $|i-j|\\geq2$. Điều này nói rằng việc chuyển sang trái một bước là có thể và chuyển sang phải một bước là có thể (trừ tại các ranh giới) nhưng không thể nhảy xa hơn một bước trong một lần. Tên gọi này bắt nguồn từ các ứng dụng trong việc mô hình hóa sự tăng trưởng hoặc giảm sút của một quần thể, nơi việc chuyển sang phải được xem là một sinh và việc chuyển sang trái được xem là một chết trong quần thể.
+
+Ví dụ, chuỗi được hiển thị bên dưới là một chuỗi sinh-chết nếu các chuyển tiếp được gán nhãn có xác suất dương, trừ các vòng từ một trạng thái đến chính nó, được cho phép có xác suất bằng 0.
+
+<div style="text-align: center;"><img src="imgs/img_in_image_box_236_651_1243_800.jpg" alt="Image" width="72%" /></div>
+
+Chúng ta sẽ chứng minh rằng bất kỳ chuỗi sinh-chết nào cũng là hồi quy, và xây dựng phân phối dừng. Hãy để $s_{1}$ là một số dương, sẽ được xác định sau. Vì chúng ta muốn $s_{1}q_{12} = s_{2}q_{21}$, hãy
+
+$$s_{2}=s_{1}q_{12}/q_{21}.$$
+
+Sau đó vì chúng ta muốn $s_{2}q_{23} = s_{3}q_{32}$, hãy
+
+$$s_{3}=s_{2}q_{23}/q_{32}=s_{1}q_{12}q_{23}/(q_{32}q_{21}).$$
+
+Tiếp tục như vậy, hãy
+
+$$s_{j}=\\frac{s_{1}q_{12}q_{23}\\cdots q_{j-1,j}}{q_{j,j-1}q_{j-1,j-2}\\cdots q_{21}},$$
+
+với tất cả các trạng thái $j$ có $2 \\leq j \\leq M$. Chọn $s_1$ để tổng các $s_j$ bằng 1. Khi đó chuỗi là hồi quy với respect đến $\\mathbf{s}$, vì $q_{ij} = q_{ji} = 0$ nếu $|i - j| \\geq 2$ và do cách xây dựng, $s_{i}q_{ij} = s_{j}q_{ji}$ nếu $|i - j| = 1$. Do đó, $\\mathbf{s}$ là phân phối dừng.
+
+  </div>
+</div>
+
+Chuỗi Ehrenfest là một chuỗi sinh-chết có thể được sử dụng như một mô hình đơn giản cho sự khuếch tán của các phân tử khí. Phân phối dừng kết quả là một phân phối nhị thức.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 11.4.7</div>
+    <div class="math-box-title">Ehrenfest</div>
+  </div>
+  <div class="math-box-content">
+
+Có hai bình chứa tổng cộng $M$ hạt phân biệt. Các chuyển tiếp được thực hiện bằng cách chọn một hạt ngẫu nhiên và chuyển nó từ bình hiện tại sang bình kia. Ban đầu, tất cả các hạt đều ở trong bình thứ hai. Gọi $X_n$ là số hạt trong bình thứ nhất tại thời điểm $n$, nên $X_0 = 0$ và chuyển tiếp từ $X_n$ đến $X_{n+1}$ được thực hiện như mô tả ở trên. Đây là một chuỗi Markov tuần hoàn với không gian trạng thái $\\{0, 1, \\ldots, M\\}$.
+
+<div style="text-align: center;"><img src="imgs/img_in_image_box_442_181_957_493.jpg" alt="Image" width="36%" /></div>
+
+Như được minh họa ở trên, chiếc hộp đầu tiên có $X_n$ hạt và chiếc hộp thứ hai có $M - X_n$ hạt. Chúng ta sẽ sử dụng điều kiện khả nghịch để chứng minh rằng $\\mathbf{s} = (s_0, s_1, \\ldots, s_M)$ với
+
+$$s_{i}=\\binom{M}{i}\\left(\\frac{1}{2}\\right)^{M}$$
+
+là phân phối dừng. Lưu ý rằng đây là $\\mathrm{Bin}(M,1/2)$ PMF.
+
+Để $s_i$ như đã nói, và kiểm tra rằng $s_{i}q_{ij} = s_{j}q_{ji}$. Nếu $j = i + 1$ (với $i < M$), thì
+
+$$\\begin{aligned}&s_{i}q_{ij}=\\binom{M}{i}\\left(\\frac{1}{2}\\right)^{M}\\frac{M-i}{M}=\\frac{M!}{(M-i)!i!}\\left(\\frac{1}{2}\\right)^{M}\\frac{M-i}{M}=\\binom{M-1}{i}\\left(\\frac{1}{2}\\right)^{M},\\\\ &\\\\ &s_{j}q_{ji}=\\binom{M}{j}\\left(\\frac{1}{2}\\right)^{M}\\frac{j}{M}=\\frac{M!}{(M-j)!j!}\\left(\\frac{1}{2}\\right)^{M}\\frac{j}{M}=\\binom{M-1}{j-1}\\left(\\frac{1}{2}\\right)^{M}=s_{i}q_{ij}.\\\\ \\end{aligned}$$
+
+Bằng một phép tính tương tự, nếu $j = i - 1$ (với $i > 0$), thì $s_{i}q_{ij} = s_{j}q_{ji}$. Với tất cả các giá trị khác của $i$ và $j$, $q_{ij} = q_{ji} = 0$. Do đó, $\\mathbf{s}$ là dừng.
+
+Phân phối nhị thức là một dự đoán tự nhiên cho phân phối dừng vì sau khi chạy chuỗi Markov trong một khoảng thời gian dài, mỗi hạt có khả năng gần như bằng nhau để ở trong cả hai hộp. Tuy nhiên, PMF không hội tụ về phân phối nhị thức vì chuỗi có chu kỳ 2, với $X_n$ được đảm bảo là chẵn khi n chẵn, và lẻ khi n lẻ.
+
+May mắn thay, hóa ra một cách diễn giải khác về phân phối dừng vẫn còn hiệu lực ở đây: $s_{i}$ là tỷ lệ thời gian dài hạn mà chuỗi dành cho trạng thái i. Cụ thể hơn, để $I_{k}$ là chỉ số của chuỗi ở trạng thái i tại thời điểm k, có thể chứng minh rằng
+
+$$\\frac{1}{n}\\sum_{k=0}^{n-1}I_{k}\\rightarrow s_{i}$$
+
+khi $n \\rightarrow \\infty$, với xác suất 1.
+
+  </div>
+</div>
+`,xz=`Một chuỗi Markov là một dãy các biến ngẫu nhiên $X_{0}, X_{1}, X_{2}, \\ldots$ thỏa mãn tính chất Markov, tức là cho biết hiện tại, quá khứ và tương lai là độc lập điều kiện:
+
+$$P(X_{n+1}=j|X_{n}=i,X_{n-1}=i_{n-1},\\ldots,X_{0}=i_{0})=P(X_{n+1}=j|X_{n}=i)=q_{ij}.$$
+
+Ma trận chuyển tiếp $Q = (q_{ij})$ cho biết xác suất chuyển từ một trạng thái sang trạng thái khác trong một bước. Hàng thứ i của ma trận chuyển tiếp là phân phối xác suất có điều kiện của $X_{n+1}$ cho $X_n = i$. Lũy thừa thứ n của ma trận chuyển tiếp cho xác suất chuyển tiếp n bước. Nếu ta chỉ định điều kiện ban đầu $s_i = P(X_0 = i)$ và đặt $\\mathbf{s} = (s_1, \\ldots, s_M)$, thì phân phối xác suất biên của $X_n$ là $\\mathbf{s}Q^n$.
+
+Các trạng thái của một chuỗi Markov có thể được phân loại là hồi quy hoặc không hồi quy: hồi quy nếu chuỗi sẽ quay lại trạng thái đó nhiều lần, và không hồi quy nếu nó sẽ rời đi mãi mãi. Các trạng thái cũng có thể được phân loại theo chu kỳ của chúng; chu kỳ của trạng thái i là ước chung lớn nhất của số bước có thể lấy để quay lại i, bắt đầu từ i. Một chuỗi được gọi là không phân rã nếu có thể chuyển từ bất kỳ trạng thái nào sang bất kỳ trạng thái nào trong một số bước hữu hạn, và chuỗi được gọi là chu kỳ nếu mỗi trạng thái có chu kỳ 1.
+
+Một phân phối dừng cho một chuỗi Markov hữu hạn là một phân phối xác suất s sao cho $\\mathbf{s}Q = \\mathbf{s}$. Dưới nhiều điều kiện khác nhau, phân phối dừng của một chuỗi Markov hữu hạn tồn tại và duy nhất, và phân phối xác suất của $X_n$ hội tụ đến $\\mathbf{s}$ khi $n \\to \\infty$. Nếu trạng thái i có xác suất dừng $s_i$, thì thời gian kỳ vọng để chuỗi quay lại i, bắt đầu từ i, là $r_i = 1/s_i$.
+
+Nếu một phân phối xác suất s thỏa mãn điều kiện đảo ngược $s_{i}q_{ij} = s_{j}q_{ji}$ với mọi i và j, điều này đảm bảo rằng s là một phân phối dừng của chuỗi Markov có ma trận chuyển tiếp $Q = (q_{ij})$. Các chuỗi Markov mà tồn tại s thỏa mãn điều kiện đảo ngược được gọi là đảo ngược. Chúng ta đã thảo luận ba loại chuỗi đảo ngược:
+
+1. Nếu ma trận chuyển tiếp là đối xứng, thì phân phối dừng là đều trên tất cả các trạng thái.
+
+2. Nếu chuỗi là một bước đi ngẫu nhiên trên một mạng không hướng, thì phân phối dừng tỷ lệ với dãy bậc, tức là
+
+$$s_{j}=\\frac{d_{j}}{\\sum_{i}d_{i}}.$$
+
+3. Nếu chuỗi là một chuỗi sinh-chết, thì phân phối dừng thỏa mãn
+
+$$s_{j}=\\frac{s_{1}q_{12}q_{23}\\cdots q_{j-1,j}}{q_{j,j-1}q_{j-1,j-2}\\cdots q_{21}}$$
+
+với $j > 1$, nơi $s_{1}$ được giải ở cuối để đảm bảo $s_{1} + \\cdots + s_{M} = 1$.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_151_149_1245_780.jpg" alt="Image" style="max-width: 78%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 11.6**
+</div>
+
+Cho một ma trận chuyển tiếp Q và một phân bố t trên các trạng thái, chúng ta có thể tạo ra một chuỗi Markov $X_0, X_1, \\ldots$ bằng cách chọn $X_0$ theo phân bố t và sau đó chạy chuỗi theo xác suất chuyển tiếp. Một sự kiện quan trọng là $X_n = i$, sự kiện mà chuỗi đang ghé thăm trạng thái i vào thời điểm n. Chúng ta có thể tìm hàm mật độ xác suất (PMF) của $X_n$ theo Q và t, và (dưới điều kiện được thảo luận trong chương) hàm mật độ xác suất sẽ hội tụ đến phân bố dừng s. Nếu thay vào đó chúng ta bắt đầu chuỗi theo s, thì chuỗi sẽ luôn ở trạng thái dừng mãi mãi.
+
+Hình 11.6 so sánh hai cách chạy một chuỗi Markov với ma trận chuyển tiếp Q: chọn trạng thái ban đầu theo một phân bố tùy ý t trên các trạng thái, hoặc chọn trạng thái ban đầu theo phân bố dừng s. Trong trường hợp đầu tiên, hàm mật độ xác suất chính xác sau n bước có thể được tìm theo Q và t, và hàm mật độ xác suất hội tụ đến s (dưới một số điều kiện rất tổng quát được thảo luận trong chương này). Trong trường hợp thứ hai, chuỗi sẽ luôn ở trạng thái dừng mãi mãi.
+`,Sz=`## Tính toán ma trận
+
+Hãy thực hiện một số tính toán cho chuỗi Markov 4-trạng thái trong Ví dụ 11.1.5, như một ví dụ về việc làm việc với ma trận chuyển tiếp trong R. Trước hết, chúng ta cần xác định ma trận chuyển tiếp Q. Điều này được thực hiện bằng lệnh \`matrix\`: chúng ta nhập các phần tử của ma trận, theo từng hàng, dưới dạng một vector dài, rồi cho R biết số hàng và số cột trong ma trận (\`nrow\` và \`ncol\`), cũng như thực tế rằng chúng ta đã nhập các phần tử theo hàng (\`byrow=TRUE\`):
+
+\`\`\`r
 Q <- matrix(c(1/3,1/3,1/3,0,
+              0,0,1/2,1/2,
+              0,1,0,0,
+              1/2,0,0,1/2), nrow=4, ncol=4, byrow=TRUE)
+\`\`\`
 
-Tiếp theo, chúng ta cấp phát một vector có độ dài nsim gọi là x, sẽ lưu trữ các giá trị của chuỗi Markov. Đối với điều kiện ban đầu, chúng ta thiết lập giá trị đầu tiên của x bằng 5; điều này cho cả hai người chơi $5 để bắt đầu.
+Để lấy xác suất chuyển tiếp bậc cao hơn, chúng ta có thể nhân Q với chính nó một cách lặp đi lặp lại. Lệnh nhân ma trận trong R là \`%*%\` (không phải chỉ \`*\`). Vì vậy:
 
-x <- rep(0,nsim)
+\`\`\`r
+Q2 <- Q %*% Q
+Q3 <- Q2 %*% Q
+Q4 <- Q2 %*% Q2
+Q5 <- Q3 %*% Q2
+\`\`\`
+
+tạo ra $Q^2$ đến $Q^5$. Nếu chúng ta muốn biết xác suất đi từ trạng thái 3 đến trạng thái 4 trong đúng 5 bước, chúng ta có thể trích xuất phần tử (3, 4) của $Q^5$:
+
+\`\`\`r
+Q5[3,4]
+\`\`\`
+
+Điều này cho kết quả 0.229, phù hợp với giá trị 11/48 trong Ví dụ 11.1.5.
+
+Để tính lũy thừa $Q^n$ mà không cần thực hiện trực tiếp các phép nhân ma trận lặp đi lặp lại, chúng ta có thể sử dụng lệnh \`Q %^% n\` sau khi cài đặt và tải gói \`expm\`. Ví dụ, \`Q %^% 42\` cho $Q^{42}$. Bằng cách khám phá hành vi của $Q^n$ khi n tăng lên, chúng ta có thể thấy Định lý 11.3.6 hoạt động như thế nào (và có ý tưởng về thời gian để chuỗi rất gần với phân phối dừng của nó).
+
+Đặc biệt, với n lớn, mỗi hàng của $Q^n$ xấp xỉ bằng (0.214, 0.286, 0.214, 0.286), vì vậy đây là xấp xỉ của phân phối dừng. Một cách khác để lấy phân phối dừng bằng số là sử dụng
+
+\`\`\`r
+eigen(t(Q))
+\`\`\`
+
+để tính các giá trị riêng và vectơ riêng của chuyển vị của Q; sau đó vectơ riêng tương ứng với giá trị riêng 1 có thể được chọn và chuẩn hóa sao cho các thành phần cộng lại bằng 1.
+
+## Gambler's ruin
+
+Để mô phỏng từ chuỗi Gambler's ruin trong Ví dụ 11.2.6, chúng ta bắt đầu bằng cách quyết định tổng số tiền N, xác suất p của việc người chơi A thắng một vòng nhất định, và số giai đoạn thời gian nsim mà chúng ta muốn mô phỏng.
+
+\`\`\`r
+N <- 10
+p <- 1/2
+nsim <- 80
+\`\`\`
+
+Tiếp theo, chúng ta cấp phát một vector có độ dài nsim gọi là x, sẽ lưu trữ các giá trị của chuỗi Markov. Đối với điều kiện ban đầu, chúng ta thiết lập giá trị đầu tiên của x bằng 5; điều này cho cả hai người chơi \\$5 để bắt đầu.
+
+\`\`\`r
+x <- rep(0, nsim)
 x[1] <- 5
+\`\`\`
 
 Bây giờ chúng ta đã sẵn sàng để mô phỏng các giá trị tiếp theo của chuỗi Markov. Điều này được thực hiện bằng khối mã sau đây, chúng ta sẽ giải thích từng bước một.
 
+\`\`\`r
 for (i in 2:nsim){
   if (x[i-1]==0 || x[i-1]==N){
-  x[i] <- x[i-1]
+    x[i] <- x[i-1]
   }
   else{
-  x[i] <- x[i-1] + sample(c(1,-1), 1, prob=c(p,1-p))
+    x[i] <- x[i-1] + sample(c(1,-1), 1, prob=c(p,1-p))
   }
 }
+\`\`\`
 
-Dòng đầu tiên và cặp ngoặc ngoặc ngoài cùng tạo thành một vòng lặp for: for (i in 2:nsim) có nghĩa là tất cả mã bên trong vòng lặp sẽ được thực thi lặp lại, với giá trị của i được thiết lập là 2, sau đó là 3, sau đó là 4, v.v. cho đến khi i đạt đến giá trị nsim. Mỗi lần lặp qua vòng lặp đại diện cho một bước của chuỗi Markov.
+Dòng đầu tiên và cặp ngoặc ngoài cùng tạo thành một vòng lặp for: \`for (i in 2:nsim)\` có nghĩa là tất cả mã bên trong vòng lặp sẽ được thực thi lặp lại, với giá trị của i được thiết lập là 2, sau đó là 3, sau đó là 4, v.v. cho đến khi i đạt đến giá trị nsim. Mỗi lần lặp qua vòng lặp đại diện cho một bước của chuỗi Markov.
 
-Trong vòng lặp for, trước tiên chúng ta kiểm tra xem chuỗi có đang ở một trong các điểm cuối, 0 hoặc N hay không; chúng ta thực hiện điều này bằng một lệnh if. Nếu chuỗi đang ở 0 hoặc N, chúng ta thiết lập giá trị mới của nó bằng giá trị trước đó, vì chuỗi không được phép thoát khỏi 0 hoặc N. Ngược lại, nếu chuỗi không ở 0 hoặc N, nó có thể di chuyển sang trái hoặc phải. Chúng ta sử dụng lệnh sample để di chuyển sang phải 1 đơn vị hoặc sang trái 1 đơn vị, với xác suất p và 1-p tương ứng.
+Trong vòng lặp for, trước tiên chúng ta kiểm tra xem chuỗi có đang ở một trong các điểm cuối, 0 hoặc N hay không; chúng ta thực hiện điều này bằng một lệnh if. Nếu chuỗi đang ở 0 hoặc N, chúng ta thiết lập giá trị mới của nó bằng giá trị trước đó, vì chuỗi không được phép thoát khỏi 0 hoặc N. Ngược lại, nếu chuỗi không ở 0 hoặc N, nó có thể di chuyển sang trái hoặc phải. Chúng ta sử dụng lệnh \`sample\` để di chuyển sang phải 1 đơn vị hoặc sang trái 1 đơn vị, với xác suất p và 1-p tương ứng.
 
 Để xem đường đi mà chuỗi Markov đã thực hiện trong quá trình mô phỏng của chúng ta, chúng ta có thể vẽ các giá trị của x theo thời gian:
 
+\`\`\`r
 plot(x,type='l',ylim=c(0,N))
+\`\`\`
 
 Bạn sẽ thấy một đường đi bắt đầu từ 5 và dao động lên xuống trước khi bị hấp thụ vào trạng thái 0 hoặc trạng thái N.
 
@@ -31039,35 +31345,46 @@ Với một vài sửa đổi, chúng ta có thể mô phỏng từ một chuỗ
 
 Như trên, chúng ta có thể gõ
 
-Q <- matrix(c(1/3,1/3,1/3,0,0,0,1/2,1/2,0,0,
-
-0,1,0,0,
-1/2,0,0,1/2),nrow=4,ncol=4,byrow=TRUE)
+\`\`\`r
+Q <- matrix(c(1/3,1/3,1/3,0,
+              0,0,1/2,1/2,
+              0,1,0,0,
+              1/2,0,0,1/2), nrow=4, ncol=4, byrow=TRUE)
+\`\`\`
 
 để chỉ định ma trận chuyển tiếp Q.
 
-Tiếp theo, chúng ta chọn số trạng thái và số khoảng thời gian để mô phỏng, chúng ta cấp không gian cho kết quả của mô phỏng, và chúng ta chọn điều kiện ban đầu cho chuỗi. Trong ví dụ này, x[1] <- sample(1:M,1) nói rằng phân phối ban đầu của chuỗi là đều trên tất cả các trạng thái.
+Tiếp theo, chúng ta chọn số trạng thái và số khoảng thời gian để mô phỏng, chúng ta cấp không gian cho kết quả của mô phỏng, và chúng ta chọn điều kiện ban đầu cho chuỗi. Trong ví dụ này, \`x[1] <- sample(1:M,1)\` nói rằng phân phối ban đầu của chuỗi là đều trên tất cả các trạng thái.
 
+\`\`\`r
 M <- nrow(Q)
 nsim <- 10^4
 x <- rep(0,nsim)
 x[1] <- sample(1:M,1)
+\`\`\`
 
-Đối với việc mô phỏng bản thân, chúng ta lại sử dụng  $\\text{sample}$  để chọn một số từ 1 đến M. Tại thời điểm i, chuỗi đã ở trạng thái  $x[i-1]$  trước đó, do đó chúng ta phải sử dụng hàng  $x[i-1]$  của ma trận chuyển tiếp để xác định xác suất của việc chọn  $1,2,\\ldots,M$ . Cú pháp  $Q[x[i-1],]$  chỉ hàng  $x[i-1]$  của ma trận Q.
+Đối với việc mô phỏng bản thân, chúng ta lại sử dụng \`sample\` để chọn một số từ 1 đến M. Tại thời điểm i, chuỗi đã ở trạng thái \`x[i-1]\` trước đó, do đó chúng ta phải sử dụng hàng \`x[i-1]\` của ma trận chuyển tiếp để xác định xác suất của việc chọn $1,2,\\ldots,M$. Cú pháp \`Q[x[i-1],]\` chỉ hàng \`x[i-1]\` của ma trận Q.
 
+\`\`\`r
 for (i in 2:nsim){
   x[i] <- sample(M, 1, prob=Q[x[i-1],])
 }
+\`\`\`
 
 Vì chúng ta đã thiết lập nsim thành một số lớn, có thể hợp lý để tin rằng chuỗi gần như đạt trạng thái ổn định trong phần sau của mô phỏng. Để kiểm tra điều này, chúng ta loại bỏ nửa đầu của các mô phỏng để cho chuỗi thời gian để đạt trạng thái ổn định:
 
+\`\`\`r
 x <- x[-(1:(nsim/2))]
+\`\`\`
 
-Sau đó, chúng ta sử dụng lệnh table để tính số lần chuỗi ghé thăm mỗi trạng thái; việc chia cho length(x) biến đổi các lần đếm thành tỷ lệ. Kết quả là một ước lượng cho phân phối ổn định.
+Sau đó, chúng ta sử dụng lệnh \`table\` để tính số lần chuỗi ghé thăm mỗi trạng thái; việc chia cho \`length(x)\` biến đổi các lần đếm thành tỷ lệ. Kết quả là một ước lượng cho phân phối dừng.
 
+\`\`\`r
 table(x)/length(x)
+\`\`\`
 
-Để so sánh, phân phối ổn định thực sự của chuỗi là khoảng  $(0.214, 0.286, 0.214, 0.286)$ . Liệu điều này có gần với kết quả bạn thu được qua mô phỏng không?`,Cz=`
+Để so sánh, phân phối dừng thực sự của chuỗi là khoảng $(0.214, 0.286, 0.214, 0.286)$. Liệu điều này có gần với kết quả bạn thu được qua mô phỏng không?
+`,Cz=`
 Các bài tập được đánh dấu với ☑ có giải pháp chi tiết tại http://stat110.net.
 
 ## Tính chất Markov
@@ -31805,581 +32122,648 @@ Lời khuyên: Liên hệ độ dài với tổng thời gian dành trong các t
 
 </div>
 </div>
-`,wz=`Thuật toán Metropolis-Hastings là một công thức tổng quát cho phép chúng ta bắt đầu với bất kỳ chuỗi Markov nào không khả nghịch trên không gian trạng thái quan tâm và sau đó sửa đổi nó thành một chuỗi Markov mới có phân phối dừng mong muốn. Sự sửa đổi này bao gồm việc giới thiệu một số chọn lọc trong chuỗi gốc: các bước được đề xuất theo chuỗi gốc, nhưng đề xuất có thể được chấp nhận hoặc không. Ví dụ, giả sử chuỗi gốc đang ở trạng thái được gọi là "Boston" và sắp chuyển sang "San Francisco". Sau đó, đối với chuỗi mới, chúng ta hoặc chấp nhận đề xuất và đi đến San Francisco, hoặc từ chối đề xuất và tiếp tục ở Boston.\r
-\r
-Bước tiếp theo. Với một lựa chọn cẩn thận của xác suất chấp nhận đề xuất, sự sửa đổi đơn giản này đảm bảo rằng chuỗi mới có phân bố dừng mong muốn.\r
-\r
-Thuật toán 12.1.1 (Metropolis-Hastings). Cho  $\\mathbf{s} = (s_1, \\ldots, s_M)$  là phân bố dừng mong muốn trên không gian trạng thái  $\\{1, \\ldots, M\\}$ . Giả sử rằng  $s_i > 0$  với mọi  $i$  (nếu không, chỉ cần xóa các trạng thái  $i$  với  $s_i = 0$  khỏi không gian trạng thái). Giả sử rằng  $P = (p_{ij})$  là ma trận chuyển trạng thái cho một chuỗi Markov trên không gian trạng thái  $\\{1, \\ldots, M\\}$ . Về mặt trực quan,  $P$  là một chuỗi Markov mà chúng ta biết cách chạy nhưng không có phân bố dừng mong muốn.\r
-\r
-Mục tiêu của chúng ta là sửa đổi P để xây dựng một chuỗi Markov  $X_{0}, X_{1}, \\ldots$  với phân bố dừng s. Chúng ta sẽ đưa ra một thuật toán Metropolis-Hastings cho điều này. Bắt đầu ở bất kỳ trạng thái nào  $X_{0}$  (chọn ngẫu nhiên hoặc xác định), và giả sử rằng chuỗi mới đang ở trạng thái  $X_{n}$ . Để thực hiện một bước di chuyển của chuỗi mới, làm theo các bước sau.\r
-\r
-1. Nếu  $X_n = i$ , đề xuất một trạng thái mới  $j$  bằng xác suất chuyển trong hàng thứ i của ma trận chuyển trạng thái gốc  $P$ .\r
-\r
-2. Tính xác suất chấp nhận\r
-\r
- \r
-\r
- $$a_{ij}=\\min\\left(\\frac{s_{j}p_{ji}}{s_{i}p_{ij}},1\\right).$$ \r
-\r
- \r
-\r
-3. Lật một đồng xu có xác suất rơi mặt ngửa là  $a_{ij}$ .\r
-\r
-4. Nếu đồng xu rơi mặt ngửa, chấp nhận đề xuất (tức là chuyển đến j), đặt  $X_{n+1} = j$ . Ngược lại, từ chối đề xuất (tức là ở lại i), đặt  $X_{n+1} = i$ .\r
-\r
-Tức là, chuỗi Metropolis-Hastings sử dụng xác suất chuyển gốc  $p_{ij}$  để đề xuất nơi đi tiếp theo, sau đó chấp nhận đề xuất với xác suất  $a_{ij}$ , ở lại trạng thái hiện tại nếu bị từ chối. Một khía cạnh đặc biệt tốt của thuật toán này là hằng số chuẩn hóa cho s không cần biết, vì nó bị triệt tiêu trong  $s_{j}/s_{i}$  anyway. Ví dụ, trong một số bài toán chúng ta có thể muốn phân bố dừng là đều trên tất cả các trạng thái (tức là  $\\mathbf{s} = (1/M, 1/M, \\ldots, 1/M)$ ), nhưng số trạng thái M rất lớn và không biết, và sẽ là một bài toán đếm rất khó để tìm M. May mắn thay,  $s_{j}/s_{i} = 1$  bất kể M, vì vậy chúng ta chỉ cần nói  $\\mathbf{s} \\propto (1, 1, \\ldots, 1)$ , và chúng ta có thể tính  $a_{ij}$  mà không cần biết M.\r
-\r
-Các  $p_{ij}$  trong mẫu số của  $a_{ij}$  sẽ không bao giờ bằng 0 khi thuật toán được chạy, vì nếu  $p_{ij} = 0$  thì chuỗi gốc sẽ không bao giờ đề xuất chuyển từ i sang j. Ngoài ra, nếu  $p_{ii} > 0$  thì có thể đề xuất j bằng trạng thái hiện tại i; trong trường hợp này, chuỗi sẽ ở lại i bất kể đề xuất có được chấp nhận hay không. (Từ chối đề xuất ở lại i nhưng vẫn ở lại đó giống như một đứa trẻ vừa bị phạt nói “có, tôi sẽ ở trong phòng của tôi, nhưng không phải vì bạn bảo tôi phải làm vậy!”)\r
-\r
-Chúng ta sẽ chứng minh rằng chuỗi Metropolis-Hastings là thuận nghịch với phân bố dừng s.\r
-\r
-Bằng chứng. Hãy để  $Q$  là ma trận chuyển tiếp của chuỗi Metropolis-Hastings. Chúng ta chỉ cần kiểm tra điều kiện đảo ngược  $s_{i}q_{ij} = s_{j}q_{ji}$  với mọi  $i$  và  $j$ . Điều này rõ ràng khi  $i = j$ , do đó giả sử  $i \\neq j$ . Nếu  $q_{ij} > 0$ , thì  $p_{ij} > 0$  (chuỗi không thể di chuyển từ  $i$  đến  $j$  nếu nó không thể đề xuất di chuyển từ  $i$  đến  $j$ ) và  $p_{ji} > 0$  (ngược lại, xác suất chấp nhận sẽ bằng 0). Ngược lại, nếu  $p_{ij} > 0$  và  $p_{ji} > 0$ , thì  $q_{ji} > 0$ . Do đó  $q_{ij}$  và  $q_{ji}$  hoặc đều bằng 0 hoặc đều khác 0. Chúng ta có thể giả sử chúng đều khác 0. Khi đó\r
-\r
- \r
-\r
- $$q_{ij}=p_{ij}a_{ij}$$ \r
-\r
- \r
-\r
-vì, bắt đầu tại  $i$ , cách duy nhất để đến  $j$  là trước tiên đề xuất làm như vậy và sau đó chấp nhận đề xuất. Trước tiên xem xét trường hợp  $s_{j}p_{ji} \\leq s_{i}p_{ij}$ . Chúng ta có\r
-\r
- \r
-\r
- $$a_{i j}=\\frac{s_{j}p_{j i}}{s_{i}p_{i j}},a_{j i}=1,$$ \r
-\r
- \r
-\r
-DO đó\r
-\r
- \r
-\r
- $$s_{i}q_{ij}=s_{i}p_{ij}a_{ij}=s_{i}p_{ij}\\frac{s_{j}p_{ji}}{s_{i}p_{ij}}=s_{j}p_{ji}=s_{j}p_{ji}a_{ji}=s_{j}q_{ji}.$$ \r
-\r
- \r
-\r
-Tương tự, nếu  $s_{j}p_{ji} > s_{i}p_{ij}$ , chúng ta cũng có  $s_{i}q_{ij} = s_{j}q_{ji}$ , bằng cách đổi vai trò của  $i$  và  $j$  trong tính toán trước đó. Vì điều kiện đảo ngược được thỏa mãn,  $s$  là phân phối dừng của chuỗi có ma trận chuyển tiếp  $Q$ .\r
-\r
-12.1.2. Thuật toán Metropolis-Hastings là một cách cực kỳ tổng quát để xây dựng một chuỗi Markov với phân phối dừng mong muốn. Trong cách trình bày trên, cả  $s$  và  $P$  đều rất tổng quát, và không có điều gì được quy định về việc chúng có liên quan với nhau (ngoại trừ việc chúng cùng nằm trên không gian trạng thái giống nhau). Tuy nhiên, trong thực tế, việc chọn phân bố đề xuất cực kỳ quan trọng vì nó có thể tạo ra sự khác biệt lớn trong tốc độ mà chuỗi hội tụ đến phân phối dừng của nó.\r
-\r
-Việc chọn một phân bố đề xuất tốt là một chủ đề phức tạp và sẽ không được thảo luận chi tiết ở đây. Về mặt trực quan, một phân bố đề xuất với tỷ lệ chấp nhận rất thấp sẽ chậm hội tụ (vì chuỗi sẽ hiếm khi di chuyển đến đâu). Nhưng tỷ lệ chấp nhận cao có thể không lý tưởng, vì điều này có thể cho thấy chuỗi có xu hướng đưa ra các đề xuất nhỏ, dè dặt. Trong không gian trạng thái lớn, chuỗi như vậy sẽ mất rất nhiều thời gian để khám phá toàn bộ không gian.\r
-\r
-Dưới đây là một vài ví dụ về cách thuật toán Metropolis-Hastings có thể được sử dụng để mô phỏng từ các phân bố.\r
-\r
-Ví dụ 12.1.3 (Mô phỏng phân bố Zipf). Hãy để  $M \\geq 2$  là một số nguyên. Một biến ngẫu nhiên X có phân bố Zipf với tham số  $a > 0$  nếu hàm mật độ xác suất của nó là\r
-\r
- \r
-\r
- $$P(X=k)=\\frac{1/k^{a}}{\\sum_{j=1}^{M}(1/j^{a})},$$ \r
-\r
- \r
-\r
-với  $k = 1, 2, \\ldots, M$  (và 0 nếu không). Phân bố này được sử dụng rộng rãi trong ngôn ngữ học để nghiên cứu tần suất các từ.\r
-\r
-Tạo một chuỗi Markov  $X_0, X_1, \\ldots$  có phân phối dừng là phân bố Zipf, và sao cho  $|X_{n+1} - X_n| \\leq 1$  với mọi  $n$ . Trả lời của bạn nên cung cấp một\r
-\r
-Một mô tả đơn giản, chính xác về cách mỗi bước chuyển của chuỗi được tạo ra, tức là cách chuyển từ  $X_{n}$  đến  $X_{n+1}$  cho mỗi n.\r
-\r
-## Giải pháp:\r
-\r
-Chúng ta có thể sử dụng thuật toán Metropolis-Hastings, sau khi tạo ra một phân bố đề xuất. Có nhiều phân bố đề xuất có thể, nhưng một lựa chọn đơn giản là đi bộ ngẫu nhiên trên  $\\{1,2,\\ldots,M\\}$ . Từ trạng thái  $i$  với  $i \\neq 1,i \\neq M$ , chuyển đến trạng thái  $i-1$  hoặc  $i+1$ , với xác suất  $1/2$  mỗi. Từ trạng thái 1, ở lại đó hoặc chuyển đến trạng thái 2, với xác suất  $1/2$  mỗi. Từ trạng thái  $M$ , ở lại đó hoặc chuyển đến trạng thái  $M-1$ , với xác suất  $1/2$  mỗi. Chuỗi này được hiển thị bên dưới.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_203_562_1200_635.jpg" alt="Image" width="71%" /></div>\r
-\r
-\r
-### HÌNH 12.1\r
-\r
-Chuỗi đề xuất cho phân phối Zipf.\r
-\r
-Gọi P là ma trận chuyển của chuỗi này. Phân phối dừng cho P là đều vì P là ma trận đối xứng, do đó Định lý 11.4.3 áp dụng. Metropolis-Hastings cho phép chúng ta biến đổi P thành một chuỗi có phân phối dừng là phân phối Zipf.\r
-\r
-Gọi  $X_{0}$  là bất kỳ trạng thái bắt đầu nào, và tạo ra một chuỗi  $X_{0}, X_{1}, \\ldots$  như sau. Nếu chuỗi đang ở trạng thái i, thì:\r
-\r
-1. Tạo một trạng thái đề xuất j theo chuỗi đề xuất P.\r
-\r
-2. Chấp nhận đề xuất với xác suất  $\\min(i^{a}/j^{a},1)$ . Nếu đề xuất được chấp nhận, chuyển đến j; ngược lại, ở lại i.\r
-\r
-Chuỗi này dễ triển khai và một bước chuyển yêu cầu rất ít tính toán; lưu ý rằng hằng số chuẩn hóa  $\\sum_{j=1}^{M}(1/j^{a})$  không cần thiết để chạy chuỗi.\r
-\r
-Ví dụ 12.1.4 (Mô phỏng Beta). Hãy quay lại bài toán mô phỏng Beta được giới thiệu ở đầu chương. Giả sử rằng chúng ta muốn tạo ra  $W \\sim \\text{Beta}(a, b)$ , nhưng chúng ta không biết về lệnh  $\\mathbf{r}$ beta trong R. Thay vào đó, điều chúng ta có sẵn là các biến ngẫu nhiên độc lập đồng phân phối  $\\text{Unif}(0, 1)$ .\r
-\r
-(a) Làm thế nào để tạo ra W chính xác nếu a và b là các số nguyên dương, bằng cách sử dụng một câu chuyện và tính phổ quát của Uniform?\r
-\r
-(b) Làm thế nào để tạo ra W gần đúng  $\\mathrm{Beta}(a,b)$  nếu a và b là bất kỳ số thực dương nào, với sự giúp đỡ của một chuỗi Markov trên không gian trạng thái  $(0,1)$ ?\r
-\r
-Giải pháp:\r
-\r
-(a) Áp dụng tính phổ quát của Uniform trực tiếp cho Beta là khó, vì vậy hãy trước tiên sử dụng câu chuyện ngân hàng - văn phòng: nếu  $X \\sim \\text{Gamma}(a, 1)$  và  $Y \\sim \\text{Gamma}(b, 1)$  là\r
-\r
-độc lập, sau đó  $X/(X + Y) \\sim \\operatorname{Beta}(a, b)$ . Vậy nếu chúng ta có thể mô phỏng phân phối Gamma, thì chúng ta có thể mô phỏng phân phối Beta!\r
-\r
-Để mô phỏng  $X \\sim \\text{Gamma}(a, 1)$ , chúng ta có thể sử dụng  $X_1 + X_2 + \\cdots + X_a$  với các  $X_j$  độc lập đồng phân phối  $\\text{Expo}(1)$ ; tương tự, chúng ta có thể mô phỏng  $Y \\sim \\text{Gamma}(b, 1)$  dưới dạng tổng của  $b$  biến ngẫu nhiên độc lập đồng phân phối  $\\text{Expo}(1)$ . Cuối cùng, bằng cách lấy nghịch đảo của hàm phân phối tích lũy (CDF) của  $\\text{Expo}(1)$  và áp dụng tính phổ quát của Uniform,  $-\\log(1 - U) \\sim \\text{Expo}(1)$  với  $U \\sim \\text{Unif}(0, 1)$ , do đó chúng ta có thể dễ dàng tạo ra bao nhiêu biến ngẫu nhiên  $\\text{Expo}(1)$  tùy thích.\r
-\r
-(b) Hãy sử dụng thuật toán Metropolis-Hastings. Chúng ta chỉ đã giới thiệu Metropolis-Hastings cho không gian trạng thái hữu hạn, nhưng các ý tưởng tương tự có thể áp dụng cho không gian trạng thái vô hạn. Một chuỗi đề xuất đơn giản mà chúng ta có sẵn bao gồm các biến ngẫu nhiên độc lập Unif(0,1). Tức là, trạng thái đề xuất trên khoảng (0,1) luôn là một Unif(0,1) mới, độc lập với trạng thái hiện tại. Chuỗi Metropolis-Hastings kết quả được gọi là một mẫu độc lập.\r
-\r
-Gọi  $W_{0}$  là bất kỳ trạng thái bắt đầu nào, và tạo ra một chuỗi  $W_{0}, W_{1}, \\ldots$  như sau. Nếu chuỗi đang ở trạng thái w, thì:\r
-\r
-1. Tạo ra một đề xuất u bằng cách lấy một biến ngẫu nhiên Unif(0,1).\r
-\r
-2. Chấp nhận đề xuất với xác suất  $\\min\\left(\\frac{u^{a-1}(1-u)^{b-1}}{w^{a-1}(1-w)^{b-1}},1\\right)$ . Nếu đề xuất được chấp nhận, chuyển đến u; ngược lại, ở lại w.\r
-\r
-Lại một lần nữa, hằng số chuẩn hóa không cần thiết để chạy chuỗi. Trong việc xác định xác suất chấp nhận, mật độ xác suất Beta(a, b) đóng vai trò của s vì nó là phân phối dừng mong muốn, và mật độ xác suất Unif(0, 1) đóng vai trò của  $p_{ij}$  (và  $p_{ji}$ ) vì các đề xuất là các biến ngẫu nhiên Unif(0, 1), độc lập với trạng thái hiện tại.\r
-\r
-Chạy chuỗi Markov, ta có  $W_{n}, W_{n+1}, W_{n+2}, \\ldots$  gần đúng Beta(a, b) khi n lớn. Lưu ý rằng đây là các biến ngẫu nhiên có tương quan, không phải các mẫu độc lập.\r
-\r
-12.1.5 (MCMC tạo ra các mẫu có tương quan). Một câu hỏi lớn trong việc chạy một chuỗi Markov  $X_{0}, X_{1}, \\ldots$  cho một tính toán Monte Carlo là cần chạy chuỗi trong thời gian bao lâu. Một phần vì thường rất khó biết được chuỗi phân phối tại thời điểm n sẽ gần đến phân phối dừng như thế nào. Một vấn đề khác là  $X_{0}, X_{1}, \\ldots$  thường có tương quan. Một số chuỗi có xu hướng bị kẹt trong một số khu vực của không gian trạng thái, thay vì khám phá toàn bộ không gian. Nếu một chuỗi dễ bị kẹt, thì  $X_{n}$  có thể có tương quan dương cao với  $X_{n+1}$ . Hệ số tự tương quan tại độ trễ k là độ tương quan giữa  $X_{n}$  và giá trị k bước sau,  $X_{n+k}$ , trong giới hạn khi n tăng lên. Việc hệ số tự tương quan tại độ trễ k nhanh chóng tiến đến 0 khi k tăng là mong muốn. Tương quan cao thường dẫn đến phương sai cao cho các xấp xỉ Monte Carlo.\r
-\r
-Phân tích thời gian cần chạy một chuỗi và tìm các chỉ số để xác định chuỗi đã được chạy đủ lâu là các lĩnh vực nghiên cứu đang phát triển. Một số lời khuyên chung là chạy các chuỗi trong một số bước rất lớn và thử các chuỗi bắt đầu từ nhiều điểm khác nhau để xem kết quả có ổn định như thế nào.\r
-\r
-Thành phố - Hastings thường hữu ích ngay cả với không gian trạng thái khổng lồ. Nó thậm chí có thể hữu ích cho các bài toán mà có thể không nghe như vậy ở đầu tiên rằng chúng có gì đó liên quan đến mô phỏng một phân bố, như giải mã.\r
-\r
-Ví dụ 12.1.6 (Giải mã). Các chuỗi Markov đã được áp dụng gần đây vào giải mã; ví dụ này sẽ giới thiệu một cách trong đó điều này có thể được thực hiện. (Để biết thêm thông tin về các ứng dụng như vậy, xem Diaconis [6] và Chen và Rosenthal [3].) Một mã thay thế là một hoán vị g của các chữ cái từ a đến z, nơi một thông điệp được mã hóa bằng cách thay thế mỗi chữ cái  $\\alpha$  bằng  $g(\\alpha)$ . Ví dụ, nếu g là hoán vị được cho bởi\r
-\r
-## abcdefghijklmnopqrstuvwxyz\r
-\r
-## zyxwvutsrqponmlkjihgfedcba\r
-\r
-trong đó hàng thứ hai liệt kê các giá trị  $g(a), g(b), \\ldots, g(z)$ , thì chúng ta sẽ mã hóa từ "statistics" thành "hgzgrhgrxh". (Chúng ta cũng có thể bao gồm các chữ in hoa, khoảng trống và dấu câu nếu muốn.) Không gian trạng thái là tất cả  $26! \\approx 4 \\cdot 10^{26}$  hoán vị của các chữ cái a đến z. Đây là một không gian cực kỳ lớn: nếu chúng ta phải thử giải mã một văn bản bằng từng hoán vị này, và có thể xử lý một hoán vị mỗi nanô giây, thì vẫn sẽ mất hơn 12 tỷ năm để thử qua tất cả các hoán vị. Do đó, một cuộc điều tra cạn kiệt đi qua từng hoán vị một cách riêng lẻ là không khả thi; thay vào đó, chúng ta sẽ xem xét các hoán vị ngẫu nhiên.\r
-\r
-(a) Xét chuỗi Markov chọn hai tọa độ ngẫu nhiên khác nhau giữa 1 và 26 và đổi chỗ các mục này của hàng thứ hai, ví dụ, nếu chúng ta chọn 7 và 20, thì abcdefghijklmnopqrstuvwxyz\r
-\r
-zyxwvutsrqponmlkjihgfedcba\r
-\r
-## trở thành\r
-\r
-## abcdefghijklmnopqrstuvwxyz\r
-\r
-zyxwvgsrqponmlkjhtfedcba\r
-\r
-Tìm xác suất đi từ một hoán vị g đến một hoán vị h trong một bước (với mọi g, h), và tìm phân bố dừng của chuỗi này.\r
-\r
-(b) Giả sử chúng ta có một hệ thống phân bổ một điểm số dương  $s(g)$  cho mỗi hoán vị g. Về mặt trực quan, điều này có thể là một thước đo của khả năng để nhận được văn bản mã hóa quan sát, cho rằng g là mã được sử dụng. Sử dụng thuật toán Metropolis-Hastings để xây dựng một chuỗi Markov có phân bố dừng tỷ lệ với danh sách tất cả các điểm số  $s(g)$ .\r
-\r
-## Giải pháp:\r
-\r
-(a) Xác suất đi từ  $g$  đến  $h$  trong một bước là  $0$  trừ khi  $h$  có thể được đạt được từ  $g$  bằng cách đổi chỗ hai mục của hàng thứ hai. Giả sử rằng  $h$  có thể được đạt được theo cách này, xác suất là  $\\frac{1}{\\binom{26}{2}}$ , vì có  $\\binom{26}{2}$  các phép đổi chỗ như vậy, tất cả đều có xác suất bằng nhau.\r
-\r
-Chuỗi Markov này là bất khả quy, vì bằng cách thực hiện đủ nhiều phép đổi chỗ, chúng ta có thể đạt từ bất kỳ hoán vị nào đến bất kỳ hoán vị nào khác. (Hình dung sắp xếp một bộ bài\r
-\r
-các lá bài bằng cách trao đổi hai lá bài một tại một thời điểm; có thể sắp xếp lại các lá bài theo bất kỳ cấu hình mong muốn nào bằng cách thực hiện điều này đủ nhiều lần.) Lưu ý rằng  $p(g, h) = p(h, g)$ , ở đây  $p(g, h)$  là xác suất chuyển tiếp từ g đến h. Vì ma trận chuyển tiếp là đối xứng, phân bố dừng là đều trên tất cả các 26! hoán vị của các chữ cái a đến z.\r
-\r
-(b) Đối với chuỗi đề xuất của chúng ta, chúng ta sẽ sử dụng chuỗi từ (a). Bắt đầu từ bất kỳ trạng thái g nào, tạo ra một đề xuất h bằng chuỗi từ (a). Quyền chọn một đồng xu với xác suất  $\\min(s(h)/s(g), 1)$  của Mặt ngửa. Nếu Mặt ngửa, đi đến h; nếu Mặt sấp, ở lại g.\r
-\r
-Để chứng minh điều này có phân bố dừng mong muốn, chúng ta có thể tham khảo chứng minh tổng quát của thuật toán 12.1.1 hoặc kiểm tra trực tiếp điều kiện nghịch đảo. Để thực hành, chúng ta sẽ làm điều latter: chúng ta cần  $s(g)q(g,h) = s(h)q(h,g)$  với mọi g và h, ở đây  $q(g,h)$  là xác suất chuyển tiếp từ g đến h trong chuỗi đã sửa đổi. Nếu g = h hoặc  $q(g,h) = 0$ , thì phương trình rõ ràng đúng, do đó giả sử  $g \\neq h$  và  $q(g,h) \\neq 0$ . Gọi  $p(g,h)$  là xác suất chuyển tiếp từ (a) (đó là xác suất đề xuất h khi ở g). Trước tiên xem xét trường hợp  $s(g) \\leq s(h)$ . Khi đó  $q(g,h) = p(g,h)$  và\r
-\r
- \r
-\r
- $$q(h,g)=p(h,g)\\frac{s(g)}{s(h)}=p(g,h)\\frac{s(g)}{s(h)}=q(g,h)\\frac{s(g)}{s(h)},$$ \r
-\r
- \r
-\r
-do đó  $s(g)q(g,h)=s(h)q(h,g)$ . Bây giờ xem xét trường hợp rằng  $s(h)<s(g)$ . Bằng một lập luận đối xứng (đảo ngược vai trò của  $g$  và  $h$ ), chúng ta cũng có  $s(g)q(g,h)=s(h)q(h,g)$ . Do đó, xác suất dừng của  $g$  tỉ lệ với điểm số của nó  $s(g)$ .\r
-\r
-Nói cách khác, sử dụng thuật toán Metropolis-Hastings, chúng ta bắt đầu với một chuỗi Markov có khả năng thăm tất cả các mã hóa trong dài hạn và tạo ra một chuỗi Markov có phân bố dừng sắp xếp các mã hóa theo điểm số của chúng, thăm các mã hóa tiềm năng nhất thường xuyên nhất trong dài hạn.\r
-\r
-Dưới đây là một ví dụ khác về MCMC với không gian trạng thái khổng lồ và có vẻ như ban đầu không có nhiều liên hệ với việc mô phỏng một phân bố. Ví dụ này cho thấy rằng MCMC có thể được sử dụng không chỉ để lấy mẫu mà còn để tối ưu hóa.\r
-\r
-Ví dụ 12.1.7 (Vấn đề balo). Bilbo người trộm phát hiện  $m$  vật phẩm quý giá trong hang của Smaug. Bilbo đang quyết định những vật phẩm nào để trộm (hoặc thu hồi một cách công bằng, tùy theo quan điểm của người xem); anh không thể mang tất cả cùng lúc, vì trọng lượng tối đa mà anh có thể mang là  $w$  pound. Gán nhãn các vật phẩm từ 1 đến  $m$ , và giả sử rằng vật phẩm thứ  $j$  có giá trị  $g_j$  đồng vàng và nặng  $w_j$  pound. Vì vậy, Bilbo phải chọn một vector  $x = (x_1, \\ldots, x_m)$ , ở đó  $x_j$  là 1 nếu anh trộm vật phẩm thứ  $j$  và 0 nếu không, sao cho trọng lượng tổng của các vật phẩm  $j$  với  $x_j = 1$  không vượt quá  $w$ . Gọi  $C$  là không gian gồm tất cả các vector như vậy, do đó  $C$  bao gồm tất cả các vector nhị phân  $(x_1, \\ldots, x_m)$  với  $\\sum_{j=1}^{m} x_j w_j \\leq w$ .\r
-\r
-Bilbo muốn tối đa hóa giá trị tổng của vật phẩm mà anh mang theo. Việc tìm giải pháp tối ưu là một bài toán cực kỳ khó, được gọi là bài toán balo, có một lịch sử lâu đời trong khoa học máy tính. Một giải pháp brute force sẽ là\r
-\r
-hoàn toàn không khả thi trong tổng quát. Bilbo quyết định thay vào đó là khám phá không gian C bằng MCMC—may mắn thay, anh ấy mang theo một laptop chạy R.\r
-\r
-(a) Hãy xem xét chuỗi Markov sau. Bắt đầu tại  $(0,0,\\ldots,0)$ . Một bước của chuỗi là như sau. Giả sử trạng thái hiện tại là  $x=(x_{1},\\ldots,x_{m})$ . Chọn một ngẫu nhiên  $J$  trong  $\\{1,2,\\ldots,m\\}$ , và nhận được  $y$  từ  $x$  bằng cách thay thế  $x_{J}$  với  $1-x_{J}$  (tức là bật/tắt xem tài sản đó có được lấy hay không). Nếu  $y$  không thuộc  $C$ , ở lại tại  $x$ ; nếu  $y$  thuộc  $C$ , chuyển sang  $y$ . Chứng minh rằng phân phối đều trên  $C$  là phân bố dừng cho chuỗi này.\r
-\r
-(b) Chứng minh rằng chuỗi từ (a) là không thể phân rã, và rằng nó có thể hoặc không thể là không chu kỳ (tùy thuộc vào  $w, w_{1}, \\ldots, w_{m}$ ).\r
-\r
-(c) Chuỗi từ (a) là một cách hữu ích để nhận được gần như phân bố đều các nghiệm, nhưng Bilbo quan tâm nhiều hơn đến việc tìm các nghiệm có giá trị (theo lượng vàng) cao. Trong phần này, mục tiêu là xây dựng một chuỗi Markov có phân bố dừng đặt nhiều xác suất hơn lên bất kỳ nghiệm nào có giá trị cao hơn so với bất kỳ nghiệm nào có giá trị thấp. Cụ thể, giả sử rằng chúng ta muốn mô phỏng từ phân bố\r
-\r
- \r
-\r
- $$s(x)\\propto e^{\\beta V(x)},$$ \r
-\r
- \r
-\r
-trong đó  $V(x) = \\sum_{j=1}^{m} x_{j} g_{j}$  là giá trị của x theo lượng vàng và  $\\beta$  là hằng số dương. Ý tưởng đằng sau phân bố này là cho xác suất tăng theo cấp số mũ cho mỗi nghiệm có giá trị cao hơn so với mỗi nghiệm có giá trị thấp. Tạo một chuỗi Markov có phân bố dừng như mong muốn.\r
-\r
-## Giải pháp:\r
-\r
-(a) Ma trận chuyển là đối xứng vì với  $x \\neq y$ , xác suất chuyển từ x đến y và từ y đến x là hoặc cả hai đều 0 hoặc cả hai đều 1/m. Vì vậy, phân bố dừng là đều trên C.\r
-\r
-(b) Chúng ta có thể đi từ bất kỳ  $x \\in C$  đến  $(0,0,\\ldots,0)$  bằng cách bỏ từng tài sản một lần. Chúng ta có thể đi từ  $(0,0,\\ldots,0)$  đến bất kỳ  $y \\in C$  bằng cách nhặt từng tài sản một lần. Kết hợp các điều này, chúng ta có thể đi từ bất cứ đâu đến bất cứ đâu, vì vậy chuỗi là không thể phân rã.\r
-\r
-Để nghiên cứu tính chu kỳ, hãy xem xét một số trường hợp đơn giản. Trước hết xem xét trường hợp đơn giản khi  $w_{1} + \\cdots + w_{m} < w$ , tức là Bilbo có thể mang theo tất cả tài sản cùng một lúc. Do đó, tất cả các vector nhị phân độ dài m đều được phép. Vì vậy, chu kỳ của  $(0,0,\\ldots,0)$  là 2 vì, bắt đầu tại trạng thái này, Bilbo cần nhặt và sau đó bỏ một tài sản để quay lại trạng thái đó. Trên thực tế, nếu Bilbo bắt đầu tại  $(0,0,\\ldots,0)$ , sau bất kỳ số lần di chuyển lẻ nào, anh ấy sẽ đang mang theo một số lượng tài sản lẻ.\r
-\r
-Bây giờ xem xét trường hợp khi  $w_1 > w$ , tức là tài sản đầu tiên quá nặng cho Bilbo. Từ bất kỳ  $x \\in C$ , có xác suất  $1/m$  để chuỗi cố gắng nhặt tài sản đầu tiên, và nếu điều đó xảy ra, chuỗi sẽ ở lại tại  $x$ . Vì vậy, chu kỳ của mỗi trạng thái là 1.\r
-\r
-(c) Chúng ta có thể áp dụng Metropolis-Hastings sử dụng chuỗi từ (a) để đưa ra các đề xuất. Bắt đầu tại  $(0,0,\\ldots,0)$ . Giả sử trạng thái hiện tại là  $x=(x_{1},\\ldots,x_{m})$ . Sau đó:\r
-\r
-1. Chọn một  $J$  ngẫu nhiên đều trong  $\\{1,2,\\ldots,m\\}$ , và nhận được  $y$  từ  $x$  bằng cách thay thế  $x_J$  với  $1-x_J$ .\r
-\r
-2. Nếu  $y$  không thuộc  $C$ , ở lại tại  $x$ . Nếu  $y$  thuộc  $C$ , tung một đồng xu mà đồng xu rơi vào Mặt trước với xác suất  $\\min\\left(1,e^{\\beta(V(y)-V(x))}\\right)$ . Nếu đồng xu rơi vào Mặt trước, đi đến  $y$ ; ngược lại, ở lại tại  $x$ .\r
-\r
-Chuỗi này sẽ hội tụ đến phân phối dừng mong muốn. Nhưng nên chọn  $\\beta$  như thế nào? Nếu  $\\beta$  rất lớn, thì các giải pháp tốt nhất sẽ được gán xác suất rất cao, nhưng chuỗi có thể rất chậm hội tụ đến phân phối dừng vì nó dễ bị mắc kẹt trong các chế độ địa phương: chuỗi có thể rơi vào một trạng thái mà, mặc dù không tối ưu toàn cục, vẫn tốt hơn các trạng thái khác có thể đạt được trong một bước, và sau đó xác suất từ chối các đề xuất để đi nơi khác có thể rất cao. Về mặt khác, nếu  $\\beta$  gần 0, thì chuỗi dễ dàng khám phá không gian, nhưng không có nhiều động lực cho chuỗi để khám phá các giải pháp tốt.\r
-\r
-Một kỹ thuật tối ưu hóa gọi là simulated annealing tránh phải chọn một giá trị cụ thể của  $\\beta$ . Thay vào đó, ta chỉ định một dãy các giá trị  $\\beta$ , sao cho  $\\beta$  tăng dần theo thời gian. Ban đầu,  $\\beta$  rất nhỏ và không gian C có thể được khám phá một cách rộng rãi. Khi  $\\beta$  càng lớn hơn, phân phối dừng trở nên càng tập trung hơn vào giải pháp tốt nhất hoặc các giải pháp tốt nhất. Tên "simulated annealing" bắt nguồn từ một phép so sánh với quá trình làm lạnh kim loại, một quy trình trong đó kim loại được làm nóng đến nhiệt độ cao và sau đó được làm lạnh dần cho đến khi đạt đến trạng thái rất mạnh, ổn định;  $\\beta$  tương ứng với nghịch đảo của nhiệt độ.\r
-\r
-Như đã đề cập trong Ví dụ 12.1.4, thuật toán Metropolis-Hastings cũng có thể được áp dụng trong không gian trạng thái liên tục, sử dụng PDF thay vì PMF. Điều này cực kỳ hữu ích trong suy luận Bayesian, nơi chúng ta thường muốn nghiên cứu phân phối hậu nghiệm của một tham số chưa biết. Phân phối hậu nghiệm này có thể rất phức tạp để làm việc với bằng phân tích, và có thể có hằng số chuẩn hóa chưa biết.\r
-\r
-Phương pháp MCMC là nhận được một số lượng lớn mẫu từ một chuỗi Markov có phân phối dừng là phân phối hậu nghiệm. Chúng ta có thể sau đó sử dụng các mẫu này để xấp xỉ phân phối hậu nghiệm đúng. Ví dụ, chúng ta có thể ước lượng trung bình hậu nghiệm bằng trung bình mẫu của các mẫu này, và trung vị hậu nghiệm bằng trung vị mẫu của các mẫu.\r
-\r
-Gelman et al. [10] và McElreath [18] cung cấp các giới thiệu rộng rãi về tư duy Bayesian và phân tích dữ liệu Bayesian, với phạm vi ứng dụng rộng rãi và nhấn mạnh vào mô hình thống kê và mô phỏng. Các tài liệu bổ sung cho hai cuốn sách này có thể được tìm thấy tại http://www.stat.columbia.edu/~gelman/book và https://xcelab.net/rm/statistical-rethinking tương ứng.\r
-\r
-Ví dụ 12.1.8 (Tính liên hợp Normal-Normal). Giả sử  $Y|\\theta \\sim \\mathcal{N}(\\theta, \\sigma^2)$ , nơi  $\\sigma^2$  là đã biết nhưng  $\\theta$  là chưa biết. Sử dụng khung Bayesian, chúng ta xem  $\\theta$  như một biến ngẫu nhiên, với phân phối tiên nghiệm được cho bởi  $\\theta \\sim \\mathcal{N}(\\mu, \\tau^2)$  với một số hằng số đã biết  $\\mu$  và  $\\tau^2$ . That\r
-\r
-là, chúng ta có mô hình hai cấp\r
-\r
- \r
-\r
- $$\\theta\\sim\\mathcal{N}(\\mu,\\tau^{2})$$ \r
-\r
- \r
-\r
- \r
-\r
- $$Y|\\theta\\sim\\mathcal{N}(\\theta,\\sigma^{2}).$$ \r
-\r
- \r
-\r
-Mô tả cách sử dụng thuật toán Metropolis-Hastings để tìm kỳ vọng và phương sai hậu nghiệm của  $\\theta$  sau khi quan sát giá trị của Y.\r
-\r
-Giải pháp:\r
-\r
-Sau khi quan sát Y = y, chúng ta có thể cập nhật sự không chắc chắn trước đây về  $\\theta$  bằng quy tắc Bayes. Vì chúng ta quan tâm đến phân phối hậu nghiệm của  $\\theta$ , bất kỳ các số hạng không phụ thuộc vào  $\\theta$  có thể được coi là phần của hằng số chuẩn hóa. Do đó,\r
-\r
- \r
-\r
- $$f_{\\theta|Y}(\\theta|y)\\propto f_{Y|\\theta}(y|\\theta)f_{\\theta}(\\theta)\\propto e^{-\\frac{1}{2\\sigma^{2}}(y-\\theta)^{2}}e^{-\\frac{1}{2\\tau^{2}}(\\theta-\\mu)^{2}}.$$ \r
-\r
- \r
-\r
-Vì chúng ta có một hàm số bậc hai của  $\\theta$  trong số mũ, chúng ta nhận ra PDF hậu nghiệm của  $\\theta$  là một PDF chuẩn. Phân phối hậu nghiệm vẫn thuộc họ chuẩn, điều này cho thấy rằng chuẩn là tiền tố liên hợp của chuẩn. Trên thực tế, bằng cách hoàn thành bình phương (một phép tính khá tẻ nhạt mà chúng ta sẽ bỏ qua), chúng ta có thể tìm được công thức cụ thể cho phân phối hậu nghiệm của  $\\theta$ :\r
-\r
- \r
-\r
- $$\\theta|Y=y\\sim\\mathcal{N}\\left(\\frac{\\frac{1}{\\sigma^{2}}}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}y+\\frac{\\frac{1}{\\tau^{2}}}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}\\mu,\\frac{1}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}\\right).$$ \r
-\r
- \r
-\r
-Hãy thử hiểu công thức này.\r
-\r
-- Nó nói rằng kỳ vọng hậu nghiệm của  $\\theta$ ,  $E(\\theta|Y = y)$ , là một trung bình có trọng số của kỳ vọng trước đây  $\\mu$  và dữ liệu quan sát  $y$ . Các trọng số được xác định bởi mức độ chắc chắn về  $\\theta$  trước khi có dữ liệu và độ chính xác của dữ liệu. Nếu chúng ta đã rất chắc chắn về  $\\theta$  ngay cả trước khi có dữ liệu, thì  $\\tau^2$  sẽ nhỏ và  $1/\\tau^2$  sẽ lớn, điều này sẽ cho trọng số lớn cho kỳ vọng trước đây  $\\mu$ . Ngược lại, nếu dữ liệu rất chính xác, thì  $\\sigma^2$  sẽ nhỏ và  $1/\\sigma^2$  sẽ lớn, điều này sẽ cho trọng số lớn cho dữ liệu  $y$ .\r
-\r
-● Đối với phương sai hậu nghiệm, nếu ta định nghĩa độ chính xác là nghịch đảo của phương sai, thì kết quả đơn giản nói rằng độ chính xác hậu nghiệm của  $\\theta$  là tổng của độ chính xác trước đây  $1/\\tau^{2}$  và độ chính xác dữ liệu  $1/\\sigma^{2}$ .\r
-\r
-Đây là điều tốt, nhưng hãy giả sử rằng chúng ta không biết cách hoàn thành bình phương, hoặc rằng chúng ta muốn kiểm tra lại các phép tính cho các giá trị cụ thể của  $y, \\sigma^{2}, \\mu$ , và  $\\tau^{2}$ . Chúng ta có thể làm điều này bằng cách mô phỏng từ phân phối hậu nghiệm của  $\\theta$ , sử dụng thuật toán Metropolis-Hastings để xây dựng một chuỗi Markov có phân phối ổn định là  $f_{\\theta|Y}(\\theta|y)$ . Phương pháp này cũng có thể được áp dụng cho một loạt các phân phối phức tạp hơn nhiều so với chuẩn, mà khó xử lý bằng phương pháp phân tích. Một thuật toán Metropolis-Hastings để tạo ra  $\\theta_{0}, \\theta_{1}, \\ldots$  như sau.\r
-\r
-1. Nếu  $\\theta_n = x$ , đề xuất một trạng thái mới  $x'$  theo một quy tắc chuyển tiếp nào đó. Một cách để thực hiện điều này trong không gian trạng thái liên tục là tạo ra một biến ngẫu nhiên chuẩn  $\\epsilon_n$  có kỳ vọng bằng 0 và cộng nó vào trạng thái hiện tại để nhận được trạng thái đề xuất: nói cách khác, ta tạo ra  $\\epsilon_n \\sim \\mathcal{N}(0, d^2)$  với một hằng số d nào đó, và sau đó đặt  $x' = x + \\epsilon_n$ . Điều này tương đương với ma trận chuyển tiếp trong không gian trạng thái liên tục. Chi tiết duy nhất còn lại là việc quyết định d; trong thực tế, chúng ta cố gắng chọn một giá trị vừa phải mà không quá lớn hay quá nhỏ.\r
-\r
-2. Xác suất chấp nhận là\r
-\r
- \r
-\r
- $$a(x,x^{\\prime})=\\min\\left(\\frac{s(x^{\\prime})p(x^{\\prime},x)}{s(x)p(x,x^{\\prime})},1\\right),$$ \r
-\r
- \r
-\r
-trong đó  $s$  là PDF dừng mong muốn (đây là PMF trong trường hợp rời rạc) và  $p(x, x')$  là mật độ xác suất của việc đề xuất  $x'$  từ  $x$  (đây là  $p_{ij}$  trong trường hợp rời rạc).\r
-\r
-Trong bài toán này, chúng ta muốn PDF dừng là  $f_{\\theta|Y}$ , vì vậy ta sẽ sử dụng điều này cho  $s$ . Về phần  $p(x, x')$ , việc đề xuất  $x'$  từ  $x$  giống như có  $\\epsilon_n = x' - x$ , do đó ta đánh giá mật độ xác suất của  $\\epsilon_n$  tại  $x' - x$  để nhận được\r
-\r
- \r
-\r
- $$p(x,x^{\\prime})=\\frac{1}{\\sqrt{2\\pi}d}e^{-\\frac{1}{2d^{2}}(x^{\\prime}-x)^{2}}.$$ \r
-\r
- \r
-\r
-Tuy nhiên, vì  $p(x', x) = p(x, x')$ , các thuật ngữ này triệt tiêu trong xác suất chấp nhận, để lại cho chúng ta\r
-\r
- \r
-\r
- $$a(x,x^{\\prime})=\\min\\left(\\frac{f_{\\theta|Y}(x^{\\prime}|y)}{f_{\\theta|Y}(x|y)},1\\right).$$ \r
-\r
- \r
-\r
-Lại một lần nữa, hằng số chuẩn hóa triệt tiêu trong tử số và mẫu số của xác suất chấp nhận.\r
-\r
-3. Đánh một đồng xu mà có xác suất rơi mặt Ngửa là  $a(x, x')$ , độc lập với chuỗi Markov.\r
-\r
-4. Nếu đồng xu rơi mặt Ngửa, chấp nhận đề xuất và đặt  $\\theta_{n+1} = x'$ . Ngược lại, ở lại nguyên chỗ và đặt  $\\theta_{n+1} = x$ .\r
-\r
-Chúng tôi đã chạy thuật toán với  $10^4$  lần lặp với các thiết lập  $Y = 3$ ,  $\\mu = 0$ ,  $\\sigma^2 = 1$ ,  $\\tau^2 = 4$ , và  $d = 1$ . Hình 12.2 cho thấy một biểu đồ tần suất của các mẫu thu được từ phân phối hậu nghiệm của  $\\theta$ . Phân phối hậu nghiệm thực sự trông giống như một đường cong chuẩn. Chúng ta có thể ước lượng kỳ vọng và phương sai của phân phối hậu nghiệm bằng trung bình mẫu và phương sai mẫu. Với các mẫu mà chúng tôi đã thu được, trung bình mẫu là 2.4 và phương sai mẫu là 0.8. Những giá trị này phù hợp gần đúng với các giá trị lý thuyết:\r
-\r
- \r
-\r
- $$E(\\theta|Y=3)=\\frac{\\frac{1}{\\sigma^{2}}}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}y+\\frac{\\frac{1}{\\tau^{2}}}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}\\mu=\\frac{1}{1+\\frac{1}{4}}\\cdot3+\\frac{\\frac{1}{4}}{1+\\frac{1}{4}}\\cdot0=2.8,$$ \r
-\r
- \r
-\r
- \r
-\r
- $$\\mathrm{Var}(\\theta|Y=3)=\\frac{1}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}=\\frac{1}{1+\\frac{1}{4}}=0.8.$$ \r
-\r
-\r
-\r
-Điểm trung bình sau là gần hơn với dữ liệu quan sát hơn là với điểm trung bình trước, điều này hợp lý vì  $\\tau^{2}$  lớn hơn  $\\sigma^{2}$ , tương ứng với một mức độ không chắc chắn trước tương đối cao. Sử dụng mã được cung cấp trong phần R của chương này, bạn có thể thấy cách phân phối hậu nghiệm thay đổi cho các giá trị khác nhau của y,  $\\mu$ ,  $\\sigma^{2}$ , và  $\\tau^{2}$ .\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_309_366_1065_799.jpg" alt="Image" width="54%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 12.2</div>\r
-\r
-\r
-<div style="text-align: center;">Biểu đồ tần suất của  $10^4$  mẫu được lấy từ phân phối hậu nghiệm của  $\\theta$  cho  $Y = 3$ , được thực hiện bằng phương pháp Metropolis-Hastings với  $\\mu = 0$ ,  $\\sigma^2 = 1$ , và  $\\tau^2 = 4$ . Giá trị trung bình mẫu là 2.4 và phương sai mẫu là 0.8, phù hợp với các giá trị lý thuyết.</div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_170_1080_524_1428.jpg" alt="Image" width="25%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_522_1082_875_1428.jpg" alt="Image" width="25%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_875_1083_1224_1426.jpg" alt="Image" width="24%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 12.3</div>\r
-\r
-\r
-<div style="text-align: center;">Đồ thị quỹ đạo của  $\\theta_{n}$  theo số lần lặp n, cho  $d = 100, 1, 0.01$ .</div>\r
-\r
-\r
-Để giúp chẩn đoán xem chuỗi Markov của chúng ta có đang khám phá đủ không gian trạng thái hay không, chúng ta có thể tạo một đồ thị quỹ đạo, đó là một đồ thị của các mẫu  $\\theta_n$  theo  $n$ . Hình 12.3 cho thấy ba đồ thị quỹ đạo tương ứng với ba lựa chọn khác nhau cho độ lệch chuẩn  $d$  của các đề xuất, cụ thể là  $d = 100$ ,  $d = 1$ , và  $d = 0.01$ . Đồ thị quỹ đạo cho  $d = 100$  có nhiều khu vực phẳng nơi chuỗi đang ở yên tại chỗ. Điều này cho thấy rằng  $d$  quá lớn, do đó các đề xuất thường bị từ chối. Về phía ngược lại,  $d = 0.01$  quá nhỏ; chúng ta có thể thấy từ đồ thị quỹ đạo rằng chuỗi tiến hành với những bước nhỏ\r
-\r
-Các bước và không thể di chuyển rất xa từ điểm bắt đầu. Đồ thị đường đi cho  $d=1$  là đúng, thể hiện neither tỷ lệ chấp nhận thấp của chuỗi  $d=100$ , nor sự di chuyển bị giới hạn của chuỗi  $d=0.01$ .\r
-\r
-Trong ví dụ này, phân phối hậu nghiệm của  $\\theta$  có sẵn một cách phân tích, vì vậy chúng tôi đã sử dụng MCMC cho mục đích minh họa, để cho thấy rằng kết quả được thu được bằng MCMC phù hợp với các đối ứng lý thuyết của chúng. Nhưng cùng kỹ thuật này cũng áp dụng trong các bài toán nơi tiền tố không liên hợp và hậu nghiệm không phải là phân phối có tên. ☐`,Tz=`Mẫu Gibbs là một thuật toán MCMC để có được các mẫu gần đúng từ một phân phối chung, dựa trên việc lấy mẫu từ các phân phối điều kiện một tại một thời điểm: tại mỗi giai đoạn, một biến được cập nhật (giữ nguyên tất cả các biến khác) bằng cách lấy mẫu từ phân phối điều kiện của biến đó cho tất cả các biến khác. Phương pháp này đặc biệt hữu ích trong các bài toán nơi các phân phối điều kiện dễ làm việc.\r
-\r
-Đầu tiên chúng ta sẽ đi qua cách mẫu Gibbs hoạt động trong trường hợp song biến, nơi phân phối dừng mong muốn là phân phối PMF chung của các biến ngẫu nhiên rời rạc X và Y. Có nhiều dạng khác nhau của mẫu Gibbs, tùy thuộc vào thứ tự cập nhật được thực hiện. Chúng ta sẽ giới thiệu hai loại chính của mẫu Gibbs: quét có hệ thống, trong đó các cập nhật quét qua các thành phần theo thứ tự xác định, và quét ngẫu nhiên, trong đó một thành phần được chọn ngẫu nhiên để cập nhật tại mỗi giai đoạn.\r
-\r
-Thuật toán 12.2.1 (Mẫu Gibbs quét có hệ thống). Cho X và Y là các biến ngẫu nhiên rời rạc với PMF chung  $p_{X,Y}(x,y) = P(X = x,Y = y)$ . Chúng ta mong muốn xây dựng một chuỗi Markov hai chiều  $(X_n, Y_n)$  với phân phối dừng là  $p_{X,Y}$ . Mẫu Gibbs quét có hệ thống tiến hành bằng cách cập nhật thành phần X và thành phần Y theo luân phiên. Nếu trạng thái hiện tại là  $(X_n, Y_n) = (x_n, y_n)$ , thì chúng ta cập nhật thành phần X trong khi giữ nguyên thành phần Y, và sau đó cập nhật thành phần Y trong khi giữ nguyên thành phần X:\r
-\r
-1. Lấy mẫu  $x_{n+1}$  từ phân phối điều kiện của X cho  $Y = y_{n}$ , và đặt  $X_{n+1} = x_{n+1}$ .\r
-\r
-2. Lấy mẫu  $y_{n+1}$  từ phân phối điều kiện của Y cho  $X = x_{n+1}$ , và đặt  $Y_{n+1} = y_{n+1}$ .\r
-\r
-Tiếp tục lặp lại các bước 1 và 2 liên tục, phân phối dừng của chuỗi  $(X_{0}, Y_{0}), (X_{1}, Y_{1}), (X_{2}, Y_{2}), \\ldots$  là  $p_{X,Y}$ .\r
-\r
-Thuật toán 12.2.2 (Mẫu Gibbs quét ngẫu nhiên). Như trên, cho X và Y là các biến ngẫu nhiên rời rạc với PMF chung  $p_{X,Y}(x,y)$ . Chúng ta mong muốn xây dựng một chuỗi hai chiều\r
-\r
-Markov chuỗi  $(X_{n}, Y_{n})$  có phân phối dừng là  $p_{X,Y}$ . Mỗi bước của random scan Gibbs sampler chọn một thành phần ngẫu nhiên và cập nhật nó, theo phân phối điều kiện dựa trên thành phần còn lại:\r
-\r
-1. Chọn thành phần nào để cập nhật, với xác suất bằng nhau.\r
-\r
-2. Nếu thành phần X được chọn, lấy một giá trị  $x_{n+1}$  từ phân phối điều kiện của X cho  $Y = y_n$ , và đặt  $X_{n+1} = x_{n+1}, Y_{n+1} = y_n$ . Tương tự, nếu thành phần Y được chọn, lấy một giá trị  $y_{n+1}$  từ phân phối điều kiện của Y cho  $X = x_n$ , và đặt  $X_{n+1} = x_n, Y_{n+1} = y_{n+1}$ .\r
-\r
-Tiếp tục lặp lại các bước 1 và 2, phân phối dừng của chuỗi  $(X_{0}, Y_{0}), (X_{1}, Y_{1}), (X_{2}, Y_{2}), \\ldots$  là  $p_{X,Y}$ .\r
-\r
-Gibbs sampling có thể mở rộng tự nhiên đến chiều cao hơn. Nếu chúng ta muốn lấy mẫu từ một phân phối chung d-chiều, chuỗi Markov mà chúng ta xây dựng sẽ là một chuỗi các vector ngẫu nhiên d-chiều. Tại mỗi bước, chúng ta chọn một thành phần của vector để cập nhật, và lấy mẫu từ phân phối điều kiện của thành phần đó dựa trên các giá trị gần nhất của các thành phần khác. Chúng ta có thể duyệt các thành phần theo thứ tự hệ thống, hoặc chọn một thành phần ngẫu nhiên để cập nhật mỗi lần.\r
-\r
-Gibbs sampler ít linh hoạt hơn thuật toán Metropolis-Hastings vì chúng ta không được chọn phân phối đề xuất; điều này cũng làm cho nó đơn giản hơn vì chúng ta không cần chọn phân phối đề xuất. Các phiên bản của Gibbs và Metropolis-Hastings khác nhau rất nhiều, ở chỗ Gibbs nhấn mạnh các phân phối điều kiện trong khi Metropolis-Hastings nhấn mạnh xác suất chấp nhận. Tuy nhiên, các thuật toán này có liên hệ chặt chẽ, như chúng ta sẽ trình bày dưới đây.\r
-\r
-Định lý 12.2.3 (Random scan Gibbs như Metropolis-Hastings). Random scan Gibbs sampler là một trường hợp đặc biệt của thuật toán Metropolis-Hastings, trong đó đề xuất luôn được chấp nhận. Đặc biệt, điều này dẫn đến phân phối dừng của random scan Gibbs sampler là như mong muốn.\r
-\r
-Chứng minh. Chúng ta sẽ chứng minh trong hai chiều, nhưng chứng minh tương tự trong bất kỳ chiều nào. Gọi X và Y là các biến ngẫu nhiên rời rạc có phân phối xác suất đồng thời là phân phối dừng mong muốn. Hãy xác định điều gì thuật toán Metropolis-Hastings sẽ làm, sử dụng phân phối đề xuất sau: từ  $(x, y)$ , ngẫu nhiên cập nhật một tọa độ bằng cách thực hiện một bước của random scan Gibbs sampler.\r
-\r
-Để đơn giản hóa ký hiệu, viết\r
-\r
- \r
-\r
- $$P(X=x,Y=y)=p(x,y),P(Y=y|X=x)=p(y|x),P(X=x|Y=y)=p(x|y).$$ \r
-\r
- \r
-\r
-Một cách chính thức hơn, chúng ta nên viết  $p_{Y|X}(y|x)$  thay vì  $p(y|x)$ , để tránh các vấn đề như thắc mắc  $p(5|3)$  nghĩa là gì. Nhưng viết  $p(y|x)$  ngắn gọn hơn và không gây mâu thuẫn trong chứng minh này.\r
-\r
-Hãy tính xác suất chấp nhận của Metropolis-Hastings khi chuyển từ  $(x, y)$ \r
-\r
-đến  $(x', y')$ . Các trạng thái  $(x, y)$  và  $(x', y')$  phải bằng nhau ít nhất ở một thành phần, vì đề xuất nói rằng chỉ cập nhật một thành phần. Giả sử rằng  $x = x'$  (trường hợp  $y = y'$  có thể xử lý một cách đối xứng). Khi đó xác suất chấp nhận là\r
-\r
- \r
-\r
- $$\\frac{p(x,y^{\\prime})p(y|x)^{\\frac{1}{2}}}{p(x,y)p(y^{\\prime}|x)^{\\frac{1}{2}}}=\\frac{p(x)p(y^{\\prime}|x)p(y|x)}{p(x)p(y|x)p(y^{\\prime}|x)}=1.$$ \r
-\r
- \r
-\r
-Do đó, thuật toán Metropolis-Hastings này luôn chấp nhận đề xuất! Vì vậy, nó chỉ là chạy bộ lọc Gibbs quét ngẫu nhiên mà không thay đổi gì.\r
-\r
-Hãy nghiên cứu một số ví dụ cụ thể về bộ lọc Gibbs.\r
-\r
-Ví dụ 12.2.4 (Đánh màu đồ thị). G là một mạng (còn gọi là đồ thị): có n nút, và với mỗi cặp nút khác nhau, có thể có hoặc không có cạnh nối chúng. Chúng ta có một tập hợp k màu, ví dụ, nếu k = 7, tập hợp màu có thể là {đỏ, cam, vàng, xanh lá, xanh, tím, hồng}. Một k-coloring của mạng là một cách gán màu cho mỗi nút, sao cho hai nút được nối bằng cạnh không thể có cùng màu. Ví dụ, một 3-coloring của một mạng được minh họa dưới đây. Việc đánh màu đồ thị là một chủ đề quan trọng trong khoa học máy tính, với nhiều ứng dụng rộng rãi như lên lịch công việc và trò chơi Sudoku.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_444_912_947_1271.jpg" alt="Image" width="35%" /></div>\r
-\r
-\r
-### HÌNH 12.4\r
-\r
-Một 3-coloring của một mạng.\r
-\r
-Giả sử rằng có thể k-coloring G. Tạo một chuỗi Markov trên không gian tất cả các k-colorings của G, với các chuyển tiếp như sau: bắt đầu với một k-coloring của G, chọn một nút ngẫu nhiên, xác định các màu hợp lệ cho nút đó, và sau đó sơn lại nút đó với một màu hợp lệ ngẫu nhiên (lưu ý rằng màu ngẫu nhiên này có thể giống với màu hiện tại). Chứng minh rằng chuỗi Markov này là thuận nghịch, và tìm phân bố dừng của nó.\r
-\r
-## Giải pháp:\r
-\r
-Cho  $C$  là tập hợp tất cả các  $k$ -colorings của  $G$ , và cho  $q_{ij}$  là xác suất chuyển tiếp của việc chuyển từ  $i$  sang  $j$  cho bất kỳ các  $k$ -colorings  $i$  và  $j$  nào trong  $C$ . Chúng ta sẽ chứng minh rằng  $q_{ij} = q_{ji}$ , điều này cho thấy phân bố dừng là đều trên  $C$ .\r
-\r
-Với mọi màu sắc k màu i và nút v, cho  $L(i,v)$  là số màu hợp lệ cho nút  $v$ , giữ nguyên màu sắc của tất cả các nút khác như trong i. Nếu k-màu i và j khác nhau tại hơn một nút, thì  $q_{ij}=0=q_{ji}$ . Nếu i=j, thì rõ ràng  $q_{ij}=q_{ji}$ . Nếu i và j khác nhau tại đúng một nút v, thì  $L(i,v)=L(j,v)$ , do đó\r
-\r
- \r
-\r
- $$q_{i j}=\\frac{1}{n}\\frac{1}{L(i,v)}=\\frac{1}{n}\\frac{1}{L(j,v)}=q_{j i}.$$ \r
-\r
- \r
-\r
-Vậy ma trận chuyển là đối xứng, điều này cho thấy phân phối dừng là đều trên không gian trạng thái.\r
-\r
-Làm thế nào đây là một ví dụ về Gibbs sampling? Hãy xem mỗi nút trong đồ thị như một biến ngẫu nhiên rời rạc có thể nhận k giá trị có thể. Những nút này có một phân phối chung, và ràng buộc rằng các nút liên kết không thể có cùng màu tạo ra một cấu trúc phụ thuộc phức tạp giữa các nút.\r
-\r
-Chúng ta muốn lấy mẫu một màu k màu ngẫu nhiên của toàn bộ đồ thị; nói cách khác, chúng ta muốn rút từ phân phối chung của tất cả các nút. Vì điều này khó khăn, chúng ta thay vào đó điều kiện hóa trên tất cả các nút ngoại trừ một nút. Nếu phân phối chung cần đều trên tất cả các đồ thị hợp lệ, thì phân phối điều kiện của một nút cho tất cả các nút khác là đều trên các màu hợp lệ của nó. Do đó, ở mỗi bước của thuật toán, chúng ta đang lấy mẫu từ phân phối điều kiện của một nút cho tất cả các nút khác: chúng ta đang chạy một Gibbs sampler ngẫu nhiên quét!\r
-\r
-<div style="text-align: center;">Ví dụ 12.2.5 (Đu đủ của Darwin). Khi Charles Darwin đến hòn đảo Galápagos, ông đã ghi lại một số loài chim đu đủ mà ông quan sát trên mỗi hòn đảo. Bảng 12.1 tóm tắt dữ liệu của Darwin, với mỗi hàng tương ứng với một loài và mỗi cột tương ứng với một hòn đảo. Sự hiện diện của một giá trị 1 ở ô  $(i,j)$  của bảng cho thấy loài i đã được quan sát trên hòn đảo j.</div>\r
-\r
-\r
-\r
-<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>Loài</td><td colspan="3">Hòn đảo</td></tr></table>\r
-\r
-### BẢNG 12.1\r
-\r
-Sự hiện diện của 13 loài chim đu đủ (hàng) trên 17 hòn đảo (cột). Một giá trị 1 ở ô  $(i,j)$  cho biết loài i đã được quan sát trên hòn đảo j. Dữ liệu được lấy từ Sanderson [22].\r
-\r
-Dựa vào những dữ liệu này, chúng ta có thể quan tâm đến việc biết liệu mẫu 0's và 1's quan sát được trong bảng có phải là bất thường theo một cách nào đó hay không. Ví dụ, liệu có vẻ như có sự phụ thuộc giữa các hàng và cột không? Liệu có một số cặp loài thường xuyên xuất hiện cùng nhau trên cùng một hòn đảo, tần suất cao hơn so với điều mong đợi do ngẫu nhiên? Những mẫu này có thể làm sáng tỏ động lực của sự hợp tác hoặc cạnh tranh giữa các loài. Một cách để kiểm tra các mẫu như vậy là xem xét nhiều bảng ngẫu nhiên với cùng tổng hàng và tổng cột như bảng quan sát, để xem bảng quan sát so sánh như thế nào với các bảng ngẫu nhiên. Đây là một kỹ thuật phổ biến trong thống kê được gọi là kiểm định phù hợp.\r
-\r
-Nhưng làm thế nào để tạo ra các bảng ngẫu nhiên với cùng tổng hàng và tổng cột như Bảng 12.1? Số lượng bảng thỏa mãn các ràng buộc này là không thể liệt kê được. MCMC đến cứu rỗi: chúng ta sẽ tạo ra một chuỗi Markov trên không gian của tất cả các bảng với các tổng hàng và tổng cột này, mà phân bố dừng là đều trên tất cả các bảng như vậy.\r
-\r
-Để xây dựng chuỗi Markov, chúng ta cần một cách để chuyển từ một bảng này sang bảng khác mà không thay đổi tổng hàng hoặc tổng cột. Bắt đầu từ bảng quan sát, chọn ngẫu nhiên hai hàng và hai cột. Nếu bốn ô ở giao điểm của chúng có một trong hai mẫu sau:\r
-\r
- \r
-\r
- $$\\begin{array}{ccc}{{{0}}}&{{{1}}} \\\\{{{1}}}&{{{0}}} \\\\\\end{array}\\quad or\\quad\\begin{array}{ccc}{{{1}}}&{{{0}}} \\\\{{{0}}}&{{{1}}} \\\\\\end{array}$$ \r
-\r
- \r
-\r
-thì chuyển sang mẫu ngược lại với xác suất 1/2; ngược lại thì giữ nguyên. Ví dụ, nếu chúng ta chọn hàng 1 và 3 và cột 1 và 17, chúng ta sẽ chuyển đổi bốn ô ở giao điểm của chúng từ  $\\frac{0}{1}$  sang  $\\frac{1}{0}$  với xác suất 1/2. Đây là một quy tắc chuyển đổi đối xứng (với mọi bảng t và  $t'$ , xác suất chuyển từ t sang  $t'$  bằng xác suất chuyển từ  $t'$  sang t), các chuyển đổi không bao giờ thay đổi tổng hàng hoặc tổng cột, và có thể chứng minh rằng chuỗi Markov được định nghĩa theo cách này là không thể phân tách được. Do đó, phân bố dừng là đều trên tất cả các bảng với các tổng hàng và tổng cột đã cho, như mong muốn.\r
-\r
-Để diễn giải quy trình này như một mẫu Gibbs, hãy xem xét điều kiện hóa trên tất cả các ô trong bảng trừ bốn ô ở giao điểm của hàng 1 và 3 và cột 1 và 17. Nếu phân bố dừng phải là đều trên tất cả các bảng với các tổng hàng và tổng cột đã cho, thì phân bố điều kiện của bốn ô này phải là đều trên tất cả các cấu hình không thay đổi tổng hàng hoặc tổng cột, tức là  $\\frac{0}{10}^{1}$  và  $\\frac{1}{0}^{0}$ . Do đó, ở mỗi bước, chúng ta đang lấy mẫu từ phân bố điều kiện của bốn ô cho tất cả các ô còn lại.\r
-\r
-Tương tự như Metropolis-Hastings, mẫu Gibbs cũng áp dụng cho các phân bố liên tục, thay thế phân bố xác suất rời rạc bằng phân bố mật độ xác suất.\r
-\r
-Ví dụ 12.2.6 (Chicken-egg với tham số chưa biết). Một con gà đẻ N trứng, nơi  $N \\sim \\text{Pois}(\\lambda)$ . Mỗi trứng nở với xác suất p, nơi p là chưa biết; chúng ta để  $p \\sim \\text{Beta}(a, b)$ . Các hằng số  $\\lambda$ , a, b là đã biết.\r
-\r
-Đây là vấn đề: chúng ta không thể quan sát được N. Thay vào đó, chúng ta chỉ quan sát số\r
-\r
-Của trứng mà nở, X. Mô tả cách sử dụng mẫu Gibbs để tìm  $E(p|X = x)$ , kỳ vọng của p sau khi quan sát x trứng nở.\r
-\r
-Giải pháp:\r
-\r
-Theo câu chuyện gà - trứng, phân phối của X cho trước p là Pois(  $\\lambda p$ ). Hàm mật độ xác suất hậu nghiệm của p tỉ lệ với\r
-\r
- \r
-\r
- $$f(p|X=x)\\propto P(X=x|p)f(p)\\propto e^{-\\lambda p}(\\lambda p)^{x}p^{a-1}q^{b-1},$$ \r
-\r
- \r
-\r
-trong đó chúng ta đã bỏ qua tất cả các hạng tử không phụ thuộc vào p.\r
-\r
-Điều này không phải là một phân phối có tên, do đó có thể dường như chúng ta bị bế tắc, nhưng chúng ta có thể thoát khỏi tình huống này bằng cách suy nghĩ điều kiện. Chúng ta muốn biết điều gì? Tổng số trứng! Điều kiện trên việc quan sát N = n và biết giá trị thực của p, phân phối của X sẽ là  $\\text{Bin}(n, p)$ . Bằng cách điều kiện trên tổng số trứng, chúng ta phục hồi tính liên hợp Beta-Binomial giữa p và X. Điều này cho phép chúng ta viết ngay phân phối hậu nghiệm bằng cách sử dụng Câu chuyện 8.3.3:\r
-\r
- \r
-\r
- $$p|X=x,N=n\\sim\\mathrm{Beta}(x+a,n-x+b).$$ \r
-\r
- \r
-\r
-Sự thật rằng điều kiện trên N làm mọi thứ trở nên dễ dàng hơn thúc đẩy chúng ta sử dụng mẫu Gibbs để giải quyết bài toán. Chúng ta luân phiên lấy mẫu từ p điều kiện trên N và lấy mẫu từ N điều kiện trên p, như được mô tả dưới đây. Trong suốt quá trình, chúng ta cũng phải điều kiện trên X = x, vì chúng ta muốn tìm hiểu về các phân phối hậu nghiệm của các tham số điều kiện trên bằng chứng.\r
-\r
-Chúng ta đưa ra một giả định ban đầu cho p và N, sau đó lặp lại các bước sau:\r
-\r
-1. Điều kiện trên  $N = n$  và  $X = x$ , lấy mẫu một giá trị mới cho  $p$  từ phân phối  $\\mathrm{Beta}(x + a, n - x + b)$ .\r
-\r
-2. Điều kiện trên p và  $X = x$ , số lượng trứng chưa nở là  $Y \\sim \\mathrm{Pois}(\\lambda(1 - p))$  theo câu chuyện gà - trứng, do đó chúng ta có thể lấy mẫu  $Y$  từ phân phối  $\\mathrm{Pois}(\\lambda(1 - p))$  và đặt giá trị mới cho N là  $N = x + Y$ .\r
-\r
-Sau nhiều lần lặp, chúng ta có các mẫu cho cả p và N. Nếu muốn, chúng ta có thể bỏ qua các mẫu của N, vì N chỉ là một công cụ để giúp chúng ta lấy mẫu p. Nhưng vì vui, chúng ta sẽ vẽ cả hai: Hình 12.5 cho thấy các histogram của các mẫu hậu nghiệm của p và N khi  $\\lambda = 10$ , a = b = 1 (tương ứng với một phân phối prior Unif(0,1) trên p), và chúng ta quan sát X = 7 trứng nở.\r
-\r
-Về kỳ vọng hậu nghiệm  $E(p|X = x)$  ban đầu được yêu cầu trong bài toán, chúng ta có thể lấy trung bình mẫu của các mẫu p để có một ước lượng tốt. Trong trường hợp này, trung bình mẫu là 0.68. Sử dụng mã cung cấp trong phần R của chương này, bạn có thể thử thay đổi các giá trị của  $\\lambda$ , a, b, và x để xem các histogram và kỳ vọng hậu nghiệm bị ảnh hưởng như thế nào. Chiến lược chính cho bài toán này là thêm số lượng trứng chưa quan sát N vào mô hình, như vậy chúng ta sẽ có các phân phối điều kiện dễ chịu và có thể sử dụng mẫu Gibbs một cách thuận tiện.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_150_145_679_683.jpg" alt="Image" width="37%" /></div>\r
-\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_699_145_1216_680.jpg" alt="Image" width="36%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 12.5</div>\r
-\r
-\r
-<div style="text-align: center;">Biểu đồ tần suất của  $10^{4}$  mẫu được lấy từ phân phối hậu nghiệm của p và N, nơi  $\\lambda = 10$ , a = 1, b = 1, và chúng ta quan sát X = 7.</div>`,Ez=`Kỹ thuật Monte Carlo chuỗi Markov cho phép chúng ta lấy mẫu từ các phân phối phức tạp bằng cách sử dụng chuỗi Markov. MCMC đã được áp dụng trong một phạm vi rất rộng các bài toán trong những năm gần đây. Ý tưởng chính đằng sau các thuật toán MCMC là xây dựng một chuỗi Markov mà phân phối dừng của nó chính là phân phối mà chúng ta muốn lấy mẫu. Sau khi chạy chuỗi Markov trong một thời gian dài, các giá trị mà chuỗi Markov nhận được có thể được sử dụng như các mẫu từ phân phối mong muốn.
+`,wz=`Thuật toán Metropolis-Hastings là một công thức tổng quát cho phép chúng ta bắt đầu với bất kỳ chuỗi Markov bất khả quy nào trên không gian trạng thái quan tâm và sau đó sửa đổi nó thành một chuỗi Markov mới có phân phối dừng mong muốn. Sự sửa đổi này bao gồm việc giới thiệu một số chọn lọc trong chuỗi gốc: các bước được đề xuất theo chuỗi gốc, nhưng đề xuất có thể được chấp nhận hoặc không. Ví dụ, giả sử chuỗi gốc đang ở trạng thái được gọi là "Boston" và sắp chuyển sang "San Francisco". Sau đó, đối với chuỗi mới, chúng ta hoặc chấp nhận đề xuất và đi đến San Francisco, hoặc từ chối đề xuất và tiếp tục ở Boston cho bước tiếp theo.
+
+Với một lựa chọn cẩn thận của xác suất chấp nhận đề xuất, sự sửa đổi đơn giản này đảm bảo rằng chuỗi mới có phân bố dừng mong muốn.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Thuật toán 12.1.1</div>
+    <div class="math-box-title">Metropolis-Hastings</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $\\mathbf{s} = (s_1, \\ldots, s_M)$ là phân bố dừng mong muốn trên không gian trạng thái $\\{1, \\ldots, M\\}$. Giả sử rằng $s_i > 0$ với mọi $i$ (nếu không, chỉ cần xóa các trạng thái $i$ với $s_i = 0$ khỏi không gian trạng thái). Giả sử rằng $P = (p_{ij})$ là ma trận chuyển trạng thái cho một chuỗi Markov trên không gian trạng thái $\\{1, \\ldots, M\\}$. Về mặt trực quan, $P$ là một chuỗi Markov mà chúng ta biết cách chạy nhưng không có phân bố dừng mong muốn.
+
+Mục tiêu của chúng ta là sửa đổi P để xây dựng một chuỗi Markov $X_{0}, X_{1}, \\ldots$ với phân bố dừng s. Chúng ta sẽ đưa ra một thuật toán Metropolis-Hastings cho điều này. Bắt đầu ở bất kỳ trạng thái nào $X_{0}$ (chọn ngẫu nhiên hoặc xác định), và giả sử rằng chuỗi mới đang ở trạng thái $X_{n}$. Để thực hiện một bước di chuyển của chuỗi mới, làm theo các bước sau.
+
+1. Nếu $X_n = i$, đề xuất một trạng thái mới $j$ bằng xác suất chuyển trong hàng thứ i của ma trận chuyển trạng thái gốc $P$.
+
+2. Tính xác suất chấp nhận
+
+$$a_{ij}=\\min\\left(\\frac{s_{j}p_{ji}}{s_{i}p_{ij}},1\\right).$$
+
+3. Lật một đồng xu có xác suất rơi mặt ngửa là $a_{ij}$.
+
+4. Nếu đồng xu rơi mặt ngửa, chấp nhận đề xuất (tức là chuyển đến j), đặt $X_{n+1} = j$. Ngược lại, từ chối đề xuất (tức là ở lại i), đặt $X_{n+1} = i$.
+
+  </div>
+</div>
+
+Tức là, chuỗi Metropolis-Hastings sử dụng xác suất chuyển gốc $p_{ij}$ để đề xuất nơi đi tiếp theo, sau đó chấp nhận đề xuất với xác suất $a_{ij}$, ở lại trạng thái hiện tại nếu bị từ chối. Một khía cạnh đặc biệt tốt của thuật toán này là hằng số chuẩn hóa cho s không cần biết, vì dù sao nó cũng bị triệt tiêu trong $s_{j}/s_{i}$. Ví dụ, trong một số bài toán chúng ta có thể muốn phân bố dừng là đều trên tất cả các trạng thái (tức là $\\mathbf{s} = (1/M, 1/M, \\ldots, 1/M)$), nhưng số trạng thái M rất lớn và không biết, và sẽ là một bài toán đếm rất khó để tìm M. May mắn thay, $s_{j}/s_{i} = 1$ bất kể M, vì vậy chúng ta chỉ cần nói $\\mathbf{s} \\propto (1, 1, \\ldots, 1)$, và chúng ta có thể tính $a_{ij}$ mà không cần biết M.
+
+Các $p_{ij}$ trong mẫu số của $a_{ij}$ sẽ không bao giờ bằng 0 khi thuật toán được chạy, vì nếu $p_{ij} = 0$ thì chuỗi gốc sẽ không bao giờ đề xuất chuyển từ i sang j. Ngoài ra, nếu $p_{ii} > 0$ thì có thể đề xuất j bằng trạng thái hiện tại i; trong trường hợp này, chuỗi sẽ ở lại i bất kể đề xuất có được chấp nhận hay không. (Từ chối đề xuất ở lại i nhưng vẫn ở lại đó giống như một đứa trẻ vừa bị phạt nói “có, tôi sẽ ở trong phòng của tôi, nhưng không phải vì bạn bảo tôi phải làm vậy!”)
+
+Chúng ta sẽ chứng minh rằng chuỗi Metropolis-Hastings là thuận nghịch với phân bố dừng s.
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Thuật toán 12.1.1</div>
+  </div>
+  <div class="math-box-content">
+
+Hãy để $Q$ là ma trận chuyển tiếp của chuỗi Metropolis-Hastings. Chúng ta chỉ cần kiểm tra điều kiện thuận nghịch $s_{i}q_{ij} = s_{j}q_{ji}$ với mọi $i$ và $j$. Điều này rõ ràng khi $i = j$, do đó giả sử $i \\neq j$. Nếu $q_{ij} > 0$, thì $p_{ij} > 0$ (chuỗi không thể di chuyển từ $i$ đến $j$ nếu nó không thể đề xuất di chuyển từ $i$ đến $j$) và $p_{ji} > 0$ (ngược lại, xác suất chấp nhận sẽ bằng 0). Ngược lại, nếu $p_{ij} > 0$ và $p_{ji} > 0$, thì $q_{ji} > 0$. Do đó $q_{ij}$ và $q_{ji}$ hoặc đều bằng 0 hoặc đều khác 0. Chúng ta có thể giả sử chúng đều khác 0. Khi đó
+
+$$q_{ij}=p_{ij}a_{ij}$$
+
+vì, bắt đầu tại $i$, cách duy nhất để đến $j$ là trước tiên đề xuất làm như vậy và sau đó chấp nhận đề xuất. Trước tiên xem xét trường hợp $s_{j}p_{ji} \\leq s_{i}p_{ij}$. Chúng ta có
+
+$$a_{i j}=\\frac{s_{j}p_{j i}}{s_{i}p_{i j}},a_{j i}=1,$$
+
+Do đó
+
+$$s_{i}q_{ij}=s_{i}p_{ij}a_{ij}=s_{i}p_{ij}\\frac{s_{j}p_{ji}}{s_{i}p_{ij}}=s_{j}p_{ji}=s_{j}p_{ji}a_{ji}=s_{j}q_{ji}.$$
+
+Tương tự, nếu $s_{j}p_{ji} > s_{i}p_{ij}$, chúng ta cũng có $s_{i}q_{ij} = s_{j}q_{ji}$, bằng cách đổi vai trò của $i$ và $j$ trong tính toán trước đó. Vì điều kiện thuận nghịch được thỏa mãn, $s$ là phân phối dừng của chuỗi có ma trận chuyển tiếp $Q$.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 12.1.2</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Thuật toán Metropolis-Hastings là một cách cực kỳ tổng quát để xây dựng một chuỗi Markov với phân phối dừng mong muốn. Trong cách trình bày trên, cả $s$ và $P$ đều rất tổng quát, và không có điều gì được quy định về việc chúng có liên quan với nhau (ngoại trừ việc chúng cùng nằm trên không gian trạng thái giống nhau). Tuy nhiên, trong thực tế, việc chọn phân bố đề xuất cực kỳ quan trọng vì nó có thể tạo ra sự khác biệt lớn trong tốc độ mà chuỗi hội tụ đến phân phối dừng của nó.
+
+  </div>
+</div>
+
+Việc chọn một phân bố đề xuất tốt là một chủ đề phức tạp và sẽ không được thảo luận chi tiết ở đây. Về mặt trực quan, một phân bố đề xuất với tỷ lệ chấp nhận rất thấp sẽ chậm hội tụ (vì chuỗi sẽ hiếm khi di chuyển đến đâu). Nhưng tỷ lệ chấp nhận cao có thể không lý tưởng, vì điều này có thể cho thấy chuỗi có xu hướng đưa ra các đề xuất nhỏ, dè dặt. Trong không gian trạng thái lớn, chuỗi như vậy sẽ mất rất nhiều thời gian để khám phá toàn bộ không gian.
+
+Dưới đây là một vài ví dụ về cách thuật toán Metropolis-Hastings có thể được sử dụng để mô phỏng từ các phân bố.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 12.1.3</div>
+    <div class="math-box-title">Mô phỏng phân bố Zipf</div>
+  </div>
+  <div class="math-box-content">
+
+Hãy để $M \\geq 2$ là một số nguyên. Một biến ngẫu nhiên X có phân bố Zipf với tham số $a > 0$ nếu hàm mật độ xác suất của nó là
+
+$$P(X=k)=\\frac{1/k^{a}}{\\sum_{j=1}^{M}(1/j^{a})},$$
+
+với $k = 1, 2, \\ldots, M$ (và 0 nếu không). Phân bố này được sử dụng rộng rãi trong ngôn ngữ học để nghiên cứu tần suất các từ.
+
+Tạo một chuỗi Markov $X_0, X_1, \\ldots$ có phân phối dừng là phân bố Zipf, và sao cho $|X_{n+1} - X_n| \\leq 1$ với mọi $n$. Trả lời của bạn nên cung cấp một mô tả đơn giản, chính xác về cách mỗi bước chuyển của chuỗi được tạo ra, tức là cách chuyển từ $X_{n}$ đến $X_{n+1}$ cho mỗi n.
+
+**Giải:** Chúng ta có thể sử dụng thuật toán Metropolis-Hastings, sau khi tạo ra một phân bố đề xuất. Có nhiều phân bố đề xuất có thể, nhưng một lựa chọn đơn giản là đi bộ ngẫu nhiên trên $\\{1,2,\\ldots,M\\}$. Từ trạng thái $i$ với $i \\neq 1,i \\neq M$, chuyển đến trạng thái $i-1$ hoặc $i+1$, với xác suất $1/2$ mỗi. Từ trạng thái 1, ở lại đó hoặc chuyển đến trạng thái 2, với xác suất $1/2$ mỗi. Từ trạng thái $M$, ở lại đó hoặc chuyển đến trạng thái $M-1$, với xác suất $1/2$ mỗi. Chuỗi này được hiển thị bên dưới.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_203_562_1200_635.jpg" alt="Chuỗi đề xuất cho phân phối Zipf" style="max-width: 71%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 12.1:** Chuỗi đề xuất cho phân phối Zipf.
+</div>
+
+Gọi P là ma trận chuyển của chuỗi này. Phân phối dừng cho P là đều vì P là ma trận đối xứng, do đó Mệnh đề 11.4.3 áp dụng. Metropolis-Hastings cho phép chúng ta biến đổi P thành một chuỗi có phân phối dừng là phân phối Zipf.
+
+Gọi $X_{0}$ là bất kỳ trạng thái bắt đầu nào, và tạo ra một chuỗi $X_{0}, X_{1}, \\ldots$ như sau. Nếu chuỗi đang ở trạng thái i, thì:
+
+1. Tạo một trạng thái đề xuất j theo chuỗi đề xuất P.
+
+2. Chấp nhận đề xuất với xác suất $\\min(i^{a}/j^{a},1)$. Nếu đề xuất được chấp nhận, chuyển đến j; ngược lại, ở lại i.
+
+Chuỗi này dễ triển khai và một bước chuyển yêu cầu rất ít tính toán; lưu ý rằng hằng số chuẩn hóa $\\sum_{j=1}^{M}(1/j^{a})$ không cần thiết để chạy chuỗi.
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 12.1.4</div>
+    <div class="math-box-title">Mô phỏng Beta</div>
+  </div>
+  <div class="math-box-content">
+
+Hãy quay lại bài toán mô phỏng Beta được giới thiệu ở đầu chương. Giả sử rằng chúng ta muốn tạo ra $W \\sim \\text{Beta}(a, b)$, nhưng chúng ta không biết về lệnh $\\mathbf{r}$ beta trong R. Thay vào đó, điều chúng ta có sẵn là các biến ngẫu nhiên độc lập đồng phân phối $\\text{Unif}(0, 1)$.
+
+(a) Làm thế nào để tạo ra W chính xác nếu a và b là các số nguyên dương, bằng cách sử dụng một câu chuyện và tính phổ quát của Uniform?
+
+(b) Làm thế nào để tạo ra W gần đúng $\\mathrm{Beta}(a,b)$ nếu a và b là bất kỳ số thực dương nào, với sự giúp đỡ của một chuỗi Markov trên không gian trạng thái $(0,1)$?
+
+**Giải:** (a) Áp dụng tính phổ quát của Uniform trực tiếp cho Beta là khó, vì vậy hãy trước tiên sử dụng câu chuyện ngân hàng - văn phòng: nếu $X \\sim \\text{Gamma}(a, 1)$ và $Y \\sim \\text{Gamma}(b, 1)$ là độc lập, sau đó $X/(X + Y) \\sim \\operatorname{Beta}(a, b)$. Vậy nếu chúng ta có thể mô phỏng phân phối Gamma, thì chúng ta có thể mô phỏng phân phối Beta!
+
+Để mô phỏng $X \\sim \\text{Gamma}(a, 1)$, chúng ta có thể sử dụng $X_1 + X_2 + \\cdots + X_a$ với các $X_j$ độc lập đồng phân phối $\\text{Expo}(1)$; tương tự, chúng ta có thể mô phỏng $Y \\sim \\text{Gamma}(b, 1)$ dưới dạng tổng của $b$ biến ngẫu nhiên độc lập đồng phân phối $\\text{Expo}(1)$. Cuối cùng, bằng cách lấy nghịch đảo của hàm phân phối tích lũy (CDF) của $\\text{Expo}(1)$ và áp dụng tính phổ quát của Uniform, $-\\log(1 - U) \\sim \\text{Expo}(1)$ với $U \\sim \\text{Unif}(0, 1)$, do đó chúng ta có thể dễ dàng tạo ra bao nhiêu biến ngẫu nhiên $\\text{Expo}(1)$ tùy thích.
+
+(b) Hãy sử dụng thuật toán Metropolis-Hastings. Chúng ta chỉ đã giới thiệu Metropolis-Hastings cho không gian trạng thái hữu hạn, nhưng các ý tưởng tương tự có thể áp dụng cho không gian trạng thái vô hạn. Một chuỗi đề xuất đơn giản mà chúng ta có sẵn bao gồm các biến ngẫu nhiên độc lập Unif(0,1). Tức là, trạng thái đề xuất trên khoảng (0,1) luôn là một Unif(0,1) mới, độc lập với trạng thái hiện tại. Chuỗi Metropolis-Hastings kết quả được gọi là một mẫu độc lập.
+
+Gọi $W_{0}$ là bất kỳ trạng thái bắt đầu nào, và tạo ra một chuỗi $W_{0}, W_{1}, \\ldots$ như sau. Nếu chuỗi đang ở trạng thái w, thì:
+
+1. Tạo ra một đề xuất u bằng cách lấy một biến ngẫu nhiên Unif(0,1).
+
+2. Chấp nhận đề xuất với xác suất $\\min\\left(\\frac{u^{a-1}(1-u)^{b-1}}{w^{a-1}(1-w)^{b-1}},1\\right)$. Nếu đề xuất được chấp nhận, chuyển đến u; ngược lại, ở lại w.
+
+Lại một lần nữa, hằng số chuẩn hóa không cần thiết để chạy chuỗi. Trong việc xác định xác suất chấp nhận, mật độ xác suất Beta(a, b) đóng vai trò của s vì nó là phân phối dừng mong muốn, và mật độ xác suất Unif(0, 1) đóng vai trò của $p_{ij}$ (và $p_{ji}$) vì các đề xuất là các biến ngẫu nhiên Unif(0, 1), độc lập với trạng thái hiện tại.
+
+Chạy chuỗi Markov, ta có $W_{n}, W_{n+1}, W_{n+2}, \\ldots$ gần đúng Beta(a, b) khi n lớn. Lưu ý rằng đây là các biến ngẫu nhiên có tương quan, không phải các mẫu độc lập.
+
+  </div>
+</div>
+
+<div class="math-box remark">
+  <div class="math-box-header">
+    <div class="math-box-number">Ghi chú 12.1.5</div>
+    <div class="math-box-title">MCMC tạo ra các mẫu có tương quan</div>
+  </div>
+  <div class="math-box-content">
+
+Một câu hỏi lớn trong việc chạy một chuỗi Markov $X_{0}, X_{1}, \\ldots$ cho một tính toán Monte Carlo là cần chạy chuỗi trong thời gian bao lâu. Một phần vì thường rất khó biết được chuỗi phân phối tại thời điểm n sẽ gần đến phân phối dừng như thế nào. Một vấn đề khác là $X_{0}, X_{1}, \\ldots$ thường có tương quan. Một số chuỗi có xu hướng bị kẹt trong một số khu vực của không gian trạng thái, thay vì khám phá toàn bộ không gian. Nếu một chuỗi dễ bị kẹt, thì $X_{n}$ có thể có tương quan dương cao với $X_{n+1}$. Hệ số tự tương quan tại độ trễ k là độ tương quan giữa $X_{n}$ và giá trị k bước sau, $X_{n+k}$, trong giới hạn khi n tăng lên. Việc hệ số tự tương quan tại độ trễ k nhanh chóng tiến đến 0 khi k tăng là mong muốn. Tương quan cao thường dẫn đến phương sai cao cho các xấp xỉ Monte Carlo.
+
+  </div>
+</div>
+
+Phân tích thời gian cần chạy một chuỗi và tìm các chỉ số để xác định chuỗi đã được chạy đủ lâu là các lĩnh vực nghiên cứu đang phát triển. Một số lời khuyên chung là chạy các chuỗi trong một số bước rất lớn và thử các chuỗi bắt đầu từ nhiều điểm khác nhau để xem kết quả có ổn định như thế nào.
+
+Thành phố - Hastings thường hữu ích ngay cả với không gian trạng thái khổng lồ. Nó thậm chí có thể hữu ích cho các bài toán mà có thể không nghe như vậy ở đầu tiên rằng chúng có gì đó liên quan đến mô phỏng một phân bố, như giải mã.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 12.1.6</div>
+    <div class="math-box-title">Giải mã</div>
+  </div>
+  <div class="math-box-content">
+
+Các chuỗi Markov đã được áp dụng gần đây vào giải mã; ví dụ này sẽ giới thiệu một cách trong đó điều này có thể được thực hiện. (Để biết thêm thông tin về các ứng dụng như vậy, xem Diaconis [6] và Chen và Rosenthal [3].) Một mã thay thế là một hoán vị g của các chữ cái từ a đến z, nơi một thông điệp được mã hóa bằng cách thay thế mỗi chữ cái $\\alpha$ bằng $g(\\alpha)$. Ví dụ, nếu g là hoán vị được cho bởi
+
+abcdefghijklmnopqrstuvwxyz
+
+zyxwvutsrqponmlkjihgfedcba
+
+trong đó hàng thứ hai liệt kê các giá trị $g(a), g(b), \\ldots, g(z)$, thì chúng ta sẽ mã hóa từ "statistics" thành "hgzgrhgrxh". (Chúng ta cũng có thể bao gồm các chữ in hoa, khoảng trống và dấu câu nếu muốn.) Không gian trạng thái là tất cả $26! \\approx 4 \\cdot 10^{26}$ hoán vị của các chữ cái a đến z. Đây là một không gian cực kỳ lớn: nếu chúng ta phải thử giải mã một văn bản bằng từng hoán vị này, và có thể xử lý một hoán vị mỗi nanô giây, thì vẫn sẽ mất hơn 12 tỷ năm để thử qua tất cả các hoán vị. Do đó, một cuộc điều tra cạn kiệt đi qua từng hoán vị một cách riêng lẻ là không khả thi; thay vào đó, chúng ta sẽ xem xét các hoán vị ngẫu nhiên.
+
+(a) Xét chuỗi Markov chọn hai tọa độ ngẫu nhiên khác nhau giữa 1 và 26 và đổi chỗ các mục này của hàng thứ hai, ví dụ, nếu chúng ta chọn 7 và 20, thì abcdefghijklmnopqrstuvwxyz
+
+zyxwvutsrqponmlkjihgfedcba
+
+trở thành
+
+abcdefghijklmnopqrstuvwxyz
+
+zyxwvgsrqponmlkjhtfedcba
+
+Tìm xác suất đi từ một hoán vị g đến một hoán vị h trong một bước (với mọi g, h), và tìm phân bố dừng của chuỗi này.
+
+(b) Giả sử chúng ta có một hệ thống phân bổ một điểm số dương $s(g)$ cho mỗi hoán vị g. Về mặt trực quan, điều này có thể là một thước đo của khả năng để nhận được văn bản mã hóa quan sát, cho rằng g là mã được sử dụng. Sử dụng thuật toán Metropolis-Hastings để xây dựng một chuỗi Markov có phân bố dừng tỷ lệ với danh sách tất cả các điểm số $s(g)$.
+
+**Giải:** (a) Xác suất đi từ $g$ đến $h$ trong một bước là $0$ trừ khi $h$ có thể được đạt được từ $g$ bằng cách đổi chỗ hai mục của hàng thứ hai. Giả sử rằng $h$ có thể được đạt được theo cách này, xác suất là $\\frac{1}{\\binom{26}{2}}$, vì có $\\binom{26}{2}$ các phép đổi chỗ như vậy, tất cả đều có xác suất bằng nhau.
+
+Chuỗi Markov này là bất khả quy, vì bằng cách thực hiện đủ nhiều phép đổi chỗ, chúng ta có thể đạt từ bất kỳ hoán vị nào đến bất kỳ hoán vị nào khác. (Hình dung sắp xếp một bộ bài các lá bài bằng cách trao đổi hai lá bài một tại một thời điểm; có thể sắp xếp lại các lá bài theo bất kỳ cấu hình mong muốn nào bằng cách thực hiện điều này đủ nhiều lần.) Lưu ý rằng $p(g, h) = p(h, g)$, ở đây $p(g, h)$ là xác suất chuyển tiếp từ g đến h. Vì ma trận chuyển tiếp là đối xứng, phân bố dừng là đều trên tất cả các 26! hoán vị của các chữ cái a đến z.
+
+(b) Đối với chuỗi đề xuất của chúng ta, chúng ta sẽ sử dụng chuỗi từ (a). Bắt đầu từ bất kỳ trạng thái g nào, tạo ra một đề xuất h bằng chuỗi từ (a). Quyền chọn một đồng xu với xác suất $\\min(s(h)/s(g), 1)$ của Mặt ngửa. Nếu Mặt ngửa, đi đến h; nếu Mặt sấp, ở lại g.
+
+Để chứng minh điều này có phân bố dừng mong muốn, chúng ta có thể tham khảo chứng minh tổng quát của thuật toán 12.1.1 hoặc kiểm tra trực tiếp điều kiện thuận nghịch. Để thực hành, chúng ta sẽ làm điều thứ hai: chúng ta cần $s(g)q(g,h) = s(h)q(h,g)$ với mọi g và h, ở đây $q(g,h)$ là xác suất chuyển tiếp từ g đến h trong chuỗi đã sửa đổi. Nếu g = h hoặc $q(g,h) = 0$, thì phương trình rõ ràng đúng, do đó giả sử $g \\neq h$ và $q(g,h) \\neq 0$. Gọi $p(g,h)$ là xác suất chuyển tiếp từ (a) (đó là xác suất đề xuất h khi ở g). Trước tiên xem xét trường hợp $s(g) \\leq s(h)$. Khi đó $q(g,h) = p(g,h)$ và
+
+$$q(h,g)=p(h,g)\\frac{s(g)}{s(h)}=p(g,h)\\frac{s(g)}{s(h)}=q(g,h)\\frac{s(g)}{s(h)},$$
+
+do đó $s(g)q(g,h)=s(h)q(h,g)$. Bây giờ xem xét trường hợp rằng $s(h)<s(g)$. Bằng một lập luận đối xứng (đảo ngược vai trò của $g$ và $h$), chúng ta cũng có $s(g)q(g,h)=s(h)q(h,g)$. Do đó, xác suất dừng của $g$ tỉ lệ với điểm số của nó $s(g)$.
+
+Nói cách khác, sử dụng thuật toán Metropolis-Hastings, chúng ta bắt đầu với một chuỗi Markov có khả năng thăm tất cả các mã hóa trong dài hạn và tạo ra một chuỗi Markov có phân bố dừng sắp xếp các mã hóa theo điểm số của chúng, thăm các mã hóa tiềm năng nhất thường xuyên nhất trong dài hạn.
+
+  </div>
+</div>
+
+Dưới đây là một ví dụ khác về MCMC với không gian trạng thái khổng lồ và có vẻ như ban đầu không có nhiều liên hệ với việc mô phỏng một phân bố. Ví dụ này cho thấy rằng MCMC có thể được sử dụng không chỉ để lấy mẫu mà còn để tối ưu hóa.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 12.1.7</div>
+    <div class="math-box-title">Vấn đề balo</div>
+  </div>
+  <div class="math-box-content">
+
+Bilbo người trộm phát hiện $m$ vật phẩm quý giá trong hang của Smaug. Bilbo đang quyết định những vật phẩm nào để trộm (hoặc thu hồi một cách công bằng, tùy theo quan điểm của người xem); anh không thể mang tất cả cùng lúc, vì trọng lượng tối đa mà anh có thể mang là $w$ pound. Gán nhãn các vật phẩm từ 1 đến $m$, và giả sử rằng vật phẩm thứ $j$ có giá trị $g_j$ đồng vàng và nặng $w_j$ pound. Vì vậy, Bilbo phải chọn một vector $x = (x_1, \\ldots, x_m)$, ở đó $x_j$ là 1 nếu anh trộm vật phẩm thứ $j$ và 0 nếu không, sao cho trọng lượng tổng của các vật phẩm $j$ với $x_j = 1$ không vượt quá $w$. Gọi $C$ là không gian gồm tất cả các vector như vậy, do đó $C$ bao gồm tất cả các vector nhị phân $(x_1, \\ldots, x_m)$ với $\\sum_{j=1}^{m} x_j w_j \\leq w$.
+
+Bilbo muốn tối đa hóa giá trị tổng của vật phẩm mà anh mang theo. Việc tìm giải pháp tối ưu là một bài toán cực kỳ khó, được gọi là bài toán balo, có một lịch sử lâu đời trong khoa học máy tính. Một giải pháp brute force sẽ là hoàn toàn không khả thi trong tổng quát. Bilbo quyết định thay vào đó là khám phá không gian C bằng MCMC—may mắn thay, anh ấy mang theo một laptop chạy R.
+
+(a) Hãy xem xét chuỗi Markov sau. Bắt đầu tại $(0,0,\\ldots,0)$. Một bước của chuỗi là như sau. Giả sử trạng thái hiện tại là $x=(x_{1},\\ldots,x_{m})$. Chọn một ngẫu nhiên $J$ trong $\\{1,2,\\ldots,m\\}$, và nhận được $y$ từ $x$ bằng cách thay thế $x_{J}$ với $1-x_{J}$ (tức là bật/tắt xem tài sản đó có được lấy hay không). Nếu $y$ không thuộc $C$, ở lại tại $x$; nếu $y$ thuộc $C$, chuyển sang $y$. Chứng minh rằng phân phối đều trên $C$ là phân bố dừng cho chuỗi này.
+
+(b) Chứng minh rằng chuỗi từ (a) là không thể phân rã, và rằng nó có thể hoặc không thể là không chu kỳ (tùy thuộc vào $w, w_{1}, \\ldots, w_{m}$).
+
+(c) Chuỗi từ (a) là một cách hữu ích để nhận được gần như phân bố đều các nghiệm, nhưng Bilbo quan tâm nhiều hơn đến việc tìm các nghiệm có giá trị (theo lượng vàng) cao. Trong phần này, mục tiêu là xây dựng một chuỗi Markov có phân bố dừng đặt nhiều xác suất hơn lên bất kỳ nghiệm nào có giá trị cao hơn so với bất kỳ nghiệm nào có giá trị thấp. Cụ thể, giả sử rằng chúng ta muốn mô phỏng từ phân bố
+
+$$s(x)\\propto e^{\\beta V(x)},$$
+
+trong đó $V(x) = \\sum_{j=1}^{m} x_{j} g_{j}$ là giá trị của x theo lượng vàng và $\\beta$ là hằng số dương. Ý tưởng đằng sau phân bố này là cho xác suất tăng theo cấp số mũ cho mỗi nghiệm có giá trị cao hơn so với mỗi nghiệm có giá trị thấp. Tạo một chuỗi Markov có phân bố dừng như mong muốn.
+
+**Giải:** (a) Ma trận chuyển là đối xứng vì với $x \\neq y$, xác suất chuyển từ x đến y và từ y đến x là hoặc cả hai đều 0 hoặc cả hai đều 1/m. Vì vậy, phân bố dừng là đều trên C.
+
+(b) Chúng ta có thể đi từ bất kỳ $x \\in C$ đến $(0,0,\\ldots,0)$ bằng cách bỏ từng tài sản một lần. Chúng ta có thể đi từ $(0,0,\\ldots,0)$ đến bất kỳ $y \\in C$ bằng cách nhặt từng tài sản một lần. Kết hợp các điều này, chúng ta có thể đi từ bất cứ đâu đến bất cứ đâu, vì vậy chuỗi là không thể phân rã.
+
+Để nghiên cứu tính chu kỳ, hãy xem xét một số trường hợp đơn giản. Trước hết xem xét trường hợp đơn giản khi $w_{1} + \\cdots + w_{m} < w$, tức là Bilbo có thể mang theo tất cả tài sản cùng một lúc. Do đó, tất cả các vector nhị phân độ dài m đều được phép. Vì vậy, chu kỳ của $(0,0,\\ldots,0)$ là 2 vì, bắt đầu tại trạng thái này, Bilbo cần nhặt và sau đó bỏ một tài sản để quay lại trạng thái đó. Trên thực tế, nếu Bilbo bắt đầu tại $(0,0,\\ldots,0)$, sau bất kỳ số lần di chuyển lẻ nào, anh ấy sẽ đang mang theo một số lượng tài sản lẻ.
+
+Bây giờ xem xét trường hợp khi $w_1 > w$, tức là tài sản đầu tiên quá nặng cho Bilbo. Từ bất kỳ $x \\in C$, có xác suất $1/m$ để chuỗi cố gắng nhặt tài sản đầu tiên, và nếu điều đó xảy ra, chuỗi sẽ ở lại tại $x$. Vì vậy, chu kỳ của mỗi trạng thái là 1.
+
+(c) Chúng ta có thể áp dụng Metropolis-Hastings sử dụng chuỗi từ (a) để đưa ra các đề xuất. Bắt đầu tại $(0,0,\\ldots,0)$. Giả sử trạng thái hiện tại là $x=(x_{1},\\ldots,x_{m})$. Sau đó:
+
+1. Chọn một $J$ ngẫu nhiên đều trong $\\{1,2,\\ldots,m\\}$, và nhận được $y$ từ $x$ bằng cách thay thế $x_J$ với $1-x_J$.
+
+2. Nếu $y$ không thuộc $C$, ở lại tại $x$. Nếu $y$ thuộc $C$, tung một đồng xu mà đồng xu rơi vào Mặt trước với xác suất $\\min\\left(1,e^{\\beta(V(y)-V(x))}\\right)$. Nếu đồng xu rơi vào Mặt trước, đi đến $y$; ngược lại, ở lại tại $x$.
+
+Chuỗi này sẽ hội tụ đến phân phối dừng mong muốn. Nhưng nên chọn $\\beta$ như thế nào? Nếu $\\beta$ rất lớn, thì các giải pháp tốt nhất sẽ được gán xác suất rất cao, nhưng chuỗi có thể rất chậm hội tụ đến phân phối dừng vì nó dễ bị mắc kẹt trong các chế độ địa phương: chuỗi có thể rơi vào một trạng thái mà, mặc dù không tối ưu toàn cục, vẫn tốt hơn các trạng thái khác có thể đạt được trong một bước, và sau đó xác suất từ chối các đề xuất để đi nơi khác có thể rất cao. Về mặt khác, nếu $\\beta$ gần 0, thì chuỗi dễ dàng khám phá không gian, nhưng không có nhiều động lực cho chuỗi để khám phá các giải pháp tốt.
+
+Một kỹ thuật tối ưu hóa gọi là simulated annealing tránh phải chọn một giá trị cụ thể của $\\beta$. Thay vào đó, ta chỉ định một dãy các giá trị $\\beta$, sao cho $\\beta$ tăng dần theo thời gian. Ban đầu, $\\beta$ rất nhỏ và không gian C có thể được khám phá một cách rộng rãi. Khi $\\beta$ càng lớn hơn, phân phối dừng trở nên càng tập trung hơn vào giải pháp tốt nhất hoặc các giải pháp tốt nhất. Tên "simulated annealing" bắt nguồn từ một phép so sánh với quá trình làm lạnh kim loại, một quy trình trong đó kim loại được làm nóng đến nhiệt độ cao và sau đó được làm lạnh dần cho đến khi đạt đến trạng thái rất mạnh, ổn định; $\\beta$ tương ứng với nghịch đảo của nhiệt độ.
+
+  </div>
+</div>
+
+Như đã đề cập trong Ví dụ 12.1.4, thuật toán Metropolis-Hastings cũng có thể được áp dụng trong không gian trạng thái liên tục, sử dụng PDF thay vì PMF. Điều này cực kỳ hữu ích trong suy luận Bayesian, nơi chúng ta thường muốn nghiên cứu phân phối hậu nghiệm của một tham số chưa biết. Phân phối hậu nghiệm này có thể rất phức tạp để làm việc với bằng phân tích, và có thể có hằng số chuẩn hóa chưa biết.
+
+Phương pháp MCMC là nhận được một số lượng lớn mẫu từ một chuỗi Markov có phân phối dừng là phân phối hậu nghiệm. Chúng ta có thể sau đó sử dụng các mẫu này để xấp xỉ phân phối hậu nghiệm đúng. Ví dụ, chúng ta có thể ước lượng trung bình hậu nghiệm bằng trung bình mẫu của các mẫu này, và trung vị hậu nghiệm bằng trung vị mẫu của các mẫu.
+
+Gelman et al. [10] và McElreath [18] cung cấp các giới thiệu rộng rãi về tư duy Bayesian và phân tích dữ liệu Bayesian, với phạm vi ứng dụng rộng rãi và nhấn mạnh vào mô hình thống kê và mô phỏng. Các tài liệu bổ sung cho hai cuốn sách này có thể được tìm thấy tại http://www.stat.columbia.edu/~gelman/book và https://xcelab.net/rm/statistical-rethinking tương ứng.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 12.1.8</div>
+    <div class="math-box-title">Tính liên hợp Normal-Normal</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử $Y|\\theta \\sim \\mathcal{N}(\\theta, \\sigma^2)$, nơi $\\sigma^2$ là đã biết nhưng $\\theta$ là chưa biết. Sử dụng khung Bayesian, chúng ta xem $\\theta$ như một biến ngẫu nhiên, với phân phối tiên nghiệm được cho bởi $\\theta \\sim \\mathcal{N}(\\mu, \\tau^2)$ với một số hằng số đã biết $\\mu$ và $\\tau^2$. Nghĩa là, chúng ta có mô hình hai cấp
+
+$$\\theta\\sim\\mathcal{N}(\\mu,\\tau^{2})$$
+
+$$Y|\\theta\\sim\\mathcal{N}(\\theta,\\sigma^{2}).$$
+
+Mô tả cách sử dụng thuật toán Metropolis-Hastings để tìm kỳ vọng và phương sai hậu nghiệm của $\\theta$ sau khi quan sát giá trị của Y.
+
+**Giải:** Sau khi quan sát Y = y, chúng ta có thể cập nhật sự không chắc chắn trước đây về $\\theta$ bằng quy tắc Bayes. Vì chúng ta quan tâm đến phân phối hậu nghiệm của $\\theta$, bất kỳ các số hạng không phụ thuộc vào $\\theta$ có thể được coi là phần của hằng số chuẩn hóa. Do đó,
+
+$$f_{\\theta|Y}(\\theta|y)\\propto f_{Y|\\theta}(y|\\theta)f_{\\theta}(\\theta)\\propto e^{-\\frac{1}{2\\sigma^{2}}(y-\\theta)^{2}}e^{-\\frac{1}{2\\tau^{2}}(\\theta-\\mu)^{2}}.$$
+
+Vì chúng ta có một hàm số bậc hai của $\\theta$ trong số mũ, chúng ta nhận ra PDF hậu nghiệm của $\\theta$ là một PDF chuẩn. Phân phối hậu nghiệm vẫn thuộc họ chuẩn, điều này cho thấy rằng chuẩn là tiền tố liên hợp của chuẩn. Trên thực tế, bằng cách hoàn thành bình phương (một phép tính khá tẻ nhạt mà chúng ta sẽ bỏ qua), chúng ta có thể tìm được công thức cụ thể cho phân phối hậu nghiệm của $\\theta$:
+
+$$\\theta|Y=y\\sim\\mathcal{N}\\left(\\frac{\\frac{1}{\\sigma^{2}}}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}y+\\frac{\\frac{1}{\\tau^{2}}}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}\\mu,\\frac{1}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}\\right).$$
+
+Hãy thử hiểu công thức này.
+
+- Nó nói rằng kỳ vọng hậu nghiệm của $\\theta$, $E(\\theta|Y = y)$, là một trung bình có trọng số của kỳ vọng trước đây $\\mu$ và dữ liệu quan sát $y$. Các trọng số được xác định bởi mức độ chắc chắn về $\\theta$ trước khi có dữ liệu và độ chính xác của dữ liệu. Nếu chúng ta đã rất chắc chắn về $\\theta$ ngay cả trước khi có dữ liệu, thì $\\tau^2$ sẽ nhỏ và $1/\\tau^2$ sẽ lớn, điều này sẽ cho trọng số lớn cho kỳ vọng trước đây $\\mu$. Ngược lại, nếu dữ liệu rất chính xác, thì $\\sigma^2$ sẽ nhỏ và $1/\\sigma^2$ sẽ lớn, điều này sẽ cho trọng số lớn cho dữ liệu $y$.
+- Đối với phương sai hậu nghiệm, nếu ta định nghĩa độ chính xác là nghịch đảo của phương sai, thì kết quả đơn giản nói rằng độ chính xác hậu nghiệm của $\\theta$ là tổng của độ chính xác trước đây $1/\\tau^{2}$ và độ chính xác dữ liệu $1/\\sigma^{2}$.
+
+Đây là điều tốt, nhưng hãy giả sử rằng chúng ta không biết cách hoàn thành bình phương, hoặc rằng chúng ta muốn kiểm tra lại các phép tính cho các giá trị cụ thể của $y, \\sigma^{2}, \\mu$, và $\\tau^{2}$. Chúng ta có thể làm điều này bằng cách mô phỏng từ phân phối hậu nghiệm của $\\theta$, sử dụng thuật toán Metropolis-Hastings để xây dựng một chuỗi Markov có phân phối ổn định là $f_{\\theta|Y}(\\theta|y)$. Phương pháp này cũng có thể được áp dụng cho một loạt các phân phối phức tạp hơn nhiều so với chuẩn, mà khó xử lý bằng phương pháp phân tích. Một thuật toán Metropolis-Hastings để tạo ra $\\theta_{0}, \\theta_{1}, \\ldots$ như sau.
+
+1. Nếu $\\theta_n = x$, đề xuất một trạng thái mới $x'$ theo một quy tắc chuyển tiếp nào đó. Một cách để thực hiện điều này trong không gian trạng thái liên tục là tạo ra một biến ngẫu nhiên chuẩn $\\epsilon_n$ có kỳ vọng bằng 0 và cộng nó vào trạng thái hiện tại để nhận được trạng thái đề xuất: nói cách khác, ta tạo ra $\\epsilon_n \\sim \\mathcal{N}(0, d^2)$ với một hằng số d nào đó, và sau đó đặt $x' = x + \\epsilon_n$. Điều này tương đương với ma trận chuyển tiếp trong không gian trạng thái liên tục. Chi tiết duy nhất còn lại là việc quyết định d; trong thực tế, chúng ta cố gắng chọn một giá trị vừa phải mà không quá lớn hay quá nhỏ.
+
+2. Xác suất chấp nhận là
+
+$$a(x,x^{\\prime})=\\min\\left(\\frac{s(x^{\\prime})p(x^{\\prime},x)}{s(x)p(x,x^{\\prime})},1\\right),$$
+
+trong đó $s$ là PDF dừng mong muốn (đây là PMF trong trường hợp rời rạc) và $p(x, x')$ là mật độ xác suất của việc đề xuất $x'$ từ $x$ (đây là $p_{ij}$ trong trường hợp rời rạc).
+
+Trong bài toán này, chúng ta muốn PDF dừng là $f_{\\theta|Y}$, vì vậy ta sẽ sử dụng điều này cho $s$. Về phần $p(x, x')$, việc đề xuất $x'$ từ $x$ giống như có $\\epsilon_n = x' - x$, do đó ta đánh giá mật độ xác suất của $\\epsilon_n$ tại $x' - x$ để nhận được
+
+$$p(x,x^{\\prime})=\\frac{1}{\\sqrt{2\\pi}d}e^{-\\frac{1}{2d^{2}}(x^{\\prime}-x)^{2}}.$$
+
+Tuy nhiên, vì $p(x', x) = p(x, x')$, các thuật ngữ này triệt tiêu trong xác suất chấp nhận, để lại cho chúng ta
+
+$$a(x,x^{\\prime})=\\min\\left(\\frac{f_{\\theta|Y}(x^{\\prime}|y)}{f_{\\theta|Y}(x|y)},1\\right).$$
+
+Lại một lần nữa, hằng số chuẩn hóa triệt tiêu trong tử số và mẫu số của xác suất chấp nhận.
+
+3. Đánh một đồng xu mà có xác suất rơi mặt Ngửa là $a(x, x')$, độc lập với chuỗi Markov.
+
+4. Nếu đồng xu rơi mặt Ngửa, chấp nhận đề xuất và đặt $\\theta_{n+1} = x'$. Ngược lại, ở lại nguyên chỗ và đặt $\\theta_{n+1} = x$.
+
+Chúng tôi đã chạy thuật toán với $10^4$ lần lặp với các thiết lập $Y = 3$, $\\mu = 0$, $\\sigma^2 = 1$, $\\tau^2 = 4$, và $d = 1$. Hình 12.2 cho thấy một biểu đồ tần suất của các mẫu thu được từ phân phối hậu nghiệm của $\\theta$. Phân phối hậu nghiệm thực sự trông giống như một đường cong chuẩn. Chúng ta có thể ước lượng kỳ vọng và phương sai của phân phối hậu nghiệm bằng trung bình mẫu và phương sai mẫu. Với các mẫu mà chúng tôi đã thu được, trung bình mẫu là 2.4 và phương sai mẫu là 0.8. Những giá trị này phù hợp gần đúng với các giá trị lý thuyết:
+
+$$E(\\theta|Y=3)=\\frac{\\frac{1}{\\sigma^{2}}}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}y+\\frac{\\frac{1}{\\tau^{2}}}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}\\mu=\\frac{1}{1+\\frac{1}{4}}\\cdot3+\\frac{\\frac{1}{4}}{1+\\frac{1}{4}}\\cdot0=2.8,$$
+
+$$\\mathrm{Var}(\\theta|Y=3)=\\frac{1}{\\frac{1}{\\sigma^{2}}+\\frac{1}{\\tau^{2}}}=\\frac{1}{1+\\frac{1}{4}}=0.8.$$
+
+Điểm trung bình sau là gần hơn với dữ liệu quan sát hơn là với điểm trung bình trước, điều này hợp lý vì $\\tau^{2}$ lớn hơn $\\sigma^{2}$, tương ứng với một mức độ không chắc chắn trước tương đối cao. Sử dụng mã được cung cấp trong phần R của chương này, bạn có thể thấy cách phân phối hậu nghiệm thay đổi cho các giá trị khác nhau của y, $\\mu$, $\\sigma^{2}$, và $\\tau^{2}$.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_309_366_1065_799.jpg" alt="Biểu đồ tần suất của mẫu hậu nghiệm của theta" style="max-width: 54%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 12.2:** Biểu đồ tần suất của $10^4$ mẫu được lấy từ phân phối hậu nghiệm của $\\theta$ cho $Y = 3$, được thực hiện bằng phương pháp Metropolis-Hastings với $\\mu = 0$, $\\sigma^2 = 1$, và $\\tau^2 = 4$. Giá trị trung bình mẫu là 2.4 và phương sai mẫu là 0.8, phù hợp với các giá trị lý thuyết.
+</div>
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_170_1080_524_1428.jpg" alt="Đồ thị quỹ đạo cho d = 100" style="max-width: 25%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem; margin-right: 1rem;" /><img src="imgs/img_in_chart_box_522_1082_875_1428.jpg" alt="Đồ thị quỹ đạo cho d = 1" style="max-width: 25%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem; margin-right: 1rem;" /><img src="imgs/img_in_chart_box_875_1083_1224_1426.jpg" alt="Đồ thị quỹ đạo cho d = 0.01" style="max-width: 24%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 12.3:** Đồ thị quỹ đạo của $\\theta_{n}$ theo số lần lặp n, cho $d = 100, 1, 0.01$.
+</div>
+
+Để giúp chẩn đoán xem chuỗi Markov của chúng ta có đang khám phá đủ không gian trạng thái hay không, chúng ta có thể tạo một đồ thị quỹ đạo, đó là một đồ thị của các mẫu $\\theta_n$ theo $n$. Hình 12.3 cho thấy ba đồ thị quỹ đạo tương ứng với ba lựa chọn khác nhau cho độ lệch chuẩn $d$ của các đề xuất, cụ thể là $d = 100$, $d = 1$, và $d = 0.01$. Đồ thị quỹ đạo cho $d = 100$ có nhiều khu vực phẳng nơi chuỗi đang ở yên tại chỗ. Điều này cho thấy rằng $d$ quá lớn, do đó các đề xuất thường bị từ chối. Về phía ngược lại, $d = 0.01$ quá nhỏ; chúng ta có thể thấy từ đồ thị quỹ đạo rằng chuỗi tiến hành với những bước rất nhỏ và không thể di chuyển rất xa từ điểm bắt đầu. Đồ thị quỹ đạo cho $d=1$ là vừa phải, không thể hiện tỷ lệ chấp nhận thấp của chuỗi $d=100$, cũng không thể hiện sự di chuyển bị giới hạn của chuỗi $d=0.01$.
+
+Trong ví dụ này, phân phối hậu nghiệm của $\\theta$ có sẵn một cách phân tích, vì vậy chúng tôi đã sử dụng MCMC cho mục đích minh họa, để cho thấy rằng kết quả được thu được bằng MCMC phù hợp với các đối ứng lý thuyết của chúng. Nhưng cùng kỹ thuật này cũng áp dụng trong các bài toán nơi tiền tố không liên hợp và hậu nghiệm không phải là phân phối có tên. ☐
+
+  </div>
+</div>`,Tz=`Mẫu Gibbs là một thuật toán MCMC để có được các mẫu gần đúng từ một phân phối chung, dựa trên việc lấy mẫu từ các phân phối điều kiện một tại một thời điểm: tại mỗi giai đoạn, một biến được cập nhật (giữ nguyên tất cả các biến khác) bằng cách lấy mẫu từ phân phối điều kiện của biến đó cho tất cả các biến khác. Phương pháp này đặc biệt hữu ích trong các bài toán nơi các phân phối điều kiện dễ làm việc.
+
+Đầu tiên chúng ta sẽ đi qua cách mẫu Gibbs hoạt động trong trường hợp song biến, nơi phân phối dừng mong muốn là phân phối PMF chung của các biến ngẫu nhiên rời rạc X và Y. Có nhiều dạng khác nhau của mẫu Gibbs, tùy thuộc vào thứ tự cập nhật được thực hiện. Chúng ta sẽ giới thiệu hai loại chính của mẫu Gibbs: quét có hệ thống, trong đó các cập nhật quét qua các thành phần theo thứ tự xác định, và quét ngẫu nhiên, trong đó một thành phần được chọn ngẫu nhiên để cập nhật tại mỗi giai đoạn.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Thuật toán 12.2.1</div>
+    <div class="math-box-title">Mẫu Gibbs quét có hệ thống</div>
+  </div>
+  <div class="math-box-content">
+
+Cho X và Y là các biến ngẫu nhiên rời rạc với PMF chung $p_{X,Y}(x,y) = P(X = x,Y = y)$. Chúng ta mong muốn xây dựng một chuỗi Markov hai chiều $(X_n, Y_n)$ với phân phối dừng là $p_{X,Y}$. Mẫu Gibbs quét có hệ thống tiến hành bằng cách cập nhật thành phần X và thành phần Y theo luân phiên. Nếu trạng thái hiện tại là $(X_n, Y_n) = (x_n, y_n)$, thì chúng ta cập nhật thành phần X trong khi giữ nguyên thành phần Y, và sau đó cập nhật thành phần Y trong khi giữ nguyên thành phần X:
+
+1. Lấy mẫu $x_{n+1}$ từ phân phối điều kiện của X cho $Y = y_{n}$, và đặt $X_{n+1} = x_{n+1}$.
+
+2. Lấy mẫu $y_{n+1}$ từ phân phối điều kiện của Y cho $X = x_{n+1}$, và đặt $Y_{n+1} = y_{n+1}$.
+
+Tiếp tục lặp lại các bước 1 và 2 liên tục, phân phối dừng của chuỗi $(X_{0}, Y_{0}), (X_{1}, Y_{1}), (X_{2}, Y_{2}), \\ldots$ là $p_{X,Y}$.
+
+  </div>
+</div>
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Thuật toán 12.2.2</div>
+    <div class="math-box-title">Mẫu Gibbs quét ngẫu nhiên</div>
+  </div>
+  <div class="math-box-content">
+
+Như trên, cho X và Y là các biến ngẫu nhiên rời rạc với PMF chung $p_{X,Y}(x,y)$. Chúng ta mong muốn xây dựng một chuỗi hai chiều
+
+Markov chuỗi $(X_{n}, Y_{n})$ có phân phối dừng là $p_{X,Y}$. Mỗi bước của random scan Gibbs sampler chọn một thành phần ngẫu nhiên và cập nhật nó, theo phân phối điều kiện dựa trên thành phần còn lại:
+
+1. Chọn thành phần nào để cập nhật, với xác suất bằng nhau.
+
+2. Nếu thành phần X được chọn, lấy một giá trị $x_{n+1}$ từ phân phối điều kiện của X cho $Y = y_n$, và đặt $X_{n+1} = x_{n+1}, Y_{n+1} = y_n$. Tương tự, nếu thành phần Y được chọn, lấy một giá trị $y_{n+1}$ từ phân phối điều kiện của Y cho $X = x_n$, và đặt $X_{n+1} = x_n, Y_{n+1} = y_{n+1}$.
+
+Tiếp tục lặp lại các bước 1 và 2, phân phối dừng của chuỗi $(X_{0}, Y_{0}), (X_{1}, Y_{1}), (X_{2}, Y_{2}), \\ldots$ là $p_{X,Y}$.
+
+  </div>
+</div>
+
+Gibbs sampling có thể mở rộng tự nhiên đến chiều cao hơn. Nếu chúng ta muốn lấy mẫu từ một phân phối chung d-chiều, chuỗi Markov mà chúng ta xây dựng sẽ là một chuỗi các vector ngẫu nhiên d-chiều. Tại mỗi bước, chúng ta chọn một thành phần của vector để cập nhật, và lấy mẫu từ phân phối điều kiện của thành phần đó dựa trên các giá trị gần nhất của các thành phần khác. Chúng ta có thể duyệt các thành phần theo thứ tự hệ thống, hoặc chọn một thành phần ngẫu nhiên để cập nhật mỗi lần.
+
+Gibbs sampler ít linh hoạt hơn thuật toán Metropolis-Hastings vì chúng ta không được chọn phân phối đề xuất; điều này cũng làm cho nó đơn giản hơn vì chúng ta không cần chọn phân phối đề xuất. Các phiên bản của Gibbs và Metropolis-Hastings khác nhau rất nhiều, ở chỗ Gibbs nhấn mạnh các phân phối điều kiện trong khi Metropolis-Hastings nhấn mạnh xác suất chấp nhận. Tuy nhiên, các thuật toán này có liên hệ chặt chẽ, như chúng ta sẽ trình bày dưới đây.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 12.2.3</div>
+    <div class="math-box-title">Random scan Gibbs như Metropolis-Hastings</div>
+  </div>
+  <div class="math-box-content">
+
+Random scan Gibbs sampler là một trường hợp đặc biệt của thuật toán Metropolis-Hastings, trong đó đề xuất luôn được chấp nhận. Đặc biệt, điều này dẫn đến phân phối dừng của random scan Gibbs sampler là như mong muốn.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 12.2.3</div>
+  </div>
+  <div class="math-box-content">
+
+Chúng ta sẽ chứng minh trong hai chiều, nhưng chứng minh tương tự trong bất kỳ chiều nào. Gọi X và Y là các biến ngẫu nhiên rời rạc có phân phối xác suất đồng thời là phân phối dừng mong muốn. Hãy xác định điều gì thuật toán Metropolis-Hastings sẽ làm, sử dụng phân phối đề xuất sau: từ $(x, y)$, ngẫu nhiên cập nhật một tọa độ bằng cách thực hiện một bước của random scan Gibbs sampler.
+
+Để đơn giản hóa ký hiệu, viết
+
+$$P(X=x,Y=y)=p(x,y),P(Y=y|X=x)=p(y|x),P(X=x|Y=y)=p(x|y).$$
+
+Một cách chính thức hơn, chúng ta nên viết $p_{Y|X}(y|x)$ thay vì $p(y|x)$, để tránh các vấn đề như thắc mắc $p(5|3)$ nghĩa là gì. Nhưng viết $p(y|x)$ ngắn gọn hơn và không gây mâu thuẫn trong chứng minh này.
+
+Hãy tính xác suất chấp nhận của Metropolis-Hastings khi chuyển từ $(x, y)$
+
+đến $(x', y')$. Các trạng thái $(x, y)$ và $(x', y')$ phải bằng nhau ít nhất ở một thành phần, vì đề xuất nói rằng chỉ cập nhật một thành phần. Giả sử rằng $x = x'$ (trường hợp $y = y'$ có thể xử lý một cách đối xứng). Khi đó xác suất chấp nhận là
+
+$$\\frac{p(x,y^{\\prime})p(y|x)^{\\frac{1}{2}}}{p(x,y)p(y^{\\prime}|x)^{\\frac{1}{2}}}=\\frac{p(x)p(y^{\\prime}|x)p(y|x)}{p(x)p(y|x)p(y^{\\prime}|x)}=1.$$
+
+Do đó, thuật toán Metropolis-Hastings này luôn chấp nhận đề xuất! Vì vậy, nó chỉ là chạy bộ lọc Gibbs quét ngẫu nhiên mà không thay đổi gì.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Hãy nghiên cứu một số ví dụ cụ thể về bộ lọc Gibbs.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 12.2.4</div>
+    <div class="math-box-title">Đánh màu đồ thị</div>
+  </div>
+  <div class="math-box-content">
+
+G là một mạng (còn gọi là đồ thị): có n nút, và với mỗi cặp nút khác nhau, có thể có hoặc không có cạnh nối chúng. Chúng ta có một tập hợp k màu, ví dụ, nếu k = 7, tập hợp màu có thể là {đỏ, cam, vàng, xanh lá, xanh, tím, hồng}. Một k-coloring của mạng là một cách gán màu cho mỗi nút, sao cho hai nút được nối bằng cạnh không thể có cùng màu. Ví dụ, một 3-coloring của một mạng được minh họa dưới đây. Việc đánh màu đồ thị là một chủ đề quan trọng trong khoa học máy tính, với nhiều ứng dụng rộng rãi như lên lịch công việc và trò chơi Sudoku.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_444_912_947_1271.jpg" alt="Một 3-coloring của một mạng" style="max-width: 35%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 12.4:** Một 3-coloring của một mạng.
+</div>
+
+Giả sử rằng có thể k-coloring G. Tạo một chuỗi Markov trên không gian tất cả các k-colorings của G, với các chuyển tiếp như sau: bắt đầu với một k-coloring của G, chọn một nút ngẫu nhiên, xác định các màu hợp lệ cho nút đó, và sau đó sơn lại nút đó với một màu hợp lệ ngẫu nhiên (lưu ý rằng màu ngẫu nhiên này có thể giống với màu hiện tại). Chứng minh rằng chuỗi Markov này là thuận nghịch, và tìm phân bố dừng của nó.
+
+**Giải:** Cho $C$ là tập hợp tất cả các $k$ -colorings của $G$, và cho $q_{ij}$ là xác suất chuyển tiếp của việc chuyển từ $i$ sang $j$ cho bất kỳ các $k$ -colorings $i$ và $j$ nào trong $C$. Chúng ta sẽ chứng minh rằng $q_{ij} = q_{ji}$, điều này cho thấy phân bố dừng là đều trên $C$.
+
+Với mọi màu sắc k màu i và nút v, cho $L(i,v)$ là số màu hợp lệ cho nút $v$, giữ nguyên màu sắc của tất cả các nút khác như trong i. Nếu k-màu i và j khác nhau tại hơn một nút, thì $q_{ij}=0=q_{ji}$. Nếu i=j, thì rõ ràng $q_{ij}=q_{ji}$. Nếu i và j khác nhau tại đúng một nút v, thì $L(i,v)=L(j,v)$, do đó
+
+$$q_{i j}=\\frac{1}{n}\\frac{1}{L(i,v)}=\\frac{1}{n}\\frac{1}{L(j,v)}=q_{j i}.$$
+
+Vậy ma trận chuyển là đối xứng, điều này cho thấy phân phối dừng là đều trên không gian trạng thái.
+
+Làm thế nào đây là một ví dụ về Gibbs sampling? Hãy xem mỗi nút trong đồ thị như một biến ngẫu nhiên rời rạc có thể nhận k giá trị có thể. Những nút này có một phân phối chung, và ràng buộc rằng các nút liên kết không thể có cùng màu tạo ra một cấu trúc phụ thuộc phức tạp giữa các nút.
+
+Chúng ta muốn lấy mẫu một màu k màu ngẫu nhiên của toàn bộ đồ thị; nói cách khác, chúng ta muốn rút từ phân phối chung của tất cả các nút. Vì điều này khó khăn, chúng ta thay vào đó điều kiện hóa trên tất cả các nút ngoại trừ một nút. Nếu phân phối chung cần đều trên tất cả các đồ thị hợp lệ, thì phân phối điều kiện của một nút cho tất cả các nút khác là đều trên các màu hợp lệ của nó. Do đó, ở mỗi bước của thuật toán, chúng ta đang lấy mẫu từ phân phối điều kiện của một nút cho tất cả các nút khác: chúng ta đang chạy một Gibbs sampler ngẫu nhiên quét!
+
+  </div>
+</div>
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 12.2.5</div>
+    <div class="math-box-title">Chim sẻ của Darwin</div>
+  </div>
+  <div class="math-box-content">
+
+Khi Charles Darwin đến hòn đảo Galápagos, ông đã ghi lại một số loài chim sẻ mà ông quan sát trên mỗi hòn đảo. Bảng 12.1 tóm tắt dữ liệu của Darwin, với mỗi hàng tương ứng với một loài và mỗi cột tương ứng với một hòn đảo. Sự hiện diện của một giá trị 1 ở ô $(i,j)$ của bảng cho thấy loài i đã được quan sát trên hòn đảo j.
+
+<div style="overflow-x: auto; margin: 1.5rem 0;">
+
+<table border=1 style="margin: auto; word-wrap: break-word; font-size: 0.85rem; text-align: center; border-collapse: collapse;">
+<tr><td style="text-align:center;"><strong>Loài</strong></td><td colspan="17" style="text-align:center;"><strong>Hòn đảo</strong></td><td></td></tr>
+<tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>Total</td></tr>
+<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>14</td></tr>
+<tr><td>2</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>13</td></tr>
+<tr><td>3</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>14</td></tr>
+<tr><td>4</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>10</td></tr>
+<tr><td>5</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>12</td></tr>
+<tr><td>6</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+<tr><td>7</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>10</td></tr>
+<tr><td>8</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td>9</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>10</td></tr>
+<tr><td>10</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>11</td></tr>
+<tr><td>11</td><td>0</td><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>6</td></tr>
+<tr><td>12</td><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td></tr>
+<tr><td>13</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>17</td></tr>
+<tr><td>Total</td><td>4</td><td>4</td><td>11</td><td>10</td><td>10</td><td>8</td><td>9</td><td>10</td><td>8</td><td>9</td><td>3</td><td>10</td><td>4</td><td>7</td><td>9</td><td>3</td><td>3</td><td>122</td></tr>
+</table>
+
+</div>
+
+**BẢNG 12.1:** Sự hiện diện của 13 loài chim sẻ (hàng) trên 17 hòn đảo (cột). Một giá trị 1 ở ô $(i,j)$ cho biết loài i đã được quan sát trên hòn đảo j. Dữ liệu được lấy từ Sanderson [22].
+
+Dựa vào những dữ liệu này, chúng ta có thể quan tâm đến việc biết liệu mẫu 0's và 1's quan sát được trong bảng có phải là bất thường theo một cách nào đó hay không. Ví dụ, liệu có vẻ như có sự phụ thuộc giữa các hàng và cột không? Liệu có một số cặp loài thường xuyên xuất hiện cùng nhau trên cùng một hòn đảo, tần suất cao hơn so với điều mong đợi do ngẫu nhiên? Những mẫu này có thể làm sáng tỏ động lực của sự hợp tác hoặc cạnh tranh giữa các loài. Một cách để kiểm tra các mẫu như vậy là xem xét nhiều bảng ngẫu nhiên với cùng tổng hàng và tổng cột như bảng quan sát, để xem bảng quan sát so sánh như thế nào với các bảng ngẫu nhiên. Đây là một kỹ thuật phổ biến trong thống kê được gọi là kiểm định phù hợp.
+
+Nhưng làm thế nào để tạo ra các bảng ngẫu nhiên với cùng tổng hàng và tổng cột như Bảng 12.1? Số lượng bảng thỏa mãn các ràng buộc này là không thể liệt kê được. MCMC đến cứu rỗi: chúng ta sẽ tạo ra một chuỗi Markov trên không gian của tất cả các bảng với các tổng hàng và tổng cột này, mà phân bố dừng là đều trên tất cả các bảng như vậy.
+
+Để xây dựng chuỗi Markov, chúng ta cần một cách để chuyển từ một bảng này sang bảng khác mà không thay đổi tổng hàng hoặc tổng cột. Bắt đầu từ bảng quan sát, chọn ngẫu nhiên hai hàng và hai cột. Nếu bốn ô ở giao điểm của chúng có một trong hai mẫu sau:
+
+$$\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\quad\\text{hoặc}\\quad\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}$$
+
+thì chuyển sang mẫu ngược lại với xác suất 1/2; ngược lại thì giữ nguyên. Ví dụ, nếu chúng ta chọn hàng 1 và 3 và cột 1 và 17, chúng ta sẽ chuyển đổi bốn ô ở giao điểm của chúng từ
+
+$$\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\quad\\text{sang}\\quad\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}$$
+
+với xác suất 1/2. Đây là một quy tắc chuyển đổi đối xứng (với mọi bảng t và $t'$, xác suất chuyển từ t sang $t'$ bằng xác suất chuyển từ $t'$ sang t), các chuyển đổi không bao giờ thay đổi tổng hàng hoặc tổng cột, và có thể chứng minh rằng chuỗi Markov được định nghĩa theo cách này là không thể phân tách được. Do đó, phân bố dừng là đều trên tất cả các bảng với các tổng hàng và tổng cột đã cho, như mong muốn.
+
+Để diễn giải quy trình này như một mẫu Gibbs, hãy xem xét điều kiện hóa trên tất cả các ô trong bảng trừ bốn ô ở giao điểm của hàng 1 và 3 và cột 1 và 17. Nếu phân bố dừng phải là đều trên tất cả các bảng với các tổng hàng và tổng cột đã cho, thì phân bố điều kiện của bốn ô này phải là đều trên tất cả các cấu hình không thay đổi tổng hàng hoặc tổng cột, tức là
+
+$$\\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}\\quad\\text{và}\\quad\\begin{pmatrix}1&0\\\\0&1\\end{pmatrix}$$
+
+Do đó, ở mỗi bước, chúng ta đang lấy mẫu từ phân bố điều kiện của bốn ô này, cho trước tất cả các ô còn lại.
+
+  </div>
+</div>
+
+Tương tự như Metropolis-Hastings, mẫu Gibbs cũng áp dụng cho các phân bố liên tục, thay thế phân bố xác suất rời rạc bằng phân bố mật độ xác suất.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 12.2.6</div>
+    <div class="math-box-title">Chicken-egg với tham số chưa biết</div>
+  </div>
+  <div class="math-box-content">
+
+Một con gà đẻ N trứng, nơi $N \\sim \\text{Pois}(\\lambda)$. Mỗi trứng nở với xác suất p, nơi p là chưa biết; chúng ta để $p \\sim \\text{Beta}(a, b)$. Các hằng số $\\lambda$, a, b là đã biết.
+
+Đây là vấn đề: chúng ta không thể quan sát được N. Thay vào đó, chúng ta chỉ quan sát số
+
+Của trứng mà nở, X. Mô tả cách sử dụng mẫu Gibbs để tìm $E(p|X = x)$, kỳ vọng của p sau khi quan sát x trứng nở.
+
+**Giải:** Theo câu chuyện gà - trứng, phân phối của X cho trước p là Pois($\\lambda p$). Hàm mật độ xác suất hậu nghiệm của p tỉ lệ với
+
+$$f(p|X=x)\\propto P(X=x|p)f(p)\\propto e^{-\\lambda p}(\\lambda p)^{x}p^{a-1}q^{b-1},$$
+
+trong đó chúng ta đã bỏ qua tất cả các hạng tử không phụ thuộc vào p.
+
+Điều này không phải là một phân phối có tên, do đó có thể dường như chúng ta bị bế tắc, nhưng chúng ta có thể thoát khỏi tình huống này bằng cách suy nghĩ điều kiện. Chúng ta muốn biết điều gì? Tổng số trứng! Điều kiện trên việc quan sát N = n và biết giá trị thực của p, phân phối của X sẽ là $\\text{Bin}(n, p)$. Bằng cách điều kiện trên tổng số trứng, chúng ta phục hồi tính liên hợp Beta-Binomial giữa p và X. Điều này cho phép chúng ta viết ngay phân phối hậu nghiệm bằng cách sử dụng Câu chuyện 8.3.3:
+
+$$p|X=x,N=n\\sim\\mathrm{Beta}(x+a,n-x+b).$$
+
+Sự thật rằng điều kiện trên N làm mọi thứ trở nên dễ dàng hơn thúc đẩy chúng ta sử dụng mẫu Gibbs để giải quyết bài toán. Chúng ta luân phiên lấy mẫu từ p điều kiện trên N và lấy mẫu từ N điều kiện trên p, như được mô tả dưới đây. Trong suốt quá trình, chúng ta cũng phải điều kiện trên X = x, vì chúng ta muốn tìm hiểu về các phân phối hậu nghiệm của các tham số điều kiện trên bằng chứng.
+
+Chúng ta đưa ra một giả định ban đầu cho p và N, sau đó lặp lại các bước sau:
+
+1. Điều kiện trên $N = n$ và $X = x$, lấy mẫu một giá trị mới cho $p$ từ phân phối $\\mathrm{Beta}(x + a, n - x + b)$.
+
+2. Điều kiện trên p và $X = x$, số lượng trứng chưa nở là $Y \\sim \\mathrm{Pois}(\\lambda(1 - p))$ theo câu chuyện gà - trứng, do đó chúng ta có thể lấy mẫu $Y$ từ phân phối $\\mathrm{Pois}(\\lambda(1 - p))$ và đặt giá trị mới cho N là $N = x + Y$.
+
+Sau nhiều lần lặp, chúng ta có các mẫu cho cả p và N. Nếu muốn, chúng ta có thể bỏ qua các mẫu của N, vì N chỉ là một công cụ để giúp chúng ta lấy mẫu p. Nhưng vì vui, chúng ta sẽ vẽ cả hai: Hình 12.5 cho thấy các histogram của các mẫu hậu nghiệm của p và N khi $\\lambda = 10$, a = b = 1 (tương ứng với một phân phối prior Unif(0,1) trên p), và chúng ta quan sát X = 7 trứng nở.
+
+Về kỳ vọng hậu nghiệm $E(p|X = x)$ ban đầu được yêu cầu trong bài toán, chúng ta có thể lấy trung bình mẫu của các mẫu p để có một ước lượng tốt. Trong trường hợp này, trung bình mẫu là 0.68. Sử dụng mã cung cấp trong phần R của chương này, bạn có thể thử thay đổi các giá trị của $\\lambda$, a, b, và x để xem các histogram và kỳ vọng hậu nghiệm bị ảnh hưởng như thế nào. Chiến lược chính cho bài toán này là thêm số lượng trứng chưa quan sát N vào mô hình, như vậy chúng ta sẽ có các phân phối điều kiện dễ chịu và có thể sử dụng mẫu Gibbs một cách thuận tiện.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_150_145_679_683.jpg" alt="Biểu đồ tần suất của mẫu hậu nghiệm của p" style="max-width: 37%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem; margin-right: 1rem;" /><img src="imgs/img_in_chart_box_699_145_1216_680.jpg" alt="Biểu đồ tần suất của mẫu hậu nghiệm của N" style="max-width: 36%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 12.5:** Biểu đồ tần suất của $10^{4}$ mẫu được lấy từ phân phối hậu nghiệm của p và N, nơi $\\lambda = 10$, a = 1, b = 1, và chúng ta quan sát X = 7.
+</div>
+
+  </div>
+</div>`,Ez=`Kỹ thuật Monte Carlo chuỗi Markov cho phép chúng ta lấy mẫu từ các phân phối phức tạp bằng cách sử dụng chuỗi Markov. MCMC đã được áp dụng trong một phạm vi rất rộng các bài toán trong những năm gần đây. Ý tưởng chính đằng sau các thuật toán MCMC là xây dựng một chuỗi Markov mà phân phối dừng của nó chính là phân phối mà chúng ta muốn lấy mẫu. Sau khi chạy chuỗi Markov trong một thời gian dài, các giá trị mà chuỗi Markov nhận được có thể được sử dụng như các mẫu từ phân phối mong muốn.
 
 Hai thuật toán MCMC được thảo luận trong chương này là Metropolis-Hastings và lấy mẫu Gibbs. Thuật toán Metropolis-Hastings sử dụng bất kỳ chuỗi Markov nào trên không gian trạng thái để tạo ra các đề xuất, sau đó chấp nhận hoặc từ chối các đề xuất này để tạo ra một chuỗi Markov sửa đổi với phân phối dừng mong muốn. Hơn nữa, chuỗi kết quả là có thể đảo ngược. Việc lựa chọn phân phối đề xuất là cực kỳ quan trọng trong thực tế, vì một phân phối đề xuất kém có thể dẫn đến việc hội tụ rất chậm đến phân phối dừng.
 
-Lấy mẫu Gibbs là một phương pháp để lấy mẫu từ phân phối chung đa chiều bằng cách cập nhật từng thành phần của chuỗi Markov đa chiều một tại một thời điểm, dựa trên tất cả các thành phần khác. Điều này có thể được thực hiện thông qua quét hệ thống, nơi tuần tự lặp qua các thành phần theo thứ tự cố định một cách xác định, hoặc quét ngẫu nhiên, nơi chọn ngẫu nhiên thành phần nào để cập nhật tại mỗi giai đoạn.`,Dz=`## Metropolis-Hastings\r
-\r
-Dưới đây là cách triển khai thuật toán Metropolis-Hastings cho Ví dụ 12.1.8, mô hình Normal-Normal. Trước hết, chúng ta chọn giá trị quan sát của Y và quyết định các giá trị cho các hằng số  $\\sigma$ ,  $\\mu$ , và  $\\tau$ :\r
-\r
-y <- 3\r
-sigma <- 1\r
-mu <- 0\r
-tau <- 2\r
-\r
-Chúng ta cũng cần chọn độ lệch chuẩn của các đề xuất cho bước 1 của thuật toán, như đã giải thích trong Ví dụ 12.1.8; đối với bài toán này, chúng ta cho  $d = 1$ . Chúng ta thiết lập số lần lặp để chạy, và chúng ta phân bổ một vector  $\\mathbf{theta}$  có độ dài  $10^4$  mà chúng ta sẽ điền các giá trị mô phỏng:\r
-\r
-d <- 1\r
-niter <- 10^4\r
-theta <- rep(0,niter)\r
-\r
-Bây giờ cho vòng lặp chính. Chúng ta khởi tạo  $\\theta$  bằng giá trị quan sát y, sau đó chạy thuật toán được mô tả trong Ví dụ 12.1.8:\r
-\r
-theta[1] <- y\r
-for (i in 2:niter){\r
-  theta.p <- theta[i-1] + rnorm(1,0,d)\r
-  r <- dnorm(y,theta.p,sigma) * dnorm(theta.p,mu,tau) /\r
-  (dnorm(y,theta[i-1],sigma) * dnorm(theta[i-1],mu,tau))\r
-  flip <- rbinom(1,1,min(r,1))\r
-  theta[i] <- if(flip==1) theta.p else theta[i-1]\r
-}\r
-\r
-Hãy đi qua từng dòng bên trong vòng lặp. Giá trị đề xuất của  $\\theta$  là  $\\theta$ , bằng giá trị trước đó của  $\\theta$  cộng với một biến ngẫu nhiên chuẩn có giá trị trung bình 0 và độ lệch chuẩn d (nhớ rằng  $\\mathbf{norm}$  lấy độ lệch chuẩn và không phải phương sai làm đầu vào). Tỷ lệ  $\\mathbf{r}$  là\r
-\r
- \r
-\r
- $$\\frac{f_{\\theta|Y}(x^{\\prime}|y)}{f_{\\theta|Y}(x|y)}=\\frac{e^{-\\frac{1}{2\\sigma^{2}}(y-x^{\\prime})^{2}}e^{-\\frac{1}{2\\tau^{2}}(x^{\\prime}-\\mu)^{2}}}{e^{-\\frac{1}{2\\sigma^{2}}(y-x)^{2}}e^{-\\frac{1}{2\\tau^{2}}(x-\\mu)^{2}}},$$ \r
-\r
- \r
-\r
-trong đó  $\\theta$ .p đang đóng vai trò của  $x'$  và  $\\theta$ .[i-1] đang đóng vai trò của x. Đồng tiền ném để quyết định chấp nhận hay từ chối đề xuất là flip, là một lần ném đồng tiền với xác suất  $\\min(\\mathbf{r},1)$  của mặt ngửa (biểu diễn mặt ngửa là 1 và mặt sấp là 0). Cuối cùng, chúng ta thiết lập  $\\theta$ .[i] bằng giá trị đề xuất nếu lần ném đồng tiền ra mặt ngửa, và giữ nguyên giá trị trước đó nếu không.\r
-\r
-Vector  $\\theta$  hiện tại chứa tất cả các mẫu mô phỏng của chúng tôi. Chúng tôi thường loại bỏ một số mẫu ban đầu để cho chuỗi có thời gian để tiến tới phân phối dừng. Dòng lệnh dưới đây loại bỏ nửa đầu các mẫu:\r
-\r
-theta <- theta[-(1:(niter/2))]\r
-\r
-Để xem các mẫu còn lại như thế nào, chúng ta có thể tạo một biểu đồ tần suất sử dụng hist(theta). Chúng ta cũng có thể tính các thống kê tổng hợp như mean(theta) và var(theta), cho chúng ta giá trị trung bình mẫu và phương sai mẫu.\r
-\r
-## Gibbs\r
-\r
-Bây giờ hãy triển khai mẫu Gibbs cho Ví dụ 12.2.6, câu chuyện gà và trứng với xác suất nở không biết và trứng chưa nở không nhìn thấy. Bước đầu tiên là quyết định giá trị quan sát của X, cũng như các hằng số  $\\lambda$ , a, b:\r
-\r
-x <- 7\r
-lambda <- 10\r
-a <- 1\r
-b <- 1\r
-\r
-Tiếp theo chúng ta quyết định số lần lặp cần chạy, và chúng ta dành không gian cho các kết quả, tạo ra hai vector p và N có độ dài  $10^{4}$  mà chúng ta sẽ điền các mẫu mô phỏng:\r
-\r
-niter <- 10^4\r
-p <- rep(0,niter)\r
-N <- rep(0,niter)\r
-\r
-Cuối cùng, chúng ta sẵn sàng chạy mẫu Gibbs. Chúng ta khởi tạo p và N với giá trị 0.5 và 2x tương ứng, và sau đó chạy thuật toán như đã giải thích trong Ví dụ 12.2.6:\r
-\r
-p[1] <- 0.5\r
-N[1] <- 2 * x\r
-for (i in 2:niter){\r
-  p[i] <- rbeta(1, x + a, N[i - 1] - x + b)\r
-  N[i] <- x + rpois(1, lambda * (1 - p[i - 1]))\r
-}\r
-\r
-Lại một lần nữa, chúng ta loại bỏ các mẫu ban đầu:\r
-\r
-p <- p[-(1:(niter/2))]\r
-N <- N[-(1:(niter/2))]\r
-\r
-Để xem các mẫu còn lại như thế nào, chúng ta có thể tạo biểu đồ tần suất sử dụng hist(p) và hist(N), đó là cách chúng ta tạo ra Hình 12.5. Chúng ta cũng có thể tính các thống kê tổng hợp như mean(p) hoặc median(p).`,Oz=`<div class="exercise-block" data-toc-title="Bài tập 1">\r
+Lấy mẫu Gibbs là một phương pháp để lấy mẫu từ phân phối chung đa chiều bằng cách cập nhật từng thành phần của chuỗi Markov đa chiều một tại một thời điểm, dựa trên tất cả các thành phần khác. Điều này có thể được thực hiện thông qua quét hệ thống, nơi tuần tự lặp qua các thành phần theo thứ tự cố định một cách xác định, hoặc quét ngẫu nhiên, nơi chọn ngẫu nhiên thành phần nào để cập nhật tại mỗi giai đoạn.`,Dz=`## Metropolis-Hastings
+
+Dưới đây là cách triển khai thuật toán Metropolis-Hastings cho Ví dụ 12.1.8, mô hình Normal-Normal. Trước hết, chúng ta chọn giá trị quan sát của Y và quyết định các giá trị cho các hằng số $\\sigma$, $\\mu$, và $\\tau$:
+
+\`\`\`r
+y <- 3
+sigma <- 1
+mu <- 0
+tau <- 2
+\`\`\`
+
+Chúng ta cũng cần chọn độ lệch chuẩn của các đề xuất cho bước 1 của thuật toán, như đã giải thích trong Ví dụ 12.1.8; đối với bài toán này, chúng ta cho $d = 1$. Chúng ta thiết lập số lần lặp để chạy, và chúng ta phân bổ một vector \`theta\` có độ dài $10^4$ mà chúng ta sẽ điền các giá trị mô phỏng:
+
+\`\`\`r
+d <- 1
+niter <- 10^4
+theta <- rep(0,niter)
+\`\`\`
+
+Bây giờ cho vòng lặp chính. Chúng ta khởi tạo $\\theta$ bằng giá trị quan sát y, sau đó chạy thuật toán được mô tả trong Ví dụ 12.1.8:
+
+\`\`\`r
+theta[1] <- y
+for (i in 2:niter){
+  theta.p <- theta[i-1] + rnorm(1,0,d)
+  r <- dnorm(y,theta.p,sigma) * dnorm(theta.p,mu,tau) /
+  (dnorm(y,theta[i-1],sigma) * dnorm(theta[i-1],mu,tau))
+  flip <- rbinom(1,1,min(r,1))
+  theta[i] <- if(flip==1) theta.p else theta[i-1]
+}
+\`\`\`
+
+Hãy đi qua từng dòng bên trong vòng lặp. Giá trị đề xuất của $\\theta$ là \`theta.p\`, bằng giá trị trước đó của $\\theta$ cộng với một biến ngẫu nhiên chuẩn có giá trị trung bình 0 và độ lệch chuẩn d (nhớ rằng \`rnorm\` lấy độ lệch chuẩn và không phải phương sai làm đầu vào). Tỷ lệ \`r\` là
+
+$$\\frac{f_{\\theta|Y}(x^{\\prime}|y)}{f_{\\theta|Y}(x|y)}=\\frac{e^{-\\frac{1}{2\\sigma^{2}}(y-x^{\\prime})^{2}}e^{-\\frac{1}{2\\tau^{2}}(x^{\\prime}-\\mu)^{2}}}{e^{-\\frac{1}{2\\sigma^{2}}(y-x)^{2}}e^{-\\frac{1}{2\\tau^{2}}(x-\\mu)^{2}}},$$
+
+trong đó $\\theta$.p đang đóng vai trò của $x'$ và $\\theta$.[i-1] đang đóng vai trò của x. Đồng tiền ném để quyết định chấp nhận hay từ chối đề xuất là flip, là một lần ném đồng tiền với xác suất $\\min(\\mathbf{r},1)$ của mặt ngửa (biểu diễn mặt ngửa là 1 và mặt sấp là 0). Cuối cùng, chúng ta thiết lập $\\theta$.[i] bằng giá trị đề xuất nếu lần ném đồng tiền ra mặt ngửa, và giữ nguyên giá trị trước đó nếu không.
+
+Vector $\\theta$ hiện tại chứa tất cả các mẫu mô phỏng của chúng tôi. Chúng tôi thường loại bỏ một số mẫu ban đầu để cho chuỗi có thời gian để tiến tới phân phối dừng. Dòng lệnh dưới đây loại bỏ nửa đầu các mẫu:
+
+\`\`\`r
+theta <- theta[-(1:(niter/2))]
+\`\`\`
+
+Để xem các mẫu còn lại như thế nào, chúng ta có thể tạo một biểu đồ tần suất sử dụng \`hist(theta)\`. Chúng ta cũng có thể tính các thống kê tổng hợp như \`mean(theta)\` và \`var(theta)\`, cho chúng ta giá trị trung bình mẫu và phương sai mẫu.
+
+## Gibbs
+
+Bây giờ hãy triển khai mẫu Gibbs cho Ví dụ 12.2.6, câu chuyện gà và trứng với xác suất nở không biết và trứng chưa nở không nhìn thấy. Bước đầu tiên là quyết định giá trị quan sát của X, cũng như các hằng số $\\lambda$, a, b:
+
+\`\`\`r
+x <- 7
+lambda <- 10
+a <- 1
+b <- 1
+\`\`\`
+
+Tiếp theo chúng ta quyết định số lần lặp cần chạy, và chúng ta dành không gian cho các kết quả, tạo ra hai vector p và N có độ dài $10^{4}$ mà chúng ta sẽ điền các mẫu mô phỏng:
+
+\`\`\`r
+niter <- 10^4
+p <- rep(0,niter)
+N <- rep(0,niter)
+\`\`\`
+
+Cuối cùng, chúng ta sẵn sàng chạy mẫu Gibbs. Chúng ta khởi tạo p và N với giá trị 0.5 và 2x tương ứng, và sau đó chạy thuật toán như đã giải thích trong Ví dụ 12.2.6:
+
+\`\`\`r
+p[1] <- 0.5
+N[1] <- 2 * x
+for (i in 2:niter){
+  p[i] <- rbeta(1, x + a, N[i - 1] - x + b)
+  N[i] <- x + rpois(1, lambda * (1 - p[i - 1]))
+}
+\`\`\`
+
+Lại một lần nữa, chúng ta loại bỏ các mẫu ban đầu:
+
+\`\`\`r
+p <- p[-(1:(niter/2))]
+N <- N[-(1:(niter/2))]
+\`\`\`
+
+Để xem các mẫu còn lại như thế nào, chúng ta có thể tạo biểu đồ tần suất sử dụng \`hist(p)\` và \`hist(N)\`, đó là cách chúng ta tạo ra Hình 12.5. Chúng ta cũng có thể tính các thống kê tổng hợp như \`mean(p)\` hoặc \`median(p)\`.`,Oz=`<div class="exercise-block" data-toc-title="Bài tập 1">\r
 <div class="exercise-header">\r
 <span class="exercise-badge">Bài tập 1</span>\r
 </div>\r
@@ -32448,556 +32832,740 @@ Bây giờ hãy cung cấp một thuật toán Metropolis-Hastings cho bài toá
 </div>\r
 </div>`,kz=`Trong Mục 5.6, chúng ta đã định nghĩa một quá trình Poisson một chiều và cho thấy rằng các khoảng thời gian giữa các sự kiện là i.i.d. Exponentials. Trong Chương 8 chúng ta đã cho thấy rằng thời gian của sự kiện thứ j (so với một thời điểm bắt đầu cố định) là Gamma. Hãy xem lại các kết quả này, với ký hiệu sẽ giúp chúng ta tổng quát hóa cho các chiều cao hơn.\r
 \r
-Định nghĩa 13.1.1 (Quá trình Poisson một chiều). Một chuỗi các sự kiện trong thời gian liên tục là một quá trình Poisson với tốc độ  $\\lambda$  nếu các điều kiện sau được thỏa mãn:\r
+<div class="math-box definition">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 13.1.1</div>\r
+    <div class="math-box-title">Quá trình Poisson một chiều</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-1. Số lượng sự kiện trong một khoảng thời gian có độ dài t có phân phối Pois(  $\\lambda t$ ).\r
+Một chuỗi các sự kiện trong thời gian liên tục là một quá trình Poisson với tốc độ $\\lambda$ nếu các điều kiện sau được thỏa mãn:\r
+\r
+1. Số lượng sự kiện trong một khoảng thời gian có độ dài t có phân phối Pois($\\lambda t$).\r
 \r
 2. Số lượng sự kiện trong các khoảng thời gian rời nhau là độc lập.\r
 \r
-Thông thường chúng ta sẽ giả sử rằng thời gian bắt đầu tại  $t = 0$ , trong trường hợp này chúng ta có một quá trình Poisson trên  $(0, \\infty)$ , nhưng chúng ta có thể sử dụng cùng các điều kiện này để định nghĩa một quá trình Poisson trên  $(-\\infty, \\infty)$  nếu chúng ta muốn thời gian là vô hạn ở cả hai hướng.\r
+Thông thường chúng ta sẽ giả sử rằng thời gian bắt đầu tại $t = 0$, trong trường hợp này chúng ta có một quá trình Poisson trên $(0, \\infty)$, nhưng chúng ta có thể sử dụng cùng các điều kiện này để định nghĩa một quá trình Poisson trên $(-\\infty, \\infty)$ nếu chúng ta muốn thời gian là vô hạn ở cả hai hướng.\r
 \r
-Xét một quá trình Poisson trên  $(0,\\infty)$ . Thoát khỏi một chút ký hiệu trong chương trước, hãy để  $N(t)$  là số lần đến trong  $(0,t]$ . Khi đó số lần đến trong  $(t_{1},t_{2}]$  là  $N(t_{2})-N(t_{1})$ , với  $0<t_{1}<t_{2}$ . Hãy để  $T_{j}$  là thời gian của lần đến thứ  $j$ . Vì  $T_{1}>t$  là cùng một sự kiện với  $N(t)=0$  (bởi tính đối xứng giữa đếm và thời gian, như đã thảo luận trong Chương 5.6),\r
+  </div>\r
+</div>\r
 \r
- \r
+Xét một quá trình Poisson trên $(0,\\infty)$. Thoát khỏi một chút ký hiệu trong chương trước, hãy để $N(t)$ là số lần đến trong $(0,t]$. Khi đó số lần đến trong $(t_{1},t_{2}]$ là $N(t_{2})-N(t_{1})$, với $0<t_{1}<t_{2}$. Hãy để $T_{j}$ là thời gian của lần đến thứ $j$. Vì $T_{1}>t$ là cùng một sự kiện với $N(t)=0$ (bởi tính đối xứng giữa đếm và thời gian, như đã thảo luận trong Chương 5.6),\r
 \r
- $$P(T_{1}>t)=P(N(t)=0)=e^{-\\lambda t},$$ \r
+$$P(T_{1}>t)=P(N(t)=0)=e^{-\\lambda t},$$\r
 \r
- \r
+do đó $T_{1} \\sim \\mathrm{Expo}(\\lambda)$. Tiếp theo hãy điều kiện hóa theo thời gian đến lần đầu tiên $T_{1}$ và xem thời gian bổ sung $T_{2} - T_{1}$ cho đến lần đến thứ hai. Khi đó\r
 \r
-do đó  $T_{1} \\sim \\mathrm{Expo}(\\lambda)$ . Tiếp theo hãy điều kiện hóa theo thời gian đến lần đầu tiên  $T_{1}$  và xem thời gian bổ sung  $T_{2} - T_{1}$  cho đến lần đến thứ hai. Khi đó\r
+$$(T_{2}-T_{1})|T_{1}\\sim\\mathrm{Expo}(\\lambda)$$\r
 \r
- \r
+bởi cùng lập luận như trên, vì chúng ta có một quá trình Poisson mới bắt đầu tại $T_1$. Vì phân phối điều kiện của $(T_2 - T_1) | T_1$ không phụ thuộc vào $T_1$, chúng ta có $T_2 - T_1$ độc lập với $T_1$, do đó $T_2 - T_1 \\sim \\text{Expo}(\\lambda)$ một cách tuyệt đối.\r
 \r
- $$(T_{2}-T_{1})|T_{1}\\sim\\mathrm{E x p o}(\\lambda)$$ \r
+Tiếp tục như vậy, các khoảng thời gian giữa các lần đến $T_{j}-T_{j-1}$ là độc lập, với\r
 \r
- \r
+$$T_{j}-T_{j-1}\\sim\\mathrm{Expo}(\\lambda).$$\r
 \r
-bởi cùng lập luận như trên, vì chúng ta có một quá trình Poisson mới bắt đầu tại  $T_1$ . Vì phân phối điều kiện của  $(T_2 - T_1) | T_1$  không phụ thuộc vào  $T_1$ , chúng ta có  $T_2 - T_1$  độc lập với  $T_1$ , do đó  $T_2 - T_1 \\sim \\text{Expo}(\\lambda)$  một cách tuyệt đối.\r
+Do đó một quá trình Poisson có thể mô tả một cách song hành như một quá trình trong đó số lần đến là Poisson hoặc một quá trình trong đó khoảng thời gian giữa các lần đến là Exponential. Cũng chú ý rằng vì $T_{j}$ là tổng của j biến ngẫu nhiên độc lập và đồng phân phối $\\mathrm{Expo}(\\lambda)$,\r
 \r
-Tiếp tục như vậy, các khoảng thời gian giữa các lần đến  $T_{j}-T_{j-1}$  là độc lập, với\r
-\r
- \r
-\r
- $$T_{j}-T_{j-1}\\sim\\mathrm{E x p o}(\\lambda).$$ \r
-\r
- \r
-\r
-Do đó một quá trình Poisson có thể mô tả một cách song hành như một quá trình trong đó số lần đến là Poisson hoặc một quá trình trong đó khoảng thời gian giữa các lần đến là Exponential. Cũng chú ý rằng vì  $T_{j}$  là tổng của j biến ngẫu nhiên độc lập và đồng phân phối  $\\mathrm{Expo}(\\lambda)$ ,\r
-\r
- \r
-\r
- $$T_{j}\\sim\\mathrm{Gamma}(j,\\lambda).$$ \r
-\r
- \r
+$$T_{j}\\sim\\mathrm{Gamma}(j,\\lambda).$$\r
 \r
 Liên kết với Exponential cho chúng ta một cách đơn giản để tạo ra n lần đến từ một quá trình Poisson.\r
 \r
-Câu chuyện 13.1.2 (Câu chuyện tạo ra cho 1D quá trình Poisson). Để tạo ra n lần đến từ một quá trình Poisson trên  $(0,\\infty)$  với tốc độ  $\\lambda$ :\r
+<div class="math-box definition">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Câu chuyện 13.1.2</div>\r
+    <div class="math-box-title">Câu chuyện tạo ra cho 1D quá trình Poisson</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-1. Tạo n biến ngẫu nhiên độc lập và đồng phân phối Expo(  $\\lambda$ )  $X_{1}, \\ldots, X_{n}$ .\r
+Để tạo ra n lần đến từ một quá trình Poisson trên $(0,\\infty)$ với tốc độ $\\lambda$:\r
 \r
-2. Với  $j = 1, \\ldots, n$ , đặt  $T_j = X_1 + \\cdots + X_j$ .\r
+1. Tạo n biến ngẫu nhiên độc lập và đồng phân phối Expo($\\lambda$) $X_{1}, \\ldots, X_{n}$.\r
 \r
-Khi đó chúng ta có thể lấy  $T_{1}, \\ldots, T_{n}$  làm thời gian đến.\r
+2. Với $j = 1, \\ldots, n$, đặt $T_j = X_1 + \\cdots + X_j$.\r
+\r
+Khi đó chúng ta có thể lấy $T_{1}, \\ldots, T_{n}$ làm thời gian đến.\r
+\r
+  </div>\r
+</div>\r
 \r
 Hình 13.1 mô tả ba lần thực hiện của các quá trình Poisson với tốc độ 1, 2 và 5 lần lượt, được vẽ đến thời gian 10. Trong cả ba trường hợp, chúng ta có thể thấy rằng bất chấp khoảng thời gian giữa các lần đến là độc lập và đồng phân phối, các lần đến không đều cách nhau. Thay vào đó, có rất nhiều biến đổi trong khoảng thời gian giữa các lần đến, tạo ra các cụm các lần đến. Hiện tượng này được gọi là Poisson clumping. Nó có thể dường như là một trùng hợp kỳ lạ để quan sát một cụm của vài lần đến gần nhau theo thời gian, nhưng Poisson clumping nói rằng việc có các cụm như vậy là phổ biến với các quá trình Poisson.\r
 \r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_152_151_1237_532.jpg" alt="Image" width="77%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 13.1</div>\r
-\r
-\r
-Quá trình Poisson mô phỏng trong một chiều, cho  $\\lambda = 1, 2, 5$ . Các sự kiện đến gần như không đều cách nhau, và thực tế chúng đôi khi tập trung lại với nhau,`,Az=`Ba tính chất quan trọng nhất cần hiểu về quá trình Poisson là điều kiện, tổng hợp và mỏng hóa. Những điều này tương ứng với các tính chất mà chúng ta đã thấy trước đây về phân phối Poisson, vì vậy chúng đã nên có tính hợp lý.\r
-\r
-#### 13.2.1 Điều kiện\r
-\r
-Điều gì xảy ra khi chúng ta lấy một quá trình Poisson và điều kiện trên tổng số sự kiện trong một khoảng thời gian? Kết quả đầu tiên của chúng ta là rằng điều kiện trên tổng số sự kiện trong một khoảng thời gian, số sự kiện trong một khoảng con cố định là Binomial. Điều này được suy ra từ Định lý 4.8.2, nơi chúng ta đã cho thấy rằng có thể chuyển từ Poisson sang Binomial bằng cách điều kiện.\r
-\r
-Định lý 13.2.1 (Số lượng điều kiện). Cho  $(N(t):t>0)$  là một quá trình Poisson với tốc độ  $\\lambda$ , và  $t_{1}<t_{2}$ . Phân phối có điều kiện của  $N(t_{1})$  cho  $N(t_{2})=n$  là\r
-\r
- \r
-\r
- $$N(t_{1})\\mid N(t_{2})=n\\sim\\mathrm{B i n}\\left(n,\\frac{t_{1}}{t_{2}}\\right).$$ \r
-\r
- \r
-\r
-Chứng minh. Hình 13.2 minh họa thiết lập. Mệnh đề là rằng điều kiện trên việc có tổng cộng n sự kiện trong  $(0, t_{2}]$ , số sự kiện trong  $(0, t_{1}]$  là Binomial, với n lần thử và xác suất thành công tỉ lệ với  $t_{1}$ .\r
-\r
-Vì  $(0,t_{1}]$  và  $(t_{1},t_{2}]$  là rời nhau,  $N(t_{1})$  độc lập với  $N(t_{2})-N(t_{1})$ . Thứ nhất phân phối Pois $(\\lambda t_{1})$ , thứ hai phân phối Pois $(\\lambda(t_{2}-t_{1}))$ , và tổng của chúng là\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_204_146_1192_309.jpg" alt="Image" width="70%" /></div>\r
-\r
-\r
-<div style="text-align: center;">HÌNH 13.2</div>\r
-\r
-\r
-Điều kiện. Cho rằng có  $n$  lần đến trong khoảng  $(0,t_{2}]$ , phân phối điều kiện của số lần đến trong khoảng  $(0,t_{1}]$  là phân phối Nhị thức với tham số  $n$  và  $t_{1}/t_{2}$ .\r
-\r
-Số lần đến trong khoảng  $(0, t_{2}]$ , tức là  $N(t_{2})$ . Theo Định lý 4.8.2,\r
-\r
- \r
-\r
- $$N(t_{1})\\mid N(t_{2})=n\\sim\\mathrm{B i n}\\left(n,\\frac{\\lambda t_{1}}{\\lambda t_{1}+\\lambda(t_{2}-t_{1})}\\right),$$ \r
-\r
- \r
-\r
-chính xác là điều mà chúng ta muốn chứng minh.\r
-\r
-Tiếp tục phát triển ý tưởng về điều kiện hóa theo số lần đến, chúng ta có kết quả sau đây: trong một quá trình Poisson, cho rằng  $N(t) = n$ , các thời điểm đến được phân phối như thể chúng ta ném xuống  $n$  điểm độc lập đồng nhất  $\\text{Unif}(0, t)$ .\r
-\r
-Trước tiên hãy xem xét một trường hợp đơn giản, nơi chỉ có một lần đến.\r
-\r
-Định lý 13.2.2. Trong một quá trình Poisson với tốc độ  $\\lambda$ , điều kiện cho  $N(t) = 1$ , thời điểm đến đầu tiên  $T_1$  có phân phối  $\\text{Unif}(0, t)$ .\r
-\r
-Chứng minh. Giả sử 0 < s < t. Theo một dạng của tính chất đối ngẫu giữa số lần đến và thời gian,\r
-\r
- \r
-\r
- $$\\begin{aligned}P(T_{1}\\leq s|N(t)=1)&=\\frac{P(T_{1}\\leq s,N(t)=1)}{P(N(t)=1)}\\\\&=\\frac{P(N(s)=1,N(t)-N(s)=0)}{P(N(t)=1)}\\\\&=\\frac{(e^{-\\lambda s}\\lambda s)(e^{-\\lambda(t-s)})}{e^{-\\lambda t}\\lambda t}\\\\&=\\frac{s}{t}.\\end{aligned}$$ \r
-\r
- \r
-\r
-Do đó, hàm phân phối tích lũy điều kiện của  $T_{1}$  cho  $N(t) = 1$  là hàm phân phối tích lũy của  $\\text{Unif}(0, t)$ .\r
-\r
-Mở rộng hơn nữa, cho rằng  $N(t) = n$ , các thời điểm đến  $T_j$  trông như các thống kê thứ tự của  $n$  biến ngẫu nhiên độc lập đồng nhất  $\\text{Unif}(0, t)$ . Chúng tôi bỏ qua chứng minh vì trong chương 8 khi giới thiệu các thống kê thứ tự, chúng ta tập trung vào các phân phối biên.\r
-\r
-Định lý 13.2.3 (Thời điểm điều kiện). Trong một quá trình Poisson với tốc độ  $\\lambda$ , điều kiện cho  $N(t) = n$ , phân phối chung của các thời điểm đến  $T_1, \\ldots, T_n$  giống như phân phối chung của các thống kê thứ tự của  $n$  biến ngẫu nhiên độc lập đồng nhất  $\\text{Unif}(0, t)$ .\r
-\r
-Từ Chương 8, chúng ta biết rằng thống kê thứ tự của các r.v. Unif(0,1) là Betas, do đó các phân phối có điều kiện của  $T_j$  là các Beta được thay đổi tỷ lệ; để có được phân phối Beta, chúng ta chỉ cần chia  $T_j$  cho t để hỗ trợ của chúng là (0,1):\r
-\r
- \r
-\r
- $$t^{-1}T_{j}\\mid N(t)=n\\sim\\mathrm{Beta}(j,n-j+1).$$ \r
-\r
- \r
-\r
-Chúng ta giờ đây có một cách khác để tạo ra các lần đến từ một quá trình Poisson, lần này cho một khoảng thời gian cụ thể thay vì một số lần đến cụ thể.\r
-\r
-Câu chuyện 13.2.4 (Câu chuyện tạo ra quá trình Poisson, lần 2). Để tạo ra các lần đến từ một quá trình Poisson với tốc độ  $\\lambda$  trong khoảng thời gian  $(0, t]$ :\r
-\r
-1. Tạo số lượng tổng cộng các sự kiện trong khoảng thời gian,  $N(t) \\sim \\text{Pois}(\\lambda t)$ .\r
-\r
-2. Cho  $N(t) = n$ , tạo  $n$  r.v. i.i.d.  $\\text{Unif}(0, t)$  là  $U_1, \\ldots, U_n$ .\r
-\r
-3. Với  $j = 1, \\ldots, n$ , đặt  $T_j = U_{(j)}$ .\r
-\r
-Đây thực sự là câu chuyện tạo ra mà chúng ta đã sử dụng để tạo Hình 13.1, vì chúng ta biết rằng chúng ta muốn mô phỏng trong khoảng thời gian  $(0, 10]$ .\r
-\r
-Ví dụ 13.2.5 (Người dùng trên một trang web). Người dùng truy cập một trang web nhất định theo một quá trình Poisson với tốc độ  $\\lambda_{1}$  người dùng mỗi phút, nơi một "sự kiện" tại một thời điểm nhất định có nghĩa là tại thời điểm đó có người bắt đầu xem trang web. Sau khi đến trang web, mỗi người dùng xem trang web trong một khoảng thời gian  $\\text{Expo}(\\lambda_{2})$  (rồi rời khỏi), độc lập với các người dùng khác.\r
-\r
-Giả sử rằng tại thời điểm 0, không có ai đang sử dụng trang web. Gọi  $N_{t}$  là số lượng người dùng đến trong khoảng thời gian  $(0, t]$ , và gọi  $C_{t}$  là số lượng người dùng đang xem trang web tại thời điểm t.\r
-\r
-(a) Gọi X là thời gian đến và Y là thời gian rời khỏi của một người dùng đến tại một thời điểm đều trong  $[0, t]$ . Tìm hàm mật độ xác suất chung của X và Y.\r
-\r
-(b) Gọi  $p_{t}$  là xác suất một người dùng đến tại một thời điểm đều trong  $(0, t]$  vẫn đang xem trang web tại thời điểm t. Tìm  $p_{t}$ .\r
-\r
-(c) Tìm phân phối của  $C_{t}$  theo  $\\lambda_{1}, \\lambda_{2}$ , và t.\r
-\r
-(d) Định lý Little là một kết quả rất tổng quát, nói rằng điều sau đây:\r
-\r
-Số lượng trung bình các khách hàng trong một hệ thống ổn định là tốc độ trung bình đến nhân với thời gian trung bình một khách hàng dành trong hệ thống.\r
-\r
-Giải thích điều gì xảy ra với  $E(C_t)$  khi t lớn, và cách điều này có thể được diễn giải theo định lý Little.\r
-\r
-Giải:\r
-\r
-(a) Chúng ta có  $X \\sim \\text{Unif}(0, t)$ . Cho X = x, Y là một  $\\text{Expo}(\\lambda_2)$  dịch chuyển bắt đầu tại x, tức là  $(Y - x)|(X = x) \\sim \\text{Expo}(\\lambda_2)$ . Do đó, hàm mật độ xác suất chung của X và Y là\r
-\r
- \r
-\r
- $$f(x,y)=f_{X}(x)f_{Y|X}(y|x)=\\frac{\\lambda_{2}}{t}e^{-\\lambda_{2}(y-x)},\\text{for }0<x<t \\text{ và } x<y.$$ \r
-\r
-\r
-\r
-(b) Với ký hiệu như trong (a), chúng ta muốn tìm  $p_{t}=P(Y>t)$ . Điều này có thể được thực hiện bằng cách tích phân PDF chung trên tất cả  $(x,y)$  với y>t:\r
-\r
- \r
-\r
- $$\\begin{aligned}P(Y>t)&=\\frac{1}{t}\\int_{0}^{t}\\int_{t}^{\\infty}\\lambda_{2}e^{-\\lambda_{2}(y-x)}dydx\\\\&=\\frac{1}{t}\\int_{0}^{t}e^{\\lambda_{2}x}\\left(\\int_{t}^{\\infty}\\lambda_{2}e^{-\\lambda_{2}y}dy\\right)dx\\\\&=\\frac{e^{-\\lambda_{2}t}}{t}\\int_{0}^{t}e^{\\lambda_{2}x}dx\\\\&=\\frac{1-e^{-\\lambda_{2}t}}{\\lambda_{2}t}.\\end{aligned}$$ \r
-\r
- \r
-\r
-(c) Theo Định lý 13.2.3, cho  $N_t = n$  chúng ta có rằng các  $n$  thời điểm đến trong  $(0, t]$  là i.i.d. và đều trong khoảng đó. Do đó,  $C_t | N_t \\sim \\mathrm{Bin}(N_t, p_t)$ , với  $p_t$  như trên, và  $N_t \\sim \\mathrm{Pois}(\\lambda_1 t)$ . Vì vậy theo câu chuyện gà và trá (Story 7.1.9),\r
-\r
- \r
-\r
- $$C_{t}\\sim\\mathrm{Pois}(\\lambda_{1}p_{t}t).$$ \r
-\r
- \r
-\r
-Đó là,\r
-\r
- \r
-\r
- $$C_{t}\\sim\\mathrm{Pois}\\left(\\frac{\\lambda_{1}(1-e^{-\\lambda_{2}t})}{\\lambda_{2}}\\right).$$ \r
-\r
- \r
-\r
-(d) Khi  $t \\to \\infty$ ,  $E(C_t) \\to \\lambda_1/\\lambda_2$ . Điều này phù hợp với định luật Little vì nó nói rằng số lượng người dùng trung bình trong hệ thống (truy cập trang web) trong dài hạn là tốc độ người dùng đến (  $\\lambda_1$ ) nhân với thời gian trung bình một người dùng truy cập trong một lần (  $1/\\lambda_2$ ).\r
-\r
-#### 13.2.2 Tính siêu vị\r
-\r
-Tính chất tiếp theo mà chúng ta sẽ xem xét là tính siêu vị: nếu chúng ta lấy hai quá trình Poisson độc lập và chồng lên nhau, chúng ta sẽ nhận được một quá trình Poisson khác. (Quá trình kết hợp là một quá trình Poisson riêng biệt, nhưng ta có thể tưởng tượng rằng các lần đến được gắn nhãn để chỉ ra quá trình gốc mà chúng đến từ.)\r
-\r
-Định lý 13.2.6 (Tính siêu vị). Gọi  $(N_1(t):t>0)$  và  $(N_2(t):t>0)$  là hai quá trình Poisson độc lập với tốc độ  $\\lambda_1$  và  $\\lambda_2$  tương ứng. Khi đó quá trình kết hợp  $N(t)=N_1(t)+N_2(t)$  là một quá trình Poisson với tốc độ  $\\lambda_1+\\lambda_2$ .\r
-\r
-Chứng minh. Hãy kiểm tra hai tính chất trong định nghĩa của quá trình Poisson.\r
-\r
-1. Với mọi  $t > 0$ ,  $N_{1}(t) \\sim \\mathrm{Pois}(\\lambda_{1}t)$  và  $N_{2}(t) \\sim \\mathrm{Pois}(\\lambda_{2}t)$ , độc lập, do đó  $N(t) \\sim \\mathrm{Pois}((\\lambda_{1} + \\lambda_{2})t)$ , theo Định lý 4.8.1. Lập luận tương tự áp dụng cho bất kỳ khoảng thời gian nào có độ dài  $t$ , không chỉ các khoảng có dạng  $(0, t]$ .\r
-\r
-2. Các lần đến trong các khoảng rời nhau độc lập trong quá trình kết hợp vì chúng độc lập trong các quá trình riêng lẻ, và các quá trình riêng lẻ độc lập với nhau.\r
-\r
-Có một cách rất tự nhiên để tạo ra một tổng hợp.\r
-\r
-Câu chuyện 13.2.7 (Câu chuyện tạo ra tổng hợp). Để tạo ra tổng hợp của hai quá trình Poisson độc lập,  $(N_1(t):t>0)$  với tốc độ  $\\lambda_1$  và  $(N_2(t):t>0)$  với tốc độ  $\\lambda_2$ :\r
-\r
-1. Tạo các sự kiện đến từ quá trình Poisson  $(N_{1}(t):t>0)$ .\r
-\r
-2. Tạo các sự kiện đến từ quá trình Poisson  $(N_{2}(t):t>0)$ .\r
-\r
-3. Tổng hợp kết quả của các bước 1 và 2.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_155_576_1240_866.jpg" alt="Image" width="77%" /></div>\r
-\r
-\r
-### HÌNH 13.3\r
-\r
-Tổng hợp. Tổng hợp của các quá trình Poisson độc lập là một quá trình Poisson, và các tốc độ cộng lại. Hai dòng thời gian trên là các quá trình Poisson độc lập, mỗi cái có tốc độ 0.5. Dòng thời gian dưới là tổng hợp của hai dòng thời gian trên và chính nó là một quá trình Poisson với tốc độ 1.\r
-\r
-Hình 13.3 mô tả một quá trình Poisson tổng hợp gồm các dấu × và ◇. Hãy gọi các dấu × là "sự kiện loại-1" và các dấu ◇ là "sự kiện loại-2". Một câu hỏi tự nhiên là: xác suất quan sát một sự kiện loại-1 trước một sự kiện loại-2 là bao nhiêu?\r
-\r
-  $^{\\dagger}$ định lý 13.2.8 (Xác suất sự kiện loại-1 trước sự kiện loại-2). Xét hai quá trình Poisson độc lập: một quá trình Poisson của các sự kiện loại-1, với tốc độ  $\\lambda_{1}$ , và một quá trình Poisson của các sự kiện loại-2, với tốc độ  $\\lambda_{2}$ . Trong tổng hợp của hai quá trình này, xác suất sự kiện đầu tiên là loại-1 là  $\\lambda_{1}/(\\lambda_{1} + \\lambda_{2})$ .\r
-\r
-Chứng minh. Gọi  $T$  là thời gian đến sự kiện loại-1 đầu tiên và  $V$  là thời gian đến sự kiện loại-2 đầu tiên. Chúng ta tìm  $P(T \\leq V)$ . Chúng ta có thể làm điều này bằng 2D LOTUS, tích phân mật độ xác suất chung của  $T$  và  $V$  trên vùng quan tâm trong mặt phẳng 2D. Nhưng hóa ra chúng ta có thể tránh được việc sử dụng giải tích.\r
-\r
-Chúng ta có  $T \\sim \\text{Expo}(\\lambda_1)$  và  $V \\sim \\text{Expo}(\\lambda_2)$ , độc lập. Chuyển đổi, hãy\r
-\r
- \r
-\r
- $$\\tilde{T}=\\lambda_{1}T,\\tilde{V}=\\lambda_{2}V.$$ \r
-\r
- \r
-\r
-Khi đó  $\\tilde{T}, \\tilde{V}$  là i.i.d. Expo(1).\r
-\r
-Cho phép  $U = \\tilde{T} / (\\tilde{T} + \\tilde{V})$ , chúng ta có\r
-\r
- \r
-\r
- $$\\begin{aligned}P(T\\leq V)&=P\\left(\\frac{\\tilde{T}}{\\lambda_{1}}\\leq\\frac{\\tilde{V}}{\\lambda_{2}}\\right)\\\\&=P\\left(\\frac{\\tilde{T}}{\\tilde{T}+\\tilde{V}}\\leq\\frac{\\tilde{V}}{\\tilde{T}+\\tilde{V}}\\cdot\\frac{\\lambda_{1}}{\\lambda_{2}}\\right)\\\\&=P\\left(U\\leq(1-U)\\cdot\\frac{\\lambda_{1}}{\\lambda_{2}}\\right)\\\\&=P\\left(U\\leq\\frac{\\lambda_{1}}{\\lambda_{1}+\\lambda_{2}}\\right).\\\\ \\end{aligned}$$ \r
-\r
- \r
-\r
-Vì  $\\tilde{T}, \\tilde{V} \\sim \\text{Expo}(1)$ , câu chuyện ngân hàng - hiệu điện thoại cho chúng ta biết rằng  $U \\sim \\text{Beta}(1,1)$ . Nói cách khác,  $U$  là phân bố đều chuẩn! Do đó,  $P(T \\leq V) = \\lambda_1 / (\\lambda_1 + \\lambda_2)$ . Lưu ý rằng khi  $\\lambda_1 = \\lambda_2$  điều này giảm xuống thành  $1/2$ , như mong đợi bởi tính đối xứng.\r
-\r
-Kết quả trên áp dụng cho sự kiện đầu tiên trong quy trình Poisson kết hợp. Tuy nhiên, sau sự kiện đầu tiên, lập luận tương tự áp dụng cho sự kiện thứ hai: bởi tính chất nhớ, thời gian đến sự kiện loại 1 tiếp theo là  $\\text{Expo}(\\lambda_1)$  và thời gian đến sự kiện loại 2 tiếp theo là  $\\text{Expo}(\\lambda_2)$ , độc lập với quá khứ. Do đó, sự kiện thứ hai là sự kiện loại 1 với xác suất  $\\lambda_1/(\\lambda_1 + \\lambda_2)$ , độc lập với sự kiện đầu tiên. Tương tự, tất cả các loại sự kiện có thể được xem như các lần tung đồng xu độc lập và đồng phân phối với xác suất  $\\lambda_1/(\\lambda_1 + \\lambda_2)$  cho mặt ngửa, nơi mặt ngửa tương ứng với loại 1.\r
-\r
-Điều này cho phép một câu chuyện tạo ra khác cho sự chồng chéo của hai quy trình Poisson độc lập: chúng ta có thể trước tiên tạo ra một biến ngẫu nhiên  $\\text{Expo}(\\lambda_1 + \\lambda_2)$  để quyết định thời gian sự kiện tiếp theo xảy ra, và sau đó độc lập tung một đồng xu với xác suất  $\\lambda_1 / (\\lambda_1 + \\lambda_2)$  cho mặt ngửa để quyết định loại sự kiện nào.\r
-\r
-Câu chuyện 13.2.9 (Câu chuyện tạo ra cho sự chồng chéo, lần 2). Để tạo ra sự chồng chéo của hai quy trình Poisson độc lập, với tốc độ  $\\lambda_{1}$  và  $\\lambda_{2}$ :\r
-\r
-1. Tạo ra các biến ngẫu nhiên i.i.d.  $\\mathrm{Expo}(\\lambda_{1}+\\lambda_{2})$  $X_{1}, X_{2}, \\ldots,$  và để sự kiện thứ j xảy ra tại thời điểm  $T_{j}=X_{1}+\\cdots+X_{j}$ .\r
-\r
-2. Tạo ra các biến ngẫu nhiên i.i.d.  $I_1, I_2, \\cdots \\sim \\text{Bern}(\\lambda_1 / (\\lambda_1 + \\lambda_2))$ , độc lập với  $X_1, X_2, \\ldots$ . Để sự kiện thứ j là loại 1 nếu  $I_j = 1$ , và loại 2 nếu không.\r
-\r
-Câu chuyện này cung cấp cho chúng ta một chứng minh nhanh chóng cho một kết quả được biết là định lý cạnh tranh, điều này dường như là một kết quả độc lập bất ngờ khi được phát biểu riêng biệt nhưng trở nên rất trực quan khi xem xét trong bối cảnh các quy trình Poisson.\r
-\r
-Ví dụ 13.2.10 (Cạnh tranh). Tuổi thọ của tủ lạnh của Fred là  $Y_1 \\sim \\text{Expo}(\\lambda_1)$ , và tuổi thọ của máy giặt của anh ấy là  $Y_2 \\sim \\text{Expo}(\\lambda_2)$ , độc lập với  $Y_1$ . Chứng minh rằng  $\\min(Y_1, Y_2)$ , thời gian của sự cố đầu tiên của thiết bị, là độc lập với  $I(Y_1 < Y_2)$ , chỉ số rằng tủ lạnh đã hỏng trước. Điều này có thể dường như bất ngờ.\r
-\r
-Ví dụ, nếu tuổi thọ trung bình của tủ lạnh của anh là 15 năm và tuổi thọ trung bình của máy rửa bát của anh là 7 năm, và sau đó một trong những thiết bị này hỏng sau 7 năm, thì sẽ tự nhiên để đoán rằng đó là máy rửa bát hỏng. Nhưng thực tế, chúng ta sẽ cho thấy rằng biết thời gian thiết bị đầu tiên hỏng không cung cấp thông tin nào về thiết bị nào hỏng.\r
-\r
-Giải pháp: Chúng ta sẽ sử dụng chiến lược nhúng, sử dụng ý tưởng của quá trình Poisson ngay cả khi bài toán này không đề cập đến quá trình Poisson ở bất cứ đâu! Chúng ta sẽ nhúng các biến ngẫu nhiên  $Y_{1}$  và  $Y_{2}$  vào một quá trình Poisson mà chúng ta tự ý tưởng ra, để tận dụng các tính chất của quá trình Poisson. Vì vậy, hãy tưởng tượng rằng có một quá trình Poisson toàn bộ về sự cố tủ lạnh với tốc độ  $\\lambda_{1}$  và một quá trình Poisson về sự cố máy rửa bát với tốc độ  $\\lambda_{2}$ .\r
-\r
-Chúng ta có thể diễn giải  $Y_{1}$  là thời gian chờ cho lần đến đầu tiên trong quá trình tủ lạnh và  $Y_{2}$  là thời gian chờ cho lần đến đầu tiên trong quá trình máy rửa bát. Cách tiếp cận này hợp lệ vì  $(\\min(Y_{1}, Y_{2}), I(Y_{1} < Y_{2}))$  là một hàm của  $(Y_{1}, Y_{2})$ , vì vậy điều quan trọng là phân phối chung của  $(Y_{1}, Y_{2})$ , và cách chúng ta xây dựng  $(Y_{1}, Y_{2})$  thực sự có phân phối chung đúng.\r
-\r
-Ngoài ra,  $\\min(Y_1, Y_2)$  là thời gian chờ cho lần đến đầu tiên trong sự chồng chéo của hai quá trình Poisson, và  $I(Y_1 < Y_2)$  là chỉ số của lần đến này là sự kiện loại-1. Nhưng trong câu chuyện tạo ra ở trên, thời gian đến và loại sự kiện trong quá trình Poisson chồng chéo được tạo ra hoàn toàn độc lập! Do đó,  $\\min(Y_1, Y_2)$  và  $I(Y_1 < Y_2)$  là độc lập, với  $\\min(Y_1, Y_2) \\sim \\text{Expo}(\\lambda_1 + \\lambda_2)$  và  $I(Y_1 < Y_2) \\sim \\text{Bern}(\\lambda_1 / (\\lambda_1 + \\lambda_2))$ .\r
-\r
-Một hệ quả trực tiếp của Câu chuyện 13.2.9 là nếu chúng ta chiếu một quá trình Poisson chồng chéo vào thời gian rời rạc, giữ lại chuỗi các sự kiện loại-1 và loại-2 nhưng không giữ lại thời gian đến, thì chúng ta sẽ được một chuỗi các biến ngẫu nhiên độc lập và đồng phân phối  $\\text{Bern}(\\lambda_1/(\\lambda_1+\\lambda_2))$  là  $I_1, I_2, \\ldots$ , trong đó  $I_j$  là chỉ số của sự kiện thứ  $j$  là loại-1. Hình 13.4 minh họa ý nghĩa của việc loại bỏ thông tin thời gian liên tục từ quá trình Poisson, và Định lý 13.2.11 phát biểu kết quả một cách chính thức.\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_188_1298_1238_1471.jpg" alt="Image" width="75%" /></div>\r
-\r
-\r
-### HÌNH 13.4\r
-\r
-Chiếu vào thời gian rời rạc. Loại bỏ thông tin thời gian liên tục từ một quá trình Poisson chồng chéo tạo ra một chuỗi các chỉ số độc lập và đồng phân phối của các sự kiện loại-1 so với loại-2. Ở đây × đại diện cho các sự kiện loại-1 và ◇ đại diện cho các sự kiện loại-2.\r
-\r
-Định lý 13.2.11 (Chiếu sự chồng chéo vào thời gian rời rạc). Xét sự chồng chéo  $(N(t): t > 0)$  của hai quá trình Poisson độc lập với tốc độ  $\\lambda_1$  và  $\\lambda_2$ . Với  $j = 1, 2, \\ldots$ , để  $I_j$  là chỉ số của sự kiện thứ  $j$  đến từ quá trình Poisson với tốc độ  $\\lambda_1$ . Khi đó các  $I_j$  là độc lập và đồng phân phối  $\\mathrm{Bern}(\\lambda_1 / (\\lambda_1 + \\lambda_2))$ .\r
-\r
-Sử dụng kết quả này, chúng ta có thể chứng minh với một câu chuyện rằng một hỗn hợp Gamma của Poissons là Negative Binomial, điều mà chúng ta đã học trước đây từ những cuộc phiêu lưu của Fred ở Blotchville (Câu chuyện 8.4.5). Chúng ta sẽ xem xét một trường hợp đặc biệt trước tiên.\r
-\r
-Định lý 13.2.12 (Hỗn hợp mũ của Poisson là Geometric). Giả sử rằng  $X \\sim \\text{Expo}(\\lambda)$  và  $Y|X = x \\sim \\text{Pois}(x)$ . Khi đó  $Y \\sim \\text{Geom}(\\lambda/(\\lambda + 1))$ .\r
-\r
-Chứng minh. Như với định lý về các rủi ro cạnh tranh, chúng ta nhúng X và Y vào các quy trình Poisson. Xét hai quy trình Poisson độc lập, một quy trình về các sự cố hỏng hóc đến với tốc độ 1 và một quy trình khác về các sự kiện thành công đến với tốc độ  $\\lambda$ . Gọi X là thời gian của sự kiện đầu tiên thành công; thì  $X \\sim \\text{Expo}(\\lambda)$ . Gọi Y là số lượng sự cố hỏng hóc trước thời gian của sự kiện đầu tiên thành công. Theo định nghĩa của quy trình Poisson với tốc độ 1,  $Y|X = x \\sim \\text{Pois}(x)$ . Do đó X và Y thỏa mãn các điều kiện của định lý.\r
-\r
-Để tìm phân phối của Y, hãy loại bỏ thông tin thời gian liên tục! Trong thời gian rời rạc, chúng ta có các phép thử Bernoulli độc lập và đồng nhất với xác suất thành công  $\\lambda/(\\lambda + 1)$ , và Y được xác định là số lượng sự cố hỏng hóc trước sự kiện đầu tiên thành công, do đó theo câu chuyện về phân phối Geometric,  $Y \\sim \\text{Geom}(\\lambda/(\\lambda + 1))$ .\r
-\r
-Lý do cho trường hợp tổng quát là tương tự.\r
-\r
-Định lý 13.2.13 (Hỗn hợp Gamma của Poisson là Negative Binomial). Giả sử rằng  $X \\sim \\Gamma(\\lambda)$  và  $Y|X = x \\sim \\Gamma(\\lambda)$ . Khi đó  $Y \\sim \\Gamma(\\lambda + 1)$ .\r
-\r
-Chứng minh. Xét hai quy trình Poisson độc lập, một quy trình về các sự cố hỏng hóc đến với tốc độ 1 và một quy trình khác về các sự kiện thành công đến với tốc độ  $\\lambda$ . Gọi X là thời gian của sự kiện thứ r thành công, do đó  $X \\sim \\text{Gamma}(r, \\lambda)$ . Gọi Y là số lượng sự cố hỏng hóc trước thời gian của sự kiện thứ r thành công. Sau đó  $Y|X = x \\sim \\text{Pois}(x)$  theo định nghĩa của quy trình Poisson. Chúng ta có Y là số lượng sự cố hỏng hóc trước sự kiện thứ r thành công trong một chuỗi các phép thử Bernoulli độc lập và đồng nhất với xác suất thành công  $\\lambda/(\\lambda + 1)$ , do đó  $Y \\sim \\text{NBin}(r, \\lambda/(\\lambda + 1))$ .\r
-\r
-#### 13.2.3 Phân tách\r
-\r
-Tính chất cuối cùng của các quy trình Poisson mà chúng ta sẽ thảo luận là phân tách: nếu chúng ta lấy một quy trình Poisson và, với mỗi lần đến, độc lập tung một đồng xu để quyết định liệu đó có phải là sự kiện loại-1 hay loại-2, chúng ta sẽ có được hai quy trình Poisson độc lập.\r
-\r
-Định lý 13.2.14 (Phân tách). Gọi  $(N(t):t>0)$  là một quy trình Poisson với tốc độ  $\\lambda$ , và phân loại mỗi lần đến là sự kiện loại-1 với xác suất  $p$  và sự kiện loại-2 với xác suất  $1-p$ , nơi các phân loại này độc lập với nhau và độc lập với các thời gian đến. Khi đó các sự kiện loại-1 tạo thành một quy trình Poisson với tốc độ  $\\lambda p$ , các sự kiện loại-2 tạo thành một quy trình Poisson với tốc độ  $\\lambda(1-p)$ , và hai quy trình này độc lập.\r
-\r
-Chứng minh. Gọi  $\\lambda_{1} = \\lambda p$  và  $\\lambda_{2} = \\lambda(1 - p)$ , do đó  $\\lambda = \\lambda_{1} + \\lambda_{2}$  và  $p = \\lambda_{1} / (\\lambda_{1} + \\lambda_{2})$ . Sau đó chúng ta rơi vào Câu chuyện 13.2.9. Nhưng Câu chuyện 13.2.7 và Câu chuyện 13.2.9 là hai\r
-\r
-Các câu chuyện sinh ra tương đương cho sự chồng chất! Các cấu trúc xác suất của các đầu ra của hai câu chuyện này là giống nhau, khi xem các sự kiện đến trong Câu chuyện 13.2.7 từ  $(N_i(t):t>0)$  là loại-i. Do đó, chúng ta có thể giả sử thay thế rằng Câu chuyện 13.2.7 đã được sử dụng để tạo ra quá trình. May mắn thay, trong câu chuyện này, chúng ta biết từ đầu rằng quá trình loại-1 độc lập với quá trình loại-2.\r
-\r
-Do đó, chúng ta có thể chồng chất các quá trình Poisson độc lập để nhận được một quá trình Poisson kết hợp, hoặc chúng ta có thể chia một quá trình Poisson đơn lẻ thành các quá trình Poisson độc lập. Hình 13.5 là minh họa của việc lọc. Chúng ta chỉ cần lật ngược Hình 13.3, điều này phù hợp vì lọc là mặt ngược lại của sự chồng chất!\r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_156_560_1240_833.jpg" alt="Image" width="77%" /></div>\r
-\r
-\r
-### HÌNH 13.5\r
-\r
-Lọc. Bắt đầu với một quá trình Poisson đơn lẻ, nếu chúng ta cho mỗi sự kiện đến là loại-1 với xác suất p và loại-2 với xác suất 1 - p, chúng ta sẽ nhận được hai quá trình Poisson độc lập với tốc độ  $\\lambda p$  và  $\\lambda(1 - p)$ . Ở đây  $\\times$  đại diện cho các sự kiện loại-1 và  $\\diamond$  đại diện cho các sự kiện loại-2, và chúng ta lấy p = 0.5.\r
-\r
-Lọc là tương đương của quá trình Poisson với câu chuyện gà - trừng. Giả sử rằng chúng ta lọc một quá trình Poisson  $(N(t):t>0)$  với tốc độ  $\\lambda$  như trong phát biểu của Định lý 13.2.14, và để  $(N_i(t):t>0)$  là quá trình của các sự kiện loại- $i$ . Khi xem các sự kiện loại-1 như trứng nở, thì lập tức từ câu chuyện gà - trừng, chúng ta có  $N_1(t)\\sim\\mathrm{Pois}(\\lambda pt)$ ,  $N_2(t)\\sim\\mathrm{Pois}(\\lambda(1-p)t)$ , với  $N_1(t)$  độc lập với  $N_2(t)$ .\r
-\r
-Để thực hành và như một ví dụ về sự tinh tế của việc lọc, hãy tìm phân phối của một tổng ngẫu nhiên theo hai cách khác nhau: sử dụng MGF và kỳ vọng có điều kiện, và sử dụng việc lọc.\r
-\r
-Ví dụ 13.2.15 (Tổng lần đầu tiên thành công của các Exponentials). Cho  $X_1, X_2, \\ldots$  là i.i.d.  $\\text{Expo}(\\lambda)$  và  $N \\sim \\text{FS}(p)$ , độc lập với các  $X_j$ . Tìm phân phối của tổng ngẫu nhiên\r
-\r
- \r
-\r
- $$Y=\\sum_{j=1}^{N}X_{j}.$$ \r
-\r
- \r
-\r
-Giải pháp:\r
-\r
-Chúng ta sẽ giải bài toán này hai lần, lần đầu tiên bằng các công cụ từ Chương 9 và sau đó bằng một câu chuyện quá trình Poisson sử dụng việc lọc. Với phương pháp đầu tiên, chúng ta nhận ra Y là tổng của một số ngẫu nhiên các biến ngẫu nhiên, do đó chúng ta có thể tìm MGF của\r
-\r
-Sử dụng luật Adam, điều kiện hóa theo N. Nhớ lại rằng hàm sinh moment (MGF) của phân phối Expo(  $\\lambda$ ) là  $\\lambda/(\\lambda - t)$  cho  $t < \\lambda$ , ta có\r
-\r
- \r
-\r
- $$\\begin{aligned}E\\left(e^{tY}\\right)&=E\\left(E\\left(e^{t\\sum_{j=1}^{N}X_{j}}\\Big|N\\right)\\right)\\\\&=E\\left(E\\left(e^{tX_{1}}\\right)E\\left(e^{tX_{2}}\\right)\\cdots E\\left(e^{tX_{N}}\\right)\\big|N\\right)\\\\&=E\\left(E\\left(e^{tX_{1}}\\right)^{N}\\right)\\\\&=E\\left(\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{N}\\right).\\\\ \\end{aligned}$$ \r
-\r
- \r
-\r
-Bây giờ ta có thể sử dụng định lý LOTUS với PMF của FS(p),\r
-\r
- \r
-\r
- $$P(N=k)=q^{k-1}p cho k=1,2,\\ldots$$ \r
-\r
- \r
-\r
-Tổng LOTUS là\r
-\r
- \r
-\r
- $$E\\left(\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{N}\\right)=\\sum_{k=1}^{\\infty}\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{k}q^{k-1}p,$$ \r
-\r
- \r
-\r
-điều này đơn giản hóa thành  $\\lambda p/(\\lambda p-t)$  cho  $t<\\lambda p$ , sau khi thực hiện một số phép toán đại số và tổng một chuỗi hình học. Đây là MGF của  $\\mathrm{Expo}(\\lambda p)$ , do đó  $Y\\sim\\mathrm{Expo}(\\lambda p)$ .\r
-\r
-Bây giờ hãy xem cách các quá trình Poisson có thể giúp ta tránh khỏi các phép toán phức tạp đồng thời cung cấp cái nhìn sâu sắc về tại sao Y là phân phối Exponential. Sử dụng chiến lược nhúng, vì các  $X_j$  là i.i.d.  $\\text{Expo}(\\lambda)$  ta có thể diễn giải các  $X_j$  như khoảng thời gian giữa các lần đến trong một quá trình Poisson với tốc độ  $\\lambda$ . Vậy hãy tưởng tượng một quá trình Poisson như vậy, và thêm nữa tưởng tượng rằng mỗi lần đến là một lần đến đặc biệt với xác suất p, độc lập. Khi đó ta có thể diễn giải N là số lần đến cho đến lần đầu tiên có lần đến đặc biệt và Y là thời gian chờ cho lần đầu tiên có lần đến đặc biệt. Tuy nhiên theo tính chất mỏng (thinning), các lần đến đặc biệt tạo thành một quá trình Poisson với tốc độ  $\\lambda p$ . Thời gian chờ cho lần đầu tiên có lần đến đặc biệt do đó được phân phối  $\\text{Expo}(\\lambda p)$ .\r
-\r
-Mỏng hóa hoạt động tương tự với hơn 2 loại. Trong bối cảnh này, mỏng hóa thường được gọi là định lý màu sắc.\r
-\r
-Định lý 13.2.16 (Màu sắc). Cho  $(N(t):t>0)$  là một quá trình Poisson với tốc độ  $\\lambda$ , và  $C$  là một tập hợp hữu hạn của "màu", được đánh số từ 1 đến  $c$ . Giả sử rằng mỗi lần đến được gán ngẫu nhiên một màu từ  $C$ , với màu  $i$  có xác suất  $p_{i}$ . Các gán màu là độc lập với nhau và độc lập với thời gian đến. Cho  $(N_{i}(t):t>0)$  là quá trình màu  $i$ , tức là  $N_{i}(t)$  là số lần đến có màu  $i$  trong  $(0,t]$ . Khi đó  $(N_{i}(t):t>0)$  là một quá trình Poisson với tốc độ  $\\lambda p_{i}$ , cho  $i=1,2,\\ldots,c$ , và các quá trình đơn màu này là độc lập.\r
-\r
-Chứng minh. Ta sẽ quy nạp theo c. Với c = 1 không có gì để chứng minh. Với c = 2 kết quả là định lý mỏng hóa mà ta đã chứng minh trước đó. Bây giờ giả sử rằng kết quả đúng với c = k, ta sẽ chứng minh cho c = k + 1.\r
-\r
-Với  $c$  màu sắc, và hiển thị nó khi có  $c+1$  màu sắc. Hãy gọi màu 1 là xanh. Sử dụng việc làm mỏng để gán mỗi sự đến đạt là xanh với xác suất  $p_{1}$  và không xanh với xác suất  $1-p_{1}$ . Điều này chia quá trình Poisson thành 2 quá trình độc lập: một quá trình xanh với tốc độ  $\\lambda p_{1}$  và một quá trình không xanh với tốc độ  $\\lambda(1-p_{1})$ . Theo giả thiết quy nạp, chúng ta có thể chia quá trình không xanh thành  $c$  quá trình độc lập, một cho mỗi màu  $2,3,\\ldots,c+1$ , nơi màu  $j$  giờ đây có xác suất\r
-\r
- \r
-\r
- $$\\tilde{p}_{j}=\\frac{p_{j}}{1-p_{1}}=\\frac{p_{j}}{p_{2}+p_{3}+\\cdots+p_{c+1}},$$ \r
-\r
- \r
-\r
-cho  $j = 2, 3, \\ldots, c + 1$ . Chúng ta sau đó có  $c + 1$  quá trình Poisson độc lập, một cho mỗi màu, sao cho quá trình cho màu  $j$  có tốc độ  $\\lambda p_j$  cho  $j = 1, 2, \\ldots, c + 1$ .\r
-\r
-Ví dụ tiếp theo cho thấy cách tô màu có thể giúp chúng ta phân tích một quá trình Poisson phức tạp thành các thành phần dễ quản lý hơn.\r
-\r
-Ví dụ 13.2.17 (Xe trên cao tốc). Giả sử xe vào một con đường một chiều từ một điểm chung, theo một quá trình Poisson với tốc độ  $\\lambda$ . Xe thứ  $i$  có vận tốc  $V_i$  và di chuyển với vận tốc này mãi mãi; không có thời gian bị mất khi một xe vượt qua xe khác. Giả sử các  $V_i$  là các biến ngẫu nhiên rời rạc độc lập đồng phân phối với tập giá trị là một tập hữu hạn các giá trị dương. Quá trình bắt đầu tại thời điểm 0, và chúng ta sẽ xem điểm vào đường là tại vị trí 0.\r
-\r
-Với các vị trí cố định  $a$  và  $b$  trên đường cao tốc với  $0 < a < b$ , gọi  $Z_t$  là số xe đang ở trong khoảng  $[a, b]$  tại thời điểm  $t$ . (Ví dụ, trên một đường cao tốc chạy từ tây sang đông qua vùng trung tâm Mỹ,  $a$  có thể là Kansas City và  $b$  có thể là St. Louis; thì  $Z_t$  sẽ là số xe đang ở trên đường cao tốc trong tiểu bang Missouri tại thời điểm  $t$ .) Hình 13.6 minh họa thiết lập của bài toán và định nghĩa của  $Z_t$ .\r
-\r
-Giả sử rằng  $t$  đủ lớn để  $t > b/V_i$  cho tất cả các giá trị có thể của  $V_i$ . Chứng minh rằng  $Z_t$  có phân phối Poisson với kỳ vọng  $\\lambda(b - a)E(V_i^{-1})$ .\r
-\r
-## Giải pháp:\r
-\r
-Vì các  $V_{i}$  là rời rạc với tập giá trị hữu hạn, chúng ta có thể liệt kê tập các vận tốc có thể  $v_{1},\\ldots,v_{m}$  và xác suất tương ứng  $p_{1},\\ldots,p_{m}$ . Sau khi làm như vậy, chúng ta nhận ra rằng các xe vào đường cao tốc đại diện cho  $m$  loại sự kiện, mỗi loại tương ứng với một vận tốc khác nhau. Điều này gợi ý việc chia quá trình Poisson tổng thể thành các quá trình đơn giản hơn. Hãy tô màu quá trình Poisson  $m$  cách theo vận tốc của xe, dẫn đến một quá trình Poisson với tốc độ  $\\lambda p_{1}$  cho xe có vận tốc  $v_{1}$ , một quá trình Poisson với tốc độ  $\\lambda p_{2}$  cho xe có vận tốc  $v_{2}$ , và cứ như vậy.\r
-\r
-Với mỗi trong số  $m$  quá trình Poisson riêng biệt này, chúng ta có thể hỏi: trong khoảng thời gian nào các xe từ quá trình này phải vào đường cao tốc để ở trong  $[a, b]$  tại thời điểm  $t$ ? Đây là một vấn đề vật lý, không phải thống kê:\r
-\r
- \r
-\r
- $$\\mathrm{distance}=\\mathrm{velocity}\\cdot\\mathrm{time},$$ \r
-\r
- \r
-\r
-nên một xe vào đường cao tốc tại thời điểm  $s$  với vận tốc  $v$  sẽ ở vị trí  $(t-s)v$ \r
-\r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_305_137_1084_632.jpg" alt="Hình ảnh" width="55%" /></div>\r
-\r
-\r
-### HÌNH 13.6\r
-\r
-<div style="text-align: center;">Xe hơi vào một quốc lộ. Thời gian vào của chúng tạo thành một quy trình Poisson và được chỉ ra bởi các dấu × trên trục thời gian. Xe hơi thứ i có vận tốc  $V_i$ , được biểu diễn bởi độ dốc của đường thẳng bắt đầu từ dấu × thứ i. Chúng ta quan tâm đến  $Z_t$ , số lượng xe hơi nằm trong khoảng  $[a,b]$  tại thời điểm  $t$ . Ở đây chúng ta quan sát được  $Z_t = 3$ , được biểu diễn bởi ba ngôi sao.</div>\r
-\r
-\r
-tại thời điểm t. Do đó, để vị trí của xe hơi nằm giữa a và b, chúng ta yêu cầu thời gian đến của nó nằm giữa  $t - b/v$  và  $t - a/v$ . (Theo giả định rằng t đủ lớn, chúng ta không cần lo lắng về  $t - b/v$  có thể âm.) Nếu xe hơi đến trước thời điểm  $t - b/v$ , nó sẽ đã vượt qua b vào thời điểm t; nếu xe hơi đến sau thời điểm  $t - a/v$ , nó sẽ chưa đạt đến a vào thời điểm t.\r
-\r
-Chúng ta giờ đây có câu trả lời cho mỗi quy trình Poisson riêng biệt. Trong quy trình mà xe hơi có vận tốc  $v_j$ , số lượng xe hơi đến giữa  $t - b/v_j$  và  $t - a/v_j$ , mà chúng ta sẽ gọi là  $Z_{tj}$ , được phân phối Pois  $(\\lambda p_j(b - a)/v_j)$ : tốc độ của quy trình là  $\\lambda p_j$ , và độ dài của khoảng  $[t - b/v_j, t - a/v_j]$  là  $(b - a)/v_j$ .\r
-\r
-Vì các quy trình riêng biệt độc lập,  $Z_{t1}$  đến  $Z_{tm}$  là các biến ngẫu nhiên Poisson độc lập. Do đó,\r
-\r
- \r
-\r
- $$Z_{t}=Z_{t1}+\\cdots+Z_{t m}\\sim\\mathrm{P o i s}\\left(\\lambda(b-a)\\sum_{j=1}^{m}\\frac{p_{j}}{v_{j}}\\right),$$ \r
-\r
- \r
-\r
-và  $\\sum_{j=1}^{m} p_{j}/v_{j}$  là kỳ vọng của  $V_{i}^{-1}$  theo định lý LOTUS. Đây chính là điều chúng ta muốn. ☐\r
-\r
-Để kết thúc phần này, dưới đây là một bảng mô tả sự tương ứng giữa các tính chất của quá trình Poisson và các tính chất của phân phối Poisson. Trong cột thứ hai,  $Y_1 \\sim \\text{Pois}(\\lambda_1)$  và  $Y_2 \\sim \\text{Pois}(\\lambda_2)$  là độc lập.\r
-\r
-\r
-<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>quá trình Poisson</td><td style='text-align: center; word-wrap: break-word;'>phân phối Poisson</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>điều kiện</td><td style='text-align: center; word-wrap: break-word;'> $Y_{1}|Y_{1} + Y_{2} = n \\sim \\text{Bin}(n, \\lambda_{1}/(\\lambda_{1} + \\lambda_{2}))$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>tổng hợp</td><td style='text-align: center; word-wrap: break-word;'> $Y_{1} + Y_{2} \\sim \\text{Pois}(\\lambda_{1} + \\lambda_{2})$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>lọc</td><td style='text-align: center; word-wrap: break-word;'>câu chuyện gà và trừng</td></tr></table>`,jz=`Quá trình Poisson trong nhiều chiều được xác định tương tự như quá trình Poisson 1 chiều: chúng ta chỉ thay thế khái niệm độ dài bằng khái niệm diện tích hoặc thể tích. Để cụ thể hơn, chúng ta sẽ nêu định nghĩa quá trình Poisson 2 chiều, sau đó có thể dễ dàng hiểu cách xác định quá trình Poisson trong các chiều cao hơn bằng cách so sánh.\r
-\r
-Định nghĩa 13.3.1 (Quá trình Poisson 2 chiều). Sự kiện trong mặt phẳng  $R^2$  là một quá trình Poisson 2 chiều với cường độ  $\\lambda$  nếu các điều kiện sau được thỏa mãn:\r
-\r
-1. Số lượng sự kiện trong một miền A có phân phối Pois(  $\\lambda \\cdot \\text{diện tích}(A)$ ).\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_chart_box_152_151_1237_532.jpg" alt="Quá trình Poisson mô phỏng trong một chiều" style="max-width: 77%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
+\r
+**HÌNH 13.1:** Quá trình Poisson mô phỏng trong một chiều, cho $\\lambda = 1, 2, 5$. Các sự kiện đến gần như không đều cách nhau, và thực tế chúng đôi khi tập trung lại với nhau,\r
+</div>`,Az=`Ba tính chất quan trọng nhất cần hiểu về quá trình Poisson là điều kiện, tổng hợp và mỏng hóa. Những điều này tương ứng với các tính chất mà chúng ta đã thấy trước đây về phân phối Poisson, vì vậy chúng đã nên có tính hợp lý.
+
+### 13.2.1 Điều kiện
+
+Điều gì xảy ra khi chúng ta lấy một quá trình Poisson và điều kiện trên tổng số sự kiện trong một khoảng thời gian? Kết quả đầu tiên của chúng ta là rằng điều kiện trên tổng số sự kiện trong một khoảng thời gian, số sự kiện trong một khoảng con cố định là Binomial. Điều này được suy ra từ Định lý 4.8.2, nơi chúng ta đã cho thấy rằng có thể chuyển từ Poisson sang Binomial bằng cách điều kiện.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 13.2.1</div>
+    <div class="math-box-title">Số lượng điều kiện</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $(N(t):t>0)$ là một quá trình Poisson với tốc độ $\\lambda$, và $t_{1}<t_{2}$. Phân phối có điều kiện của $N(t_{1})$ cho $N(t_{2})=n$ là
+
+$$N(t_{1})\\mid N(t_{2})=n\\sim\\mathrm{Bin}\\left(n,\\frac{t_{1}}{t_{2}}\\right).$$
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 13.2.1</div>
+  </div>
+  <div class="math-box-content">
+
+Hình 13.2 minh họa thiết lập. Mệnh đề là rằng điều kiện trên việc có tổng cộng n sự kiện trong $(0, t_{2}]$, số sự kiện trong $(0, t_{1}]$ là Binomial, với n lần thử và xác suất thành công tỉ lệ với $t_{1}$.
+
+Vì $(0,t_{1}]$ và $(t_{1},t_{2}]$ là rời nhau, $N(t_{1})$ độc lập với $N(t_{2})-N(t_{1})$. Thứ nhất phân phối Pois$(\\lambda t_{1})$, thứ hai phân phối Pois$(\\lambda(t_{2}-t_{1}))$, và tổng của chúng là
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_204_146_1192_309.jpg" alt="Điều kiện trên tổng số sự kiện" style="max-width: 70%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 13.2:** Điều kiện. Cho rằng có $n$ lần đến trong khoảng $(0,t_{2}]$, phân phối điều kiện của số lần đến trong khoảng $(0,t_{1}]$ là phân phối Nhị thức với tham số $n$ và $t_{1}/t_{2}$.
+</div>
+
+Số lần đến trong khoảng $(0, t_{2}]$, tức là $N(t_{2})$. Theo Định lý 4.8.2,
+
+$$N(t_{1})\\mid N(t_{2})=n\\sim\\mathrm{Bin}\\left(n,\\frac{\\lambda t_{1}}{\\lambda t_{1}+\\lambda(t_{2}-t_{1})}\\right),$$
+
+chính xác là điều mà chúng ta muốn chứng minh.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Tiếp tục phát triển ý tưởng về điều kiện hóa theo số lần đến, chúng ta có kết quả sau đây: trong một quá trình Poisson, cho rằng $N(t) = n$, các thời điểm đến được phân phối như thể chúng ta ném xuống $n$ điểm độc lập đồng nhất $\\text{Unif}(0, t)$.
+
+Trước tiên hãy xem xét một trường hợp đơn giản, nơi chỉ có một lần đến.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Mệnh đề 13.2.2</div>
+    <div class="math-box-title"></div>
+  </div>
+  <div class="math-box-content">
+
+Trong một quá trình Poisson với tốc độ $\\lambda$, điều kiện cho $N(t) = 1$, thời điểm đến đầu tiên $T_1$ có phân phối $\\text{Unif}(0, t)$.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Mệnh đề 13.2.2</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử 0 < s < t. Theo một dạng của tính chất đối ngẫu giữa số lần đến và thời gian,
+
+$$\\begin{aligned}P(T_{1}\\leq s|N(t)=1)&=\\frac{P(T_{1}\\leq s,N(t)=1)}{P(N(t)=1)}\\\\&=\\frac{P(N(s)=1,N(t)-N(s)=0)}{P(N(t)=1)}\\\\&=\\frac{(e^{-\\lambda s}\\lambda s)(e^{-\\lambda(t-s)})}{e^{-\\lambda t}\\lambda t}\\\\&=\\frac{s}{t}.\\end{aligned}$$
+
+Do đó, hàm phân phối tích lũy điều kiện của $T_{1}$ cho $N(t) = 1$ là hàm phân phối tích lũy của $\\text{Unif}(0, t)$.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Mở rộng hơn nữa, cho rằng $N(t) = n$, các thời điểm đến $T_j$ trông như các thống kê thứ tự của $n$ biến ngẫu nhiên độc lập đồng nhất $\\text{Unif}(0, t)$. Chúng tôi bỏ qua chứng minh vì trong chương 8 khi giới thiệu các thống kê thứ tự, chúng ta tập trung vào các phân phối biên.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 13.2.3</div>
+    <div class="math-box-title">Thời điểm điều kiện</div>
+  </div>
+  <div class="math-box-content">
+
+Trong một quá trình Poisson với tốc độ $\\lambda$, điều kiện cho $N(t) = n$, phân phối chung của các thời điểm đến $T_1, \\ldots, T_n$ giống như phân phối chung của các thống kê thứ tự của $n$ biến ngẫu nhiên độc lập đồng nhất $\\text{Unif}(0, t)$.
+
+  </div>
+</div>
+
+Từ Chương 8, chúng ta biết rằng thống kê thứ tự của các r.v. Unif(0,1) là Betas, do đó các phân phối có điều kiện của $T_j$ là các Beta được thay đổi tỷ lệ; để có được phân phối Beta, chúng ta chỉ cần chia $T_j$ cho t để hỗ trợ của chúng là (0,1):
+
+$$t^{-1}T_{j}\\mid N(t)=n\\sim\\mathrm{Beta}(j,n-j+1).$$
+
+Chúng ta giờ đây có một cách khác để tạo ra các lần đến từ một quá trình Poisson, lần này cho một khoảng thời gian cụ thể thay vì một số lần đến cụ thể.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Câu chuyện 13.2.4</div>
+    <div class="math-box-title">Câu chuyện tạo ra quá trình Poisson, lần 2</div>
+  </div>
+  <div class="math-box-content">
+
+Để tạo ra các lần đến từ một quá trình Poisson với tốc độ $\\lambda$ trong khoảng thời gian $(0, t]$:
+
+1. Tạo số lượng tổng cộng các sự kiện trong khoảng thời gian, $N(t) \\sim \\text{Pois}(\\lambda t)$.
+
+2. Cho $N(t) = n$, tạo $n$ r.v. i.i.d. $\\text{Unif}(0, t)$ là $U_1, \\ldots, U_n$.
+
+3. Với $j = 1, \\ldots, n$, đặt $T_j = U_{(j)}$.
+
+  </div>
+</div>
+
+Đây thực sự là câu chuyện tạo ra mà chúng ta đã sử dụng để tạo Hình 13.1, vì chúng ta biết rằng chúng ta muốn mô phỏng trong khoảng thời gian $(0, 10]$.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 13.2.5</div>
+    <div class="math-box-title">Người dùng trên một trang web</div>
+  </div>
+  <div class="math-box-content">
+
+Người dùng truy cập một trang web nhất định theo một quá trình Poisson với tốc độ $\\lambda_{1}$ người dùng mỗi phút, nơi một "sự kiện" tại một thời điểm nhất định có nghĩa là tại thời điểm đó có người bắt đầu xem trang web. Sau khi đến trang web, mỗi người dùng xem trang web trong một khoảng thời gian $\\text{Expo}(\\lambda_{2})$ (rồi rời khỏi), độc lập với các người dùng khác.
+
+Giả sử rằng tại thời điểm 0, không có ai đang sử dụng trang web. Gọi $N_{t}$ là số lượng người dùng đến trong khoảng thời gian $(0, t]$, và gọi $C_{t}$ là số lượng người dùng đang xem trang web tại thời điểm t.
+
+(a) Gọi X là thời gian đến và Y là thời gian rời khỏi của một người dùng đến tại một thời điểm đều trong $[0, t]$. Tìm hàm mật độ xác suất chung của X và Y.
+
+(b) Gọi $p_{t}$ là xác suất một người dùng đến tại một thời điểm đều trong $(0, t]$ vẫn đang xem trang web tại thời điểm t. Tìm $p_{t}$.
+
+(c) Tìm phân phối của $C_{t}$ theo $\\lambda_{1}, \\lambda_{2}$, và t.
+
+(d) Định lý Little là một kết quả rất tổng quát, nói rằng điều sau đây:
+
+Số lượng trung bình các khách hàng trong một hệ thống ổn định là tốc độ trung bình đến nhân với thời gian trung bình một khách hàng dành trong hệ thống.
+
+Giải thích điều gì xảy ra với $E(C_t)$ khi t lớn, và cách điều này có thể được diễn giải theo định lý Little.
+
+**Giải:**
+
+(a) Chúng ta có $X \\sim \\text{Unif}(0, t)$. Cho X = x, Y là một $\\text{Expo}(\\lambda_2)$ dịch chuyển bắt đầu tại x, tức là $(Y - x)|(X = x) \\sim \\text{Expo}(\\lambda_2)$. Do đó, hàm mật độ xác suất chung của X và Y là
+
+$$f(x,y)=f_{X}(x)f_{Y|X}(y|x)=\\frac{\\lambda_{2}}{t}e^{-\\lambda_{2}(y-x)},\\text{for }0<x<t \\text{ và } x<y.$$
+
+(b) Với ký hiệu như trong (a), chúng ta muốn tìm $p_{t}=P(Y>t)$. Điều này có thể được thực hiện bằng cách tích phân PDF chung trên tất cả $(x,y)$ với y>t:
+
+$$\\begin{aligned}P(Y>t)&=\\frac{1}{t}\\int_{0}^{t}\\int_{t}^{\\infty}\\lambda_{2}e^{-\\lambda_{2}(y-x)}dydx\\\\&=\\frac{1}{t}\\int_{0}^{t}e^{\\lambda_{2}x}\\left(\\int_{t}^{\\infty}\\lambda_{2}e^{-\\lambda_{2}y}dy\\right)dx\\\\&=\\frac{e^{-\\lambda_{2}t}}{t}\\int_{0}^{t}e^{\\lambda_{2}x}dx\\\\&=\\frac{1-e^{-\\lambda_{2}t}}{\\lambda_{2}t}.\\end{aligned}$$
+
+(c) Theo Định lý 13.2.3, cho $N_t = n$ chúng ta có rằng các $n$ thời điểm đến trong $(0, t]$ là i.i.d. và đều trong khoảng đó. Do đó, $C_t | N_t \\sim \\mathrm{Bin}(N_t, p_t)$, với $p_t$ như trên, và $N_t \\sim \\mathrm{Pois}(\\lambda_1 t)$. Vì vậy theo câu chuyện gà - trứng (Câu chuyện 7.1.9),
+
+$$C_{t}\\sim\\mathrm{Pois}(\\lambda_{1}p_{t}t).$$
+
+Đó là,
+
+$$C_{t}\\sim\\mathrm{Pois}\\left(\\frac{\\lambda_{1}(1-e^{-\\lambda_{2}t})}{\\lambda_{2}}\\right).$$
+
+(d) Khi $t \\to \\infty$, $E(C_t) \\to \\lambda_1/\\lambda_2$. Điều này phù hợp với định luật Little vì nó nói rằng số lượng người dùng trung bình trong hệ thống (truy cập trang web) trong dài hạn là tốc độ người dùng đến ($\\lambda_1$) nhân với thời gian trung bình một người dùng truy cập trong một lần ($1/\\lambda_2$).
+
+  </div>
+</div>
+
+### 13.2.2 Tính siêu vị
+
+Tính chất tiếp theo mà chúng ta sẽ xem xét là tính siêu vị: nếu chúng ta lấy hai quá trình Poisson độc lập và chồng lên nhau, chúng ta sẽ nhận được một quá trình Poisson khác. (Quá trình kết hợp là một quá trình Poisson riêng biệt, nhưng ta có thể tưởng tượng rằng các lần đến được gắn nhãn để chỉ ra quá trình gốc mà chúng đến từ.)
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 13.2.6</div>
+    <div class="math-box-title">Tính siêu vị</div>
+  </div>
+  <div class="math-box-content">
+
+Gọi $(N_1(t):t>0)$ và $(N_2(t):t>0)$ là hai quá trình Poisson độc lập với tốc độ $\\lambda_1$ và $\\lambda_2$ tương ứng. Khi đó quá trình kết hợp $N(t)=N_1(t)+N_2(t)$ là một quá trình Poisson với tốc độ $\\lambda_1+\\lambda_2$.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 13.2.6</div>
+  </div>
+  <div class="math-box-content">
+
+Hãy kiểm tra hai tính chất trong định nghĩa của quá trình Poisson.
+
+1. Với mọi $t > 0$, $N_{1}(t) \\sim \\mathrm{Pois}(\\lambda_{1}t)$ và $N_{2}(t) \\sim \\mathrm{Pois}(\\lambda_{2}t)$, độc lập, do đó $N(t) \\sim \\mathrm{Pois}((\\lambda_{1} + \\lambda_{2})t)$, theo Định lý 4.8.1. Lập luận tương tự áp dụng cho bất kỳ khoảng thời gian nào có độ dài $t$, không chỉ các khoảng có dạng $(0, t]$.
+
+2. Các lần đến trong các khoảng rời nhau độc lập trong quá trình kết hợp vì chúng độc lập trong các quá trình riêng lẻ, và các quá trình riêng lẻ độc lập với nhau.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Có một cách rất tự nhiên để tạo ra một tổng hợp.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Câu chuyện 13.2.7</div>
+    <div class="math-box-title">Câu chuyện tạo ra tổng hợp</div>
+  </div>
+  <div class="math-box-content">
+
+Để tạo ra tổng hợp của hai quá trình Poisson độc lập, $(N_1(t):t>0)$ với tốc độ $\\lambda_1$ và $(N_2(t):t>0)$ với tốc độ $\\lambda_2$:
+
+1. Tạo các sự kiện đến từ quá trình Poisson $(N_{1}(t):t>0)$.
+
+2. Tạo các sự kiện đến từ quá trình Poisson $(N_{2}(t):t>0)$.
+
+3. Tổng hợp kết quả của các bước 1 và 2.
+
+  </div>
+</div>
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_155_576_1240_866.jpg" alt="Tổng hợp của hai quá trình Poisson độc lập" style="max-width: 77%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 13.3:** Tổng hợp. Tổng hợp của các quá trình Poisson độc lập là một quá trình Poisson, và các tốc độ cộng lại. Hai dòng thời gian trên là các quá trình Poisson độc lập, mỗi cái có tốc độ 0.5. Dòng thời gian dưới là tổng hợp của hai dòng thời gian trên và chính nó là một quá trình Poisson với tốc độ 1.
+</div>
+
+Hình 13.3 mô tả một quá trình Poisson tổng hợp gồm các dấu × và ◇. Hãy gọi các dấu × là "sự kiện loại-1" và các dấu ◇ là "sự kiện loại-2". Một câu hỏi tự nhiên là: xác suất quan sát một sự kiện loại-1 trước một sự kiện loại-2 là bao nhiêu?
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">† Định lý 13.2.8</div>
+    <div class="math-box-title">Xác suất sự kiện loại-1 trước sự kiện loại-2</div>
+  </div>
+  <div class="math-box-content">
+
+Xét hai quá trình Poisson độc lập: một quá trình Poisson của các sự kiện loại-1, với tốc độ $\\lambda_{1}$, và một quá trình Poisson của các sự kiện loại-2, với tốc độ $\\lambda_{2}$. Trong tổng hợp của hai quá trình này, xác suất sự kiện đầu tiên là loại-1 là $\\lambda_{1}/(\\lambda_{1} + \\lambda_{2})$.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 13.2.8</div>
+  </div>
+  <div class="math-box-content">
+
+Gọi $T$ là thời gian đến sự kiện loại-1 đầu tiên và $V$ là thời gian đến sự kiện loại-2 đầu tiên. Chúng ta tìm $P(T \\leq V)$. Chúng ta có thể làm điều này bằng 2D LOTUS, tích phân mật độ xác suất chung của $T$ và $V$ trên vùng quan tâm trong mặt phẳng 2D. Nhưng hóa ra chúng ta có thể tránh được việc sử dụng giải tích.
+
+Chúng ta có $T \\sim \\text{Expo}(\\lambda_1)$ và $V \\sim \\text{Expo}(\\lambda_2)$, độc lập. Chuyển đổi, hãy
+
+$$\\tilde{T}=\\lambda_{1}T,\\tilde{V}=\\lambda_{2}V.$$
+
+Khi đó $\\tilde{T}, \\tilde{V}$ là i.i.d. Expo(1).
+
+Cho phép $U = \\tilde{T} / (\\tilde{T} + \\tilde{V})$, chúng ta có
+
+$$\\begin{aligned}P(T\\leq V)&=P\\left(\\frac{\\tilde{T}}{\\lambda_{1}}\\leq\\frac{\\tilde{V}}{\\lambda_{2}}\\right)\\\\&=P\\left(\\frac{\\tilde{T}}{\\tilde{T}+\\tilde{V}}\\leq\\frac{\\tilde{V}}{\\tilde{T}+\\tilde{V}}\\cdot\\frac{\\lambda_{1}}{\\lambda_{2}}\\right)\\\\&=P\\left(U\\leq(1-U)\\cdot\\frac{\\lambda_{1}}{\\lambda_{2}}\\right)\\\\&=P\\left(U\\leq\\frac{\\lambda_{1}}{\\lambda_{1}+\\lambda_{2}}\\right).\\\\ \\end{aligned}$$
+
+Vì $\\tilde{T}, \\tilde{V} \\sim \\text{Expo}(1)$, câu chuyện ngân hàng - hiệu điện thoại cho chúng ta biết rằng $U \\sim \\text{Beta}(1,1)$. Nói cách khác, $U$ là phân bố đều chuẩn! Do đó, $P(T \\leq V) = \\lambda_1 / (\\lambda_1 + \\lambda_2)$. Lưu ý rằng khi $\\lambda_1 = \\lambda_2$ điều này giảm xuống thành $1/2$, như mong đợi bởi tính đối xứng.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Kết quả trên áp dụng cho sự kiện đầu tiên trong quy trình Poisson kết hợp. Tuy nhiên, sau sự kiện đầu tiên, lập luận tương tự áp dụng cho sự kiện thứ hai: bởi tính chất nhớ, thời gian đến sự kiện loại 1 tiếp theo là $\\text{Expo}(\\lambda_1)$ và thời gian đến sự kiện loại 2 tiếp theo là $\\text{Expo}(\\lambda_2)$, độc lập với quá khứ. Do đó, sự kiện thứ hai là sự kiện loại 1 với xác suất $\\lambda_1/(\\lambda_1 + \\lambda_2)$, độc lập với sự kiện đầu tiên. Tương tự, tất cả các loại sự kiện có thể được xem như các lần tung đồng xu độc lập và đồng phân phối với xác suất $\\lambda_1/(\\lambda_1 + \\lambda_2)$ cho mặt ngửa, nơi mặt ngửa tương ứng với loại 1.
+
+Điều này cho phép một câu chuyện tạo ra khác cho sự chồng chéo của hai quy trình Poisson độc lập: chúng ta có thể trước tiên tạo ra một biến ngẫu nhiên $\\text{Expo}(\\lambda_1 + \\lambda_2)$ để quyết định thời gian sự kiện tiếp theo xảy ra, và sau đó độc lập tung một đồng xu với xác suất $\\lambda_1 / (\\lambda_1 + \\lambda_2)$ cho mặt ngửa để quyết định loại sự kiện nào.
+
+<div class="math-box definition">
+  <div class="math-box-header">
+    <div class="math-box-number">Câu chuyện 13.2.9</div>
+    <div class="math-box-title">Câu chuyện tạo ra cho sự chồng chéo, lần 2</div>
+  </div>
+  <div class="math-box-content">
+
+Để tạo ra sự chồng chéo của hai quy trình Poisson độc lập, với tốc độ $\\lambda_{1}$ và $\\lambda_{2}$:
+
+1. Tạo ra các biến ngẫu nhiên i.i.d. $\\mathrm{Expo}(\\lambda_{1}+\\lambda_{2})$ $X_{1}, X_{2}, \\ldots,$ và để sự kiện thứ j xảy ra tại thời điểm $T_{j}=X_{1}+\\cdots+X_{j}$.
+
+2. Tạo ra các biến ngẫu nhiên i.i.d. $I_1, I_2, \\cdots \\sim \\text{Bern}(\\lambda_1 / (\\lambda_1 + \\lambda_2))$, độc lập với $X_1, X_2, \\ldots$. Để sự kiện thứ j là loại 1 nếu $I_j = 1$, và loại 2 nếu không.
+
+  </div>
+</div>
+
+Câu chuyện này cung cấp cho chúng ta một chứng minh nhanh chóng cho một kết quả được biết là định lý cạnh tranh, điều này dường như là một kết quả độc lập bất ngờ khi được phát biểu riêng biệt nhưng trở nên rất trực quan khi xem xét trong bối cảnh các quy trình Poisson.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 13.2.10</div>
+    <div class="math-box-title">Cạnh tranh</div>
+  </div>
+  <div class="math-box-content">
+
+Tuổi thọ của tủ lạnh của Fred là $Y_1 \\sim \\text{Expo}(\\lambda_1)$, và tuổi thọ của máy giặt của anh ấy là $Y_2 \\sim \\text{Expo}(\\lambda_2)$, độc lập với $Y_1$. Chứng minh rằng $\\min(Y_1, Y_2)$, thời gian của sự cố đầu tiên của thiết bị, là độc lập với $I(Y_1 < Y_2)$, chỉ số rằng tủ lạnh đã hỏng trước. Điều này có thể dường như bất ngờ.
+
+Ví dụ, nếu tuổi thọ trung bình của tủ lạnh của anh là 15 năm và tuổi thọ trung bình của máy rửa bát của anh là 7 năm, và sau đó một trong những thiết bị này hỏng sau 7 năm, thì sẽ tự nhiên để đoán rằng đó là máy rửa bát hỏng. Nhưng thực tế, chúng ta sẽ cho thấy rằng biết thời gian thiết bị đầu tiên hỏng không cung cấp thông tin nào về thiết bị nào hỏng.
+
+**Giải pháp:** Chúng ta sẽ sử dụng chiến lược nhúng, sử dụng ý tưởng của quá trình Poisson ngay cả khi bài toán này không đề cập đến quá trình Poisson ở bất cứ đâu! Chúng ta sẽ nhúng các biến ngẫu nhiên $Y_{1}$ và $Y_{2}$ vào một quá trình Poisson mà chúng ta tự ý tưởng ra, để tận dụng các tính chất của quá trình Poisson. Vì vậy, hãy tưởng tượng rằng có một quá trình Poisson toàn bộ về sự cố tủ lạnh với tốc độ $\\lambda_{1}$ và một quá trình Poisson về sự cố máy rửa bát với tốc độ $\\lambda_{2}$.
+
+Chúng ta có thể diễn giải $Y_{1}$ là thời gian chờ cho lần đến đầu tiên trong quá trình tủ lạnh và $Y_{2}$ là thời gian chờ cho lần đến đầu tiên trong quá trình máy rửa bát. Cách tiếp cận này hợp lệ vì $(\\min(Y_{1}, Y_{2}), I(Y_{1} < Y_{2}))$ là một hàm của $(Y_{1}, Y_{2})$, vì vậy điều quan trọng là phân phối chung của $(Y_{1}, Y_{2})$, và cách chúng ta xây dựng $(Y_{1}, Y_{2})$ thực sự có phân phối chung đúng.
+
+Ngoài ra, $\\min(Y_1, Y_2)$ là thời gian chờ cho lần đến đầu tiên trong sự chồng chéo của hai quá trình Poisson, và $I(Y_1 < Y_2)$ là chỉ số của lần đến này là sự kiện loại-1. Nhưng trong câu chuyện tạo ra ở trên, thời gian đến và loại sự kiện trong quá trình Poisson chồng chéo được tạo ra hoàn toàn độc lập! Do đó, $\\min(Y_1, Y_2)$ và $I(Y_1 < Y_2)$ là độc lập, với $\\min(Y_1, Y_2) \\sim \\text{Expo}(\\lambda_1 + \\lambda_2)$ và $I(Y_1 < Y_2) \\sim \\text{Bern}(\\lambda_1 / (\\lambda_1 + \\lambda_2))$.
+
+  </div>
+</div>
+
+Một hệ quả trực tiếp của Câu chuyện 13.2.9 là nếu chúng ta chiếu một quá trình Poisson chồng chéo vào thời gian rời rạc, giữ lại chuỗi các sự kiện loại-1 và loại-2 nhưng không giữ lại thời gian đến, thì chúng ta sẽ được một chuỗi các biến ngẫu nhiên độc lập và đồng phân phối $\\text{Bern}(\\lambda_1/(\\lambda_1+\\lambda_2))$ là $I_1, I_2, \\ldots$, trong đó $I_j$ là chỉ số của sự kiện thứ $j$ là loại-1. Hình 13.4 minh họa ý nghĩa của việc loại bỏ thông tin thời gian liên tục từ quá trình Poisson, và Định lý 13.2.11 phát biểu kết quả một cách chính thức.
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_188_1298_1238_1471.jpg" alt="Chiếu quá trình Poisson chồng chéo vào thời gian rời rạc" style="max-width: 75%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 13.4:** Chiếu vào thời gian rời rạc. Loại bỏ thông tin thời gian liên tục từ một quá trình Poisson chồng chéo tạo ra một chuỗi các chỉ số độc lập và đồng phân phối của các sự kiện loại-1 so với loại-2. Ở đây × đại diện cho các sự kiện loại-1 và ◇ đại diện cho các sự kiện loại-2.
+</div>
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 13.2.11</div>
+    <div class="math-box-title">Chiếu sự chồng chéo vào thời gian rời rạc</div>
+  </div>
+  <div class="math-box-content">
+
+Xét sự chồng chéo $(N(t): t > 0)$ của hai quá trình Poisson độc lập với tốc độ $\\lambda_1$ và $\\lambda_2$. Với $j = 1, 2, \\ldots$, để $I_j$ là chỉ số của sự kiện thứ $j$ đến từ quá trình Poisson với tốc độ $\\lambda_1$. Khi đó các $I_j$ là độc lập và đồng phân phối $\\mathrm{Bern}(\\lambda_1 / (\\lambda_1 + \\lambda_2))$.
+
+  </div>
+</div>
+
+Sử dụng kết quả này, chúng ta có thể chứng minh với một câu chuyện rằng một hỗn hợp Gamma của Poissons là Negative Binomial, điều mà chúng ta đã học trước đây từ những cuộc phiêu lưu của Fred ở Blotchville (Câu chuyện 8.4.5). Chúng ta sẽ xem xét một trường hợp đặc biệt trước tiên.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 13.2.12</div>
+    <div class="math-box-title">Hỗn hợp mũ của Poisson là Geometric</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử rằng $X \\sim \\text{Expo}(\\lambda)$ và $Y|X = x \\sim \\text{Pois}(x)$. Khi đó $Y \\sim \\text{Geom}(\\lambda/(\\lambda + 1))$.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 13.2.12</div>
+  </div>
+  <div class="math-box-content">
+
+Như với định lý về các rủi ro cạnh tranh, chúng ta nhúng X và Y vào các quy trình Poisson. Xét hai quy trình Poisson độc lập, một quy trình về các sự cố hỏng hóc đến với tốc độ 1 và một quy trình khác về các sự kiện thành công đến với tốc độ $\\lambda$. Gọi X là thời gian của sự kiện đầu tiên thành công; thì $X \\sim \\text{Expo}(\\lambda)$. Gọi Y là số lượng sự cố hỏng hóc trước thời gian của sự kiện đầu tiên thành công. Theo định nghĩa của quy trình Poisson với tốc độ 1, $Y|X = x \\sim \\text{Pois}(x)$. Do đó X và Y thỏa mãn các điều kiện của định lý.
+
+Để tìm phân phối của Y, hãy loại bỏ thông tin thời gian liên tục! Trong thời gian rời rạc, chúng ta có các phép thử Bernoulli độc lập và đồng nhất với xác suất thành công $\\lambda/(\\lambda + 1)$, và Y được xác định là số lượng sự cố hỏng hóc trước sự kiện đầu tiên thành công, do đó theo câu chuyện về phân phối Geometric, $Y \\sim \\text{Geom}(\\lambda/(\\lambda + 1))$.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Lý do cho trường hợp tổng quát là tương tự.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 13.2.13</div>
+    <div class="math-box-title">Hỗn hợp Gamma của Poisson là Negative Binomial</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử rằng $X \\sim \\text{Gamma}(r, \\lambda)$ và $Y|X = x \\sim \\text{Pois}(x)$. Khi đó $Y \\sim \\text{NBin}(r, \\lambda/(\\lambda + 1))$.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 13.2.13</div>
+  </div>
+  <div class="math-box-content">
+
+Xét hai quy trình Poisson độc lập, một quy trình về các sự cố hỏng hóc đến với tốc độ 1 và một quy trình khác về các sự kiện thành công đến với tốc độ $\\lambda$. Gọi X là thời gian của sự kiện thứ r thành công, do đó $X \\sim \\text{Gamma}(r, \\lambda)$. Gọi Y là số lượng sự cố hỏng hóc trước thời gian của sự kiện thứ r thành công. Sau đó $Y|X = x \\sim \\text{Pois}(x)$ theo định nghĩa của quy trình Poisson. Chúng ta có Y là số lượng sự cố hỏng hóc trước sự kiện thứ r thành công trong một chuỗi các phép thử Bernoulli độc lập và đồng nhất với xác suất thành công $\\lambda/(\\lambda + 1)$, do đó $Y \\sim \\text{NBin}(r, \\lambda/(\\lambda + 1))$.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+### 13.2.3 Phân tách
+
+Tính chất cuối cùng của các quy trình Poisson mà chúng ta sẽ thảo luận là phân tách: nếu chúng ta lấy một quy trình Poisson và, với mỗi lần đến, độc lập tung một đồng xu để quyết định liệu đó có phải là sự kiện loại-1 hay loại-2, chúng ta sẽ có được hai quy trình Poisson độc lập.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 13.2.14</div>
+    <div class="math-box-title">Phân tách</div>
+  </div>
+  <div class="math-box-content">
+
+Gọi $(N(t):t>0)$ là một quy trình Poisson với tốc độ $\\lambda$, và phân loại mỗi lần đến là sự kiện loại-1 với xác suất $p$ và sự kiện loại-2 với xác suất $1-p$, nơi các phân loại này độc lập với nhau và độc lập với các thời gian đến. Khi đó các sự kiện loại-1 tạo thành một quy trình Poisson với tốc độ $\\lambda p$, các sự kiện loại-2 tạo thành một quy trình Poisson với tốc độ $\\lambda(1-p)$, và hai quy trình này độc lập.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 13.2.14</div>
+  </div>
+  <div class="math-box-content">
+
+Gọi $\\lambda_{1} = \\lambda p$ và $\\lambda_{2} = \\lambda(1 - p)$, do đó $\\lambda = \\lambda_{1} + \\lambda_{2}$ và $p = \\lambda_{1} / (\\lambda_{1} + \\lambda_{2})$. Sau đó chúng ta rơi vào Câu chuyện 13.2.9. Nhưng Câu chuyện 13.2.7 và Câu chuyện 13.2.9 là hai
+
+Các câu chuyện sinh ra tương đương cho sự chồng chất! Các cấu trúc xác suất của các đầu ra của hai câu chuyện này là giống nhau, khi xem các sự kiện đến trong Câu chuyện 13.2.7 từ $(N_i(t):t>0)$ là loại-i. Do đó, chúng ta có thể giả sử thay thế rằng Câu chuyện 13.2.7 đã được sử dụng để tạo ra quá trình. May mắn thay, trong câu chuyện này, chúng ta biết từ đầu rằng quá trình loại-1 độc lập với quá trình loại-2.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Do đó, chúng ta có thể chồng chất các quá trình Poisson độc lập để nhận được một quá trình Poisson kết hợp, hoặc chúng ta có thể chia một quá trình Poisson đơn lẻ thành các quá trình Poisson độc lập. Hình 13.5 là minh họa của việc lọc. Chúng ta chỉ cần lật ngược Hình 13.3, điều này phù hợp vì lọc là mặt ngược lại của sự chồng chất!
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_image_box_156_560_1240_833.jpg" alt="Lọc một quá trình Poisson thành hai quá trình độc lập" style="max-width: 77%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 13.5:** Lọc. Bắt đầu với một quá trình Poisson đơn lẻ, nếu chúng ta cho mỗi sự kiện đến là loại-1 với xác suất p và loại-2 với xác suất 1 - p, chúng ta sẽ nhận được hai quá trình Poisson độc lập với tốc độ $\\lambda p$ và $\\lambda(1 - p)$. Ở đây $\\times$ đại diện cho các sự kiện loại-1 và $\\diamond$ đại diện cho các sự kiện loại-2, và chúng ta lấy p = 0.5.
+</div>
+
+Lọc là tương đương của quá trình Poisson với câu chuyện gà - trứng. Giả sử rằng chúng ta lọc một quá trình Poisson $(N(t):t>0)$ với tốc độ $\\lambda$ như trong phát biểu của Định lý 13.2.14, và để $(N_i(t):t>0)$ là quá trình của các sự kiện loại-$i$. Khi xem các sự kiện loại-1 như trứng nở, thì lập tức từ câu chuyện gà - trứng, chúng ta có $N_1(t)\\sim\\mathrm{Pois}(\\lambda pt)$, $N_2(t)\\sim\\mathrm{Pois}(\\lambda(1-p)t)$, với $N_1(t)$ độc lập với $N_2(t)$.
+
+Để thực hành và như một ví dụ về sự tinh tế của việc lọc, hãy tìm phân phối của một tổng ngẫu nhiên theo hai cách khác nhau: sử dụng MGF và kỳ vọng có điều kiện, và sử dụng việc lọc.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 13.2.15</div>
+    <div class="math-box-title">Tổng lần đầu tiên thành công của các Exponentials</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $X_1, X_2, \\ldots$ là i.i.d. $\\text{Expo}(\\lambda)$ và $N \\sim \\text{FS}(p)$, độc lập với các $X_j$. Tìm phân phối của tổng ngẫu nhiên
+
+$$Y=\\sum_{j=1}^{N}X_{j}.$$
+
+**Giải pháp:**
+
+Chúng ta sẽ giải bài toán này hai lần, lần đầu tiên bằng các công cụ từ Chương 9 và sau đó bằng một câu chuyện quá trình Poisson sử dụng việc lọc. Với phương pháp đầu tiên, chúng ta nhận ra Y là tổng của một số ngẫu nhiên các biến ngẫu nhiên, do đó chúng ta có thể tìm MGF của
+
+Sử dụng luật Adam, điều kiện hóa theo N. Nhớ lại rằng hàm sinh moment (MGF) của phân phối Expo($\\lambda$) là $\\lambda/(\\lambda - t)$ cho $t < \\lambda$, ta có
+
+$$\\begin{aligned}E\\left(e^{tY}\\right)&=E\\left(E\\left(e^{t\\sum_{j=1}^{N}X_{j}}\\Big|N\\right)\\right)\\\\&=E\\left(E\\left(e^{tX_{1}}\\right)E\\left(e^{tX_{2}}\\right)\\cdots E\\left(e^{tX_{N}}\\right)\\big|N\\right)\\\\&=E\\left(E\\left(e^{tX_{1}}\\right)^{N}\\right)\\\\&=E\\left(\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{N}\\right).\\\\ \\end{aligned}$$
+
+Bây giờ ta có thể sử dụng định lý LOTUS với PMF của FS(p),
+
+$$P(N=k)=q^{k-1}p cho k=1,2,\\ldots$$
+
+Tổng LOTUS là
+
+$$E\\left(\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{N}\\right)=\\sum_{k=1}^{\\infty}\\left(\\frac{\\lambda}{\\lambda-t}\\right)^{k}q^{k-1}p,$$
+
+điều này đơn giản hóa thành $\\lambda p/(\\lambda p-t)$ cho $t<\\lambda p$, sau khi thực hiện một số phép toán đại số và tổng một chuỗi hình học. Đây là MGF của $\\mathrm{Expo}(\\lambda p)$, do đó $Y\\sim\\mathrm{Expo}(\\lambda p)$.
+
+Bây giờ hãy xem cách các quá trình Poisson có thể giúp ta tránh khỏi các phép toán phức tạp đồng thời cung cấp cái nhìn sâu sắc về tại sao Y là phân phối Exponential. Sử dụng chiến lược nhúng, vì các $X_j$ là i.i.d. $\\text{Expo}(\\lambda)$ ta có thể diễn giải các $X_j$ như khoảng thời gian giữa các lần đến trong một quá trình Poisson với tốc độ $\\lambda$. Vậy hãy tưởng tượng một quá trình Poisson như vậy, và thêm nữa tưởng tượng rằng mỗi lần đến là một lần đến đặc biệt với xác suất p, độc lập. Khi đó ta có thể diễn giải N là số lần đến cho đến lần đầu tiên có lần đến đặc biệt và Y là thời gian chờ cho lần đầu tiên có lần đến đặc biệt. Tuy nhiên theo tính chất mỏng (thinning), các lần đến đặc biệt tạo thành một quá trình Poisson với tốc độ $\\lambda p$. Thời gian chờ cho lần đầu tiên có lần đến đặc biệt do đó được phân phối $\\text{Expo}(\\lambda p)$.
+
+  </div>
+</div>
+
+Mỏng hóa hoạt động tương tự với hơn 2 loại. Trong bối cảnh này, mỏng hóa thường được gọi là định lý màu sắc.
+
+<div class="math-box theorem">
+  <div class="math-box-header">
+    <div class="math-box-number">Định lý 13.2.16</div>
+    <div class="math-box-title">Màu sắc</div>
+  </div>
+  <div class="math-box-content">
+
+Cho $(N(t):t>0)$ là một quá trình Poisson với tốc độ $\\lambda$, và $C$ là một tập hợp hữu hạn của "màu", được đánh số từ 1 đến $c$. Giả sử rằng mỗi lần đến được gán ngẫu nhiên một màu từ $C$, với màu $i$ có xác suất $p_{i}$. Các gán màu là độc lập với nhau và độc lập với thời gian đến. Cho $(N_{i}(t):t>0)$ là quá trình màu $i$, tức là $N_{i}(t)$ là số lần đến có màu $i$ trong $(0,t]$. Khi đó $(N_{i}(t):t>0)$ là một quá trình Poisson với tốc độ $\\lambda p_{i}$, cho $i=1,2,\\ldots,c$, và các quá trình đơn màu này là độc lập.
+
+  </div>
+</div>
+
+<div class="math-box proof">
+  <div class="math-box-header">
+    <div class="math-box-number">Chứng minh</div>
+    <div class="math-box-title">Định lý 13.2.16</div>
+  </div>
+  <div class="math-box-content">
+
+Ta sẽ quy nạp theo c. Với c = 1 không có gì để chứng minh. Với c = 2 kết quả là định lý mỏng hóa mà ta đã chứng minh trước đó. Bây giờ giả sử rằng kết quả đúng với c = k, ta sẽ chứng minh cho c = k + 1.
+
+Với $c$ màu sắc, và hiển thị nó khi có $c+1$ màu sắc. Hãy gọi màu 1 là xanh. Sử dụng việc làm mỏng để gán mỗi sự đến đạt là xanh với xác suất $p_{1}$ và không xanh với xác suất $1-p_{1}$. Điều này chia quá trình Poisson thành 2 quá trình độc lập: một quá trình xanh với tốc độ $\\lambda p_{1}$ và một quá trình không xanh với tốc độ $\\lambda(1-p_{1})$. Theo giả thiết quy nạp, chúng ta có thể chia quá trình không xanh thành $c$ quá trình độc lập, một cho mỗi màu $2,3,\\ldots,c+1$, nơi màu $j$ giờ đây có xác suất
+
+$$\\tilde{p}_{j}=\\frac{p_{j}}{1-p_{1}}=\\frac{p_{j}}{p_{2}+p_{3}+\\cdots+p_{c+1}},$$
+
+cho $j = 2, 3, \\ldots, c + 1$. Chúng ta sau đó có $c + 1$ quá trình Poisson độc lập, một cho mỗi màu, sao cho quá trình cho màu $j$ có tốc độ $\\lambda p_j$ cho $j = 1, 2, \\ldots, c + 1$.
+
+<div class="qed"><span class="qed-mark"></span></div>
+
+  </div>
+</div>
+
+Ví dụ tiếp theo cho thấy cách tô màu có thể giúp chúng ta phân tích một quá trình Poisson phức tạp thành các thành phần dễ quản lý hơn.
+
+<div class="math-box example">
+  <div class="math-box-header">
+    <div class="math-box-number">Ví dụ 13.2.17</div>
+    <div class="math-box-title">Xe trên cao tốc</div>
+  </div>
+  <div class="math-box-content">
+
+Giả sử xe vào một con đường một chiều từ một điểm chung, theo một quá trình Poisson với tốc độ $\\lambda$. Xe thứ $i$ có vận tốc $V_i$ và di chuyển với vận tốc này mãi mãi; không có thời gian bị mất khi một xe vượt qua xe khác. Giả sử các $V_i$ là các biến ngẫu nhiên rời rạc độc lập đồng phân phối với tập giá trị là một tập hữu hạn các giá trị dương. Quá trình bắt đầu tại thời điểm 0, và chúng ta sẽ xem điểm vào đường là tại vị trí 0.
+
+Với các vị trí cố định $a$ và $b$ trên đường cao tốc với $0 < a < b$, gọi $Z_t$ là số xe đang ở trong khoảng $[a, b]$ tại thời điểm $t$. (Ví dụ, trên một đường cao tốc chạy từ tây sang đông qua vùng trung tâm Mỹ, $a$ có thể là Kansas City và $b$ có thể là St. Louis; thì $Z_t$ sẽ là số xe đang ở trên đường cao tốc trong tiểu bang Missouri tại thời điểm $t$.) Hình 13.6 minh họa thiết lập của bài toán và định nghĩa của $Z_t$.
+
+Giả sử rằng $t$ đủ lớn để $t > b/V_i$ cho tất cả các giá trị có thể của $V_i$. Chứng minh rằng $Z_t$ có phân phối Poisson với kỳ vọng $\\lambda(b - a)E(V_i^{-1})$.
+
+**Giải pháp:**
+
+Vì các $V_{i}$ là rời rạc với tập giá trị hữu hạn, chúng ta có thể liệt kê tập các vận tốc có thể $v_{1},\\ldots,v_{m}$ và xác suất tương ứng $p_{1},\\ldots,p_{m}$. Sau khi làm như vậy, chúng ta nhận ra rằng các xe vào đường cao tốc đại diện cho $m$ loại sự kiện, mỗi loại tương ứng với một vận tốc khác nhau. Điều này gợi ý việc chia quá trình Poisson tổng thể thành các quá trình đơn giản hơn. Hãy tô màu quá trình Poisson $m$ cách theo vận tốc của xe, dẫn đến một quá trình Poisson với tốc độ $\\lambda p_{1}$ cho xe có vận tốc $v_{1}$, một quá trình Poisson với tốc độ $\\lambda p_{2}$ cho xe có vận tốc $v_{2}$, và cứ như vậy.
+
+Với mỗi trong số $m$ quá trình Poisson riêng biệt này, chúng ta có thể hỏi: trong khoảng thời gian nào các xe từ quá trình này phải vào đường cao tốc để ở trong $[a, b]$ tại thời điểm $t$? Đây là một vấn đề vật lý, không phải thống kê:
+
+$$\\mathrm{distance}=\\mathrm{velocity}\\cdot\\mathrm{time},$$
+
+nên một xe vào đường cao tốc tại thời điểm $s$ với vận tốc $v$ sẽ ở vị trí $(t-s)v$
+
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+  <img src="imgs/img_in_chart_box_305_137_1084_632.jpg" alt="Xe hơi vào một quốc lộ" style="max-width: 55%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />
+
+**HÌNH 13.6:** Xe hơi vào một quốc lộ. Thời gian vào của chúng tạo thành một quy trình Poisson và được chỉ ra bởi các dấu × trên trục thời gian. Xe hơi thứ i có vận tốc $V_i$, được biểu diễn bởi độ dốc của đường thẳng bắt đầu từ dấu × thứ i. Chúng ta quan tâm đến $Z_t$, số lượng xe hơi nằm trong khoảng $[a,b]$ tại thời điểm $t$. Ở đây chúng ta quan sát được $Z_t = 3$, được biểu diễn bởi ba ngôi sao.
+</div>
+
+tại thời điểm t. Do đó, để vị trí của xe hơi nằm giữa a và b, chúng ta yêu cầu thời gian đến của nó nằm giữa $t - b/v$ và $t - a/v$. (Theo giả định rằng t đủ lớn, chúng ta không cần lo lắng về $t - b/v$ có thể âm.) Nếu xe hơi đến trước thời điểm $t - b/v$, nó sẽ đã vượt qua b vào thời điểm t; nếu xe hơi đến sau thời điểm $t - a/v$, nó sẽ chưa đạt đến a vào thời điểm t.
+
+Chúng ta giờ đây có câu trả lời cho mỗi quy trình Poisson riêng biệt. Trong quy trình mà xe hơi có vận tốc $v_j$, số lượng xe hơi đến giữa $t - b/v_j$ và $t - a/v_j$, mà chúng ta sẽ gọi là $Z_{tj}$, được phân phối Pois$(\\lambda p_j(b - a)/v_j)$: tốc độ của quy trình là $\\lambda p_j$, và độ dài của khoảng $[t - b/v_j, t - a/v_j]$ là $(b - a)/v_j$.
+
+Vì các quy trình riêng biệt độc lập, $Z_{t1}$ đến $Z_{tm}$ là các biến ngẫu nhiên Poisson độc lập. Do đó,
+
+$$Z_{t}=Z_{t1}+\\cdots+Z_{t m}\\sim\\mathrm{Pois}\\left(\\lambda(b-a)\\sum_{j=1}^{m}\\frac{p_{j}}{v_{j}}\\right),$$
+
+và $\\sum_{j=1}^{m} p_{j}/v_{j}$ là kỳ vọng của $V_{i}^{-1}$ theo định lý LOTUS. Đây chính là điều chúng ta muốn.
+
+  </div>
+</div>
+
+Để kết thúc phần này, dưới đây là một bảng mô tả sự tương ứng giữa các tính chất của quá trình Poisson và các tính chất của phân phối Poisson. Trong cột thứ hai, $Y_1 \\sim \\text{Pois}(\\lambda_1)$ và $Y_2 \\sim \\text{Pois}(\\lambda_2)$ là độc lập.
+
+
+<table border=1 style='margin: auto; word-wrap: break-word;'><tr><td style='text-align: center; word-wrap: break-word;'>quá trình Poisson</td><td style='text-align: center; word-wrap: break-word;'>phân phối Poisson</td></tr><tr><td style='text-align: center; word-wrap: break-word;'>điều kiện</td><td style='text-align: center; word-wrap: break-word;'> $Y_{1}|Y_{1} + Y_{2} = n \\sim \\text{Bin}(n, \\lambda_{1}/(\\lambda_{1} + \\lambda_{2}))$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>tổng hợp</td><td style='text-align: center; word-wrap: break-word;'> $Y_{1} + Y_{2} \\sim \\text{Pois}(\\lambda_{1} + \\lambda_{2})$ </td></tr><tr><td style='text-align: center; word-wrap: break-word;'>lọc</td><td style='text-align: center; word-wrap: break-word;'>câu chuyện gà - trứng</td></tr></table>`,jz=`Quá trình Poisson trong nhiều chiều được xác định tương tự như quá trình Poisson 1 chiều: chúng ta chỉ thay thế khái niệm độ dài bằng khái niệm diện tích hoặc thể tích. Để cụ thể hơn, chúng ta sẽ nêu định nghĩa quá trình Poisson 2 chiều, sau đó có thể dễ dàng hiểu cách xác định quá trình Poisson trong các chiều cao hơn bằng cách so sánh.\r
+\r
+<div class="math-box definition">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Định nghĩa 13.3.1</div>\r
+    <div class="math-box-title">Quá trình Poisson 2 chiều</div>\r
+  </div>\r
+  <div class="math-box-content">\r
+\r
+Sự kiện trong mặt phẳng $R^2$ là một quá trình Poisson 2 chiều với cường độ $\\lambda$ nếu các điều kiện sau được thỏa mãn:\r
+\r
+1. Số lượng sự kiện trong một miền A có phân phối Pois($\\lambda \\cdot \\text{diện tích}(A)$).\r
 \r
 2. Số lượng sự kiện trong các miền rời nhau độc lập với nhau.\r
 \r
-Như một người có thể đoán, các tính chất điều kiện, tổng hợp và lọc áp dụng cho các quá trình Poisson 2 chiều. Gọi  $N(A)$  là số lượng sự kiện trong một miền  $A$ , và gọi  $B \\subseteq A$ . Cho  $N(A) = n$ , phân phối điều kiện của  $N(B)$  là phân phối nhị thức:\r
+  </div>\r
+</div>\r
 \r
- \r
+Như một người có thể đoán, các tính chất điều kiện, tổng hợp và lọc áp dụng cho các quá trình Poisson 2 chiều. Gọi $N(A)$ là số lượng sự kiện trong một miền $A$, và gọi $B \\subseteq A$. Cho $N(A) = n$, phân phối điều kiện của $N(B)$ là phân phối nhị thức:\r
 \r
- $$N(B)|N(A)=n\\sim\\mathrm{B i n}\\left(n,\\frac{\\mathrm{a r e a}(B)}{\\mathrm{a r e a}(A)}\\right).$$ \r
+$$N(B)|N(A)=n\\sim\\mathrm{Bin}\\left(n,\\frac{\\mathrm{area}(B)}{\\mathrm{area}(A)}\\right).$$\r
 \r
- \r
-\r
-Điều kiện trên tổng số sự kiện trong miền lớn hơn A, xác suất của một sự kiện rơi vào một miền con tỉ lệ với diện tích của miền con; do đó, vị trí của các sự kiện là điều kiện đều, và chúng ta có thể tạo ra một quá trình Poisson 2 chiều trong A bằng cách trước tiên tạo ra số lượng sự kiện  $N(A) \\sim \\text{Pois}(\\lambda \\cdot \\text{diện tích}(A))$  và sau đó đặt các sự kiện một cách ngẫu nhiên đều trong A. Hình 13.7 cho thấy các quá trình Poisson 2 chiều được mô phỏng trong hình vuông  $[0, 5] \\times [0, 5]$  với cường độ  $\\lambda = 1, 2, 5$ .\r
+Điều kiện trên tổng số sự kiện trong miền lớn hơn A, xác suất của một sự kiện rơi vào một miền con tỉ lệ với diện tích của miền con; do đó, vị trí của các sự kiện là điều kiện đều, và chúng ta có thể tạo ra một quá trình Poisson 2 chiều trong A bằng cách trước tiên tạo ra số lượng sự kiện $N(A) \\sim \\text{Pois}(\\lambda \\cdot \\text{diện tích}(A))$ và sau đó đặt các sự kiện một cách ngẫu nhiên đều trong A. Hình 13.7 cho thấy các quá trình Poisson 2 chiều được mô phỏng trong hình vuông $[0, 5] \\times [0, 5]$ với cường độ $\\lambda = 1, 2, 5$.\r
 \r
 Tương tự như trường hợp 1 chiều, tổng hợp của các quá trình Poisson 2 chiều độc lập là một quá trình Poisson 2 chiều, và cường độ cộng lại. Chúng ta cũng có thể lọc một quá trình Poisson 2 chiều để nhận được các quá trình Poisson 2 chiều độc lập.\r
 \r
 Một tính chất của các quá trình Poisson 1 chiều mà chúng ta chưa xác nhận một phiên bản cao hơn là tính đối xứng giữa số lượng và thời gian. Ví dụ tiếp theo, ví dụ cuối cùng trong chương này, sẽ dẫn chúng ta đến một phiên bản không gian: tính đối xứng giữa số lượng và khoảng cách.\r
 \r
-<div style="text-align: center;"><img src="imgs/img_in_image_box_168_152_1236_515.jpg" alt="Image" width="76%" /></div>\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_image_box_168_152_1236_515.jpg" alt="Quá trình Poisson 2D mô phỏng trong hình vuông" style="max-width: 76%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
 \r
+**HÌNH 13.7:** Quá trình Poisson 2D được mô phỏng trong hình vuông $[0,5] \\times [0,5]$, với $\\lambda = 1, 2, 5$.\r
+</div>\r
 \r
-### HÌNH 13.7\r
+<div class="math-box example">\r
+  <div class="math-box-header">\r
+    <div class="math-box-number">Ví dụ 13.3.2</div>\r
+    <div class="math-box-title">Sao gần nhất</div>\r
+  </div>\r
+  <div class="math-box-content">\r
 \r
-<div style="text-align: center;">Quá trình Poisson 2D được mô phỏng trong hình vuông  $[0,5] \\times [0,5]$ , với  $\\lambda = 1, 2, 5$ .</div>\r
+Các ngôi sao trong một vũ trụ nhất định được phân bố theo quá trình Poisson 3D với cường độ $\\lambda$. Nếu bạn sống trong vũ trụ này, phân bố của khoảng cách từ bạn đến ngôi sao gần nhất là gì?\r
 \r
+**Giải pháp:**\r
 \r
-Ví dụ 13.3.2 (Sao gần nhất). Các ngôi sao trong một vũ trụ nhất định được phân bố theo quá trình Poisson 3D với cường độ  $\\lambda$ . Nếu bạn sống trong vũ trụ này, phân bố của khoảng cách từ bạn đến ngôi sao gần nhất là gì?\r
+Trong một quá trình Poisson 3D với cường độ $\\lambda$, số lượng sự kiện trong một vùng không gian V là Poisson với kỳ vọng $\\lambda \\cdot \\text{thể tích}(V)$. Gọi $R$ là khoảng cách từ bạn đến ngôi sao gần nhất. Quan sát quan trọng là để sự kiện $R > r$ xảy ra, thì không thể có ngôi sao nào trong một hình cầu bán kính $r$ xung quanh bạn; nói cách khác, hai sự kiện này là tương đương. Với bất kỳ $r > 0$ nào, gọi $N_r$ là số sự kiện trong bán kính $r$ xung quanh bạn, nên $N_r \\sim \\text{Pois}(\\lambda \\cdot \\frac{4}{3}\\pi r^3)$. Sau đó chúng ta có sự tương ứng giữa đếm và khoảng cách:\r
 \r
-## Giải pháp:\r
-\r
-Trong một quá trình Poisson 3D với cường độ  $\\lambda$ , số lượng sự kiện trong một vùng không gian V là Poisson với kỳ vọng  $\\lambda \\cdot \\text{thể tích}(V)$ . Gọi  $R$  là khoảng cách từ bạn đến ngôi sao gần nhất. Quan sát quan trọng là để sự kiện  $R > r$  xảy ra, thì không thể có ngôi sao nào trong một hình cầu bán kính  $r$  xung quanh bạn; nói cách khác, hai sự kiện này là tương đương. Với bất kỳ  $r > 0$  nào, gọi  $N_r$  là số sự kiện trong bán kính  $r$  xung quanh bạn, nên  $N_r \\sim \\text{Pois}(\\lambda \\cdot \\frac{4}{3}\\pi r^3)$ . Sau đó chúng ta có sự tương ứng giữa đếm và khoảng cách:\r
-\r
- \r
-\r
- $$R>r là sự kiện giống nhau như N_{r}=0,$$ \r
-\r
- \r
+$$R>r là sự kiện giống nhau như N_{r}=0,$$\r
 \r
 Do đó,\r
 \r
- \r
-\r
- $$P(R>r)=P(N_{r}=0)=e^{-\\frac{4}{3}\\lambda\\pi r^{3}},$$ \r
-\r
- \r
+$$P(R>r)=P(N_{r}=0)=e^{-\\frac{4}{3}\\lambda\\pi r^{3}},$$\r
 \r
 điều này cho thấy hàm phân phối tích lũy của R là\r
 \r
- \r
-\r
- $$P(R\\leq r)=1-e^{-\\frac{4}{3}\\lambda\\pi r^{3}},$$ \r
-\r
- \r
+$$P(R\\leq r)=1-e^{-\\frac{4}{3}\\lambda\\pi r^{3}},$$\r
 \r
 với r > 0 (và 0 nếu không). Đây là một phân phối Weibull (xem Ví dụ 6.5.5). Cụ thể,\r
 \r
- \r
+$$R\\sim Wei\\left(\\frac{4\\pi\\lambda}{3},3\\right).$$\r
 \r
- $$R\\sim Wei\\left(\\frac{4\\pi\\lambda}{3},3\\right).$$ \r
+  </div>\r
+</div>\r
 \r
- \r
-\r
-Quá trình Poisson có nhiều mở rộng, một số trong đó được khám phá trong các bài tập. Chúng ta có thể cho phép  $\\lambda$  thay đổi như một hàm số của thời gian hoặc không gian thay vì giữ nguyên; điều này được gọi là quá trình Poisson không đồng nhất. Chúng ta có thể cho phép  $\\lambda$  là một biến ngẫu nhiên; điều này được gọi là quá trình Cox. Cuối cùng, chúng ta có thể cho phép tốc độ tăng thêm  $\\lambda$  sau mỗi lần đến; điều này được gọi là quá trình Yule.`,Mz=`Một quá trình Poisson trong một chiều là một chuỗi các sự kiện đến sao cho số lượng sự kiện đến trong bất kỳ khoảng nào đều có phân phối Poisson (với kỳ vọng tỷ lệ thuận với độ dài của khoảng đó) và các khoảng rời nhau có số lượng sự kiện đến độc lập. Một số phép toán mà chúng ta có thể thực hiện với quá trình Poisson bao gồm điều kiện, tổng hợp và mỏng hóa. Điều kiện trên tổng số sự kiện đến trong một khoảng cho phép chúng ta xem các sự kiện đến như là các biến ngẫu nhiên độc lập phân bố đều trên khoảng đó. Tổng hợp và mỏng hóa là bổ sung cho nhau, và chúng cho phép chúng ta chia và hợp nhất các quá trình Poisson khi cần thiết. Tất cả các tính chất này đều có phiên bản tương ứng cho các chiều cao hơn.
+Quá trình Poisson có nhiều mở rộng, một số trong đó được khám phá trong các bài tập. Chúng ta có thể cho phép $\\lambda$ thay đổi như một hàm số của thời gian hoặc không gian thay vì giữ nguyên; điều này được gọi là quá trình Poisson không đồng nhất. Chúng ta có thể cho phép $\\lambda$ là một biến ngẫu nhiên; điều này được gọi là quá trình Cox. Cuối cùng, chúng ta có thể cho phép tốc độ tăng thêm $\\lambda$ sau mỗi lần đến; điều này được gọi là quá trình Yule.`,Mz=`Một quá trình Poisson trong một chiều là một chuỗi các sự kiện đến sao cho số lượng sự kiện đến trong bất kỳ khoảng nào đều có phân phối Poisson (với kỳ vọng tỷ lệ thuận với độ dài của khoảng đó) và các khoảng rời nhau có số lượng sự kiện đến độc lập. Một số phép toán mà chúng ta có thể thực hiện với quá trình Poisson bao gồm điều kiện, tổng hợp và mỏng hóa. Điều kiện trên tổng số sự kiện đến trong một khoảng cho phép chúng ta xem các sự kiện đến như là các biến ngẫu nhiên độc lập phân bố đều trên khoảng đó. Tổng hợp và mỏng hóa là bổ sung cho nhau, và chúng cho phép chúng ta chia và hợp nhất các quá trình Poisson khi cần thiết. Tất cả các tính chất này đều có phiên bản tương ứng cho các chiều cao hơn.
 
 Quá trình Poisson kết nối nhiều phân phối đã được chúng ta nghiên cứu trong cuốn sách này:
 
-• Phân phối Poisson cho số lượng sự kiện đến,
-
-• Phân phối Exponential và Gamma cho các khoảng thời gan giữa các sự kiện đến và thời gian đến,
-
-• Phân phối Binomial cho số lượng sự kiện điều kiện,
-
-● Phân phối Uniform và (được thay đổi) Beta cho thời gian đến điều kiện,
-
-• Phân phối Geometric và Negative Binomial cho thời gian chờ rời rạc cho các sự kiện đặc biệt đến.
+- Phân phối Poisson cho số lượng sự kiện đến,
+- Phân phối Exponential và Gamma cho các khoảng thời gian giữa các sự kiện đến và thời gian đến,
+- Phân phối Binomial cho số lượng sự kiện điều kiện,
+- Phân phối Uniform và (được thay đổi) Beta cho thời gian đến điều kiện,
+- Phân phối Geometric và Negative Binomial cho thời gian chờ rời rạc cho các sự kiện đặc biệt đến.
 
 Quá trình Poisson cũng đặc biệt phù hợp với các chứng minh bằng câu chuyện. Một chiến lược giải bài toán mà chúng ta đã sử dụng nhiều lần trong chương này là chèn các biến ngẫu nhiên vào một quá trình Poisson với hy vọng phát hiện ra một chứng minh bằng câu chuyện, ngay cả khi bài toán ban đầu dường như không liên quan đến các quá trình Poisson.
 
-Quá trình Poisson kết hợp hai chủ đề quan trọng của cuốn sách này, các phân phối có tên và câu chuyện, một cách tự nhiên. Chúng ta nghĩ rằng việc kết thúc với một chủ đề kết nối các sợi câu chuyện từ khắp nơi trong cuốn sách là phù hợp.`,Nz=`## 1 D Quá trình Poisson\r
+Quá trình Poisson kết hợp hai chủ đề quan trọng của cuốn sách này, các phân phối có tên và câu chuyện, một cách tự nhiên. Chúng ta nghĩ rằng việc kết thúc với một chủ đề kết nối các sợi câu chuyện từ khắp nơi trong cuốn sách là phù hợp.`,Nz=`## 1D Quá trình Poisson\r
 \r
-Trong Chương 5, chúng ta đã thảo luận cách mô phỏng một số lượng xác định các sự kiện đến từ một quá trình Poisson một chiều bằng cách sử dụng sự kiện rằng các khoảng thời gian giữa các sự kiện đến là các biến độc lập và đồng phân phối Exponential. Trong chương này, Câu chuyện 13.2.4 cho chúng ta biết cách mô phỏng một quá trình Poisson trong một khoảng thời gian cụ thể  $(0, L]$ . Chúng ta trước tiên tạo ra số lượng sự kiện đến  $N(L)$ , được phân phối Pois(  $\\lambda L$ ). Điều kiện trên  $N(L) = n$ , thời gian đến\r
+Trong Chương 5, chúng ta đã thảo luận cách mô phỏng một số lượng xác định các sự kiện đến từ một quá trình Poisson một chiều bằng cách sử dụng sự kiện rằng các khoảng thời gian giữa các sự kiện đến là các biến độc lập và đồng phân phối Exponential. Trong chương này, Câu chuyện 13.2.4 cho chúng ta biết cách mô phỏng một quá trình Poisson trong một khoảng thời gian cụ thể $(0, L]$. Chúng ta trước tiên tạo ra số lượng sự kiện đến $N(L)$, được phân phối Pois($\\lambda L$). Điều kiện trên $N(L) = n$, thời gian đến được phân phối như thứ tự thống kê của n biến ngẫu nhiên độc lập và đồng phân phối Unif(0, L). Đoạn mã sau mô phỏng các lần đến từ một quá trình Poisson với tốc độ 10 trong khoảng (0, 5]:\r
 \r
-được phân phối như thứ tự thống kê của n biến ngẫu nhiên độc lập và đồng phân phối Unif(0, L). Đoạn mã sau mô phỏng các lần đến từ một quá trình Poisson với tốc độ 10 trong khoảng (0, 5]:\r
-\r
+\`\`\`r\r
 L <- 5\r
-\r
 lambda <- 10\r
-\r
 n <- rpois(1, lambda * L)\r
-\r
 t <- sort(runif(n, 0, L))\r
+\`\`\`\r
 \r
-Để trực quan hóa quá trình Poisson mà chúng ta đã tạo ra, chúng ta có thể vẽ số lần đến tích lũy  $N(t)$  như một hàm của t:\r
+Để trực quan hóa quá trình Poisson mà chúng ta đã tạo ra, chúng ta có thể vẽ số lần đến tích lũy $N(t)$ như một hàm của t:\r
 \r
- \r
-\r
- $$plot\\left(t,1:n,type=s\\right)$$ \r
-\r
- \r
+\`\`\`r\r
+plot(t,1:n,type=s)\r
+\`\`\`\r
 \r
 Điều này tạo ra một biểu đồ dạng bậc thang như trong Hình 13.8.\r
 \r
-<div style="text-align: center;"><img src="imgs/img_in_chart_box_188_691_1199_1270.jpg" alt="Image" width="72%" /></div>\r
+<div style="text-align: center; margin: 2.5rem 0; color: var(--text-muted); font-size: 0.9rem;">\r
+  <img src="imgs/img_in_chart_box_188_691_1199_1270.jpg" alt="Số lần đến trong một quá trình Poisson" style="max-width: 72%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 0.75rem;" />\r
 \r
-\r
-<div style="text-align: center;">HÌNH 13.8</div>\r
-\r
-\r
-<div style="text-align: center;">Số lần đến trong một quá trình Poisson với tốc độ 10 trong khoảng  $(0, 5]$ .</div>\r
-\r
+**HÌNH 13.8:** Số lần đến trong một quá trình Poisson với tốc độ 10 trong khoảng $(0, 5]$.\r
+</div>\r
 \r
 ## Lọc\r
 \r
-Việc lọc một quá trình Poisson trong R là rất đơn giản. Đoạn mã sau bắt đầu với một vector của thời gian đến t và số lần đến tương ứng n từ một quá trình Poisson với tốc độ  $\\lambda$  trên một khoảng nào đó, được tạo ra như trên. Với mỗi lần đến, chúng ta tung một đồng xu với xác suất p của mặt ngửa; các kết quả tung đồng xu được lưu trong vector y. Cuối cùng, các lần đến mà đồng xu rơi ngửa được đánh dấu là loại-1; các lần còn lại được đánh dấu là loại-2. Các vector thời gian đến kết quả,  $t_1$  và  $t_2$ , là các thực hiện của các quá trình Poisson độc lập với tốc độ  $\\lambda p$  và  $\\lambda(1-p)$ , theo Định lý 13.2.14.\r
+Việc lọc một quá trình Poisson trong R là rất đơn giản. Đoạn mã sau bắt đầu với một vector của thời gian đến t và số lần đến tương ứng n từ một quá trình Poisson với tốc độ $\\lambda$ trên một khoảng nào đó, được tạo ra như trên. Với mỗi lần đến, chúng ta tung một đồng xu với xác suất p của mặt ngửa; các kết quả tung đồng xu được lưu trong vector y. Cuối cùng, các lần đến mà đồng xu rơi ngửa được đánh dấu là loại-1; các lần còn lại được đánh dấu là loại-2. Các vector thời gian đến kết quả, $t_1$ và $t_2$, là các thực hiện của các quá trình Poisson độc lập với tốc độ $\\lambda p$ và $\\lambda(1-p)$, theo Định lý 13.2.14.\r
 \r
 Chúng ta có thể thực hiện quy trình này cho p = 0.3 như sau:\r
+\r
+\`\`\`r\r
 p <- 0.3\r
 y <- rbinom(n,1,p)\r
 t1 <- t[y==1]\r
 t2 <- t[y==0]\r
+\`\`\`\r
 \r
-## 2 D Quá trình Poisson\r
+## 2D Quá trình Poisson\r
 \r
-Mô phỏng một quá trình Poisson 2D với tốc độ  $\\lambda$  trên một hình vuông là gần như dễ dàng như mô phỏng một quá trình Poisson 1D. Trong hình vuông  $(0, L] \\times (0, L]$ , số lượng sự kiện đến được phân phối Pois(  $\\lambda L^2$ ). Điều kiện trên số lượng sự kiện đến, vị trí của các sự kiện đến là các điểm độc lập đồng phân phối đều trong hình vuông. Theo Ví dụ 7.1.23, tọa độ của mỗi điểm này là độc lập đồng phân phối đều trên khoảng (0, L). Do đó, với  $L = 5$ ,  $\\lambda = 10$ , chúng ta có thể gõ:\r
+Mô phỏng một quá trình Poisson 2D với tốc độ $\\lambda$ trên một hình vuông là gần như dễ dàng như mô phỏng một quá trình Poisson 1D. Trong hình vuông $(0, L] \\times (0, L]$, số lượng sự kiện đến được phân phối Pois($\\lambda L^2$). Điều kiện trên số lượng sự kiện đến, vị trí của các sự kiện đến là các điểm độc lập đồng phân phối đều trong hình vuông. Theo Ví dụ 7.1.23, tọa độ của mỗi điểm này là độc lập đồng phân phối đều trên khoảng (0, L). Do đó, với $L = 5$, $\\lambda = 10$, chúng ta có thể gõ:\r
 \r
+\`\`\`r\r
 L <- 5\r
 lambda <- 10\r
 n <- rpois(1, lambda * L^2)\r
 x <- runif(n, 0, L)\r
-y <- runif(n, 0, L)`,Pz=`<div class="exercise-block" data-toc-title="Bài tập 1">
+y <- runif(n, 0, L)\r
+\`\`\``,Pz=`<div class="exercise-block" data-toc-title="Bài tập 1">
 <div class="exercise-header">
 <span class="exercise-badge">Bài tập 1</span>
 </div>
