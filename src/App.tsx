@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import { Toaster } from 'sonner';
 import { Topbar } from '@/components/Topbar';
 import { Sidebar } from '@/components/Sidebar';
 import { OutlinePanel } from '@/components/OutlinePanel';
@@ -138,12 +139,12 @@ function PageRenderer({ pageId }: { pageId: PageId }) {
           <div className="page-eyebrow">Chương 0</div>
           <h1 className="page-title">Mở đầu</h1>
         </div>
-        <MarkdownPage content={introRaw} />
+        <MarkdownPage content={introRaw} pageId={pageId} />
       </>
     );
     case 'ch1': return (
       <PageChapterOverview chapterId={pageId}>
-        <MarkdownPage content={ch1OverviewRaw} />
+        <MarkdownPage content={ch1OverviewRaw} pageId={pageId} />
       </PageChapterOverview>
     );
     case 'ch0-s1': return <SectionPage pageId={pageId} content={ch0s1Raw} />;
@@ -388,7 +389,7 @@ function SectionPage({ pageId, content }: { pageId: string; content: string }) {
           <h1 className="page-title">{section.title}</h1>
         </div>
       )}
-      <MarkdownPage content={content} />
+      <MarkdownPage content={content} pageId={pageId} />
     </>
   );
 }
@@ -484,6 +485,7 @@ export default function App() {
       </main>
 
       <OutlinePanel pageId={currentPage} />
+      <Toaster theme={theme} position="top-center" richColors />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { Menu, Sun, Moon } from 'lucide-react';
 import { textbookMeta } from '@/data/textbook';
+import { AISettingsDialog } from '@/components/AISettingsDialog';
 
 interface TopbarProps {
   onToggleSidebar: () => void;
@@ -36,6 +37,7 @@ export function Topbar({ onToggleSidebar, searchQuery, onSearchChange, theme, on
       </div>
 
       <div className="topbar-actions">
+        <AISettingsDialog />
         <button
           className="theme-toggle"
           onClick={onToggleTheme}

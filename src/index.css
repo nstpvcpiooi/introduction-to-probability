@@ -166,6 +166,93 @@
   transform: rotate(15deg);
 }
 
+/* AI model settings trigger (topbar, next to theme toggle) */
+.ai-settings-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 32px;
+  padding: 0 0.7rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  flex-shrink: 0;
+}
+
+.ai-settings-trigger:hover {
+  color: var(--text-body);
+  background: var(--surface-raised);
+  border-color: var(--accent-cerulean);
+}
+
+.ai-settings-trigger-label {
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .ai-settings-trigger-label {
+    display: none;
+  }
+  .ai-settings-trigger {
+    width: 32px;
+    padding: 0;
+    justify-content: center;
+  }
+}
+
+/* AI model settings dialog — option rows */
+.ai-settings-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-subtle);
+  background: var(--surface);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.ai-settings-option:hover {
+  background: var(--surface-raised);
+}
+
+.ai-settings-option.is-active {
+  border-color: var(--accent-cerulean);
+  background: color-mix(in srgb, var(--accent-cerulean) 10%, var(--surface));
+}
+
+.ai-settings-option-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+
+.ai-settings-option-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ai-settings-option-hint {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.ai-settings-option-check {
+  flex-shrink: 0;
+  color: var(--accent-cerulean);
+  margin-top: 0.1rem;
+}
+
 
 @layer base {
   * {
@@ -1154,6 +1241,117 @@
   height: 12px;
   border: 2px solid var(--proof-border);
   display: inline-block;
+}
+
+/* ---- AI exercise guide (buttons + streamed panel) ---- */
+.ai-guide {
+  margin: 0.25rem 1.5rem 1.25rem 1.75rem;
+}
+
+.ai-guide-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.ai-guide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.42rem 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.79rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.ai-guide-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.ai-guide-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ai-guide-btn-hint {
+  color: var(--step-dot);
+  background: color-mix(in srgb, var(--step-dot) 12%, transparent);
+  border-color: color-mix(in srgb, var(--step-dot) 30%, transparent);
+}
+
+.ai-guide-btn-hint:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--step-dot) 20%, transparent);
+  border-color: color-mix(in srgb, var(--step-dot) 50%, transparent);
+}
+
+.ai-guide-btn-full {
+  color: var(--solution-badge);
+  background: color-mix(in srgb, var(--solution-border) 12%, transparent);
+  border-color: color-mix(in srgb, var(--solution-border) 30%, transparent);
+}
+
+.ai-guide-btn-full:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--solution-border) 20%, transparent);
+  border-color: color-mix(in srgb, var(--solution-border) 50%, transparent);
+}
+
+.ai-guide-panel {
+  margin-top: 1rem;
+  font-size: 0.975em;
+  line-height: 1.8;
+  color: var(--text-body);
+  animation: solution-reveal 0.3s ease forwards;
+}
+
+.ai-guide-panel p { margin-top: 0; margin-bottom: 0.75rem; }
+.ai-guide-panel p:last-child { margin-bottom: 0; }
+
+.ai-guide-panel .solution-steps {
+  margin: 0;
+}
+
+.ai-guide-panel .solution-step:not(:last-child) {
+  padding-bottom: 1.1rem;
+  margin-bottom: -0.1rem;
+  border-bottom: 1px dashed color-mix(in srgb, var(--step-dot) 20%, transparent);
+}
+
+.ai-guide-thinking {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+
+.ai-guide-thinking-hint { color: var(--step-dot); }
+.ai-guide-thinking-full { color: var(--solution-badge); }
+
+.ai-guide-thinking-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.ai-guide-thinking-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: ai-guide-dot-bounce 1s ease-in-out infinite;
+}
+
+.ai-guide-thinking-dots span:nth-child(2) { animation-delay: 0.15s; }
+.ai-guide-thinking-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes ai-guide-dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }
+  30% { transform: translateY(-3px); opacity: 1; }
 }
 
 /* ==================== MATH FORMULA DISPLAY ==================== */
