@@ -173,6 +173,7 @@ export const chapters: Chapter[] = [
     number: "9", title: "Kỳ vọng có điều kiện",
     sections: [
       { id: "ch9-s1", number: "9.1", title: "Kỳ vọng có điều kiện cho một sự kiện" },
+      { id: "ch9-s2", number: "9.2", title: "Kỳ vọng có điều kiện cho một biến ngẫu nhiên" },
       { id: "ch9-s3", number: "9.3", title: "Tính chất của kỳ vọng có điều kiện" },
       { id: "ch9-s4", number: "9.4", title: "*Giải thích hình học của kỳ vọng có điều kiện" },
       { id: "ch9-s5", number: "9.5", title: "Phương sai có điều kiện" },
