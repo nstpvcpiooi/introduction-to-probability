@@ -940,6 +940,7 @@
 
 .exercise-body ol > li > * {
   grid-column: 2;
+  min-width: 0;
 }
 
 .exercise-body ol > li > p {
@@ -1080,6 +1081,7 @@
   border-top: 1px solid rgba(91, 184, 160, 0.12);
   padding: 1.1rem 1.5rem 1.4rem 1.75rem;
   animation: solution-reveal 0.3s ease forwards;
+  min-width: 0;
 }
 
 @keyframes solution-reveal {
@@ -1101,6 +1103,7 @@
   display: flex;
   gap: 0.875rem;
   align-items: flex-start;
+  min-width: 0;
 }
 
 .solution-step-num {
@@ -1123,6 +1126,7 @@
 
 .solution-step-body {
   flex: 1;
+  min-width: 0;
   font-size: 0.975em;
   line-height: 1.8;
   color: var(--text-body);
@@ -1140,7 +1144,28 @@
   border-radius: 6px;
   border: 1px solid var(--border-subtle);
   overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
   text-align: center;
+}
+
+/* Long formulas anywhere inside a solution (or the question body) should
+   scroll horizontally rather than clip their trailing terms. */
+.solution-content .katex-display,
+.solution-step-body .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+.solution-content .katex-display > .katex,
+.solution-step-body .katex-display > .katex,
+.exercise-body .katex-display > .katex {
+  display: inline-block;
+  text-align: left;
+}
+.solution-content .katex,
+.solution-step-body .katex {
+  white-space: nowrap;
 }
 
 /* Note box inside solution */
