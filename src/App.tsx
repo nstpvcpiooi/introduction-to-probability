@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, startTransition } from 'react';
 import { Toaster } from 'sonner';
 import { Topbar } from '@/components/Topbar';
 import { Sidebar } from '@/components/Sidebar';
@@ -14,6 +14,8 @@ import {
   PagePlaceholder,
 } from '@/pages/content';
 import { MarkdownPage } from '@/components/MarkdownPage';
+import { ExerciseGuidePage } from '@/components/ExerciseGuidePage';
+import { ExerciseNavContext, type ExerciseGuidePayload } from '@/lib/exerciseNav';
 import introRaw from '@/content/intro.md?raw';
 import ch0s1Raw from '@/content/ch0/s1.md?raw';
 import ch0s2Raw from '@/content/ch0/s2.md?raw';
@@ -407,6 +409,7 @@ export default function App() {
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
   });
+  const [exerciseView, setExerciseView] = useState<ExerciseGuidePayload | null>(null);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -425,7 +428,10 @@ export default function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
       if (hash) {
-        setCurrentPage(hash as PageId);
+        setExerciseView(null);
+        startTransition(() => {
+          setCurrentPage(hash as PageId);
+        });
       }
     };
     window.addEventListener('hashchange', handleHashChange);
@@ -437,59 +443,79 @@ export default function App() {
   }, []);
 
   const navigate = useCallback((id: PageId) => {
-    setCurrentPage(id);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setExerciseView(null);
+    // Instant, not smooth — an animated scroll fights the heavy KaTeX
+    // re-render of the new page for the main thread and ends up looking
+    // like stutter instead of a smooth glide.
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    // The new page's markdown/KaTeX render is expensive; deferring it as a
+    // transition keeps the click/scroll response snappy instead of jank.
+    startTransition(() => {
+      setCurrentPage(id);
+    });
+  }, []);
+
+  const openExercise = useCallback((payload: ExerciseGuidePayload) => {
+    setExerciseView(payload);
   }, []);
 
   const { prev, next } = getAdjacentPages(currentPage);
 
   return (
-    <div className="app-layout">
-      <Topbar
-        onToggleSidebar={() => setSidebarOpen(o => !o)}
-        searchQuery={searchQuery}
-        onSearchChange={setSearchQuery}
-        theme={theme}
-        onToggleTheme={toggleTheme}
-      />
+    <ExerciseNavContext.Provider value={{ open: openExercise }}>
+      <div className="app-layout">
+        <Topbar
+          onToggleSidebar={() => setSidebarOpen(o => !o)}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+        />
 
-      <Sidebar
-        currentPage={currentPage}
-        onNavigate={navigate}
-        isOpen={sidebarOpen}
-        onClose={() => setSidebarOpen(false)}
-      />
+        <Sidebar
+          currentPage={currentPage}
+          onNavigate={navigate}
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
+        />
 
-      <main className={`main-content`}>
-        <article className="content-page">
-          <PageRenderer key={currentPage} pageId={currentPage} />
+        <main className={`main-content${exerciseView ? ' no-outline' : ''}`}>
+          <article className="content-page">
+            {exerciseView ? (
+              <ExerciseGuidePage payload={exerciseView} onBack={() => setExerciseView(null)} />
+            ) : (
+              <>
+                <PageRenderer key={currentPage} pageId={currentPage} />
 
-          {/* Bottom navigation */}
-          <nav className="page-nav" aria-label="Điều hướng trang">
-            {prev ? (
-              <button className="nav-btn" onClick={() => navigate(prev)}>
-                <span className="nav-btn-label">
-                  <ChevronLeft size={12} style={{ display: 'inline' }} /> Trước
-                </span>
-                <span className="nav-btn-title">{getPageTitle(prev)}</span>
-              </button>
-            ) : <div style={{ flex: 1 }} />}
+                {/* Bottom navigation */}
+                <nav className="page-nav" aria-label="Điều hướng trang">
+                  {prev ? (
+                    <button className="nav-btn" onClick={() => navigate(prev)}>
+                      <span className="nav-btn-label">
+                        <ChevronLeft size={12} style={{ display: 'inline' }} /> Trước
+                      </span>
+                      <span className="nav-btn-title">{getPageTitle(prev)}</span>
+                    </button>
+                  ) : <div style={{ flex: 1 }} />}
 
-            {next && (
-              <button className="nav-btn next" onClick={() => navigate(next)}>
-                <span className="nav-btn-label">
-                  Tiếp theo <ChevronRight size={12} style={{ display: 'inline' }} />
-                </span>
-                <span className="nav-btn-title">{getPageTitle(next)}</span>
-              </button>
+                  {next && (
+                    <button className="nav-btn next" onClick={() => navigate(next)}>
+                      <span className="nav-btn-label">
+                        Tiếp theo <ChevronRight size={12} style={{ display: 'inline' }} />
+                      </span>
+                      <span className="nav-btn-title">{getPageTitle(next)}</span>
+                    </button>
+                  )}
+                </nav>
+              </>
             )}
-          </nav>
-        </article>
-      </main>
+          </article>
+        </main>
 
-      <OutlinePanel pageId={currentPage} />
-      <Toaster theme={theme} position="top-center" richColors />
-    </div>
+        {!exerciseView && <OutlinePanel pageId={currentPage} />}
+        <Toaster theme={theme} position="top-center" richColors />
+      </div>
+    </ExerciseNavContext.Provider>
   );
 }
 

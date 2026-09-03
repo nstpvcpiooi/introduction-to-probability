@@ -39,13 +39,13 @@ export function OutlinePanel({ pageId }: OutlinePanelProps) {
       const contentArea = document.querySelector('.content-page');
       if (!contentArea) return;
 
-      const els = contentArea.querySelectorAll('h2, h3, [data-toc-title]');
+      const els = contentArea.querySelectorAll('h2, h3');
       const items: HeadingItem[] = [];
 
       els.forEach((el, index) => {
         // Automatically assign an id if missing
         if (!el.id) {
-          const titleToSlugify = el.getAttribute('data-toc-title') || el.textContent || `heading-${index}`;
+          const titleToSlugify = el.textContent || `heading-${index}`;
           // Create a simple slug from text
           const slug = titleToSlugify.toLowerCase()
             .replace(/[^a-z0-9A-Z]+/g, '-')
@@ -55,7 +55,7 @@ export function OutlinePanel({ pageId }: OutlinePanelProps) {
 
         items.push({
           id: el.id,
-          text: el.getAttribute('data-toc-title') || el.textContent || '',
+          text: el.textContent || '',
           level: el.tagName === 'H2' ? 1 : 2,
         });
       });
@@ -73,7 +73,7 @@ export function OutlinePanel({ pageId }: OutlinePanelProps) {
 
   useEffect(() => {
     const headingEls = Array.from(
-      document.querySelectorAll<HTMLElement>('h2, h3, [data-toc-title]')
+      document.querySelectorAll<HTMLElement>('h2, h3')
     );
     if (headingEls.length === 0) return;
 
