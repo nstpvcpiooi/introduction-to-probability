@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, startTransition } from 'react';
+import { useState, useCallback, useEffect, useMemo, startTransition } from 'react';
 import { Toaster } from 'sonner';
 import { Topbar } from '@/components/Topbar';
 import { Sidebar } from '@/components/Sidebar';
@@ -132,6 +132,139 @@ import ch13s4Raw from '@/content/ch13/s4.md?raw';
 import ch13s5Raw from '@/content/ch13/s5.md?raw';
 import ch13s6Raw from '@/content/ch13/s6.md?raw';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import type { SearchPageData } from '@/lib/search';
+
+// Every page that has real markdown content, keyed by pageId — reused to
+// build the search index (see buildSearchPagesData below) so search doesn't
+// need its own separate content-loading path.
+const PAGE_CONTENT: Record<string, string> = {
+  "ch0": introRaw,
+  "ch0-s1": ch0s1Raw,
+  "ch0-s2": ch0s2Raw,
+  "ch1": ch1OverviewRaw,
+  "ch1-s1": ch1s1Raw,
+  "ch1-s2": ch1s2Raw,
+  "ch1-s3": ch1s3Raw,
+  "ch1-s4": ch1s4Raw,
+  "ch1-s5": ch1s5Raw,
+  "ch1-s6": ch1s6Raw,
+  "ch1-s7": ch1s7Raw,
+  "ch1-s8": ch1s8Raw,
+  "ch1-s9": ch1s9Raw,
+  "ch2-s1": ch2s1Raw,
+  "ch2-s2": ch2s2Raw,
+  "ch2-s3": ch2s3Raw,
+  "ch2-s5": ch2s5Raw,
+  "ch2-s6": ch2s6Raw,
+  "ch2-s7": ch2s7Raw,
+  "ch2-s8": ch2s8Raw,
+  "ch2-s9": ch2s9Raw,
+  "ch2-s10": ch2s10Raw,
+  "ch2-s11": ch2s11Raw,
+  "ch3-s1": ch3s1Raw,
+  "ch3-s2": ch3s2Raw,
+  "ch3-s4": ch3s4Raw,
+  "ch3-s5": ch3s5Raw,
+  "ch3-s6": ch3s6Raw,
+  "ch3-s7": ch3s7Raw,
+  "ch3-s8": ch3s8Raw,
+  "ch3-s9": ch3s9Raw,
+  "ch3-s10": ch3s10Raw,
+  "ch3-s11": ch3s11Raw,
+  "ch3-s12": ch3s12Raw,
+  "ch4-s1": ch4s1Raw,
+  "ch4-s2": ch4s2Raw,
+  "ch4-s3": ch4s3Raw,
+  "ch4-s4": ch4s4Raw,
+  "ch4-s5": ch4s5Raw,
+  "ch4-s6": ch4s6Raw,
+  "ch4-s7": ch4s7Raw,
+  "ch4-s8": ch4s8Raw,
+  "ch4-s9": ch4s9Raw,
+  "ch4-s10": ch4s10Raw,
+  "ch4-s11": ch4s11Raw,
+  "ch4-s12": ch4s12Raw,
+  "ch5-s1": ch5s1Raw,
+  "ch5-s2": ch5s2Raw,
+  "ch5-s3": ch5s3Raw,
+  "ch5-s4": ch5s4Raw,
+  "ch5-s5": ch5s5Raw,
+  "ch5-s6": ch5s6Raw,
+  "ch5-s7": ch5s7Raw,
+  "ch5-s8": ch5s8Raw,
+  "ch5-s9": ch5s9Raw,
+  "ch5-s10": ch5s10Raw,
+  "ch6-s1": ch6s1Raw,
+  "ch6-s2": ch6s2Raw,
+  "ch6-s3": ch6s3Raw,
+  "ch6-s4": ch6s4Raw,
+  "ch6-s5": ch6s5Raw,
+  "ch6-s6": ch6s6Raw,
+  "ch6-s7": ch6s7Raw,
+  "ch6-s8": ch6s8Raw,
+  "ch6-s9": ch6s9Raw,
+  "ch6-s10": ch6s10Raw,
+  "ch7-s1": ch7s1Raw,
+  "ch7-s2": ch7s2Raw,
+  "ch7-s3": ch7s3Raw,
+  "ch7-s4": ch7s4Raw,
+  "ch7-s5": ch7s5Raw,
+  "ch7-s6": ch7s6Raw,
+  "ch7-s7": ch7s7Raw,
+  "ch7-s8": ch7s8Raw,
+  "ch8-s1": ch8s1Raw,
+  "ch8-s2": ch8s2Raw,
+  "ch8-s3": ch8s3Raw,
+  "ch8-s4": ch8s4Raw,
+  "ch8-s5": ch8s5Raw,
+  "ch8-s6": ch8s6Raw,
+  "ch8-s7": ch8s7Raw,
+  "ch8-s8": ch8s8Raw,
+  "ch8-s9": ch8s9Raw,
+  "ch9-s1": ch9s1Raw,
+  "ch9-s2": ch9s2Raw,
+  "ch9-s3": ch9s3Raw,
+  "ch9-s4": ch9s4Raw,
+  "ch9-s5": ch9s5Raw,
+  "ch9-s7": ch9s7Raw,
+  "ch9-s8": ch9s8Raw,
+  "ch9-s9": ch9s9Raw,
+  "ch10-s1": ch10s1Raw,
+  "ch10-s2": ch10s2Raw,
+  "ch10-s3": ch10s3Raw,
+  "ch10-s5": ch10s5Raw,
+  "ch10-s6": ch10s6Raw,
+  "ch10-s7": ch10s7Raw,
+  "ch11-s1": ch11s1Raw,
+  "ch11-s2": ch11s2Raw,
+  "ch11-s3": ch11s3Raw,
+  "ch11-s4": ch11s4Raw,
+  "ch11-s5": ch11s5Raw,
+  "ch11-s6": ch11s6Raw,
+  "ch11-s7": ch11s7Raw,
+  "ch12-s1": ch12s1Raw,
+  "ch12-s2": ch12s2Raw,
+  "ch12-s3": ch12s3Raw,
+  "ch12-s4": ch12s4Raw,
+  "ch12-s5": ch12s5Raw,
+  "ch13-s1": ch13s1Raw,
+  "ch13-s2": ch13s2Raw,
+  "ch13-s3": ch13s3Raw,
+  "ch13-s4": ch13s4Raw,
+  "ch13-s5": ch13s5Raw,
+  "ch13-s6": ch13s6Raw,
+};
+
+/** Builds the flat list search indexes over: every chapter/section page's
+ * title, chapter breadcrumb, and raw markdown content. */
+function buildSearchPagesData(): SearchPageData[] {
+  return Object.entries(PAGE_CONTENT).map(([pageId, raw]) => {
+    const title = getPageTitle(pageId);
+    const chapter = chapters.find(c => c.id === pageId || c.sections.some(s => s.id === pageId));
+    const breadcrumb = chapter && chapter.id !== pageId ? `Chương ${chapter.number} · ${chapter.title}` : '';
+    return { pageId, title, breadcrumb, raw };
+  });
+}
 
 function PageRenderer({ pageId }: { pageId: PageId }) {
 
@@ -405,7 +538,7 @@ export default function App() {
     return (hash as PageId) || 'ch0';
   });
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const searchPagesData = useMemo(() => buildSearchPagesData(), []);
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
   });
@@ -466,8 +599,8 @@ export default function App() {
       <div className="app-layout">
         <Topbar
           onToggleSidebar={() => setSidebarOpen(o => !o)}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
+          searchPages={searchPagesData}
+          onNavigate={navigate}
           theme={theme}
           onToggleTheme={toggleTheme}
         />

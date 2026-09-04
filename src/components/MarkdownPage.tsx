@@ -25,6 +25,7 @@ export function MarkdownPage({ content, pageId }: MarkdownPageProps) {
             tocTitle={segment.tocTitle}
             badge={segment.badge}
             title={segment.title}
+            preview={segment.preview}
             raw={segment.raw}
           />
         ) : (

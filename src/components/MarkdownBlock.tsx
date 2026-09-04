@@ -58,18 +58,27 @@ const markdownComponents = {
   }
 };
 
+const inlineMarkdownComponents = {
+  ...markdownComponents,
+  // Renders inside a single flowing line (the exercise-list preview row) —
+  // an unwrapped <p> would otherwise break -webkit-line-clamp.
+  p: ({ children }: any) => <>{children}</>,
+};
+
 interface MarkdownBlockProps {
   content: string;
+  /** Renders without block-level paragraph wrapping, for use inside a single flowing line. */
+  inline?: boolean;
 }
 
 /** Shared markdown+KaTeX renderer used by both full section pages and the
  * standalone exercise-guide page, so both stay visually identical. */
-export function MarkdownBlock({ content }: MarkdownBlockProps) {
+export function MarkdownBlock({ content, inline = false }: MarkdownBlockProps) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkMath, remarkGfm]}
       rehypePlugins={[rehypeRaw, rehypeKatex]}
-      components={markdownComponents}
+      components={inline ? inlineMarkdownComponents : markdownComponents}
     >
       {content}
     </ReactMarkdown>

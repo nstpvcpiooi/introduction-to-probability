@@ -8,6 +8,7 @@ export interface ExerciseSegment {
   tocTitle: string;
   badge: string;
   title?: string;
+  preview: string;
   raw: string;
 }
 
@@ -17,6 +18,111 @@ const BLOCK_OPEN_RE = /<div class="exercise-block"[^>]*data-toc-title="([^"]*)"[
 const BADGE_RE = /<span class="exercise-badge">([^<]*)<\/span>/;
 const TITLE_RE = /<span class="exercise-title">([\s\S]*?)<\/span>/;
 const DIV_TAG_RE = /<div\b[^>]*>|<\/div>/g;
+const BODY_OPEN_RE = /<div class="exercise-body">/;
+// A whitelist, not a blanket `<[^>]+>` — math source inside an exercise body
+// routinely uses bare `<`/`>` as comparison operators (e.g. "0<x<1"), which a
+// blanket tag regex would misread as the start of a tag.
+const KNOWN_TAG_RE = /<\/?(?:ol|li|img|div|table|tr|td|th)\b[^>]*>/g;
+const FIGURE_BLOCK_RE = /<div[^>]*>\s*<img\b[^>]*\/?>\s*<\/div>/g;
+const LI_LABEL_RE = /<li data-label="([^"]*)">/g;
+
+// Target visible-character budget for a preview snippet — long enough to
+// read as a real excerpt, short enough that -webkit-line-clamp (3 lines)
+// never has to guess: a preview well under the clamp trims itself instead
+// of overflowing and getting cut off mid-word by CSS.
+const PREVIEW_CHAR_BUDGET = 200;
+
+/**
+ * Truncates markdown/math source to roughly `maxLen` visible characters
+ * without ever cutting inside a `$...$` / `$$...$$` math span — KaTeX needs
+ * its delimiters balanced, and a half-formula reads worse than a shorter
+ * preview. A span already in progress when the budget is reached is kept
+ * whole; a span that would start after the budget is dropped entirely.
+ */
+function truncateMathAware(text: string, maxLen: number): string {
+  let i = 0;
+  let visible = 0;
+  let cut = text.length;
+  let didCut = false;
+  // Only a space outside a math span is a safe place to break the line —
+  // trimming to the last space in the raw result could otherwise land
+  // inside a formula that was deliberately kept whole (e.g. the space in
+  // "\frac{1}{2}f(-x) + \frac{1}{2}f(x)"), severing it.
+  let lastSafeSpace = -1;
+
+  while (i < text.length) {
+    if (text[i] === '\\' && text[i + 1] === '$') {
+      // escaped dollar sign (e.g. "\$100") — a literal '$', not a math delimiter
+      if (visible >= maxLen) { cut = i; didCut = true; break; }
+      visible += 2;
+      i += 2;
+      continue;
+    }
+    if (text[i] === '$') {
+      const isDisplay = text[i + 1] === '$';
+      const delim = isDisplay ? '$$' : '$';
+      const closeIdx = text.indexOf(delim, i + delim.length);
+      if (closeIdx === -1) {
+        if (visible >= maxLen) { cut = i; didCut = true; break; }
+        visible++;
+        i++;
+        continue;
+      }
+      if (visible >= maxLen) { cut = i; didCut = true; break; }
+      const spanEnd = closeIdx + delim.length;
+      visible += spanEnd - i;
+      i = spanEnd;
+      continue;
+    }
+    if (visible >= maxLen) { cut = i; didCut = true; break; }
+    if (text[i] === ' ') lastSafeSpace = i;
+    visible++;
+    i++;
+  }
+
+  if (!didCut) return text;
+
+  let result = text.slice(0, cut);
+  if (lastSafeSpace > maxLen * 0.5) result = text.slice(0, lastSafeSpace);
+  return result.trimEnd() + '…';
+}
+
+/**
+ * Pulls a truncated markdown/math snippet out of an exercise block's body —
+ * HTML tags stripped, part labels ("(a)") kept as text — so the collapsed
+ * list row can render a short, real excerpt of the question (same KaTeX
+ * renderer as the full exercise) instead of a plain-text approximation.
+ */
+function extractExercisePreview(raw: string): string {
+  const openMatch = BODY_OPEN_RE.exec(raw);
+  if (!openMatch) return '';
+
+  const bodyTagRe = /<div\b[^>]*>|<\/div>/g;
+  bodyTagRe.lastIndex = openMatch.index + openMatch[0].length;
+  let depth = 1;
+  let end = raw.length;
+  let tagMatch: RegExpExecArray | null;
+  while ((tagMatch = bodyTagRe.exec(raw)) !== null) {
+    depth += tagMatch[0] === '</div>' ? -1 : 1;
+    if (depth === 0) {
+      end = tagMatch.index;
+      break;
+    }
+  }
+
+  const body = raw.slice(openMatch.index + openMatch[0].length, end);
+
+  const cleaned = body
+    .replace(FIGURE_BLOCK_RE, ' ')
+    .replace(LI_LABEL_RE, ' $1 ')
+    .replace(KNOWN_TAG_RE, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  // A display-math ($$...$$) span kept by the truncation still needs to
+  // render inline in a one-line-tall list row — collapse it to $...$.
+  return truncateMathAware(cleaned, PREVIEW_CHAR_BUDGET).replace(/\$\$/g, '$');
+}
 
 /**
  * Splits a section's raw markdown into alternating prose and exercise
@@ -68,6 +174,7 @@ export function splitExerciseSegments(content: string): ContentSegment[] {
       tocTitle,
       badge: badgeMatch ? badgeMatch[1].trim() : tocTitle,
       title: titleMatch ? titleMatch[1].trim() : undefined,
+      preview: extractExercisePreview(raw),
       raw,
     });
 

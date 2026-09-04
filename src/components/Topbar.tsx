@@ -1,15 +1,17 @@
 import { Menu, Sun, Moon } from 'lucide-react';
 import { textbookMeta } from '@/data/textbook';
+import { SearchBox } from './SearchBox';
+import type { SearchPageData } from '@/lib/search';
 
 interface TopbarProps {
   onToggleSidebar: () => void;
-  searchQuery: string;
-  onSearchChange: (q: string) => void;
+  searchPages: SearchPageData[];
+  onNavigate: (pageId: string) => void;
   theme: 'dark' | 'light';
   onToggleTheme: () => void;
 }
 
-export function Topbar({ onToggleSidebar, searchQuery, onSearchChange, theme, onToggleTheme }: TopbarProps) {
+export function Topbar({ onToggleSidebar, searchPages, onNavigate, theme, onToggleTheme }: TopbarProps) {
   return (
     <header className="topbar">
       <button
@@ -22,18 +24,7 @@ export function Topbar({ onToggleSidebar, searchQuery, onSearchChange, theme, on
 
       <span className="topbar-brand">{textbookMeta.title}</span>
 
-      <div className="topbar-search">
-        <div className="topbar-search-wrap">
-          <svg className="topbar-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input
-            type="search"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={e => onSearchChange(e.target.value)}
-            aria-label="Search"
-          />
-        </div>
-      </div>
+      <SearchBox pages={searchPages} onNavigate={onNavigate} />
 
       <div className="topbar-actions">
         <button
